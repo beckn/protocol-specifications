@@ -1,0 +1,685 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Beckn Gateway API",
+        "description": "Beckn API spec",
+        "version": "1.0"
+    },
+    "paths": {
+        "/search/services": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Facing API"
+                ],
+                "description": "Searches for Services",
+                "requestBody": {
+                    "description": "Beckn App searches for the Resource using an Intent.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_intent.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/select/service": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Facing API"
+                ],
+                "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                    },
+                                    "catalog" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/confirm/service": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Confirm a Service. Equivalent to checkout operation",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                    },
+                                    "catalog" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/track/trip": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Track a Trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cancel/Trip": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Track a Trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/add/traveller": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Select a Service and add items from the service catalog",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                    },
+                                    "traveller" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/remove/traveller": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Remove traveller from trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                    },
+                                    "traveller" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update/traveller": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Remove traveller from trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                    },
+                                    "traveller" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/add/stop": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Adds a stop to a trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                    },
+                                    "stop" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/stop.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/remove/stop": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Adds a stop to a trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                    },
+                                    "stop" : {
+                                        "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/stop.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_search/services": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Facing API"
+                ],
+                "description": "Callback response to search",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "array",
+                                "items" : {
+                                    "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_select/service": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Facing API"
+                ],
+                "description": "Callback response to select/service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_confirm/service": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Facing API"
+                ],
+                "description": "Callback response to confirm/service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_track/trip": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Provide tracking info",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/tracking.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_cancel/Trip": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Response to cancel trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_add/traveller": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Returns trip with added traveller",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_remove/traveller": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Remove traveller from trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_update/traveller": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Remove traveller from trip",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_add/stop": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Updated trip with new stop",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cb_remove/stop": {
+            "post": {
+                "tags": [
+                   "Beckn Provider Facing API"
+                ],
+                "description": "Updated trip with removed stop",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "$ref": "https://developers.beckn.org/mobility/schema/0.7.1/trip.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://developers.beckn.org/core/schema/0.7.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
