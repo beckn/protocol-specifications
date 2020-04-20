@@ -9,20 +9,30 @@
             "type" : "string"
         },
         "catalog" : {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/catalog.json"
+        },
+        "matched_items" : {
             "type" : "array",
-            "items": {
-                "type" : "object",
-                "properties" : {
-                    "item" : {
-                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json"
-                    },
-                    "fare_products" : {
-                        "type" : "array",
-                        "items" : {
-                            "$ref" : "http://schema.beckn.org/mobility/schema/0.7.1/fare_product.json"
-                        }
-                    }
-                }
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+            } 
+        },
+        "selected_items" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+            }
+        },
+        "fare_products" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/mobility/schema/0.7.1/fare_product.json"
+            }
+        },
+        "offers" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/offer.json"
             }
         },
         "provider" : {

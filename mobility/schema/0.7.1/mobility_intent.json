@@ -27,6 +27,12 @@
         "vehicle" : {
             "$ref" : "http://schema.beckn.org/mobility/schema/0.7.1/vehicle.json"
         },
+        "providers" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/provider.json"
+            }
+        },
         "payload": {
             "type": "object",
                 "properties": {

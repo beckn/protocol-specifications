@@ -1,5 +1,5 @@
 {
-    "$id": "http://schema.beckn.org/mobility/schema/0.7.1/fare_product.json",
+    "$id": "http://schema.beckn.org/mobility/schema/0.7.1/offer.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "Describes the fare product object",
@@ -8,14 +8,11 @@
         "id" : {
             "type" : "string"
         },
-        "fare_media" : {
-            "type" : "string"
-        },
         "name" : {
             "type" : "string"
         },
-        "fare_policy" : {
-            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/policy.json"
+        "code" : {
+            "type" : "string"
         },
         "applies_to_items" : {
             "type" : "array",

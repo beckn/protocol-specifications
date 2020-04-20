@@ -9,10 +9,7 @@
             "type" : "string"
         },
         "catalog" : {
-            "type" : "array",
-            "items": {
-                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/catalog_item.json"
-            }
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/catalog.json"
         },
         "provider" : {
             "$ref" : "http://schema.beckn.org/core/schema/0.7.1/provider.json"

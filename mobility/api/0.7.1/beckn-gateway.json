@@ -17,7 +17,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_intent.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_intent.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -28,7 +36,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -47,13 +63,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "catalog" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                            },
+                                            "catalog" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -66,7 +90,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -85,13 +117,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "catalog" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                            },
+                                            "catalog" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -104,7 +144,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -123,10 +171,18 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -139,7 +195,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -152,16 +216,24 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Track a Trip",
+                "description": "Cancel a Trip",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -174,7 +246,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -193,13 +273,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "traveller" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                            },
+                                            "traveller" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -212,7 +300,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -231,13 +327,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "traveller" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                            },
+                                            "traveller" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -250,7 +354,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -269,13 +381,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "traveller" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                            },
+                                            "traveller" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -288,7 +408,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -307,13 +435,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "stop" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/stop.json"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                            },
+                                            "stop" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/stop.json"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -326,7 +462,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -339,19 +483,27 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Adds a stop to a trip",
+                "description": "Remove a stop from a trip",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
-                                    "stop" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/stop.json"
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                            },
+                                            "stop" : {
+                                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/stop.json"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -364,7 +516,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -383,9 +543,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type" : "array",
-                                "items" : {
-                                    "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "array",
+                                        "items" : {
+                                            "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -397,7 +565,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -416,7 +592,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -427,7 +611,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -446,7 +638,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -457,7 +657,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -476,7 +684,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/tracking.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/tracking.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -487,7 +703,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -506,7 +730,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -517,7 +749,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -536,7 +776,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -547,7 +795,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -566,7 +822,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -577,7 +841,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -596,7 +868,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -607,7 +887,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -626,7 +914,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                    }
+                                }
                             }
                         }
                     }
@@ -637,7 +933,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -656,9 +960,14 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip.json"
+                                    }
                                 }
                             }
                         }
@@ -670,7 +979,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
                                 }
                             }
                         }
