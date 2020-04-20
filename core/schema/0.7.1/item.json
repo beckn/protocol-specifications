@@ -1,5 +1,5 @@
 {
-    "$id": "https://developers.beckn.org/core/schema/0.7.1/item.json",
+    "$id": "http://schema.beckn.org/core/schema/0.7.1/item.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "Describes a catalog item",
@@ -15,10 +15,10 @@
             "type" : "string"
         },
         "image" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/image.json"
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/image.json"
         },
         "price" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/price.json"
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/price.json"
         },
         "tags" : {
             "type" : "array",
@@ -37,7 +37,7 @@
             "minimum": 0
         },
         "policy" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/policy.json"
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/policy.json"
         }
     }
 }
