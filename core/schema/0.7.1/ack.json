@@ -5,7 +5,7 @@
     "description": "Describes the ACK response",
     "type": "object",
     "properties": {
-        "header" : {
+        "context" : {
             "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
         },
         "body" : {
