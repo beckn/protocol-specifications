@@ -9,7 +9,7 @@
         "/search/services": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn App Facing API"
                 ],
                 "description": "Searches for Services",
                 "requestBody": {
@@ -39,7 +39,7 @@
         "/select/service": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn App Facing API"
                 ],
                 "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
                 "requestBody": {
@@ -77,7 +77,7 @@
         "/confirm/service": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Confirm a Service. Equivalent to checkout operation",
                 "requestBody": {
@@ -115,7 +115,7 @@
         "/track/trip": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Track a Trip",
                 "requestBody": {
@@ -150,7 +150,7 @@
         "/cancel/Trip": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Track a Trip",
                 "requestBody": {
@@ -185,7 +185,7 @@
         "/add/traveller": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Select a Service and add items from the service catalog",
                 "requestBody": {
@@ -223,7 +223,7 @@
         "/remove/traveller": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Remove traveller from trip",
                 "requestBody": {
@@ -261,7 +261,7 @@
         "/update/traveller": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Remove traveller from trip",
                 "requestBody": {
@@ -299,7 +299,7 @@
         "/add/stop": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Adds a stop to a trip",
                 "requestBody": {
@@ -337,7 +337,7 @@
         "/remove/stop": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
                 "description": "Adds a stop to a trip",
                 "requestBody": {
