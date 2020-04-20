@@ -6,7 +6,7 @@
     "type": "object",
     "properties": {
         "header" : {
-            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/header.json"
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
         },
         "body" : {
             "message" : {
