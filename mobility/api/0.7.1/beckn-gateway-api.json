@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Beckn Gateway API",
-        "description": "Beckn API spec",
+        "description": "API Spec for Beckn Gateway",
         "version": "1.0"
     },
     "paths": {
@@ -532,7 +532,7 @@
                 }
             }
         },
-        "/cb_search/services": {
+        "/on_search/services": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -581,7 +581,7 @@
                 }
             }
         },
-        "/cb_select/service": {
+        "/on_select/service": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -627,7 +627,7 @@
                 }
             }
         },
-        "/cb_confirm/service": {
+        "/on_confirm/service": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -673,7 +673,7 @@
                 }
             }
         },
-        "/cb_track/trip": {
+        "/on_track/trip": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -719,7 +719,7 @@
                 }
             }
         },
-        "/cb_cancel/Trip": {
+        "/on_cancel/Trip": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -765,7 +765,7 @@
                 }
             }
         },
-        "/cb_add/traveller": {
+        "/on_add/traveller": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -811,7 +811,7 @@
                 }
             }
         },
-        "/cb_remove/traveller": {
+        "/on_remove/traveller": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -857,7 +857,7 @@
                 }
             }
         },
-        "/cb_update/traveller": {
+        "/on_update/traveller": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -903,7 +903,7 @@
                 }
             }
         },
-        "/cb_add/stop": {
+        "/on_add/stop": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -949,7 +949,7 @@
                 }
             }
         },
-        "/cb_remove/stop": {
+        "/on_remove/stop": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"

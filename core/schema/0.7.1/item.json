@@ -38,6 +38,9 @@
         },
         "policy" : {
             "$ref" : "http://schema.beckn.org/core/schema/0.7.1/policy.json"
+        },
+        "category" : {
+            "type" : "string"
         }
     }
 }

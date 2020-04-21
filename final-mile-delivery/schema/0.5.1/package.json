@@ -5,6 +5,9 @@
     "description": "Describes the package object",
     "type": "object",
     "properties": {
+        "id" : {
+            "type" : "string"
+        },
         "contents" : {
             "type" : "array",
             "items" : {

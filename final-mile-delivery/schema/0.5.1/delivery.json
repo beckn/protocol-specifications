@@ -9,13 +9,13 @@
                 "type" : "string"
             },
             "delivery_agent" : {
-                "$ref" : "https://developers.beckn.org/mobility/schema/0.7.1/delivery_agent.json"
+                "$ref" : "https://developers.beckn.org/final-mile-delivery/schema/0.7.1/delivery_agent.json"
             },
             "tracking" : {
                 "$ref" : "https://developers.beckn.org/mobility/schema/0.7.1/tracking.json"
             },
             "state" : {
-                "$ref" : "https://developers.beckn.org/mobility/schema/0.7.1/state.json"
+                "$ref" : "https://developers.beckn.org/core/schema/0.7.1/state.json"
             },
             "charge" : {
               "$ref" : "https://developers.beckn.org/core/schema/0.7.1/price.json"
@@ -25,6 +25,12 @@
             },
             "rating" : {
                 "$ref" : "https://developers.beckn.org/core/schema/0.7.1/rating.json"
+            },
+            "packages" : {
+                "type" : "array",
+                "items" : {
+                    "$ref" : "https://developers.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
+                }
             }
     }
 }

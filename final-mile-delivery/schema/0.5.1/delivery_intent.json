@@ -14,7 +14,7 @@
         "drop": {
             "$ref": "https://developers.beckn.org/core/schema/0.7.1/location.json"
         },
-        "package": {
+        "package_attrs": {
             "$ref" : "https://developers.beckn.org/fmd/schema/0.7.1/package.json"
         },
         "tags": {
