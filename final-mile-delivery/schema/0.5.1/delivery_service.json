@@ -1,0 +1,45 @@
+{
+    "$id": "https://developers.beckn.org/fmd/schema/0.7.1/delivery_service.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.7.1",
+    "description": "Describes contents of the delivery service object",
+    "type": "object",
+    "properties": {
+        "id" : {
+            "type" : "string"
+        },
+        "catalog" : {
+            "type" : "array",
+            "items": {
+                "type" : "object",
+                "properties" : {
+                    "item" : {
+                        "$ref" : "https://developers.beckn.org/core/schema/0.7.1/item.json"
+                    },
+                    "policies" : {
+                        "type" : "array",
+                        "items" : {
+                            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/policy.json"
+                        }
+                    }
+                }
+                
+            }
+        },
+        "provider" : {
+            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/provider.json"
+        },
+        "delivery" : {
+            "$ref" : "https://developers.beckn.org/fmd/schema/0.7.1/delivery.json"
+        },
+        "policies" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "https://developers.beckn.org/core/schema/0.7.1/policy.json"
+            }
+        },
+        "billing_address" : {
+            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/location.json"
+        }
+    }
+}
