@@ -6,12 +6,58 @@
         "version": "1.0"
     },
     "paths": {
-        "/on_search/services": {
+        "/search": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn App Facing API"
                 ],
-                "description": "Callback response to search",
+                "description": "Search by intent",
+                "requestBody": {
+                    "description": "Beckn App searches for the Services using an Intent.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/intent.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/select": {
+            "post": {
+                "tags": [
+                    "Beckn App Facing API"
+                ],
+                "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -23,9 +69,101 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "type" : "array",
-                                        "items" : {
-                                            "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/confirm": {
+            "post": {
+                "tags": [
+                   "Beckn App Facing API"
+                ],
+                "description": "Confirm a Service. Equivalent to checkout operation",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/track": {
+            "post": {
+                "tags": [
+                   "Beckn App Facing API"
+                ],
+                "description": "Track a service or and item",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "id": {
+                                            "type" : "string",
+                                            "description" : "ID of the trackable object"
                                         }
                                     }
                                 }
@@ -55,12 +193,12 @@
                 }
             }
         },
-        "/on_select/service": {
+        "/cancel": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
-                "description": "Callback response to select/service",
+                "description": "Cancel a Service",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -72,7 +210,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json/properties/id"
                                     }
                                 }
                             }
@@ -101,12 +239,12 @@
                 }
             }
         },
-        "/on_confirm/service": {
+        "/complete": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
-                "description": "Callback response to confirm/service",
+                "description": "Complete a service",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -118,7 +256,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
                                     }
                                 }
                             }
@@ -147,12 +285,12 @@
                 }
             }
         },
-        "/on_track/trip": {
+        "/add/{service_instance}/{runtime_object}": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
-                "description": "Provide tracking info",
+                "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -164,7 +302,15 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-elivery/schema/0.7.1/tracking.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                            },
+                                            "runtime_object": {
+                                                "type": "object"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -193,12 +339,12 @@
                 }
             }
         },
-        "/on_cancel/Trip": {
+        "/remove/{service_instance}/{runtime_object}": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
-                "description": "Response to cancel trip",
+                "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -206,11 +352,11 @@
                             "schema": {
                                 "type" : "object",
                                 "properties" : {
-                                    "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    "id": {
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
                                     },
-                                    "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-elivery/schema/0.7.1/trip.json"
+                                    "runtime_object": {
+                                        "type": "object"
                                     }
                                 }
                             }
@@ -239,12 +385,12 @@
                 }
             }
         },
-        "/on_add/package": {
+        "/update/{service_instance}/{runtime_object}": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn App Facing API"
                 ],
-                "description": "Callback response to add package",
+                "description": "Remove object",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -256,99 +402,15 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-elivery/schema/0.7.1/delivery.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                            },
+                                            "runtime_object": {
+                                                "type": "object"
+                                            }
                                         }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_remove/package": {
-            "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
-                "description": "Callback response to remove package",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_update/package": {
-            "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
-                "description": "Callback response to update package",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }

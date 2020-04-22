@@ -2,7 +2,7 @@
     "$id": "http://schema.beckn.org/core/schema/0.7.1/price.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
-    "description": "Describes the price of an item or service",
+    "description": "Describes the price of a object. Allows for domain extension.",
     "type": "object",
     "properties": {
         "currency": {

@@ -2,7 +2,7 @@
     "$id": "http://schema.beckn.org/mobility/schema/0.7.1/operator.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
-    "description": "Describes the operator of a service",
+    "description": "Describes the operator of a service. Extension not allowed",
     "type": "object",
     "properties" : {
         "descriptor" : {

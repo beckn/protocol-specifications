@@ -2,7 +2,7 @@
   "$id": "http://schema.beckn.org/core/schema/0.7.1/location.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "version" : "0.7.1",
-  "description": "Describes the location of an object or a service",
+  "description": "Describes the location of a runtime object. Extension not allowed",
   "type": "object",
   "properties": {
     "type": {
