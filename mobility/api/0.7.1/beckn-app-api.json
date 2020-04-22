@@ -2,15 +2,12 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Beckn Gateway API",
-        "description": "API Spec for Beckn Gateway",
-        "version": "1.0"
+        "description": "API Spec for Beckn App",
+        "version": "0.7.1"
     },
     "paths": {
         "/on_search/services": {
             "post": {
-                "tags": [
-                    "Beckn Provider Facing API"
-                ],
                 "description": "Callback response to search",
                 "requestBody": {
                     "description": "TODO",
@@ -57,9 +54,6 @@
         },
         "/on_select/service": {
             "post": {
-                "tags": [
-                    "Beckn Provider Facing API"
-                ],
                 "description": "Callback response to select/service",
                 "requestBody": {
                     "description": "TODO",
@@ -103,9 +97,6 @@
         },
         "/on_confirm/service": {
             "post": {
-                "tags": [
-                    "Beckn Provider Facing API"
-                ],
                 "description": "Callback response to confirm/service",
                 "requestBody": {
                     "description": "TODO",
@@ -149,9 +140,6 @@
         },
         "/on_track/trip": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Provide tracking info",
                 "requestBody": {
                     "description": "TODO",
@@ -195,9 +183,6 @@
         },
         "/on_cancel/Trip": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Response to cancel trip",
                 "requestBody": {
                     "description": "TODO",
@@ -241,9 +226,6 @@
         },
         "/on_add/traveller": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Returns trip with added traveller",
                 "requestBody": {
                     "description": "TODO",
@@ -287,9 +269,6 @@
         },
         "/on_remove/traveller": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Remove traveller from trip",
                 "requestBody": {
                     "description": "TODO",
@@ -333,9 +312,6 @@
         },
         "/on_update/traveller": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Remove traveller from trip",
                 "requestBody": {
                     "description": "TODO",
@@ -379,9 +355,6 @@
         },
         "/on_add/stop": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Updated trip with new stop",
                 "requestBody": {
                     "description": "TODO",
@@ -425,9 +398,6 @@
         },
         "/on_remove/stop": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Updated trip with removed stop",
                 "requestBody": {
                     "description": "TODO",

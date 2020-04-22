@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
+        "title": "Beckn Provider API",
         "description": "API Spec for Beckn Gateway",
-        "version": "1.0"
+        "version": "0.7.1"
     },
     "paths": {
         "/search/services": {
