@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Beckn Gateway API",
-        "description": "Beckn API spec",
-        "version": "1.0"
+        "description": "Beckn Gateway API spec for Final Mile Delivery",
+        "version": "0.5.1"
     },
     "paths": {
         "/search/services": {

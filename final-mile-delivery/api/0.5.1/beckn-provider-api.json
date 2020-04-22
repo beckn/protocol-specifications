@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
-        "description": "Beckn API spec",
+        "title": "Beckn Provider API",
+        "description": "Beckn Provider API spec inm Final Mile Delivery domain",
         "version": "0.7.0"
     },
     "paths": {
@@ -17,7 +17,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_intent.json"
+                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_intent.json"
                             }
                         }
                     }
@@ -50,10 +50,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/id"
                                     },
                                     "catalog" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/catalog"
                                     }
                                 }
                             }
@@ -88,10 +88,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/id"
                                     },
                                     "catalog" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/catalog"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/catalog"
                                     }
                                 }
                             }
@@ -112,12 +112,12 @@
                 }
             }
         },
-        "/track/trip": {
+        "/track/delivery": {
             "post": {
                 "tags": [
                    "Beckn Provider API"
                 ],
-                "description": "Track a Trip",
+                "description": "Track a delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -126,7 +126,7 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     }
                                 }
                             }
@@ -147,12 +147,12 @@
                 }
             }
         },
-        "/cancel/Trip": {
+        "/cancel/delivery": {
             "post": {
                 "tags": [
                    "Beckn Provider API"
                 ],
-                "description": "Cancel a Trip",
+                "description": "Cancel a delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -161,7 +161,7 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     }
                                 }
                             }
@@ -182,12 +182,12 @@
                 }
             }
         },
-        "/add/traveller": {
+        "/add/package": {
             "post": {
                 "tags": [
                    "Beckn Provider API"
                 ],
-                "description": "Add traveller to a trip",
+                "description": "Add package to a delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -196,10 +196,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     },
-                                    "traveller" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    "package" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }
@@ -220,12 +220,12 @@
                 }
             }
         },
-        "/remove/traveller": {
+        "/remove/package": {
             "post": {
                 "tags": [
                    "Beckn Provider API"
                 ],
-                "description": "Remove traveller from trip",
+                "description": "Remove package from delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -234,10 +234,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     },
-                                    "traveller" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
+                                    "package" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }
@@ -258,12 +258,12 @@
                 }
             }
         },
-        "/update/traveller": {
+        "/update/package": {
             "post": {
                 "tags": [
                    "Beckn Provider API"
                 ],
-                "description": "Update traveller details",
+                "description": "Update package details",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -272,86 +272,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/trip/properties/id"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     },
-                                    "traveller" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/traveller.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/add/stop": {
-            "post": {
-                "tags": [
-                   "Beckn Provider API"
-                ],
-                "description": "Adds a stop to a trip",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
-                                    },
-                                    "stop" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/stop.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/remove/stop": {
-            "post": {
-                "tags": [
-                   "Beckn Provider API"
-                ],
-                "description": "Removes a Stop from a trip",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/mobility_service/properties/id"
-                                    },
-                                    "stop" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/stop.json"
+                                    "package" : {
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }

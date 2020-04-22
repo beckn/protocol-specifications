@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
-        "description": "API Spec for Beckn Gateway",
+        "title": "Beckn App API",
+        "description": "API Spec for Beckn App in Final Mile Delivery Domain",
         "version": "1.0"
     },
     "paths": {
@@ -147,7 +147,7 @@
                 }
             }
         },
-        "/on_track/trip": {
+        "/on_track/delivery": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -164,7 +164,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-elivery/schema/0.7.1/tracking.json"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -193,12 +193,12 @@
                 }
             }
         },
-        "/on_cancel/Trip": {
+        "/on_cancel/delivery": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Response to cancel trip",
+                "description": "Response to cancel delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -210,7 +210,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-elivery/schema/0.7.1/trip.json"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -244,7 +244,7 @@
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Callback response to add package",
+                "description": "Returns delivery with added package",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -256,7 +256,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-elivery/schema/0.7.1/delivery.json"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -290,7 +290,7 @@
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Callback response to remove package",
+                "description": "Remove package from delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -302,7 +302,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -336,7 +336,7 @@
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Callback response to update package",
+                "description": "Remove package from delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -348,7 +348,7 @@
                                         "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
+                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
