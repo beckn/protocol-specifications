@@ -1,16 +1,13 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
-        "description": "API Spec for Beckn Gateway",
+        "title": "Beckn Provider API",
+        "description": "API Spec for Beckn Provider",
         "version": "1.0"
     },
     "paths": {
         "/search": {
             "post": {
-                "tags": [
-                    "Beckn App Facing API"
-                ],
                 "description": "Search by intent",
                 "requestBody": {
                     "description": "Beckn App searches for the Services using an Intent.",
@@ -54,9 +51,6 @@
         },
         "/select": {
             "post": {
-                "tags": [
-                    "Beckn App Facing API"
-                ],
                 "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
                 "requestBody": {
                     "description": "TODO",
@@ -100,9 +94,6 @@
         },
         "/confirm": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Confirm a Service. Equivalent to checkout operation",
                 "requestBody": {
                     "description": "TODO",
@@ -146,9 +137,6 @@
         },
         "/track": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Track a service or and item",
                 "requestBody": {
                     "description": "TODO",
@@ -195,9 +183,6 @@
         },
         "/cancel": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Cancel a Service",
                 "requestBody": {
                     "description": "TODO",
@@ -241,9 +226,6 @@
         },
         "/complete": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Complete a service",
                 "requestBody": {
                     "description": "TODO",
@@ -287,9 +269,6 @@
         },
         "/add/{service_instance}/{runtime_object}": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
                     "description": "TODO",
@@ -339,11 +318,8 @@
                 }
             }
         },
-        "/remove/{service_instance}/{runtime_object}": {
+        "/remove": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
                     "description": "TODO",
@@ -385,11 +361,8 @@
                 }
             }
         },
-        "/update/{service_instance}/{runtime_object}": {
+        "/update": {
             "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
                 "description": "Remove object",
                 "requestBody": {
                     "description": "TODO",
