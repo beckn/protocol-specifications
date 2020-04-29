@@ -1,22 +1,22 @@
 {
-    "$id": "https://developers.beckn.org/food-and-beverage/schema/0.7.1/customer.json",
+    "$id": "https://schema.beckn.org/food-and-beverage/schema/0.7.1/customer.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "Describes the customer of an fnb service",
     "type": "object",
     "properties": {
         "type" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/customer.json#/properties/type"
+            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/customer.json#/properties/type"
         },
         "single" : {
             "allOf" : [
                 {
-                    "$ref" : "https://developers.beckn.org/core/schema/0.7.1/customer.json#/properties/type"
+                    "$ref" : "https://schema.beckn.org/core/schema/0.7.1/customer.json#/properties/type"
                 },
                 {
                     "properties" : {
                         "rating" : {
-                            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/rating.json"
+                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/rating.json"
                         }
                     }
                 }
@@ -25,7 +25,7 @@
         "group" : {
             "allOf" : [
                 {
-                    "$ref" : "https://developers.beckn.org/core/schema/0.7.1/customer.json#/properties/group"
+                    "$ref" : "https://schema.beckn.org/core/schema/0.7.1/customer.json#/properties/group"
                 },
                 {
                     "properties" : {

@@ -13,10 +13,10 @@
             "type" : "array",
             "items" : {
                 "open" : {
-                    "$ref" : "https://developers.beckn.org/core/schema/0.7.1/time.json"
+                    "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
                 },
                 "close" : {
-                    "$ref" : "https://developers.beckn.org/core/schema/0.7.1/time.json"
+                    "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
                 }
             }
         }

@@ -1,5 +1,5 @@
 {
-    "$id": "https://developers.beckn.org/fnb/schema/0.7.1/fnb_service.json",
+    "$id": "https://schema.beckn.org/food-and-beverageschema/0.7.1/fnb_service.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "Describes the F&B service of a restaurant",
@@ -10,11 +10,11 @@
         },
         "menu" : {
             "catalog" : {
-                "$ref" : "https://developers.beckn.org/core/schema/0.7.1/catalog.json"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/catalog.json"
             }
         },
         "provider" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/provider.json"
+            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/provider.json"
         },
         "selected_items" : {
             "type" : "array",
@@ -34,10 +34,10 @@
                 "type" : "object",
                 "properties": {
                     "open" : {
-                        "$ref" : "https://developers.beckn.org/core/schema/0.7.1/time.json"
+                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
                     },
                     "close" : {
-                        "$ref" : "https://developers.beckn.org/core/schema/0.7.1/time.json"
+                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
                     }
                 } 
             }
@@ -45,13 +45,13 @@
         "order" : {
             "type" : "array",
             "items" : {
-                "$ref" : "https://developers.beckn.org/fnb/schema/0.7.1/fnb_item.json#properties/id"
+                "$ref" : "https://schema.beckn.org/food-and-beverageschema/0.7.1/fnb_item.json#properties/id"
             } 
         },
         "offers" : {
             "type" : "array",
             "items" : {
-                "$ref" : "https://developers.beckn.org/core/schema/0.7.1/offer.json"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/offer.json"
             }
         }
     }
