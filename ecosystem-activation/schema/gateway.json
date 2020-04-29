@@ -11,13 +11,13 @@
         "supported_domains" : {
             "type" : "array",
             "items" : {
-                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/domain.json"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/domain.json"
             }
         },
         "supported_countries" : {
             "type" : "array",
             "items" : {
-                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/country.json"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/country.json"
             }
         },
         "base_url" : {

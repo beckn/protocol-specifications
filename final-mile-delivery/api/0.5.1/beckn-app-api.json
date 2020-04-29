@@ -20,12 +20,12 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type" : "array",
                                         "items" : {
-                                            "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                            "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
                                         }
                                     }
                                 }
@@ -42,10 +42,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -69,10 +69,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -88,10 +88,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -115,10 +115,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -134,10 +134,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -161,10 +161,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/tracking.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -180,10 +180,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -207,10 +207,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -226,10 +226,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -253,10 +253,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -272,10 +272,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -299,10 +299,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -318,10 +318,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -345,10 +345,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -364,10 +364,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }

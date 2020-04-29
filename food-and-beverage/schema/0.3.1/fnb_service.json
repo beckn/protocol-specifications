@@ -19,13 +19,13 @@
         "selected_items" : {
             "type" : "array",
             "items" : {
-                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
             }
         },
         "matched_items" : {
             "type" : "array",
             "items" : {
-                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
             }
         },
         "schedule" : {

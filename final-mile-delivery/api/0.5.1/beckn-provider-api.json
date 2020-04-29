@@ -17,7 +17,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_intent.json"
+                                "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_intent.json"
                             }
                         }
                     }
@@ -28,7 +28,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -50,10 +50,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/id"
                                     },
                                     "catalog" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/catalog"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/catalog"
                                     }
                                 }
                             }
@@ -66,7 +66,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -88,10 +88,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/id"
                                     },
                                     "catalog" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/catalog"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service/properties/catalog"
                                     }
                                 }
                             }
@@ -104,7 +104,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -126,7 +126,7 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     }
                                 }
                             }
@@ -139,7 +139,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -161,7 +161,7 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     }
                                 }
                             }
@@ -174,7 +174,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -196,10 +196,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     },
                                     "package" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }
@@ -212,7 +212,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -234,10 +234,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     },
                                     "package" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }
@@ -250,7 +250,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }
@@ -272,10 +272,10 @@
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery/properties/id"
                                     },
                                     "package" : {
-                                        "$ref": "http://schema.beckn.org/mobility/schema/0.7.1/package.json"
+                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/package.json"
                                     }
                                 }
                             }
@@ -288,7 +288,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                 }
                             }
                         }

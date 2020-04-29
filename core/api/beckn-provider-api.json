@@ -17,10 +17,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/intent.json"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/intent.json"
                                     }
                                 }
                             }
@@ -36,10 +36,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -60,10 +60,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -79,10 +79,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -103,10 +103,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -122,10 +122,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -146,7 +146,7 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "id": {
@@ -168,10 +168,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -192,10 +192,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json/properties/id"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json/properties/id"
                                     }
                                 }
                             }
@@ -211,10 +211,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -235,10 +235,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
                                     }
                                 }
                             }
@@ -254,10 +254,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -278,13 +278,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                                "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
                                             },
                                             "runtime_object": {
                                                 "type": "object"
@@ -305,10 +305,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -329,7 +329,7 @@
                                 "type" : "object",
                                 "properties" : {
                                     "id": {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
                                     },
                                     "runtime_object": {
                                         "type": "object"
@@ -348,10 +348,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -372,13 +372,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                                "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
                                             },
                                             "runtime_object": {
                                                 "type": "object"
@@ -399,10 +399,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }

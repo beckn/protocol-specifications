@@ -25,10 +25,10 @@
                             "application/json": {
                                 "schema": {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                     }
                                 }
                             }
@@ -48,7 +48,7 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "updated_fields" : {
@@ -75,10 +75,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -99,11 +99,11 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "domain" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/domain.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/domain.json"
                                         }
                                     }
                                 }
@@ -120,7 +120,7 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
                                             "providers" : {

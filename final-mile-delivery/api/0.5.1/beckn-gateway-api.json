@@ -20,10 +20,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_intent.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_intent.json"
                                     }
                                 }
                             }
@@ -39,10 +39,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -66,18 +66,18 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": { 
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
                                             },
                                             "selected_items" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id" 
+                                                    "$ref" : "https://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id" 
                                                 }
                                             }
                                         }
@@ -96,10 +96,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -123,13 +123,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             }
                                         }
                                     }
@@ -147,10 +147,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -174,13 +174,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             }
                                         }
                                     }
@@ -198,10 +198,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -225,13 +225,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#//properties/id"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#//properties/id"
                                             }
                                         }
                                     }
@@ -249,10 +249,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -276,18 +276,18 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             },
                                             "packages" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
+                                                    "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
                                                 }
                                             }
                                         }
@@ -306,10 +306,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -333,18 +333,18 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip/properties/id"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip/properties/id"
                                             },
                                             "packages" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json#/properties/id"
+                                                    "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json#/properties/id"
                                                 }
                                                 
                                             }
@@ -364,10 +364,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -391,13 +391,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "package": {
-                                                "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
+                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
                                             }
                                         }
                                     }
@@ -415,10 +415,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -442,12 +442,12 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type" : "array",
                                         "items" : {
-                                            "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                            "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
                                         }
                                     }
                                 }
@@ -464,10 +464,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -491,10 +491,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -510,10 +510,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -537,10 +537,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -556,10 +556,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -583,10 +583,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/tracking.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -602,10 +602,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -629,10 +629,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
                                     }
                                 }
                             }
@@ -648,10 +648,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -675,10 +675,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
                                     }
                                 }
                             }
@@ -694,10 +694,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -721,10 +721,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
                                     }
                                 }
                             }
@@ -740,10 +740,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -767,10 +767,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
                                     }
                                 }
                             }
@@ -786,10 +786,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -813,10 +813,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
                                     }
                                 }
                             }
@@ -832,10 +832,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -859,10 +859,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "http://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
                                     }
                                 }
                             }
@@ -878,10 +878,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }

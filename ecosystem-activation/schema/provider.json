@@ -11,7 +11,7 @@
         "supported_domains" : {
             "type" : "array",
             "items" : {
-                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/domain.json"
+                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/domain.json"
             }
         },
         "base_url" : {
