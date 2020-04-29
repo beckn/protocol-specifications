@@ -2,9 +2,17 @@
     "$id": "http://schema.beckn.org/core/schema/0.7.1/catalog.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
-    "description": "Describes details of the service.  Allows for domain extension.",
-    "type": "array",
-    "items" : {
-        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json"
+    "description": "Describes the service catalog",
+    "type": "object",
+    "properties" : {
+        "category_tree" : {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/category.json"
+        },
+        "items" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json"
+            }
+        }
     }
 }

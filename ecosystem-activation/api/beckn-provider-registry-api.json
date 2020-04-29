@@ -1,0 +1,142 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Beckn Provider Registry API. Called by Beckn Gateway",
+        "description": "API Spec for Beckn Global Registry"
+    },
+    "paths": {
+        "/register": {
+            "post": {
+                "description": "Register a Beckn Provider",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref" : "https://schema.beckn.org/ecosystem-activation/schema/provider.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update": {
+            "post": {
+                "description": "Update provider details",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "updated_fields" : {
+                                            "type" : "array",
+                                            "items" : {
+                                                "path" : "string"
+                                            }
+                                        },
+                                        "updated_data" : {
+                                            "$ref" : "https://schema.beckn.org/ecosystem-activation/schema/provider.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "http://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lookup": {
+            "post": {
+                "description": "Look-up Beckn Gateway in a country",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "domain" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/domain.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "providers" : {
+                                                "type" : "array",
+                                                "items" : {
+                                                    "$ref" : "https://schema.beckn.org/ecosystem-activation/schema/provider.json"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

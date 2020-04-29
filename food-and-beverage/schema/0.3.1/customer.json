@@ -1,15 +1,40 @@
 {
-    "$id": "https://developers.beckn.org/fnb/schema/0.7.1/customer.json",
+    "$id": "https://developers.beckn.org/food-and-beverage/schema/0.7.1/customer.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
-    "description": "Describes the customer of a kitchen",
+    "description": "Describes the customer of an fnb service",
     "type": "object",
     "properties": {
-        "descriptor" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/person.json"
+        "type" : {
+            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/customer.json#/properties/type"
         },
-        "rating" : {
-            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/rating.json"
-        }    
+        "single" : {
+            "allOf" : [
+                {
+                    "$ref" : "https://developers.beckn.org/core/schema/0.7.1/customer.json#/properties/type"
+                },
+                {
+                    "properties" : {
+                        "rating" : {
+                            "$ref" : "https://developers.beckn.org/core/schema/0.7.1/rating.json"
+                        }
+                    }
+                }
+            ]
+        },
+        "group" : {
+            "allOf" : [
+                {
+                    "$ref" : "https://developers.beckn.org/core/schema/0.7.1/customer.json#/properties/group"
+                },
+                {
+                    "properties" : {
+                        "min_age" : {
+                            "type" : "integer"
+                        }
+                    }
+                }
+            ]
+        }
     }
 }

@@ -1,16 +1,13 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
-        "description": "API Spec for Beckn Gateway",
-        "version": "1.0"
+        "title": "Beckn App API",
+        "description": "API Spec for Beckn App",
+        "version": "0.7.1"
     },
     "paths": {
         "/on_search": {
             "post": {
-                "tags": [
-                    "Beckn Provider Facing API"
-                ],
                 "description": "Callback response to search",
                 "requestBody": {
                     "description": "TODO",

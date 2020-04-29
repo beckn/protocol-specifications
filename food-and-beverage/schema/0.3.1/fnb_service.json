@@ -9,18 +9,24 @@
             "type" : "string"
         },
         "menu" : {
-            "type" : "array",
-            "items": {
-                "type" : "object",
-                "properties" : {
-                    "item" : {
-                        "$ref" : "https://developers.beckn.org/fnb/schema/0.7.1/fnb_item.json"
-                    }
-                }
+            "catalog" : {
+                "$ref" : "https://developers.beckn.org/core/schema/0.7.1/catalog.json"
             }
         },
         "provider" : {
             "$ref" : "https://developers.beckn.org/core/schema/0.7.1/provider.json"
+        },
+        "selected_items" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+            }
+        },
+        "matched_items" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+            }
         },
         "schedule" : {
             "type" : "array",
