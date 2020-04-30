@@ -1,8 +1,17 @@
 {
-    "$id": "https://schema.beckn.org/core/schema/0.7.1/contry.json",
+    "$id": "https://schema.beckn.org/core/schema/0.7.1/country.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
-    "description": "Describes the domain of an object. Maintained by Beckn Foundation",
-    "type": "string",
-    "enum" : ["INDIA"]
+    "description": "indicates country code. Beckn supports country codes as per ISO 3166-1 standard",
+    "type": "object",
+    "properties" : {
+        "standard" : {
+            "type" : "string",
+            "enum" : ["ISO 3166-1 ALPHA-2", "ISO 3166-1 ALPHA-3", "ISO 3166-1 NUMERIC)"]
+        },
+        "code" : {
+            "type" : "string"
+        }
+    }
 }
+
