@@ -1,5 +1,5 @@
 {
-    "$id": "https://schema.beckn.org/core/schema/0.7.1/scalar.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "An object representing a scalar quantity. Extension allowed only to the limit of vector",

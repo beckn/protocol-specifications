@@ -1,5 +1,5 @@
 {
-    "$id": "https://schema.beckn.org/food-and-beverageschema/0.7.1/fnb_intent.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/food-and-beverageschema/0.7.1/fnb_intent.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "Describes the F&B search intent",
@@ -8,26 +8,26 @@
         "cuisines": {
             "type" : "array",
             "items" : {
-                "$ref": "https://schema.beckn.org/food-and-beverageschema/0.7.1/cuisine.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/food-and-beverageschema/0.7.1/cuisine.json"
             }
         },
         "fnb_items": {
             "type" : "array",
             "items" : {
-                "$ref": "https://schema.beckn.org/food-and-beverageschema/0.7.1/fnb_item.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/food-and-beverageschema/0.7.1/fnb_item.json"
             }
         },
         "restaurant": {
             "type" : "array",
             "items" : {
-                "$ref": "https://schema.beckn.org/food-and-beverageschema/0.7.1/provider.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/food-and-beverageschema/0.7.1/provider.json"
             }
         },
         "location": {
-            "$ref": "https://schema.beckn.org/core/schema/0.7.1/location.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
         },
         "time" : {
-            "$ref": "https://schema.beckn.org/core/schema/0.7.1/time.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/time.json"
         },
         "customer" : {
             
@@ -39,7 +39,7 @@
             }
         },
         "tags": {
-            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/tags.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/tags.json"
         }
     }
 }

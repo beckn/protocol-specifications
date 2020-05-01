@@ -1,19 +1,30 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Provider Registry API. Called by Beckn Gateway",
-        "description": "API Spec for Beckn Global Registry"
+        "title": "Beckn Global Registry API",
+        "description": "API Spec for Beckn Registry"
     },
     "paths": {
         "/register": {
             "post": {
-                "description": "Register a Beckn Provider",
+                "description": "Register a Beckn Gateway, App or Provider",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref" : "https://schema.beckn.org/ecosystem-activation/schema/provider.json"
+                                "oneOf" : [
+                                    {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/ecosystem-activation/schema/gateway.json"
+                                    },
+                                    {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/ecosystem-activation/schema/provider.json"
+                                    },
+                                    {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/ecosystem-activation/schema/app.json"
+                                    }
+                                ]
+                                
                             }
                         }
                     }
@@ -25,10 +36,10 @@
                             "application/json": {
                                 "schema": {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                     }
                                 }
                             }
@@ -39,7 +50,7 @@
         },
         "/update": {
             "post": {
-                "description": "Update provider details",
+                "description": "Update gateway details",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -48,7 +59,7 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "updated_fields" : {
@@ -58,7 +69,7 @@
                                             }
                                         },
                                         "updated_data" : {
-                                            "$ref" : "https://schema.beckn.org/ecosystem-activation/schema/provider.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/ecosystem-activation/schema/gateway.json"
                                         }
                                     }
                                 }
@@ -75,10 +86,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -99,11 +110,14 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
+                                        "country": {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/country.json"
+                                        },
                                         "domain" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/domain.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/domain.json"
                                         }
                                     }
                                 }
@@ -120,13 +134,13 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "providers" : {
+                                            "gateways" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref" : "https://schema.beckn.org/ecosystem-activation/schema/provider.json"
+                                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/ecosystem-activation/schema/gateway.json"
                                                 }
                                             }
                                         }

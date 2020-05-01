@@ -1,5 +1,5 @@
 {
-    "$id": "https://schema.beckn.org/mobility/schema/0.7.1/fare_product.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/fare_product.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.7.1",
     "description": "Describes the fare product object",
@@ -15,12 +15,12 @@
             "type" : "string"
         },
         "fare_policy" : {
-            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/policy.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/policy.json"
         },
         "applies_to_items" : {
             "type" : "array",
             "items" : {
-                "$ref" : "https://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/id"
             }
         }
     }

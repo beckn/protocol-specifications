@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
+        "title": "Beckn Gateway",
         "description": "API Spec for Beckn Gateway",
         "version": "1.0"
     },
@@ -9,7 +9,7 @@
         "/search": {
             "post": {
                 "tags": [
-                    "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Search by intent",
                 "requestBody": {
@@ -55,7 +55,7 @@
         "/select": {
             "post": {
                 "tags": [
-                    "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
                 "requestBody": {
@@ -101,7 +101,7 @@
         "/confirm": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Confirm a Service. Equivalent to checkout operation",
                 "requestBody": {
@@ -147,7 +147,7 @@
         "/track": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Track a service or and item",
                 "requestBody": {
@@ -196,7 +196,7 @@
         "/cancel": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Cancel a Service",
                 "requestBody": {
@@ -242,7 +242,7 @@
         "/complete": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Complete a service",
                 "requestBody": {
@@ -288,7 +288,7 @@
         "/add": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
                 "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
@@ -307,7 +307,11 @@
                                             "id": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
                                             },
-                                            "runtime_object": {
+                                            "collection" : {
+                                                "type" : "string",
+                                                "description" : "Path to a valid collection object in json schema"
+                                            },
+                                            "item": {
                                                 "type": "object"
                                             }
                                         }
@@ -339,12 +343,12 @@
                 }
             }
         },
-        "/remove/{service_instance}/{runtime_object}": {
+        "/remove": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                    "Beckn Gateway", "Beckn Provider"
                 ],
-                "description": "Add a runtime object to a collection within a service instance object",
+                "description": "Remove a runtime object to a collection within a service instance object",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -352,11 +356,18 @@
                             "schema": {
                                 "type" : "object",
                                 "properties" : {
-                                    "id": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
-                                    },
-                                    "runtime_object": {
-                                        "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
+                                        },
+                                        "collection" : {
+                                            "type" : "string",
+                                            "description" : "Path to a valid collection object in json schema"
+                                        },
+                                        "item": {
+                                            "type": "object"
+                                        }
                                     }
                                 }
                             }
@@ -385,7 +396,7 @@
                 }
             }
         },
-        "/update/{service_instance}/{runtime_object}": {
+        "/update": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -398,17 +409,32 @@
                             "schema": {
                                 "type" : "object",
                                 "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
-                                            },
-                                            "runtime_object": {
-                                                "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
+                                        },
+                                        "collection" : {
+                                            "type" : "string",
+                                            "description" : "Path to a valid collection object in json schema"
+                                        },
+                                        "item_id": {
+                                            "type": "string"
+                                        },
+                                        "update" : {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "updated_fields" : {
+                                                    "type" : "array",
+                                                    "items" : {
+                                                        "path" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "value" : {
+                                                            "type" : "string"
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -442,7 +468,7 @@
         "/on_search": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Callback response to search",
                 "requestBody": {
@@ -491,7 +517,7 @@
         "/on_select": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Callback response to select/service",
                 "requestBody": {
@@ -537,7 +563,7 @@
         "/on_confirm": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Callback response to confirm/service",
                 "requestBody": {
@@ -583,7 +609,7 @@
         "/on_track": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Provide tracking info",
                 "requestBody": {
@@ -629,7 +655,7 @@
         "/on_cancel": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Response to cancel service",
                 "requestBody": {
@@ -675,7 +701,7 @@
         "/on_add": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Returns updated service with added runtime object",
                 "requestBody": {
@@ -721,7 +747,7 @@
         "/on_remove": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Returns updated service with removed runtime object",
                 "requestBody": {
@@ -767,7 +793,7 @@
         "/on_update": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                    "Beckn Gateway", "Beckn App"
                 ],
                 "description": "Returns updated service with updated runtime object",
                 "requestBody": {

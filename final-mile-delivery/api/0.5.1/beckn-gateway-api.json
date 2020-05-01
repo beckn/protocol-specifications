@@ -6,7 +6,7 @@
         "version": "0.5.1"
     },
     "paths": {
-        "/search/services": {
+        "/search": {
             "post": {
                 "tags": [
                     "Beckn App Facing API"
@@ -20,10 +20,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_intent.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_intent.json"
                                     }
                                 }
                             }
@@ -39,10 +39,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -52,7 +52,7 @@
                 }
             }
         },
-        "/select/service": {
+        "/select": {
             "post": {
                 "tags": [
                     "Beckn App Facing API"
@@ -66,18 +66,18 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": { 
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
                                             },
                                             "selected_items" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref" : "https://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id" 
+                                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/id" 
                                                 }
                                             }
                                         }
@@ -96,10 +96,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -109,7 +109,7 @@
                 }
             }
         },
-        "/confirm/delivery": {
+        "/confirm": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -123,13 +123,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             }
                                         }
                                     }
@@ -147,10 +147,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -160,7 +160,7 @@
                 }
             }
         },
-        "/track/delivery": {
+        "/track": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -174,13 +174,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             }
                                         }
                                     }
@@ -198,10 +198,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -211,7 +211,7 @@
                 }
             }
         },
-        "/cancel/delivery": {
+        "/cancel": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -225,13 +225,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#//properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#//properties/id"
                                             }
                                         }
                                     }
@@ -249,10 +249,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -262,7 +262,7 @@
                 }
             }
         },
-        "/add/packages": {
+        "/add": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -276,18 +276,18 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             },
                                             "packages" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/package.json"
                                                 }
                                             }
                                         }
@@ -306,10 +306,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -319,7 +319,7 @@
                 }
             }
         },
-        "/remove/packages": {
+        "/remove": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -333,18 +333,18 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/trip/properties/id"
                                             },
                                             "packages" : {
                                                 "type" : "array",
                                                 "items" : {
-                                                    "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json#/properties/id"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/package.json#/properties/id"
                                                 }
                                                 
                                             }
@@ -364,10 +364,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -377,7 +377,7 @@
                 }
             }
         },
-        "/update/package": {
+        "/update": {
             "post": {
                 "tags": [
                    "Beckn App Facing API"
@@ -391,13 +391,13 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type": "object",
                                         "properties": {
                                             "package": {
-                                                "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/package.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/package.json"
                                             }
                                         }
                                     }
@@ -415,10 +415,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -428,7 +428,7 @@
                 }
             }
         },
-        "/on_search/services": {
+        "/on_search": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -442,12 +442,12 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type" : "array",
                                         "items" : {
-                                            "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json"
                                         }
                                     }
                                 }
@@ -464,10 +464,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -477,7 +477,7 @@
                 }
             }
         },
-        "/on_select/service": {
+        "/on_select": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -491,10 +491,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -510,10 +510,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -523,7 +523,7 @@
                 }
             }
         },
-        "/on_confirm/service": {
+        "/on_confirm": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -537,10 +537,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -556,10 +556,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -569,7 +569,7 @@
                 }
             }
         },
-        "/on_track/trip": {
+        "/on_track": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -583,10 +583,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/tracking.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -602,10 +602,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -615,12 +615,12 @@
                 }
             }
         },
-        "/on_cancel/Trip": {
+        "/on_cancel": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Response to cancel trip",
+                "description": "Response to cancel delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -629,10 +629,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
                                     }
                                 }
                             }
@@ -648,148 +648,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_add/traveller": {
-            "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
-                "description": "Returns trip with added traveller",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_remove/traveller": {
-            "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
-                "description": "Remove traveller from trip",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_update/traveller": {
-            "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
-                "description": "Remove traveller from trip",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -813,10 +675,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "type" : "object"
                                     }
                                 }
                             }
@@ -832,10 +694,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -859,10 +721,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/final-mile-delivery/schema/0.7.1/trip.json"
+                                        "type" : "object"
                                     }
                                 }
                             }
@@ -878,10 +740,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }

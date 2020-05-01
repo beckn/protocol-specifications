@@ -17,12 +17,12 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type" : "array",
                                         "items" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
                                         }
                                     }
                                 }
@@ -39,10 +39,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -54,9 +54,6 @@
         },
         "/on_select": {
             "post": {
-                "tags": [
-                    "Beckn Provider Facing API"
-                ],
                 "description": "Callback response to select/service",
                 "requestBody": {
                     "description": "TODO",
@@ -66,10 +63,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -85,10 +82,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -100,9 +97,6 @@
         },
         "/on_confirm": {
             "post": {
-                "tags": [
-                    "Beckn Provider Facing API"
-                ],
                 "description": "Callback response to confirm/service",
                 "requestBody": {
                     "description": "TODO",
@@ -112,10 +106,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -131,10 +125,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -146,9 +140,6 @@
         },
         "/on_track": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Provide tracking info",
                 "requestBody": {
                     "description": "TODO",
@@ -158,10 +149,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/tracking.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -177,10 +168,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -192,9 +183,6 @@
         },
         "/on_cancel": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Response to cancel service",
                 "requestBody": {
                     "description": "TODO",
@@ -204,10 +192,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json#/properties/id"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
                                     }
                                 }
                             }
@@ -223,10 +211,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -238,9 +226,6 @@
         },
         "/on_add": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Returns updated service with added runtime object",
                 "requestBody": {
                     "description": "TODO",
@@ -250,10 +235,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -269,10 +254,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -284,9 +269,6 @@
         },
         "/on_remove": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Returns updated service with removed runtime object",
                 "requestBody": {
                     "description": "TODO",
@@ -296,10 +278,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -315,10 +297,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -330,9 +312,6 @@
         },
         "/on_update": {
             "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
                 "description": "Returns updated service with updated runtime object",
                 "requestBody": {
                     "description": "TODO",
@@ -342,10 +321,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/core/schema/0.7.1/service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
                                     }
                                 }
                             }
@@ -361,10 +340,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }

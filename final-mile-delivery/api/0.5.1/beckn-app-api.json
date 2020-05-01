@@ -6,7 +6,7 @@
         "version": "1.0"
     },
     "paths": {
-        "/on_search/services": {
+        "/on_search": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -20,12 +20,12 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
                                         "type" : "array",
                                         "items" : {
-                                            "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery_service.json"
                                         }
                                     }
                                 }
@@ -42,10 +42,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -55,7 +55,7 @@
                 }
             }
         },
-        "/on_select/service": {
+        "/on_select": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -69,10 +69,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -88,10 +88,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -101,7 +101,7 @@
                 }
             }
         },
-        "/on_confirm/service": {
+        "/on_confirm": {
             "post": {
                 "tags": [
                     "Beckn Provider Facing API"
@@ -115,10 +115,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery_service.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery_service.json"
                                     }
                                 }
                             }
@@ -134,10 +134,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -147,7 +147,7 @@
                 }
             }
         },
-        "/on_track/delivery": {
+        "/on_track": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -161,10 +161,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/tracking.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -180,10 +180,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -193,7 +193,7 @@
                 }
             }
         },
-        "/on_cancel/delivery": {
+        "/on_cancel": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -207,10 +207,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -226,10 +226,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -239,7 +239,7 @@
                 }
             }
         },
-        "/on_add/package": {
+        "/on_add": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -253,10 +253,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -272,10 +272,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -285,7 +285,7 @@
                 }
             }
         },
-        "/on_remove/package": {
+        "/on_remove": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -299,10 +299,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -318,10 +318,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }
@@ -331,7 +331,7 @@
                 }
             }
         },
-        "/on_update/package": {
+        "/on_update": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
@@ -345,10 +345,10 @@
                                 "type" : "object",
                                 "properties" : {
                                     "context" : {
-                                        "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://schema.beckn.org/mobility/schema/0.7.1/delivery.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/delivery.json"
                                     }
                                 }
                             }
@@ -364,10 +364,10 @@
                                     "type" : "object",
                                     "properties" : {
                                         "context" : {
-                                            "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message" : {
-                                            "$ref": "https://schema.beckn.org/core/schema/0.7.1/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                         }
                                     }
                                 }

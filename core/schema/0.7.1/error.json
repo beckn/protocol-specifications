@@ -1,0 +1,64 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/error.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.7.1",
+    "description": "Describes an error object",
+    "type": "object",
+    "properties": {
+        "t_error" : {
+            "type" : "object",
+            "desription" : "Transmission protocol specific error codes",
+            "properties" : {
+                "t_protocol" : {
+                    "type" : "string",
+                    "enum" : ["HTTP"]
+                },
+                "t_version" : {
+                    "type" : "string",
+                    "enum" : ["1.x"]
+                },
+                "t_code" : {
+                    "type" : "string",
+                    "desription" : "Transmission protocol status code. For full list of error codes, refer to protocol specific error codes"
+                }
+            }
+        },
+        "r_error" : {
+            "type" : "object",
+            "description" : "Beckn response specific errors. Extension NOT ALLOWED",
+            "properties": {
+                "rcode" : {
+                    "type" : "string",
+                    "desription" : "Response specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo."
+                },
+                "rmessage" : {
+                    "type" : "string"
+                }
+            }
+        },
+        "f_error" : {
+            "type" : "array",
+            "description" : "Field specific errors. Extension NOT ALLOWED",
+            "items" : {
+                "type" : "object",
+                "properties" : {
+                    "fpath" : {
+                        "type" : "string",
+                        "description" : "path to the specified field"
+                    },
+                    "fcode" : {
+                        "type" : "string",
+                        "description" : "Field specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo."
+                    },
+                    "fmessage" : {
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "d_error" : {
+            "type" : "object",
+            "description" : "Domain specific error object. Extension ALLOWED according to domain specific taxonomies. Refer to domain specific error documentation"
+        }
+    }
+}
