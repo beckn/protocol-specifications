@@ -60,5 +60,6 @@
             "type" : "object",
             "description" : "Domain specific error object. Extension ALLOWED according to domain specific taxonomies. Refer to domain specific error documentation"
         }
-    }
+    },
+    "required": ["r_error"]
 }
