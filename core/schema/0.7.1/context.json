@@ -29,7 +29,9 @@
                 "register",
                 "on_register",
                 "lookup",
-                "on_lookup"
+                "on_lookup",
+                "tokens",
+                "on_tokens"
             ]
         },
         "version": {

@@ -1,0 +1,259 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Health Services Stack",
+        "description": "The health services stack will bring a common set of protocols and APIs to allow delivery of health services to happen seamlessly across any set of health applications (EUA) and healthcare service providers. The stack has two entities and will offer a set of common interfaces ( unified health interfaces ) and a gateway ( Health Gateway ), that implements minimal aggregate functions.",
+        "termsOfService": "http://catch.io/terms/",
+        "contact": {
+            "email": "uti@catch.io"
+        },
+        "version": "0.5"
+    },
+    "servers": [
+        {
+            "url": "https://uti.ths.io/v1"
+        },
+        {
+            "url": "http://uti.ths.io/v1"
+        }
+    ],
+    "paths": {
+        "/search": {
+            "post": {
+                "tags": [
+                    "Gateway App Interface API",
+                    "Provider API"
+                ],
+                "requestBody": {
+                    "description": "Search the HSPs for a matching set of doctorss",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                            },
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
+                                            }
+                                        ]
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "intent": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_intent.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns a success",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
+                                        },
+                                        "message": {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "ack" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/select": {
+            "post": {
+                "tags": [
+                    "Provider APIs"
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Body2"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns a success",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                        },
+                                        "message": {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "ack" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update": {
+            "post": {
+                "tags": [
+                    "App APIs",
+                    "Provider APIs"
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Body3"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns a success",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
+                                        },
+                                        "message": {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "ack" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/confirm": {
+            "post": {
+                "tags": [
+                    "Provider APIs"
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Body2"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns a success",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
+                                        },
+                                        "message": {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "ack" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/add/clinicalnotes": {
+            "post": {
+                "tags": [
+                    "Provider APIs"
+                ],
+                "requestBody": {
+                    "description": "Submit clinical notes of the consultation. This has to be done prior to the start of the consultation",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                            },
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
+                                            }
+                                        ]
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "notes": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/clinicalnotes.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns a success",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
+                                        },
+                                        "message": {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "ack" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

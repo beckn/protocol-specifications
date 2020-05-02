@@ -10,12 +10,10 @@
             "desription" : "Transmission protocol specific error codes",
             "properties" : {
                 "t_protocol" : {
-                    "type" : "string",
-                    "enum" : ["HTTP"]
+                    "type" : "string"
                 },
                 "t_version" : {
-                    "type" : "string",
-                    "enum" : ["1.x"]
+                    "type" : "string"
                 },
                 "t_code" : {
                     "type" : "string",

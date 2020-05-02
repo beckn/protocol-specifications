@@ -1,0 +1,30 @@
+{
+    "list" : [
+        {
+            "name" : "Beckn",
+            "logo" : "",
+            "url" : "https://beckn.org",
+            "participants" : [
+                {
+                    "name" : "Ravi Prakash",
+                    "email" : "ravi@beckn.org",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "Walkin",
+            "logo" : "",
+            "url" : "",
+            "participants" : [
+                {
+                    "name" : "Naman Pugalia",
+                    "email" : "",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        }
+    ]
+}

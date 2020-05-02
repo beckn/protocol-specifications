@@ -1,0 +1,30 @@
+{
+    "list" : [
+        {
+            "name" : "MFine",
+            "img" : "",
+            "url" : "https://mfine.co",
+            "participants" : [
+                {
+                    "name" : "Ajit Narayanan",
+                    "email" : "ajit@mfine.co",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "Beckn",
+            "img" : "",
+            "url" : "https://beckn.org",
+            "participants" : [
+                {
+                    "name" : "Ravi Prakash",
+                    "email" : "ravi@beckn.org",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        }
+    ]
+}

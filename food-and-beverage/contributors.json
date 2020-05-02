@@ -1,0 +1,32 @@
+{
+    "list" : [
+        {
+            "name" : "Beckn",
+            "img" : "https://beckn.org/wp-content/uploads/2020/04/beckn-logo-e1586981998444.png",
+            "url" : "https://beckn.org",
+            "participants" : [
+                {
+                    "name" : "Ravi Prakash",
+                    "email" : "ravi@beckn.org",
+                    "designation" : "",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "Walkin",
+            "img" : "",
+            "url" : "",
+            "participants" : [
+                {
+                    "name" : "Naman Pugalia",
+                    "email" : "",
+                    "designation" : "",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        }
+    ]
+}

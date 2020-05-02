@@ -1,0 +1,1335 @@
+{
+    "openapi" : "3.0.0",
+    "info" : {
+      "title" : "Health Services Stack",
+      "description" : "The health services stack will bring a common set of protocols and APIs to allow delivery of health services to happen seamlessly across any set of health applications (EUA) and healthcare service providers. The stack has two entities and will offer a set of common interfaces ( unified health interfaces ) and a gateway ( Health Gateway ), that implements minimal aggregate functions.",
+      "termsOfService" : "http://catch.io/terms/",
+      "contact" : {
+        "email" : "uti@catch.io"
+      },
+      "version" : "0.5"
+    },
+    "externalDocs" : {
+      "description" : "Find out more about Swagger",
+      "url" : "http://swagger.io"
+    },
+    "servers" : [ {
+      "url" : "https://uti.ths.io/v1"
+    }, {
+      "url" : "http://uti.ths.io/v1"
+    } ],
+    "paths" : {
+      "/update/app" : {
+        "post" : {
+          "tags" : [ "Gateway App APIs" ],
+          "requestBody" : {
+            "description" : "Update details of a telemedicne end user app on the stack. Upsert Operation.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "context" : {
+                      "allOf" : [ {
+                        "$ref" : "#/components/schemas/context"
+                      }, {
+                        "$ref" : "#/components/schemas/header"
+                      } ]
+                    },
+                    "message" : {
+                      "type" : "object",
+                      "properties" : {
+                        "app" : {
+                          "$ref" : "#/components/schemas/telehealthapp"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required" : true
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/search" : {
+        "post" : {
+          "tags" : [ "Gateway App APIs", "Provider APIs" ],
+          "requestBody" : {
+            "description" : "Search the HSPs for a matching set of doctorss",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "context" : {
+                      "allOf" : [ {
+                        "$ref" : "#/components/schemas/context"
+                      }, {
+                        "$ref" : "#/components/schemas/header"
+                      } ]
+                    },
+                    "message" : {
+                      "type" : "object",
+                      "properties" : {
+                        "intent" : {
+                          "$ref" : "#/components/schemas/consultationintent"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required" : true
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/register/provider" : {
+        "post" : {
+          "tags" : [ "Gateway Provider APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/update/provider" : {
+        "post" : {
+          "tags" : [ "Gateway Provider APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/on_search" : {
+        "post" : {
+          "tags" : [ "App APIs", "Gateway Provider APIs" ],
+          "requestBody" : {
+            "description" : "Call back function when the search listing is prepared by the HSP or gateway",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "header" : {
+                      "$ref" : "#/components/schemas/header"
+                    },
+                    "services" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/consultationservice"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required" : true
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/on_confirm" : {
+        "post" : {
+          "tags" : [ "App APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body4"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/on_select" : {
+        "post" : {
+          "tags" : [ "App APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body4"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/on_add/clinicalnotes" : {
+        "post" : {
+          "tags" : [ "App APIs" ],
+          "requestBody" : {
+            "description" : "Call back function when clinical notes has been accepted by the HSP",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "header" : {
+                      "$ref" : "#/components/schemas/header"
+                    },
+                    "ack" : {
+                      "$ref" : "#/components/schemas/ack"
+                    }
+                  }
+                }
+              }
+            },
+            "required" : true
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/update/service" : {
+        "post" : {
+          "tags" : [ "App APIs", "Provider APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body3"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/on_update/service" : {
+        "post" : {
+          "tags" : [ "App APIs", "Provider APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body3"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/confirm/service" : {
+        "post" : {
+          "tags" : [ "Provider APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body2"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/select" : {
+        "post" : {
+          "tags" : [ "Provider APIs" ],
+          "requestBody" : {
+            "$ref" : "#/components/requestBodies/Body2"
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/add/clinicalnotes" : {
+        "post" : {
+          "tags" : [ "Provider APIs" ],
+          "requestBody" : {
+            "description" : "Submit clinical notes of the consultation. This has to be done prior to the start of the consultation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "context" : {
+                      "allOf" : [ {
+                        "$ref" : "#/components/schemas/context"
+                      }, {
+                        "$ref" : "#/components/schemas/header"
+                      } ]
+                    },
+                    "message" : {
+                      "type" : "object",
+                      "properties" : {
+                        "notes" : {
+                          "$ref" : "#/components/schemas/clinicalnotes"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required" : true
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Returns a success",
+              "content" : {
+                "*/*" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "#/components/schemas/context"
+                      },
+                      "ack" : {
+                        "$ref" : "#/components/schemas/ack"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components" : {
+      "schemas" : {
+        "telehealthapp" : {
+          "type" : "object",
+          "properties" : {
+            "registration" : {
+              "type" : "string"
+            },
+            "phone" : {
+              "type" : "string"
+            },
+            "email" : {
+              "type" : "string"
+            },
+            "address" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/location.json"
+            },
+            "documents" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "apiendpoints" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "api" : {
+                    "type" : "string"
+                  },
+                  "endpoint" : {
+                    "$ref" : "http://schema.beckn.org/core/schema/0.7.1/api.json"
+                  }
+                }
+              }
+            }
+          },
+          "description" : "Describes a telehealth end user app",
+          "allOf" : [ {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/provider.json"
+          } ]
+        },
+        "telehealthprovider" : {
+          "type" : "object",
+          "properties" : {
+            "registration" : {
+              "type" : "string"
+            },
+            "phone" : {
+              "type" : "string"
+            },
+            "email" : {
+              "type" : "string"
+            },
+            "address" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/location.json"
+            },
+            "documents" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "supportedchannels" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/channel"
+              }
+            },
+            "apiendpoints" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "api" : {
+                    "type" : "string"
+                  },
+                  "endpoint" : {
+                    "$ref" : "http://schema.beckn.org/core/schema/0.7.1/api.json"
+                  }
+                }
+              }
+            }
+          },
+          "description" : "Describes a telehealth provider sytem/app",
+          "allOf" : [ {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/provider.json"
+          } ]
+        },
+        "consultationintent" : {
+          "type" : "object",
+          "properties" : {
+            "complaints" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/taxonomyitem"
+              }
+            },
+            "speciality" : {
+              "type" : "string"
+            },
+            "type" : {
+              "$ref" : "#/components/schemas/consultationtype"
+            },
+            "time_range" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+            },
+            "location" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/location.json"
+            },
+            "price_range" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+            },
+            "providers" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/provider.json#/properties/id"
+              }
+            },
+            "doctors" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+              }
+            },
+            "rating_range" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+            },
+            "languages" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "channel" : {
+              "$ref" : "#/components/schemas/channel"
+            },
+            "clinical_summary" : {
+              "$ref" : "#/components/schemas/clinicalnotes"
+            },
+            "person" : {
+              "$ref" : "#/components/schemas/person"
+            }
+          },
+          "description" : "Defines the intent of the end user who is looking for a consultation",
+          "xml" : {
+            "name" : "consultationintent"
+          }
+        },
+        "consultationservice" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "string"
+            },
+            "state" : {
+              "type" : "string",
+              "enum" : [ "OFFERED", "CONFIRMED", "REVOKED", "COMPLETED" ]
+            },
+            "expires_at" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
+            },
+            "item" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json"
+            },
+            "speciality" : {
+              "type" : "string"
+            },
+            "clinicalnotes_url" : {
+              "type" : "string"
+            },
+            "protocol" : {
+              "$ref" : "#/components/schemas/consultationprotocol"
+            },
+            "consultations" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/consultation"
+              }
+            },
+            "person" : {
+              "$ref" : "#/components/schemas/person/properties/id"
+            },
+            "provider" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/provider.json#/properties/id"
+            }
+          }
+        },
+        "consultation" : {
+          "type" : "object",
+          "properties" : {
+            "type" : {
+              "$ref" : "#/components/schemas/consultationtype"
+            },
+            "state" : {
+              "type" : "string",
+              "enum" : [ "NEW", "SCHEDULED", "IN_PROGRESS", "COMPLETED", "CLOSED" ]
+            },
+            "who" : {
+              "$ref" : "#/components/schemas/doctor"
+            },
+            "assign_at" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
+            },
+            "at" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
+            },
+            "duration" : {
+              "type" : "number"
+            },
+            "url" : {
+              "type" : "string"
+            },
+            "channels" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/channel"
+              }
+            },
+            "preferred_channel" : {
+              "$ref" : "#/components/schemas/channel"
+            },
+            "clinical_notes" : {
+              "$ref" : "#/components/schemas/clinicalnotes"
+            },
+            "summary" : {
+              "$ref" : "#/components/schemas/consultationsummary"
+            }
+          }
+        },
+        "consultationsummary" : {
+          "type" : "object",
+          "properties" : {
+            "consultation" : {
+              "$ref" : "#/components/schemas/consultationservice/properties/id"
+            },
+            "summary" : {
+              "type" : "object",
+              "properties" : {
+                "duration" : {
+                  "type" : "number"
+                },
+                "prescription_url" : {
+                  "type" : "string"
+                },
+                "prescription" : {
+                  "$ref" : "#/components/schemas/prescription"
+                }
+              }
+            }
+          },
+          "description" : "Summraizes the outcome of a consultation"
+        },
+        "taxonomyitem" : {
+          "type" : "object",
+          "properties" : {
+            "taxonomy" : {
+              "$ref" : "#/components/schemas/taxonomy"
+            },
+            "id" : {
+              "type" : "string"
+            },
+            "taxonomyid" : {
+              "type" : "string"
+            },
+            "taxonomy_term" : {
+              "type" : "string"
+            },
+            "name" : {
+              "type" : "string"
+            },
+            "value" : {
+              "type" : "string"
+            }
+          }
+        },
+        "taxonomy" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "string"
+            },
+            "uri" : {
+              "type" : "string"
+            }
+          }
+        },
+        "servicechange" : {
+          "type" : "object",
+          "properties" : {
+            "change_type" : {
+              "type" : "string",
+              "enum" : [ "reschedule", "cancel", "missed", "complete", "update" ]
+            },
+            "change_reason" : {
+              "type" : "object",
+              "properties" : {
+                "reason" : {
+                  "type" : "string"
+                },
+                "additional_info" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "changed_properties" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "service" : {
+              "$ref" : "#/components/schemas/consultationservice"
+            }
+          }
+        },
+        "consultationtype" : {
+          "type" : "object",
+          "properties" : {
+            "type" : {
+              "type" : "string",
+              "enum" : [ "tele", "physical" ]
+            },
+            "subtype" : {
+              "type" : "string",
+              "enum" : [ "followup", "referral", "firstvisit", "secondopinion", "preliminary" ]
+            }
+          }
+        },
+        "networkside" : {
+          "type" : "string",
+          "enum" : [ "EU", "PROVIDER" ]
+        },
+        "consultationprotocol" : {
+          "type" : "object",
+          "properties" : {
+            "userverification" : {
+              "type" : "object",
+              "properties" : {
+                "required" : {
+                  "type" : "boolean"
+                },
+                "responsible" : {
+                  "$ref" : "#/components/schemas/networkside"
+                }
+              }
+            },
+            "preconsult" : {
+              "type" : "object",
+              "properties" : {
+                "required" : {
+                  "type" : "boolean"
+                },
+                "responsible" : {
+                  "$ref" : "#/components/schemas/networkside"
+                }
+              }
+            }
+          }
+        },
+        "header" : {
+          "type" : "object",
+          "properties" : {
+            "authtoken" : {
+              "type" : "string"
+            },
+            "signature" : {
+              "type" : "string"
+            },
+            "callbackurl" : {
+              "type" : "string"
+            },
+            "caller" : {
+              "type" : "object",
+              "properties" : {
+                "type" : {
+                  "type" : "string",
+                  "enum" : [ "provider", "app", "gateway" ]
+                },
+                "id" : {
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "xml" : {
+            "name" : "header"
+          }
+        },
+        "person" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "string"
+            },
+            "uhid" : {
+              "type" : "string"
+            },
+            "consentid" : {
+              "type" : "string"
+            },
+            "isActive" : {
+              "type" : "boolean"
+            },
+            "address" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/location.json"
+            },
+            "last_gps_location" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/location.json"
+            }
+          },
+          "xml" : {
+            "name" : "Person"
+          },
+          "allOf" : [ {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/person.json"
+          } ]
+        },
+        "doctor" : {
+          "type" : "object",
+          "properties" : {
+            "doctorid" : {
+              "type" : "string"
+            },
+            "signature" : {
+              "type" : "string"
+            },
+            "isActive" : {
+              "type" : "boolean"
+            },
+            "qualifications" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "supportedchannels" : {
+              "$ref" : "#/components/schemas/channel"
+            },
+            "rating" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/rating.json"
+            },
+            "item" : {
+              "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json"
+            },
+            "availability" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/availability"
+              }
+            }
+          },
+          "description" : "Defines a doctor",
+          "xml" : {
+            "name" : "User"
+          },
+          "allOf" : [ {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/person.json"
+          } ]
+        },
+        "channel" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "integer"
+            },
+            "name" : {
+              "type" : "string",
+              "enum" : [ "phone", "chat", "video", "audio", "physical" ]
+            }
+          },
+          "xml" : {
+            "name" : "channel"
+          }
+        },
+        "objectmap" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "http://schema.beckn.org/core/schema/0.7.1/tag.json"
+          }
+        },
+        "clinicalnotes" : {
+          "type" : "object",
+          "properties" : {
+            "chiefcomplaints" : {
+              "$ref" : "#/components/schemas/taxonomyitem"
+            },
+            "medicalhistory" : {
+              "$ref" : "#/components/schemas/taxonomyitem"
+            },
+            "allergies" : {
+              "$ref" : "#/components/schemas/taxonomyitem"
+            },
+            "previousconditions" : {
+              "$ref" : "#/components/schemas/taxonomyitem"
+            },
+            "otherinfo" : {
+              "$ref" : "#/components/schemas/objectmap"
+            }
+          }
+        },
+        "availability" : {
+          "type" : "object",
+          "properties" : {
+            "slots" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "type" : {
+                    "type" : "string",
+                    "enum" : [ "FREE", "BUSY" ]
+                  },
+                  "slot" : {
+                    "$ref" : "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+                  },
+                  "item" : {
+                    "$ref" : "http://schema.beckn.org/core/schema/0.7.1/item.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "prescription" : {
+          "type" : "object",
+          "properties" : {
+            "clinicalnotes" : {
+              "$ref" : "#/components/schemas/clinicalnotes"
+            },
+            "diagnosis" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "diagnosis" : {
+                    "$ref" : "#/components/schemas/taxonomyitem"
+                  }
+                }
+              }
+            },
+            "medicines" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "medication" : {
+                    "$ref" : "#/components/schemas/taxonomyitem"
+                  },
+                  "for" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "string"
+                    }
+                  },
+                  "regimen" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "regimen" : {
+                          "type" : "string"
+                        },
+                        "start" : {
+                          "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
+                        },
+                        "duration" : {
+                          "type" : "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "diagnostictests" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "test" : {
+                    "$ref" : "#/components/schemas/taxonomyitem"
+                  },
+                  "additional_info" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            },
+            "general_advice" : {
+              "$ref" : "#/components/schemas/objectmap"
+            },
+            "followup" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/time.json"
+            },
+            "referral" : {
+              "type" : "object",
+              "properties" : {
+                "referto_speciality" : {
+                  "type" : "string"
+                },
+                "notes" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "doctor" : {
+              "$ref" : "#/components/schemas/doctor"
+            }
+          }
+        },
+        "query" : {
+          "type" : "object",
+          "properties" : {
+            "operator" : {
+              "type" : "string",
+              "enum" : [ "OR", "AND" ]
+            },
+            "rules" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "condition" : {
+                    "type" : "string",
+                    "enum" : [ "IN", "NOT", "EQUAL" ]
+                  },
+                  "type" : {
+                    "type" : "string"
+                  },
+                  "key" : {
+                    "type" : "string"
+                  },
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "xml" : {
+            "name" : "Query"
+          }
+        },
+        "context" : {
+          "type" : "object",
+          "properties" : {
+            "domain" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/domain.json"
+            },
+            "action" : {
+              "type" : "string"
+            },
+            "version" : {
+              "type" : "string"
+            },
+            "ctx_id" : {
+              "type" : "string"
+            },
+            "timestamp" : {
+              "type" : "string",
+              "format" : "date-time"
+            }
+          },
+          "description" : "Describes the beckn message packet context"
+        },
+        "domain" : {
+          "type" : "string",
+          "description" : "Describes the domain of an object. Maintained by Beckn Foundation",
+          "enum" : [ "MOBILITY", "FINAL-MILE-DELIVERY", "FOOD-AND-BEVERAGE" ]
+        },
+        "ack" : {
+          "type" : "object",
+          "properties" : {
+            "context" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/context.json"
+            },
+            "body" : {
+              "type" : "object"
+            }
+          },
+          "description" : "Describes the ACK response"
+        },
+        "provider" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "string"
+            },
+            "name" : {
+              "type" : "string"
+            },
+            "website" : {
+              "type" : "string",
+              "format" : "url"
+            },
+            "contact" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/contact.json"
+            },
+            "api" : {
+              "$ref" : "https://schema.beckn.org/core/schema/0.7.1/api.json"
+            }
+          },
+          "description" : "Describes a provider. Extension not allowed"
+        }
+      },
+      "requestBodies" : {
+        "Body" : {
+          "description" : "Register a new Telemedicine Provider ( HSP )",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "context" : {
+                    "allOf" : [ {
+                      "$ref" : "#/components/schemas/context"
+                    }, {
+                      "$ref" : "#/components/schemas/header"
+                    } ]
+                  },
+                  "message" : {
+                    "type" : "object",
+                    "properties" : {
+                      "provider" : {
+                        "$ref" : "#/components/schemas/telehealthprovider"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "Body2" : {
+          "description" : "Call to finalize the consultation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "context" : {
+                    "allOf" : [ {
+                      "$ref" : "#/components/schemas/context"
+                    }, {
+                      "$ref" : "#/components/schemas/header"
+                    } ]
+                  },
+                  "message" : {
+                    "type" : "object",
+                    "properties" : {
+                      "consultationservice" : {
+                        "$ref" : "#/components/schemas/consultationservice"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "Body3" : {
+          "description" : "Call back function when the consultation was missed by HSP",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "context" : {
+                    "allOf" : [ {
+                      "$ref" : "#/components/schemas/context"
+                    }, {
+                      "$ref" : "#/components/schemas/header"
+                    } ]
+                  },
+                  "message" : {
+                    "type" : "object",
+                    "properties" : {
+                      "consultationservice" : {
+                        "type" : "array",
+                        "items" : {
+                          "$ref" : "#/components/schemas/consultationservice"
+                        }
+                      },
+                      "change" : {
+                        "$ref" : "#/components/schemas/servicechange"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "Body4" : {
+          "description" : "Call back function when the consult request is confirmed by the HSP",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "header" : {
+                    "$ref" : "#/components/schemas/header"
+                  },
+                  "consultationservice" : {
+                    "$ref" : "#/components/schemas/consultationservice"
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        }
+      },
+      "securitySchemes" : {
+        "uti_auth" : {
+          "type" : "oauth2",
+          "flows" : {
+            "implicit" : {
+              "authorizationUrl" : "http://catch.swagger.io/oauth/dialog",
+              "scopes" : {
+                "write:pets" : "",
+                "read:pets" : ""
+              }
+            }
+          }
+        },
+        "api_key" : {
+          "type" : "apiKey",
+          "name" : "api_key",
+          "in" : "header"
+        }
+      }
+    }
+  }
