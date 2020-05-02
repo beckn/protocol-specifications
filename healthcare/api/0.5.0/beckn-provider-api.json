@@ -85,7 +85,8 @@
         "/select": {
             "post": {
                 "tags": [
-                    "Provider APIs"
+                    "Gateway App Interface API",
+                    "Provider API"
                 ],
                 "requestBody": {
                     "description": "Call to finalize the consultation",
@@ -132,8 +133,8 @@
         "/update": {
             "post": {
                 "tags": [
-                    "App APIs",
-                    "Provider APIs"
+                    "Gateway App Interface API",
+                    "Provider API"
                 ],
                 "requestBody": {
                     "description": "Call back function when the consultation was missed by HSP",
@@ -202,7 +203,8 @@
         "/confirm": {
             "post": {
                 "tags": [
-                    "Provider APIs"
+                    "Gateway App Interface API",
+                    "Provider API"
                 ],
                 "requestBody": {
                     "description": "Call to finalize the consultation",
@@ -270,7 +272,8 @@
         "/add/clinicalnotes": {
             "post": {
                 "tags": [
-                    "Provider APIs"
+                    "Gateway App Interface API",
+                    "Provider API"
                 ],
                 "requestBody": {
                     "description": "Submit clinical notes of the consultation. This has to be done prior to the start of the consultation",

@@ -88,7 +88,8 @@
         "/on_select": {
             "post": {
                 "tags": [
-                    "App APIs"
+                    "Beckn App API",
+                    "Beckn Gateway Provider Interface API"
                 ],
                 "requestBody": {
                     "description": "Call back function when the consult request is confirmed by the HSP",
@@ -154,10 +155,42 @@
         "/on_confirm": {
             "post": {
                 "tags": [
-                    "App APIs"
+                    "Beckn App API",
+                    "Beckn Gateway Provider Interface API"
                 ],
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/Body4"
+                    "description": "Call back function when the consult request is confirmed by the HSP",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                            },
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header"
+                                            }
+                                        ]
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "consultation_service": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -189,7 +222,8 @@
         "/on_add/clinicalnotes": {
             "post": {
                 "tags": [
-                    "App APIs"
+                    "Beckn App API",
+                    "Beckn Gateway Provider Interface API"
                 ],
                 "requestBody": {
                     "description": "Call back function when clinical notes has been accepted by the HSP",
@@ -245,8 +279,8 @@
         "/on_update/service": {
             "post": {
                 "tags": [
-                    "App APIs",
-                    "Provider APIs"
+                    "Beckn App API",
+                    "Beckn Gateway Provider Interface API"
                 ],
                 "requestBody": {
                     "description": "Call back function when the consultation was missed by HSP",
