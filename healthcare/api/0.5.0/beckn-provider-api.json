@@ -67,13 +67,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
                                         },
                                         "message": {
-                                            "type" : "object",
-                                            "properties" : {
-                                                "ack" : {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -89,7 +88,19 @@
                     "Provider APIs"
                 ],
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/Body2"
+                    "description": "Call to finalize the consultation",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "consultationservice": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "200": {
@@ -103,13 +114,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                         },
                                         "message": {
-                                            "type" : "object",
-                                            "properties" : {
-                                                "ack" : {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -126,7 +136,41 @@
                     "Provider APIs"
                 ],
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/Body3"
+                    "description": "Call back function when the consultation was missed by HSP",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                            },
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
+                                            }
+                                        ]
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "consultationservice": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
+                                                }
+                                            },
+                                            "change": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/service_change.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -140,13 +184,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
                                         },
                                         "message": {
-                                            "type" : "object",
-                                            "properties" : {
-                                                "ack" : {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -162,7 +205,40 @@
                     "Provider APIs"
                 ],
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/Body2"
+                    "description": "Call to finalize the consultation",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                            },
+                                            {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
+                                            }
+                                        ]
+                                    },
+                                    "message": {
+                                        "message": {
+                                            "type": "object",
+                                            "properties": {
+                                                "consultationservice": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -176,13 +252,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
                                         },
                                         "message": {
-                                            "type" : "object",
-                                            "properties" : {
-                                                "ack" : {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -240,10 +315,10 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/context.json"
                                         },
                                         "message": {
-                                            "type" : "object",
-                                            "properties" : {
-                                                "ack" : {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
                                                 }
                                             }
                                         }
