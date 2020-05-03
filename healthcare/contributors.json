@@ -1,9 +1,9 @@
 {
     "list" : [
         {
-            "name" : "MFine",
+            "name" : "mfine",
             "img" : "",
-            "url" : "https://mfine.co",
+            "url" : "https://mfine.co/",
             "participants" : [
                 {
                     "name" : "Ajit Narayanan",
@@ -14,13 +14,78 @@
             ]
         },
         {
+            "name" : "Cure.Fit",
+            "img" : "",
+            "url" : "https://www.cure.fit/",
+            "participants" : [
+                {
+                    "name" : "Shamik Sharma",
+                    "email" : "shamik@curefit.com",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "1mg",
+            "img" : "",
+            "url" : "https://www.1mg.com/",
+            "participants" : [
+                {
+                    "name" : "Gaurav Agarwal",
+                    "email" : "gaurava@1mg.com",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "Practo",
+            "img" : "",
+            "url" : "https://www.practo.com/",
+            "participants" : [
+                {
+                    "name" : "Abhinav Lal",
+                    "email" : "abhinav@practo.com",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "iSPIRT",
+            "img" : "",
+            "url" : "https://ispirt.in/",
+            "participants" : [
+                {
+                    "name" : "Siddharth Shetty",
+                    "email" : "siddharth.shetty@ispirt.in",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
             "name" : "Beckn",
             "img" : "",
-            "url" : "https://beckn.org",
+            "url" : "https://beckn.org/",
             "participants" : [
                 {
                     "name" : "Ravi Prakash",
                     "email" : "ravi@beckn.org",
+                    "url" : "",
+                    "img" : ""
+                }
+            ]
+        },
+        {
+            "name" : "Beckn",
+            "img" : "",
+            "url" : "https://beckn.org/",
+            "participants" : [
+                {
+                    "name" : "Pramod Varma",
+                    "email" : "pramod@beckn.org",
                     "url" : "",
                     "img" : ""
                 }
