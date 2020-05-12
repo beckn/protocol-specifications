@@ -15,8 +15,7 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
         },
         "time" : {
-            "type" : "string",
-            "format" : "date-time"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/time.json"
         },
         "stops" : {
             "type" : "array",
@@ -56,19 +55,7 @@
                             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar_range.json"
                         },
                         "dimensions": {
-                            "type": "object",
-                            "minimum": 0,
-                            "properties": {
-                                "length": {
-                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json"
-                                },
-                                "breadth": {
-                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json"
-                                },
-                                "height": {
-                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json"
-                                }
-                            }
+                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/dimensions.json"
                         }
                     }
                 }
