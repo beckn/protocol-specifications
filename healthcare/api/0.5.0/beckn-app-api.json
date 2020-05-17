@@ -37,7 +37,7 @@
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                             },
                                             {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
                                             }
                                         ]
                                     },
@@ -47,7 +47,7 @@
                                             "services": {
                                                 "type": "array",
                                                 "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultationservice"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
                                                 }
                                             }
                                         }
@@ -104,7 +104,7 @@
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                             },
                                             {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
                                             }
                                         ]
                                     },
@@ -171,7 +171,7 @@
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                             },
                                             {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
                                             }
                                         ]
                                     },
@@ -233,7 +233,7 @@
                                 "type": "object",
                                 "properties": {
                                     "header": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/header.json"
                                     },
                                     "message": {
                                         "type": "object",

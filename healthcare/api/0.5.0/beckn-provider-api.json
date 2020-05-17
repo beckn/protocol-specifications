@@ -224,14 +224,12 @@
                                         ]
                                     },
                                     "message": {
-                                        "message": {
-                                            "type": "object",
-                                            "properties": {
-                                                "consultationservice": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
-                                                    }
+                                        "type": "object",
+                                        "properties": {
+                                            "consultationservice": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/healthcare/schema/0.5.0/consultation_service.json"
                                                 }
                                             }
                                         }
