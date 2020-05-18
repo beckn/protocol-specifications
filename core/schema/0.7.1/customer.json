@@ -9,7 +9,7 @@
             "type" : "string",
             "enum" : ["SINGLE", "GROUP"]
         },
-        "single" : {
+        "individual" : {
             "type" : "object",
             "properties" : {
                 "info" : {

@@ -5,7 +5,7 @@
     "description": "Describes the operator of a service. Extension not allowed",
     "type": "object",
     "properties" : {
-        "descriptor" : {
+        "profile" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/person.json"
         },
         "experience" : {
