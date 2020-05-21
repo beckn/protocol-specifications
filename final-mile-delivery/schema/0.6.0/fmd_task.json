@@ -9,17 +9,30 @@
             "type" : "string",
             "enum" : ["PICKUP", "DROP", "PICKUP-DROP"]
         },
+        "states" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string",
+                "enum": ["EN-ROUTE-TO-PICKUP", "AT-PICKUP", "PICKED-UP-PACKAGE", "EN-ROUTE-TO-DROP", "AT-DROP", "DROPPED-OFF-PACKAGE"]
+            }
+        },
         "service_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/service.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/stringschema/0.6.0/service.json#/properties/id"
         },
         "pickup": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/route.json"
         },
         "drop": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/route.json"
         },
         "package" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/package.json"
+        },
+        "est_distance" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json"
+        },
+        "est_price" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/price.json"
         }
     }
 }
