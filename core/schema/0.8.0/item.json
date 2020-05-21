@@ -1,0 +1,24 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.7.1",
+    "description": "Describes a catalog item. Allows for domain extension.",
+    "type": "object",
+    "properties": {
+        "id" : {
+            "type" : "string"
+        },
+        "descriptor" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/descriptor.json"
+        },
+        "price" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/price.json"
+        },
+        "category_id" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/category.json#/properties/id"
+        },
+        "tags" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/tag.json"
+        }
+    }
+}

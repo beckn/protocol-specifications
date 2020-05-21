@@ -1,0 +1,25 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_task.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.6.0",
+    "description": "Describes a task",
+    "type": "object",
+    "properties": {
+        "type" : {
+            "type" : "string",
+            "enum" : ["PICKUP", "DROP", "PICKUP-DROP"]
+        },
+        "service_id" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/service.json#/properties/id"
+        },
+        "pickup": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
+        },
+        "drop": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
+        },
+        "package" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/package.json"
+        }
+    }
+}

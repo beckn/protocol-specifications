@@ -17,7 +17,6 @@
                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/stop.json"
                     }
                 },
-                
                 "path" : {
                     "type" : "string"
                 },
