@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Gateway API",
         "description": "Beckn Gateway API spec for Final Mile Delivery",
-        "version": "0.5.1"
+        "version": "0.6.0"
     },
     "paths": {
         "/search": {
