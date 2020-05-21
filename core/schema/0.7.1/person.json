@@ -75,12 +75,6 @@
                             "type" : "string"
                         }
                     }
-                },
-                "ivr" : {
-                    "type" : "array",
-                    "items" : {
-                        "type" : "string"
-                    }
                 }
             }
         }

@@ -1,0 +1,146 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/schedule.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.7.4",
+    "description": "Describes schedule",
+    "type": "object",
+    "properties" : {
+        "config" : {
+            "weekend_days" : {
+                "type" : "array",
+                "items" : {
+                    "type" : "string",
+                    "enum" : ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+                }
+            },
+            "length_of_day" : {
+                "type" : "object",
+                "properties" : {
+                    "val" : {
+                        "type" : "integer",
+                        "default" : 24
+                    },
+                    "unit" : {
+                        "type" : "string",
+                        "default" : "hour"
+                    }
+                }
+            },
+            "refresh_at" : {
+                "type" : "string",
+                "format" : "date-time"
+            }
+        },
+        "year" : {
+            "type" :"object",
+            "properties" : {
+                "val" : {
+                    "type" : "integer"
+                },
+                "is_leap_year" : {
+                    "type" : "boolean"
+                },
+                "start_date" : {
+                    "type" : "string",
+                    "format" : "date-time"
+                },
+                "holidays" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "properties" : {
+                            "date" : {
+                                "type" : "string",
+                                "format" : "date"
+                            },
+                            "name" : {
+                                "type" : "string"
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        },
+        "month" : {
+            "jan" : {
+                
+            },
+            "feb" : {},
+            "mar" : {},
+            "apr" : {},
+            "may" : {},
+            "jun" : {},
+            "jul" : {},
+            "aug" : {},
+            "sep" : {},
+            "oct" : {},
+            "nov" : {},
+            "dec" : {}
+        },
+        "week" : {
+            "type" : "array",
+            "items" : {
+                "properties" : {
+                    "week" : {
+
+                    },
+                    "days" : {
+                        "type" : "object",
+                        "properties" : {
+                            "mon" : {
+                                "type" : "object",
+                                "properties" : {
+                                    "date" : {
+                                        "type" : "string",
+                                        "format" : "date"
+                                    },
+                                    "active" : {
+                                        "type" : "boolean"
+                                    }
+                                }
+                            },
+                            "tue" : {},
+                            "wed" : {},
+                            "thu" : {},
+                            "fri" : {},
+                            "sat" : {},
+                            "sun" : {}
+                        }
+                    }
+                }
+            }
+        },
+        "dates" : {
+            "type" : "array",
+            "items": {
+                "type" : "object",
+                "properties": {
+                    "val" : {
+                        "type" : "string",
+                        "format": "date"
+                    },
+                    "ext-attrs" : {
+                        "type" : "object"
+                    }
+                }
+            }
+        },
+        "today" : {
+            "type" : "object",
+            "properties": {
+                "slots" : {
+                    "type" : "array",
+                    "items" : {
+                        "open" : {
+                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/time.json"
+                        },
+                        "close" : {
+                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/time.json"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

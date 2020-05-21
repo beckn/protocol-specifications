@@ -1,15 +1,16 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Gateway API",
-        "description": "API Spec for Beckn Gateway",
-        "version": "1.0"
+        "title": "Beckn API",
+        "description": "Beckn Core API",
+        "version": "0.7.1"
     },
     "paths": {
         "/search": {
             "post": {
                 "tags": [
-                    "Beckn App Facing API"
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
                 ],
                 "description": "Search by intent",
                 "requestBody": {
@@ -55,7 +56,8 @@
         "/select": {
             "post": {
                 "tags": [
-                    "Beckn App Facing API"
+                    "Beckn App API",
+                    "Beckn Gateway API"
                 ],
                 "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
                 "requestBody": {
@@ -101,7 +103,8 @@
         "/confirm": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Confirm a Service. Equivalent to checkout operation",
                 "requestBody": {
@@ -147,7 +150,8 @@
         "/track": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Track a service or and item",
                 "requestBody": {
@@ -196,7 +200,8 @@
         "/cancel": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Cancel a Service",
                 "requestBody": {
@@ -242,7 +247,8 @@
         "/complete": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Complete a service",
                 "requestBody": {
@@ -288,7 +294,8 @@
         "/add": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
@@ -342,7 +349,8 @@
         "/remove": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Add a runtime object to a collection within a service instance object",
                 "requestBody": {
@@ -388,7 +396,8 @@
         "/update": {
             "post": {
                 "tags": [
-                   "Beckn App Facing API"
+                   "Beckn App API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Remove object",
                 "requestBody": {
@@ -442,7 +451,8 @@
         "/on_search": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
                 ],
                 "description": "Callback response to search",
                 "requestBody": {
@@ -491,7 +501,8 @@
         "/on_select": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
                 ],
                 "description": "Callback response to select/service",
                 "requestBody": {
@@ -537,7 +548,8 @@
         "/on_confirm": {
             "post": {
                 "tags": [
-                    "Beckn Provider Facing API"
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
                 ],
                 "description": "Callback response to confirm/service",
                 "requestBody": {
@@ -583,7 +595,8 @@
         "/on_track": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn Provider API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Provide tracking info",
                 "requestBody": {
@@ -629,7 +642,8 @@
         "/on_cancel": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn Provider API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Response to cancel service",
                 "requestBody": {
@@ -675,7 +689,8 @@
         "/on_add": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn Provider API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Returns updated service with added runtime object",
                 "requestBody": {
@@ -721,7 +736,8 @@
         "/on_remove": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn Provider API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Returns updated service with removed runtime object",
                 "requestBody": {
@@ -767,7 +783,8 @@
         "/on_update": {
             "post": {
                 "tags": [
-                   "Beckn Provider Facing API"
+                   "Beckn Provider API",
+                   "Beckn Gateway API"
                 ],
                 "description": "Returns updated service with updated runtime object",
                 "requestBody": {

@@ -2,18 +2,19 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Beckn Gateway API",
-        "description": "API Spec for Beckn Gateway",
-        "version": "1.0"
+        "description": "Beckn Gateway API spec for Final Mile Delivery",
+        "version": "0.5.1"
     },
     "paths": {
         "/search": {
             "post": {
                 "tags": [
-                    "Beckn App Facing API"
+                    "Beckn Provider Platform",
+                    "Beckn Gateway"
                 ],
-                "description": "Search by intent",
+                "description": "Search for Delivery Services",
                 "requestBody": {
-                    "description": "Beckn App searches for the Services using an Intent.",
+                    "description": "Beckn App searches for the Resource using an Intent.",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -23,7 +24,71 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/intent.json"
+                                        "type" : "object",
+                                        "properties" : {
+                                            "intent" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/intent.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalog": {
+            "post": {
+                "tags": [
+                    "Beckn App Facing API"
+                ],
+                "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "service" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "id": { 
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_service.json#/properties/id"
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -69,7 +134,18 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": { 
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
+                                            },
+                                            "selected_items" : {
+                                                "type" : "array",
+                                                "items" : {
+                                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/id" 
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -103,7 +179,7 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Confirm a Service. Equivalent to checkout operation",
+                "description": "Confirm a delivery. Equivalent to checkout operation",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -115,7 +191,12 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -149,7 +230,7 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Track a service or and item",
+                "description": "Track a Delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -161,9 +242,11 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "id": {
-                                            "type" : "string",
-                                            "description" : "ID of the trackable object"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
+                                            }
                                         }
                                     }
                                 }
@@ -198,7 +281,7 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Cancel a Service",
+                "description": "Cancel a Delivery Service",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -210,53 +293,12 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json/properties/id"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#//properties/id"
+                                            }
                                         }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/complete": {
-            "post": {
-                "tags": [
-                   "Beckn App Facing API"
-                ],
-                "description": "Complete a service",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
                                     }
                                 }
                             }
@@ -290,7 +332,7 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Add a runtime object to a collection within a service instance object",
+                "description": "Add packages to the delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -305,10 +347,13 @@
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery.json#/properties/id"
                                             },
-                                            "runtime_object": {
-                                                "type": "object"
+                                            "packages" : {
+                                                "type" : "array",
+                                                "items" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/package.json"
+                                                }
                                             }
                                         }
                                     }
@@ -344,7 +389,7 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Add a runtime object to a collection within a service instance object",
+                "description": "Remove package from delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -352,11 +397,23 @@
                             "schema": {
                                 "type" : "object",
                                 "properties" : {
-                                    "id": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
-                                    "runtime_object": {
-                                        "type": "object"
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/trip/properties/id"
+                                            },
+                                            "packages" : {
+                                                "type" : "array",
+                                                "items" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/package.json#/properties/id"
+                                                }
+                                                
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -390,7 +447,7 @@
                 "tags": [
                    "Beckn App Facing API"
                 ],
-                "description": "Remove object",
+                "description": "Remove traveller from trip",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -404,11 +461,8 @@
                                     "message" : {
                                         "type": "object",
                                         "properties": {
-                                            "id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
-                                            },
-                                            "runtime_object": {
-                                                "type": "object"
+                                            "package": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/package.json"
                                             }
                                         }
                                     }
@@ -456,10 +510,227 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "type" : "array",
-                                        "items" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type" : "object",
+                                        "properties" : {
+                                            "services" : {
+                                                "type" : "array",
+                                                "items" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_service.json"
+                                                }
+                                            }
                                         }
+                                        
+                                    }
+                                }
+                            },
+                            "examples" : {
+                                "context" : {
+                                    "domain" : "FINAL-MILE-DELIVERY",
+                                    "action" : "on_search",
+                                    "version": "0.6.0",
+                                    "transaction_id": "1979712-9287923-982938",
+                                    "message_id": "io83o23-3e9283je2-23j232e",
+                                    "timestamp": "2020-05-28 13:54:23",
+                                    "token" : "dlj392832e.23e23e.3e9893"
+                                },
+                                "message" : {
+                                    "services" : [
+                                        {
+                                            "id" : "392j3o23e-23e928-832329jdj833",
+                                            "has_catalog" : true,
+                                            "provider" : {
+                                                "id" : "392j3o23e-23e928-832329jdj833",
+                                                "name" : "Dunzo",
+                                                "website" : "dunzo.com",
+                                                "poc" : {
+                                                    "contact" : {
+                                                        "email" : "abc@dunzo.in",
+                                                        "mobile" : {
+                                                            "country_code" : "+91",
+                                                            "number" : "9737878776"
+                                                        },
+                                                        "landline" : {
+                                                            "type" : "object",
+                                                            "properties": {
+                                                                "country_code" : "+91",
+                                                                "std_code" : "124",
+                                                                "number" : "6116949",
+                                                                "extension" : "1202"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "api" : {
+                                                    "url" : "api.dunzo.in",
+                                                    "exp" : "2020-12-31 23:59:59"
+                                                }
+                                            },
+                                            "matched_items" : [
+                                                {
+                                                    "id" : "123-123112-231212",
+                                                    "descriptor" : {
+                                                        "name" : "FOOD"
+                                                    },
+                                                    "distance" : {
+                                                        "value" : "12",
+                                                        "unit" : "km"
+                                                    },
+                                                    "price" : {
+                                                        "estimated_value" : "25",
+                                                        "computed_value" : "25",
+                                                        "unit": "INR"
+                                                    },
+                                                    "category_id" : "12"
+                                                }
+                                            ],
+                                            "selected_items" : []
+                                        },
+                                        {
+                                            "id" : "8658y87-gdr65yt-ki7yi75itfd",
+                                            "has_catalog" : true,
+                                            "provider" : {
+                                                "id" : "392j3o23e-23e928-832329jdj833",
+                                                "name" : "Delhivery",
+                                                "website" : "delhivery.com",
+                                                "poc" : {
+                                                    "contact" : {
+                                                        "email" : "abc@delhivery.in",
+                                                        "mobile" : {
+                                                            "country_code" : "+91",
+                                                            "number" : "9737878776"
+                                                        },
+                                                        "landline" : {
+                                                            "type" : "object",
+                                                            "properties": {
+                                                                "country_code" : "+91",
+                                                                "std_code" : "124",
+                                                                "number" : "6116949",
+                                                                "extension" : "1202"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "api" : {
+                                                    "url" : "api.dunzo.in",
+                                                    "exp" : "2020-12-31 23:59:59"
+                                                }
+                                            },
+                                            "matched_items" : [
+                                                {
+                                                    "id" : "123-123112-231212",
+                                                    "descriptor" : {
+                                                        "name" : "FOOD"
+                                                    },
+                                                    "price" : {
+                                                        "estimated_value" : "25",
+                                                        "computed_value" : "25",
+                                                        "unit": "INR"
+                                                    },
+                                                    "category_id" : "12"
+                                                }
+                                            ],
+                                            "selected_items" : []
+                                        },
+                                        {
+                                            "id" : "392j3o23e-23e928-832329jdj833",
+                                            "has_catalog" : true,
+                                            "provider" : {
+                                                "id" : "392j3o23e-23e928-832329jdj833",
+                                                "name" : "Shadowfax",
+                                                "website" : "dunzo.com",
+                                                "poc" : {
+                                                    "contact" : {
+                                                        "email" : "abc@dunzo.in",
+                                                        "mobile" : {
+                                                            "country_code" : "+91",
+                                                            "number" : "9737878776"
+                                                        },
+                                                        "landline" : {
+                                                            "type" : "object",
+                                                            "properties": {
+                                                                "country_code" : "+91",
+                                                                "std_code" : "124",
+                                                                "number" : "6116949",
+                                                                "extension" : "1202"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "api" : {
+                                                    "url" : "api.dunzo.in",
+                                                    "exp" : "2020-12-31 23:59:59"
+                                                }
+                                            },
+                                            "matched_items" : [
+                                                {
+                                                    "id" : "123-123112-231212",
+                                                    "descriptor" : {
+                                                        "name" : "FOOD"
+                                                    },
+                                                    "price" : {
+                                                        "estimated_value" : "25",
+                                                        "computed_value" : "25",
+                                                        "unit": "INR"
+                                                    },
+                                                    "category_id" : "12"
+                                                }
+                                            ],
+                                            "selected_items" : []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_catalog": {
+            "post": {
+                "tags": [
+                    "Beckn Provider"
+                ],
+                "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
+                                    },
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "catalog": { 
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/fmd_catalog.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/error.json"
                                     }
                                 }
                             }
@@ -505,7 +776,12 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type" : "object",
+                                        "properties" : {
+                                            "service" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_service.json"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -525,6 +801,9 @@
                                         },
                                         "message" : {
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/error.json"
                                         }
                                     }
                                 }
@@ -551,7 +830,15 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type" : "object",
+                                        "properties" : {
+                                            "service" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/error.json"
                                     }
                                 }
                             }
@@ -597,7 +884,7 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/tracking.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/tracking.json"
                                     }
                                 }
                             }
@@ -631,7 +918,7 @@
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Response to cancel service",
+                "description": "Response to cancel delivery",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -643,7 +930,7 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.1/delivery_service.json#/properties/id"
                                     }
                                 }
                             }
@@ -672,12 +959,12 @@
                 }
             }
         },
-        "/on_add": {
+        "/on_add/stop": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Returns updated service with added runtime object",
+                "description": "Updated trip with new stop",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -689,7 +976,7 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type" : "object"
                                     }
                                 }
                             }
@@ -718,12 +1005,12 @@
                 }
             }
         },
-        "/on_remove": {
+        "/on_remove/stop": {
             "post": {
                 "tags": [
                    "Beckn Provider Facing API"
                 ],
-                "description": "Returns updated service with removed runtime object",
+                "description": "Updated trip with removed stop",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -735,53 +1022,7 @@
                                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
                                     },
                                     "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/ack.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_update": {
-            "post": {
-                "tags": [
-                   "Beckn Provider Facing API"
-                ],
-                "description": "Returns updated service with updated runtime object",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/context.json"
-                                    },
-                                    "message" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json"
+                                        "type" : "object"
                                     }
                                 }
                             }
