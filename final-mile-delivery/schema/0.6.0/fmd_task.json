@@ -1,38 +1,119 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_task.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.6.0",
+    "version": "0.6.0",
     "description": "Describes a task",
     "type": "object",
     "properties": {
-        "type" : {
-            "type" : "string",
-            "enum" : ["PICKUP", "DROP", "PICKUP-DROP"]
+        "id": {
+            "type": "string"
         },
-        "states" : {
-            "type" : "array",
-            "items" : {
-                "type" : "string",
-                "enum": ["EN-ROUTE-TO-PICKUP", "AT-PICKUP", "PICKED-UP-PACKAGE", "EN-ROUTE-TO-DROP", "AT-DROP", "DROPPED-OFF-PACKAGE"]
+        "service_id": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/stringschema/0.6.0/fmd_service.json#/properties/id"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "SINGLE-PICKUP-SINGLE-DROP",
+                "MULTI-PICKUP-SINGLE-DROP",
+                "SINGLE-PICKUP-MULTI-DROP",
+                "MULTI-PICKUP-MULTI-DROP-ORDERED",
+                "MULTI-PICKUP-MULTI-DROP-UNORDERED"
+            ]
+        },
+        "states": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "enum": [
+                            "SEARCHING-FOR-DELIVERY",
+                            "DELIVERY-AGENT-ASSIGNED",
+                            "EN-ROUTE-TO-PICKUP",
+                            "AT-PICKUP",
+                            "COMPLETED-PAYMENT",
+                            "PICKED-UP-PACKAGE",
+                            "EN-ROUTE-TO-DROP",
+                            "AT-DROP",
+                            "AT-DOOR",
+                            "DROPPED-OFF-PACKAGE",
+                            "DELIVERY-AGENT-CANCELLED",
+                            "SENDER-CANCELLED",
+                            "PAYMENT-COMPLETE",
+                            "PAYMENT-FAILED",
+                            "DELIVERY-COMPLETE",
+                            "ADDED-PICKUP-STOP",
+                            "ADDED-DROP-STOP",
+                            "UPDATED-PICKUP-STOP",
+                            "UPDATED-DROP-STOP",
+                            "UPDATED-PACKAGE"
+                        ]
+                    },
+                    "update_info" : {
+                        "type" : "object",
+                        "properties": {
+                            "label" : {
+                                "type" : "string"
+                            },
+                            "description" : {
+                                "type" : "string"
+                            },
+                            "updated_at": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "updated_by": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
             }
         },
-        "service_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/stringschema/0.6.0/service.json#/properties/id"
-        },
         "pickup": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/route.json"
+            "type" : "object",
+            "properties": {
+                "location" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                },
+                "route" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/route.json"
+                }
+            }
         },
         "drop": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/route.json"
+            "type" : "object",
+            "properties": {
+                "location" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                },
+                "route" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/route.json"
+                }
+            }
         },
-        "package" : {
+        "package": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/package.json"
         },
-        "est_distance" : {
+        "est_distance": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json"
         },
-        "est_price" : {
+        "price": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/price.json"
+        },
+        "instructions": {
+            "type": "string"
+        },
+        "sender" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/person.json"
+        },
+        "receiver" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/person.json"
+        },
+        "delivery_agent": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_agent.json"
         }
     }
 }

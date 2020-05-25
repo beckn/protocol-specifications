@@ -1,7 +1,7 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/offer.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.7.1",
+    "version" : "0.8.0",
     "description": "Describes an offer",
     "type": "object",
     "properties" : {
@@ -9,7 +9,7 @@
             "type" : "string"
         },
         "descriptor" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/descriptor.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
         "code" : {
             "type" : "string"
@@ -23,19 +23,19 @@
             "items" : {
                 "oneOf" : [
                     {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/category.json#properties/id"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
                     },
                     {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/service.json#properties/id"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#properties/id"
                     },
                     {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/item.json#properties/id"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#properties/id"
                     }
                 ]
             }
         },
         "schedule" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/schedule.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
         }
     }
 }

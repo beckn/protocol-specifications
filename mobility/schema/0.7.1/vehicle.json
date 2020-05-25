@@ -33,16 +33,15 @@
         },
         "registration" : {
             "type" : "object",
-                "properties" : {
-                    "category" : {
-                        "type" : "string",
-                        "enum" : ["PERSONAL", "COMMERCIAL", "OTHER"]
-                    },
-                    "number" : {
-                        "type" : "string"
-                    }
+            "properties" : {
+                "category" : {
+                    "type" : "string",
+                    "enum" : ["PERSONAL", "COMMERCIAL", "OTHER"]
+                },
+                "number" : {
+                    "type" : "string"
                 }
-
+            }
         }
         
     }        

@@ -1,0 +1,21 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_agent.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.7.1",
+    "description": "Describes a delivery agent",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/operator.json"
+        },
+        {
+            "properties": {
+                "location": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                },
+                "vehicle" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.7.1/vehicle.json"
+                }
+            }
+        }
+    ]
+}

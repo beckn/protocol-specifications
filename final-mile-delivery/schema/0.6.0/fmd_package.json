@@ -8,20 +8,46 @@
         "id" : {
             "type" : "string"
         },
+        "descriptor" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+        },
         "category" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/category.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
         },
         "contents" : {
             "type" : "array",
             "items" : {
-                "type" : "string"
+                "allOf" : [
+                    {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json"
+                    },
+                    {
+                        "properties": {
+                            "quantity" : {
+                                "type" : "integer",
+                                "minimum": 1
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "price_range" : {
+            "type" : "object",
+            "properties": {
+                "min" : {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/price.json"
+                },
+                "max" : {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/price.json"
+                }
             }
         },
         "weight_range": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar_range.json"
         },
         "dimensions": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/dimensions.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/dimensions.json"
         }
     }
 }    
