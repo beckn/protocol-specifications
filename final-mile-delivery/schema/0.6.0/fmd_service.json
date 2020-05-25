@@ -28,9 +28,6 @@
             "items" : {
                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/offer.json"
             }
-        },
-        "task" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_task.json"
         }
     },
     "examples": [
