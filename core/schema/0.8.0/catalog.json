@@ -5,6 +5,12 @@
     "description": "Describes the service catalog",
     "type": "object",
     "properties" : {
+        "id" : {
+            "type" : "string"
+        },
+        "brand_id" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+        },
         "items" : {
             "type" : "array",
             "items" : {

@@ -1,18 +1,24 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.7.1",
+    "version" : "0.8.0",
     "description": "Describes contents of the service object. Allows for domain extension.",
     "type": "object",
     "properties": {
         "id" : {
             "type" : "string"
         },
-        "catalog" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/catalog.json"
+        "has_catalog" : {
+            "type" : "boolean"
         },
         "provider" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/provider.json"
+        },
+        "matched_items" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+        },
+        "schedule" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
         }
     }
 }

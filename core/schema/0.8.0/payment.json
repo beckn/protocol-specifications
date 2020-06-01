@@ -8,11 +8,16 @@
         "id" : {
             "type" : "string"
         },
-        "channel" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+        "url" : {
+            "type" : "string",
+            "format" : "iri-reference"
         },
-        "funding_source" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+        "status" : {
+            "type" : "string"
+        },
+        "updated_at" : {
+            "type" : "string",
+            "format" : "date-time"
         }
     }
 }
