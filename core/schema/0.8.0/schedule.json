@@ -13,19 +13,6 @@
                     "enum" : ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
                 }
             },
-            "length_of_day" : {
-                "type" : "object",
-                "properties" : {
-                    "val" : {
-                        "type" : "integer",
-                        "default" : 24
-                    },
-                    "unit" : {
-                        "type" : "string",
-                        "default" : "hour"
-                    }
-                }
-            },
             "refresh_at" : {
                 "type" : "string",
                 "format" : "date-time"
@@ -36,9 +23,6 @@
             "properties" : {
                 "val" : {
                     "type" : "integer"
-                },
-                "is_leap_year" : {
-                    "type" : "boolean"
                 },
                 "start_date" : {
                     "type" : "string",
@@ -61,22 +45,6 @@
                     }
                 }
             }
-        },
-        "month" : {
-            "jan" : {
-                
-            },
-            "feb" : {},
-            "mar" : {},
-            "apr" : {},
-            "may" : {},
-            "jun" : {},
-            "jul" : {},
-            "aug" : {},
-            "sep" : {},
-            "oct" : {},
-            "nov" : {},
-            "dec" : {}
         },
         "week" : {
             "type" : "array",

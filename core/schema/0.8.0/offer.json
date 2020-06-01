@@ -14,28 +14,22 @@
         "code" : {
             "type" : "string"
         },
-        "scope" : {
+        "category_id" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
+        },
+        "service_id" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
+        },
+        "item_id" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
+        },
+        "start_date" : {
             "type" : "string",
-            "enum" : ["CATEGORY", "SERVICE", "ITEM"]
+            "format" : "date-time"
         },
-        "applied_on" : {
-            "type" : "array",
-            "items" : {
-                "oneOf" : [
-                    {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
-                    },
-                    {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#properties/id"
-                    },
-                    {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#properties/id"
-                    }
-                ]
-            }
-        },
-        "schedule" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
+        "end_date" : {
+            "type" : "string",
+            "format" : "date-time"
         }
     }
 }

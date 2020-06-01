@@ -10,7 +10,7 @@
         },
         "type" : {
             "type" : "string",
-            "enum" : ["CONFIRMATION_POLICY", "PAYMENT_POLICY", "CANCELLATION_POLICY", "REFUND_POLICY"]
+            "enum" : ["CONFIRMATION_POLICY", "PAYMENT_POLICY", "CANCELLATION_POLICY", "", "REFUND_POLICY"]
         },
         "parent_policy_id" : {
             "type" : "string",
@@ -36,6 +36,5 @@
                 }
             }
         }
-        
     }
 }

@@ -20,44 +20,10 @@
       ]
     },
     "gps": {
-      "type": "object",
-      "properties": {
-        "lat": {
-          "type": "string"
-        },
-        "lon": {
-          "type": "string"
-        }
-      }
+      "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/gps.json"
     },
     "address": {
-      "type": "object",
-      "properties": {
-        "door": {
-          "type": "string"
-        },
-        "building": {
-          "type": "string"
-        },
-        "street": {
-          "type": "string"
-        },
-        "area": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "state" : {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "area_code": {
-          "type": "string"
-        }
-      }
+      "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/address.json"
     },
     "station_code": {
       "type": "string"
@@ -66,40 +32,13 @@
       "type": "string"
     },
     "city": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string"
-        }
-      }
+      "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/city.json"
     },
     "country": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string"
-        }
-      }
+      "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/country.json"
     },
     "circle": {
-      "type": "object",
-      "properties": {
-        "lat": {
-          "type": "string"
-        },
-        "lon": {
-          "type": "string"
-        },
-        "radius": {
-          "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/scalar.json"
-        }
-      }
+      "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/circle.json"
     },
     "polygon": {
       "type": "string"
