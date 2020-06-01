@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/package.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_package.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.6.0",
     "description": "Describes the package object",
@@ -9,7 +9,7 @@
             "type" : "string"
         },
         "parent_package_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/package.json#/properties/id"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_package.json#/properties/id"
         },
         "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
