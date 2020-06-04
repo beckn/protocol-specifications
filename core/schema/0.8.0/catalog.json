@@ -9,14 +9,14 @@
             "type" : "string"
         },
         "items" : {
-            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/items",
+            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/items",
             "type" : "array",
             "items" : {
-                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json"
+                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json"
             }
         },
         "ttl" : {
-            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/ttl",
+            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/ttl",
             "type" : "integer",
             "minimum" : 0
         }
