@@ -8,17 +8,17 @@
         "id" : {
             "type" : "string"
         },
-        "brand_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
-        },
         "items" : {
+            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/items",
             "type" : "array",
             "items" : {
                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json"
             }
         },
         "ttl" : {
-            "type" : "string"
+            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/item.json#/properties/ttl",
+            "type" : "integer",
+            "minimum" : 0
         }
     }
 }

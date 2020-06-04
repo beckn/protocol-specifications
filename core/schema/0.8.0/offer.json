@@ -6,6 +6,7 @@
     "type": "object",
     "properties" : {
         "id" : {
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id",
             "type" : "string"
         },
         "descriptor" : {
@@ -14,14 +15,32 @@
         "code" : {
             "type" : "string"
         },
-        "category_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
-        },
-        "service_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
-        },
-        "item_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#properties/id"
+        "applies_to" : {
+            "type" : "object",
+            "description" : "",
+            "properties": {
+                "scope" : {
+                    "type" : "string",
+                    "enum" : ["SERVICE", "CATEGORY", "ITEM"],
+                    "description": "This can be extended by domain beyond the SERVICE, CATEGORY and ITEM"
+                },
+                "ids" : {
+                    "type" : "array",
+                    "items" : {
+                        "oneOf" : [
+                            {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                            },
+                            {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+                            },
+                            {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                            }
+                        ]
+                    }
+                }
+            }
         },
         "start_date" : {
             "type" : "string",

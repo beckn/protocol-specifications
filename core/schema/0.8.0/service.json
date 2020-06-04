@@ -6,7 +6,12 @@
     "type": "object",
     "properties": {
         "id" : {
+            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id",
             "type" : "string"
+        },
+        "state" : {
+            "type" : "string",
+            "enum" : ["AVAILABLE-TO-PROMISE", "PAYMENT-PENDING", "CONFIRMED", "CANCELLED"]
         },
         "has_catalog" : {
             "type" : "boolean"
@@ -19,6 +24,9 @@
         },
         "schedule" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
+        },
+        "order" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json"
         }
     }
 }
