@@ -8,9 +8,14 @@
         "id" : {
             "type" : "string"
         },
-        "url" : {
-            "type" : "string",
-            "format" : "iri-reference"
+        "payment_address" : {
+            "type" : "object",
+            "properties" : {
+                "type" : {
+                    "type" : "string",
+                    "enum" : ["URI", "VPA"]
+                }
+            }
         },
         "status" : {
             "type" : "string"
