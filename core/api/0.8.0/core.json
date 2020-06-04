@@ -622,6 +622,9 @@
                                             "category_id" : {
                                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
                                             },
+                                            "brand_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+                                            },
                                             "item_id" : {
                                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
                                             }
