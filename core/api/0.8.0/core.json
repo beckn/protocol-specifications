@@ -549,7 +549,7 @@
                                                 "type" : "object",
                                                 "properties" : {
                                                     "id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/service.json#/properties/id"
                                                     },
                                                     "filter" : {
                                                         "type" : "object",
