@@ -1,21 +1,35 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
-    "description": "Describes the dimensions of a real-world object. Maintained by Beckn Foundation",
-    "type" : "object",
-    "properties" : {
-        "name" : {
+    "version": "0.8.0",
+    "description": "Describes the description of a real-world object. Maintained by Beckn Foundation",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "code" : {
             "type" : "string"
         },
-        "short" : {
-            "type" : "string"
+        "short_desc": {
+            "type": "string"
         },
-        "long" : {
-            "type" : "string"
+        "long_desc": {
+            "type": "string"
         },
-        "image" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/image.json"
+        "images": {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/image.json"
+            }
+        },
+        "audio" : {
+            "type" : "string",
+            "format" : "uri"
+        },
+        "3d_render" : {
+            "type" : "string",
+            "format": "uri"
         }
     }
 }

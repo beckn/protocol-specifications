@@ -13,11 +13,14 @@
             "type" : "string",
             "enum" : ["AVAILABLE-TO-PROMISE", "PAYMENT-PENDING", "CONFIRMED", "CANCELLED"]
         },
-        "has_catalog" : {
-            "type" : "boolean"
+        "catalog_ids" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string"
+            }
         },
         "provider" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/provider.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/provider.json"
         },
         "matched_items" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"

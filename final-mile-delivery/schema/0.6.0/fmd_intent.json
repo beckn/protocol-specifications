@@ -5,8 +5,29 @@
     "description": "Describes the final mile delivery search intent",
     "type": "object",
     "properties": {
-        "category_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.4/category.json#/properties/id"
+        "category" : {
+            "type" : "object",
+            "properties": {
+                "id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+                }
+            }
+        },
+        "provider" : {
+            "type" : "object",
+            "properties": {
+                "id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+                }
+            }
+        },
+        "service" : {
+            "type" : "object",
+            "properties": {
+                "id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                }
+            }
         },
         "pickup": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
@@ -18,7 +39,59 @@
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_package.json"
         },
         "tags": {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/tags.json"
+            "type" : "array",
+            "items": {
+                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/tag.json"
+            }
         }
-    }
+    },
+    "examples": [
+        {
+            "category" : {
+                "id" : 12
+            },
+            "provider" : {
+                "id" : null
+            },
+            "service" : {
+                "id" : null
+            },
+            "pickup" : {
+                "gps" : {
+                    "lat" : 22.445422,
+                    "lon" : 77.982739
+                }
+            },
+            "drop" : {
+                "gps" : {
+                    "lat" : 22.445422,
+                    "lon" : 77.982739
+                }
+            },
+            "package" : {
+                "descriptor" : {
+                    "name" : ""
+                },
+                "contents" : [
+                    {
+                        "id" : "121231-1412-121231",
+                        "descriptor" : {
+                            "name" : "Chicken Lasagna",
+                            "code" : "CL-009"
+                        },
+                        "quantity" : 1
+                    },
+                    {
+                        "id" : "121231-1412-09238",
+                        "descriptor" : {
+                            "name" : "Mushroom Risotto",
+                            "code" : "MR-129"
+                        },
+                        "quantity" : 1
+                    }
+                ]
+            },
+            "tags" : []
+        }
+    ]
 }

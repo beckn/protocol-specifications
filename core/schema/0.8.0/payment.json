@@ -1,28 +1,31 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
+    "version": "0.8.0",
     "description": "Describes a payment",
     "type": "object",
-    "properties" : {
-        "id" : {
-            "type" : "string"
+    "properties": {
+        "id": {
+            "type": "string"
         },
-        "payment_address" : {
-            "type" : "object",
-            "properties" : {
-                "type" : {
-                    "type" : "string",
-                    "enum" : ["URI", "VPA"]
+        "payment_address": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "URI",
+                        "VPA"
+                    ]
                 }
             }
         },
-        "status" : {
-            "type" : "string"
+        "status": {
+            "type": "string"
         },
-        "updated_at" : {
-            "type" : "string",
-            "format" : "date-time"
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
         }
     }
 }

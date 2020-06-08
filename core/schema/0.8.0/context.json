@@ -1,0 +1,51 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes the beckn message packet context",
+    "type": "object",
+    "properties": {
+        "domain": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/domain.json"
+        },
+        "action": {
+            "type": "string",
+            "enum": [
+                "search",
+                "select",
+                "confirm",
+                "add",
+                "remove",
+                "complete",
+                "cancel",
+                "update",
+                "on_search",
+                "on_select",
+                "on_confirm",
+                "on_add",
+                "on_remove",
+                "on_cancel",
+                "on_update",
+                "register",
+                "on_register",
+                "lookup",
+                "on_lookup",
+                "tokens",
+                "on_tokens"
+            ]
+        },
+        "version": {
+            "type": "string"
+        },
+        "transaction_id": {
+            "type": "string"
+        },
+        "message_id": {
+            "type": "string"
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}
