@@ -1,26 +1,31 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/policy.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.7.1",
+    "version": "0.8.0",
     "description": "Describes a policy. Allows for domain extension.",
     "type": "object",
     "properties": {
-        "id" : {
-            "type" : "string"
+        "id": {
+            "type": "string"
         },
-        "type" : {
-            "type" : "string",
-            "enum" : ["CONFIRMATION_POLICY", "PAYMENT_POLICY", "CANCELLATION_POLICY", "", "REFUND_POLICY"]
+        "descriptor" : {
+
         },
-        "parent_policy_id" : {
-            "type" : "string",
-            "default" : null
+        "type": {
+            "type": "string",
+            "enum": [
+                "CONFIRMATION_POLICY",
+                "PAYMENT_POLICY",
+                "CANCELLATION_POLICY",
+                "REFUND_POLICY"
+            ]
         },
-        "heading" : {
-            "type" : "string"
+        "parent_policy_id": {
+            "type": "string",
+            "default": null
         },
-        "terms" : {
-            "type" : "object"
+        "terms": {
+            "type": "object"
         }
     }
 }

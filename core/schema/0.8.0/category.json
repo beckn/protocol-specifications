@@ -1,18 +1,19 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
+    "version": "0.8.0",
     "description": "Describes a category",
     "type": "object",
-    "properties" : {
-        "id" : {
-            "type" : "string"
+    "properties": {
+        "id": {
+            "type": "string"
         },
-        "parent_category_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+        "parent_category_id": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
         },
-        "descriptor" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
-        }
+        "descriptor": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+        },
+        "tags": {}
     }
 }

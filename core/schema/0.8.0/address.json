@@ -1,33 +1,36 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/address.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
+    "version": "0.8.0",
     "description": "Describes an address",
     "type": "object",
-    "properties" : {
+    "properties": {
         "door": {
             "type": "string"
-          },
-          "building": {
+        },
+        "building": {
             "type": "string"
-          },
-          "street": {
+        },
+        "street": {
             "type": "string"
-          },
-          "area": {
+        },
+        "locality": {
             "type": "string"
-          },
-          "city": {
+        },
+        "ward" : {
             "type": "string"
-          },
-          "state" : {
+        },
+        "city": {
             "type": "string"
-          },
-          "country": {
+        },
+        "state": {
             "type": "string"
-          },
-          "area_code": {
+        },
+        "country": {
             "type": "string"
-          }
+        },
+        "area_code": {
+            "type": "string"
+        }
     }
 }

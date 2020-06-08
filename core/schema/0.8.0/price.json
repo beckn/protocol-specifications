@@ -1,17 +1,17 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/price.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/price.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.7.1",
+    "version": "0.8.0",
     "description": "Describes the price of a object. Allows for domain extension.",
     "type": "object",
     "properties": {
         "currency": {
             "type": "string"
         },
-        "estimated_value" : {
+        "estimated_value": {
             "type": "number"
         },
-        "computed_value" : {
+        "computed_value": {
             "type": "number"
         },
         "listed_value": {
@@ -21,35 +21,35 @@
             "type": "number"
         },
         "range": {
-            "min" : {
-                "type" : "number"
+            "min": {
+                "type": "number"
             },
-            "max" : {
-                "type" : "number"
+            "max": {
+                "type": "number"
             }
         },
         "unit": {
             "type": "string"
         },
         "discount": {
-            "type" : "number"
+            "type": "number"
         },
-        "tax" : {
-            "type" : "object",
-            "properties" : {
-                "computed" : {
+        "tax": {
+            "type": "object",
+            "properties": {
+                "computed": {
                     "type": "number"
                 },
-                "breakup" : {
-                    "type" : "array",
-                    "items" : {
-                        "type" : "object",
-                        "properties" : {
-                            "line_item" : {
-                                "type" : "string"
+                "breakup": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "line_item": {
+                                "type": "string"
                             },
-                            "amount" : {
-                                "type" : "number"
+                            "amount": {
+                                "type": "number"
                             }
                         }
                     }
