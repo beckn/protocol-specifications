@@ -12,6 +12,9 @@
                 "quantity" : {
                     "type" : "integer",
                     "minimum": 1
+                },
+                "fragile" : {
+                    "type" : "boolean"
                 }
             }
         }

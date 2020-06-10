@@ -14,6 +14,12 @@
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
             }
         },
+        "brands"  : {
+            "type": "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json"
+            }
+        },
         "items": {
             "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/items",
             "type": "array",
