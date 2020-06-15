@@ -394,22 +394,10 @@
                                         "items": {
                                             "type": "object",
                                             "properties": {
-                                                "fmd_services": {
+                                                "services": {
                                                     "type": "array",
                                                     "items": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_service.json"
-                                                    }
-                                                },
-                                                "fmd_categories": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
-                                                    }
-                                                },
-                                                "fmd_offers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json"
                                                     }
                                                 }
                                             }
