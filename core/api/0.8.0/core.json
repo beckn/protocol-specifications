@@ -93,10 +93,10 @@
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
                                                     },
                                                     "selected_items" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/selected_items"
-                                                    },
-                                                    "offer_id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
+                                                        "type" : "array",
+                                                        "items" : {
+                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                                        }
                                                     }
                                                 }
                                             }

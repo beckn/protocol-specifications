@@ -20,11 +20,8 @@
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_state.json"
             }
         },
-        "pickup": {
+        "activity": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_pickup.json"
-        },
-        "drop": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_drop.json"
         },
         "packages": {
             "type" : "array",

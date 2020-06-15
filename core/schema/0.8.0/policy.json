@@ -9,16 +9,7 @@
             "type": "string"
         },
         "descriptor" : {
-
-        },
-        "type": {
-            "type": "string",
-            "enum": [
-                "CONFIRMATION_POLICY",
-                "PAYMENT_POLICY",
-                "CANCELLATION_POLICY",
-                "REFUND_POLICY"
-            ]
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
         "parent_policy_id": {
             "type": "string",
