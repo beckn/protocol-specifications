@@ -5,9 +5,6 @@
     "description": "Describes policies governing delivery of package",
     "type": "object",
     "properties": {
-        "id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_package_policy.json#/properties/id"
-        },
         "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
