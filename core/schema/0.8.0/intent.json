@@ -8,17 +8,37 @@
         "query_string" : {
             "type" : "string"
         },
-        "category_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+        "provider" : {
+            "type" : "object",
+            "properties": {
+                "id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/provider.json3/properries/id"
+                }
+            }
         },
-        "brand_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+        "category" : {
+            "type" : "object",
+            "properties": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+            }
         },
-        "offer_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+        "brand" : {
+            "type" : "object",
+            "properties": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+            }
         },
-        "item_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+        "offer": {
+            "type" : "object",
+            "properties": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+            }
+        },
+        "item" : {
+            "type" : "object",
+            "properties": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+            }
         }
     }
 }
