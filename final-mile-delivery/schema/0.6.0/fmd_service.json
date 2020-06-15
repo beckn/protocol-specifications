@@ -9,67 +9,13 @@
         },
         {
             "properties" : {
-                "max_pickups" : {
-                    "type" : "integer"
-                },
-                "max_drops" : {
-                    "type" : "integer"
-                },
-                "tasks" : {
+                "policies" : {
                     "type" : "array",
-                    "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_task.json"
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_policy.json"
                     }
                 }
             }
-        }
-    ],
-    "examples": [
-        {
-            "id" : "392j3o23e-23e928-832329jdj833",
-            "has_catalog" : true,
-            "provider" : {
-                "id" : "392j3o23e-23e928-832329jdj833",
-                "name" : "Dunzo",
-                "website" : "dunzo.com",
-                "poc" : {
-                    "contact" : {
-                        "email" : "abc@dunzo.in",
-                        "mobile" : {
-                            "country_code" : "+91",
-                            "number" : "9737878776"
-                        },
-                        "landline" : {
-                            "type" : "object",
-                            "properties": {
-                                "country_code" : "+91",
-                                "std_code" : "124",
-                                "number" : "6116949",
-                                "extension" : "1202"
-                            }
-                        }
-                    }
-                },
-                "api" : {
-                    "url" : "api.dunzo.in",
-                    "exp" : "2020-12-31 23:59:59"
-                }
-            },
-            "matched_items" : [
-                {
-                    "id" : "123-123112-231212",
-                    "descriptor" : {
-                        "name" : "FOOD"
-                    },
-                    "price" : {
-                        "estimated_value" : "25",
-                        "computed_value" : "25",
-                        "unit": "INR"
-                    },
-                    "category_id" : "12"
-                }
-            ],
-            "selected_items" : []
         }
     ]
 }

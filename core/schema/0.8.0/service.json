@@ -2,34 +2,24 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.8.0",
-    "description": "Describes contents of the service object. Allows for domain extension.",
+    "description": "Describes a service. Optionally the service may also contain a catalog object",
     "type": "object",
     "properties": {
         "id" : {
             "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id",
             "type" : "string"
         },
-        "state" : {
-            "type" : "string",
-            "enum" : ["AVAILABLE-TO-PROMISE", "PAYMENT-PENDING", "CONFIRMED", "CANCELLED"]
-        },
-        "catalog_ids" : {
-            "type" : "array",
-            "items" : {
-                "type" : "string"
-            }
-        },
         "provider" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/provider.json"
         },
-        "matched_items" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+        "catalog" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
         },
-        "schedule" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
-        },
-        "order" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json"
+        "policies" : {
+            "type" : "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json"
+            }
         }
     }
 }

@@ -8,29 +8,34 @@
         "id": {
             "type": "string"
         },
-        "categories": {
-            "type": "array",
-            "items": {
+        "categories" : {
+            "type" : "array",
+            "items" : {
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
             }
         },
-        "brands"  : {
-            "type": "array",
-            "items": {
+        "brands" : {
+            "type" : "array",
+            "items" : {
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json"
             }
         },
-        "items": {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/items",
-            "type": "array",
-            "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json"
+        "items" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
             }
         },
-        "ttl": {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/ttl",
-            "type": "integer",
-            "minimum": 0
+        "offers" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
+            }
+        },
+        "exp": {
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/exp",
+            "type": "string",
+            "format": "datetime"
         }
     }
 }
