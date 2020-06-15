@@ -5,7 +5,7 @@
     "description": "Describes a delivery service",
     "allOf": [
         {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json"
         },
         {
             "properties" : {
