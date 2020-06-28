@@ -2,6 +2,20 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
-    "description": "Describes the details of an active service. This is an ebstract calss and is extensible across all domains to describe an Acive Service Runtime Object (ASRO). For example, for an active mobility service, the ASRO would be a Journey object. For an active FMD service, the ASRO would be a Delivery object. For Healthcare domain, the ASRO would be a Consultation object and so on",
-    "type": "object"
+    "description": "Describes the details of a service order",
+    "type": "object",
+    "properties": {
+        "id" : {
+            "type" : "string"
+        },
+        "state" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/state.json"
+        },
+        "billing" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/billing.json"
+        },
+        "fulfillment" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/fulfillment.json"
+        }
+    }
 }

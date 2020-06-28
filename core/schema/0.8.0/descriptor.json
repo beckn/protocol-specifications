@@ -5,10 +5,16 @@
     "description": "Describes the description of a real-world object. Maintained by Beckn Foundation",
     "type": "object",
     "properties": {
+        "id" : {
+            "type" : "string"
+        },
         "name": {
             "type": "string"
         },
         "code" : {
+            "type" : "string"
+        },
+        "sym" : {
             "type" : "string"
         },
         "short_desc": {
