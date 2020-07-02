@@ -89,7 +89,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_service.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
                                                     }
                                                 }
                                             },
@@ -372,7 +372,7 @@
                                                 "type" : "object",
                                                 "properties" : {
                                                     "id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_service.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
                                                     }
                                                 }
                                             },
@@ -532,7 +532,7 @@
                                                 "type" : "object",
                                                 "properties" : {
                                                     "id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_service.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
                                                     }
                                                 }
                                             },
