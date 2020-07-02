@@ -6,7 +6,6 @@
     "type": "object",
     "properties": {
         "id" : {
-            "$id" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id",
             "type" : "string"
         },
         "provider" : {
@@ -19,6 +18,12 @@
             "type" : "array",
             "items": {
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json"
+            }
+        },
+        "offers" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/schedule.json"
             }
         },
         "price" : {
