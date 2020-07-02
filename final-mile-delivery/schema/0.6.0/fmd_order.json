@@ -9,34 +9,19 @@
         },
         {
             "properties": {
-                "service" : {
+                "delivery" : {
                     "type" : "object",
                     "properties": {
-                        "id" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_service.json#/properties/id"
+                        "tasks" : {
+                            "type" : "array",
+                            "items": {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_task.json"
+                            }
+                        },
+                        "package" : {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_package.json"
                         }
                     }
-                },
-                "tasks" : {
-                    "type" : "array",
-                    "items": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_task.json"
-                    }
-                },
-                "package" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_package.json"
-                },
-                "states": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.6.0/fmd_state.json"
-                    }
-                },
-                "fulfillment" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/fulfillment.json"
-                },
-                "billing" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/billing.json"
                 }
             }
         }
