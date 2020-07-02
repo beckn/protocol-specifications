@@ -5,27 +5,26 @@
     "description": "Describes a payment",
     "type": "object",
     "properties": {
-        "id": {
-            "type": "string"
+        "transaction_id" : {
+            "type" : "string"
         },
-        "payment_address": {
-            "type": "object",
+        "amount" : {
+            "type" : "object",
             "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "URI",
-                        "VPA"
-                    ]
+                "currency" : {
+                    "type" : "string"
+                },
+                "integral" : {
+                    "type" : "string"
+                },
+                "fractional" : {
+                    "type" : "string"
                 }
             }
         },
-        "status": {
-            "type": "string"
-        },
-        "updated_at": {
-            "type": "string",
-            "format": "date-time"
+        "timestamp" : {
+            "type" : "string",
+            "format" : "date-time"
         }
     }
 }

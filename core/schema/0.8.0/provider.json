@@ -3,20 +3,13 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
     "description": "Describes a service provider. This can be a restaurant, a hospital, a Store etc",
-    "allOf": [
-        {
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string",
-                    "format": "url"
-                }
-            }
+    "type": "object",
+    "properties": {
+        "info" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
-        {
+        "poc" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
         }
-    ]
+    }
 }

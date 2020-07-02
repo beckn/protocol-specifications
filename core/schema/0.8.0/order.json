@@ -8,14 +8,33 @@
         "id" : {
             "type" : "string"
         },
-        "state" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/state.json"
+        "states": {
+            "type": "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/state.json"
+            }
         },
         "billing" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/billing.json"
         },
         "fulfillment" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/fulfillment.json"
+        },
+        "items" : {
+            "type" : "array",
+            "items" : {
+                "id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                },
+                "quantity" : {
+                    "type" : "integer",
+                    "minimum" : 1
+                }
+            }
+        },
+        "created_at" : {
+            "type" : "string",
+            "format" : "date-time"
         }
     }
 }

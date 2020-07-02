@@ -9,30 +9,7 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/domain.json"
         },
         "action": {
-            "type": "string",
-            "enum": [
-                "search",
-                "select",
-                "confirm",
-                "add",
-                "remove",
-                "complete",
-                "cancel",
-                "update",
-                "on_search",
-                "on_select",
-                "on_confirm",
-                "on_add",
-                "on_remove",
-                "on_cancel",
-                "on_update",
-                "register",
-                "on_register",
-                "lookup",
-                "on_lookup",
-                "tokens",
-                "on_tokens"
-            ]
+            "type": "string"
         },
         "version": {
             "type": "string"
@@ -46,6 +23,15 @@
         "timestamp": {
             "type": "string",
             "format": "date-time"
+        },
+        "token" : {
+            "type": "string"
+        },
+        "public_key" : {
+            "type": "string"
+        },
+        "status" : {
+            "type": "string"
         }
-    }
+    } 
 }
