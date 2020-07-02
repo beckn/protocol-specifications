@@ -8,22 +8,24 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json"
         },
         {
-            "catalog" : {
-                "allOf": [
-                    {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
-                    },
-                    {
-                        "properties" : {
-                            "fare_products" : {
-                                "type" : "array",
-                                "items" : {
-                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_product.json"
+            "properties": {
+                "catalog" : {
+                    "allOf": [
+                        {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
+                        },
+                        {
+                            "properties" : {
+                                "fare_products" : {
+                                    "type" : "array",
+                                    "items" : {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_product.json"
+                                    }
                                 }
                             }
                         }
-                    }
-                ]
+                    ]
+                }
             }
         }
     ]
