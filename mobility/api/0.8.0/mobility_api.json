@@ -540,7 +540,7 @@
                                                 "type" : "object",
                                                 "properties" : {
                                                     "id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core/mobility/schema/0.8.0/order.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                                     }
                                                 }
                                             }
