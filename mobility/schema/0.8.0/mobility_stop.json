@@ -6,7 +6,7 @@
     "type": "object",
     "properties": {
         "descriptor" : {
-
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
         "location" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
@@ -14,14 +14,28 @@
         "arrival_time" : {
             "type" : "object",
             "properties": {
-                "est_val" : {
-                    
+                "est" : {
+                    "type" : "string",
+                    "format" : "date-time"
+                },
+                "act" : {
+                    "type" : "string",
+                    "format" : "date-time"
                 }
             }
         },
         "departure_time" : {
-            "type" : "string",
-            "format" : "date-time"
+            "type" : "object",
+            "properties": {
+                "est" : {
+                    "type" : "string",
+                    "format" : "date-time"
+                },
+                "act" : {
+                    "type" : "string",
+                    "format" : "date-time"
+                }
+            }
         }
     }
 }        

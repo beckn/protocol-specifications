@@ -28,12 +28,6 @@
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_traveller.json"
             }
         },
-        "stops" : {
-            "type" : "array",
-            "items" : {
-                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
-            }
-        },
         "route": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/route.json"
         },
