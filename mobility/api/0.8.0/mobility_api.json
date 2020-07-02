@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Beckn Core API",
-        "description": "Beckn Mobility API specification. Extension of core",
+        "description": "Extension of core API for the mobility domain",
         "version": "0.8.0"
     },
     "paths": {
