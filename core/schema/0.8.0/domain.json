@@ -5,8 +5,8 @@
     "description": "Describes the domain of an object. Maintained by Beckn Foundation",
     "type": "string",
     "enum": [
-        "MOBILITY",
         "FINAL-MILE-DELIVERY",
+        "MOBILITY",
         "FOOD-AND-BEVERAGE",
         "HEALTHCARE"
     ]
