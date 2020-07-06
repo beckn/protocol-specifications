@@ -1,0 +1,30 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.7.1",
+    "description": "Describes the payload of a trip",
+    "type": "object",
+    "properties" : {
+        "luggage" : {
+            "type" : "object",
+            "properties": {
+                "weight": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/scalar.json"
+                },
+                "dimensions": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/dimensions.json"
+                }
+            }
+        },
+        "travellers": {
+            "description": "Details of travellers on this trip",
+            "type": "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_traveller.json"
+            }
+        },
+        "travel_group": {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_travel_group.json"
+        }
+    }
+}
