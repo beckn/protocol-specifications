@@ -30,7 +30,10 @@
         "promotional" : {
             "type" : "boolean"
         },
-        "attributes": {
+        "ttl" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
+        },
+        "tags": {
             "type": "array",
             "items": {
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tag.json"

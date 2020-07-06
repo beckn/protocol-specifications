@@ -8,23 +8,39 @@
         "transaction_id" : {
             "type" : "string"
         },
-        "amount" : {
+        "payer" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+        },
+        "value" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
+        },
+        "method" : {
+            "type" : "string"
+        },
+        "status" : {
+            "type" : "string"
+        },
+        "due_date" : {
+            "type" : "string",
+            "format": "date-time"
+        },
+        "scheduled_date" : {
+            "type" : "string",
+            "format": "date-time"
+        },
+        "endpoint" : {
             "type" : "object",
-            "properties": {
-                "currency" : {
+            "properties" : {
+                "form" : {
                     "type" : "string"
                 },
-                "integral" : {
+                "bank_account" : {
                     "type" : "string"
                 },
-                "fractional" : {
+                "vpa" : {
                     "type" : "string"
                 }
             }
-        },
-        "timestamp" : {
-            "type" : "string",
-            "format" : "date-time"
         }
     }
 }

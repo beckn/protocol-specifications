@@ -12,11 +12,21 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
         "parent_policy_id": {
-            "type": "string",
-            "default": null
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json#/properties/id"
         },
         "terms": {
-            "type": "object"
+            "type": "array",
+            "items": {
+                "id" : {
+                    "type" : "string"
+                },
+                "parent_term_id" : {
+                    "type": "string"
+                },
+                "descriptor" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+                }
+            }
         }
     }
 }

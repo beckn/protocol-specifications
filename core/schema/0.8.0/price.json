@@ -9,47 +9,89 @@
             "type": "string"
         },
         "estimated_value": {
-            "type": "number"
+            "type": "object",
+            "properties": {
+                "integral" : {
+                    "type" : "string"
+                },
+                "fractional" : {
+                    "type" : "string"
+                }
+            }
         },
         "computed_value": {
-            "type": "number"
+            "type": "object",
+            "properties": {
+                "integral" : {
+                    "type" : "string"
+                },
+                "fractional" : {
+                    "type" : "string"
+                }
+            }
         },
         "listed_value": {
-            "type": "number"
+            "type": "object",
+            "properties": {
+                "integral" : {
+                    "type" : "string"
+                },
+                "fractional" : {
+                    "type" : "string"
+                }
+            }
         },
         "offered_value": {
-            "type": "number"
+            "type": "object",
+            "properties": {
+                "integral" : {
+                    "type" : "string"
+                },
+                "fractional" : {
+                    "type" : "string"
+                }
+            }
         },
         "range": {
             "min": {
-                "type": "number"
+                "type": "object",
+                "properties": {
+                    "integral" : {
+                        "type" : "string"
+                    },
+                    "fractional" : {
+                        "type" : "string"
+                    }
+                }
             },
             "max": {
-                "type": "number"
+                "type": "object",
+                "properties": {
+                    "integral" : {
+                        "type" : "string"
+                    },
+                    "fractional" : {
+                        "type" : "string"
+                    }
+                }
             }
         },
-        "unit": {
-            "type": "string"
-        },
-        "discount": {
-            "type": "number"
-        },
-        "tax": {
-            "type": "object",
-            "properties": {
-                "computed": {
-                    "type": "number"
-                },
-                "breakup": {
-                    "type": "array",
-                    "items": {
+        "breakup": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "amount": {
                         "type": "object",
                         "properties": {
-                            "line_item": {
-                                "type": "string"
+                            "integral" : {
+                                "type" : "string"
                             },
-                            "amount": {
-                                "type": "number"
+                            "fractional" : {
+                                "type" : "string"
                             }
                         }
                     }
