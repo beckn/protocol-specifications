@@ -9,30 +9,34 @@
         },
         {
             "properties": {
-                "service" : {
-                    "type" : "object",
-                    "properties": {
-                        "id" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_service.json#/properties/id"
+                "pickups": {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "properties": {
+                            "location" : {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                            },
+                            "time" : {
+                                "type" : "string",
+                                "format" : "date-time"
+                            }
                         }
                     }
                 },
-                "pickup": {
-                    "location" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
-                    },
-                    "time" : {
-                        "type" : "string",
-                        "format" : "datetime"
-                    }
-                },
-                "drop": {
-                    "location" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
-                    },
-                    "time" : {
-                        "type" : "string",
-                        "format" : "datetime"
+                "drops": {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "properties": {
+                            "location" : {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                            },
+                            "time" : {
+                                "type" : "string",
+                                "format" : "date-time"
+                            }
+                        }
                     }
                 },
                 "package": {
