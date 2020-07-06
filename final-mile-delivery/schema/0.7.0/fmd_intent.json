@@ -19,7 +19,7 @@
                 },
                 "pickup": {
                     "location" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
                     },
                     "time" : {
                         "type" : "string",
@@ -28,7 +28,7 @@
                 },
                 "drop": {
                     "location" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.1/location.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
                     },
                     "time" : {
                         "type" : "string",

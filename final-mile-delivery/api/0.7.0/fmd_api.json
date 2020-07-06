@@ -90,7 +90,7 @@
                                                 "type" : "string"
                                             },
                                             "service_id" : {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_service.json#properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_service.json#/properties/id"
                                             },
                                             "brand_id" : {
                                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
@@ -346,16 +346,8 @@
                                             "service" : {
                                                 "type" : "object",
                                                 "properties" : {
-                                                    "id" : {
-                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                                                    },
-                                                    "order" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                                                            }
-                                                        }
+                                                    "order_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json#/properties/id"
                                                     }
                                                 }
                                             }
@@ -528,173 +520,9 @@
                                             "service" : {
                                                 "type" : "object",
                                                 "properties" : {
-                                                    "id" : {
-                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                                                    },
-                                                    "order" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                                                            }
-                                                        }
+                                                    "order_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json#/properties/id"
                                                     }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                        },
-                                        "error" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/offers" : {
-            "post" : {
-                "tags" : [
-                    "Beckn Provider API",
-                    "Beckn Gateway API"
-                ],
-                "description" : "Get offers on a catalog",
-                "requestBody" : {
-                    "description" : "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message" : {
-                                        "type" : "object",
-                                        "properties" : {
-                                            "catalog_id" : {
-                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json#/properties/id"
-                                            },
-                                            "category_id" : {
-                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
-                                            },
-                                            "brand_id" : {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
-                                            },
-                                            "item_id" : {
-                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                        },
-                                        "error" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/feedback" : {
-            "post" : {
-                "tags" : [
-                    "Beckn Provider API",
-                    "Beckn Gateway API"
-                ],
-                "description" : "Provide feedback on a service",
-                "requestBody" : {
-                    "description" : "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message" : {
-                                        "type" : "object",
-                                        "properties" : {
-                                            "feedback" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "service" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
-                                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                                                            },
-                                                            "order" : {
-                                                                "type" : "object",
-                                                                "properties" : {
-                                                                    "id" : {
-                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "service_items" : {
-                                                                "type" : "array",
-                                                                "items" : {
-                                                                    "type" : "object",
-                                                                    "properties" : {
-                                                                        "id" : {
-                                                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
-                                                                        },
-                                                                        "message" : {
-                                                                            "type" : "string"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            },
-                                                            "communication" : {
-                                                                "type" : "string",
-                                                                "enum" : ["CHAT", "CALLBACK", "CALL", "EMAIL"]
-                                                            }
-                                                        }
-                                                    }
-                                                    
                                                 }
                                             }
                                         }
@@ -1108,21 +936,8 @@
                                     "message" : {
                                         "type" : "object",
                                         "properties" : {
-                                            "service" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
-                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                                                    },
-                                                    "order" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                                                            }
-                                                        }
-                                                    }
-                                                }
+                                            "order" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
                                             }
                                         }
                                     },
@@ -1239,165 +1054,6 @@
                                         "properties" : {
                                             "catalog" : {
                                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
-                                            }
-                                        }
-                                    },
-                                    "error" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                        },
-                                        "error" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_offers" : {
-            "post" : {
-                "tags" : [
-                    "Beckn App API",
-                    "Beckn Gateway API"
-                ],
-                "description" : "Return offers on an item",
-                "requestBody" : {
-                    "description" : "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message" : {
-                                        "type" : "object",
-                                        "properties" : {
-                                            "catalog" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
-                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json#/properties/id"
-                                                    },
-                                                    "item_id" : {
-                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
-                                                    },
-                                                    "offers" : {
-                                                        "type" : "array",
-                                                        "items" : {
-                                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "error" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type" : "object",
-                                    "properties" : {
-                                        "context" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message" : {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                        },
-                                        "error" : {
-                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_feedback" : {
-            "post" : {
-                "tags" : [
-                    "Beckn App API",
-                    "Beckn Gateway API"
-                ],
-                "description" : "Provide feedback on a service",
-                "requestBody" : {
-                    "description" : "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type" : "object",
-                                "properties" : {
-                                    "context" : {
-                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message" : {
-                                        "type" : "object",
-                                        "properties" : {
-                                            "feedback" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "service" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
-                                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                                                            },
-                                                            "service_items" : {
-                                                                "type" : "array",
-                                                                "items" : {
-                                                                    "type" : "object",
-                                                                    "properties" : {
-                                                                        "id" : {
-                                                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
-                                                                        },
-                                                                        "message" : {
-                                                                            "type" : "string"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            },
-                                                            "communication" : {
-                                                                "type" : "string",
-                                                                "enum" : ["CHAT", "CALLBACK", "CALL", "EMAIL"]
-                                                            }
-                                                        }
-                                                    }
-                                                    
-                                                }
                                             }
                                         }
                                     },
