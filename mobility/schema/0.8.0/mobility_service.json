@@ -25,9 +25,6 @@
                             }
                         }
                     ]
-                },
-                "trip" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_trip.json"
                 }
             }
         }

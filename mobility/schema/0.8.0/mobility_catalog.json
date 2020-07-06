@@ -13,12 +13,6 @@
                 "items" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_product.json"
                 }
-            },
-            "fare_media" : {
-                "type" : "array",
-                "items" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_media.json"
-                }
             }
         }
     ]
