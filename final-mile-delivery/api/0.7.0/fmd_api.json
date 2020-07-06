@@ -1,0 +1,1438 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Beckn Gateway API",
+        "description": "API Spec for Final Mile Delivery",
+        "version": "0.8.0"
+    },
+    "paths": {
+        "/search": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Search by intent",
+                "requestBody": {
+                    "description": "BAP searches for nearby FMD Services",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "intent" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.6.0/fmd_intent.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "type" : "object",
+                                            "properties" : {
+                                                "ack" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                                }
+                                            }
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalog" : {
+            "post" : {
+                "tags" : [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description" : "Fetch catalog of a service based on filters",
+                "requestBody" : {
+                    "description" : "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "id" : {
+                                                "type" : "string"
+                                            },
+                                            "service_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_service.json#properties/id"
+                                            },
+                                            "brand_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+                                            },
+                                            "model_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/model.json#/properties/id"
+                                            },
+                                            "offer_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
+                                            },
+                                            "item_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/select": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "domain_level_attrs" : {
+                                                "type" : "object",
+                                                "description" : "These contain domain level filtering attributes like taxonomies, standards etc. Might not relevant for every domain. Can be extended on mutual agreement between network participants and Beckn Foundation "
+                                            },
+                                            "service_level_attrs" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "delivery": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "package" : {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/fmd_package.json"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "catalog_level_attrs" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "offer_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/confirm": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Confirm a Service. At this stage the FMD Planner should be able to agree on the quoted price and should be able to create an order to block the service (This may lead to searching for FMD Agents, Driver assignment) should be able to see acceptance / rejection of the order along with a payment prompt",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "quotation_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/status" : {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Fetch the status of a Service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "order_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/checkout": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Checkout from a service. Using this action, the FMD Payer should be able to send proof of payment to the FMD service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "service" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "id" : {
+                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                                                    },
+                                                    "order" : {
+                                                        "type" : "object",
+                                                        "properties" : {
+                                                            "id" : {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Remove object",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "action" : {
+                                                "type" : "string",
+                                                "enum" : [ "update_task_location", "update_task_poc", "update_package", "update_billing" ]
+                                            },
+                                            "update_object" : {
+                                                "type" : "object"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/track": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Track an item during an active service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "order_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json#/properties/id"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cancel": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Cancel a Service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "service" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "id" : {
+                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                                                    },
+                                                    "order" : {
+                                                        "type" : "object",
+                                                        "properties" : {
+                                                            "id" : {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/offers" : {
+            "post" : {
+                "tags" : [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description" : "Get offers on a catalog",
+                "requestBody" : {
+                    "description" : "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "catalog_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json#/properties/id"
+                                            },
+                                            "category_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                            },
+                                            "brand_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+                                            },
+                                            "item_id" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/feedback" : {
+            "post" : {
+                "tags" : [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description" : "Provide feedback on a service",
+                "requestBody" : {
+                    "description" : "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "feedback" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "service" : {
+                                                        "type" : "object",
+                                                        "properties" : {
+                                                            "id" : {
+                                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                                                            },
+                                                            "order" : {
+                                                                "type" : "object",
+                                                                "properties" : {
+                                                                    "id" : {
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "service_items" : {
+                                                                "type" : "array",
+                                                                "items" : {
+                                                                    "type" : "object",
+                                                                    "properties" : {
+                                                                        "id" : {
+                                                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                                                        },
+                                                                        "message" : {
+                                                                            "type" : "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "communication" : {
+                                                                "type" : "string",
+                                                                "enum" : ["CHAT", "CALLBACK", "CALL", "EMAIL"]
+                                                            }
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_search": {
+            "post": {
+                "tags": [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Callback response to search",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "services" : {
+                                                "type" : "array",
+                                                "items" : {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/fmd_service.json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_select": {
+            "post": {
+                "tags": [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Callback response to select/service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "quote" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_confirm": {
+            "post": {
+                "tags": [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Callback response to confirm/service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "order" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                            },
+                                            "updated_at" : {
+                                                "type" : "string",
+                                                "format" : "date-time"
+                                            },
+                                            "status_refresh" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_status" : {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Fetch the status of a Service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "order" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                            },
+                                            "updated_at" : {
+                                                "type" : "string",
+                                                "format" : "date-time"
+                                            },
+                                            "status_refresh" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_checkout": {
+            "post": {
+                "tags": [
+                    "Beckn Provider API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Acknowledge the checkout of a service and send invoice of the FMD service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "invoice" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_track": {
+            "post": {
+                "tags": [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Provide tracking info",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "tracking" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tracking.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_cancel": {
+            "post": {
+                "tags": [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Response to cancel service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "service" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "id" : {
+                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                                                    },
+                                                    "order" : {
+                                                        "type" : "object",
+                                                        "properties" : {
+                                                            "id" : {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_update": {
+            "post": {
+                "tags": [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description": "Returns updated service with updated runtime object",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "order" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_catalog" : {
+            "post" : {
+                "tags" : [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description" : "Returns catalog of service",
+                "requestBody" : {
+                    "description" : "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "catalog" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_offers" : {
+            "post" : {
+                "tags" : [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description" : "Return offers on an item",
+                "requestBody" : {
+                    "description" : "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "catalog" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "id" : {
+                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json#/properties/id"
+                                                    },
+                                                    "item_id" : {
+                                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                                    },
+                                                    "offers" : {
+                                                        "type" : "array",
+                                                        "items" : {
+                                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_feedback" : {
+            "post" : {
+                "tags" : [
+                    "Beckn App API",
+                    "Beckn Gateway API"
+                ],
+                "description" : "Provide feedback on a service",
+                "requestBody" : {
+                    "description" : "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type" : "object",
+                                "properties" : {
+                                    "context" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message" : {
+                                        "type" : "object",
+                                        "properties" : {
+                                            "feedback" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "service" : {
+                                                        "type" : "object",
+                                                        "properties" : {
+                                                            "id" : {
+                                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                                                            },
+                                                            "service_items" : {
+                                                                "type" : "array",
+                                                                "items" : {
+                                                                    "type" : "object",
+                                                                    "properties" : {
+                                                                        "id" : {
+                                                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                                                        },
+                                                                        "message" : {
+                                                                            "type" : "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "communication" : {
+                                                                "type" : "string",
+                                                                "enum" : ["CHAT", "CALLBACK", "CALL", "EMAIL"]
+                                                            }
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "error" : {
+                                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "context" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message" : {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error" : {
+                                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
