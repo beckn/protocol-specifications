@@ -85,45 +85,37 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "service": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                                            "domain_level_attrs" : {
+                                                "type" : "object",
+                                                "description" : "These contain domain level filtering attributes like taxonomies, standards etc. Might not relevant for every domain. Can be extended on mutual agreement between network participants and Beckn Foundation "
+                                            },
+                                            "service_level_attrs" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "trip": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "payload" : {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
+                                                            },
+                                                            "stops": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             },
-                                            "trip": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "fare_product": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_product.json#/properties/id"
-                                                            }
-                                                        }
+                                            "catalog_level_attrs" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "offer_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
                                                     },
-                                                    "fare_media": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_media.json#/properties/id"
-                                                            }
-                                                        }
-                                                    },
-                                                    "travellers": {
-                                                        "description": "Details of travellers on this trip",
-                                                        "type": "array",
-                                                        "items": {
-                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_traveller.json"
-                                                        }
-                                                    },
-                                                    "stops": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
-                                                        }
+                                                    "fare_product_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/mobility_fare_product.json#/properties/id"
                                                     }
                                                 }
                                             }
