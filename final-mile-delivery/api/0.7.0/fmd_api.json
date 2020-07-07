@@ -222,7 +222,7 @@
                       "type" : "object",
                       "properties" : {
                         "quotation_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json"
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json#/properties/id"
                         }
                       }
                     }
