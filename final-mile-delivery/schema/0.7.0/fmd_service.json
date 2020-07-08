@@ -9,24 +9,22 @@
         },
         {
             "properties": {
-                "properties": {
-                    "catalog": {
-                        "allOf": [
-                            {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
-                            },
-                            {
-                                "properties": {
-                                    "paradigms": {
-                                        "type": "array",
-                                        "items": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_paradigm.json"
-                                        }
+                "catalog": {
+                    "allOf": [
+                        {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
+                        },
+                        {
+                            "properties": {
+                                "paradigms": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_paradigm.json"
                                     }
                                 }
                             }
-                        ]
-                    }
+                        }
+                    ]
                 }
             }
         }
