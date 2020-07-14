@@ -14,7 +14,7 @@
                     "description" : "Duration as per ISO8601 format"
                 },
                 "rating": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/mobility_rating.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/rating.json"
                 }
             }
         }
