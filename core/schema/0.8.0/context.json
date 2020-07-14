@@ -14,7 +14,10 @@
         "version": {
             "type": "string"
         },
-        "transaction_id": {
+        "bpp_address": {
+            "type": "string"
+        },
+        "bap_address" : {
             "type": "string"
         },
         "session_id": {
@@ -25,9 +28,6 @@
             "format": "date-time"
         },
         "token" : {
-            "type": "string"
-        },
-        "status" : {
             "type": "string"
         }
     } 
