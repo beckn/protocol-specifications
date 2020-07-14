@@ -5,7 +5,10 @@
     "description": "Describes a service provider. This can be a restaurant, a hospital, a Store etc",
     "type": "object",
     "properties": {
-        "info" : {
+        "id" : {
+            "type" : "string"
+        },
+        "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
         "poc" : {
