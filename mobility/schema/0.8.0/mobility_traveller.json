@@ -9,7 +9,7 @@
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
         },
         "origin_stop_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobiity_stop.json#/properties/id"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
         },
         "destination_stop_id" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
