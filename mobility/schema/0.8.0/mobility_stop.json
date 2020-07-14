@@ -39,6 +39,23 @@
                     "format" : "date-time"
                 }
             }
+        },
+        "transfer_stops" : {
+            "type" : "array",
+            "items" : {
+                "allOf": [
+                    {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
+                    },
+                    {
+                        "properties": {
+                            "transfer" : {
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_transfer.json"
+                            }
+                        }
+                    }
+                ]
+            }
         }
     }
 }        
