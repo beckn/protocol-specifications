@@ -14,10 +14,13 @@
         "version": {
             "type": "string"
         },
-        "bpp_address": {
+        "bpp_id": {
             "type": "string"
         },
-        "bap_address" : {
+        "bap_id" : {
+            "type": "string"
+        },
+        "bg_proxy_id" : {
             "type": "string"
         },
         "session_id": {
