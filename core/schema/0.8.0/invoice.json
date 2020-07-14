@@ -2,7 +2,7 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
-    "description": "Invoice of a service",
+    "description": "Invoice of an order",
     "type": "object",
     "properties": {
         "id" : {
@@ -19,30 +19,10 @@
             "items" : {
                 "type" : "object",
                 "properties": {
-                    "service" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json"
-                    },
-                    "item" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json"
-                    },
-                    "offer" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json"
-                    },
-                    "amount" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
-                    }
-                }
-            }
-        },
-        "tax_breakup" : {
-            "type" : "array",
-            "items": {
-                "type" : "object",
-                "properties": {
                     "id" : {
                         "type" : "string"
                     },
-                    "item" : {
+                    "title" : {
                         "type" : "string"
                     },
                     "amount" : {

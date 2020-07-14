@@ -9,12 +9,6 @@
         },
         {
             "properties": {
-                "agent" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_agent.json"
-                },
-                "vehicle" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_vehicle.json"
-                },
                 "tasks" : {
                     "type" : "array",
                     "items": {

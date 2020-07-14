@@ -21,6 +21,9 @@
             "type" : "string",
             "format": "date-time"
         },
+        "invoice" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json"
+        },
         "updated_at" : {
             "type" : "string",
             "format": "date-time"
