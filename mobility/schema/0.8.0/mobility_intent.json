@@ -25,48 +25,22 @@
                     "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_vehicle.json"
                 },
                 "payload": {
-                    "type": "object",
-                        "properties": {
-                        "travellers": {
-                            "type": "object",
-                            "properties" : {
-                                "count" : {
-                                    "type" : "integer",
-                                    "minimum" : 1
-                                }
-                            }
-                        },
-                        "luggage": {
-                            "type": "object",
-                            "properties": {
-                                "count": {
-                                    "type": "integer",
-                                    "minimum": 0
-                                },
-                                "weight_range": {
-                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/scalar_range.json"
-                                },
-                                "dimensions": {
-                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/dimensions.json"
-                                }
-                            }
-                        }
-                    }
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
                 },
-                "transfer_attrs": {
+                "transfers": {
                     "type": "object",
                     "properties": {
                         "max_count": {
                             "type": "integer",
                             "default": 0
                         },
-                        "max_distance": {
+                        "distance": {
                             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/scalar.json"
                         }
                     }
                 },
-                "fare_range": {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/scalar_range.json"
+                "fare": {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/price.json"
                 }
             }
         }
