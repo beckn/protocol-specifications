@@ -5,6 +5,9 @@
     "description": "Describes the stop object",
     "type": "object",
     "properties": {
+        "id" : {
+            "type" : "string"
+        },
         "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
