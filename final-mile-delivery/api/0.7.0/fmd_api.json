@@ -3,7 +3,7 @@
     "info" : {
       "title" : "Beckn Final Mile Delivery API",
       "description" : "API Spec for Final Mile Delivery",
-      "version" : "0.7.0-draft01"
+      "version" : "0.7.0-draft02"
     },
     "paths" : {
       "/search" : {
@@ -11,7 +11,7 @@
           "tags" : [ "Beckn Provider Platform API", "Beckn Gateway API" ],
           "description" : "Search by intent",
           "requestBody" : {
-            "description" : "BAP searches for nearby FMD Services",
+            "description" : "BAP searches for FMD Services",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -25,6 +25,52 @@
                       "properties" : {
                         "intent" : {
                           "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_intent.json"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples" : {
+                  "SimpleFmdIntent" : {
+                    "value" : {
+                      "context" : {
+                        "domain" : "FINAL-MILE-DELIVERY",
+                        "action" : "search",
+                        "version" : "0.7.0",
+                        "bpp_id" : "",
+                        "bap_id" : "FMD.IND.BLR.BAP.110011",
+                        "bg_proxy_id" : "",
+                        "timestamp" : "2020-07-15T06:43:14.653Z",
+                        "transaction_id" : "83923oio2i3e",
+                        "token" : "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                      },
+                      "message" : {
+                        "intent" : {
+                          "pickups" : [ {
+                            "type" : "gps",
+                            "gps" : {
+                              "lat" : "22.346343",
+                              "lon" : "77.823879"
+                            }
+                          } ],
+                          "drops" : [ {
+                            "type" : "gps",
+                            "gps" : {
+                              "lat" : "22.346343",
+                              "lon" : "77.823879"
+                            }
+                          } ],
+                          "packages" : [ {
+                            "contents" : [ {
+                              "category_id" : "12"
+                            }, {
+                              "category_id" : "10"
+                            } ],
+                            "weight" : {
+                              "estimated_value" : "1",
+                              "unit" : "kg"
+                            }
+                          } ]
                         }
                       }
                     }
@@ -56,6 +102,55 @@
                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
                       }
                     }
+                  },
+                  "examples" : {
+                    "Success" : {
+                      "value" : {
+                        "context" : {
+                          "domain" : "FINAL-MILE-DELIVERY",
+                          "action" : "search",
+                          "version" : "0.7.0",
+                          "bpp_id" : "",
+                          "bap_id" : "FMD.IND.BLR.BAP.110011",
+                          "bg_proxy_id" : "FMD.IND.BLR.BG.123444",
+                          "timestamp" : "2020-07-15T06:43:14.653Z",
+                          "transaction_id" : "83923oio2i3e",
+                          "token" : "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                        },
+                        "message" : {
+                          "ack" : {
+                            "status" : "ACK"
+                          }
+                        },
+                        "error" : { }
+                      }
+                    },
+                    "InvalidSearchRegion" : {
+                      "value" : {
+                        "context" : {
+                          "domain" : "FINAL-MILE-DELIVERY",
+                          "action" : "search",
+                          "version" : "0.7.0",
+                          "bpp_id" : "",
+                          "bap_id" : "FMD.IND.BLR.BAP.110011",
+                          "bg_proxy_id" : "FMD.IND.BLR.BG.123444",
+                          "timestamp" : "2020-07-15T06:43:14.653Z",
+                          "transaction_id" : "83923oio2i3e",
+                          "token" : "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                        },
+                        "message" : {
+                          "ack" : {
+                            "status" : "NACK"
+                          }
+                        },
+                        "error" : {
+                          "r_error" : {
+                            "code" : "string",
+                            "message" : "Invalid Service Region"
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -63,10 +158,10 @@
           }
         }
       },
-      "/catalog" : {
+      "/select" : {
         "post" : {
           "tags" : [ "Beckn Provider Platform API" ],
-          "description" : "Fetch catalog of a service based on filters",
+          "description" : "Select the service and build order. This can be called multiple times. The on_select callback sends an updated quotation everytime the order is updated.",
           "requestBody" : {
             "description" : "TODO",
             "content" : {
@@ -80,23 +175,8 @@
                     "message" : {
                       "type" : "object",
                       "properties" : {
-                        "id" : {
-                          "type" : "string"
-                        },
-                        "service_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_service.json#/properties/id"
-                        },
-                        "brand_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
-                        },
-                        "model_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/model.json#/properties/id"
-                        },
-                        "offer_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
-                        },
-                        "item_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                        "draft_order" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
                         }
                       }
                     }
@@ -130,10 +210,10 @@
           }
         }
       },
-      "/select" : {
+      "/catalog" : {
         "post" : {
           "tags" : [ "Beckn Provider Platform API" ],
-          "description" : "Select the preferred service. This also allows selection of items from the catalog. Equivalent to selecting a service and adding items to cart.",
+          "description" : "Fetch catalog of a service based on filters",
           "requestBody" : {
             "description" : "TODO",
             "content" : {
@@ -147,30 +227,83 @@
                     "message" : {
                       "type" : "object",
                       "properties" : {
-                        "domain_level_attrs" : {
-                          "type" : "object",
-                          "description" : "These contain domain level filtering attributes like taxonomies, standards etc. Might not relevant for every domain. Can be extended on mutual agreement between network participants and Beckn Foundation "
-                        },
-                        "service_level_attrs" : {
+                        "catalog" : {
                           "type" : "object",
                           "properties" : {
-                            "delivery" : {
-                              "type" : "object",
-                              "properties" : {
-                                "package" : {
-                                  "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/fmd_package.json"
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "catalog_level_attrs" : {
-                          "type" : "object",
-                          "properties" : {
+                            "id" : {
+                              "type" : "string"
+                            },
+                            "service_id" : {
+                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                            },
+                            "brand_id" : {
+                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+                            },
+                            "model_id" : {
+                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/model.json#/properties/id"
+                            },
                             "offer_id" : {
                               "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
+                            },
+                            "item_id" : {
+                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
                             }
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses" : {
+            "200" : {
+              "description" : "Acknowledgement of message received",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "properties" : {
+                      "context" : {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                      },
+                      "message" : {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                      },
+                      "error" : {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/init" : {
+        "post" : {
+          "tags" : [ "Beckn Provider Platform API" ],
+          "description" : "Initialize an Order. At this stage the BAP should send an updated order object with billing and fulfillment details if necessary",
+          "requestBody" : {
+            "description" : "TODO",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "context" : {
+                      "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                    },
+                    "message" : {
+                      "type" : "object",
+                      "properties" : {
+                        "quotation_id" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json#/properties/id"
+                        },
+                        "order" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
                         }
                       }
                     }
@@ -207,7 +340,7 @@
       "/confirm" : {
         "post" : {
           "tags" : [ "Beckn Provider Platform API" ],
-          "description" : "Confirm a Service. At this stage the FMD Planner should be able to agree on the quoted price and should be able to create an order to block the service (This may lead to searching for FMD Agents, Driver assignment) should be able to see acceptance / rejection of the order along with a payment prompt",
+          "description" : "Checkout from an FMD service. Using this action, the FMD Payer should be able to send proof of payment to the FMD service",
           "requestBody" : {
             "description" : "TODO",
             "content" : {
@@ -221,8 +354,8 @@
                     "message" : {
                       "type" : "object",
                       "properties" : {
-                        "quotation_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json#/properties/id"
+                        "order_id" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                         }
                       }
                     }
@@ -308,66 +441,6 @@
           }
         }
       },
-      "/checkout" : {
-        "post" : {
-          "tags" : [ "Beckn Provider Platform API" ],
-          "description" : "Checkout from an FMD service. Using this action, the FMD Payer should be able to send proof of payment to the FMD service",
-          "requestBody" : {
-            "description" : "TODO",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "object",
-                  "properties" : {
-                    "context" : {
-                      "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                    },
-                    "message" : {
-                      "type" : "object",
-                      "properties" : {
-                        "service" : {
-                          "type" : "object",
-                          "properties" : {
-                            "transaction_id" : {
-                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                            },
-                            "order_id" : {
-                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "responses" : {
-            "200" : {
-              "description" : "Acknowledgement of message received",
-              "content" : {
-                "application/json" : {
-                  "schema" : {
-                    "type" : "object",
-                    "properties" : {
-                      "context" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                      },
-                      "message" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                      },
-                      "error" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "/update" : {
         "post" : {
           "tags" : [ "Beckn Provider Platform API" ],
@@ -389,8 +462,8 @@
                           "type" : "string",
                           "enum" : [ "update_task_location", "update_task_poc", "update_package", "update_billing" ]
                         },
-                        "update_object" : {
-                          "type" : "object"
+                        "order" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json"
                         }
                       }
                     }
@@ -442,7 +515,10 @@
                       "type" : "object",
                       "properties" : {
                         "order_id" : {
-                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json#/properties/id"
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                        },
+                        "tracking" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tracking.json"
                         }
                       }
                     }
@@ -493,21 +569,11 @@
                     "message" : {
                       "type" : "object",
                       "properties" : {
-                        "service" : {
-                          "type" : "object",
-                          "properties" : {
-                            "id" : {
-                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
-                            },
-                            "order" : {
-                              "type" : "object",
-                              "properties" : {
-                                "id" : {
-                                  "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                                }
-                              }
-                            }
-                          }
+                        "order_id" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+                        },
+                        "reason_id" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/option.json#/properties/id"
                         }
                       }
                     }
@@ -654,7 +720,7 @@
           }
         }
       },
-      "/on_confirm" : {
+      "/on_init" : {
         "post" : {
           "tags" : [ "Beckn App Platform API" ],
           "description" : "Callback response to confirm/service",
@@ -775,7 +841,7 @@
           }
         }
       },
-      "/on_checkout" : {
+      "/on_confirm" : {
         "post" : {
           "tags" : [ "Beckn App Platform API" ],
           "description" : "Acknowledge the checkout of a service and send invoice of the FMD service",
@@ -792,7 +858,7 @@
                     "message" : {
                       "type" : "object",
                       "properties" : {
-                        "invoice" : {
+                        "order" : {
                           "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json"
                         }
                       }
@@ -899,13 +965,23 @@
                     "message" : {
                       "type" : "object",
                       "properties" : {
-                        "service" : {
-                          "type" : "object",
-                          "properties" : {
-                            "order_id" : {
-                              "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json#/properties/id"
-                            }
+                        "policies" : {
+                          "type" : "array",
+                          "items" : {
+                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json"
                           }
+                        },
+                        "reasons" : {
+                          "type" : "array",
+                          "items" : {
+                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/option.json"
+                          }
+                        },
+                        "price" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/price.json"
+                        },
+                        "order" : {
+                          "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
                         }
                       }
                     },
@@ -1052,5 +1128,9 @@
           }
         }
       }
-    }
+    },
+    "servers" : [ {
+      "description" : "SwaggerHub API Auto Mocking",
+      "url" : "https://virtserver.swaggerhub.com/beckn/final-mile-delivery/0.7.0-draft02"
+    } ]
   }
