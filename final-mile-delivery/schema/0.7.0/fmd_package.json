@@ -14,14 +14,6 @@
         "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
-        "category" : {
-            "type" : "object",
-            "properties": {
-                "id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
-                }
-            }
-        },
         "contents" : {
             "type" : "array",
             "items" : {

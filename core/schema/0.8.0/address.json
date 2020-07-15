@@ -7,7 +7,11 @@
     "properties": {
         "door": {
             "type": "string",
-            "description": "Door number of the address"
+            "description": "Door / Shop number of the address"
+        },
+        "name" : {
+            "type": "string",
+            "description": "Name of address if applicable. Example, shop name"
         },
         "building": {
             "type": "string",

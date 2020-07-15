@@ -11,7 +11,7 @@
         "payer" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
         },
-        "value" : {
+        "amount" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
         },
         "method" : {

@@ -5,41 +5,11 @@
     "description": "Describes a person. Extension not allowed",
     "type": "object",
     "properties": {
-        "title": {
-            "type": "string",
-            "enum": [
-                "Mr",
-                "Mrs",
-                "Miss",
-                "Dr"
-            ]
-        },
-        "first_name": {
-            "type": "string"
-        },
-        "middle_name": {
-            "type": "string"
-        },
-        "last_name": {
-            "type": "string"
-        },
-        "full_name": {
-            "type": "string"
+        "name" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/name.json"
         },
         "image": {
-            "type": "object",
-            "properties": {
-                "format": {
-                    "type": "string",
-                    "enum": [
-                        "url",
-                        "encoded"
-                    ]
-                },
-                "data": {
-                    "type": "string"
-                }
-            }
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/image.json"
         },
         "dob": {
             "type": "string",
@@ -47,46 +17,13 @@
         },
         "gender": {
             "type": "string",
-            "enum": [
-                "male",
-                "female"
-            ]
+            "description": "Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender"
         },
-        "contact": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string",
-                    "format": "email"
-                },
-                "mobile": {
-                    "type": "object",
-                    "properties": {
-                        "country_code": {
-                            "type": "string"
-                        },
-                        "number": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "landline": {
-                    "type": "object",
-                    "properties": {
-                        "country_code": {
-                            "type": "string"
-                        },
-                        "std_code": {
-                            "type": "string"
-                        },
-                        "number": {
-                            "type": "string"
-                        },
-                        "extension": {
-                            "type": "string"
-                        }
-                    }
-                }
+        "phones": {
+            "type": "array",
+            "items" : {
+                "type": "string",
+                    "description": "Phone numer in E.164 format (ITUT recommendation"
             }
         }
     }

@@ -8,20 +8,8 @@
         "currency" : {
             "type" : "string"
         },
-        "minimum": {
-            "type": "string"
-        },
-        "maximum" : {
-            "type" : "string"
-        },
-        "quoted" : {
-            "type" : "string"
-        },
-        "valid_from" : {
-            "type" : "string"
-        },
-        "valid_to": {
-            "type": "string"
+        "value" : {
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
         }
     }
 }

@@ -12,13 +12,13 @@
                 "pickups": {
                     "type" : "array",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.0/location.json"
                     }
                 },
                 "drops": {
                     "type" : "array",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.0/location.json"
                     }
                 },
                 "packages": {

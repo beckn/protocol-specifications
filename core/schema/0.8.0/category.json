@@ -6,7 +6,8 @@
     "type": "object",
     "properties": {
         "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique id of the category"
         },
         "parent_category_id": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"

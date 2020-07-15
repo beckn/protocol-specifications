@@ -3,100 +3,31 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
     "description": "Describes the price of a object. Allows for domain extension.",
-    "type": "object",
-    "properties": {
-        "currency": {
-            "type": "string"
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
         },
-        "estimated_value": {
-            "type": "object",
+        {
             "properties": {
-                "integral" : {
-                    "type" : "string"
+                "estimated_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
                 },
-                "fractional" : {
-                    "type" : "string"
-                }
-            }
-        },
-        "computed_value": {
-            "type": "object",
-            "properties": {
-                "integral" : {
-                    "type" : "string"
+                "computed_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
                 },
-                "fractional" : {
-                    "type" : "string"
-                }
-            }
-        },
-        "listed_value": {
-            "type": "object",
-            "properties": {
-                "integral" : {
-                    "type" : "string"
+                "listed_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
                 },
-                "fractional" : {
-                    "type" : "string"
-                }
-            }
-        },
-        "offered_value": {
-            "type": "object",
-            "properties": {
-                "integral" : {
-                    "type" : "string"
+                "offered_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
                 },
-                "fractional" : {
-                    "type" : "string"
-                }
-            }
-        },
-        "range": {
-            "min": {
-                "type": "object",
-                "properties": {
-                    "integral" : {
-                        "type" : "string"
-                    },
-                    "fractional" : {
-                        "type" : "string"
-                    }
-                }
-            },
-            "max": {
-                "type": "object",
-                "properties": {
-                    "integral" : {
-                        "type" : "string"
-                    },
-                    "fractional" : {
-                        "type" : "string"
-                    }
-                }
-            }
-        },
-        "breakup": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "title": {
-                        "type": "string"
-                    },
-                    "amount": {
-                        "type": "object",
-                        "properties": {
-                            "integral" : {
-                                "type" : "string"
-                            },
-                            "fractional" : {
-                                "type" : "string"
-                            }
-                        }
-                    }
+                "minimum_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                },
+                "maximum_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
                 }
             }
         }
-    }
+    ]    
 }

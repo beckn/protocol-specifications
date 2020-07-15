@@ -12,9 +12,6 @@
         "descriptor": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
         },
-        "code": {
-            "type": "string"
-        },
         "applies_to": {
             "type": "object",
             "description": "",

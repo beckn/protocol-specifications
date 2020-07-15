@@ -1,0 +1,33 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/name.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes the name of a person",
+    "type": "object",
+    "properties": {
+        "additional_name" : {
+            "type" : "string",
+            "description": "An additional name for a Person, can be used for a middle name."
+        },
+        "family_name" : {
+            "type" : "string",
+            "description": "Family name. In India, it is the last name of an Person. This can be used along with givenName instead of the name property."
+        },
+        "given_name" : {
+            "type" : "string",
+            "description": "Given name. In India, it is the first name of a Person. This can be used along with familyName instead of the name property."
+        },
+        "call_sign" : {
+            "type" : "string",
+            "description": "A callsign, as used in broadcasting and radio communications to identify people"
+        },
+        "honorific_prefix" : {
+            "type" : "string",
+            "description": "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr."
+        },
+        "honorific_suffix" : {
+            "type" : "string",
+            "description": "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW."
+        }
+    }
+}

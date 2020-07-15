@@ -6,7 +6,8 @@
     "type": "object",
     "properties": {
         "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique ID of the brand"
         },
         "parent_brand_id": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"

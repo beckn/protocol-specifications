@@ -3,16 +3,19 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.8.0",
     "description": "Describes a traveller",
-    "type": "object",
-    "properties": {
-        "descriptor" : {
+    "allOf": [
+        {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
         },
-        "origin_stop_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
-        },
-        "destination_stop_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
+        {
+            "properties": {
+                "origin_stop_id" : {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
+                },
+                "destination_stop_id" : {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
+                }
+            }
         }
-    }
+    ]
 }

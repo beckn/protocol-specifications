@@ -8,30 +8,59 @@
         "domain": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/domain.json"
         },
+        "location" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+        },
         "action": {
+            "type": "string",
+            "description": "Defines the Beckn API call. Any actions other than the ennumerated actions are not supported by Beckn Protocol",
+            "enum": [
+                "search",
+                "select",
+                "init",
+                "confirm",
+                "update",
+                "status",
+                "track",
+                "cancel",
+                "feedback",
+                "support",
+                "on_search",
+                "on_select",
+                "on_init",
+                "on_confirm",
+                "on_update",
+                "on_status",
+                "on_track",
+                "on_cancel",
+                "on_feedback",
+                "on_support"
+            ]
+        },
+        "core_version": {
+            "type": "string",
+            "description": "Version of Beckn core API specification being used"
+        },
+        "domain_version" : {
+            "type": "string",
+            "description": "Version of Beckn domain level schema being used"
+        },
+        "bap_nw_address": {
             "type": "string"
         },
-        "version": {
+        "bg_nw_address": {
             "type": "string"
         },
-        "bpp_id": {
-            "type": "string"
-        },
-        "bap_id" : {
-            "type": "string"
-        },
-        "bg_proxy_id" : {
-            "type": "string"
-        },
-        "session_id": {
+        "request_transaction_id": {
             "type": "string"
         },
         "timestamp": {
             "type": "string",
             "format": "date-time"
         },
-        "token" : {
-            "type": "string"
+        "token": {
+            "type": "string",
+            "description": "The network access token obtained from the tokenization service to authenticate the BAP"
         }
-    } 
+    }
 }

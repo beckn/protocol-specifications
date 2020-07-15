@@ -5,13 +5,23 @@
     "description": "Describes a billing event",
     "type": "object",
     "properties": {
-        "person" : {
+        "customer" : {
             "describtion" : "Personal details of the customer needed for billing.",
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
         },
-        "location" : {
-            "description": "Location where the bill is to be sent to.",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+        "address" : {
+            "description": "Location where the bill is to be sent to",
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/address.json"
+        },
+        "period" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
+        },
+        "billed_by" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+        },
+        "updated_at" : {
+            "type" : "string",
+            "format": "date-time"
         },
         "form" : {
             "description" : "Form factor of the bill",
