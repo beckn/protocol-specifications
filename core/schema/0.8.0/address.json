@@ -6,31 +6,40 @@
     "type": "object",
     "properties": {
         "door": {
-            "type": "string"
+            "type": "string",
+            "description": "Door number of the address"
         },
         "building": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the building or block"
         },
         "street": {
-            "type": "string"
+            "type": "string",
+            "description": "Street name or number"
         },
         "locality": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the locality, apartments"
         },
         "ward" : {
-            "type": "string"
+            "type": "string",
+            "description": "Name or number of the ward if applicable"
         },
         "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City name"
         },
         "state": {
-            "type": "string"
+            "type": "string",
+            "description": "State name"
         },
         "country": {
-            "type": "string"
+            "type": "string",
+            "description": "Country name"
         },
         "area_code": {
-            "type": "string"
+            "type": "string",
+            "description": "Area code. This can be Pincode, ZIP code or any equivalent"
         }
     }
 }
