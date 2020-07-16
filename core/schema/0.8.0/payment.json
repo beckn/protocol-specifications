@@ -6,19 +6,39 @@
     "type": "object",
     "properties": {
         "transaction_id" : {
-            "type" : "string"
+            "type" : "string",
+            "description": "Transaction ID of the payment"
         },
         "payer" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+            "type" : "object",
+            "properties": {
+                "person" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+                },
+                "endpoint": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
+                }
+            }
+        },
+        "payee" : {
+            "type" : "object",
+            "properties": {
+                "person" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+                },
+                "endpoint": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
+                }
+            }
+        },
+        "terms" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_policy.json"
         },
         "amount" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
         },
-        "method" : {
-            "type" : "string"
-        },
-        "status" : {
-            "type" : "string"
+        "state" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/state.json"
         },
         "due_date" : {
             "type" : "string",
@@ -27,20 +47,6 @@
         "scheduled_date" : {
             "type" : "string",
             "format": "date-time"
-        },
-        "endpoint" : {
-            "type" : "object",
-            "properties" : {
-                "form" : {
-                    "type" : "string"
-                },
-                "bank_account" : {
-                    "type" : "string"
-                },
-                "vpa" : {
-                    "type" : "string"
-                }
-            }
         }
     }
 }

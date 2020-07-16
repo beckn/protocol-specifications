@@ -11,24 +11,29 @@
                 "type": "string"
             }
         },
-        "supported_modes": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "enum": [
-                    "CASH",
-                    "UPI",
-                    "CARD",
-                    "NEFT",
-                    "RTGS",
-                    "IMPS"
-                ]
-            }
+        "credit_type" : {
+            "type": "string",
+            "enum": ["PREPAID", "POSTPAID", "POINT-OF-SALE"]
         },
-        "supported_wallets": {
-            "type": "array",
+        "settlement_type" : {
+            "type": "string",
+            "enum": ["PER-TRANSACTION", "BULK"]
+        },
+        "credit_duration" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
+        },
+        "mode" : {
+            "type": "string",
+            "enum": ["CASH", "CHEQUE", "DEMAD-DRAFT", "UPI", "RTGS", "NEFT", "IMPS"]
+        },
+        "method" : {
+            "type" : "string",
+            "enum": ["ELECTRONIC", "NON-ELECTRONIC"]
+        },
+        "penalty_terms" : {
+            "type" : "array",
             "items": {
-                "type": "string"
+                "type" : "string"
             }
         }
     }
