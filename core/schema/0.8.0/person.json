@@ -30,7 +30,7 @@
             "type": "array",
             "items" : {
                 "type": "string",
-                    "description": "Phone numer in E.164 format (ITUT recommendation"
+                "description": "Phone numer in E.164 format (ITUT recommendation"
             }
         }
     }

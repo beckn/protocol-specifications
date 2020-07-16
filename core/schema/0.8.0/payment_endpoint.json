@@ -7,7 +7,7 @@
     "properties": {
         "type" : {
             "type" : "string",
-            "enum": [ "BANK-ACCOUNT", "VPA", "PERSON" ]
+            "enum": [ "bank_account", "vpa", "person" ]
         },
         "bank_account" : {
             "type" : "object",

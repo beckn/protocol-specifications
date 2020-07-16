@@ -15,13 +15,6 @@
         },
         "period" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
-        },
-        "billed_by" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
-        },
-        "form" : {
-            "description" : "Form factor of the bill",
-            "type" : "string"
         }
     }
 }
