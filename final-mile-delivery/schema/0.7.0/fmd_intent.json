@@ -12,13 +12,13 @@
                 "pickups": {
                     "type" : "array",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.0/location.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
                     }
                 },
                 "drops": {
                     "type" : "array",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.7.0/location.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
                     }
                 },
                 "packages": {
