@@ -16,7 +16,7 @@
         },
         "state" : {
             "type" : "string",
-            "enum": [ "AT-LOCATION", "EN-ROUTE" ]
+            "enum": [ "SEARCHINNG-FOR-FMD-AGENT", "ASSIGNED-AGENT", "EN-ROUTE-TO-PICKCUP", "AT-PICKUP-LOCATION", "PICKED-UP-PACKAGE", "EN-ROUTE-TO-DROP", "AT-DROP-LOCATION", "DROPPED-PACKAGE" ]
         },
         "pickup" : {
             "type" : "object",
