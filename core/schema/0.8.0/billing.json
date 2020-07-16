@@ -19,10 +19,6 @@
         "billed_by" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
         },
-        "updated_at" : {
-            "type" : "string",
-            "format": "date-time"
-        },
         "form" : {
             "description" : "Form factor of the bill",
             "type" : "string"

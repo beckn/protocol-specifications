@@ -11,22 +11,19 @@
         "state": {
             "type" : "string"
         },
-        "billing" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/billing.json"
-        },
-        "fulfillment" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/fulfillment.json"
-        },
         "created_at" : {
             "type" : "string",
             "format": "date-time"
         },
-        "invoice" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json"
-        },
         "updated_at" : {
             "type" : "string",
             "format": "date-time"
+        },
+        "items" : {
+            "type": "array",
+            "items": {
+                "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+            }
         }
     }
 }
