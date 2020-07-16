@@ -6,10 +6,12 @@
     "type": "object",
     "properties": {
         "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the city"
         },
         "code": {
-            "type": "string"
+            "type": "string",
+            "description": "City code"
         }
     }
 }

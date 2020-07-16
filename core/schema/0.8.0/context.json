@@ -49,21 +49,32 @@
             "description": "Version of Beckn domain level schema being used"
         },
         "bap_nw_address": {
-            "type": "string"
+            "type": "string",
+            "format": "uri",
+            "description": "Address of the BAP in the network"
         },
         "bg_nw_address": {
-            "type": "string"
+            "type": "string",
+            "format": "uri",
+            "description": "Address of the BG in the network"
+        },
+        "bpp_nw_address": {
+            "type": "string",
+            "format": "uri",
+            "description": "Address of the BPP in the network. This can be left empty in case of search action. This will be used in case of proxied APIs. "
         },
         "request_transaction_id": {
-            "type": "string"
+            "type": "string",
+            "description": "BAP generated transaction ID.This is a UUID which is used for mapping requests to callbacks."
         },
         "timestamp": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Time of request generation"
         },
         "token": {
             "type": "string",
-            "description": "The network access token obtained from the tokenization service to authenticate the BAP"
+            "description": "The network access token obtained from the tokenization service to authenticate the BAP. This will be a simple JWT used when tokenization services are supported by the beckn network. The payload of the JWT token will contain the context object. The signature of the JWT is the signature of the tokenization service which can be verified using the public key of the tokenization service"
         }
     }
 }
