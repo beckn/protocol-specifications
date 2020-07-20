@@ -91,12 +91,78 @@
                                     }
                                 }
                             },
-                            "tue": {},
-                            "wed": {},
-                            "thu": {},
-                            "fri": {},
-                            "sat": {},
-                            "sun": {}
+                            "tue": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "wed": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "thu": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "fri": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "sat": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "sun": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
                         }
                     }
                 }

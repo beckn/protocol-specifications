@@ -10,26 +10,10 @@
             "description": "Transaction ID of the payment"
         },
         "payer" : {
-            "type" : "object",
-            "properties": {
-                "person" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
-                },
-                "endpoint": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
-                }
-            }
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
         },
         "payee" : {
-            "type" : "object",
-            "properties": {
-                "person" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
-                },
-                "endpoint": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
-                }
-            }
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
         },
         "terms" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_policy.json"

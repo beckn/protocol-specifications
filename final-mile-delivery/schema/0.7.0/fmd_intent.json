@@ -12,20 +12,37 @@
                 "pickups": {
                     "type" : "array",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
-                    }
+                        "allOf": [
+                            {
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                            },
+                            {
+                                "required": ["gps"]
+                            }
+                        ]
+                    },
+                    "maxItems": 1
                 },
                 "drops": {
                     "type" : "array",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
-                    }
+                        "allOf": [
+                            {
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                            },
+                            {
+                                "required": ["gps"]
+                            }
+                        ]
+                    },
+                    "maxItems": 1
                 },
                 "packages": {
                     "type" : "array",
                     "items" : {
                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_package.json"
-                    }
+                    },
+                    "maxItems": 1
                 },
                 "tags": {
                     "type" : "array",
@@ -34,6 +51,9 @@
                     }
                 }
             }
+        },
+        {
+            "required" : ["pickups", "drops", "packages"]
         }
     ]
 }

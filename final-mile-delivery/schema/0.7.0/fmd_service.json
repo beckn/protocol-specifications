@@ -22,11 +22,16 @@
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_paradigm.json"
                                     }
                                 }
-                            }
+                            },
+                            "required": ["categories", "paradigms"]
                         }
                     ]
                 }
-            }
+            },
+            "required": ["categories"]
+        },
+        {
+            "required": ["provider", "catalog"]
         }
     ]
 }
