@@ -11,6 +11,10 @@
         "luggage" : {
             "type" : "object",
             "properties": {
+                "count" : {
+                    "type" : "integer",
+                    "minimum": 0
+                },
                 "weight": {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/scalar.json"
                 },
