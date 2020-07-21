@@ -22,7 +22,16 @@
         "items" : {
             "type": "array",
             "items": {
-                "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                "type" : "object",
+                "properties": {
+                    "id" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                    },
+                    "quantity" : {
+                        "type" : "integer",
+                        "minimum": 0
+                    }
+                }
             }
         }
     }
