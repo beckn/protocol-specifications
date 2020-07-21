@@ -5,6 +5,9 @@
     "description": "Describes the payload of a trip",
     "type": "object",
     "properties" : {
+        "has_luggage" : {
+            "type" : "boolean"
+        },
         "luggage" : {
             "type" : "object",
             "properties": {
