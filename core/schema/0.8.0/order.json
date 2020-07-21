@@ -33,6 +33,12 @@
                     }
                 }
             }
+        },
+        "billing" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/billing.json"
+        },
+        "payment" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json"
         }
     }
 }

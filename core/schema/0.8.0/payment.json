@@ -9,14 +9,19 @@
             "type" : "string",
             "description": "Transaction ID of the payment"
         },
+        "type" : {
+            "type":"string",
+            "enum": ["ON-ORDER", "PRE-FULFILLMENT", "ON-FULFILLMENT","POST-FULFILLMENT"]
+        },
         "payer" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
         },
         "payee" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_endpoint.json"
         },
-        "terms" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment_policy.json"
+        "method" : {
+            "type":"string",
+            "enum": ["CASH", "CHEQUE", "DEMAND-DRAFT", "UPI", "RTGS", "NEFT", "IMPS"]
         },
         "amount" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
@@ -28,9 +33,8 @@
             "type" : "string",
             "format": "date-time"
         },
-        "scheduled_date" : {
-            "type" : "string",
-            "format": "date-time"
+        "duration" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
         }
     }
 }
