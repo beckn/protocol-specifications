@@ -55,8 +55,8 @@
                 }
             }
         },
-        "package" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_package.json"
+        "package_id" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_package.json#/properties/id"
         },
         "agent" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_agent.json"

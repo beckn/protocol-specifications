@@ -195,12 +195,80 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "draft_order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                            "order": {
+                                                "description" : "This is the draft order object containing details of task being carried out like pickup location, drop location and pacakge details",
+                                                "allOf" : [
+                                                    {
+                                                        "allOf" : [
+                                                            {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                                            },
+                                                            {
+                                                                "properties" : {
+                                                                    "items" : {
+                                                                        "type" : "array",
+                                                                        "items" : {
+                                                                            "allOf" : [
+                                                                                {
+                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json"
+                                                                                },
+                                                                                {
+                                                                                    "required" : ["id"]
+                                                                                }
+                                                                            ]
+                                                                            
+                                                                        }
+                                                                    },
+                                                                    "tasks" : {
+                                                                        "type" : "array",
+                                                                        "items" : {
+                                                                            "allOf" : [
+                                                                                {
+                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json"
+                                                                                },
+                                                                                {
+                                                                                    "required" : ["item_id", "pickup", "drop", "package_id"]
+                                                                                }
+                                                                            ]
+                                                                            
+                                                                        }
+                                                                        
+                                                                    },
+                                                                    "packages" : {
+                                                                        "type" : "array",
+                                                                        "items" : {
+                                                                            "allOf" : [
+                                                                                {
+                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_package.json"
+                                                                                },
+                                                                                {
+                                                                                    "required" : ["contents"]
+                                                                                }
+                                                                            ]
+                                                                            
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "required" : [
+                                                            "items", "tasks", "packages"
+                                                        ]
+                                                    }
+                                                ]
                                             }
-                                        }
+                                        },
+                                        "required" : [
+                                            "order"
+                                        ]
                                     }
-                                }
+                                },
+                                "required" : [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Simple Order": {
@@ -220,99 +288,104 @@
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
-                                            "draft_order": {
+                                            "order": {
+                                                "id": "",
                                                 "items": [
                                                     {
-                                                        "id": "1",
-                                                        "task": {
-                                                            "pickup": {
-                                                                "location": {
-                                                                    "address": {
-                                                                        "door": "2244",
-                                                                        "name": "Croma",
-                                                                        "building": "string",
-                                                                        "street": "5th Main",
-                                                                        "locality": "HSR Layout",
-                                                                        "ward": "",
-                                                                        "city": "Bengaluru",
-                                                                        "state": "Karnataka",
-                                                                        "country": "India",
-                                                                        "area_code": "560102"
-                                                                    },
-                                                                    "gps": {
-                                                                        "lat": "22.987987",
-                                                                        "lon": "77.232323"
-                                                                    }
+                                                        "id": "1234-5678-12-34-56"
+                                                    }
+                                                ],
+                                                "tasks": [
+                                                    {
+                                                        "id": "98298323-203982-02309",
+                                                        "item_id": "1234-5678-12-34-56",
+                                                        "pickup": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "2244",
+                                                                    "name": "Croma",
+                                                                    "building": "string",
+                                                                    "street": "5th Main",
+                                                                    "locality": "HSR Layout",
+                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560102"
                                                                 },
-                                                                "instructions": [
-                                                                    "Please handle with care"
-                                                                ],
-                                                                "poc": {
-                                                                    "name": {
-                                                                        "given_name": "John"
-                                                                    },
-                                                                    "contact": {
-                                                                        "mobile": {
-                                                                            "country_code": "+91",
-                                                                            "number": "9876543210"
-                                                                        }
-                                                                    }
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
                                                                 }
                                                             },
-                                                            "drop": {
-                                                                "location": {
-                                                                    "address": {
-                                                                        "door": "BB1703",
-                                                                        "name": "Salarpuria Greenage",
-                                                                        "building": "Birch B Block",
-                                                                        "street": "Hosur Road",
-                                                                        "locality": "HSR Layout",
-                                                                        "ward": "",
-                                                                        "city": "Bengaluru",
-                                                                        "state": "Karnataka",
-                                                                        "country": "India",
-                                                                        "area_code": "560068"
-                                                                    },
-                                                                    "gps": {
-                                                                        "lat": "22.987987",
-                                                                        "lon": "77.232323"
-                                                                    }
+                                                            "instructions": [
+                                                                "Please handle with care"
+                                                            ],
+                                                            "poc": {
+                                                                "name": {
+                                                                    "given_name": "John"
                                                                 },
-                                                                "instructions": [
-                                                                    "Please don't ring doorbell",
-                                                                    "Leave package at door"
-                                                                ],
-                                                                "poc": {
-                                                                    "name": {
-                                                                        "given_name": "Bob"
-                                                                    },
-                                                                    "contact": {
-                                                                        "mobile": {
-                                                                            "country_code": "+91",
-                                                                            "number": "9786756453"
-                                                                        }
+                                                                "contact": {
+                                                                    "mobile": {
+                                                                        "country_code": "+91",
+                                                                        "number": "9876543210"
                                                                     }
+                                                                }
+                                                            }
+                                                        },
+                                                        "drop": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "BB1703",
+                                                                    "name": "Salarpuria Greenage",
+                                                                    "building": "Birch B Block",
+                                                                    "street": "Hosur Road",
+                                                                    "locality": "HSR Layout",
+                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560068"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
                                                                 }
                                                             },
-                                                            "package": {
-                                                                "contents": [
-                                                                    {
-                                                                        "category_id": "12",
-                                                                        "descriptor": {
-                                                                            "name": "Soap"
-                                                                        }
-                                                                    },
-                                                                    {
-                                                                        "category_id": "10",
-                                                                        "descriptor": {
-                                                                            "name": "Potato"
-                                                                        }
+                                                            "instructions": [
+                                                                "Please don't ring doorbell",
+                                                                "Leave package at door"
+                                                            ],
+                                                            "poc": {
+                                                                "name": {
+                                                                    "given_name": "Bob"
+                                                                },
+                                                                "contact": {
+                                                                    "mobile": {
+                                                                        "country_code": "+91",
+                                                                        "number": "9786756453"
                                                                     }
-                                                                ],
-                                                                "weight": {
-                                                                    "estimated_value": "1",
-                                                                    "unit": "kg"
                                                                 }
+                                                            }
+                                                        },
+                                                        "package": {
+                                                            "contents": [
+                                                                {
+                                                                    "category_id": "12",
+                                                                    "descriptor": {
+                                                                        "name": "Soap"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "category_id": "10",
+                                                                    "descriptor": {
+                                                                        "name": "Potato"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "weight": {
+                                                                "estimated_value": "1",
+                                                                "unit": "kg"
                                                             }
                                                         }
                                                     }
@@ -927,13 +1000,56 @@
                                         },
                                         "message": {
                                             "update_action": "update_pickup_location",
-                                            "order" : {
-                                                "tasks" : [
+                                            "order": {
+                                                "tasks": [
                                                     {
-                                                        "id" : "bGciOiJIUzI",
-                                                        "pickup" : {
-                                                            "location" : {
-                                                                "address" : {
+                                                        "id": "bGciOiJIUzI",
+                                                        "pickup": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "EB1703",
+                                                                    "building": "No 7",
+                                                                    "street": "Hosur Road",
+                                                                    "locality": "HSR Layout, Sector 2",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560068",
+                                                                    "landmark": "Near oxford college"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "Update drop location": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "update",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "update_action": "update_drop_location",
+                                            "order": {
+                                                "tasks": [
+                                                    {
+                                                        "id": "bGciOiJIUzI",
+                                                        "drop": {
+                                                            "location": {
+                                                                "address": {
                                                                     "door": "EB1703",
                                                                     "building": "No 7",
                                                                     "street": "Hosur Road",
@@ -1022,7 +1138,7 @@
                                             "domain": "FINAL-MILE-DELIVERY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "search",
+                                            "action": "track",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
                                             "bap_nw_address": "http://bap.api.example.com",
@@ -1043,7 +1159,7 @@
                                             "domain": "FINAL-MILE-DELIVERY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "search",
+                                            "action": "track",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
                                             "bap_nw_address": "http://bap.api.example.com",
@@ -1129,7 +1245,7 @@
                                             "domain": "FINAL-MILE-DELIVERY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "search",
+                                            "action": "cancel",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
                                             "bap_nw_address": "http://bap.api.example.com",
@@ -1150,7 +1266,7 @@
                                             "domain": "FINAL-MILE-DELIVERY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "search",
+                                            "action": "cancel",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
                                             "bap_nw_address": "http://bap.api.example.com",
@@ -1240,7 +1356,7 @@
                                             "domain": "FINAL-MILE-DELIVERY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "search",
+                                            "action": "on_search",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
                                             "bap_nw_address": "http://bap.api.example.com",
@@ -1423,7 +1539,7 @@
                                     "domain": "FINAL-MILE-DELIVERY",
                                     "country": "IND",
                                     "city": "BLR",
-                                    "action": "search",
+                                    "action": "on_select",
                                     "core_version": "0.8.0",
                                     "domain_version": "0.7.0",
                                     "bap_nw_address": "http://bap.api.example.com",
@@ -1434,6 +1550,15 @@
                                     "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                 },
                                 "message": {
+                                    "order": {
+                                        "id": "",
+                                        "item_id": "5322-6ba0-458e-8bd3-08",
+                                        "tasks": [
+                                            {
+                                                "id": "d02-60-458e-8bd3-1f88"
+                                            }
+                                        ]
+                                    },
                                     "quote": {
                                         "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
                                         "price": {
@@ -1518,7 +1643,7 @@
                                             "domain": "FINAL-MILE-DELIVERY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "search",
+                                            "action": "on_init",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
                                             "bap_nw_address": "http://bap.api.example.com",
