@@ -15,6 +15,9 @@
         },
         "period" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
+        },
+        "tax_number" : {
+            "type" : "string"
         }
     }
 }
