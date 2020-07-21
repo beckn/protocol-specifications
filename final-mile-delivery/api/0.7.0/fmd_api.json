@@ -38,13 +38,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "search",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -120,7 +123,7 @@
                                         "value": {
                                             "context": {
                                                 "domain": "FINAL-MILE-DELIVERY",
-                                                "action": "search",
+                                                "action": "ack",
                                                 "version": "0.7.0",
                                                 "bpp_id": "",
                                                 "bap_id": "FMD.IND.BLR.BAP.110011",
@@ -141,13 +144,16 @@
                                         "value": {
                                             "context": {
                                                 "domain": "FINAL-MILE-DELIVERY",
-                                                "action": "search",
-                                                "version": "0.7.0",
-                                                "bpp_id": "",
-                                                "bap_id": "FMD.IND.BLR.BAP.110011",
-                                                "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                                "country": "IND",
+                                                "city": "BLR",
+                                                "action": "nack",
+                                                "core_version": "0.8.0",
+                                                "domain_version": "0.7.0",
+                                                "bap_nw_address": "http://bap.api.example.com",
+                                                "bpp_nw_address": "",
+                                                "bg_nw_address": "",
+                                                "request_transaction_id": "83923oio2i3e",
                                                 "timestamp": "2020-07-15T06:43:14.653Z",
-                                                "transaction_id": "83923oio2i3e",
                                                 "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                             },
                                             "message": {
@@ -201,13 +207,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "search",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "http://bpp.api.example.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -394,13 +403,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "catalog",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -418,13 +430,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "catalog",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -442,13 +457,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "catalog",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -466,13 +484,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "catalog",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -490,13 +511,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "catalog",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -514,13 +538,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "catalog",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -602,13 +629,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "init",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -705,13 +735,16 @@
                             "example": {
                                 "context": {
                                     "domain": "FINAL-MILE-DELIVERY",
-                                    "action": "status",
-                                    "version": "0.7.0",
-                                    "bpp_id": "",
-                                    "bap_id": "FMD.IND.BLR.BAP.110011",
-                                    "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                    "country": "IND",
+                                    "city": "BLR",
+                                    "action": "confirm",
+                                    "core_version": "0.8.0",
+                                    "domain_version": "0.7.0",
+                                    "bap_nw_address": "http://bap.api.example.com",
+                                    "bpp_nw_address": "",
+                                    "bg_nw_address": "",
+                                    "request_transaction_id": "83923oio2i3e",
                                     "timestamp": "2020-07-15T06:43:14.653Z",
-                                    "transaction_id": "83923oio2i3e",
                                     "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                 },
                                 "message": {
@@ -787,13 +820,16 @@
                             "example": {
                                 "context": {
                                     "domain": "FINAL-MILE-DELIVERY",
+                                    "country": "IND",
+                                    "city": "BLR",
                                     "action": "status",
-                                    "version": "0.7.0",
-                                    "bpp_id": "",
-                                    "bap_id": "FMD.IND.BLR.BAP.110011",
-                                    "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                    "core_version": "0.8.0",
+                                    "domain_version": "0.7.0",
+                                    "bap_nw_address": "http://bap.api.example.com",
+                                    "bpp_nw_address": "",
+                                    "bg_nw_address": "",
+                                    "request_transaction_id": "83923oio2i3e",
                                     "timestamp": "2020-07-15T06:43:14.653Z",
-                                    "transaction_id": "83923oio2i3e",
                                     "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                 },
                                 "message": {
@@ -855,8 +891,12 @@
                                             "update_action": {
                                                 "type": "string",
                                                 "enum": [
-                                                    "update_task_location",
-                                                    "update_task_poc",
+                                                    "update_pickup_location",
+                                                    "update_pickup_poc",
+                                                    "update_pickup_instructions",
+                                                    "update_drop_location",
+                                                    "update_drop_poc",
+                                                    "update_drop_instructions",
                                                     "update_package",
                                                     "update_billing"
                                                 ]
@@ -869,40 +909,45 @@
                                 }
                             },
                             "examples": {
-                                "Order with Billing Details": {
+                                "Update pickup location": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
                                             "action": "update",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
-                                            "quotation_id": "12224408",
-                                            "billing": {
-                                                "customer": {
-                                                    "honorific_prefix": "Mr",
-                                                    "given_name": "John",
-                                                    "family_name": "Doe"
-                                                },
-                                                "address": {
-                                                    "door": "BB1703",
-                                                    "name": "Salarpuria Greenage",
-                                                    "building": "No 7",
-                                                    "street": "Hosur Road",
-                                                    "locality": "HSR Layout",
-                                                    "ward": "",
-                                                    "city": "Bengaluru",
-                                                    "state": "Karnataka",
-                                                    "country": "India",
-                                                    "area_code": "560068",
-                                                    "landmark": "Near oxford college"
-                                                }
+                                            "update_action": "update_pickup_location",
+                                            "order" : {
+                                                "tasks" : [
+                                                    {
+                                                        "id" : "bGciOiJIUzI",
+                                                        "pickup" : {
+                                                            "location" : {
+                                                                "address" : {
+                                                                    "door": "EB1703",
+                                                                    "building": "No 7",
+                                                                    "street": "Hosur Road",
+                                                                    "locality": "HSR Layout, Sector 2",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560068",
+                                                                    "landmark": "Near oxford college"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
                                             }
                                         }
                                     }
@@ -975,13 +1020,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "status",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -993,13 +1041,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "status",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -1076,13 +1127,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "status",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -1094,13 +1148,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "status",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -1181,13 +1238,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "on_search",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
@@ -1361,13 +1421,16 @@
                             "example": {
                                 "context": {
                                     "domain": "FINAL-MILE-DELIVERY",
-                                    "action": "on_select",
-                                    "version": "0.7.0",
-                                    "bpp_id": "",
-                                    "bap_id": "FMD.IND.BLR.BAP.110011",
-                                    "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                    "country": "IND",
+                                    "city": "BLR",
+                                    "action": "search",
+                                    "core_version": "0.8.0",
+                                    "domain_version": "0.7.0",
+                                    "bap_nw_address": "http://bap.api.example.com",
+                                    "bpp_nw_address": "",
+                                    "bg_nw_address": "",
+                                    "request_transaction_id": "83923oio2i3e",
                                     "timestamp": "2020-07-15T06:43:14.653Z",
-                                    "transaction_id": "83923oio2i3e",
                                     "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                 },
                                 "message": {
@@ -1453,13 +1516,16 @@
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
-                                            "action": "on_init",
-                                            "version": "0.7.0",
-                                            "bpp_id": "",
-                                            "bap_id": "FMD.IND.BLR.BAP.110011",
-                                            "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "transaction_id": "83923oio2i3e",
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {

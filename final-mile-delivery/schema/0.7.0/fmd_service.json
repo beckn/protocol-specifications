@@ -16,6 +16,12 @@
                         },
                         {
                             "properties": {
+                                "package_categories" : {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
+                                    }
+                                },
                                 "paradigms": {
                                     "type": "array",
                                     "items": {
@@ -23,7 +29,7 @@
                                     }
                                 }
                             },
-                            "required": ["categories", "paradigms"]
+                            "required": ["categories", "paradigms", "package_categories"]
                         }
                     ]
                 }

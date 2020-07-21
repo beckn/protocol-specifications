@@ -14,35 +14,6 @@
                     "items": {
                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json"
                     }
-                },
-                "packages" : {
-                    "type" : "array",
-                    "items": {
-                        "allOf": [
-                            {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_package.json"
-                            },
-                            {
-                                "properties": {
-                                    "state" : {
-                                        "type" : "string",
-                                        "enum": [ "READY", "PICKED-UP", "DROPPED" ]
-                                    },
-                                    "task_id" : {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json#/properties/id"
-                                    },
-                                    "created_at" : {
-                                        "type" : "string",
-                                        "format" : "date-time"
-                                    },
-                                    "updated_at" : {
-                                        "type" : "string",
-                                        "format" : "date-time"
-                                    }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
