@@ -227,12 +227,32 @@
                                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json"
                                                                                 },
                                                                                 {
+                                                                                    "properties" : {
+                                                                                        "pickup" : {
+                                                                                            "allOf" : [
+                                                                                                {
+                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json#/properties/pickup"
+                                                                                                },
+                                                                                                {
+                                                                                                    "required" : ["location", "poc"]
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "drop" : {
+                                                                                            "allOf" : [
+                                                                                                {
+                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_task.json#/properties/drop"
+                                                                                                },
+                                                                                                {
+                                                                                                    "required" : ["location", "poc"]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
                                                                                     "required" : ["item_id", "pickup", "drop", "package_id"]
                                                                                 }
                                                                             ]
-                                                                            
                                                                         }
-                                                                        
                                                                     },
                                                                     "packages" : {
                                                                         "type" : "array",
@@ -245,7 +265,6 @@
                                                                                     "required" : ["contents"]
                                                                                 }
                                                                             ]
-                                                                            
                                                                         }
                                                                     }
                                                                 }
