@@ -31,7 +31,8 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required":["context", "message"]
                             },
                             "examples": {
                                 "Simple Fmd Intent": {
@@ -249,7 +250,7 @@
                                                                                             ]
                                                                                         }
                                                                                     },
-                                                                                    "required" : ["item_id", "pickup", "drop", "package_id"]
+                                                                                    "required" : ["item_id", "pickup", "drop", "package"]
                                                                                 }
                                                                             ]
                                                                         }
@@ -273,7 +274,7 @@
                                                     },
                                                     {
                                                         "required" : [
-                                                            "items", "tasks", "packages"
+                                                            "items", "tasks"
                                                         ]
                                                     }
                                                 ]
@@ -488,7 +489,8 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required":["context", "message"]
                             },
                             "examples": {
                                 "Empty Catalog Search": {
@@ -710,11 +712,19 @@
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json#/properties/id"
                                             },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                                "allOf" :[
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                                    },
+                                                    {
+                                                        "required":["quotation_id", "billing"]
+                                                    }
+                                                ]
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required":["context", "message"]
                             },
                             "examples": {
                                 "Order with Billing Details": {
@@ -735,7 +745,7 @@
                                         },
                                         "message": {
                                             "quotation_id": "12224408",
-                                            "invoice_details": {
+                                            "order": {
                                                 "billing": {
                                                     "customer": {
                                                         "organisation_name": "Peppo",
@@ -753,10 +763,10 @@
                                                         "state": "Karnataka",
                                                         "country": "India",
                                                         "area_code": "560068",
-                                                        "landmark": "Near oxford college"
-                                                    }
-                                                },
-                                                "tax_number": "SERDV2345T"
+                                                        "landmark": "Near oxford college",
+                                                    },
+                                                    "tax_number": "SERDV2345T"
+                                                }
                                             }
                                         }
                                     }
@@ -814,15 +824,36 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
-                                            },
-                                            "payment": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json"
+                                            "order": {
+                                                "allOf":[
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json"
+                                                    },
+                                                    {
+                                                        "properties" : {
+                                                            "payment" : {
+                                                                "allOf" : [
+                                                                    {
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json"
+                                                                    },
+                                                                    {
+                                                                        "required": ["transaction_id"]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id", 
+                                                            "payment"
+                                                        ]
+                                                    }
+                                                ],
+                                                
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required":["context", "message"]
                             },
                             "example": {
                                 "context": {
@@ -905,9 +936,11 @@
                                             "order_id": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                             }
-                                        }
+                                        },
+                                        "required":["order_id"]
                                     }
-                                }
+                                },
+                                "required":["context", "message"]
                             },
                             "example": {
                                 "context": {
@@ -1143,12 +1176,15 @@
                                             "order_id": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                             },
-                                            "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tracking.json"
+                                            "callback_url": {
+                                                "type" : "string",
+                                                "format": "url"
                                             }
-                                        }
+                                        },
+                                        "required":["order_id", "tracking"]
                                     }
-                                }
+                                },
+                                "required":["context", "message"]
                             },
                             "examples": {
                                 "Location Polling": {
@@ -1543,6 +1579,9 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
+                                            "order" : {
+                                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_order.json"
+                                            },
                                             "quote": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/quotation.json"
                                             }
@@ -1571,10 +1610,12 @@
                                 "message": {
                                     "order": {
                                         "id": "",
-                                        "item_id": "5322-6ba0-458e-8bd3-08",
-                                        "tasks": [
+                                        "items" : [
                                             {
-                                                "id": "d02-60-458e-8bd3-1f88"
+                                                "id" : "d02-6ba0-458e",
+                                                "quantity" : {
+                                                    "available" : 20
+                                                }
                                             }
                                         ]
                                     },
