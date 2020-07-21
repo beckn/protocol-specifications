@@ -28,8 +28,7 @@
                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
                     },
                     "quantity" : {
-                        "type" : "integer",
-                        "minimum": 0
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item_quantity.json"
                     }
                 }
             }
