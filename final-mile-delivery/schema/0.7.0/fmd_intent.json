@@ -11,6 +11,7 @@
             "properties": {
                 "pickups": {
                     "type" : "array",
+                    "description" : "List of intended pickup locations. Will contain only single element for current version.",
                     "items": {
                         "allOf": [
                             {
@@ -25,6 +26,7 @@
                 },
                 "drops": {
                     "type" : "array",
+                    "description" : "List of intended drop locations. Will contain only single element for current version.",
                     "items": {
                         "allOf": [
                             {
@@ -39,6 +41,7 @@
                 },
                 "packages": {
                     "type" : "array",
+                    "description" : "Description of packages being transported. Will contain only single element for current version.",
                     "items" : {
                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_package.json"
                     },
@@ -46,6 +49,7 @@
                 },
                 "tags": {
                     "type" : "array",
+                    "description" : "Any additional attributes specific to a localized network.",
                     "items": {
                         "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tag.json"
                     }
