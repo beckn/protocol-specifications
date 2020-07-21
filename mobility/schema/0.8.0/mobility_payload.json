@@ -16,6 +16,10 @@
                 }
             }
         },
+        "traveller_count" : {
+            "type" : "integer",
+            "minimum": 1
+        },
         "travellers": {
             "description": "Details of travellers on this trip",
             "type": "array",
