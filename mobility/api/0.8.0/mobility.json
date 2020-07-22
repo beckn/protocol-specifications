@@ -1297,11 +1297,7 @@
     "servers": [
         {
             "description": "SwaggerHub API Auto Mocking",
-            "url": "https://virtserver.swaggerhub.com/beckn/mobility/0.8.0-draft02"
-        },
-        {
-            "description": "SwaggerHub API Auto Mocking",
-            "url": "https://virtserver.swaggerhub.com/beckn/mobility-draft01/0.8.0-draft02"
+            "url": "https://virtserver.swaggerhub.com/beckn/mobility/0.8.0-draft03"
         }
     ]
 }
