@@ -20,7 +20,7 @@
                 "stops" : {
                     "type" : "array",
                     "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/stop.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
                     }
                 }
             }

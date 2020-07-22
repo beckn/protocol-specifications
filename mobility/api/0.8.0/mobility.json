@@ -1,20 +1,20 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Beckn Core API",
+        "title": "Beckn Mobility API",
         "description": "Extension of core API for the mobility domain",
-        "version": "0.8.0"
+        "version": "0.8.0-draft03"
     },
     "paths": {
         "/search": {
             "post": {
                 "tags": [
-                    "Beckn Provider API",
+                    "Beckn Provider Platform API",
                     "Beckn Gateway API"
                 ],
                 "description": "Search by intent",
                 "requestBody": {
-                    "description": "BAP searches for mobility services",
+                    "description": "BAP searches for Mobility services",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -69,7 +69,7 @@
         "/select": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Initializing the trip",
                 "requestBody": {
@@ -85,39 +85,8 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "domain_level_attrs" : {
-                                                "type" : "object",
-                                                "description" : "These contain domain level filtering attributes like taxonomies, standards etc. Might not relevant for every domain. Can be extended on mutual agreement between network participants and Beckn Foundation "
-                                            },
-                                            "service_level_attrs" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "trip": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "payload" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
-                                                            },
-                                                            "stops": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "catalog_level_attrs" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "offer_id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
-                                                    },
-                                                    "fare_product_id" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/mobility_fare_product.json#/properties/id"
-                                                    }
-                                                }
+                                            "draft_order": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_order.json"
                                             }
                                         }
                                     }
@@ -151,12 +120,78 @@
                 }
             }
         },
-        "/confirm": {
+        "/catalog": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
-                "description": "Confirm a Trip",
+                "description": "Fetch catalog of a service based on filters",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "brand_id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+                                            },
+                                            "model_id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/model.json#/properties/id"
+                                            },
+                                            "offer_id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
+                                            },
+                                            "item_id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                                            },
+                                            "fare_product_id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/fare_product.json#/properties/id"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/init": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Platform API"
+                ],
+                "description": "Initialize a trip",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -205,10 +240,10 @@
                 }
             }
         },
-        "/checkout": {
+        "/confirm": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Send transaction id to BPP to confirm payment",
                 "requestBody": {
@@ -225,12 +260,12 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "type" : "object",
+                                                "type": "object",
                                                 "properties": {
-                                                    "id" : {
+                                                    "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                                     },
-                                                    "payment" : {
+                                                    "payment": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json"
                                                     }
                                                 }
@@ -270,7 +305,7 @@
         "/cancel": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Cancel a Service",
                 "requestBody": {
@@ -286,21 +321,21 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "cancellation" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
-                                                        "type" : "string"
+                                            "cancellation": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
                                                     },
-                                                    "reason" : {
+                                                    "reason": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
                                                     }
                                                 }
                                             },
                                             "order": {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                                     }
                                                 }
@@ -340,7 +375,7 @@
         "/update": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Update a Trip",
                 "requestBody": {
@@ -358,17 +393,21 @@
                                         "properties": {
                                             "update_action": {
                                                 "type": "string",
-                                                "enum" : ["UPDATE-PICKUP", "UPDATE-DROP", "ADD-STOP"]
+                                                "enum": [
+                                                    "UPDATE-PICKUP",
+                                                    "UPDATE-DROP",
+                                                    "ADD-STOP"
+                                                ]
                                             },
-                                            "service" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
+                                            "service": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
                                                     }
                                                 }
                                             },
-                                            "order" : {
+                                            "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_order.json"
                                             }
                                         }
@@ -406,7 +445,7 @@
         "/feedback": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Provide feedback on a service",
                 "requestBody": {
@@ -455,7 +494,7 @@
         "/support": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Fetch customer support details",
                 "requestBody": {
@@ -504,7 +543,7 @@
         "/status": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Fetch the status of an order",
                 "requestBody": {
@@ -520,18 +559,18 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "service" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
+                                            "service": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
                                                     }
                                                 }
                                             },
-                                            "order" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
+                                            "order": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                                     }
                                                 }
@@ -571,7 +610,7 @@
         "/track": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn Provider Platform API"
                 ],
                 "description": "Track an item during an active service",
                 "requestBody": {
@@ -587,10 +626,10 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "order" : {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "id" : {
+                                            "order": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
                                                     }
                                                 }
@@ -639,7 +678,7 @@
         "/on_search": {
             "post": {
                 "tags": [
-                    "Beckn App API",
+                    "Beckn App Platform API",
                     "Beckn Gateway API"
                 ],
                 "description": "Callback response to search",
@@ -684,7 +723,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                                }
+                                            }
                                         },
                                         "error": {
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
@@ -700,7 +744,7 @@
         "/on_select": {
             "post": {
                 "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Callback response to select/service. The trip object is updated with price",
                 "requestBody": {
@@ -724,8 +768,68 @@
                                                     }
                                                 }
                                             },
-                                            "trip" : {
+                                            "trip": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_trip.json"
+                                            }
+                                        }
+                                    },
+                                    "error": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_init": {
+            "post": {
+                "tags": [
+                    "Beckn App Platform API"
+                ],
+                "description": "Callback response to confirm/service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "order": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_order.json"
+                                            },
+                                            "invoice": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json"
                                             }
                                         }
                                     },
@@ -765,64 +869,7 @@
         "/on_confirm": {
             "post": {
                 "tags": [
-                    "Beckn App API"
-                ],
-                "description": "Callback response to confirm/service",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message": {
-                                        "type": "object",
-                                        "properties": {
-                                            "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_order.json"
-                                            }
-                                        }
-                                    },
-                                    "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_checkout": {
-            "post": {
-                "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Callback response to checkout. Returns a mobility order. This contains the trip object with the updated state",
                 "requestBody": {
@@ -879,7 +926,7 @@
         "/on_cancel": {
             "post": {
                 "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Response to cancel service",
                 "requestBody": {
@@ -895,8 +942,8 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "cancellation_id" : {
-                                                "type" : "string"
+                                            "cancellation_id": {
+                                                "type": "string"
                                             },
                                             "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_order.json"
@@ -939,7 +986,7 @@
         "/on_update": {
             "post": {
                 "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Returns updated service with updated runtime object",
                 "requestBody": {
@@ -996,7 +1043,7 @@
         "/on_feedback": {
             "post": {
                 "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Provide feedback on a service",
                 "requestBody": {
@@ -1086,7 +1133,7 @@
         "/on_support": {
             "post": {
                 "tags": [
-                    "Beckn Provider API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Fetch customer support details",
                 "requestBody": {
@@ -1135,7 +1182,7 @@
         "/on_track": {
             "post": {
                 "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Provide tracking info",
                 "requestBody": {
@@ -1192,7 +1239,7 @@
         "/on_status": {
             "post": {
                 "tags": [
-                    "Beckn App API"
+                    "Beckn App Platform API"
                 ],
                 "description": "Fetch order info",
                 "requestBody": {
@@ -1246,5 +1293,15 @@
                 }
             }
         }
-    }
+    },
+    "servers": [
+        {
+            "description": "SwaggerHub API Auto Mocking",
+            "url": "https://virtserver.swaggerhub.com/beckn/mobility/0.8.0-draft02"
+        },
+        {
+            "description": "SwaggerHub API Auto Mocking",
+            "url": "https://virtserver.swaggerhub.com/beckn/mobility-draft01/0.8.0-draft02"
+        }
+    ]
 }
