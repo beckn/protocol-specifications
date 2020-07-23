@@ -48,6 +48,21 @@
             "type": "string",
             "description": "Version of Beckn domain level schema being used"
         },
+        "bap_id": {
+            "type": "string",
+            "format": "uri",
+            "description": "ID of the BAP in the network"
+        },
+        "bg_id": {
+            "type": "string",
+            "format": "uri",
+            "description": "ID of the BG in the network"
+        },
+        "bpp_id": {
+            "type": "string",
+            "format": "uri",
+            "description": "ID of the BPP in the network"
+        },
         "bap_nw_address": {
             "type": "string",
             "format": "uri",
@@ -61,7 +76,7 @@
         "bpp_nw_address": {
             "type": "string",
             "format": "uri",
-            "description": "Address of the BPP in the network. This can be left empty in case of search action. This will be used in case of proxied APIs. "
+            "description": "Address of the BPP in the network"
         },
         "request_transaction_id": {
             "type": "string",
