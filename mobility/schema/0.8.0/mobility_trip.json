@@ -8,6 +8,12 @@
         "id" : {
             "type" : "string"
         },
+        "origin" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
+        },
+        "destination" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
+        },
         "vehicle": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_vehicle.json"
         },

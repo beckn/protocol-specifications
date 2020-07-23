@@ -7,7 +7,7 @@
     "properties": {
         "category" : {
             "type" : "string",
-            "enum" : ["CAR", "MOTORCYCLE", "BICYCLE", "TRUCK", "OTHER"]
+            "enum" : ["CAR", "MOTORCYCLE", "BICYCLE", "TRUCK", "AUTO-RICKSHAW"]
         },
         "capacity" : {
             "type" : "integer"

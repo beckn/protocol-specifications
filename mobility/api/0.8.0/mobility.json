@@ -32,6 +32,93 @@
                                         }
                                     }
                                 }
+                            },
+                            "examples": {
+                                "On Demand Search": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "intent": {
+                                                "origin": {
+                                                    "location": {
+                                                        "gps": {
+                                                            "lat": "22.374394",
+                                                            "lon": "77.987982"
+                                                        }
+                                                    }
+                                                },
+                                                "destination": {
+                                                    "location": {
+                                                        "gps": {
+                                                            "lat": "22.858762",
+                                                            "lon": "77.456712"
+                                                        }
+                                                    }
+                                                },
+                                                "payload": {
+                                                    "traveller_count": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Scheduled Search": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "intent": {
+                                                "origin": {
+                                                    "location": {
+                                                        "gps": {
+                                                            "lat": "22.374394",
+                                                            "lon": "77.987982"
+                                                        }
+                                                    },
+                                                    "departure_time": {
+                                                        "est": "2020-07-23 10:30:15"
+                                                    }
+                                                },
+                                                "destination": {
+                                                    "location": {
+                                                        "gps": {
+                                                            "lat": "22.858762",
+                                                            "lon": "77.456712"
+                                                        }
+                                                    }
+                                                },
+                                                "payload": {
+                                                    "traveller_count": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -705,6 +792,200 @@
                                     },
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Simple Search Response": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "on_search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.7674304",
+                                            "bpp_id": "./IND.BLR.9827203",
+                                            "bg_id": "./IND.NPCI.9879248",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bpp.api.mobility.com",
+                                            "bg_nw_address": "http://bg.api.mobility.com",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "services": [
+                                                {
+                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                    "provider": {
+                                                        "descriptor": {
+                                                            "name": "Greenage Autos",
+                                                            "images": [
+                                                                {
+                                                                    "type": "url",
+                                                                    "url": "https://example.com/img",
+                                                                    "label": "logo"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "poc": {
+                                                            "email": "contact@uber.com",
+                                                            "phones": [
+                                                                "9180888777666"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "catalog": {
+                                                        "items": [
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Single Auto",
+                                                                    "category_id": "2"
+                                                                }
+                                                            },
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Uber Share Auto",
+                                                                    "category_id": "2"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "offers": [
+                                                            {
+                                                                "id": "a1e1809a-0224-4ff2-a3f8-e1342846dce1",
+                                                                "descriptor": {
+                                                                    "code": "MONSOON",
+                                                                    "short_desc": "Rides at 25% off till July 31st, 2020"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "fare_products": [
+                                                            {
+                                                                "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                                "descriptor": {
+                                                                    "name": "UBER-GO-MONTHLY-PASS",
+                                                                    "short_desc": "Monthly pass"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "Complex Search Response": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "on_search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.7674304",
+                                            "bpp_id": "./IND.BLR.9827203",
+                                            "bg_id": "./IND.NPCI.9879248",
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "services": [
+                                                {
+                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                    "provider": {
+                                                        "descriptor": {
+                                                            "name": "Uber",
+                                                            "images": [
+                                                                {
+                                                                    "type": "url",
+                                                                    "url": "https://example.com/img",
+                                                                    "label": "logo"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "poc": {
+                                                            "email": "contact@uber.com",
+                                                            "phones": [
+                                                                "9180888777666"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "catalog": {
+                                                        "categories": [
+                                                            {
+                                                                "id": "1",
+                                                                "descriptor": {
+                                                                    "name": "Auto"
+                                                                }
+                                                            },
+                                                            {
+                                                                "id": "2",
+                                                                "descriptor": {
+                                                                    "name": "Cab"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "items": [
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Uber Go",
+                                                                    "category_id": "1"
+                                                                }
+                                                            },
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Uber X",
+                                                                    "category_id": "1"
+                                                                }
+                                                            },
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Uber Auto",
+                                                                    "category_id": "2"
+                                                                }
+                                                            },
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Uber Share Auto",
+                                                                    "category_id": "2"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "offers": [
+                                                            {
+                                                                "id": "a1e1809a-0224-4ff2-a3f8-e1342846dce1",
+                                                                "descriptor": {
+                                                                    "code": "MONSOON",
+                                                                    "short_desc": "Rides at 25% off till July 31st, 2020"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "fare_products": [
+                                                            {
+                                                                "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                                "descriptor": {
+                                                                    "name": "UBER-GO-MONTHLY-PASS",
+                                                                    "short_desc": "Monthly pass"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     }
                                 }
                             }
