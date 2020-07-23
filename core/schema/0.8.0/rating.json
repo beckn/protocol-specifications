@@ -8,6 +8,10 @@
         "value" : {
             "type" : "string"
         },
+        "unit" :{
+            "type" : "string",
+            "enum": [ "STARS" ]
+        },
         "scale" : {
             "type" : "array",
             "items" : {
