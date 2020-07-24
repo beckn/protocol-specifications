@@ -239,7 +239,7 @@
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
                                             },
                                             "fare_product_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/fare_product.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_fare_product.json#/properties/id"
                                             }
                                         }
                                     }
@@ -1022,6 +1022,65 @@
                 }
             }
         },
+        "/on_catalog": {
+            "post": {
+                "tags": [
+                    "Beckn Provider Platform API"
+                ],
+                "description": "Fetch catalog of a service based on filters",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "service": {
+                                                "type" : "object",
+                                                "properties": {
+                                                    "catalog": {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_catalog.json"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
+                                        },
+                                        "message": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/on_select": {
             "post": {
                 "tags": [
@@ -1057,6 +1116,67 @@
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
                                     }
+                                }
+                            },
+                            "examples": {
+                                "Sample quote" : {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bap.api.mobility.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "order": [
+                                                {
+                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                    "items": [
+                                                        {
+                                                            "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                            "descriptor": {
+                                                                "name": "Uber Go",
+                                                                "category_id": "1"
+                                                            },
+                                                            "price": {
+                                                                "currency" : "INR",
+                                                                "offered_value" : {
+                                                                    "integral" : "122"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "trip" : {
+                                                        "origin" : {
+                                                            "gps" : {
+                                                                "lat": "22.374394",
+                                                                "lon":"77.456712"
+                                                            }
+                                                        },
+                                                        "destination" : {
+                                                            "gps" : {
+                                                                "lat": "22.514251",
+                                                                "lon":"77.089876"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "error": {}
+                                    }
+                                    
                                 }
                             }
                         }
@@ -1117,6 +1237,94 @@
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
                                     }
+                                }
+                            },
+                            "examples": {
+                                "Draft Order with Billing and Payment Details" : {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bap.api.mobility.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "order": [
+                                                {
+                                                    "id": "",
+                                                    "items": [
+                                                        {
+                                                            "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                            "descriptor": {
+                                                                "name": "Uber Go",
+                                                                "category_id": "1"
+                                                            },
+                                                            "price": {
+                                                                "currency" : "INR",
+                                                                "offered_value" : {
+                                                                    "integral" : "122"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "trip" : {
+                                                        "origin" : {
+                                                            "gps" : {
+                                                                "lat": "22.374394",
+                                                                "lon":"77.456712"
+                                                            }
+                                                        },
+                                                        "destination" : {
+                                                            "gps" : {
+                                                                "lat": "22.514251",
+                                                                "lon":"77.089876"
+                                                            }
+                                                        }
+                                                    },
+                                                    "billing": {
+                                                        "customer" : {
+                                                            "name" : {
+                                                                "given_name" : "Max Planck",
+                                                                "email" : "max.planck@example.com"
+                                                            }
+                                                        }
+                                                    },
+                                                    "payment": {
+                                                        "payer": {
+                                                            "type": "person",
+                                                            "person": {
+                                                                "name": {
+                                                                    "given_name" : "Ravi"
+                                                                }
+                                                            }
+                                                        },
+                                                        "method": "CASH",
+                                                        "amount": {
+                                                            "value" : {
+                                                                "integral" : "125",
+                                                                "fractional" : "0"
+                                                            }
+                                                        },
+                                                        "supported_currencies" : ["INR"],
+                                                        "payment_type" : "POST-FULFILLMENT"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "error": {}
+                                    }
+                                    
                                 }
                             }
                         }
@@ -1197,6 +1405,137 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
                                         }
                                     }
+                                },
+                                "examples": {
+                                    "Confirmed Order with Trip Details" : {
+                                        "value": {
+                                            "context": {
+                                                "domain": "MOBILITY",
+                                                "country": "IND",
+                                                "city": "BLR",
+                                                "action": "select",
+                                                "core_version": "0.8.0",
+                                                "domain_version": "0.8.0",
+                                                "bap_id": "./IND.BLR.9879248",
+                                                "bpp_id": "./IND.BLR.4327641",
+                                                "bg_id": "",
+                                                "bap_nw_address": "http://bap.api.mobility.com",
+                                                "bpp_nw_address": "http://bap.api.mobility.com",
+                                                "bg_nw_address": "",
+                                                "request_transaction_id": "83923oio2i3e",
+                                                "timestamp": "2020-07-15T06:43:14.653Z",
+                                                "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            },
+                                            "message": {
+                                                "order": [
+                                                    {
+                                                        "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                        "items": [
+                                                            {
+                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                                "descriptor": {
+                                                                    "name": "Uber Go",
+                                                                    "category_id": "1"
+                                                                },
+                                                                "price": {
+                                                                    "currency" : "INR",
+                                                                    "offered_value" : {
+                                                                        "integral" : "122"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "trip" : {
+                                                            "origin" : {
+                                                                "gps" : {
+                                                                    "lat": "22.374394",
+                                                                    "lon":"77.456712"
+                                                                }
+                                                            },
+                                                            "destination" : {
+                                                                "gps" : {
+                                                                    "lat": "22.514251",
+                                                                    "lon":"77.089876"
+                                                                }
+                                                            },
+                                                            "vehicle" : {
+                                                                "category" : "CAR",
+                                                                "capacity" : 4,
+                                                                "make" : "Toyota",
+                                                                "model" : "Etios",
+                                                                "variant" : "Liva",
+                                                                "color" : "White",
+                                                                "registration" : {
+                                                                    "type" : "object",
+                                                                    "properties" : {
+                                                                        "category" : "COMMERCIAL",
+                                                                        "number" : "KA01TA1243"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "payload": {
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
+                                                            },
+                                                            "route": {
+                                                                "edge" : {
+                                                                    "path" : "",
+                                                                    "duration" : "22m",
+                                                                    "distance" : {
+                                                                        "value" : "9.5",
+                                                                        "unit" : "km" 
+                                                                    }
+                                                                }
+                                                            },
+                                                            "driver" : {
+                                                                "name" : {
+                                                                    "given_name" : "Jason Mathews"
+                                                                },
+                                                                "rating": {
+                                                                    "value" : "4.5",
+                                                                    "unit" : "STARS"
+                                                                }
+                                                            }
+                                                        },
+                                                        "billing": {
+                                                            "customer" : {
+                                                                "name" : {
+                                                                    "given_name" : "Max Planck",
+                                                                    "email" : "max.planck@example.com"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payment": {
+                                                            "payer": {
+                                                                "type": "person",
+                                                                "person": {
+                                                                    "name": {
+                                                                        "given_name" : "Ravi"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "payee": {
+                                                                "type": "person",
+                                                                "person": {
+                                                                    "name": {
+                                                                        "given_name" : "Jason Mathews"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "method": "CASH",
+                                                            "amount": {
+                                                                "value" : {
+                                                                    "integral" : "125",
+                                                                    "fractional" : "0"
+                                                                }
+                                                            },
+                                                            "supported_currencies" : ["INR"],
+                                                            "payment_type" : "POST-FULFILLMENT"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1233,6 +1572,293 @@
                                     },
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Cancellation Order with List of reasons" : {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bap.api.mobility.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "order": [
+                                                {
+                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                    "state" : {
+                                                        "descriptor" : {
+                                                            "name" : "REQUEST-TO-CANCEL",
+                                                            "updated_by": "TRAVELLER"
+
+                                                        }
+                                                    },
+                                                    "cancellation_reasons" : [
+                                                        {
+                                                            "id" : "1",
+                                                            "descriptor" : {
+                                                                "short_desc" : "Changed my mind"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id" : "2",
+                                                            "descriptor" : {
+                                                                "short_desc" : "Waited too long"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "items": [
+                                                        {
+                                                            "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                            "descriptor": {
+                                                                "name": "Uber Go",
+                                                                "category_id": "1"
+                                                            },
+                                                            "price": {
+                                                                "currency" : "INR",
+                                                                "offered_value" : {
+                                                                    "integral" : "122"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "trip" : {
+                                                        "origin" : {
+                                                            "gps" : {
+                                                                "lat": "22.374394",
+                                                                "lon":"77.456712"
+                                                            }
+                                                        },
+                                                        "destination" : {
+                                                            "gps" : {
+                                                                "lat": "22.514251",
+                                                                "lon":"77.089876"
+                                                            }
+                                                        },
+                                                        "vehicle" : {
+                                                            "category" : "CAR",
+                                                            "capacity" : 4,
+                                                            "make" : "Toyota",
+                                                            "model" : "Etios",
+                                                            "variant" : "Liva",
+                                                            "color" : "White",
+                                                            "registration" : {
+                                                                "type" : "object",
+                                                                "properties" : {
+                                                                    "category" : "COMMERCIAL",
+                                                                    "number" : "KA01TA1243"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payload": {
+                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
+                                                        },
+                                                        "route": {
+                                                            "edge" : {
+                                                                "path" : "",
+                                                                "duration" : "22m",
+                                                                "distance" : {
+                                                                    "value" : "9.5",
+                                                                    "unit" : "km" 
+                                                                }
+                                                            }
+                                                        },
+                                                        "driver" : {
+                                                            "name" : {
+                                                                "given_name" : "Jason Mathews"
+                                                            },
+                                                            "rating": {
+                                                                "value" : "4.5",
+                                                                "unit" : "STARS"
+                                                            }
+                                                        }
+                                                    },
+                                                    "billing": {
+                                                        "customer" : {
+                                                            "name" : {
+                                                                "given_name" : "Max Planck",
+                                                                "email" : "max.planck@example.com"
+                                                            }
+                                                        }
+                                                    },
+                                                    "payment": {
+                                                        "payer": {
+                                                            "type": "person",
+                                                            "person": {
+                                                                "name": {
+                                                                    "given_name" : "Ravi Prakash"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payee": {
+                                                            "type": "vpa",
+                                                            "vpa": "uber@okaxis"
+                                                        },
+                                                        "method": "UPI",
+                                                        "amount": {
+                                                            "value" : {
+                                                                "integral" : "20",
+                                                                "fractional" : "0"
+                                                            }
+                                                        },
+                                                        "supported_currencies" : ["INR"],
+                                                        "type" : "CANCELLATION-CHARGES"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "Confirmed Cancellation Order with Refund Details" : {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bap.api.mobility.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "order": [
+                                                {
+                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                    "state" : {
+                                                        "descriptor" : {
+                                                            "name" : "CANCELLED",
+                                                            "updated_by": "DRIVER",
+                                                            "update_metadata" : {
+                                                                "reason_id" : "8b07"
+                                                            }
+
+                                                        }
+                                                    },
+                                                    "items": [
+                                                        {
+                                                            "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                            "descriptor": {
+                                                                "name": "Uber Go",
+                                                                "category_id": "1"
+                                                            },
+                                                            "price": {
+                                                                "currency" : "INR",
+                                                                "offered_value" : {
+                                                                    "integral" : "122"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "trip" : {
+                                                        "origin" : {
+                                                            "gps" : {
+                                                                "lat": "22.374394",
+                                                                "lon":"77.456712"
+                                                            }
+                                                        },
+                                                        "destination" : {
+                                                            "gps" : {
+                                                                "lat": "22.514251",
+                                                                "lon":"77.089876"
+                                                            }
+                                                        },
+                                                        "vehicle" : {
+                                                            "category" : "CAR",
+                                                            "capacity" : 4,
+                                                            "make" : "Toyota",
+                                                            "model" : "Etios",
+                                                            "variant" : "Liva",
+                                                            "color" : "White",
+                                                            "registration" : {
+                                                                "type" : "object",
+                                                                "properties" : {
+                                                                    "category" : "COMMERCIAL",
+                                                                    "number" : "KA01TA1243"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payload": {
+                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
+                                                        },
+                                                        "route": {
+                                                            "edge" : {
+                                                                "path" : "",
+                                                                "duration" : "22m",
+                                                                "distance" : {
+                                                                    "value" : "9.5",
+                                                                    "unit" : "km" 
+                                                                }
+                                                            }
+                                                        },
+                                                        "driver" : {
+                                                            "name" : {
+                                                                "given_name" : "Jason Mathews"
+                                                            },
+                                                            "rating": {
+                                                                "value" : "4.5",
+                                                                "unit" : "STARS"
+                                                            }
+                                                        }
+                                                    },
+                                                    "billing": {
+                                                        "customer" : {
+                                                            "name" : {
+                                                                "given_name" : "Max Planck",
+                                                                "email" : "max.planck@example.com"
+                                                            }
+                                                        }
+                                                    },
+                                                    "payment": {
+                                                        "payer": {
+                                                            "type": "person",
+                                                            "person": {
+                                                                "name": {
+                                                                    "given_name" : "Uber"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payee": {
+                                                            "type": "person",
+                                                            "person": {
+                                                                "name": {
+                                                                    "given_name" : "Ravi Prakash"
+                                                                }
+                                                            }
+                                                        },
+                                                        "method": "UPI",
+                                                        "amount": {
+                                                            "value" : {
+                                                                "integral" : "125",
+                                                                "fractional" : "0"
+                                                            }
+                                                        },
+                                                        "supported_currencies" : ["INR"],
+                                                        "type" : "REFUND"
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     }
                                 }
                             }
@@ -1543,6 +2169,137 @@
                                     },
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Active Order with Trip Details" : {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bap.api.mobility.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "order": [
+                                                {
+                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
+                                                    "items": [
+                                                        {
+                                                            "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                            "descriptor": {
+                                                                "name": "Uber Go",
+                                                                "category_id": "1"
+                                                            },
+                                                            "price": {
+                                                                "currency" : "INR",
+                                                                "offered_value" : {
+                                                                    "integral" : "122"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "trip" : {
+                                                        "origin" : {
+                                                            "gps" : {
+                                                                "lat": "22.374394",
+                                                                "lon":"77.456712"
+                                                            }
+                                                        },
+                                                        "destination" : {
+                                                            "gps" : {
+                                                                "lat": "22.514251",
+                                                                "lon":"77.089876"
+                                                            }
+                                                        },
+                                                        "vehicle" : {
+                                                            "category" : "CAR",
+                                                            "capacity" : 4,
+                                                            "make" : "Toyota",
+                                                            "model" : "Etios",
+                                                            "variant" : "Liva",
+                                                            "color" : "White",
+                                                            "registration" : {
+                                                                "type" : "object",
+                                                                "properties" : {
+                                                                    "category" : "COMMERCIAL",
+                                                                    "number" : "KA01TA1243"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payload": {
+                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
+                                                        },
+                                                        "route": {
+                                                            "edge" : {
+                                                                "path" : "",
+                                                                "duration" : "22m",
+                                                                "distance" : {
+                                                                    "value" : "9.5",
+                                                                    "unit" : "km" 
+                                                                }
+                                                            }
+                                                        },
+                                                        "driver" : {
+                                                            "name" : {
+                                                                "given_name" : "Jason Mathews"
+                                                            },
+                                                            "rating": {
+                                                                "value" : "4.5",
+                                                                "unit" : "STARS"
+                                                            }
+                                                        }
+                                                    },
+                                                    "billing": {
+                                                        "customer" : {
+                                                            "name" : {
+                                                                "given_name" : "Max Planck",
+                                                                "email" : "max.planck@example.com"
+                                                            }
+                                                        }
+                                                    },
+                                                    "payment": {
+                                                        "payer": {
+                                                            "type": "person",
+                                                            "person": {
+                                                                "name": {
+                                                                    "given_name" : "Ravi"
+                                                                }
+                                                            }
+                                                        },
+                                                        "payee": {
+                                                            "type": "person",
+                                                            "person": {
+                                                                "name": {
+                                                                    "given_name" : "Jason Mathews"
+                                                                }
+                                                            }
+                                                        },
+                                                        "method": "CASH",
+                                                        "amount": {
+                                                            "value" : {
+                                                                "integral" : "125",
+                                                                "fractional" : "0"
+                                                            }
+                                                        },
+                                                        "supported_currencies" : ["INR"],
+                                                        "payment_type" : "POST-FULFILLMENT"
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     }
                                 }
                             }
