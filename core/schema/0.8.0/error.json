@@ -5,61 +5,24 @@
     "description": "Describes an error object",
     "type": "object",
     "properties": {
-        "t_error": {
-            "type": "object",
-            "desription": "Transmission protocol specific error codes",
-            "properties": {
-                "t_protocol": {
-                    "type": "string"
-                },
-                "t_version": {
-                    "type": "string"
-                },
-                "t_code": {
-                    "type": "string",
-                    "desription": "Transmission protocol status code. For full list of error codes, refer to protocol specific error codes"
-                }
-            }
+        "type": {
+            "type": "string",
+            "enum": ["CONTEXT-ERROR", "CORE-ERROR", "DOMAIN-ERROR", "POLICY-ERROR", "JSON-SCHEMA-ERROR"]
         },
-        "r_error": {
-            "type": "object",
-            "description": "Beckn response specific errors. Extension NOT ALLOWED",
-            "properties": {
-                "rcode": {
-                    "type": "string",
-                    "desription": "Response specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo."
-                },
-                "rmessage": {
-                    "type": "string"
-                }
-            }
+        "code": {
+            "type": "string",
+            "desription": "Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo"
         },
-        "f_error": {
-            "type": "array",
-            "description": "Field specific errors. Extension NOT ALLOWED",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "fpath": {
-                        "type": "string",
-                        "description": "path to the specified field"
-                    },
-                    "fcode": {
-                        "type": "string",
-                        "description": "Field specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo."
-                    },
-                    "fmessage": {
-                        "type": "string"
-                    }
-                }
-            }
+        "path" : {
+            "type": "string",
+            "desription": "Path to json schema generating the error. Used only during json schema validation errors"
         },
-        "d_error": {
-            "type": "object",
-            "description": "Domain specific error object. Extension ALLOWED according to domain specific taxonomies. Refer to domain specific error documentation"
+        "message" : {
+            "type": "string",
+            "desription": "Human readable message descirbing the error"
         }
     },
     "required": [
-        "r_error"
+        "type", "code"
     ]
 }
