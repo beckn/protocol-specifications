@@ -2,7 +2,7 @@
 
 ## List of Error Codes:
 
-| Error Code | Error Description               |
+| Error Code | Description                     |
 |------------|---------------------------------|
 | FMD001     | pickup location not serviceable |
 | FMD002     | drop location not serviceable   |
@@ -13,12 +13,10 @@
 | FMD007     | package too heavy               |
 | FMD008     | package too dangerous           |
 | FMD009     | agents unavailable              |
-| FMD010     | package too dangerous           |
-| FMD011     | payment pending                 |
-| FMD012     | Unable to contact pickup poc    |
-| FMD013     | Unable to contact drop poc      |
-| FMD014     | Amount too large for COD        |
-| FMD015     | Package value too high          |
-| FMD016     | Package category unserviceable  |
-| FMD017     | Package damaged                 |
-| FMD018     | Package contents too many       |
+| FMD010     | Unable to contact pickup poc    |
+| FMD011     | Unable to contact drop poc      |
+| FMD012     | Amount too large for COD        |
+| FMD013     | Package value too high          |
+| FMD014     | Package category unserviceable  |
+| FMD015     | Package damaged                 |
+| FMD016     | Package contents too many       |
