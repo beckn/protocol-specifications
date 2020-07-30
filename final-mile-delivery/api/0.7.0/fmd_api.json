@@ -47,6 +47,9 @@
                                             "action": "search",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
+                                            "bap_id": "927392837",
+                                            "bpp_id": "iueh39848u34",
+                                            "bg_id": "e938434",
                                             "bap_nw_address": "http://bap.api.example.com",
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
@@ -1433,11 +1436,8 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "services": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/schema/0.7.0/fmd_service.json"
-                                                }
+                                            "catalog": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
                                             }
                                         }
                                     },
@@ -1464,106 +1464,87 @@
                                             "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
                                         },
                                         "message": {
-                                            "services": [
-                                                {
-                                                    "id": "4d4af6c4-8cc2-4672-858e-4cc18fdfce1d",
-                                                    "provider": {
+                                            "catalog": {
+                                                "id": "e63f7247-7bf6-4321-9b0e-640e4e5cdf5f",
+                                                "categories": [
+                                                    {
+                                                        "id": "1",
+                                                        "parent_category_id": "",
                                                         "descriptor": {
-                                                            "name": "Dunzo",
+                                                            "name": "SINGLE-PICKUP-SINGLE-DROP",
                                                             "images": [
                                                                 {
                                                                     "type": "url",
-                                                                    "url": "https://dunzo.image.png"
+                                                                    "url": "https://category1.image.png"
                                                                 }
                                                             ]
                                                         }
-                                                    },
-                                                    "catalog": {
-                                                        "id": "e63f7247-7bf6-4321-9b0e-640e4e5cdf5f",
-                                                        "categories": [
-                                                            {
-                                                                "id": "1",
-                                                                "parent_category_id": "",
-                                                                "descriptor": {
-                                                                    "name": "FOOD",
-                                                                    "images": [
-                                                                        {
-                                                                            "type": "url",
-                                                                            "url": "https://category1.image.png"
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "2",
-                                                                "parent_category_id": "",
-                                                                "descriptor": {
-                                                                    "name": "GROCERY",
-                                                                    "images": [
-                                                                        {
-                                                                            "type": "url",
-                                                                            "url": "https://category2.image.png"
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "items": [
-                                                            {
-                                                                "id": "1",
-                                                                "parent_item_id": "",
-                                                                "descriptor": {
-                                                                    "id": "1",
-                                                                    "name": "Standard",
-                                                                    "short_desc": "Standard Delivery"
-                                                                },
-                                                                "price": {
-                                                                    "currency": "INR",
-                                                                    "offered_value": {
-                                                                        "integral": "28"
-                                                                    }
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "2",
-                                                                "parent_item_id": "",
-                                                                "descriptor": {
-                                                                    "id": "1",
-                                                                    "name": "Assured",
-                                                                    "short_desc": "Assured Delivery"
-                                                                },
-                                                                "price": {
-                                                                    "currency": "INR",
-                                                                    "offered_value": {
-                                                                        "integral": "48"
-                                                                    }
-                                                                }
-                                                            }
-                                                        ],
-                                                        "offers": [
-                                                            {
-                                                                "id": "1",
-                                                                "descriptor": {
-                                                                    "name": "First Time User",
-                                                                    "code": "FIRST",
-                                                                    "short_desc": "15% off for first time users"
-                                                                },
-                                                                "start_time": "2020-07-01 00:00:00",
-                                                                "end_time": "2020-07-31 00:00:00"
-                                                            }
-                                                        ],
-                                                        "paradigms": [
-                                                            {
-                                                                "id": "1",
-                                                                "descriptor": {
-                                                                    "name": "Single Pickup Single Drop",
-                                                                    "code": "SPSD"
-                                                                }
-                                                            }
-                                                        ]
                                                     }
-                                                }
-                                            ]
+                                                ],
+                                                "brands": [
+                                                    {
+                                                        "id": "1",
+                                                        "descriptor": {
+                                                            "name": "Dunzo"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "2",
+                                                        "descriptor": {
+                                                            "name": "Shadowfax"
+                                                        }
+                                                    }
+                                                ],
+                                                "items": [
+                                                    {
+                                                        "id": "1",
+                                                        "parent_item_id": "",
+                                                        "brand_id": "1",
+                                                        "descriptor": {
+                                                            "id": "1",
+                                                            "category_id": "1",
+                                                            "name": "Standard",
+                                                            "short_desc": "Standard Delivery"
+                                                        },
+                                                        "price": {
+                                                            "currency": "INR",
+                                                            "offered_value": {
+                                                                "integral": "28"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "2",
+                                                        "category_id": "1",
+                                                        "parent_item_id": "",
+                                                        "brand_id": "2",
+                                                        "descriptor": {
+                                                            "id": "1",
+                                                            "name": "Assured",
+                                                            "short_desc": "Assured Delivery"
+                                                        },
+                                                        "price": {
+                                                            "currency": "INR",
+                                                            "offered_value": {
+                                                                "integral": "48"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "offers": [
+                                                    {
+                                                        "id": "1",
+                                                        "item_id": "1",
+                                                        "descriptor": {
+                                                            "name": "First Time User",
+                                                            "code": "FIRST",
+                                                            "short_desc": "15% off for first time users"
+                                                        },
+                                                        "start_time": "2020-07-01 00:00:00",
+                                                        "end_time": "2020-07-31 00:00:00"
+                                                    }
+                                                ]
+                                            }
                                         },
                                         "error": {}
                                     }
@@ -1732,7 +1713,8 @@
                                                     },
                                                     {
                                                         "required": [
-                                                            "id", "payment"
+                                                            "id",
+                                                            "payment"
                                                         ]
                                                     }
                                                 ]
