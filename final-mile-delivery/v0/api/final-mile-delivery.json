@@ -59,8 +59,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "intent": {
@@ -122,8 +121,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "intent": {
@@ -133,7 +131,8 @@
                                                         "gps": {
                                                             "lat": "22.346343",
                                                             "lon": "77.823879"
-                                                        }
+                                                        },
+                                                        "time" : "2020-07-31 12:00:00"
                                                     }
                                                 ],
                                                 "drops": [
@@ -142,7 +141,8 @@
                                                         "gps": {
                                                             "lat": "22.346343",
                                                             "lon": "77.823879"
-                                                        }
+                                                        },
+                                                        "time" : "2020-07-31 12:30:00"
                                                     }
                                                 ],
                                                 "packages": [
@@ -399,8 +399,7 @@
                                             "bpp_nw_address": "http://bpp.api.example.com",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -600,8 +599,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "quotation_id": "12224408",
@@ -916,8 +914,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "update_action": "update_pickup_location",
@@ -959,8 +956,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "update_action": "update_drop_location",
@@ -1075,8 +1071,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order_id": "12224408"
@@ -1096,8 +1091,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order_id": "12224408",
@@ -1182,8 +1176,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order_id": "12224408"
@@ -1203,8 +1196,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order_id": "12224408",
@@ -1290,8 +1282,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "catalog": {
@@ -1590,8 +1581,7 @@
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -1684,7 +1674,235 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
+                                                    },
+                                                    {
+                                                        "properties" : {
+                                                            "tasks" : {
+                                                                "allOf" : [
+                                                                    {
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json"
+                                                                    },
+                                                                    {
+                                                                        "properties" : {
+                                                                            "location" : {
+                                                                                "allOf" : [
+                                                                                    {
+                                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                                                                                    },
+                                                                                    {
+                                                                                        "required" : ["address", "gps"]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "agent" : {
+                                                                                "allOf" : [
+                                                                                    {
+                                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_agent.json"
+                                                                                    },
+                                                                                    {
+                                                                                        "required" : ["name", "phones"]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        "required" : ["pickup", "drop", "package", "state", "agent"]
+                                                                    }
+                                                                    
+                                                                ]
+                                                                
+                                                            },
+                                                            "payment" : {
+                                                                "allOf" : [
+                                                                    {
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json"
+                                                                    },
+                                                                    {
+                                                                        "required" : ["payee", "terms"]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "tasks",
+                                                            "payment"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Confirmed Order with Delivery Agent Assigned": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "on_confirm",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bpp_id": "",
+                                            "bap_id": 110011,
+                                            "bg_id": 123444,
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                        },
+                                        "message": {
+                                            "order": {
+                                                "id": "",
+                                                "items": [
+                                                    {
+                                                        "id": "1234-5678-12-34-56"
+                                                    }
+                                                ],
+                                                "tasks": [
+                                                    {
+                                                        "id": "98298323-203982-02309",
+                                                        "item_id": "1234-5678-12-34-56",
+                                                        "pickup": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "2244",
+                                                                    "name": "Croma",
+                                                                    "building": "string",
+                                                                    "street": "5th Main",
+                                                                    "locality": "HSR Layout",
+                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560102"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
+                                                                }
+                                                            },
+                                                            "instructions": [
+                                                                "Please handle with care"
+                                                            ],
+                                                            "poc": {
+                                                                "name": {
+                                                                    "given_name": "John"
+                                                                },
+                                                                "contact": {
+                                                                    "mobile": {
+                                                                        "country_code": "+91",
+                                                                        "number": "9876543210"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "drop": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "BB1703",
+                                                                    "name": "Salarpuria Greenage",
+                                                                    "building": "Birch B Block",
+                                                                    "street": "Hosur Road",
+                                                                    "locality": "HSR Layout",
+                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560068"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
+                                                                }
+                                                            },
+                                                            "instructions": [
+                                                                "Please don't ring doorbell",
+                                                                "Leave package at door"
+                                                            ],
+                                                            "poc": {
+                                                                "name": {
+                                                                    "given_name": "Bob"
+                                                                },
+                                                                "contact": {
+                                                                    "mobile": {
+                                                                        "country_code": "+91",
+                                                                        "number": "9786756453"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "package": {
+                                                            "contents": [
+                                                                {
+                                                                    "category_id": "12",
+                                                                    "descriptor": {
+                                                                        "name": "Soap"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "category_id": "10",
+                                                                    "descriptor": {
+                                                                        "name": "Potato"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "weight": {
+                                                                "estimated_value": "1",
+                                                                "unit": "kg"
+                                                            }
+                                                        },
+                                                        "state" : "ASSIGNED-AGENT",
+                                                        "agent" : {
+                                                            "name" : {
+                                                                "given_name" : "John Doe"
+                                                            },
+                                                            "phones" : [
+                                                                "+919667288826"
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "payment": {
+                                                    "payee": {
+                                                        "person": {
+                                                            "name": {
+                                                                "given_name": "John Doe"
+                                                            }
+                                                        },
+                                                        "endpoint": {
+                                                            "type": "bank_account",
+                                                            "bank_account": {
+                                                                "account_number": "10818675234",
+                                                                "account_holder_name": "John Doe",
+                                                                "ifsc_code": "SBIN000414"
+                                                            }
+                                                        }
+                                                    },
+                                                    "amount" : {
+                                                        "currency" : "INR",
+                                                        "value" : {
+                                                            "integral" : "28"
+                                                        }
+                                                    },
+                                                    "terms": {
+                                                        "credit_type": "POSTPAID",
+                                                        "settlement_type": "BULK",
+                                                        "credit_duration": "30D",
+                                                        "mode": "RTGS",
+                                                        "method": "ELECTRONIC",
+                                                        "penalty_terms": [
+                                                            "Delay in payment after due date will incur 10 INR per day of non-payment"
+                                                        ]
+                                                    }
+                                                },
+                                                "created_at": "2020-07-16 17:30:00",
+                                                "updated_at": "2020-07-16 17:30:00"
                                             }
                                         }
                                     }
