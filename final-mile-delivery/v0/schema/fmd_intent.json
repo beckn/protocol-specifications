@@ -1,0 +1,75 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_intent.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.8.0",
+    "description": "Describes the final mile delivery search intent",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/intent.json"
+        },
+        {
+            "properties": {
+                "pickups": {
+                    "type" : "array",
+                    "description" : "List of intended pickup locations. Will contain only single element for current version.",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                            },
+                            {
+                                "properties" : {
+                                    "time" : {
+                                        "type" : "string",
+                                        "format": "date-time"
+                                    }
+                                },
+                                "required": ["gps"]
+                            }
+                        ]
+                    },
+                    "maxItems": 1
+                },
+                "drops": {
+                    "type" : "array",
+                    "description" : "List of intended drop locations. Will contain only single element for current version.",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
+                            },
+                            {
+                                "properties" : {
+                                    "time" : {
+                                        "type" : "string",
+                                        "format": "date-time"
+                                    }
+                                },
+                                "required": ["gps"]
+                            }
+                        ]
+                    },
+                    "maxItems": 1
+                },
+                "packages": {
+                    "type" : "array",
+                    "description" : "Description of packages being transported. Will contain only single element for current version.",
+                    "items" : {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_package.json"
+                    },
+                    "maxItems": 1
+                },
+                "tags": {
+                    "type" : "array",
+                    "description" : "Any additional attributes specific to a localized network.",
+                    "items": {
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tag.json"
+                    }
+                }
+            }
+        },
+        {
+            "required" : ["pickups", "drops", "packages"]
+        }
+    ]
+}
