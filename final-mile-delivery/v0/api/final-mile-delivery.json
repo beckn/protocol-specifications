@@ -1058,7 +1058,7 @@
                                 ]
                             },
                             "examples": {
-                                "Location Polling": {
+                                "Track Order": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -1066,19 +1066,26 @@
                                             "city": "BLR",
                                             "action": "track",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.fmd.com",
+                                            "bpp_nw_address": "http://bap.api.fmd.com",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "order_id": "12224408"
+                                            "tracking": {
+                                                "order": {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
+                                                }
+                                            }
                                         }
                                     }
                                 },
-                                "Location Push using Websocket": {
+                                "Track Order - Push": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -1086,16 +1093,26 @@
                                             "city": "BLR",
                                             "action": "track",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "9879248",
+                                            "bpp_id": "4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.fmd.com",
+                                            "bpp_nw_address": "http://bap.api.fmd.com",
                                             "bg_nw_address": "",
                                             "request_transaction_id": "83923oio2i3e",
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "order_id": "12224408",
-                                            "callback_url": "ws://bap.track.com:4000"
+                                            "tracking": {
+                                                "order" : {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
+                                                },
+                                                "method": "push",
+                                                "push": {
+                                                    "url": "ws://bap.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:4000"
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -2109,6 +2126,82 @@
                                     },
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Tracking Details for Pull type tracking": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "on_track",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "9879248",
+                                            "bpp_id": "4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.fmd.com",
+                                            "bpp_nw_address": "http://bpp.api.fmd.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                        },
+                                        "message": {
+                                            "tracking": {
+                                                "method": "pull",
+                                                "order": {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
+                                                },
+                                                "state": {
+                                                    "descriptor": {
+                                                        "name": "active"
+                                                    }
+                                                },
+                                                "pull": {
+                                                    "url": "https://api.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track"
+                                                }
+                                            }
+                                        },
+                                        "error": {}
+                                    }
+                                },
+                                "Tracking Details for Push type tracking": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "track",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.0",
+                                            "bap_id": "./IND.BLR.9879248",
+                                            "bpp_id": "./IND.BLR.4327641",
+                                            "bg_id": "",
+                                            "bap_nw_address": "http://bap.api.mobility.com",
+                                            "bpp_nw_address": "http://bap.api.mobility.com",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                        },
+                                        "message": {
+                                            "tracking": {
+                                                "method": "push",
+                                                "order": {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
+                                                },
+                                                "state": {
+                                                    "descriptor": {
+                                                        "name": "active"
+                                                    }
+                                                },
+                                                "push": {
+                                                    "url": "ws://bpp.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:5000"
+                                                }
+                                            }
+                                        },
+                                        "error": {}
                                     }
                                 }
                             }
