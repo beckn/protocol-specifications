@@ -1586,6 +1586,79 @@
                                         "message": {
                                             "order": {
                                                 "id": "23432442",
+                                                "tasks": [
+                                                    {
+                                                        "id": "98298323-203982-02309",
+                                                        "item_id": "1234-5678-12-34-56",
+                                                        "pickup": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "2244",
+                                                                    "name": "Croma",
+                                                                    "building": "string",
+                                                                    "street": "5th Main",
+                                                                    "locality": "HSR Layout",
+                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560102"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
+                                                                }
+                                                            },
+                                                            "instructions": [
+                                                                "Please handle with care"
+                                                            ]
+                                                        },
+                                                        "drop": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "BB1703",
+                                                                    "name": "Salarpuria Greenage",
+                                                                    "building": "Birch B Block",
+                                                                    "street": "Hosur Road",
+                                                                    "locality": "HSR Layout",
+                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560068"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
+                                                                }
+                                                            },
+                                                            "instructions": [
+                                                                "Please don't ring doorbell",
+                                                                "Leave package at door"
+                                                            ]
+                                                        },
+                                                        "package": {
+                                                            "contents": [
+                                                                {
+                                                                    "category_id": "12",
+                                                                    "descriptor": {
+                                                                        "name": "Soap"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "category_id": "10",
+                                                                    "descriptor": {
+                                                                        "name": "Potatoes"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "weight": {
+                                                                "estimated_value": "1",
+                                                                "unit": "kg"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
                                                 "payment": {
                                                     "payee": {
                                                         "person": {
@@ -1600,6 +1673,12 @@
                                                                 "account_holder_name": "John Doe",
                                                                 "ifsc_code": "SBIN000414"
                                                             }
+                                                        }
+                                                    },
+                                                    "amount" : {
+                                                        "currency" : "INR",
+                                                        "value" : {
+                                                            "integral" : "28"
                                                         }
                                                     },
                                                     "terms": {
@@ -2021,6 +2100,7 @@
                                     },
                                     "message": {
                                         "type": "object",
+                                        "description" : "BPP returns tracking information. For websocket based tracking data please refer to the tracking data object in core",
                                         "properties": {
                                             "tracking": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/tracking.json"

@@ -9,6 +9,9 @@
         },
         {
             "properties": {
+                "category_id" : {
+                    "description": "This is the package category id sent as part of the FMD catalog"
+                },
                 "fragile" : {
                     "type" : "boolean"
                 }
