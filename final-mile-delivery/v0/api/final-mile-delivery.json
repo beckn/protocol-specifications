@@ -543,250 +543,6 @@
                 }
             }
         },
-        "/catalog": {
-            "post": {
-                "tags": [
-                    "Beckn Provider Platform API"
-                ],
-                "description": "Fetch catalog of a service based on filters",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message": {
-                                        "type": "object",
-                                        "properties": {
-                                            "catalog": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "type": "string"
-                                                    },
-                                                    "brand_id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
-                                                    },
-                                                    "model_id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/model.json#/properties/id"
-                                                    },
-                                                    "offer_id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
-                                                    },
-                                                    "item_id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "required": [
-                                    "context",
-                                    "message"
-                                ]
-                            },
-                            "examples": {
-                                "Empty Catalog Search": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "catalog",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
-                                        },
-                                        "message": {
-                                            "catalog": {
-                                                "category_id": "",
-                                                "brand_id": "",
-                                                "model_id": "",
-                                                "offer_id": "",
-                                                "item_id": ""
-                                            }
-                                        }
-                                    }
-                                },
-                                "Get Catalog of Category": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "catalog",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
-                                        },
-                                        "message": {
-                                            "catalog": {
-                                                "category_id": "12",
-                                                "brand_id": "",
-                                                "model_id": "",
-                                                "offer_id": "",
-                                                "item_id": ""
-                                            }
-                                        }
-                                    }
-                                },
-                                "Get Catalog of a Brand": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "catalog",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
-                                        },
-                                        "message": {
-                                            "catalog": {
-                                                "category_id": "",
-                                                "brand_id": "113",
-                                                "model_id": "",
-                                                "offer_id": "",
-                                                "item_id": ""
-                                            }
-                                        }
-                                    }
-                                },
-                                "Get Catalog of a Model": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "catalog",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
-                                        },
-                                        "message": {
-                                            "catalog": {
-                                                "category_id": "",
-                                                "brand_id": "",
-                                                "model_id": "2144",
-                                                "offer_id": "",
-                                                "item_id": ""
-                                            }
-                                        }
-                                    }
-                                },
-                                "Get Catalog of an Offer": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "catalog",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
-                                        },
-                                        "message": {
-                                            "catalog": {
-                                                "category_id": "",
-                                                "brand_id": "",
-                                                "model_id": "",
-                                                "offer_id": "21",
-                                                "item_id": ""
-                                            }
-                                        }
-                                    }
-                                },
-                                "Get Details of an Item": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "catalog",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.7.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
-                                        },
-                                        "message": {
-                                            "catalog": {
-                                                "category_id": "",
-                                                "brand_id": "",
-                                                "model_id": "",
-                                                "offer_id": "",
-                                                "item_id": "19728"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message": {
-                                            "type": "object",
-                                            "properties": {
-                                                "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                                }
-                                            }
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/init": {
             "post": {
                 "tags": [
@@ -1721,8 +1477,7 @@
                                     "bpp_nw_address": "",
                                     "bg_nw_address": "",
                                     "request_transaction_id": "83923oio2i3e",
-                                    "timestamp": "2020-07-15T06:43:14.653Z",
-                                    "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                    "timestamp": "2020-07-15T06:43:14.653Z"
                                 },
                                 "message": {
                                     "order": {
@@ -1731,7 +1486,8 @@
                                             {
                                                 "id": "d02-6ba0-458e",
                                                 "quantity": {
-                                                    "available": 20
+                                                    "available": 1,
+                                                    "selected" : 1
                                                 }
                                             }
                                         ]
@@ -1928,7 +1684,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                             }
                                         }
                                     }
@@ -1988,13 +1744,6 @@
                                         "properties": {
                                             "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
-                                            },
-                                            "updated_at": {
-                                                "type": "string",
-                                                "format": "date-time"
-                                            },
-                                            "status_refresh": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/duration.json"
                                             }
                                         }
                                     },
@@ -2196,68 +1945,6 @@
                                         "properties": {
                                             "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
-                                            }
-                                        }
-                                    },
-                                    "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                        },
-                                        "message": {
-                                            "type": "object",
-                                            "properties": {
-                                                "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/ack.json"
-                                                }
-                                            }
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_catalog": {
-            "post": {
-                "tags": [
-                    "Beckn App Platform API"
-                ],
-                "description": "Returns catalog of service",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json"
-                                    },
-                                    "message": {
-                                        "type": "object",
-                                        "properties": {
-                                            "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
                                             }
                                         }
                                     },
