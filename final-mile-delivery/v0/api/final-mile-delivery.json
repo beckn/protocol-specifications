@@ -1511,7 +1511,7 @@
                                         "type": "object",
                                         "properties": {
                                             "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_item.json"
                                             }
                                         }
                                     },
@@ -1616,6 +1616,26 @@
                                                         },
                                                         "start_time": "2020-07-01 00:00:00",
                                                         "end_time": "2020-07-31 00:00:00"
+                                                    }
+                                                ],
+                                                "package_categories" : [
+                                                    {
+                                                        "id": "1",
+                                                        "descriptor": {
+                                                            "name": "Food"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "2",
+                                                        "descriptor": {
+                                                            "name": "Grocery"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "2",
+                                                        "descriptor": {
+                                                            "name": "Electroincs"
+                                                        }
                                                     }
                                                 ]
                                             }
