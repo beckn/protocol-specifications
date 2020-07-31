@@ -18,6 +18,12 @@
                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
                             },
                             {
+                                "properties" : {
+                                    "time" : {
+                                        "type" : "string",
+                                        "format": "date-time"
+                                    }
+                                },
                                 "required": ["gps"]
                             }
                         ]
@@ -33,6 +39,12 @@
                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json"
                             },
                             {
+                                "properties" : {
+                                    "time" : {
+                                        "type" : "string",
+                                        "format": "date-time"
+                                    }
+                                },
                                 "required": ["gps"]
                             }
                         ]

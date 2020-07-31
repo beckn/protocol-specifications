@@ -1,10 +1,15 @@
 {
-    "openapi": "3.0.0",
+    "openapi": "3.0.1",
     "info": {
         "title": "Beckn Final Mile Delivery API",
         "description": "API Spec for Final Mile Delivery",
-        "version": "0.7.0-draft02"
+        "version": "0.8.0-rc2"
     },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
     "paths": {
         "/search": {
             "post": {
@@ -47,9 +52,68 @@
                                             "action": "search",
                                             "core_version": "0.8.0",
                                             "domain_version": "0.7.0",
-                                            "bap_id": "927392837",
-                                            "bpp_id": "iueh39848u34",
-                                            "bg_id": "e938434",
+                                            "bpp_id": "",
+                                            "bap_id": 110011,
+                                            "bg_id": 123444,
+                                            "bap_nw_address": "http://bap.api.example.com",
+                                            "bpp_nw_address": "",
+                                            "bg_nw_address": "",
+                                            "request_transaction_id": "83923oio2i3e",
+                                            "timestamp": "2020-07-15T06:43:14.653Z",
+                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                        },
+                                        "message": {
+                                            "intent": {
+                                                "pickups": [
+                                                    {
+                                                        "type": "gps",
+                                                        "gps": {
+                                                            "lat": "22.346343",
+                                                            "lon": "77.823879"
+                                                        }
+                                                    }
+                                                ],
+                                                "drops": [
+                                                    {
+                                                        "type": "gps",
+                                                        "gps": {
+                                                            "lat": "22.346343",
+                                                            "lon": "77.823879"
+                                                        }
+                                                    }
+                                                ],
+                                                "packages": [
+                                                    {
+                                                        "contents": [
+                                                            {
+                                                                "category_id": "12"
+                                                            },
+                                                            {
+                                                                "category_id": "10"
+                                                            }
+                                                        ],
+                                                        "weight": {
+                                                            "estimated_value": "1",
+                                                            "unit": "kg"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "Complex Fmd Intent": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "search",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.7.0",
+                                            "bpp_id": "",
+                                            "bap_id": 110011,
+                                            "bg_id": 123444,
                                             "bap_nw_address": "http://bap.api.example.com",
                                             "bpp_nw_address": "",
                                             "bg_nw_address": "",
@@ -134,7 +198,10 @@
                                                 "version": "0.7.0",
                                                 "bpp_id": "",
                                                 "bap_id": "FMD.IND.BLR.BAP.110011",
-                                                "bg_proxy_id": "FMD.IND.BLR.BG.123444",
+                                                "bg_id": "FMD.IND.BLR.BG.123444",
+                                                "bap_nw_address": "http://bap.api.example.com",
+                                                "bpp_nw_address": "",
+                                                "bg_nw_address": "",
                                                 "timestamp": "2020-07-15T06:43:14.653Z",
                                                 "transaction_id": "83923oio2i3e",
                                                 "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
@@ -156,6 +223,9 @@
                                                 "action": "nack",
                                                 "core_version": "0.8.0",
                                                 "domain_version": "0.7.0",
+                                                "bpp_id": "",
+                                                "bap_id": "FMD.IND.BLR.BAP.110011",
+                                                "bg_id": "FMD.IND.BLR.BG.123444",
                                                 "bap_nw_address": "http://bap.api.example.com",
                                                 "bpp_nw_address": "",
                                                 "bg_nw_address": "",
@@ -2203,6 +2273,15 @@
                         }
                     }
                 }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     },
