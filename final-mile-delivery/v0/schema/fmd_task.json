@@ -35,6 +35,10 @@
                 },
                 "poc" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+                },
+                "time" : {
+                    "type" : "string",
+                    "format": "date-time"
                 }
             }
         },
@@ -52,6 +56,10 @@
                 },
                 "poc" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+                },
+                "time" : {
+                    "type" : "string",
+                    "format": "date-time"
                 }
             }
         },

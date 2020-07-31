@@ -86,10 +86,6 @@
             "type": "string",
             "format": "date-time",
             "description": "Time of request generation"
-        },
-        "token": {
-            "type": "string",
-            "description": "The network access token obtained from the tokenization service to authenticate the BAP. This will be a simple JWT used when tokenization services are supported by the beckn network. The payload of the JWT token will contain the context object. The signature of the JWT is the signature of the tokenization service which can be verified using the public key of the tokenization service"
         }
     }
 }

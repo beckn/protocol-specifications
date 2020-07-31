@@ -7,16 +7,38 @@
     "properties" : {
         "method" : {
             "type" : "string",
-            "enum" : ["PULL", "PUSH"]
-        },   
+            "enum" : ["pull", "push"]
+        },
+        "state" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/state.json"
+        },
+        "order" : {
+            "type": "object",
+            "properties": {
+                "id" : {
+                    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_order.json#/properties/id"
+                }
+            }
+        },
         "pull" : {
             "type" : "object",
             "properties" : {
-                "data_url" : {
-                    "type" : "string"
+                "url_type" : {
+                    "type": "string",
+                    "enum": ["embed", "api"]
                 },
-                "embed_url" : {
-                    "type" : "string"
+                "url" : {
+                    "type" : "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "push" : {
+            "type" : "object",
+            "properties" : {
+                "url" : {
+                    "type" : "string",
+                    "format": "uri"
                 }
             }
         }
