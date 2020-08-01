@@ -14,7 +14,7 @@
         "descriptor" : {
             "allOf": [
                 {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/descriptor.json"
                 },
                 {
                     "required": ["short_desc"]
@@ -28,13 +28,13 @@
             }
         },
         "price" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/price.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/price.json"
         },
         "weight": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/scalar.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/scalar.json"
         },
         "dimensions": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/dimensions.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/dimensions.json"
         }
     },
     "required": ["contents"]

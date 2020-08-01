@@ -5,7 +5,7 @@
     "description": "Describes an FMD order",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/order.json"
         },
         {
             "properties": {

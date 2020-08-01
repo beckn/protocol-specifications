@@ -5,21 +5,21 @@
     "description": "Describes an FMD service",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/service.json"
         },
         {
             "properties": {
                 "catalog": {
                     "allOf": [
                         {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/catalog.json"
                         },
                         {
                             "properties": {
                                 "package_categories" : {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/category.json"
                                     }
                                 },
                                 "paradigms": {
