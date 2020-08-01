@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/invoice.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/invoice.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
     "description": "Invoice of an order",
@@ -17,19 +17,19 @@
             "format": "date"
         },
         "billing" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/billing.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/billing.json"
         },
         "signatory" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
         },
         "tax_number" : {
             "type" : "string"
         },
         "order_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
         },
         "payment" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/payment.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment.json"
         },
         "breakup" : {
             "type" : "array",
@@ -37,23 +37,23 @@
                 "type" : "object",
                 "properties": {
                     "item_id" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
                     },
                     "offer_id" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/offer.json#/properties/id"
                     },
                     "quantity" : {
                         "type" : "integer",
                         "minimum": 1
                     },
                     "amount" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/monetary_value.json"
                     }
                 }
             }
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
         },
         "created_at" : {
             "type" : "string",

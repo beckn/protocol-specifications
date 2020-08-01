@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/location.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
     "description": "Describes the location of a runtime object. Extension not allowed",
@@ -20,10 +20,10 @@
             ]
         },
         "gps": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/gps.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/gps.json"
         },
         "address": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/address.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/address.json"
         },
         "station_code": {
             "type": "string"
@@ -32,13 +32,13 @@
             "type": "string"
         },
         "city": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/city.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/city.json"
         },
         "country": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/country.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/country.json"
         },
         "circle": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/circle.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/circle.json"
         },
         "polygon": {
             "type": "string"

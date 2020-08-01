@@ -1,21 +1,21 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/feedback.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/feedback.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
     "description": "Feedback for a service",
     "type": "object",
     "properties": {
         "service_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/service.json#/properties/id"
         },
         "order_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/order.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
         },
         "rating"  : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/rating.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/rating.json"
         },
         "description": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/policy.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
     "description": "Describes a policy. Allows for domain extension.",
@@ -9,10 +9,10 @@
             "type": "string"
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
         },
         "parent_policy_id": {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json#/properties/id"
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/policy.json#/properties/id"
         },
         "terms": {
             "type": "array",
@@ -24,7 +24,7 @@
                     "type": "string"
                 },
                 "descriptor" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
                 }
             }
         }
