@@ -70,10 +70,7 @@
                                                             "lat": "22.346343",
                                                             "lon": "77.823879"
                                                         },
-                                                        "time" : {
-                                                            "type" : "string",
-                                                            "format" : "date-time"
-                                                        }
+                                                        "time" : "2020-07-31 12:00:00"
                                                     }
                                                 ],
                                                 "drops": [
@@ -734,7 +731,9 @@
                                     "payment": {
                                         "transaction_id": "iuy834u938u938",
                                         "amount": {
-                                            "value": "250",
+                                            "value": {
+                                                "integral" : "28"
+                                            },
                                             "currency": "INR"
                                         }
                                     }

@@ -13,20 +13,16 @@
                     "type" : "array",
                     "description" : "List of intended pickup locations. Will contain only single element for current version.",
                     "items": {
-                        "allOf": [
-                            {
+                        "type" : "object",
+                        "properties" : {
+                            "location" : {
                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/location.json"
                             },
-                            {
-                                "properties" : {
-                                    "time" : {
-                                        "type" : "string",
-                                        "format": "date-time"
-                                    }
-                                },
-                                "required": ["gps"]
+                            "time" : {
+                                "type" : "string",
+                                "format": "date-time"
                             }
-                        ]
+                        }
                     },
                     "maxItems": 1
                 },
@@ -34,20 +30,16 @@
                     "type" : "array",
                     "description" : "List of intended drop locations. Will contain only single element for current version.",
                     "items": {
-                        "allOf": [
-                            {
+                        "type" : "object",
+                        "properties" : {
+                            "location" : {
                                 "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/location.json"
                             },
-                            {
-                                "properties" : {
-                                    "time" : {
-                                        "type" : "string",
-                                        "format": "date-time"
-                                    }
-                                },
-                                "required": ["gps"]
+                            "time" : {
+                                "type" : "string",
+                                "format": "date-time"
                             }
-                        ]
+                        }
                     },
                     "maxItems": 1
                 },
