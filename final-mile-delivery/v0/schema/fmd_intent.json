@@ -5,7 +5,7 @@
     "description": "Describes the final mile delivery search intent",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/intent.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/intent.json"
         },
         {
             "properties": {
@@ -16,7 +16,7 @@
                         "type" : "object",
                         "properties" : {
                             "location" : {
-                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/location.json"
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
                             },
                             "time" : {
                                 "type" : "string",
@@ -33,7 +33,7 @@
                         "type" : "object",
                         "properties" : {
                             "location" : {
-                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/location.json"
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
                             },
                             "time" : {
                                 "type" : "string",
@@ -55,7 +55,7 @@
                     "type" : "array",
                     "description" : "Any additional attributes specific to a localized network.",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/0.8.0/tag.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/tag.json"
                     }
                 }
             }
