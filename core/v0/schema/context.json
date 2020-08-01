@@ -1,0 +1,91 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/context.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes the beckn message packet context",
+    "type": "object",
+    "properties": {
+        "domain": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/domain.json"
+        },
+        "country" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/country.json#/properties/code"
+        },
+        "city" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/city.json#/properties/code"
+        },
+        "action": {
+            "type": "string",
+            "description": "Defines the Beckn API call. Any actions other than the ennumerated actions are not supported by Beckn Protocol",
+            "enum": [
+                "search",
+                "select",
+                "init",
+                "confirm",
+                "update",
+                "status",
+                "track",
+                "cancel",
+                "feedback",
+                "support",
+                "on_search",
+                "on_select",
+                "on_init",
+                "on_confirm",
+                "on_update",
+                "on_status",
+                "on_track",
+                "on_cancel",
+                "on_feedback",
+                "on_support"
+            ]
+        },
+        "core_version": {
+            "type": "string",
+            "description": "Version of Beckn core API specification being used"
+        },
+        "domain_version" : {
+            "type": "string",
+            "description": "Version of Beckn domain level schema being used"
+        },
+        "bap_id": {
+            "type": "string",
+            "format": "uri",
+            "description": "ID of the BAP in the network"
+        },
+        "bg_id": {
+            "type": "string",
+            "format": "uri",
+            "description": "ID of the BG in the network"
+        },
+        "bpp_id": {
+            "type": "string",
+            "format": "uri",
+            "description": "ID of the BPP in the network"
+        },
+        "bap_nw_address": {
+            "type": "string",
+            "format": "uri",
+            "description": "Address of the BAP in the network"
+        },
+        "bg_nw_address": {
+            "type": "string",
+            "format": "uri",
+            "description": "Address of the BG in the network"
+        },
+        "bpp_nw_address": {
+            "type": "string",
+            "format": "uri",
+            "description": "Address of the BPP in the network"
+        },
+        "request_transaction_id": {
+            "type": "string",
+            "description": "BAP generated transaction ID.This is a UUID which is used for mapping requests to callbacks."
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Time of request generation"
+        }
+    }
+}

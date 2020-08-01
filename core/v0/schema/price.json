@@ -1,0 +1,33 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/price.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes the price of a object. Allows for domain extension.",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/monetary_value.json"
+        },
+        {
+            "properties": {
+                "estimated_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                },
+                "computed_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                },
+                "listed_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                },
+                "offered_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                },
+                "minimum_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                },
+                "maximum_value": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/decimal_value.json"
+                }
+            }
+        }
+    ]    
+}

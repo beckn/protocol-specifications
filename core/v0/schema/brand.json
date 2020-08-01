@@ -1,0 +1,19 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes a brand",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Unique ID of the brand"
+        },
+        "parent_brand_id": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json#/properties/id"
+        },
+        "descriptor": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+        }
+    }
+}

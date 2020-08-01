@@ -1,0 +1,22 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/rating.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.8.0",
+    "description": "Describes the rating of a person or an object. Extension not allowed",
+    "type": "object",
+    "properties": {
+        "value" : {
+            "type" : "string"
+        },
+        "unit" :{
+            "type" : "string",
+            "enum": [ "STARS" ]
+        },
+        "scale" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string"
+            }
+        }
+    }
+}

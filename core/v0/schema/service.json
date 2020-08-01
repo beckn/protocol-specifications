@@ -1,0 +1,24 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version" : "0.8.0",
+    "description": "Describes a service. Optionally the service may also contain a catalog object",
+    "type": "object",
+    "properties": {
+        "id" : {
+            "type" : "string"
+        },
+        "provider" : {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/provider.json"
+        },
+        "catalog" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json"
+        },
+        "policies" : {
+            "type" : "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/policy.json"
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes an offer",
+    "type": "object",
+    "properties": {
+        "id": {
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json#/properties/id",
+            "type": "string"
+        },
+        "descriptor": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/descriptor.json"
+        },
+        "applies_to": {
+            "type": "object",
+            "description": "",
+            "properties": {
+                "scope": {
+                    "type": "string",
+                    "enum": [
+                        "SERVICE",
+                        "CATEGORY",
+                        "ITEM"
+                    ],
+                    "description": "This can be extended by domain beyond the SERVICE, CATEGORY and ITEM"
+                },
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/service.json#/properties/id"
+                            },
+                            {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json#/properties/id"
+                            },
+                            {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json#/properties/id"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "start_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "end_date": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

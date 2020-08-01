@@ -1,0 +1,52 @@
+{
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/catalog.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "version": "0.8.0",
+    "description": "Describes the service catalog. This can be extended to accomodate more catalog items. This can also be empty if the service does not have a catalog",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Unique ID of the catalog"
+        },
+        "categories" : {
+            "type" : "array",
+            "description": "List of categories in the catalog",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/category.json"
+            }
+        },
+        "brands" : {
+            "type" : "array",
+            "description": "List of brands in the catalog. This can be empty if the categories array is empty.",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/brand.json"
+            }
+        },
+        "models" : {
+            "type" : "array",
+            "description": "List of models. This can be empty if the categories and brands array is empty.",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/model.json"
+            }
+        },
+        "items" : {
+            "type" : "array",
+            "description": "List of items. This can be empty if the categories, models and brands array is empty",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/item.json"
+            }
+        },
+        "offers" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/offer.json"
+            }
+        },
+        "ttl": {
+            "type": "string",
+            "description": "TTL of the catalog after which catalog has to be refreshed",
+            "format": "datetime"
+        }
+    }
+}
