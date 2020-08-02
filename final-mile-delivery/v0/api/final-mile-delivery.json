@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Final Mile Delivery API",
         "description": "API Spec for Final Mile Delivery",
-        "version": "0.8.0-rc2"
+        "version": "0.8.0-rc3"
     },
     "security": [
         {
@@ -65,21 +65,26 @@
                                             "intent": {
                                                 "pickups": [
                                                     {
-                                                        "type": "gps",
-                                                        "gps": {
-                                                            "lat": "22.346343",
-                                                            "lon": "77.823879"
+                                                        "location" : {
+                                                            "type": "gps",
+                                                            "gps": {
+                                                                "lat": "22.346343",
+                                                                "lon": "77.823879"
+                                                            }
                                                         },
                                                         "time" : "2020-07-31 12:00:00"
                                                     }
                                                 ],
                                                 "drops": [
                                                     {
-                                                        "type": "gps",
-                                                        "gps": {
-                                                            "lat": "22.346343",
-                                                            "lon": "77.823879"
-                                                        }
+                                                        "location" : {
+                                                            "type": "gps",
+                                                            "gps": {
+                                                                "lat": "22.346343",
+                                                                "lon": "77.823879"
+                                                            }
+                                                        },
+                                                        "time" : "2020-07-31 12:00:00"
                                                     }
                                                 ],
                                                 "packages": [
@@ -124,22 +129,26 @@
                                             "intent": {
                                                 "pickups": [
                                                     {
-                                                        "type": "gps",
-                                                        "gps": {
-                                                            "lat": "22.346343",
-                                                            "lon": "77.823879"
+                                                        "location" : {
+                                                            "type": "gps",
+                                                            "gps": {
+                                                                "lat": "22.346343",
+                                                                "lon": "77.823879"
+                                                            }
                                                         },
                                                         "time" : "2020-07-31 12:00:00"
                                                     }
                                                 ],
                                                 "drops": [
                                                     {
-                                                        "type": "gps",
-                                                        "gps": {
-                                                            "lat": "22.346343",
-                                                            "lon": "77.823879"
+                                                        "location" : {
+                                                            "type": "gps",
+                                                            "gps": {
+                                                                "lat": "22.346343",
+                                                                "lon": "77.823879"
+                                                            }
                                                         },
-                                                        "time" : "2020-07-31 12:30:00"
+                                                        "time" : "2020-07-31 12:00:00"
                                                     }
                                                 ],
                                                 "packages": [
