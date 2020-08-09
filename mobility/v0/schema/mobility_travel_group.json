@@ -6,7 +6,7 @@
     "type": "object",
     "properties": {
         "primary_traveller" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/person.json"
         },
         "group_size" : {
             "type" : "integer"
