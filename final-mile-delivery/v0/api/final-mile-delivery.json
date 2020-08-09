@@ -1417,6 +1417,57 @@
                 }
             }
         },
+        "/on_search/end": {
+            "post": {
+                "tags": [
+                    "Beckn App Platform API"
+                ],
+                "description": "End of search results",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        },
+                                        "message": {
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                                }
+                                            }
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/on_select": {
             "post": {
                 "tags": [
