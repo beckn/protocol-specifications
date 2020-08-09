@@ -10,7 +10,7 @@
         {
             "properties": {
                 "trip" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_trip.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_trip.json"
                 }
             }
         }

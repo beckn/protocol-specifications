@@ -34,7 +34,7 @@
                             "alt_services" : {
                                 "type" : "array",
                                 "items" : {
-                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_service.json#/properties/id"
+                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_service.json#/properties/id"
                                 }
                             }
                         }

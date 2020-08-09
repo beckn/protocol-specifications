@@ -28,7 +28,7 @@
             "description": "Details of travellers on this trip",
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_traveller.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_traveller.json"
             }
         },
         "travel_group": {
