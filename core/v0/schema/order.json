@@ -11,6 +11,9 @@
         "state": {
             "type" : "string"
         },
+        "update_action" : {
+            "type" : "string"
+        },
         "created_at" : {
             "type" : "string",
             "format": "date-time"
