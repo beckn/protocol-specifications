@@ -47,7 +47,7 @@
                     "type" : "array",
                     "description" : "Description of packages being transported. Will contain only single element for current version.",
                     "items" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/ff5a25d93932ea253b6e4416def48971cd94688a/final-mile-delivery/v0/schema/fmd_package.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_package.json"
                     },
                     "maxItems": 1
                 },

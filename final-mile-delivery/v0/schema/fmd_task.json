@@ -12,10 +12,10 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
         },
         "next_task_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/ff5a25d93932ea253b6e4416def48971cd94688a/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
         },
         "previous_task_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/ff5a25d93932ea253b6e4416def48971cd94688a/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
         },
         "state" : {
             "type" : "string",
@@ -64,10 +64,10 @@
             }
         },
         "package" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ff5a25d93932ea253b6e4416def48971cd94688a/final-mile-delivery/v0/schema/fmd_package.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_package.json"
         },
         "agent" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ff5a25d93932ea253b6e4416def48971cd94688a/final-mile-delivery/v0/schema/fmd_agent.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_agent.json"
         },
         "vehicle" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_vehicle.json"
