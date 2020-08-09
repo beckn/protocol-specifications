@@ -6,7 +6,7 @@
     "type": "object",
     "properties": {
         "mode" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_transfer_mode.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_transfer_mode.json"
         },
         "route" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_transfer_route.json"

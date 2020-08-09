@@ -32,7 +32,7 @@
             }
         },
         "travel_group": {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_travel_group.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_travel_group.json"
         }
     }
 }

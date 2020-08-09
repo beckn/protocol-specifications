@@ -18,14 +18,14 @@
                 "stops" : {
                     "type" : "array",
                     "items" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
                     }
                 },
                 "vehicle" : {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_vehicle.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_vehicle.json"
                 },
                 "payload": {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_payload.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_payload.json"
                 },
                 "transfers": {
                     "type": "object",

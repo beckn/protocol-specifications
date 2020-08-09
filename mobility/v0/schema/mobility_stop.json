@@ -43,7 +43,7 @@
         "transfers" : {
             "type" : "array",
             "items" : {
-                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_transfer.json"
+                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_transfer.json"
             }
         }
     }

@@ -10,10 +10,10 @@
         {
             "properties": {
                 "origin_stop_id" : {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json#/properties/id"
                 },
                 "destination_stop_id" : {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_stop.json#/properties/id"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json#/properties/id"
                 }
             }
         }
