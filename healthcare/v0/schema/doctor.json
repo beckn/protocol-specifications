@@ -24,10 +24,10 @@
             "$ref": "#/components/schemas/channel"
         },
         "rating": {
-            "$ref": "http://schema.beckn.org/core/schema/0.7.1/rating.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/rating.json"
         },
         "item": {
-            "$ref": "http://schema.beckn.org/core/schema/0.7.1/item.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/item.json"
         },
         "availability": {
             "type": "array",
