@@ -2,7 +2,7 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item_quantity.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
-    "description": "Describes quantity or amount of an item based on availability",
+    "description": "Describes count or amount of an item",
     "type": "object",
     "properties": {
         "allocated": {
@@ -12,8 +12,8 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "amount" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/scalar.json"
+                "quantity" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar.json"
                 }
             }
         },
@@ -24,8 +24,8 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "amount" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/scalar.json"
+                "quantity" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar.json"
                 }
             }
         },
@@ -36,8 +36,8 @@
                     "type": "integer",
                     "minimum": 1
                 },
-                "amount" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/scalar.json"
+                "quantity" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar.json"
                 }
             }
         },
@@ -48,8 +48,8 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "amount" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/scalar.json"
+                "quantity" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar.json"
                 }
             }
         },
@@ -60,8 +60,8 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "amount" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/scalar.json"
+                "quantity" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar.json"
                 }
             }
         }

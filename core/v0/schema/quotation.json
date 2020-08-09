@@ -2,17 +2,17 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/quotation.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
-    "description": "Describes a quotation object",
+    "description": "Describes a quote",
     "type": "object",
     "properties": {
         "id" : {
             "type" : "string"
         },
         "price" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/price.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/price.json"
         },
         "ttl" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/duration.json"
         }
     }
 }

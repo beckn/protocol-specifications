@@ -5,12 +5,6 @@
     "description": "indicates language code. Beckn supports country codes as per ISO 639.2 standard",
     "type": "object",
     "properties": {
-        "standard": {
-            "type": "string",
-            "enum": [
-                "ISO 639-2 CODE"
-            ]
-        },
         "code": {
             "type": "string"
         }
