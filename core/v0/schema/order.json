@@ -38,6 +38,9 @@
         },
         "payment" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/payment.json"
+        },
+        "quotation" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/quotation.json"
         }
     }
 }
