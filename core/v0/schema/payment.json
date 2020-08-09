@@ -23,11 +23,7 @@
             "type" : "array",
             "items": {
                 "type":"string",
-                "description": "Unique code describing the allowed payments in the network",
-                "externalDocs" : {
-                    "description" : "Documentation related to payments in various",
-                    "url" : ""
-                }
+                "description": "Unique code describing the allowed payments in the network"
             }
         },
         "amount" : {
