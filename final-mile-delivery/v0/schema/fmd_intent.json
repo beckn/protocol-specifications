@@ -5,7 +5,7 @@
     "description": "Describes the final mile delivery search intent",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/intent.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/intent.json"
         },
         {
             "properties": {
@@ -16,7 +16,7 @@
                         "type" : "object",
                         "properties" : {
                             "location" : {
-                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/location.json"
                             },
                             "time" : {
                                 "type" : "string",
@@ -33,7 +33,7 @@
                         "type" : "object",
                         "properties" : {
                             "location" : {
-                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/location.json"
                             },
                             "time" : {
                                 "type" : "string",
@@ -55,7 +55,7 @@
                     "type" : "array",
                     "description" : "Any additional attributes specific to a localized network.",
                     "items": {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/tag.json"
+                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/tag.json"
                     }
                 }
             }

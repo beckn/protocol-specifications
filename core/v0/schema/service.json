@@ -12,12 +12,12 @@
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/provider.json"
         },
         "catalog" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/catalog.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/catalog.json"
         },
         "policies" : {
             "type" : "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/policy.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/policy.json"
             }
         }
     }

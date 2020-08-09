@@ -7,11 +7,11 @@
     "properties": {
         "person" : {
             "description": "The person who fuliflls the service",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/person.json"
         },
         "location" : {
             "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/location.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/location.json"
         },
         "type" : {
             "type" : "string"

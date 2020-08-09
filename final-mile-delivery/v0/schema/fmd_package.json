@@ -14,7 +14,7 @@
         "descriptor" : {
             "allOf": [
                 {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/descriptor.json"
                 },
                 {
                     "required": ["short_desc"]
@@ -28,13 +28,13 @@
             }
         },
         "price" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/price.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/price.json"
         },
         "weight": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/scalar.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/scalar.json"
         },
         "dimensions": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/dimensions.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/dimensions.json"
         }
     },
     "required": ["contents"]
