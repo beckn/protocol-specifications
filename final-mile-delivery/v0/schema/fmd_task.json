@@ -70,7 +70,7 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ff5a25d93932ea253b6e4416def48971cd94688a/final-mile-delivery/v0/schema/fmd_agent.json"
         },
         "vehicle" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_vehicle.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_vehicle.json"
         },
         "created_at" : {
             "type" : "string",
