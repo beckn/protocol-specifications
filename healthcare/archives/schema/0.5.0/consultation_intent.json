@@ -18,28 +18,28 @@
             "$ref": "#/components/schemas/consultationtype"
         },
         "time_range": {
-            "$ref": "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar_range.json"
         },
         "location": {
             "$ref": "https://schema.beckn.org/core/schema/0.7.1/location.json"
         },
         "price_range": {
-            "$ref": "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar_range.json"
         },
         "providers": {
             "type": "array",
             "items": {
-                "$ref": "http://schema.beckn.org/core/schema/0.7.1/provider.json#/properties/id"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/provider.json#/properties/id"
             }
         },
         "doctors": {
             "type": "array",
             "items": {
-                "$ref": "http://schema.beckn.org/core/schema/0.7.1/item.json#/properties/id"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/item.json#/properties/id"
             }
         },
         "rating_range": {
-            "$ref": "http://schema.beckn.org/core/schema/0.7.1/scalar_range.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/scalar_range.json"
         },
         "languages": {
             "type": "array",
