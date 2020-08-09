@@ -2,7 +2,7 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
-    "description": "Describes the customer of a kitchen",
+    "description": "Describes a decimal value",
     "type": "object",
     "properties": {
         "integral" : {

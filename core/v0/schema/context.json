@@ -6,13 +6,13 @@
     "type": "object",
     "properties": {
         "domain": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/domain.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/domain.json"
         },
         "country" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/country.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/country.json#/properties/code"
         },
         "city" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/city.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/city.json#/properties/code"
         },
         "action": {
             "type": "string",
@@ -48,37 +48,16 @@
             "type": "string",
             "description": "Version of Beckn domain level schema being used"
         },
-        "bap_id": {
+        "ac_id": {
             "type": "string",
             "format": "uri",
-            "description": "ID of the BAP in the network"
+            "description": "Caller ID. This is the ID of the BAP, BPP or BG who is initiating the transaction"
         },
-        "bg_id": {
+        "transaction_id": {
             "type": "string",
-            "format": "uri",
-            "description": "ID of the BG in the network"
+            "description": "BAP generated transaction ID.This is a UUID which is used for mapping requests to callbacks."
         },
-        "bpp_id": {
-            "type": "string",
-            "format": "uri",
-            "description": "ID of the BPP in the network"
-        },
-        "bap_nw_address": {
-            "type": "string",
-            "format": "uri",
-            "description": "Address of the BAP in the network"
-        },
-        "bg_nw_address": {
-            "type": "string",
-            "format": "uri",
-            "description": "Address of the BG in the network"
-        },
-        "bpp_nw_address": {
-            "type": "string",
-            "format": "uri",
-            "description": "Address of the BPP in the network"
-        },
-        "request_transaction_id": {
+        "message_id" : {
             "type": "string",
             "description": "BAP generated transaction ID.This is a UUID which is used for mapping requests to callbacks."
         },

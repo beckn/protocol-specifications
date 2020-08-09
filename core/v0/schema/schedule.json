@@ -67,7 +67,7 @@
                         "format": "date"
                     },
                     "occasion": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/descriptor.json"
                     }
                 }
             }
@@ -175,10 +175,10 @@
                     "type": "array",
                     "items": {
                         "open": {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/time.json"
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/time.json"
                         },
                         "close": {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/time.json"
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/time.json"
                         }
                     }
                 }

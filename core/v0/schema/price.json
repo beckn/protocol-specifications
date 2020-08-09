@@ -2,30 +2,30 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/price.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version": "0.8.0",
-    "description": "Describes the price of a object. Allows for domain extension.",
+    "description": "Describes the price of an item. Allows for domain extension.",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/monetary_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/monetary_value.json"
         },
         {
             "properties": {
                 "estimated_value": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/decimal_value.json"
                 },
                 "computed_value": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/decimal_value.json"
                 },
                 "listed_value": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/decimal_value.json"
                 },
                 "offered_value": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/decimal_value.json"
                 },
                 "minimum_value": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/decimal_value.json"
                 },
                 "maximum_value": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/decimal_value.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/decimal_value.json"
                 }
             }
         }

@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Core API",
         "description": "Beckn core API specification",
-        "version": "0.8.1"
+        "version": "0.8.2"
     },
     "paths": {
         "/search": {
@@ -522,6 +522,52 @@
                                     },
                                     "error": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/error.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/context.json"
+                                        },
+                                        "message": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/ack.json"
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_search/end": {
+            "post": {
+                "tags": [
+                    "Beckn App Platform API"
+                ],
+                "description": "End of search results",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/context.json"
                                     }
                                 }
                             }

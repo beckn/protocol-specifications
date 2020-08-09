@@ -10,9 +10,6 @@
         },
         "lon": {
             "type": "string"
-        },
-        "format": {
-            "type": "string"
         }
     }
 }

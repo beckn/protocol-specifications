@@ -7,14 +7,14 @@
     "properties": {
         "customer" : {
             "describtion" : "Personal details of the customer needed for billing.",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/person.json"
         },
         "address" : {
             "description": "Location where the bill is to be sent to",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/address.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/address.json"
         },
         "period" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/duration.json"
         },
         "tax_number" : {
             "type" : "string"

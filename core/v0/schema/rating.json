@@ -6,17 +6,21 @@
     "type": "object",
     "properties": {
         "value" : {
-            "type" : "string"
+            "type" : "number",
+            "minimum" : 0
         },
         "unit" :{
             "type" : "string",
-            "enum": [ "STARS" ]
+            "default" : "U+2B50",
+            "description": "Follows the unicode 13.0 format for emojis : https://unicode.org/emoji/charts/full-emoji-list.html"
         },
-        "scale" : {
-            "type" : "array",
-            "items" : {
-                "type" : "string"
-            }
+        "max_value" : {
+            "type" : "number"
+        },
+        "direction" : {
+            "type" : "string",
+            "enum" : ["UP", "DOWN"],
+            "default" : "UP"
         }
     }
 }

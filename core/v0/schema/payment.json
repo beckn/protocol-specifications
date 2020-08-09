@@ -14,27 +14,34 @@
             "enum": ["ON-ORDER", "PRE-FULFILLMENT", "ON-FULFILLMENT","POST-FULFILLMENT"]
         },
         "payer" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment_endpoint.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/payment_endpoint.json"
         },
         "payee" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment_endpoint.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/payment_endpoint.json"
         },
-        "method" : {
-            "type":"string",
-            "enum": ["CASH", "CHEQUE", "DEMAND-DRAFT", "UPI", "RTGS", "NEFT", "IMPS"]
+        "methods" : {
+            "type" : "array",
+            "items": {
+                "type":"string",
+                "description": "Unique code describing the allowed payments in the network",
+                "externalDocs" : {
+                    "description" : "Documentation related to payments in various",
+                    "url" : ""
+                }
+            }
         },
         "amount" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/monetary_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/monetary_value.json"
         },
         "state" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/state.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/state.json"
         },
         "due_date" : {
             "type" : "string",
             "format": "date-time"
         },
         "duration" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/monetary_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/duration.json"
         }
     }
 }

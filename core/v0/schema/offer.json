@@ -6,11 +6,11 @@
     "type": "object",
     "properties": {
         "id": {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/offer.json#/properties/id",
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/offer.json#/properties/id",
             "type": "string"
         },
         "descriptor": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/descriptor.json"
         },
         "applies_to": {
             "type": "object",
@@ -30,13 +30,13 @@
                     "items": {
                         "oneOf": [
                             {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/service.json#/properties/id"
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/service.json#/properties/id"
                             },
                             {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/category.json#/properties/id"
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/category.json#/properties/id"
                             },
                             {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2201373b28084e9b3d38fbc546edf24ac99d0753/core/v0/schema/item.json#/properties/id"
                             }
                         ]
                     }
