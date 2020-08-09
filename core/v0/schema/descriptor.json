@@ -23,7 +23,7 @@
         "images": {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/image.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/image.json"
             }
         },
         "audio" : {

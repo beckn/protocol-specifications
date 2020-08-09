@@ -21,13 +21,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "intent": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/intent.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/intent.json"
                                             }
                                         }
                                     }
@@ -45,18 +45,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -80,13 +80,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -104,18 +104,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -139,13 +139,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -163,18 +163,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -198,13 +198,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -222,18 +222,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -257,13 +257,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
                                             }
                                         }
                                     }
@@ -281,18 +281,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -316,13 +316,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
                                             },
                                             "callback_url": {
                                                 "type": "string",
@@ -344,18 +344,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -379,16 +379,16 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
                                             },
                                             "reason_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/option.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/option.json#/properties/id"
                                             }
                                         }
                                     }
@@ -406,18 +406,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -441,13 +441,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -465,18 +465,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -500,10 +500,10 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/feedback.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/feedback.json"
                                     }
                                 }
                             }
@@ -519,18 +519,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -554,10 +554,10 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/support.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/support.json"
                                     }
                                 }
                             }
@@ -573,18 +573,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -609,18 +609,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/catalog.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/catalog.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -636,18 +636,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -671,7 +671,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     }
                                 }
                             }
@@ -687,18 +687,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -722,18 +722,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -749,18 +749,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -784,18 +784,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -811,18 +811,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -846,18 +846,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -873,18 +873,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -908,18 +908,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/tracking.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/tracking.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -935,18 +935,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -970,7 +970,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -978,25 +978,25 @@
                                             "policies": {
                                                 "type": "array",
                                                 "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/policy.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/policy.json"
                                                 }
                                             },
                                             "reasons": {
                                                 "type": "array",
                                                 "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/option.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/option.json"
                                                 }
                                             },
                                             "price": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/price.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/price.json"
                                             },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1012,18 +1012,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1047,18 +1047,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1074,18 +1074,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1109,13 +1109,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -1133,18 +1133,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1168,7 +1168,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1177,7 +1177,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "order": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
                                                     },
                                                     "communication": {
                                                         "type": "string",
@@ -1193,7 +1193,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1209,18 +1209,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
                                         }
                                     }
                                 }

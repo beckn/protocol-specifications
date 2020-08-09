@@ -28,22 +28,22 @@
                 "type" : "object",
                 "properties": {
                     "id" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/item.json#/properties/id"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
                     },
                     "quantity" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/item_quantity.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item_quantity.json"
                     }
                 }
             }
         },
         "billing" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/billing.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/billing.json"
         },
         "payment" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/payment.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/payment.json"
         },
         "quotation" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/quotation.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/quotation.json"
         }
     }
 }

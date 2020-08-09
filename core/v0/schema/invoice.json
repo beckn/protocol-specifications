@@ -17,7 +17,7 @@
             "format": "date"
         },
         "billing" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/billing.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/billing.json"
         },
         "signatory" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/person.json"
@@ -26,7 +26,7 @@
             "type" : "string"
         },
         "order_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/order.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
         },
         "payment" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/payment.json"
@@ -47,13 +47,13 @@
                         "minimum": 1
                     },
                     "amount" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/monetary_value.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/monetary_value.json"
                     }
                 }
             }
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
         },
         "created_at" : {
             "type" : "string",
