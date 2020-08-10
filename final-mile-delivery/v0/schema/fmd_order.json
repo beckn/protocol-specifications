@@ -9,6 +9,13 @@
         },
         {
             "properties": {
+                "type" : {
+                    "type" : "string",
+                    "description": "Defines the type of order like a simple order, a return order, an internal order etc. The types of orders supported will be defined by the network ecosystem."
+                },
+                "prev_order_id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                },
                 "tasks" : {
                     "type" : "array",
                     "items": {
