@@ -1002,7 +1002,7 @@
                                             },
                                             "callback_url": {
                                                 "type": "string",
-                                                "format": "url"
+                                                "format": "uri"
                                             }
                                         },
                                         "required": [
