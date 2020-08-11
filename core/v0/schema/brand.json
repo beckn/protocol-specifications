@@ -10,10 +10,10 @@
             "description": "Unique ID of the brand"
         },
         "parent_brand_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/brand.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/brand.json#/properties/id"
         },
         "descriptor": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
         }
     }
 }

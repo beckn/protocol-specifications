@@ -6,10 +6,10 @@
     "type": "object",
     "properties": {
         "name" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/name.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/name.json"
         },
         "image": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/image.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/image.json"
         },
         "dob": {
             "type": "string",

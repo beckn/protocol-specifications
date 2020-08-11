@@ -10,15 +10,15 @@
             "description": "Unique id of the category"
         },
         "parent_category_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/category.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/category.json#/properties/id"
         },
         "descriptor": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
         },
         "tags": {
             "type" : "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/tag.json"
             }
         }
     }
