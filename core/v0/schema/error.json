@@ -10,15 +10,15 @@
         },
         "code": {
             "type": "string",
-            "desription": "Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo"
+            "description": "Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo"
         },
         "path" : {
             "type": "string",
-            "desription": "Path to json schema generating the error. Used only during json schema validation errors"
+            "description": "Path to json schema generating the error. Used only during json schema validation errors"
         },
         "message" : {
             "type": "string",
-            "desription": "Human readable message descirbing the error"
+            "description": "Human readable message descirbing the error"
         }
     },
     "required": [
