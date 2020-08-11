@@ -1007,7 +1007,7 @@
                                         },
                                         "required": [
                                             "order_id",
-                                            "tracking"
+                                            "callback_url"
                                         ]
                                     }
                                 },
