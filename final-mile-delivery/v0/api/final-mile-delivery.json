@@ -208,8 +208,7 @@
                                                 "ack": {
                                                     "status": "ACK"
                                                 }
-                                            },
-                                            "error": {}
+                                            }
                                         }
                                     },
                                     "Fail": {
@@ -232,10 +231,9 @@
                                                 }
                                             },
                                             "error": {
-                                                "r_error": {
-                                                    "code": "ERR",
-                                                    "message": "Invalid context"
-                                                }
+						"type": "CORE-ERROR",
+                                                "code": "ERR",
+                                                "message": "Invalid context"
                                             }
                                         }
                                     }
@@ -1351,8 +1349,7 @@
                                                     }
                                                 ]
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -1507,8 +1504,7 @@
                                             }
                                         }
                                     }
-                                },
-                                "error": {}
+                                }
                             }
                         }
                     }
@@ -1709,8 +1705,7 @@
                                                 "created_at": "2020-07-16 17:30:00",
                                                 "updated_at": "2020-07-16 17:30:00"
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -2165,8 +2160,7 @@
                                                     "url": "https://api.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track"
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 },
                                 "Tracking Details for Push type tracking": {
@@ -2198,8 +2192,7 @@
                                                     "url": "ws://bpp.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:5000"
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
