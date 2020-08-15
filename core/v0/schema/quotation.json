@@ -13,6 +13,26 @@
         },
         "ttl" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/duration.json"
+        },
+        "breakup" : {
+            "type" : "array",
+            "items" : {
+                "type": "object",
+                "properties": {
+                    "item_id" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
+                    },
+                    "offer_id" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
+                    },
+                    "title" : {
+                        "type": "string"
+                    },
+                    "price" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/price.json"
+                    }
+                }
+            }
         }
     }
 }
