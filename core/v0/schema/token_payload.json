@@ -1,14 +1,22 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/token_payload.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
-    "description": "Describes a tag. This is a simple key-value store which is used to contain extended metadata",
+    "description": "Describes the structure of the token payload",
     "type": "object",
     "properties" : {
+        "domain" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/domain.json"
+        },
+        "country" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/country.json#/properties/code"
+        },
+        "city" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/city.json#/properties/code"
+        },
         "ac_id" : {
             "type" : "string"
         },
-        "public_key" : {
+        "key" : {
             "type" : "string"
         },
         "exp" : {
