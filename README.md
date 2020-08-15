@@ -8,17 +8,44 @@ metaDescription: "Documentation for developers of the Beckn ecosystem"
 
 | Domain                | Version   |    Release Date       |
 |-----------------------|-----------|-----------------------|
-| [Final Mile Delivery](https://developers.beckn.org/FinalMileDelivery)   |  0.7.0    |    06 July, 2020      |
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0)   |  0.8.0    |    10 August, 2020      |
+| [Core](https://github.com/beckn/protocol-specifications/tree/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0)   |  0.8.2    |    10 August, 2020      |
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/archives/schema/0.7.0)   |  0.7.0    |    06 July, 2020      |
 | [Mobility](https://github.com/beckn/protocol-specifications/tree/master/mobility/schema/0.8.0)   |  0.8.0    |    02 July, 2020      |
-| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/commits/master/final-mile-delivery/schema/0.6.0)   |  0.6.0    |    02 June, 2020      |
+| Final Mile Delivery   |  0.6.0 (depr)   |    02 June, 2020      |
 | [Food and Beverage](https://github.com/beckn/protocol-specifications/tree/master/food-and-beverage/schema/0.4.0)     |  0.4.0    |    02 June, 2020      |
-| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/master/final-mile-delivery/schema/0.5.1)   |  0.5.1    |    21 May, 2020       |
+| Final Mile Delivery   |  0.5.1 (depr)    |    21 May, 2020       |
 | [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.8.0)                  |  0.8.0    |    21 May, 2020       |
 | [Healthcare](https://developers.beckn.org/Healthcare)            |  0.5.0    |    02 May, 2020       |
 | Food and Beverage     |  0.3.1 (depr)    |    22 April, 2020     |
 | [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.7.1)                  |  0.7.1    |    17 April, 2020     |
 | [Mobility](https://github.com/beckn/protocol-specifications/tree/master/mobility/schema/0.7.1)              |  0.7.1    |    09 December, 2019  |
 | Mobility              |  0.5.3 (depr)   |    30 October, 2019   |
+
+### Recent Updates
+
+- Repository structure changes
+	- Added major version ( v0 ) folder in core, mobility, final-mile-delivery, food-and-beverage and healthcare
+	- Added sub-folders schema and api which contain the schema and api of version 0.x.y
+	- v0 folder will remain until v1 is released which will result in a new v1 folder
+	- Created *archives* folder containing older 0.x versions which will be deprecated after release of v1.x
+- Added release tags
+- Updates to $refs
+	- For Non Release Versions
+		- All complex core schemas having references ($ref) to other core schemas will point to latest version of master branch
+		- All complex domain schemas having references to other domain and/or core schemas will point to latest version of master branch
+		- All (core and domain) schemas which have references ($ref) to themselves in a recursive fashion should point to latest version of master branch
+	- For Release Versions
+		- All core schemas having references ($ref) to other core schemas will point to the commit id of latest stable version of core
+		- All domain schemas having references ($ref) to core schemas will point to the commit id of latest stable version of core
+		- All domain schemas having references ($ref) to other (same or cross-) domain  schemas will point to the latest stable release version of the referred domain 
+		- No release version of core or domain will have $refs without commit ids
+		- All domain schema having references ($ref) to core schemas must point to a stable core release version commit that is the same or earlier than the current version of domain
+		- Any changes to the core schema references in any domain schema must result in a new release version of that domain schema
+		- All complex domain schemas having references to other domain and/or core schemas will point to latest version of master branch
+		- All domain schemas in a release version having references to core schemas  pointing to the same release version commit of core
+		- All (core and domain) schemas which have references ($ref) to themselves in a recursive fashion should point to latest stable release version commit of master branch
+
 
 ## Introduction
 
