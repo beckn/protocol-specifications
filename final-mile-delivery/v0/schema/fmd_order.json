@@ -1,11 +1,10 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
     "description": "Describes an FMD order",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json"
         },
         {
             "properties": {
@@ -14,12 +13,24 @@
                     "description": "Defines the type of order like a simple order, a return order, an internal order etc. The types of orders supported will be defined by the network ecosystem."
                 },
                 "prev_order_id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
                 },
                 "tasks" : {
                     "type" : "array",
                     "items": {
                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json"
+                    }
+                },
+                "cancellation_reasons" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json"
+                    }
+                },
+                "return_reasons" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json"
                     }
                 }
             }

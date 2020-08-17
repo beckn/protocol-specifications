@@ -1,84 +1,138 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "0.8.0",
     "description": "Describes an FMD task",
     "type": "object",
     "properties": {
         "id": {
             "type": "string"
         },
-        "item_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
+        "item_id": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
         },
-        "next_task_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
+        "next_task_id": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
         },
-        "previous_task_id" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
+        "previous_task_id": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
         },
-        "state" : {
-            "type" : "string",
-            "enum": [ "SEARCHINNG-FOR-FMD-AGENT", "ASSIGNED-AGENT", "EN-ROUTE-TO-PICKCUP", "AT-PICKUP-LOCATION", "PICKED-UP-PACKAGE", "EN-ROUTE-TO-DROP", "AT-DROP-LOCATION", "DROPPED-PACKAGE" ]
+        "state": {
+            "allOf": [
+                {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/state.json"
+                },
+                {
+                    "properties": {
+                        "descriptor" : {
+                            "allOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                                },
+                                {
+                                    "code" : {
+                                        "type" : "string",
+                                        "enum": [
+                                            "SEARCHING-FOR-FMD-AGENT",
+                                            "ASSIGNED-AGENT",
+                                            "EN-ROUTE-TO-PICKUP",
+                                            "AT-PICKUP-LOCATION",
+                                            "PICKED-UP-PACKAGE",
+                                            "EN-ROUTE-TO-DROP",
+                                            "AT-DROP-LOCATION",
+                                            "DROPPED-PACKAGE",
+                                            "RETURN-INITIATED",
+                                            "EN-ROUTE-TO-RETURN-LOCATION",
+                                            "AT-RETURN-LOCATION",
+                                            "RETURNED-PACKAGE"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
         },
-        "pickup" : {
-            "type" : "object",
+        "pickup": {
+            "type": "object",
             "properties": {
-                "location" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/location.json"
+                "location": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
                 },
                 "instructions": {
                     "type": "array",
-                    "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
                     }
                 },
-                "poc" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/person.json"
+                "poc": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
                 },
-                "time" : {
-                    "type" : "string",
+                "time": {
+                    "type": "string",
                     "format": "date-time"
                 }
             }
         },
-        "drop" : {
-            "type" : "object",
+        "drop": {
+            "type": "object",
             "properties": {
-                "location" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/location.json"
+                "location": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
                 },
                 "instructions": {
                     "type": "array",
-                    "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
                     }
                 },
-                "poc" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/person.json"
+                "poc": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
                 },
-                "time" : {
-                    "type" : "string",
+                "time": {
+                    "type": "string",
                     "format": "date-time"
                 }
             }
         },
-        "package" : {
+        "return" : {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                },
+                "instructions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                    }
+                },
+                "poc": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
+                },
+                "time": {
+                    "type": "string",
+                    "description": "Latest time before which package has to be returned to the return location",
+                    "format": "date-time"
+                }
+            }
+        },
+        "package": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_package.json"
         },
-        "agent" : {
+        "agent": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_agent.json"
         },
-        "vehicle" : {
+        "vehicle": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_vehicle.json"
         },
-        "created_at" : {
-            "type" : "string",
-            "format" : "date-time"
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
         },
-        "updated_at" : {
-            "type" : "string",
-            "format" : "date-time"
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
         }
     }
 }

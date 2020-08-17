@@ -1,18 +1,17 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_item.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_catalog.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
-    "description": "Describes an item in an FMD package",
+    "description": "Describes the FMD catalog",
     "allOf" : [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/catalog.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/catalog.json"
         },
         {
             "properties": {
                 "package_categories" : {
                     "type" : "array",
                     "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/category.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/category.json"
                     }
                 }
             }
