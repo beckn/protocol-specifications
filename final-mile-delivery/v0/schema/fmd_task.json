@@ -17,20 +17,40 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
         },
         "state": {
-            "type": "string",
-            "enum": [
-                "SEARCHING-FOR-FMD-AGENT",
-                "ASSIGNED-AGENT",
-                "EN-ROUTE-TO-PICKUP",
-                "AT-PICKUP-LOCATION",
-                "PICKED-UP-PACKAGE",
-                "EN-ROUTE-TO-DROP",
-                "AT-DROP-LOCATION",
-                "DROPPED-PACKAGE",
-                "RETURN-INITIATED",
-                "EN-ROUTE-TO-RETURN-LOCATION",
-                "AT-RETURN-LOCATION",
-                "RETURNED-PACKAGE"
+            "allOf": [
+                {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/state.json"
+                },
+                {
+                    "properties": {
+                        "descriptor" : {
+                            "allOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                                },
+                                {
+                                    "code" : {
+                                        "type" : "string",
+                                        "enum": [
+                                            "SEARCHING-FOR-FMD-AGENT",
+                                            "ASSIGNED-AGENT",
+                                            "EN-ROUTE-TO-PICKUP",
+                                            "AT-PICKUP-LOCATION",
+                                            "PICKED-UP-PACKAGE",
+                                            "EN-ROUTE-TO-DROP",
+                                            "AT-DROP-LOCATION",
+                                            "DROPPED-PACKAGE",
+                                            "RETURN-INITIATED",
+                                            "EN-ROUTE-TO-RETURN-LOCATION",
+                                            "AT-RETURN-LOCATION",
+                                            "RETURNED-PACKAGE"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
             ]
         },
         "pickup": {
