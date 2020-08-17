@@ -1,7 +1,6 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/intent.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "0.8.2",
     "description": "Intent of a user. Used for searching for services",
     "type": "object",
     "properties" : {
@@ -9,16 +8,16 @@
             "type" : "string"
         },
         "provider_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/provider.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/provider.json#/properties/id"
         },
         "category_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/category.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/category.json#/properties/id"
         },
         "brand_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/brand.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/brand.json#/properties/id"
         },
         "item_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
         },
         "tags": {
             "type": "array",

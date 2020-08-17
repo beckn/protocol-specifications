@@ -1,24 +1,23 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/support.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "0.8.2",
     "description": "Customer support of a service",
     "type": "object",
     "properties": {
         "service_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/service.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/service.json#/properties/id"
         },
         "order": {
             "type" : "object",
             "properties": {
                 "id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
                 }
             },
             "order_items" : {
                 "type" : "array",
                 "items": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
                 }
             }
         },

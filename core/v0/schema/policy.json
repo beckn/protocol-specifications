@@ -1,7 +1,6 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/policy.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "0.8.2",
     "description": "Describes a policy. Allows for domain extension.",
     "type": "object",
     "properties": {
@@ -9,7 +8,7 @@
             "type": "string"
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
         },
         "parent_policy_id": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/policy.json#/properties/id"
@@ -24,7 +23,7 @@
                     "type": "string"
                 },
                 "descriptor" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
                 }
             }
         }

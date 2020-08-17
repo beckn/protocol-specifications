@@ -1,7 +1,6 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "0.8.2",
     "description": "Describes the details of an order",
     "type": "object",
     "properties": {
@@ -28,22 +27,22 @@
                 "type" : "object",
                 "properties": {
                     "id" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
                     },
                     "quantity" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item_quantity.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item_quantity.json"
                     }
                 }
             }
         },
         "billing" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/billing.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/billing.json"
         },
         "payment" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/payment.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment.json"
         },
         "quotation" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/quotation.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/quotation.json"
         }
     }
 }

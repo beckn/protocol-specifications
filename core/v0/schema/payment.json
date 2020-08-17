@@ -1,7 +1,6 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "0.8.2",
     "description": "Describes a payment",
     "type": "object",
     "properties": {
@@ -14,10 +13,10 @@
             "enum": ["ON-ORDER", "PRE-FULFILLMENT", "ON-FULFILLMENT","POST-FULFILLMENT"]
         },
         "payer" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/payment_endpoint.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment_endpoint.json"
         },
         "payee" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/payment_endpoint.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment_endpoint.json"
         },
         "methods" : {
             "type" : "array",
@@ -27,17 +26,17 @@
             }
         },
         "amount" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/monetary_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/monetary_value.json"
         },
         "state" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/state.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/state.json"
         },
         "due_date" : {
             "type" : "string",
             "format": "date-time"
         },
         "duration" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/duration.json"
         }
     }
 }
