@@ -267,91 +267,87 @@
                                                 "description": "This is the draft order object containing details of task being carried out like pickup location, drop location and pacakge details",
                                                 "allOf": [
                                                     {
-                                                        "allOf": [
-                                                            {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
-                                                            },
-                                                            {
-                                                                "properties": {
-                                                                    "items": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "allOf": [
-                                                                                {
-                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json"
-                                                                                },
-                                                                                {
-                                                                                    "required": [
-                                                                                        "id"
-                                                                                    ]
-                                                                                }
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                    },
+                                                    {
+                                                        "properties": {
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "allOf": [
+                                                                        {
+                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json"
+                                                                        },
+                                                                        {
+                                                                            "required": [
+                                                                                "id"
                                                                             ]
                                                                         }
-                                                                    },
-                                                                    "tasks": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "allOf": [
-                                                                                {
-                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json"
-                                                                                },
-                                                                                {
-                                                                                    "properties": {
-                                                                                        "pickup": {
-                                                                                            "allOf": [
-                                                                                                {
-                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json#/properties/pickup"
-                                                                                                },
-                                                                                                {
-                                                                                                    "required": [
-                                                                                                        "location",
-                                                                                                        "poc"
-                                                                                                    ]
-                                                                                                }
-                                                                                            ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "tasks": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "allOf": [
+                                                                        {
+                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json"
+                                                                        },
+                                                                        {
+                                                                            "properties": {
+                                                                                "pickup": {
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json#/properties/pickup"
                                                                                         },
-                                                                                        "drop": {
-                                                                                            "allOf": [
-                                                                                                {
-                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json#/properties/drop"
-                                                                                                },
-                                                                                                {
-                                                                                                    "required": [
-                                                                                                        "location",
-                                                                                                        "poc"
-                                                                                                    ]
-                                                                                                }
+                                                                                        {
+                                                                                            "required": [
+                                                                                                "location",
+                                                                                                "poc"
                                                                                             ]
                                                                                         }
-                                                                                    },
-                                                                                    "required": [
-                                                                                        "item_id",
-                                                                                        "pickup",
-                                                                                        "drop",
-                                                                                        "package"
                                                                                     ]
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    },
-                                                                    "packages": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "allOf": [
-                                                                                {
-                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_package.json"
                                                                                 },
-                                                                                {
-                                                                                    "required": [
-                                                                                        "contents"
+                                                                                "drop": {
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json#/properties/drop"
+                                                                                        },
+                                                                                        {
+                                                                                            "required": [
+                                                                                                "location",
+                                                                                                "poc"
+                                                                                            ]
+                                                                                        }
                                                                                     ]
                                                                                 }
+                                                                            },
+                                                                            "required": [
+                                                                                "item_id",
+                                                                                "pickup",
+                                                                                "drop",
+                                                                                "package"
                                                                             ]
                                                                         }
-                                                                    }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "packages": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "allOf": [
+                                                                        {
+                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_package.json"
+                                                                        },
+                                                                        {
+                                                                            "required": [
+                                                                                "contents"
+                                                                            ]
+                                                                        }
+                                                                    ]
                                                                 }
                                                             }
-                                                        ]
+                                                        }
                                                     },
                                                     {
                                                         "required": [
