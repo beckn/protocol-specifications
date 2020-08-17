@@ -36,7 +36,8 @@
                 "on_track",
                 "on_cancel",
                 "on_feedback",
-                "on_support"
+                "on_support",
+                "ack"
             ]
         },
         "core_version": {
@@ -49,8 +50,12 @@
         },
         "ac_id": {
             "type": "string",
-            "format": "uri",
-            "description": "Caller ID. This is the ID of the BAP, BPP or BG who is initiating the transaction"
+            "description": "API caller ID. This is a UUID of the BAP, BPP or BG who is initiating the transaction"
+        },
+        "ac_url" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "URL of the API caller. This is to ensure statelessness of the BG during search"
         },
         "transaction_id": {
             "type": "string",
@@ -58,12 +63,12 @@
         },
         "message_id" : {
             "type": "string",
-            "description": "BAP generated transaction ID.This is a UUID which is used for mapping requests to callbacks."
+            "description": "This is the session ID created during the transaction between the communicating servers"
         },
         "timestamp": {
             "type": "string",
             "format": "date-time",
-            "description": "Time of request generation"
+            "description": "Time of request generation in RFC3339 format"
         }
     }
 }
