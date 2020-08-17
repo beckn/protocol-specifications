@@ -8,7 +8,7 @@
             "type" : "string"
         },
         "state": {
-            "type" : "string"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/state.json"
         },
         "update_action" : {
             "type" : "string"
