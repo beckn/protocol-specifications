@@ -43,7 +43,7 @@
                                 ]
                             },
                             "examples": {
-                                "Simple Fmd Intent": {
+                                "On Demand Delivery": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -66,8 +66,7 @@
                                                                 "lat": "22.346343",
                                                                 "lon": "77.823879"
                                                             }
-                                                        },
-                                                        "time": "2020-08-18 15:32:31+05:30"
+                                                        }
                                                     }
                                                 ],
                                                 "drops": [
@@ -77,8 +76,7 @@
                                                                 "lat": "22.346343",
                                                                 "lon": "77.823879"
                                                             }
-                                                        },
-                                                        "time": "2020-08-18 16:02:31+05:30"
+                                                        }
                                                     }
                                                 ],
                                                 "packages": [
@@ -101,7 +99,7 @@
                                         }
                                     }
                                 },
-                                "Complex Fmd Intent": {
+                                "Scheduled Delivery": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -208,8 +206,7 @@
                                                 "ack": {
                                                     "status": "ACK"
                                                 }
-                                            },
-                                            "error": {}
+                                            }
                                         }
                                     },
                                     "Fail": {
@@ -232,10 +229,9 @@
                                                 }
                                             },
                                             "error": {
-                                                "r_error": {
-                                                    "code": "ERR",
-                                                    "message": "Invalid context"
-                                                }
+                                                "type": "CONTEXT-ERROR",
+                                                "code" : "",
+                                                "message" : "Invalid Action"
                                             }
                                         }
                                     }
