@@ -166,7 +166,7 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
-                "description": "Initializing the trip",
+                "description": "Select the service and build order. This can be called multiple times. The on_select callback sends an updated quotation everytime the order is updated.",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -269,7 +269,7 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
-                "description": "Initialize a trip",
+                "description": "Initialize an Order. At this stage the BAP should send an updated order object with billing and fulfillment details if necessary",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
