@@ -209,7 +209,7 @@
                                             }
                                         }
                                     },
-                                    "Fail": {
+                                    "Invalid Action": {
                                         "value": {
                                             "context": {
                                                 "domain": "FINAL-MILE-DELIVERY",
@@ -230,8 +230,86 @@
                                             },
                                             "error": {
                                                 "type": "CONTEXT-ERROR",
-                                                "code" : "",
+                                                "code" : "CORE014",
                                                 "message" : "Invalid Action"
+                                            }
+                                        }
+                                    },
+                                    "Invalid Domain": {
+                                        "value": {
+                                            "context": {
+                                                "domain": "FINAL-MILE-DELIVERY",
+                                                "country": "IND",
+                                                "city": "BLR",
+                                                "action": "nack",
+                                                "core_version": "0.8.0",
+                                                "domain_version": "0.8.1",
+                                                "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
+                                                "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                                "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
+                                                "timestamp": "2020-08-18 15:22:31+05:30"
+                                            },
+                                            "message": {
+                                                "ack": {
+                                                    "status": "NACK"
+                                                }
+                                            },
+                                            "error": {
+                                                "type": "CONTEXT-ERROR",
+                                                "code" : "CORE015",
+                                                "message" : "Invalid Domain"
+                                            }
+                                        }
+                                    },
+                                    "Invalid BAP": {
+                                        "value": {
+                                            "context": {
+                                                "domain": "FINAL-MILE-DELIVERY",
+                                                "country": "IND",
+                                                "city": "BLR",
+                                                "action": "nack",
+                                                "core_version": "0.8.0",
+                                                "domain_version": "0.8.1",
+                                                "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
+                                                "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                                "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
+                                                "timestamp": "2020-08-18 15:22:31+05:30"
+                                            },
+                                            "message": {
+                                                "ack": {
+                                                    "status": "NACK"
+                                                }
+                                            },
+                                            "error": {
+                                                "type": "CONTEXT-ERROR",
+                                                "code" : "CORE018",
+                                                "message" : "Invalid BAP"
+                                            }
+                                        }
+                                    },
+                                    "Invalid BPP": {
+                                        "value": {
+                                            "context": {
+                                                "domain": "FINAL-MILE-DELIVERY",
+                                                "country": "IND",
+                                                "city": "BLR",
+                                                "action": "nack",
+                                                "core_version": "0.8.0",
+                                                "domain_version": "0.8.1",
+                                                "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
+                                                "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                                "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
+                                                "timestamp": "2020-08-18 15:22:31+05:30"
+                                            },
+                                            "message": {
+                                                "ack": {
+                                                    "status": "NACK"
+                                                }
+                                            },
+                                            "error": {
+                                                "type": "CONTEXT-ERROR",
+                                                "code" : "CORE018",
+                                                "message" : "Invalid BPP"
                                             }
                                         }
                                     }
@@ -405,7 +483,6 @@
                                                                     "building": "string",
                                                                     "street": "5th Main",
                                                                     "locality": "HSR Layout",
-                                                                    "ward": "",
                                                                     "city": "Bengaluru",
                                                                     "state": "Karnataka",
                                                                     "country": "India",
@@ -428,7 +505,105 @@
                                                                     "building": "Birch B Block",
                                                                     "street": "Hosur Road",
                                                                     "locality": "HSR Layout",
-                                                                    "ward": "",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560068"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
+                                                                }
+                                                            },
+                                                            "instructions": [
+                                                                "Please don't ring doorbell",
+                                                                "Leave package at door"
+                                                            ]
+                                                        },
+                                                        "package": {
+                                                            "contents": [
+                                                                {
+                                                                    "category_id": "12",
+                                                                    "descriptor": {
+                                                                        "name": "Soap"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "category_id": "10",
+                                                                    "descriptor": {
+                                                                        "name": "Potato"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "weight": {
+                                                                "estimated_value": "1",
+                                                                "unit": "kg"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "Return Order": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "select",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.1",
+                                            "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
+                                            "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                            "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
+                                        },
+                                        "message": {
+                                            "order": {
+                                                "id": "",
+                                                "items": [
+                                                    {
+                                                        "id": "1234-5678-12-34-56"
+                                                    }
+                                                ],
+                                                "prev_order_id" : "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                                "type" : "RETURN",
+                                                "tasks": [
+                                                    {
+                                                        "id": "98298323-203982-02309",
+                                                        "item_id": "1234-5678-12-34-56",
+                                                        "pickup": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "2244",
+                                                                    "name": "Croma",
+                                                                    "building": "string",
+                                                                    "street": "5th Main",
+                                                                    "locality": "HSR Layout",
+                                                                    "city": "Bengaluru",
+                                                                    "state": "Karnataka",
+                                                                    "country": "India",
+                                                                    "area_code": "560102"
+                                                                },
+                                                                "gps": {
+                                                                    "lat": "22.987987",
+                                                                    "lon": "77.232323"
+                                                                }
+                                                            },
+                                                            "instructions": [
+                                                                "Please handle with care"
+                                                            ]
+                                                        },
+                                                        "drop": {
+                                                            "location": {
+                                                                "address": {
+                                                                    "door": "BB1703",
+                                                                    "name": "Salarpuria Greenage",
+                                                                    "building": "Birch B Block",
+                                                                    "street": "Hosur Road",
+                                                                    "locality": "HSR Layout",
                                                                     "city": "Bengaluru",
                                                                     "state": "Karnataka",
                                                                     "country": "India",
@@ -561,8 +736,53 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
-                                            "quotation_id": "12224408",
                                             "order": {
+                                                "billing": {
+                                                    "customer": {
+                                                        "organisation_name": "Peppo",
+                                                        "email": "billing@peppo.co.in",
+                                                        "phones": [
+                                                            "+919667288826"
+                                                        ]
+                                                    },
+                                                    "address": {
+                                                        "door": "BB1703",
+                                                        "building": "No 7",
+                                                        "street": "Hosur Road",
+                                                        "locality": "HSR Layout",
+                                                        "city": "Bengaluru",
+                                                        "state": "Karnataka",
+                                                        "country": "India",
+                                                        "area_code": "560068",
+                                                        "landmark": "Near oxford college"
+                                                    },
+                                                    "quotation" : {
+                                                        "id" : "136551c9-d543-4373-a900-1a56390f6803"
+                                                    },
+                                                    "tax_number": "SERDV2345T"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Return Order with Payment": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "FINAL-MILE-DELIVERY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "init",
+                                            "core_version": "0.8.0",
+                                            "domain_version": "0.8.1",
+                                            "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
+                                            "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                            "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
+                                        },
+                                        "message": {
+                                            "order": {
+                                                "prev_order_id" : "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                                "type" : "RETURN",
                                                 "billing": {
                                                     "customer": {
                                                         "organisation_name": "Peppo",
@@ -690,14 +910,22 @@
                                     "timestamp": "2020-08-19 14:54:19+05:30"
                                 },
                                 "message": {
-                                    "order_id": "9872938932",
-                                    "payment": {
-                                        "transaction_id": "iuy834u938u938",
-                                        "amount": {
-                                            "value": {
-                                                "integral": "28"
-                                            },
-                                            "currency": "INR"
+                                    "order" : {
+                                        "id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                        "prev_order_id" : "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                        "type" : "RETURN",
+                                        "return_reason_id" : "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
+                                        "quotation" : {
+                                            "id" : "16e9bc5a-d25e-4379-95e4-262633f8e7f4"
+                                        },
+                                        "payment": {
+                                            "transaction_id": "iuy834u938u938",
+                                            "amount": {
+                                                "value": {
+                                                    "integral": "28"
+                                                },
+                                                "currency": "INR"
+                                            }
                                         }
                                     }
                                 }
@@ -1013,7 +1241,7 @@
                                 ]
                             },
                             "examples": {
-                                "Track Order": {
+                                "Track Order - Pull": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -1028,11 +1256,7 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
-                                            "tracking": {
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                }
-                                            }
+                                            "order_id" : "136551c9-d543-4373-a900-1a56390f6803"
                                         }
                                     }
                                 },
@@ -1051,15 +1275,8 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
-                                            "tracking": {
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                },
-                                                "method": "push",
-                                                "push": {
-                                                    "url": "ws://bap.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:4000"
-                                                }
-                                            }
+                                            "order_id": "136551c9-d543-4373-a900-1a56390f6803",
+                                            "callback_url": "ws://bap.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:4000"
                                         }
                                     }
                                 }
@@ -1116,18 +1333,23 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
-                                            },
-                                            "reason_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/option.json#/properties/id"
+                                            "order" : {
+                                                "type" : "object",
+                                                "properties" : {
+                                                    "id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                                                    },
+                                                    "cancellation_reason_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/option.json#/properties/id"
+                                                    }
+                                                }
                                             }
                                         }
                                     }
                                 }
                             },
                             "examples": {
-                                "Cancellation Request": {
+                                "Cancel order with reason": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -1142,27 +1364,10 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
-                                            "order_id": "12224408"
-                                        }
-                                    }
-                                },
-                                "Cancellation Confirmation": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "FINAL-MILE-DELIVERY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "cancel",
-                                            "core_version": "0.8.0",
-                                            "domain_version": "0.8.1",
-                                            "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
-                                            "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
-                                            "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-08-19 14:54:19+05:30"
-                                        },
-                                        "message": {
-                                            "order_id": "12224408",
-                                            "reason_id": "8928731"
+                                            "order" : {
+                                                "id" : "136551c9-d543-4373-a900-1a56390f6803",
+                                                "cancellation_reason_id" : "0481"
+                                            }
                                         }
                                     }
                                 }
@@ -1493,19 +1698,18 @@
                                                     "selected": 1
                                                 }
                                             }
-                                        ]
-                                    },
-                                    "quote": {
-                                        "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
-                                        "price": {
-                                            "currency": "INR",
-                                            "estimated_value": {
-                                                "integral": "28"
+                                        ],
+                                        "quotation": {
+                                            "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
+                                            "price": {
+                                                "currency": "INR",
+                                                "estimated_value": {
+                                                    "integral": "28"
+                                                }
                                             }
                                         }
                                     }
-                                },
-                                "error": {}
+                                }
                             }
                         }
                     }
@@ -1690,6 +1894,11 @@
                                                         "currency": "INR",
                                                         "value": {
                                                             "integral": "28"
+                                                        }
+                                                    },
+                                                    "state": {
+                                                        "descriptor" : {
+                                                            "code" : "PAYMENT-PENDING"
                                                         }
                                                     },
                                                     "terms": {
@@ -1956,7 +2165,11 @@
                                                                 "unit": "kg"
                                                             }
                                                         },
-                                                        "state": "ASSIGNED-AGENT",
+                                                        "state": {
+                                                            "descriptor" : {
+                                                                "code" : "ASSIGNED-AGENT"
+                                                            }
+                                                        },
                                                         "agent": {
                                                             "name": {
                                                                 "given_name": "John Doe"
@@ -1981,6 +2194,11 @@
                                                                 "account_holder_name": "John Doe",
                                                                 "ifsc_code": "SBIN000414"
                                                             }
+                                                        }
+                                                    },
+                                                    "state": {
+                                                        "descriptor" : {
+                                                            "code" : "PAID"
                                                         }
                                                     },
                                                     "amount": {
@@ -2188,7 +2406,7 @@
                                                 },
                                                 "state": {
                                                     "descriptor": {
-                                                        "name": "active"
+                                                        "code": "ACTIVE"
                                                     }
                                                 },
                                                 "push": {
@@ -2293,53 +2511,14 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
-                                            "reasons": [
-                                                {
-                                                    "id": "1",
-                                                    "descriptor": {
-                                                        "short_desc": "Changed my mind"
-                                                    }
-                                                },
-                                                {
-                                                    "id": "2",
-                                                    "descriptor": {
-                                                        "short_desc": "Waited too long"
-                                                    }
-                                                }
-                                            ],
-                                            "policies": [
-                                                {
-                                                    "descriptor": {
-                                                        "name": "Cancellation Policy"
-                                                    },
-                                                    "terms": [
-                                                        {
-                                                            "descriptor": {
-                                                                "short_desc": "Cancellation fee of INR 10 will be applied on cancellation after order is placed"
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "descriptor": {
-                                                        "name": "Refund Policy"
-                                                    },
-                                                    "terms": [
-                                                        {
-                                                            "descriptor": {
-                                                                "short_desc": "Amount will be refunded in case on prepaid orders cancelled from delivery end"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ],
                                             "order": {
                                                 "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
                                                 "state": {
                                                     "descriptor": {
-                                                        "name": "REQUEST-TO-CANCEL"
+                                                        "name": "CANCELLED"
                                                     }
                                                 },
+                                                "cancellation_reason_id" : "0481",
                                                 "tasks": [
                                                     {
                                                         "id": "98298323-203982-02309",
@@ -2511,11 +2690,7 @@
                                                         "name": "CANCELLED"
                                                     }
                                                 },
-                                                "reasons": [
-                                                    {
-                                                        "id": "1"
-                                                    }
-                                                ],
+                                                "cancellation_reason_id" : "0481",
                                                 "tasks": [
                                                     {
                                                         "id": "98298323-203982-02309",
@@ -2636,22 +2811,12 @@
                                                             }
                                                         }
                                                     },
-                                                    "state": "CANCELLED",
+                                                    "state": "REFUND-INITIATED",
                                                     "amount": {
                                                         "currency": "INR",
                                                         "value": {
                                                             "integral": "28"
                                                         }
-                                                    },
-                                                    "terms": {
-                                                        "credit_type": "POSTPAID",
-                                                        "settlement_type": "BULK",
-                                                        "credit_duration": "30D",
-                                                        "mode": "RTGS",
-                                                        "method": "ELECTRONIC",
-                                                        "penalty_terms": [
-                                                            "Delay in payment after due date will incur 10 INR per day of non-payment"
-                                                        ]
                                                     }
                                                 },
                                                 "billing": {
