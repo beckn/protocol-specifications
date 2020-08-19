@@ -10,7 +10,7 @@
             "enum" : ["pull", "push"]
         },
         "state" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/0.8.0/state.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/state.json"
         },
         "order" : {
             "type": "object",
