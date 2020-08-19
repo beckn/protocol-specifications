@@ -15,6 +15,9 @@
                 "prev_order_id" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
                 },
+                "return_reason_id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json#/properties/id"
+                },
                 "tasks" : {
                     "type" : "array",
                     "items": {

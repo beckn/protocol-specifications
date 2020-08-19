@@ -26,13 +26,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "intent": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_intent.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_intent.json"
                                             }
                                         }
                                     }
@@ -43,7 +43,7 @@
                                 ]
                             },
                             "examples": {
-                                "Simple Fmd Intent": {
+                                "On Demand Delivery": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -55,7 +55,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-18 15:22:31+05:30"
                                         },
                                         "message": {
                                             "intent": {
@@ -66,8 +66,7 @@
                                                                 "lat": "22.346343",
                                                                 "lon": "77.823879"
                                                             }
-                                                        },
-                                                        "time": "2020-07-31 12:00:00"
+                                                        }
                                                     }
                                                 ],
                                                 "drops": [
@@ -77,8 +76,7 @@
                                                                 "lat": "22.346343",
                                                                 "lon": "77.823879"
                                                             }
-                                                        },
-                                                        "time": "2020-07-31 12:00:00"
+                                                        }
                                                     }
                                                 ],
                                                 "packages": [
@@ -101,7 +99,7 @@
                                         }
                                     }
                                 },
-                                "Complex Fmd Intent": {
+                                "Scheduled Delivery": {
                                     "value": {
                                         "context": {
                                             "domain": "FINAL-MILE-DELIVERY",
@@ -113,7 +111,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-18 15:22:31+05:30"
                                         },
                                         "message": {
                                             "intent": {
@@ -126,7 +124,7 @@
                                                                 "lon": "77.823879"
                                                             }
                                                         },
-                                                        "time": "2020-07-31 12:00:00"
+                                                        "time": "2020-08-18 15:22:31+05:30"
                                                     }
                                                 ],
                                                 "drops": [
@@ -138,7 +136,7 @@
                                                                 "lon": "77.823879"
                                                             }
                                                         },
-                                                        "time": "2020-07-31 12:00:00"
+                                                        "time": "2020-08-18 15:22:31+05:30"
                                                     }
                                                 ],
                                                 "packages": [
@@ -174,18 +172,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 },
@@ -202,14 +200,13 @@
                                                 "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                                 "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                                 "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                                "timestamp": "2020-07-15T06:43:14.653Z"
+                                                "timestamp": "2020-08-18 15:22:31+05:30"
                                             },
                                             "message": {
                                                 "ack": {
                                                     "status": "ACK"
                                                 }
-                                            },
-                                            "error": {}
+                                            }
                                         }
                                     },
                                     "Fail": {
@@ -224,7 +221,7 @@
                                                 "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                                 "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                                 "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                                "timestamp": "2020-07-15T06:43:14.653Z"
+                                                "timestamp": "2020-08-18 15:22:31+05:30"
                                             },
                                             "message": {
                                                 "ack": {
@@ -232,10 +229,9 @@
                                                 }
                                             },
                                             "error": {
-                                                "r_error": {
-                                                    "code": "ERR",
-                                                    "message": "Invalid context"
-                                                }
+                                                "type": "CONTEXT-ERROR",
+                                                "code" : "",
+                                                "message" : "Invalid Action"
                                             }
                                         }
                                     }
@@ -260,7 +256,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -271,7 +267,7 @@
                                                     {
                                                         "allOf": [
                                                             {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                                             },
                                                             {
                                                                 "properties": {
@@ -280,7 +276,7 @@
                                                                         "items": {
                                                                             "allOf": [
                                                                                 {
-                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json"
+                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/item.json"
                                                                                 },
                                                                                 {
                                                                                     "required": [
@@ -295,14 +291,14 @@
                                                                         "items": {
                                                                             "allOf": [
                                                                                 {
-                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json"
+                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json"
                                                                                 },
                                                                                 {
                                                                                     "properties": {
                                                                                         "pickup": {
                                                                                             "allOf": [
                                                                                                 {
-                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json#/properties/pickup"
+                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/pickup"
                                                                                                 },
                                                                                                 {
                                                                                                     "required": [
@@ -315,7 +311,7 @@
                                                                                         "drop": {
                                                                                             "allOf": [
                                                                                                 {
-                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json#/properties/drop"
+                                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/drop"
                                                                                                 },
                                                                                                 {
                                                                                                     "required": [
@@ -341,7 +337,7 @@
                                                                         "items": {
                                                                             "allOf": [
                                                                                 {
-                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_package.json"
+                                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_package.json"
                                                                                 },
                                                                                 {
                                                                                     "required": [
@@ -387,7 +383,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "order": {
@@ -487,18 +483,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -522,7 +518,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -530,7 +526,7 @@
                                             "order": {
                                                 "allOf": [
                                                     {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                                     },
                                                     {
                                                         
@@ -562,7 +558,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "quotation_id": "12224408",
@@ -605,18 +601,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -640,7 +636,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -648,14 +644,14 @@
                                             "order": {
                                                 "allOf": [
                                                     {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/order.json"
                                                     },
                                                     {
                                                         "properties": {
                                                             "payment": {
                                                                 "allOf": [
                                                                     {
-                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment.json"
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/payment.json"
                                                                     },
                                                                     {
                                                                         "required": [
@@ -691,7 +687,7 @@
                                     "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                     "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                     "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                    "timestamp": "2020-07-15T06:43:14.653Z"
+                                    "timestamp": "2020-08-19 14:54:19+05:30"
                                 },
                                 "message": {
                                     "order_id": "9872938932",
@@ -718,18 +714,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -753,13 +749,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/order.json#/properties/id"
                                             }
                                         },
                                         "required": [
@@ -783,7 +779,7 @@
                                     "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                     "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                     "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                    "timestamp": "2020-07-15T06:43:14.653Z"
+                                    "timestamp": "2020-08-19 14:54:19+05:30"
                                 },
                                 "message": {
                                     "order_id": "12224408"
@@ -801,18 +797,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -836,7 +832,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -855,7 +851,7 @@
                                                 ]
                                             },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/order.json"
                                             }
                                         }
                                     }
@@ -874,7 +870,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "update_action": "update_pickup_location",
@@ -915,7 +911,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "update_action": "update_drop_location",
@@ -957,18 +953,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -992,13 +988,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/order.json#/properties/id"
                                             },
                                             "callback_url": {
                                                 "type": "string",
@@ -1029,7 +1025,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "tracking": {
@@ -1052,7 +1048,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "tracking": {
@@ -1080,18 +1076,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1115,16 +1111,16 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/order.json#/properties/id"
                                             },
                                             "reason_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/option.json#/properties/id"
                                             }
                                         }
                                     }
@@ -1143,7 +1139,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "order_id": "12224408"
@@ -1162,7 +1158,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "order_id": "12224408",
@@ -1183,18 +1179,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1219,18 +1215,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_catalog.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_catalog.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             },
@@ -1247,7 +1243,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "catalog": {
@@ -1368,18 +1364,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1403,7 +1399,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     }
                                 }
                             }
@@ -1419,18 +1415,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1454,21 +1450,21 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                             },
                                             "quote": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/quotation.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/quotation.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             },
@@ -1481,9 +1477,10 @@
                                     "core_version": "0.8.0",
                                     "domain_version": "0.8.1",
                                     "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
+                                    "ac_nw_address": "",
                                     "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                     "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                    "timestamp": "2020-07-15T06:43:14.653Z"
+                                    "timestamp": "2020-08-19 14:54:19+05:30"
                                 },
                                 "message": {
                                     "order": {
@@ -1522,18 +1519,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1557,7 +1554,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1565,7 +1562,7 @@
                                             "order": {
                                                 "allOf": [
                                                     {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                                     },
                                                     {
                                                         "required": [
@@ -1578,7 +1575,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             },
@@ -1595,7 +1592,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "order": {
@@ -1726,18 +1723,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1761,7 +1758,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1769,21 +1766,21 @@
                                             "order": {
                                                 "allOf": [
                                                     {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                                     },
                                                     {
                                                         "properties": {
                                                             "tasks": {
                                                                 "allOf": [
                                                                     {
-                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_task.json"
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json"
                                                                     },
                                                                     {
                                                                         "properties": {
                                                                             "location": {
                                                                                 "allOf": [
                                                                                     {
-                                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/location.json"
                                                                                     },
                                                                                     {
                                                                                         "required": [
@@ -1796,7 +1793,7 @@
                                                                             "agent": {
                                                                                 "allOf": [
                                                                                     {
-                                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_agent.json"
+                                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_agent.json"
                                                                                     },
                                                                                     {
                                                                                         "required": [
@@ -1820,7 +1817,7 @@
                                                             "payment": {
                                                                 "allOf": [
                                                                     {
-                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/payment.json"
+                                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/payment.json"
                                                                     },
                                                                     {
                                                                         "required": [
@@ -1856,7 +1853,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "order": {
@@ -2022,18 +2019,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2057,18 +2054,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             }
@@ -2084,18 +2081,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2119,19 +2116,19 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "description": "BPP returns tracking information. For websocket based tracking data please refer to the tracking data object in core",
                                         "properties": {
                                             "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/tracking.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/tracking.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             },
@@ -2148,7 +2145,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "tracking": {
@@ -2181,7 +2178,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "tracking": {
@@ -2215,18 +2212,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2250,7 +2247,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -2258,25 +2255,25 @@
                                             "policies": {
                                                 "type": "array",
                                                 "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/policy.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/policy.json"
                                                 }
                                             },
                                             "reasons": {
                                                 "type": "array",
                                                 "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/option.json"
                                                 }
                                             },
                                             "price": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/price.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/price.json"
                                             },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             },
@@ -2293,7 +2290,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "reasons": [
@@ -2504,7 +2501,7 @@
                                             "ac_id": "96aff157-c4e3-47b8-9223-a57acb9d80ff",
                                             "transaction_id": "16e9bc5a-d25e-4379-95e4-262633f8e7f4",
                                             "message_id": "faf84d91-0481-467a-86c8-8aca16cdf08b",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                            "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
                                             "order": {
@@ -2682,18 +2679,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2717,18 +2714,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0/schema/fmd_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                     }
                                 }
                             }
@@ -2744,18 +2741,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/corev0/schema/error.json"
                                         }
                                     }
                                 }
