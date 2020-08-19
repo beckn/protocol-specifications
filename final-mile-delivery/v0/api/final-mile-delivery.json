@@ -1231,7 +1231,7 @@
                                         },
                                         "required": [
                                             "order_id",
-                                            "tracking"
+                                            "callback_url"
                                         ]
                                     }
                                 },
@@ -1662,9 +1662,6 @@
                                         "properties": {
                                             "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
-                                            },
-                                            "quote": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/quotation.json"
                                             }
                                         }
                                     },
@@ -2470,21 +2467,6 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "policies": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/policy.json"
-                                                }
-                                            },
-                                            "reasons": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/option.json"
-                                                }
-                                            },
-                                            "price": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/price.json"
-                                            },
                                             "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_order.json"
                                             }
