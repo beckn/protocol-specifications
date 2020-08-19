@@ -853,7 +853,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Update pickup location": {
@@ -1122,7 +1126,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Cancellation Request": {
