@@ -348,8 +348,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -511,8 +510,7 @@
                                                     "payment_type": "POST-FULFILLMENT"
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
