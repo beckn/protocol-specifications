@@ -2,5 +2,5 @@
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_agent.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a delivery agent",
-    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/operator.json"
+    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/operator.json"
 }
