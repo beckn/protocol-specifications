@@ -4,7 +4,7 @@
     "description": "Describes an item in an FMD package",
     "allOf" : [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/item.json"
         },
         {
             "properties": {

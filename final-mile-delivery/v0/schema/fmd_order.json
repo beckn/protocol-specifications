@@ -4,7 +4,7 @@
     "description": "Describes an FMD order",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/order.json"
         },
         {
             "properties": {
@@ -13,10 +13,10 @@
                     "description": "Defines the type of order like a simple order, a return order, an internal order etc. The types of orders supported will be defined by the network ecosystem."
                 },
                 "prev_order_id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/order.json#/properties/id"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/order.json#/properties/id"
                 },
                 "return_reason_id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json#/properties/id"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/option.json#/properties/id"
                 },
                 "tasks" : {
                     "type" : "array",
@@ -27,13 +27,13 @@
                 "cancellation_reasons" : {
                     "type" : "array",
                     "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/option.json"
                     }
                 },
                 "return_reasons" : {
                     "type" : "array",
                     "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/option.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/option.json"
                     }
                 }
             }
