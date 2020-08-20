@@ -1,26 +1,26 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/location.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the location of a runtime object. Extension not allowed",
     "type": "object",
     "properties": {
         "gps": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/gps.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/gps.json"
         },
         "address": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/address.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/address.json"
         },
         "station_code": {
             "type": "string"
         },
         "city": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/city.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/city.json"
         },
         "country": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/country.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/country.json"
         },
         "circle": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/circle.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/circle.json"
         },
         "polygon": {
             "type": "string"
