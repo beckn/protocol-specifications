@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes an item. Allows for domain extension.",
     "type": "object",
@@ -9,33 +9,33 @@
             "type": "string"
         },
         "parent_item_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json#/properties/id"
         },
         "descriptor": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
         },
         "price": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/price.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/price.json"
         },
         "model_id" : {
             "$ref" :"https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/model.json#/properties/id"
         },
         "category_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/category.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/category.json#/properties/id"
         },
         "brand_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/brand.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/brand.json#/properties/id"
         },
         "promotional" : {
             "type" : "boolean"
         },
         "ttl" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/duration.json"
         },
         "tags": {
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/tag.json"
             }
         }
     }

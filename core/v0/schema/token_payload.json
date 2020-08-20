@@ -1,17 +1,17 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/token_payload.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/token_payload.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the structure of the token payload",
     "type": "object",
     "properties" : {
         "domain" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/domain.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/domain.json"
         },
         "country" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/country.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/country.json#/properties/code"
         },
         "city" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/city.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/city.json#/properties/code"
         },
         "ac_id" : {
             "type" : "string"
