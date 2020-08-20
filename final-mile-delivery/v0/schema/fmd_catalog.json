@@ -4,14 +4,14 @@
     "description": "Describes the FMD catalog",
     "allOf" : [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/catalog.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/catalog.json"
         },
         {
             "properties": {
                 "package_categories" : {
                     "type" : "array",
                     "items" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/category.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/category.json"
                     }
                 }
             }

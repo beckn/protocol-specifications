@@ -8,7 +8,7 @@
             "type": "string"
         },
         "item_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/item.json#/properties/id"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/item.json#/properties/id"
         },
         "next_task_id": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/final-mile-delivery/v0/schema/fmd_task.json#/properties/id"
@@ -19,14 +19,14 @@
         "state": {
             "allOf": [
                 {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/state.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/state.json"
                 },
                 {
                     "properties": {
                         "descriptor" : {
                             "allOf": [
                                 {
-                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/descriptor.json"
                                 },
                                 {
                                     "code" : {
@@ -57,16 +57,16 @@
             "type": "object",
             "properties": {
                 "location": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/location.json"
                 },
                 "instructions": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/descriptor.json"
                     }
                 },
                 "poc": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/person.json"
                 },
                 "time": {
                     "type": "string",
@@ -78,16 +78,16 @@
             "type": "object",
             "properties": {
                 "location": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/location.json"
                 },
                 "instructions": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/descriptor.json"
                     }
                 },
                 "poc": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/person.json"
                 },
                 "time": {
                     "type": "string",
@@ -99,16 +99,16 @@
             "type": "object",
             "properties": {
                 "location": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/location.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/location.json"
                 },
                 "instructions": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/descriptor.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/descriptor.json"
                     }
                 },
                 "poc": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/person.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/2dcec8f395633148f8c91c46a9ca0a3e14bd6870/core/v0/schema/person.json"
                 },
                 "time": {
                     "type": "string",
