@@ -1,11 +1,11 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/schema/0.8.0/mobility_intent.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_intent.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "version" : "0.8.0",
     "description": "Describes the mobility intent",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/0.8.0/intent.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/intent.json"
         },
         {
             "properties": {

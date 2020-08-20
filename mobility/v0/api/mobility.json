@@ -35,7 +35,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "On Demand Search": {
@@ -162,7 +166,7 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
-                "description": "Initializing the trip",
+                "description": "Select the service and build order. This can be called multiple times. The on_select callback sends an updated quotation everytime the order is updated.",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -181,7 +185,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Basic Select": {
@@ -261,7 +269,7 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
-                "description": "Initialize a trip",
+                "description": "Initialize an Order. At this stage the BAP should send an updated order object with billing and fulfillment details if necessary",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -280,7 +288,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Initialize order with billing and other details": {
@@ -336,8 +348,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -401,7 +412,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Confirm Order": {
@@ -495,8 +510,7 @@
                                                     "payment_type": "POST-FULFILLMENT"
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -568,7 +582,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Cancellation Request": {
@@ -688,7 +706,11 @@
                                             
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Update Destination": {
@@ -849,7 +871,11 @@
                                     "message": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/feedback.json"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -898,7 +924,11 @@
                                     "message": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/support.json"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -965,7 +995,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Get Status of Order": {
@@ -1048,7 +1082,11 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             },
                             "examples": {
                                 "Track Order": {
