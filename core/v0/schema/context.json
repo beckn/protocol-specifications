@@ -1,7 +1,7 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/context.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "description": "Describes the beckn message packet context",
+    "description": "Describes a beckn message context",
     "type": "object",
     "properties": {
         "domain": {
@@ -48,22 +48,23 @@
             "type": "string",
             "description": "Version of Beckn domain level schema being used"
         },
-        "ac_id": {
-            "type": "string",
-            "description": "API caller ID. This is a UUID of the BAP, BPP or BG who is initiating the transaction"
-        },
-        "ac_url" : {
+        "bap_uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URL of the API caller. This is to ensure statelessness of the BG during search"
+            "description": "URI of the BAP. Typically a URL"
+        },
+        "bpp_uri" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "URI of the BPP. Typically a URL"
         },
         "transaction_id": {
             "type": "string",
-            "description": "BAP generated transaction ID.This is a UUID which is used for mapping requests to callbacks."
+            "description": "This is a unique value which persists across all API calls from search through confirm"
         },
         "message_id" : {
             "type": "string",
-            "description": "This is the session ID created during the transaction between the communicating servers"
+            "description": "This is a unique value which persists during a request / callback cycle."
         },
         "timestamp": {
             "type": "string",
