@@ -35,12 +35,12 @@
                             "default": 0
                         },
                         "distance": {
-                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/scalar.json"
+                            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/scalar.json"
                         }
                     }
                 },
                 "fare": {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/price.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/price.json"
                 }
             }
         }
