@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Mobility API",
         "description": "Extension of core API for the mobility domain",
-        "version": "0.8.2",
+        "version": "0.8.1",
         "license": {
             "name": "CC-BY-ND",
             "url": "https://github.com/beckn/protocol-specifications/blob/master/LICENSE.md"
@@ -25,7 +25,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -50,13 +50,12 @@
                                             "city": "BLR",
                                             "action": "search",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "intent": {
@@ -91,13 +90,12 @@
                                             "city": "BLR",
                                             "action": "search",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "intent": {
@@ -140,18 +138,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -175,7 +173,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -200,16 +198,12 @@
                                             "city": "BLR",
                                             "action": "select",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -248,13 +242,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -278,7 +272,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -303,16 +297,12 @@
                                             "city": "BLR",
                                             "action": "init",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -364,13 +354,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -394,7 +384,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -403,10 +393,10 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
                                                     },
                                                     "payment": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/payment.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/payment.json"
                                                     }
                                                 }
                                             }
@@ -427,16 +417,12 @@
                                             "city": "BLR",
                                             "action": "confirm",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -526,13 +512,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -556,7 +542,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -568,7 +554,7 @@
                                                         "type": "string"
                                                     },
                                                     "reason": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/descriptor.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
                                                     }
                                                 }
                                             },
@@ -576,7 +562,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
                                                     }
                                                 }
                                             }
@@ -597,16 +583,12 @@
                                             "city": "BLR",
                                             "action": "cancel",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -624,16 +606,12 @@
                                             "city": "BLR",
                                             "action": "cancel",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -657,13 +635,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -687,7 +665,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -721,16 +699,12 @@
                                             "city": "BLR",
                                             "action": "update",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "update_action" : "update_destination",
@@ -756,16 +730,12 @@
                                             "city": "BLR",
                                             "action": "update",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "update_action" : "update_payload_travellers",
@@ -796,16 +766,12 @@
                                             "city": "BLR",
                                             "action": "update",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "update_action" : "update_billing",
@@ -836,13 +802,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -866,10 +832,10 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/feedback.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/feedback.json"
                                     }
                                 },
                                 "required": [
@@ -889,13 +855,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -919,10 +885,10 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/support.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/support.json"
                                     }
                                 },
                                 "required": [
@@ -942,13 +908,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -972,7 +938,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -981,7 +947,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/service.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json#/properties/id"
                                                     }
                                                 }
                                             },
@@ -989,7 +955,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
                                                     }
                                                 }
                                             }
@@ -1010,16 +976,12 @@
                                             "city": "BLR",
                                             "action": "status",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -1042,13 +1004,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1072,7 +1034,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1097,16 +1059,12 @@
                                             "city": "BLR",
                                             "action": "track",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "tracking": {
@@ -1125,16 +1083,12 @@
                                             "city": "BLR",
                                             "action": "track",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "tracking": {
@@ -1162,13 +1116,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1193,7 +1147,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1207,7 +1161,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -1219,18 +1173,13 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_search",
-                                            "next_action": "select",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.7674304",
-                                            "bpp_id": "./IND.BLR.9827203",
-                                            "bg_id": "./IND.NPCI.9879248",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bpp.api.mobility.com",
-                                            "bg_nw_address": "http://bg.api.mobility.com",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "services": [
@@ -1302,18 +1251,13 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_search",
-                                            "next_action": "select",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.7674304",
-                                            "bpp_id": "./IND.BLR.9827203",
-                                            "bg_id": "./IND.NPCI.9879248",
-                                            "bap_nw_address": "http://bap.api.example.com",
-                                            "bpp_nw_address": "",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "services": [
@@ -1419,18 +1363,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1454,7 +1398,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1463,7 +1407,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/service.json#/properties/id"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json#/properties/id"
                                                     }
                                                 }
                                             },
@@ -1473,7 +1417,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -1484,19 +1428,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "select",
-                                            "next_action": "init",
+                                            "action": "on_select",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -1549,13 +1488,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1579,7 +1518,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1588,12 +1527,12 @@
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
                                             },
                                             "invoice": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/invoice.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/invoice.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -1604,18 +1543,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "select",
+                                            "action": "on_init",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -1696,13 +1631,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1726,7 +1661,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1737,7 +1672,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -1748,18 +1683,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "select",
+                                            "action": "on_confirm",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -1891,13 +1822,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1921,7 +1852,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1935,7 +1866,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -1946,18 +1877,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "select",
+                                            "action": "on_cancel",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -2098,18 +2025,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "select",
+                                            "action": "on_cancel",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -2250,13 +2173,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2280,7 +2203,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -2291,7 +2214,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -2304,16 +2227,12 @@
                                             "city": "BLR",
                                             "action": "on_update",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "update_action" : "on_update_destination",
@@ -2446,13 +2365,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2476,18 +2395,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -2498,18 +2417,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "select",
+                                            "action": "on_status",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "order": {
@@ -2641,13 +2556,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2671,18 +2586,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/tracking.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/tracking.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
@@ -2695,16 +2610,12 @@
                                             "city": "BLR",
                                             "action": "on_track",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "tracking": {
@@ -2731,18 +2642,14 @@
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "track",
+                                            "action": "on_track",
                                             "core_version": "0.8.0",
-                                            "domain_version": "0.8.0",
-                                            "bap_id": "./IND.BLR.9879248",
-                                            "bpp_id": "./IND.BLR.4327641",
-                                            "bg_id": "",
-                                            "bap_nw_address": "http://bap.api.mobility.com",
-                                            "bpp_nw_address": "http://bap.api.mobility.com",
-                                            "bg_nw_address": "",
-                                            "request_transaction_id": "83923oio2i3e",
-                                            "timestamp": "2020-07-15T06:43:14.653Z",
-                                            "token": "eyJhbGciOiJIUzI1N.eyJzdWIiOiIxMjQ.SflKxwRJSMeKKF2QTw5c"
+                                            "domain_version": "0.8.1",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
                                             "tracking": {
@@ -2776,13 +2683,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2806,7 +2713,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -2818,7 +2725,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/service.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json#/properties/id"
                                                             },
                                                             "service_items": {
                                                                 "type": "array",
@@ -2826,7 +2733,7 @@
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "id": {
-                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/item.json#/properties/id"
+                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json#/properties/id"
                                                                         },
                                                                         "message": {
                                                                             "type": "string"
@@ -2850,7 +2757,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -2866,13 +2773,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -2896,10 +2803,10 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/support.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/support.json"
                                     }
                                 }
                             }
@@ -2915,13 +2822,13 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/ack.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/ca4726871b03017913f4a1803e0b4ec0169ba7a7/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
                                     }
                                 }
