@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Mobility API",
         "description": "Extension of core API for the mobility domain",
-        "version": "0.8.2",
+        "version": "0.8.1",
         "license": {
             "name": "CC-BY-ND",
             "url": "https://github.com/beckn/protocol-specifications/blob/master/LICENSE.md"
