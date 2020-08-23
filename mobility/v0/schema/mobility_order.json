@@ -10,6 +10,12 @@
             "properties": {
                 "trip" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_trip.json"
+                },
+                "cancellation_reasons" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json"
+                    }
                 }
             }
         }
