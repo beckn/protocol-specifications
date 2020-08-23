@@ -1,7 +1,6 @@
 {
     "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_medium.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "version" : "0.8.0",
     "description": "Describes the medium of transportation used in a journey",
     "type": "object",
     "properties": {

@@ -49,7 +49,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "search",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -89,7 +89,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "search",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -197,7 +197,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "select",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -296,7 +296,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "init",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -416,7 +416,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "confirm",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -582,7 +582,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "cancel",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -605,7 +605,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "cancel",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -698,7 +698,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "update",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -729,7 +729,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "update",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -765,7 +765,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "update",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -789,112 +789,6 @@
                                         }
                                     }
                                 }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                        },
-                                        "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/feedback": {
-            "post": {
-                "tags": [
-                    "Beckn Provider Platform API"
-                ],
-                "description": "Provide feedback on a service",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    },
-                                    "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/feedback.json"
-                                    }
-                                },
-                                "required": [
-                                    "context",
-                                    "message"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                        },
-                                        "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/support": {
-            "post": {
-                "tags": [
-                    "Beckn Provider Platform API"
-                ],
-                "description": "Fetch customer support details",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    },
-                                    "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/support.json"
-                                    }
-                                },
-                                "required": [
-                                    "context",
-                                    "message"
-                                ]
                             }
                         }
                     }
@@ -975,7 +869,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "status",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -1058,7 +952,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "track",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -1082,7 +976,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "track",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "",
@@ -1173,7 +1067,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_search",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -1251,7 +1145,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_search",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -1429,7 +1323,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_select",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -1544,7 +1438,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_init",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -1684,7 +1578,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_confirm",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -1878,7 +1772,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_cancel",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -2026,7 +1920,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_cancel",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -2226,7 +2120,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_update",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -2418,7 +2312,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_status",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -2609,7 +2503,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_track",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
@@ -2643,7 +2537,7 @@
                                             "country": "IND",
                                             "city": "BLR",
                                             "action": "on_track",
-                                            "core_version": "0.8.0",
+                                            "core_version": "0.8.2",
                                             "domain_version": "0.8.1",
                                             "bap_uri": "http://bap.api.example.com",
                                             "bpp_uri": "http://bpp.api.example.com",
