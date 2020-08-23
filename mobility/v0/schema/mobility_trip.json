@@ -7,10 +7,45 @@
         "id" : {
             "type" : "string"
         },
-        "origin" : {
+        "item_id" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json#/properties/id"
+        },
+        "state": {
+            "allOf": [
+                {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/state.json"
+                },
+                {
+                    "properties": {
+                        "descriptor" : {
+                            "allOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
+                                },
+                                {
+                                    "code" : {
+                                        "type" : "string",
+                                        "enum": [
+                                            "SEARCHING-FOR-TRIPS",
+                                            "TRIP-CONFIRMED",
+                                            "EN-ROUTE-TO-PICKUP",
+                                            "AT-PICKUP-LOCATION",
+                                            "TRIP-STARTED",
+                                            "TRIP-ENDED",
+                                            "TRIP-ABORTED"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "pickup" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
         },
-        "destination" : {
+        "drop" : {
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
         },
         "vehicle": {
