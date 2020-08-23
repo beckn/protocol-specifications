@@ -59,22 +59,26 @@
                                         },
                                         "message": {
                                             "intent": {
-                                                "origin": {
-                                                    "location": {
-                                                        "gps": {
-                                                            "lat": "22.374394",
-                                                            "lon": "77.987982"
+                                                "pickups": [
+                                                    {    
+                                                        "location": {
+                                                            "gps": {
+                                                                "lat": "22.374394",
+                                                                "lon": "77.987982"
+                                                            }
                                                         }
                                                     }
-                                                },
-                                                "destination": {
-                                                    "location": {
-                                                        "gps": {
-                                                            "lat": "22.858762",
-                                                            "lon": "77.456712"
+                                                ],
+                                                "drops": [
+                                                    {
+                                                        "location": {
+                                                            "gps": {
+                                                                "lat": "22.858762",
+                                                                "lon": "77.456712"
+                                                            }
                                                         }
                                                     }
-                                                },
+                                                ],
                                                 "payload": {
                                                     "traveller_count": 1
                                                 }
@@ -99,25 +103,28 @@
                                         },
                                         "message": {
                                             "intent": {
-                                                "origin": {
-                                                    "location": {
-                                                        "gps": {
-                                                            "lat": "22.374394",
-                                                            "lon": "77.987982"
-                                                        }
-                                                    },
-                                                    "departure_time": {
-                                                        "est": "2020-07-23 10:30:15"
+                                                "pickups": [
+                                                    {    
+                                                        "location": {
+                                                            "gps": {
+                                                                "lat": "22.374394",
+                                                                "lon": "77.987982"
+                                                            }
+                                                        },
+                                                        "time": "2020-08-18 15:22:31+05:30"
                                                     }
-                                                },
-                                                "destination": {
-                                                    "location": {
-                                                        "gps": {
-                                                            "lat": "22.858762",
-                                                            "lon": "77.456712"
-                                                        }
+                                                ],
+                                                "drops": [
+                                                    {
+                                                        "location": {
+                                                            "gps": {
+                                                                "lat": "22.858762",
+                                                                "lon": "77.456712"
+                                                            }
+                                                        },
+                                                        "time": "2020-08-18 15:23:50+05:30"
                                                     }
-                                                },
+                                                ],
                                                 "payload": {
                                                     "traveller_count": 1
                                                 }
