@@ -1064,7 +1064,7 @@
                                 }
                             },
                             "examples": {
-                                "Simple Search Response": {
+                                "Simple Cab Service": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -1080,65 +1080,53 @@
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "services": [
-                                                {
-                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
-                                                    "provider": {
+                                            "catalog": {
+                                                "categories" : [
+                                                    {
+                                                        "id": "ae982481-1e54-448d-8085-aae195e1bc67",
+                                                        "parent_category_id": null,
                                                         "descriptor": {
-                                                            "name": "Greenage Autos",
-                                                            "images": [
-                                                                {
-                                                                    "type": "url",
-                                                                    "url": "https://example.com/img",
-                                                                    "label": "logo"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "poc": {
-                                                            "email": "contact@uber.com",
-                                                            "phones": [
-                                                                "9180888777666"
-                                                            ]
+                                                            "name": "Cab services",
+                                                            "code": "AUTORICKSHAW"
                                                         }
-                                                    },
-                                                    "catalog": {
-                                                        "items": [
-                                                            {
-                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                                "descriptor": {
-                                                                    "name": "Single Auto",
-                                                                    "category_id": "2"
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                                "descriptor": {
-                                                                    "name": "Uber Share Auto",
-                                                                    "category_id": "2"
-                                                                }
-                                                            }
-                                                        ],
-                                                        "offers": [
-                                                            {
-                                                                "id": "a1e1809a-0224-4ff2-a3f8-e1342846dce1",
-                                                                "descriptor": {
-                                                                    "code": "MONSOON",
-                                                                    "short_desc": "Rides at 25% off till July 31st, 2020"
-                                                                }
-                                                            }
-                                                        ],
-                                                        "fare_products": [
-                                                            {
-                                                                "id": "136551c9-d543-4373-a900-1a56390f6803",
-                                                                "descriptor": {
-                                                                    "name": "UBER-GO-MONTHLY-PASS",
-                                                                    "short_desc": "Monthly pass"
-                                                                }
-                                                            }
-                                                        ]
                                                     }
-                                                }
-                                            ]
+                                                ],
+                                                "items": [
+                                                    {
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
+                                                        "descriptor": {
+                                                            "name": "Single Cab"
+                                                        },
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
+                                                    },
+                                                    {
+                                                        "id": "91e5cf38-8b07-4194-83de-40765t6r7766",
+                                                        "descriptor": {
+                                                            "name": "Shared Cab"
+                                                        },
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
+                                                    }
+                                                ],
+                                                "brands": [
+                                                    {
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
+                                                        "descriptor": {
+                                                            "name": "Society Cabs Pvt Ltd"
+                                                        }
+                                                    }
+                                                ],
+                                                "fare_products": [
+                                                    {
+                                                        "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                        "descriptor": {
+                                                            "name": "SINGLE-JOURNEY",
+                                                            "short_desc": "Single Journey"
+                                                        }
+                                                    }
+                                                ]
+                                            }
                                         }
                                     }
                                 },
@@ -1158,93 +1146,108 @@
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "services": [
-                                                {
-                                                    "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
-                                                    "provider": {
+                                            "catalog": {
+                                                "categories" : [
+                                                    {
+                                                        "id": "ae982481-1e54-448d-8085-aae195e1bc67",
+                                                        "parent_category_id": null,
                                                         "descriptor": {
-                                                            "name": "Uber",
-                                                            "images": [
-                                                                {
-                                                                    "type": "url",
-                                                                    "url": "https://example.com/img",
-                                                                    "label": "logo"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "poc": {
-                                                            "email": "contact@uber.com",
-                                                            "phones": [
-                                                                "9180888777666"
-                                                            ]
+                                                            "name": "Autorickshaw services",
+                                                            "code": "AUTORICKSHAW"
                                                         }
                                                     },
-                                                    "catalog": {
-                                                        "categories": [
-                                                            {
-                                                                "id": "1",
-                                                                "descriptor": {
-                                                                    "name": "Auto"
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "2",
-                                                                "descriptor": {
-                                                                    "name": "Cab"
-                                                                }
-                                                            }
-                                                        ],
-                                                        "items": [
-                                                            {
-                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                                "descriptor": {
-                                                                    "name": "Uber Go",
-                                                                    "category_id": "1"
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                                "descriptor": {
-                                                                    "name": "Uber X",
-                                                                    "category_id": "1"
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                                "descriptor": {
-                                                                    "name": "Uber Auto",
-                                                                    "category_id": "2"
-                                                                }
-                                                            },
-                                                            {
-                                                                "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                                "descriptor": {
-                                                                    "name": "Uber Share Auto",
-                                                                    "category_id": "2"
-                                                                }
-                                                            }
-                                                        ],
-                                                        "offers": [
-                                                            {
-                                                                "id": "a1e1809a-0224-4ff2-a3f8-e1342846dce1",
-                                                                "descriptor": {
-                                                                    "code": "MONSOON",
-                                                                    "short_desc": "Rides at 25% off till July 31st, 2020"
-                                                                }
-                                                            }
-                                                        ],
-                                                        "fare_products": [
-                                                            {
-                                                                "id": "136551c9-d543-4373-a900-1a56390f6803",
-                                                                "descriptor": {
-                                                                    "name": "UBER-GO-MONTHLY-PASS",
-                                                                    "short_desc": "Monthly pass"
-                                                                }
-                                                            }
-                                                        ]
+                                                    {
+                                                        "id": "2bc22b1b-8c75-410d-a93d-03e8c909c83e",
+                                                        "parent_category_id": "1",
+                                                        "descriptor": {
+                                                            "name": "Daily commute",
+                                                            "code": "DAILY"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "a5ac8ec5-58db-4edf-aabc-a8dc5f912212",
+                                                        "parent_category_id": "1",
+                                                        "descriptor": {
+                                                            "name": "Rental",
+                                                            "code": "RENTAL"
+                                                        }
                                                     }
-                                                }
-                                            ]
+                                                ],
+                                                "items": [
+                                                    {
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
+                                                        "descriptor": {
+                                                            "name": "Single Auto"
+                                                        },
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
+                                                    },
+                                                    {
+                                                        "id": "91e5cf38-8b07-4194-83de-40765t6r7766",
+                                                        "descriptor": {
+                                                            "name": "Share Auto"
+                                                        },
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
+                                                    },
+                                                    {
+                                                        "id": "b584f536-a9c7-4e65-be56-51c9c52a13f0",
+                                                        "descriptor": {
+                                                            "name": "Daily Rental Auto"
+                                                        },
+                                                        "category_id": "3",
+                                                        "brand_id": "1"
+                                                    }
+                                                ],
+                                                "brands": [
+                                                    {
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
+                                                        "descriptor": {
+                                                            "name": "The Electric Auto Company"
+                                                        }
+                                                    }
+                                                ],
+                                                "offers": [
+                                                    {
+                                                        "id": "a1e1809a-0224-4ff2-a3f8-e1342846dce1",
+                                                        "descriptor": {
+                                                            "code": "MONSOON",
+                                                            "short_desc": "Rides at 25% off till August 31st, 2020"
+                                                        },
+                                                        "applies_to" : "BRAND",
+                                                        "ids" : ["617c9ecf-669c-4693-b137-aa05e12e48f2"],
+                                                        "start_date" : "2020-08-15 00:00:00",
+                                                        "end_date" : "2020-10-15 23:59:59"
+                                                    },
+                                                    {
+                                                        "id": "a1e1809a-0224-4ff2-a3f8-e1342846dce1",
+                                                        "descriptor": {
+                                                            "code": "INDIA74",
+                                                            "short_desc": "Rides at 40% off on August 15th, 2020"
+                                                        },
+                                                        "applies_to" : "ITEM",
+                                                        "ids" : ["617c9ecf-669c-4693-b137-aa05e12e48f2"],
+                                                        "start_date" : "2020-08-15 00:00:00",
+                                                        "end_date" : "2020-10-15 23:59:59"
+                                                    }
+                                                ],
+                                                "fare_products": [
+                                                    {
+                                                        "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                        "descriptor": {
+                                                            "name": "SINGLE-JOURNEY",
+                                                            "short_desc": "Single Journey"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                        "descriptor": {
+                                                            "name": "MONTHLY-PASS",
+                                                            "short_desc": "Monthly pass"
+                                                        }
+                                                    }
+                                                ]
+                                            }
                                         }
                                     }
                                 }
