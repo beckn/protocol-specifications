@@ -1053,11 +1053,8 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "services": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_service.json"
-                                                }
+                                            "catalog": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_catalog.json"
                                             }
                                         }
                                     },
