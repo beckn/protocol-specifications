@@ -15,7 +15,7 @@
             "type": "object",
             "properties": {
                 "id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json#/properties/id"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json#/properties/id"
                 }
             }
         },

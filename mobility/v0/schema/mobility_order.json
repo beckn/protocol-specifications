@@ -9,7 +9,7 @@
         {
             "properties": {
                 "trip" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_trip.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_trip.json"
                 },
                 "cancellation_reason_id" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json#/properties/id"
