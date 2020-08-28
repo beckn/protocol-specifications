@@ -197,7 +197,7 @@
                                 ]
                             },
                             "examples": {
-                                "Basic Select": {
+                                "Provide trip details": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -215,14 +215,13 @@
                                         "message": {
                                             "order": {
                                                 "trip": {
-                                                    "item_id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                    "origin": {
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -296,7 +295,7 @@
                                 ]
                             },
                             "examples": {
-                                "Initialize order with billing and other details": {
+                                "Provide billing details": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -320,13 +319,13 @@
                                                     }
                                                 ],
                                                 "trip": {
-                                                    "origin": {
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -339,9 +338,9 @@
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
-                                                        }
+                                                            "given_name": "John Doe"
+                                                        },
+                                                        "email": "john.doe@example.com"
                                                     }
                                                 }
                                             }
@@ -408,7 +407,7 @@
                                 ]
                             },
                             "examples": {
-                                "Confirm Order": {
+                                "Provide ALL details to confirm Trip": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -418,7 +417,7 @@
                                             "core_version": "0.8.2",
                                             "domain_version": "0.8.2",
                                             "bap_uri": "http://bap.api.example.com",
-                                            "bpp_uri": "",
+                                            "bpp_uri": "http://bpp.api.example.com",
                                             "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
                                             "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
                                             "timestamp": "2020-07-15T06:43:14.653Z"
@@ -428,27 +427,17 @@
                                                 "id": "",
                                                 "items": [
                                                     {
-                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                        "descriptor": {
-                                                            "name": "Uber Go",
-                                                            "category_id": "1"
-                                                        },
-                                                        "price": {
-                                                            "currency": "INR",
-                                                            "offered_value": {
-                                                                "integral": "122"
-                                                            }
-                                                        }
+                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49"
                                                     }
                                                 ],
                                                 "trip": {
-                                                    "origin": {
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -458,6 +447,9 @@
                                                         "traveller_count": 1,
                                                         "travellers": [
                                                             {
+                                                                "name" : {
+                                                                    "given_name": "John Doe"
+                                                                },
                                                                 "phones": [
                                                                     "919897866754"
                                                                 ]
@@ -468,9 +460,9 @@
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
-                                                        }
+                                                            "given_name": "John Doe"
+                                                        },
+                                                        "email": "john.doe@example.com"
                                                     }
                                                 },
                                                 "payment": {
@@ -478,7 +470,7 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Ravi"
+                                                                "given_name": "John Doe"
                                                             }
                                                         }
                                                     },
@@ -532,7 +524,7 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
-                "description": "Cancel a Service",
+                "description": "Cancel a Trip",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -566,30 +558,7 @@
                                 ]
                             },
                             "examples": {
-                                "Cancellation Request": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "MOBILITY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "cancel",
-                                            "core_version": "0.8.2",
-                                            "domain_version": "0.8.2",
-                                            "bap_uri": "http://bap.api.example.com",
-                                            "bpp_uri": "",
-                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
-                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
-                                        },
-                                        "message": {
-                                            "order": {
-                                                "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                            }
-                                        },
-                                        "error": {}
-                                    }
-                                },
-                                "Cancellation with Reason": {
+                                "Cancel Trip": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -607,10 +576,9 @@
                                         "message": {
                                             "order": {
                                                 "id": "136551c9-d543-4373-a900-1a56390f6803",
-                                                "reason_id": "8b07"
+                                                "cancellation_reason_id": "8b07"
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -682,7 +650,7 @@
                                 ]
                             },
                             "examples": {
-                                "Update Destination": {
+                                "Update drop": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -698,11 +666,11 @@
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "update_action" : "update_destination",
+                                            "update_action" : "update_drop",
                                             "order": {
                                                 "id": "136551c9-d543-4373-a900-1a56390f6803",
                                                 "trip": {
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -729,7 +697,7 @@
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "update_action" : "update_payload_travellers",
+                                            "update_action" : "update_traveller",
                                             "order": {
                                                 "id": "136551c9-d543-4373-a900-1a56390f6803",
                                                 "payload": {
@@ -737,7 +705,7 @@
                                                     "travellers": [
                                                         {
                                                             "name" : {
-                                                                "given_name": "Christopher"
+                                                                "given_name": "John Doe"
                                                             },
                                                             "phones": [
                                                                 "919897866754"
@@ -771,8 +739,7 @@
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
+                                                            "given_name": "John Doe"
                                                         }
                                                     }
                                                 }
@@ -864,8 +831,7 @@
                                             "order": {
                                                 "id": "136551c9-d543-4373-a900-1a56390f6803"
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -932,7 +898,7 @@
                                 ]
                             },
                             "examples": {
-                                "Track Order": {
+                                "Track Order - Pull": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -948,11 +914,7 @@
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "tracking": {
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                }
-                                            }
+                                            "order_id": "d035fabe-96a4-4935-a822-d9da52fa322e"
                                         }
                                     }
                                 },
@@ -1270,12 +1232,12 @@
                 }
             }
         },
-        "/on_select": {
+        "/on_search/end": {
             "post": {
                 "tags": [
                     "Beckn App Platform API"
                 ],
-                "description": "Callback response to select/service. The trip object is updated with price",
+                "description": "End of search results",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1285,36 +1247,17 @@
                                 "properties": {
                                     "context": {
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    },
-                                    "message": {
-                                        "type": "object",
-                                        "properties": {
-                                            "service": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json#/properties/id"
-                                                    }
-                                                }
-                                            },
-                                            "trip": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_trip.json"
-                                            }
-                                        }
-                                    },
-                                    "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                     }
                                 }
                             },
                             "examples": {
-                                "Sample quote": {
+                                "End of callback": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "on_select",
+                                            "action": "on_search/end",
                                             "core_version": "0.8.2",
                                             "domain_version": "0.8.2",
                                             "bap_uri": "http://bap.api.example.com",
@@ -1322,43 +1265,7 @@
                                             "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
                                             "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
                                             "timestamp": "2020-07-15T06:43:14.653Z"
-                                        },
-                                        "message": {
-                                            "order": {
-                                                "id": "",
-                                                "items": [
-                                                    {
-                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                        "descriptor": {
-                                                            "name": "Uber Go",
-                                                            "category_id": "1"
-                                                        },
-                                                        "price": {
-                                                            "currency": "INR",
-                                                            "offered_value": {
-                                                                "integral": "122"
-                                                            }
-                                                        }
-                                                    }
-                                                ],
-                                                "trip": {
-                                                    "item_id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                    "origin": {
-                                                        "gps": {
-                                                            "lat": "22.374394",
-                                                            "lon": "77.456712"
-                                                        }
-                                                    },
-                                                    "destination": {
-                                                        "gps": {
-                                                            "lat": "22.514251",
-                                                            "lon": "77.089876"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -1395,12 +1302,12 @@
                 }
             }
         },
-        "/on_init": {
+        "/on_select": {
             "post": {
                 "tags": [
                     "Beckn App Platform API"
                 ],
-                "description": "Callback response to confirm/service",
+                "description": "Callback response to select/service. The trip object is updated with price",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1428,7 +1335,155 @@
                                 }
                             },
                             "examples": {
-                                "Draft Order with Billing and Payment Details": {
+                                "Updated quote": {
+                                    "value": {
+                                        "context": {
+                                            "domain": "MOBILITY",
+                                            "country": "IND",
+                                            "city": "BLR",
+                                            "action": "on_select",
+                                            "core_version": "0.8.2",
+                                            "domain_version": "0.8.2",
+                                            "bap_uri": "http://bap.api.example.com",
+                                            "bpp_uri": "http://bpp.api.example.com",
+                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
+                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
+                                            "timestamp": "2020-07-15T06:43:14.653Z"
+                                        },
+                                        "message": {
+                                            "order": {
+                                                "id": "",
+                                                "items": [
+                                                    {
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
+                                                        "descriptor": {
+                                                            "name": "Single Cab"
+                                                        },
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
+                                                    }
+                                                ],
+                                                "fare_product" : {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                    "descriptor": {
+                                                        "name": "SINGLE-JOURNEY",
+                                                        "short_desc": "Single Journey"
+                                                    }
+                                                },
+                                                "trip": {
+                                                    "pickup": {
+                                                        "gps": {
+                                                            "lat": "22.374394",
+                                                            "lon": "77.456712"
+                                                        }
+                                                    },
+                                                    "drop": {
+                                                        "gps": {
+                                                            "lat": "22.514251",
+                                                            "lon": "77.089876"
+                                                        }
+                                                    }
+                                                },
+                                                "cancellation_reasons": [
+                                                    {
+                                                        "id": "1",
+                                                        "descriptor": {
+                                                            "short_desc": "Changed my mind"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "2",
+                                                        "descriptor": {
+                                                            "short_desc": "Driver taking too long"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "3",
+                                                        "descriptor": {
+                                                            "short_desc": "Driver asked me to cancel"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "4",
+                                                        "descriptor": {
+                                                            "short_desc": "Could not contact driver"
+                                                        }
+                                                    }
+                                                ],
+                                                "quotation": {
+                                                    "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
+                                                    "price": {
+                                                        "currency": "INR",
+                                                        "estimated_value": {
+                                                            "integral": "128"
+                                                        }
+                                                    },
+                                                    "ttl" : "PT10M"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        },
+                                        "message": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_init": {
+            "post": {
+                "tags": [
+                    "Beckn App Platform API"
+                ],
+                "description": "Callback response to confirm/service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "order": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                            }
+                                        }
+                                    },
+                                    "error": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Draft Order with CASH payment": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -1448,38 +1503,75 @@
                                                 "id": "",
                                                 "items": [
                                                     {
-                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
                                                         "descriptor": {
-                                                            "name": "Uber Go",
-                                                            "category_id": "1"
+                                                            "name": "Single Cab"
                                                         },
-                                                        "price": {
-                                                            "currency": "INR",
-                                                            "offered_value": {
-                                                                "integral": "122"
-                                                            }
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
+                                                    }
+                                                ],
+                                                "fare_product" : {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                    "descriptor": {
+                                                        "name": "SINGLE-JOURNEY",
+                                                        "short_desc": "Single Journey"
+                                                    }
+                                                },
+                                                "cancellation_reasons": [
+                                                    {
+                                                        "id": "1",
+                                                        "descriptor": {
+                                                            "short_desc": "Changed my mind"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "2",
+                                                        "descriptor": {
+                                                            "short_desc": "Driver taking too long"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "3",
+                                                        "descriptor": {
+                                                            "short_desc": "Driver asked me to cancel"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "4",
+                                                        "descriptor": {
+                                                            "short_desc": "Could not contact driver"
                                                         }
                                                     }
                                                 ],
                                                 "trip": {
-                                                    "origin": {
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
                                                         }
                                                     }
                                                 },
+                                                "quotation": {
+                                                    "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
+                                                    "price": {
+                                                        "currency": "INR",
+                                                        "estimated_value": {
+                                                            "integral": "128"
+                                                        }
+                                                    },
+                                                    "ttl" : "PT5M"
+                                                },
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
+                                                            "given_name": "John Doe"
                                                         }
                                                     }
                                                 },
@@ -1488,9 +1580,12 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Ravi"
+                                                                "given_name": "John"
                                                             }
                                                         }
+                                                    },
+                                                    "payee": {
+                                                        "type": "person"
                                                     },
                                                     "method": "CASH",
                                                     "amount": {
@@ -1505,8 +1600,7 @@
                                                     "payment_type": "POST-FULFILLMENT"
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 }
                             }
@@ -1588,82 +1682,35 @@
                                                 "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
                                                 "items": [
                                                     {
-                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
                                                         "descriptor": {
-                                                            "name": "Uber Go",
-                                                            "category_id": "1"
+                                                            "name": "Single Cab"
                                                         },
-                                                        "price": {
-                                                            "currency": "INR",
-                                                            "offered_value": {
-                                                                "integral": "122"
-                                                            }
-                                                        }
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
                                                     }
                                                 ],
-                                                "trip": {
-                                                    "origin": {
-                                                        "gps": {
-                                                            "lat": "22.374394",
-                                                            "lon": "77.456712"
-                                                        }
-                                                    },
-                                                    "destination": {
-                                                        "gps": {
-                                                            "lat": "22.514251",
-                                                            "lon": "77.089876"
-                                                        }
-                                                    },
-                                                    "vehicle": {
-                                                        "category": "CAR",
-                                                        "capacity": 4,
-                                                        "make": "Toyota",
-                                                        "model": "Etios",
-                                                        "variant": "Liva",
-                                                        "color": "White",
-                                                        "registration": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "category": "COMMERCIAL",
-                                                                "number": "KA01TA1243"
-                                                            }
-                                                        }
-                                                    },
-                                                    "payload": {
-                                                        "traveller_count": 1,
-                                                        "travellers": [
-                                                            {
-                                                                "phones": [
-                                                                    "919897866754"
-                                                                ]
-                                                            }
-                                                        ]
-                                                    },
-                                                    "route": {
-                                                        "edge": {
-                                                            "path": "",
-                                                            "duration": "22m",
-                                                            "distance": {
-                                                                "value": "9.5",
-                                                                "unit": "km"
-                                                            }
-                                                        }
-                                                    },
-                                                    "driver": {
-                                                        "name": {
-                                                            "given_name": "Jason Mathews"
-                                                        },
-                                                        "rating": {
-                                                            "value": "4.5",
-                                                            "unit": "STARS"
+                                                "fare_product" : {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                    "descriptor": {
+                                                        "name": "SINGLE-JOURNEY",
+                                                        "short_desc": "Single Journey"
+                                                    }
+                                                },
+                                                "quotation": {
+                                                    "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
+                                                    "price": {
+                                                        "currency": "INR",
+                                                        "estimated_value": {
+                                                            "integral": "128"
                                                         }
                                                     }
                                                 },
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
+                                                            "given_name": "John",
+                                                            "email": "john.doe@example.com"
                                                         }
                                                     }
                                                 },
@@ -1672,7 +1719,7 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Ravi"
+                                                                "given_name": "John"
                                                             }
                                                         }
                                                     },
@@ -1680,14 +1727,14 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Jason Mathews"
+                                                                "given_name": "Jevin Samuel"
                                                             }
                                                         }
                                                     },
                                                     "method": "CASH",
                                                     "amount": {
                                                         "value": {
-                                                            "integral": "125",
+                                                            "integral": "128",
                                                             "fractional": "0"
                                                         }
                                                     },
@@ -1695,131 +1742,16 @@
                                                         "INR"
                                                     ],
                                                     "payment_type": "POST-FULFILLMENT"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                        },
-                                        "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_cancel": {
-            "post": {
-                "tags": [
-                    "Beckn App Platform API"
-                ],
-                "description": "Response to cancel service",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    },
-                                    "message": {
-                                        "type": "object",
-                                        "properties": {
-                                            "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
-                                            }
-                                        }
-                                    },
-                                    "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                    }
-                                }
-                            },
-                            "examples": {
-                                "Cancellation Order with List of reasons": {
-                                    "value": {
-                                        "context": {
-                                            "domain": "MOBILITY",
-                                            "country": "IND",
-                                            "city": "BLR",
-                                            "action": "on_cancel",
-                                            "core_version": "0.8.2",
-                                            "domain_version": "0.8.2",
-                                            "bap_uri": "http://bap.api.example.com",
-                                            "bpp_uri": "http://bpp.api.example.com",
-                                            "transaction_id": "d035fabe-96a4-4935-a822-d9da52fa322e",
-                                            "message_id" : "18a42164-c077-4659-9a0f-560a1dfebf9f",
-                                            "timestamp": "2020-07-15T06:43:14.653Z"
-                                        },
-                                        "message": {
-                                            "order": {
-                                                "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
-                                                "state": {
-                                                    "descriptor": {
-                                                        "name": "REQUEST-TO-CANCEL",
-                                                        "updated_by": "TRAVELLER"
-                                                    }
                                                 },
-                                                "cancellation_reasons": [
-                                                    {
-                                                        "id": "1",
-                                                        "descriptor": {
-                                                            "short_desc": "Changed my mind"
-                                                        }
-                                                    },
-                                                    {
-                                                        "id": "2",
-                                                        "descriptor": {
-                                                            "short_desc": "Waited too long"
-                                                        }
-                                                    }
-                                                ],
-                                                "items": [
-                                                    {
-                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49",
-                                                        "descriptor": {
-                                                            "name": "Uber Go",
-                                                            "category_id": "1"
-                                                        },
-                                                        "price": {
-                                                            "currency": "INR",
-                                                            "offered_value": {
-                                                                "integral": "122"
-                                                            }
-                                                        }
-                                                    }
-                                                ],
                                                 "trip": {
-                                                    "origin": {
+                                                    "id" : "a5ac8ec5-58db-4edf-aabc-a8dc5f912212",
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -1833,11 +1765,8 @@
                                                         "variant": "Liva",
                                                         "color": "White",
                                                         "registration": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "category": "COMMERCIAL",
-                                                                "number": "KA01TA1243"
-                                                            }
+                                                            "category": "COMMERCIAL",
+                                                            "number": "KA01TA1243"
                                                         }
                                                     },
                                                     "payload": {
@@ -1852,7 +1781,7 @@
                                                     },
                                                     "route": {
                                                         "edge": {
-                                                            "path": "",
+                                                            "path": "_p~iF~ps|U_ulLnnqC_mqNvxq`@",
                                                             "duration": "22m",
                                                             "distance": {
                                                                 "value": "9.5",
@@ -1956,18 +1885,16 @@
                                                 "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
                                                 "state": {
                                                     "descriptor": {
-                                                        "name": "CANCELLED",
-                                                        "updated_by": "DRIVER",
-                                                        "update_metadata": {
-                                                            "reason_id": "8b07"
-                                                        }
+                                                        "code": "CANCELLED",
+                                                        "updated_by": "TRAVELLER"
                                                     }
                                                 },
+                                                "cancellation_reason_id" : "8b07",
                                                 "items": [
                                                     {
                                                         "id": "91e5cf38-8b07-4194-83de-40560679fd49",
                                                         "descriptor": {
-                                                            "name": "Uber Go",
+                                                            "name": "Society Cabs",
                                                             "category_id": "1"
                                                         },
                                                         "price": {
@@ -1979,13 +1906,13 @@
                                                     }
                                                 ],
                                                 "trip": {
-                                                    "origin": {
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -2028,7 +1955,7 @@
                                                     },
                                                     "driver": {
                                                         "name": {
-                                                            "given_name": "Jason Mathews"
+                                                            "given_name": "Jevin Samuel"
                                                         },
                                                         "rating": {
                                                             "value": "4.5",
@@ -2039,8 +1966,7 @@
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
+                                                            "given_name": "John Doe"
                                                         }
                                                     }
                                                 },
@@ -2049,29 +1975,25 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Uber"
-                                                            }
-                                                        }
-                                                    },
-                                                    "payee": {
-                                                        "type": "person",
-                                                        "person": {
-                                                            "name": {
                                                                 "given_name": "Ravi Prakash"
                                                             }
                                                         }
                                                     },
+                                                    "payee": {
+                                                        "type": "vpa",
+                                                        "vpa": "uber@okaxis"
+                                                    },
                                                     "method": "UPI",
                                                     "amount": {
                                                         "value": {
-                                                            "integral": "125",
+                                                            "integral": "20",
                                                             "fractional": "0"
                                                         }
                                                     },
                                                     "supported_currencies": [
                                                         "INR"
                                                     ],
-                                                    "type": "REFUND"
+                                                    "type": "CANCELLATION-CHARGES"
                                                 }
                                             }
                                         }
@@ -2152,14 +2074,14 @@
                                             "timestamp": "2020-07-15T06:43:14.653Z"
                                         },
                                         "message": {
-                                            "update_action" : "on_update_destination",
+                                            "update_action" : "on_update_drop",
                                             "order": {
                                                 "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
                                                 "items": [
                                                     {
                                                         "id": "91e5cf38-8b07-4194-83de-40560679fd49",
                                                         "descriptor": {
-                                                            "name": "Uber Go",
+                                                            "name": "Society Cabs",
                                                             "category_id": "1"
                                                         },
                                                         "price": {
@@ -2171,13 +2093,13 @@
                                                     }
                                                 ],
                                                 "trip": {
-                                                    "origin": {
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -2220,7 +2142,7 @@
                                                     },
                                                     "driver": {
                                                         "name": {
-                                                            "given_name": "Jason Mathews"
+                                                            "given_name": "Jevin Samuel"
                                                         },
                                                         "rating": {
                                                             "value": "4.5",
@@ -2231,8 +2153,7 @@
                                                 "billing": {
                                                     "customer": {
                                                         "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
+                                                            "given_name": "John Doe"
                                                         }
                                                     }
                                                 },
@@ -2241,7 +2162,7 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Ravi"
+                                                                "given_name": "John Doe"
                                                             }
                                                         }
                                                     },
@@ -2249,7 +2170,7 @@
                                                         "type": "person",
                                                         "person": {
                                                             "name": {
-                                                                "given_name": "Jason Mathews"
+                                                                "given_name": "Jevin Samuel"
                                                             }
                                                         }
                                                     },
@@ -2328,13 +2249,13 @@
                                 }
                             },
                             "examples": {
-                                "Active Order with Trip Details": {
+                                "Confirmed Order with Trip Details": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
                                             "country": "IND",
                                             "city": "BLR",
-                                            "action": "on_status",
+                                            "action": "on_confirm",
                                             "core_version": "0.8.2",
                                             "domain_version": "0.8.2",
                                             "bap_uri": "http://bap.api.example.com",
@@ -2348,27 +2269,76 @@
                                                 "id": "7d770f4a-a93e-4860-9ae6-d197cd0d298e",
                                                 "items": [
                                                     {
-                                                        "id": "91e5cf38-8b07-4194-83de-40560679fd49",
+                                                        "id": "617c9ecf-669c-4693-b137-aa05e12e48f2",
                                                         "descriptor": {
-                                                            "name": "Uber Go",
-                                                            "category_id": "1"
+                                                            "name": "Single Cab"
                                                         },
-                                                        "price": {
-                                                            "currency": "INR",
-                                                            "offered_value": {
-                                                                "integral": "122"
-                                                            }
-                                                        }
+                                                        "category_id": "2",
+                                                        "brand_id": "1"
                                                     }
                                                 ],
+                                                "fare_product" : {
+                                                    "id": "136551c9-d543-4373-a900-1a56390f6803",
+                                                    "descriptor": {
+                                                        "name": "SINGLE-JOURNEY",
+                                                        "short_desc": "Single Journey"
+                                                    }
+                                                },
+                                                "quotation": {
+                                                    "id": "53248d02-6ba0-458e-8bd3-01e3a89e1f88",
+                                                    "price": {
+                                                        "currency": "INR",
+                                                        "estimated_value": {
+                                                            "integral": "128"
+                                                        }
+                                                    }
+                                                },
+                                                "billing": {
+                                                    "customer": {
+                                                        "name": {
+                                                            "given_name": "John",
+                                                            "email": "john.doe@example.com"
+                                                        }
+                                                    }
+                                                },
+                                                "payment": {
+                                                    "payer": {
+                                                        "type": "person",
+                                                        "person": {
+                                                            "name": {
+                                                                "given_name": "John"
+                                                            }
+                                                        }
+                                                    },
+                                                    "payee": {
+                                                        "type": "person",
+                                                        "person": {
+                                                            "name": {
+                                                                "given_name": "Jevin Samuel"
+                                                            }
+                                                        }
+                                                    },
+                                                    "method": "CASH",
+                                                    "amount": {
+                                                        "value": {
+                                                            "integral": "128",
+                                                            "fractional": "0"
+                                                        }
+                                                    },
+                                                    "supported_currencies": [
+                                                        "INR"
+                                                    ],
+                                                    "payment_type": "POST-FULFILLMENT"
+                                                },
                                                 "trip": {
-                                                    "origin": {
+                                                    "id" : "a5ac8ec5-58db-4edf-aabc-a8dc5f912212",
+                                                    "pickup": {
                                                         "gps": {
                                                             "lat": "22.374394",
                                                             "lon": "77.456712"
                                                         }
                                                     },
-                                                    "destination": {
+                                                    "drop": {
                                                         "gps": {
                                                             "lat": "22.514251",
                                                             "lon": "77.089876"
@@ -2382,11 +2352,8 @@
                                                         "variant": "Liva",
                                                         "color": "White",
                                                         "registration": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "category": "COMMERCIAL",
-                                                                "number": "KA01TA1243"
-                                                            }
+                                                            "category": "COMMERCIAL",
+                                                            "number": "KA01TA1243"
                                                         }
                                                     },
                                                     "payload": {
@@ -2401,7 +2368,7 @@
                                                     },
                                                     "route": {
                                                         "edge": {
-                                                            "path": "",
+                                                            "path": "_p~iF~ps|U_ulLnnqC_mqNvxq`@",
                                                             "duration": "22m",
                                                             "distance": {
                                                                 "value": "9.5",
@@ -2411,50 +2378,13 @@
                                                     },
                                                     "driver": {
                                                         "name": {
-                                                            "given_name": "Jason Mathews"
+                                                            "given_name": "Jevin Samuel"
                                                         },
                                                         "rating": {
                                                             "value": "4.5",
                                                             "unit": "STARS"
                                                         }
                                                     }
-                                                },
-                                                "billing": {
-                                                    "customer": {
-                                                        "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
-                                                        }
-                                                    }
-                                                },
-                                                "payment": {
-                                                    "payer": {
-                                                        "type": "person",
-                                                        "person": {
-                                                            "name": {
-                                                                "given_name": "Ravi"
-                                                            }
-                                                        }
-                                                    },
-                                                    "payee": {
-                                                        "type": "person",
-                                                        "person": {
-                                                            "name": {
-                                                                "given_name": "Jason Mathews"
-                                                            }
-                                                        }
-                                                    },
-                                                    "method": "CASH",
-                                                    "amount": {
-                                                        "value": {
-                                                            "integral": "125",
-                                                            "fractional": "0"
-                                                        }
-                                                    },
-                                                    "supported_currencies": [
-                                                        "INR"
-                                                    ],
-                                                    "payment_type": "POST-FULFILLMENT"
                                                 }
                                             }
                                         }
@@ -2549,8 +2479,7 @@
                                                     "url": "https://api.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track"
                                                 }
                                             }
-                                        },
-                                        "error": {}
+                                        }
                                     }
                                 },
                                 "Tracking Details for Push type tracking": {
