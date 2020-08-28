@@ -11,10 +11,34 @@
                 "trip" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_trip.json"
                 },
+                "cancellation_reason_id" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json#/properties/id"
+                },
                 "cancellation_reasons" : {
                     "type" : "array",
                     "items" : {
                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json"
+                    }
+                },
+                "cancellation_policy" : {
+                    "type" : "object",
+                    "properties": {
+                        "cancellation_fee" : {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/monetary_value.json"
+                        },
+                        "refund" : {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/monetary_value.json"
+                        },
+                        "cancel_by" : {
+                            "type" : "string",
+                            "format" : "date-time"
+                        },
+                        "terms" : {
+                            "type" : "array",
+                            "items" : {
+                                "type" : "string"
+                            }
+                        }
                     }
                 }
             }
