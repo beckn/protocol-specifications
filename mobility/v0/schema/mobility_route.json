@@ -8,7 +8,8 @@
             "type" : "object",
             "properties" : {
                 "path" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description": "A stringified JSON array reperesenting a sequential array of coordinates"
                 },
                 "duration" : {
                     "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/scalar.json"

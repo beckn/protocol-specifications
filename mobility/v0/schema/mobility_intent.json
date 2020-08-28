@@ -8,16 +8,16 @@
         },
         {
             "properties": {
-                "origin": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
-                },
-                "destination": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
-                },
-                "stops" : {
+                "pickups": {
                     "type" : "array",
                     "items" : {
-                        "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
+                    }
+                },
+                "drops": {
+                    "type" : "array",
+                    "items" : {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_stop.json"
                     }
                 },
                 "vehicle" : {
