@@ -31,7 +31,7 @@
                                         "type": "object",
                                         "properties": {
                                             "intent": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_intent.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_intent.json"
                                             }
                                         }
                                     }
@@ -186,7 +186,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     }
@@ -284,7 +284,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     }
@@ -396,7 +396,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     }
@@ -638,7 +638,7 @@
                                                 ]
                                             },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                             
                                         }
@@ -1097,7 +1097,7 @@
                                         "type": "object",
                                         "properties": {
                                             "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_catalog.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_catalog.json"
                                             }
                                         }
                                     },
@@ -1418,7 +1418,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     },
@@ -1566,7 +1566,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     },
@@ -1745,7 +1745,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     },
@@ -1948,7 +1948,7 @@
                                                 "type": "string"
                                             },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     },
@@ -2141,7 +2141,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/b84f362f6a4965bb01891a15f17397660e25b939/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     },
