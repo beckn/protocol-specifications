@@ -171,7 +171,7 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
-                "description": "Select the service and build order. This can be called multiple times. The on_select callback sends an updated quotation everytime the order is updated.",
+                "description": "Select the item and build order. This can be called multiple times. The on_select callback sends an updated quotation everytime the order is updated.",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1403,7 +1403,7 @@
                 "tags": [
                     "Beckn App Platform API"
                 ],
-                "description": "Callback response to select/service. The trip object is updated with price",
+                "description": "Send updated quote based on draft order",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1554,7 +1554,7 @@
                 "tags": [
                     "Beckn App Platform API"
                 ],
-                "description": "Callback response to confirm/service",
+                "description": "Send payment terms as per billing details",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1933,7 +1933,7 @@
                 "tags": [
                     "Beckn App Platform API"
                 ],
-                "description": "Response to cancel service",
+                "description": "Send cancelled order",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -2129,7 +2129,7 @@
                 "tags": [
                     "Beckn App Platform API"
                 ],
-                "description": "Returns updated service with updated runtime object",
+                "description": "Returns updated order",
                 "requestBody": {
                     "description": "TODO",
                     "content": {
