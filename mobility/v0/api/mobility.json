@@ -397,15 +397,7 @@
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
-                                                    },
-                                                    "payment": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/payment.json"
-                                                    }
-                                                }
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
                                             }
                                         }
                                     }
@@ -554,22 +546,14 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "cancellation": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "type": "string"
-                                                    },
-                                                    "reason": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
-                                                    }
-                                                }
-                                            },
                                             "order": {
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+                                                    },
+                                                    "cancellation_reason_id" : {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json#/properties/id"
                                                     }
                                                 }
                                             }
@@ -680,9 +664,9 @@
                                             "update_action": {
                                                 "type": "string",
                                                 "enum": [
-                                                    "update_destination",
-                                                    "update_billing",
-                                                    "update_travellers"
+                                                    "update_pickup",
+                                                    "update_drop",
+                                                    "update_traveller"
                                                 ]
                                             },
                                             "order": {
@@ -844,14 +828,6 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "service": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json#/properties/id"
-                                                    }
-                                                }
-                                            },
                                             "order": {
                                                 "type": "object",
                                                 "properties": {
@@ -940,8 +916,12 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_tracking.json"
+                                            "order_id": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+                                            },
+                                            "callback_url": {
+                                                "type": "string",
+                                                "format": "uri"
                                             }
                                         }
                                     }
@@ -1020,7 +1000,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                }
+                                            }
                                         },
                                         "error": {
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
@@ -1392,7 +1377,12 @@
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
                                         },
                                         "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                }
+                                            }
                                         },
                                         "error": {
                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
@@ -1758,9 +1748,6 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "cancellation_id": {
-                                                "type": "string"
-                                            },
                                             "order": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
                                             }
@@ -1875,52 +1862,81 @@
                                                     },
                                                     "driver": {
                                                         "name": {
-                                                            "given_name": "Jason Mathews"
+                                                            "given_name": "Jevin Samuel"
                                                         },
                                                         "rating": {
                                                             "value": "4.5",
                                                             "unit": "STARS"
                                                         }
                                                     }
-                                                },
-                                                "billing": {
-                                                    "customer": {
-                                                        "name": {
-                                                            "given_name": "Max Planck",
-                                                            "email": "max.planck@example.com"
-                                                        }
-                                                    }
-                                                },
-                                                "payment": {
-                                                    "payer": {
-                                                        "type": "person",
-                                                        "person": {
-                                                            "name": {
-                                                                "given_name": "Ravi Prakash"
-                                                            }
-                                                        }
-                                                    },
-                                                    "payee": {
-                                                        "type": "vpa",
-                                                        "vpa": "uber@okaxis"
-                                                    },
-                                                    "method": "UPI",
-                                                    "amount": {
-                                                        "value": {
-                                                            "integral": "20",
-                                                            "fractional": "0"
-                                                        }
-                                                    },
-                                                    "supported_currencies": [
-                                                        "INR"
-                                                    ],
-                                                    "type": "CANCELLATION-CHARGES"
                                                 }
                                             }
                                         }
                                     }
-                                },
-                                "Confirmed Cancellation Order with Refund Details": {
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        },
+                                        "message": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                        },
+                                        "error": {
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_cancel": {
+            "post": {
+                "tags": [
+                    "Beckn App Platform API"
+                ],
+                "description": "Response to cancel service",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "cancellation_id": {
+                                                "type": "string"
+                                            },
+                                            "order": {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/mobility/v0/schema/mobility_order.json"
+                                            }
+                                        }
+                                    },
+                                    "error": {
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Cancellation of Order without Payment": {
                                     "value": {
                                         "context": {
                                             "domain": "MOBILITY",
@@ -2567,147 +2583,7 @@
                                                     "url": "ws://bpp.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:5000"
                                                 }
                                             }
-                                        },
-                                        "error": {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                        },
-                                        "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
                                         }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_feedback": {
-            "post": {
-                "tags": [
-                    "Beckn App Platform API"
-                ],
-                "description": "Provide feedback on a service",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    },
-                                    "message": {
-                                        "type": "object",
-                                        "properties": {
-                                            "feedback": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "service": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json#/properties/id"
-                                                            },
-                                                            "service_items": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "id": {
-                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json#/properties/id"
-                                                                        },
-                                                                        "message": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            },
-                                                            "communication": {
-                                                                "type": "string",
-                                                                "enum": [
-                                                                    "CHAT",
-                                                                    "CALLBACK",
-                                                                    "CALL",
-                                                                    "EMAIL"
-                                                                ]
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                        },
-                                        "message": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_support": {
-            "post": {
-                "tags": [
-                    "Beckn App Platform API"
-                ],
-                "description": "Fetch customer support details",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    },
-                                    "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/support.json"
                                     }
                                 }
                             }
@@ -2739,11 +2615,5 @@
                 }
             }
         }
-    },
-    "servers": [
-        {
-            "description": "SwaggerHub API Auto Mocking",
-            "url": "https://virtserver.swaggerhub.com/beckn/mobility/0.8.0-draft03"
-        }
-    ]
+    }
 }
