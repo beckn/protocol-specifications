@@ -70,6 +70,9 @@
             "type": "string",
             "format": "date-time",
             "description": "Time of request generation in RFC3339 format"
+        },
+        "ttl" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/duration.json"
         }
     }
-}
+} 
