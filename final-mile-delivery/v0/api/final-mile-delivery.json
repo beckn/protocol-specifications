@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Final Mile Delivery API",
         "description": "API Spec for Final Mile Delivery.",
-        "version": "0.8.2"
+        "version": "0.8.3"
     },
     "security": [
         {
