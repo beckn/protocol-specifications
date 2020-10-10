@@ -2361,6 +2361,9 @@
                                         "type": "object",
                                         "description": "BPP returns tracking information. For websocket based tracking data please refer to the tracking data object in core",
                                         "properties": {
+                                            "order_id" : {
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+                                            },
                                             "tracking": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/tracking.json"
                                             }
@@ -2388,18 +2391,11 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
+                                            "order_id" : "13655",
                                             "tracking": {
-                                                "method": "pull",
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                },
-                                                "state": {
-                                                    "descriptor": {
-                                                        "name": "active"
-                                                    }
-                                                },
-                                                "pull": {
-                                                    "url": "https://api.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track"
+                                                "url" : "https://tracking.example.com",
+                                                "metadata" : {
+                                                    "status" : "ACTIVE"
                                                 }
                                             }
                                         }
@@ -2421,18 +2417,11 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
+                                            "order_id" : "13655",
                                             "tracking": {
-                                                "method": "push",
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                },
-                                                "state": {
-                                                    "descriptor": {
-                                                        "code": "ACTIVE"
-                                                    }
-                                                },
-                                                "push": {
-                                                    "url": "ws://bpp.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:5000"
+                                                "url" : "",
+                                                "metadata" : {
+                                                    "status" : "ACTIVE"
                                                 }
                                             }
                                         }
