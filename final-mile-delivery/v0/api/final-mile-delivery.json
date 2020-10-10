@@ -2391,18 +2391,11 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
+                                            "order_id" : "13655",
                                             "tracking": {
-                                                "method": "pull",
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                },
-                                                "state": {
-                                                    "descriptor": {
-                                                        "name": "active"
-                                                    }
-                                                },
-                                                "pull": {
-                                                    "url": "https://api.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track"
+                                                "url" : "https://tracking.example.com",
+                                                "metadata" : {
+                                                    "status" : "ACTIVE"
                                                 }
                                             }
                                         }
@@ -2424,18 +2417,11 @@
                                             "timestamp": "2020-08-19 14:54:19+05:30"
                                         },
                                         "message": {
+                                            "order_id" : "13655",
                                             "tracking": {
-                                                "method": "push",
-                                                "order": {
-                                                    "id": "136551c9-d543-4373-a900-1a56390f6803"
-                                                },
-                                                "state": {
-                                                    "descriptor": {
-                                                        "code": "ACTIVE"
-                                                    }
-                                                },
-                                                "push": {
-                                                    "url": "ws://bpp.example.com/order/136551c9-d543-4373-a900-1a56390f6803/track:5000"
+                                                "url" : "",
+                                                "metadata" : {
+                                                    "status" : "ACTIVE"
                                                 }
                                             }
                                         }
