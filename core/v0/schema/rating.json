@@ -14,7 +14,8 @@
             "description": "Follows the unicode 13.0 format for emojis : https://unicode.org/emoji/charts/full-emoji-list.html"
         },
         "max_value" : {
-            "type" : "number"
+            "type" : "number",
+            "default" : 5
         },
         "direction" : {
             "type" : "string",

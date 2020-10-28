@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/service.json",
+    "$id": "service.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a service. Optionally the service may also contain a catalog object",
     "type": "object",
