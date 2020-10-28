@@ -1,0 +1,15 @@
+{
+    "$id": "time.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/scalar.json"
+        },
+        {
+            "calendar": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/schedule.json"
+            }
+        }
+    ]
+}
