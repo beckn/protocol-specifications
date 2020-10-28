@@ -4,16 +4,19 @@
     "description": "Describes a billing event",
     "type": "object",
     "properties": {
+        "name" : {
+            "type" : "string"
+        },
         "customer" : {
             "describtion" : "Personal details of the customer needed for billing.",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/person.json"
         },
         "address" : {
             "description": "Location where the bill is to be sent to",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/address.json"
-        },
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/address.json"
+        },  
         "period" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
         },
         "tax_number" : {
             "type" : "string"

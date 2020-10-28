@@ -4,6 +4,10 @@
     "description": "Describes the name of a person",
     "type": "object",
     "properties": {
+        "full" : {
+            "type" : "string",
+            "description": "Format: ./{honorific prefix}/{given_name}/{family_name}/{additional_name}/{call_sign}/{honorific_suffix}"
+        },
         "additional_name" : {
             "type" : "string",
             "description": "An additional name for a Person, can be used for a middle name."

@@ -12,34 +12,34 @@
             "type" : "array",
             "description": "List of categories in the catalog",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/category.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/category.json"
             }
         },
         "brands" : {
             "type" : "array",
             "description": "List of brands in the catalog. This can be empty if the categories array is empty.",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/brand.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/brand.json"
             }
         },
         "models" : {
             "type" : "array",
             "description": "List of models. This can be empty if the categories and brands array is empty.",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/model.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/model.json"
             }
         },
         "items" : {
             "type" : "array",
             "description": "List of items. This can be empty if the categories, models and brands array is empty",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json"
             }
         },
         "offers" : {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/offer.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json"
             }
         },
         "ttl": {

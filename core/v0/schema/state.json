@@ -5,7 +5,7 @@
     "type": "object",
     "properties" : {
         "descriptor": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
         },
         "updated_at": {
             "type": "string",

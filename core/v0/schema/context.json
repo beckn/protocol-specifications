@@ -2,16 +2,24 @@
     "$id": "context.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a beckn message context",
+    "definitions": {
+        "country" : {
+
+        },
+        "city" : {
+
+        }
+    },
     "type": "object",
     "properties": {
         "domain": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/domain.json"
+            "$ref": "../core.json"
         },
         "country" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/country.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/country.json#/properties/code"
         },
         "city" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/city.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/city.json#/properties/code"
         },
         "action": {
             "type": "string",
@@ -72,7 +80,7 @@
             "description": "Time of request generation in RFC3339 format"
         },
         "ttl" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
         }
     }
 } 
