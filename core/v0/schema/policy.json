@@ -12,20 +12,6 @@
         },
         "parent_policy_id": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/policy.json#/properties/id"
-        },
-        "terms": {
-            "type": "array",
-            "items": {
-                "id" : {
-                    "type" : "string"
-                },
-                "parent_term_id" : {
-                    "type": "string"
-                },
-                "descriptor" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
-                }
-            }
         }
     }
 }

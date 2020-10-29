@@ -13,9 +13,6 @@
         },
         "updated_by": {
             "type": "string"
-        },
-        "update_metadata" : {
-            "type" : "object"
         }
     }
 }

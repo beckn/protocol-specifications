@@ -4,25 +4,17 @@
     "description": "Describes a quote",
     "type": "object",
     "properties": {
-        "id" : {
-            "type" : "string"
-        },
         "price" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/price.json"
-        },
-        "ttl" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
         },
         "breakup" : {
             "type" : "array",
             "items" : {
                 "type": "object",
                 "properties": {
-                    "item_id" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
-                    },
-                    "offer_id" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
+                    "type" : {
+                        "type" : "string",
+                        "enum": ["item", "offer", "add-on", "fulfillment"]
                     },
                     "title" : {
                         "type": "string"
@@ -32,6 +24,9 @@
                     }
                 }
             }
+        },
+        "ttl" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
         }
     }
 }

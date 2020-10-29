@@ -4,6 +4,12 @@
     "description": "Describes the location of a runtime object. Extension not allowed",
     "type": "object",
     "properties": {
+        "id" : {
+            "type" : "string"
+        },
+        "descriptor" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
+        },
         "gps": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/gps.json"
         },

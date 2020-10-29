@@ -11,9 +11,6 @@
         "required_params" : {
             "type" : "object",
             "description": "Required params for tracking. To be defined by domain."
-        },
-        "metadata" : {
-            "type" : "object"
         }
     }
 }

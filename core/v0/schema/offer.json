@@ -5,50 +5,29 @@
     "type": "object",
     "properties": {
         "id": {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/offer.json#/properties/id",
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json#/properties/id",
             "type": "string"
         },
         "descriptor": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
         },
-        "applies_to": {
-            "type": "object",
-            "description": "",
-            "properties": {
-                "scope": {
-                    "type": "string",
-                    "enum": [
-                        "SERVICE",
-                        "CATEGORY",
-                        "ITEM"
-                    ],
-                    "description": "This can be extended by domain beyond the SERVICE, CATEGORY and ITEM"
-                },
-                "ids": {
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/service.json#/properties/id"
-                            },
-                            {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/category.json#/properties/id"
-                            },
-                            {
-                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
-                            }
-                        ]
-                    }
-                }
+        "location_ids" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json#/properties/id"
             }
         },
-        "start_date": {
-            "type": "string",
-            "format": "date-time"
+        "category_ids" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/category.json#/properties/id"
+            }
         },
-        "end_date": {
-            "type": "string",
-            "format": "date-time"
+        "item_ids" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
+            }
         }
     }
 }

@@ -1,19 +1,40 @@
 {
     "$id": "fulfillment.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "description": "Describes how a single service will be rendered/fulfilled",
+    "description": "Describes how a single product/service will be rendered/fulfilled to the end customer",
     "type": "object",
     "properties": {
+        "id" : {
+            "type" : "string",
+            "description": "Unique ID representing the fulfillment of an order"
+        },
+        "type" : {
+            "type" : "string",
+            "description": "This describes the type of fulfillment",
+            "enum": ["home-delivery", "store-pickup"]
+        },
+        "state" : {
+            "type" : "string"
+        },
         "person" : {
             "description": "The person who fuliflls the service",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/person.json"
         },
         "location" : {
             "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/location.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json"
         },
-        "type" : {
+        "time" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/time.json"
+        },
+        "purpose" : {
             "type" : "string"
+        },
+        "tags": {
+            "type" : "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/tag.json"
+            }
         }
     }
 }

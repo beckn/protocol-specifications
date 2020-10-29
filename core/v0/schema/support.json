@@ -1,41 +1,20 @@
 {
     "$id": "support.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "description": "Customer support of a service",
+    "description": "Customer support",
     "type": "object",
     "properties": {
-        "service_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/service.json#/properties/id"
+        "type" : {
+            "type" : "string",
+            "enum": ["order", "billing", "fulfillment"]
         },
-        "order": {
-            "type" : "object",
-            "properties": {
-                "id" : {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json#/properties/id"
-                }
-            },
-            "order_items" : {
-                "type" : "array",
-                "items": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
-                }
-            }
+        "ref_id" : {
+            "type" : "string"
         },
-        "communication"  : {
-            "type" : "object",
-            "properties" : {
-                "chat" : {
-                    "type" : "object"
-                },
-                "callback" : {
-                    "type" : "object"
-                },
-                "call" : {
-                    "type" : "object"
-                },
-                "email" : {
-                    "type" : "object"
-                }
+        "channels" : {
+            "type" : "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/tag.json"
             }
         }
     }

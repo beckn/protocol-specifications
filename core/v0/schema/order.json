@@ -5,44 +5,75 @@
     "type": "object",
     "properties": {
         "id" : {
+            "type" : "string",
+            "description": "Hash of order object without id"
+        },
+        "state" : {
             "type" : "string"
         },
-        "state": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/state.json"
+        "provider": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/provider.json#/properties/id"
+                }
+            }
         },
-        "update_action" : {
-            "type" : "string"
+        "provider_location": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json#/properties/id"
+                }
+            }
         },
-        "created_at" : {
-            "type" : "string",
-            "format": "date-time"
-        },
-        "updated_at" : {
-            "type" : "string",
-            "format": "date-time"
-        },
-        "items" : {
+        "items": {
             "type": "array",
             "items": {
-                "type" : "object",
+                "type": "object",
                 "properties": {
-                    "id" : {
+                    "id": {
                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
                     },
-                    "quantity" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item_quantity.json"
+                    "quantity": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                     }
                 }
             }
         },
-        "billing" : {
+        "add_ons": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/add_on.json#/properties/id"
+                    }
+                }
+            }
+        },
+        "offers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json#/properties/id"
+                    }
+                }
+            }
+        },
+        "billing": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/billing.json"
         },
-        "payment" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/payment.json"
+        "fulfillment": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/fulfillment.json"
         },
-        "quotation" : {
+        "quote": {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/quotation.json"
+        },
+        "payment": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/payment.json"
         }
     }
 }
