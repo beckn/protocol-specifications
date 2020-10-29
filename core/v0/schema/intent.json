@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/intent.json",
+    "$id": "intent.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Intent of a user. Used for searching for services",
     "type": "object",
@@ -7,22 +7,28 @@
         "query_string" : {
             "type" : "string"
         },
-        "provider_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/provider.json#/properties/id"
+        "provider" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/provider.json"
         },
-        "category_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/category.json#/properties/id"
+        "fulfillment" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/fulfillment.json"
         },
-        "brand_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/brand.json#/properties/id"
+        "category" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/category.json"
         },
-        "item_id" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json#/properties/id"
+        "offer" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json"
+        },
+        "item" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
+        },
+        "purpose" : {
+            "type" : "string"
         },
         "tags": {
             "type": "array",
             "items" : {
-                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/tag.json"
+                "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/tag.json"
             }
         }
     }

@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/tracking.json",
+    "$id": "tracking.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the tracking info of an object",
     "type": "object",
@@ -11,9 +11,6 @@
         "required_params" : {
             "type" : "object",
             "description": "Required params for tracking. To be defined by domain."
-        },
-        "metadata" : {
-            "type" : "object"
         }
     }
 }

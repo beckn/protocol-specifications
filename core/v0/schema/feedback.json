@@ -1,17 +1,21 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/feedback.json",
+    "$id": "feedback.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Feedback for a service",
     "type": "object",
     "properties": {
-        "order_id": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+        "type" : {
+            "type" : "string",
+            "enum" : ["order", "fulfillment", "item", "support", "person"]
         },
-        "rating"  : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/rating.json"
+        "id": {
+            "type" : "string"
         },
-        "description": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
+        "rating" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+        },
+        "descriptor" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
         }
     }
 }

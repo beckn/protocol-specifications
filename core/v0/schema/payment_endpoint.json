@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/payment_endpoint.json",
+    "$id": "payment_endpoint.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes where a payment is happening from or to",
     "type": "object",
@@ -27,7 +27,7 @@
             "description": "Virtual Payment Address like a UPI address"
         },
         "person" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/person.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/person.json"
         }
     }
 }

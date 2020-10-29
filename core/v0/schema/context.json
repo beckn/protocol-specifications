@@ -1,17 +1,25 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json",
+    "$id": "context.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a beckn message context",
+    "definitions": {
+        "country" : {
+
+        },
+        "city" : {
+
+        }
+    },
     "type": "object",
     "properties": {
         "domain": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/domain.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/domain.json"
         },
         "country" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/country.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/country.json#/properties/code"
         },
         "city" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/city.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/city.json#/properties/code"
         },
         "action": {
             "type": "string",
@@ -60,19 +68,23 @@
         },
         "transaction_id": {
             "type": "string",
-            "description": "This is a unique value which persists across all API calls from search through confirm"
+            "description": "This is a unique value which persists across all API calls from search through confirm. The format for transaction id is an ecrypted value of the following string. '{bap_id}.{timestamp}.{ttl}.{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback transaction_id with the request transaction_id"
         },
         "message_id" : {
             "type": "string",
-            "description": "This is a unique value which persists during a request / callback cycle."
+            "description": "This is a unique value which persists during a request / callback cycle. ",
+            "format" : ""
         },
         "timestamp": {
             "type": "string",
             "format": "date-time",
             "description": "Time of request generation in RFC3339 format"
         },
+        "key" : {
+            "type": "string"
+        },
         "ttl" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
         }
     }
 } 

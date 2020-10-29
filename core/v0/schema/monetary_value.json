@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/monetary_value.json",
+    "$id": "monetary_value.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a monetary value used for exchange",
     "type": "object",
@@ -8,7 +8,7 @@
             "type" : "string"
         },
         "value" : {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/f1cae681d8d256d228d4e725fe451a767ab9b618/core/v0/schema/decimal_value.json"
+            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/decimal_value.json"
         }
     }
 }

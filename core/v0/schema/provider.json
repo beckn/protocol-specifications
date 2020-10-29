@@ -1,17 +1,35 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/provider.json",
+    "$id": "provider.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a service provider. This can be a restaurant, a hospital, a Store etc",
     "type": "object",
     "properties": {
         "id" : {
-            "type" : "string"
+            "type" : "string",
+            "description": "Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}",
+            "examples": [
+                {
+                    "id" : "example-mega-mart@example-bpp.com"
+                }
+            ]
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
         },
-        "poc" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/person.json"
+        "locations" : {
+            "type" : "array",
+            "items" : {
+                "allOf": [
+                    {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json"
+                    },
+                    {
+                        "time" : {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/time.json"
+                        }
+                    }
+                ]
+            }
         }
     }
 }

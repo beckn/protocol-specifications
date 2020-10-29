@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json",
+    "$id": "descriptor.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the description of a real-world object. Maintained by Beckn Foundation",
     "type": "object",
@@ -22,7 +22,7 @@
         "images": {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/image.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/image.json"
             }
         },
         "audio" : {
