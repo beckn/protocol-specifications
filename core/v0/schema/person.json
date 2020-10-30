@@ -4,10 +4,6 @@
     "description": "Describes a person. Extension not allowed",
     "type": "object",
     "properties": {
-        "type" : {
-            "type" : "string",
-            "enum": ["person", "org"]
-        },
         "name" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/name.json"
         },
@@ -18,8 +14,8 @@
             "type": "string",
             "format": "date"
         },
-        "works_for" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+        "organization" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/organiztion.json"
         },
         "gender": {
             "type": "string",
