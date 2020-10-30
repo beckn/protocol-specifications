@@ -15,7 +15,7 @@
             "format": "date"
         },
         "organization" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/organiztion.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/organization.json"
         },
         "gender": {
             "type": "string",
