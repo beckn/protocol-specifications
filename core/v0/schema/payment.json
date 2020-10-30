@@ -13,10 +13,10 @@
             "enum": ["ON-ORDER", "PRE-FULFILLMENT", "ON-FULFILLMENT","POST-FULFILLMENT"]
         },
         "payer" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/payment_endpoint.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment_endpoint.json"
         },
         "payee" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/payment_endpoint.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment_endpoint.json"
         },
         "methods" : {
             "type" : "array",
@@ -26,17 +26,17 @@
             }
         },
         "amount" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/monetary_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/monetary_value.json"
         },
         "state" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/state.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/state.json"
         },
         "due_date" : {
             "type" : "string",
             "format": "date-time"
         },
         "duration" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/duration.json"
         }
     }
 }

@@ -15,7 +15,7 @@
             "type": "object",
             "properties": {
                 "info": {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/person.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
                 }
             }
         },
@@ -24,7 +24,7 @@
             "properties": {
                 "primary": {
                     "info": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/person.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
                     }
                 },
                 "count": {
