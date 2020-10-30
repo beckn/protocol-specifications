@@ -56,10 +56,20 @@
             "type": "string",
             "description": "Version of Beckn domain level schema being used"
         },
+        "bap_id" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "This is registered domain name of the BAP. Must be an HTTPS domain in open networks"
+        },
         "bap_uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URI of the BAP. Typically a URL"
+            "description": "URI of the BAP. Must behave the same "
+        },
+        "bpp_id" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "This is registered domain name of the BPP. Must be an HTTPS domain in open networks"
         },
         "bpp_uri" : {
             "type" : "string",
@@ -72,7 +82,7 @@
         },
         "message_id" : {
             "type": "string",
-            "description": "This is a unique value which persists during a request / callback cycle. ",
+            "description": "This is a unique value which persists during a request / callback cycle. The format for transaction id is an ecrypted value of the following string. '{bap_id}.{action}.{timestamp}.{ttl}.{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback message_id with the request message_id",
             "format" : ""
         },
         "timestamp": {
