@@ -21,13 +21,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "intent": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/intent.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/intent.json"
                                             }
                                         }
                                     }
@@ -45,18 +45,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -80,7 +80,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -92,7 +92,7 @@
                                                         "type" : "object",
                                                         "properties" : {
                                                             "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/provider.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json#/properties/id"
                                                             }
                                                         }
                                                         
@@ -101,7 +101,7 @@
                                                         "type" : "object",
                                                         "properties" : {
                                                             "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/id"
                                                             }
                                                         }
                                                         
@@ -112,10 +112,10 @@
                                                             "type" : "object",
                                                             "properties" : {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
                                                                 },
                                                                 "quantity" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                                                                 }
                                                             }
                                                         }
@@ -126,7 +126,7 @@
                                                             "type" : "object",
                                                             "properties" : {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/add_on.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json#/properties/id"
                                                                 }
                                                             }
                                                         }
@@ -137,7 +137,7 @@
                                                             "type" : "object",
                                                             "properties": {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json#/properties/id"
                                                                 }
                                                             }
                                                         }
@@ -160,18 +160,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -195,7 +195,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -207,7 +207,7 @@
                                                         "type" : "object",
                                                         "properties" : {
                                                             "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/provider.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json#/properties/id"
                                                             }
                                                         }
                                                         
@@ -216,7 +216,7 @@
                                                         "type" : "object",
                                                         "properties" : {
                                                             "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/id"
                                                             }
                                                         }
                                                         
@@ -227,10 +227,10 @@
                                                             "type" : "object",
                                                             "properties" : {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
                                                                 },
                                                                 "quantity" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                                                                 }
                                                             }
                                                         }
@@ -241,7 +241,7 @@
                                                             "type" : "object",
                                                             "properties" : {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/add_on.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json#/properties/id"
                                                                 }
                                                             }
                                                         }
@@ -252,19 +252,19 @@
                                                             "type" : "object",
                                                             "properties": {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
                                                     "billing" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/billing.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/billing.json"
                                                     },
                                                     "fulfillment" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/fulfillment.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
                                                     },
                                                     "payment" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/payment.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment.json"
                                                     }
                                                 }
                                             }
@@ -284,18 +284,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -319,13 +319,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -343,18 +343,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -378,13 +378,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json#/properties/id"
                                             }
                                         }
                                     }
@@ -402,18 +402,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -437,13 +437,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json#/properties/id"
                                             },
                                             "callback_url": {
                                                 "type": "string",
@@ -465,18 +465,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -500,16 +500,16 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json#/properties/id"
                                             },
                                             "reason_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/option.json#/properties/id"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/option.json#/properties/id"
                                             }
                                         }
                                     }
@@ -527,18 +527,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -562,13 +562,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -586,18 +586,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -621,13 +621,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type":"object",
                                         "properties" : {
                                             "feedback" : {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/feedback.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/feedback.json"
                                             }
                                         }
                                     }
@@ -645,18 +645,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -680,13 +680,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type" : "object",
                                         "properties":{
                                             "support" : {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/support.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/support.json"
                                             }
                                         }
                                     }
@@ -704,18 +704,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -740,18 +740,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/catalog.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/catalog.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -767,18 +767,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -802,7 +802,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -811,22 +811,22 @@
                                                 "type" : "object",
                                                 "properties" : {
                                                     "provider" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/provider.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json"
                                                     },
                                                     "provider_location" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
                                                     },
                                                     "items" : {
                                                         "type": "array",
                                                         "items": {
                                                             "allOf" : [
                                                                 {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json"
                                                                 },
                                                                 {
                                                                     "properties" : {
                                                                         "quantity" : {
-                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item_quantity.json"
+                                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json"
                                                                         }
                                                                     }
                                                                 }
@@ -836,25 +836,25 @@
                                                     "add_ons" : {
                                                         "type": "array",
                                                         "items": {
-                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/add_on.json"
+                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json"
                                                         }
                                                         
                                                     },
                                                     "offers" : {
                                                         "type":"array",
                                                         "items": {
-                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json"
+                                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json"
                                                         }
                                                     },
                                                     "quote" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/quotaton.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/quotaton.json"
                                                     }
                                                 }
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -870,18 +870,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -905,7 +905,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -917,7 +917,7 @@
                                                         "type" : "object",
                                                         "properties" : {
                                                             "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/provider.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json#/properties/id"
                                                             }
                                                         }
                                                         
@@ -926,7 +926,7 @@
                                                         "type" : "object",
                                                         "properties" : {
                                                             "id" : {
-                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json#/properties/id"
+                                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/id"
                                                             }
                                                         }
                                                         
@@ -937,10 +937,10 @@
                                                             "type" : "object",
                                                             "properties" : {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
                                                                 },
                                                                 "quantity" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                                                                 }
                                                             }
                                                         }
@@ -951,7 +951,7 @@
                                                             "type" : "object",
                                                             "properties" : {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/add_on.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json#/properties/id"
                                                                 }
                                                             }
                                                         }
@@ -962,29 +962,29 @@
                                                             "type" : "object",
                                                             "properties": {
                                                                 "id" : {
-                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/offer.json#/properties/id"
+                                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
                                                     "billing" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/billing.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/billing.json"
                                                     },
                                                     "fulfillment" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/fulfillment.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
                                                     },
                                                     "quote" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/quotation.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/quotation.json"
                                                     },
                                                     "payment" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/payment.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment.json"
                                                     }
                                                 }
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1000,18 +1000,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1035,18 +1035,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1062,18 +1062,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1097,18 +1097,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/tracking.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tracking.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1124,18 +1124,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1159,18 +1159,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1186,18 +1186,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1221,18 +1221,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1248,18 +1248,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1283,13 +1283,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                             }
                                         }
                                     }
@@ -1307,18 +1307,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1342,7 +1342,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1358,7 +1358,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1374,18 +1374,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
@@ -1409,7 +1409,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1418,10 +1418,10 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "order": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                                     },
                                                     "rating" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/order.json"
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                                     },
                                                     "communication": {
                                                         "type": "string",
@@ -1437,7 +1437,7 @@
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                     }
                                 }
                             }
@@ -1453,18 +1453,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/context.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/ack.json"
+                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/ack.json"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/error.json"
+                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/error.json"
                                         }
                                     }
                                 }
