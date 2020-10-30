@@ -2,14 +2,6 @@
     "$id": "context.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a beckn message context",
-    "definitions": {
-        "country" : {
-
-        },
-        "city" : {
-
-        }
-    },
     "type": "object",
     "properties": {
         "domain": {
@@ -64,7 +56,7 @@
         "bap_uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URI of the BAP. Must behave the same "
+            "description": "URI of the BAP. Must have the same domain name as the bap_id"
         },
         "bpp_id" : {
             "type" : "string",
@@ -74,7 +66,7 @@
         "bpp_uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URI of the BPP. Typically a URL"
+            "description": "URI of the BPP. Must have the same domain name as the bap_id"
         },
         "transaction_id": {
             "type": "string",
