@@ -86,57 +86,55 @@
                                         "type": "object",
                                         "properties": {
                                             "selected": {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "provider" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
                                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json#/properties/id"
                                                             }
                                                         }
-                                                        
                                                     },
-                                                    "provider_location" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
+                                                    "provider_location": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
                                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/id"
                                                             }
                                                         }
-                                                        
                                                     },
-                                                    "items" : {
+                                                    "items": {
                                                         "type": "array",
                                                         "items": {
-                                                            "type" : "object",
-                                                            "properties" : {
-                                                                "id" : {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
                                                                 },
-                                                                "quantity" : {
+                                                                "quantity": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "add_ons" : {
+                                                    "add_ons": {
                                                         "type": "array",
                                                         "items": {
-                                                            "type" : "object",
-                                                            "properties" : {
-                                                                "id" : {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "offers" : {
-                                                        "type":"array",
+                                                    "offers": {
+                                                        "type": "array",
                                                         "items": {
-                                                            "type" : "object",
+                                                            "type": "object",
                                                             "properties": {
-                                                                "id" : {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json#/properties/id"
                                                                 }
                                                             }
@@ -201,69 +199,67 @@
                                         "type": "object",
                                         "properties": {
                                             "initialized": {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "provider" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
                                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json#/properties/id"
                                                             }
                                                         }
-                                                        
                                                     },
-                                                    "provider_location" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
+                                                    "provider_location": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
                                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/id"
                                                             }
                                                         }
-                                                        
                                                     },
-                                                    "items" : {
+                                                    "items": {
                                                         "type": "array",
                                                         "items": {
-                                                            "type" : "object",
-                                                            "properties" : {
-                                                                "id" : {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
                                                                 },
-                                                                "quantity" : {
+                                                                "quantity": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "add_ons" : {
+                                                    "add_ons": {
                                                         "type": "array",
                                                         "items": {
-                                                            "type" : "object",
-                                                            "properties" : {
-                                                                "id" : {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "offers" : {
-                                                        "type":"array",
+                                                    "offers": {
+                                                        "type": "array",
                                                         "items": {
-                                                            "type" : "object",
+                                                            "type": "object",
                                                             "properties": {
-                                                                "id" : {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "billing" : {
+                                                    "billing": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/billing.json"
                                                     },
-                                                    "fulfillment" : {
+                                                    "fulfillment": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
                                                     },
-                                                    "payment" : {
+                                                    "payment": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment.json"
                                                     }
                                                 }
@@ -553,6 +549,16 @@
                 "tags": [
                     "Beckn Provider Platform API"
                 ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "update-object",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
                 "description": "Remove object",
                 "requestBody": {
                     "description": "TODO",
@@ -624,9 +630,9 @@
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "type":"object",
-                                        "properties" : {
-                                            "feedback" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "feedback": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/feedback.json"
                                             }
                                         }
@@ -683,9 +689,9 @@
                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/context.json"
                                     },
                                     "message": {
-                                        "type" : "object",
-                                        "properties":{
-                                            "support" : {
+                                        "type": "object",
+                                        "properties": {
+                                            "support": {
                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/support.json"
                                             }
                                         }
@@ -808,24 +814,24 @@
                                         "type": "object",
                                         "properties": {
                                             "selected": {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "provider" : {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json"
                                                     },
-                                                    "provider_location" : {
+                                                    "provider_location": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
                                                     },
-                                                    "items" : {
+                                                    "items": {
                                                         "type": "array",
                                                         "items": {
-                                                            "allOf" : [
+                                                            "allOf": [
                                                                 {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json"
                                                                 },
                                                                 {
-                                                                    "properties" : {
-                                                                        "quantity" : {
+                                                                    "properties": {
+                                                                        "quantity": {
                                                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json"
                                                                         }
                                                                     }
@@ -833,21 +839,20 @@
                                                             ]
                                                         }
                                                     },
-                                                    "add_ons" : {
+                                                    "add_ons": {
                                                         "type": "array",
                                                         "items": {
                                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json"
                                                         }
-                                                        
                                                     },
-                                                    "offers" : {
-                                                        "type":"array",
+                                                    "offers": {
+                                                        "type": "array",
                                                         "items": {
                                                             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json"
                                                         }
                                                     },
-                                                    "quote" : {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/quotaton.json"
+                                                    "quote": {
+                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/quotation.json"
                                                     }
                                                 }
                                             }
@@ -911,72 +916,70 @@
                                         "type": "object",
                                         "properties": {
                                             "initialized": {
-                                                "type" : "object",
-                                                "properties" : {
-                                                    "provider" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
                                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json#/properties/id"
                                                             }
                                                         }
-                                                        
                                                     },
-                                                    "provider_location" : {
-                                                        "type" : "object",
-                                                        "properties" : {
-                                                            "id" : {
+                                                    "provider_location": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
                                                                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/id"
                                                             }
                                                         }
-                                                        
                                                     },
-                                                    "items" : {
+                                                    "items": {
                                                         "type": "array",
                                                         "items": {
-                                                            "type" : "object",
-                                                            "properties" : {
-                                                                "id" : {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
                                                                 },
-                                                                "quantity" : {
+                                                                "quantity": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item_quantity.json#/properties/selected"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "add_ons" : {
+                                                    "add_ons": {
                                                         "type": "array",
                                                         "items": {
-                                                            "type" : "object",
-                                                            "properties" : {
-                                                                "id" : {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/add_on.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "offers" : {
-                                                        "type":"array",
+                                                    "offers": {
+                                                        "type": "array",
                                                         "items": {
-                                                            "type" : "object",
+                                                            "type": "object",
                                                             "properties": {
-                                                                "id" : {
+                                                                "id": {
                                                                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json#/properties/id"
                                                                 }
                                                             }
                                                         }
                                                     },
-                                                    "billing" : {
+                                                    "billing": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/billing.json"
                                                     },
-                                                    "fulfillment" : {
+                                                    "fulfillment": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
                                                     },
-                                                    "quote" : {
+                                                    "quote": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/quotation.json"
                                                     },
-                                                    "payment" : {
+                                                    "payment": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment.json"
                                                     }
                                                 }
@@ -1212,6 +1215,16 @@
                 "tags": [
                     "Beckn App Platform API"
                 ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "update-object",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
                 "description": "Returns updated service with updated runtime object",
                 "requestBody": {
                     "description": "TODO",
@@ -1350,8 +1363,8 @@
                                             "feedback": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "message" : {
-                                                        "type" : "string"
+                                                    "message": {
+                                                        "type": "string"
                                                     }
                                                 }
                                             }
@@ -1420,7 +1433,7 @@
                                                     "order": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                                     },
-                                                    "rating" : {
+                                                    "rating": {
                                                         "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/order.json"
                                                     },
                                                     "communication": {
