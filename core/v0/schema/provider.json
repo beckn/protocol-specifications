@@ -14,21 +14,21 @@
             ]
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/descriptor.json"
+        },
+        "time" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
         },
         "locations" : {
-            "type" : "array",
-            "items" : {
-                "allOf": [
-                    {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json"
-                    },
-                    {
-                        "time" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/time.json"
-                        }
-                    }
-                ]
+            "type": "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+            }
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
             }
         }
     }

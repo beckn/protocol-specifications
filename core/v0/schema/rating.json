@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/rating.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/rating.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the rating of a person or an object. Extension not allowed",
     "type": "object",

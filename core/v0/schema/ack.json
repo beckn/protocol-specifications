@@ -11,6 +11,10 @@
                 "ACK",
                 "NACK"
             ]
+        },
+        "signature" : {
+            "type" : "string",
+            "description": "Hash of previously received request body signed using receiver's signing public key. For example, The ACK/NACK response to a confirm call fired by a BAP must have the BPP's signature containing the hash of the confirm message body. In case the API is being routed by a BG, the BG ack will have the have the BG's signature containing the hash of the message body"
         }
     }
 }

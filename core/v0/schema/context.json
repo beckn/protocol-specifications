@@ -2,24 +2,16 @@
     "$id": "context.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a beckn message context",
-    "definitions": {
-        "country" : {
-
-        },
-        "city" : {
-
-        }
-    },
     "type": "object",
     "properties": {
         "domain": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/domain.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/domain.json"
         },
         "country" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/country.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/country.json#/properties/code"
         },
         "city" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/city.json#/properties/code"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/city.json#/properties/code"
         },
         "action": {
             "type": "string",
@@ -56,15 +48,25 @@
             "type": "string",
             "description": "Version of Beckn domain level schema being used"
         },
+        "bap_id" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "This is registered domain name of the BAP. Must be an HTTPS domain in open networks"
+        },
         "bap_uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URI of the BAP. Typically a URL"
+            "description": "URI of the BAP. Must have the same domain name as the bap_id"
+        },
+        "bpp_id" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "This is registered domain name of the BPP. Must be an HTTPS domain in open networks"
         },
         "bpp_uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URI of the BPP. Typically a URL"
+            "description": "URI of the BPP. Must have the same domain name as the bap_id"
         },
         "transaction_id": {
             "type": "string",
@@ -72,7 +74,7 @@
         },
         "message_id" : {
             "type": "string",
-            "description": "This is a unique value which persists during a request / callback cycle. ",
+            "description": "This is a unique value which persists during a request / callback cycle. The format for transaction id is an ecrypted value of the following string. '{bap_id}.{action}.{timestamp}.{ttl}.{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback message_id with the request message_id",
             "format" : ""
         },
         "timestamp": {
@@ -84,7 +86,7 @@
             "type": "string"
         },
         "ttl" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/duration.json"
         }
     }
 } 

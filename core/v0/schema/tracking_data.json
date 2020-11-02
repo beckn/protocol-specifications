@@ -2,5 +2,5 @@
     "$id": "tracking_data.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes tracking data object during live tracking of an order",
-    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/location.json#/properties/gps"
+    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json#/properties/gps"
 }

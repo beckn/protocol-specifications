@@ -4,22 +4,46 @@
     "description": "Describes a billing event",
     "type": "object",
     "properties": {
-        "name" : {
-            "type" : "string"
-        },
         "customer" : {
             "describtion" : "Personal details of the customer needed for billing.",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/person.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
         },
-        "address" : {
+        "organization" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/organization.json"
+        },
+        "location" : {
             "description": "Location where the bill is to be sent to",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/address.json"
+            "allOf": [
+                {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+                },
+                {
+                    "required": ["address"]
+                },
+                {
+                    "properties": {
+                        "email" : {
+                            "type" : "string",
+                            "format": "email"
+                        }
+
+                    }
+                }
+            ]
         },  
-        "period" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-0.9.0/core/v0/schema/duration.json"
+        "time" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
         },
         "tax_number" : {
             "type" : "string"
+        },
+        "created_at" : {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at" : {
+            "type": "string",
+            "format": "date-time"
         }
     }
 }
