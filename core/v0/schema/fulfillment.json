@@ -6,26 +6,60 @@
     "properties": {
         "id" : {
             "type" : "string",
-            "description": "Unique ID representing the fulfillment of an order"
+            "description": "Unique reference ID to the fulfillment of an order"
         },
         "type" : {
             "type" : "string",
-            "description": "This describes the type of fulfillment",
-            "enum": ["home-delivery", "store-pickup"]
+            "description": "This describes the type of fulfillment"
         },
         "state" : {
-            "type" : "string"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/state.json"
         },
-        "person" : {
-            "description": "The person who fuliflls the service",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+        "tracking" : {
+            "type" : "boolean",
+            "description": "Indicates whether the fulfillment allows tracking",
+            "default": false
         },
-        "location" : {
+        "agent" : {
+            "description": "The person who fulfills the order",
+            "allOf": [
+                {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+                },
+                {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/contact.json"
+                }
+            ]
+        },
+        "start_location" : {
             "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+            "allOf": [
+                {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+                },
+                {
+                    "properties": {
+                        "time" : {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
+                        }
+                    }
+                }
+            ]
         },
-        "time" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
+        "end_location" : {
+            "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
+            "allOf": [
+                {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+                },
+                {
+                    "properties": {
+                        "time" : {
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
+                        }
+                    }
+                }
+            ]
         },
         "purpose" : {
             "type" : "string"

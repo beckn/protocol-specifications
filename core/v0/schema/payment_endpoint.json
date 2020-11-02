@@ -4,30 +4,58 @@
     "description": "Describes where a payment is happening from or to",
     "type": "object",
     "properties": {
-        "type" : {
+        "uri" : {
             "type" : "string",
-            "enum": [ "bank_account", "vpa", "person" ]
+            "description": "A uri which is clickable when not empty. <br/> Additionally, if the method is HTTP ```GET```, then the ```tag``` objects in the ```params``` array will serve as url params. <br/><br/> In POST requests, the key, value in params will be sent in the ```requestBody```. <br/><br/>For example : <br/><br/>",
+            "format" : "uri"
         },
-        "bank_account" : {
-            "type" : "object",
-            "properties": {
-                "account_number" : {
-                    "type" : "string"
-                },
-                "account_holder_name" : {
-                    "type" : "string"
-                },
-                "ifsc_code" : {
-                    "type" : "string"
-                }
+        "method" : {
+            "type" : "string"
+        },
+        "params" : {
+            "type":"array",
+            "description": "A list of key value pairs which will be required to complete the payment. These values will be sent in the GET or POST request ",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
             }
-        },
-        "vpa" : {
-            "type" : "string",
-            "description": "Virtual Payment Address like a UPI address"
-        },
-        "person" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
         }
-    }
+    },
+    "examples": [
+        {
+            "uri" : "https://payment.example.com/pay?amount=$amount&currency=$currency&transaction_id=$transaction_id",
+            "method" : "GET",
+            "params" : [
+                {
+                    "key" : "amount",
+                    "value" : "500"
+                },
+                {
+                    "key" : "transaction_id",
+                    "value" : "f76t8o87"
+                },
+                {
+                    "key" : "currency",
+                    "value" : "INR"
+                }
+            ]
+        },
+        {
+            "uri" : "https://payment.example.com/pay",
+            "method" : "POST",
+            "params" : [
+                {
+                    "key" : "amount",
+                    "value" : "500"
+                },
+                {
+                    "key" : "transaction_id",
+                    "value" : "f76t8o87"
+                },
+                {
+                    "key" : "currency",
+                    "value" : "INR"
+                }
+            ]
+        }
+    ]
 }

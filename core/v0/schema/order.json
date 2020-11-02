@@ -67,6 +67,26 @@
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/billing.json"
         },
         "fulfillment": {
+            "allOf": [
+                {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fufillment.json"
+                },
+                {
+                    "properties": {
+                        "customer" : {
+                            "description": "The customer who receives the fulfilled order",
+                            "allOf": [
+                                {
+                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+                                },
+                                {
+                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/contact.json"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
         },
         "quote": {

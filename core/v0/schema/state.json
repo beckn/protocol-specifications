@@ -12,7 +12,8 @@
             "format": "date-time"
         },
         "updated_by": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of entity which changed the state"
         }
     }
 }

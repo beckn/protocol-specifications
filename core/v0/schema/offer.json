@@ -28,6 +28,9 @@
             "items" : {
                 "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/item.json#/properties/id"
             }
+        },
+        "time" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
         }
     }
 }
