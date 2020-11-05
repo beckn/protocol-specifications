@@ -11,7 +11,7 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "quantity" : {
+                "measure" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
                 }
             }
@@ -23,7 +23,7 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "quantity" : {
+                "measure" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
                 }
             }
@@ -35,7 +35,7 @@
                     "type": "integer",
                     "minimum": 1
                 },
-                "quantity" : {
+                "measure" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
                 }
             }
@@ -47,7 +47,7 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "quantity" : {
+                "measure" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
                 }
             }
@@ -59,7 +59,7 @@
                     "type": "integer",
                     "minimum": 0
                 },
-                "quantity" : {
+                "measure" : {
                     "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
                 }
             }
