@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Core API",
         "description": "Beckn Core API specification",
-        "version": "0.9.0"
+        "version": "0.9.1-draft01"
     },
     "components": {
         "securitySchemes": {
