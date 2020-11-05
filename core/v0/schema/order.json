@@ -69,7 +69,7 @@
         "fulfillment": {
             "allOf": [
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fufillment.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
                 },
                 {
                     "properties": {
