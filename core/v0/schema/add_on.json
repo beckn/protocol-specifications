@@ -1,6 +1,4 @@
 {
-    "$id": "add_on.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes an add-on",
     "type": "object",
     "properties": {

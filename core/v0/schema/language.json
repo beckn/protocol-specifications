@@ -1,6 +1,4 @@
 {
-    "$id": "language.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "indicates language code. Beckn supports country codes as per ISO 639.2 standard",
     "type": "object",
     "properties": {

@@ -1,6 +1,4 @@
 {
-    "$id": "schema/api.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes an API",
     "type": "object",
     "properties": {
