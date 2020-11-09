@@ -4,12 +4,7 @@
     "properties": {
         "id" : {
             "type" : "string",
-            "description": "Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}",
-            "examples": [
-                {
-                    "id" : "example-mega-mart@example-bpp.com"
-                }
-            ]
+            "description": "Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}"
         },
         "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"

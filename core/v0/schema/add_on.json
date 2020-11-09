@@ -4,11 +4,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "description": "ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR ",
-            "examples" : [
-                "example-pizzeria@example-bpp.com/item/original-margherita/add-on/extra-cheese",
-                "example-gift-shop@example-bpp.com/add-on/gift-wrap"
-            ]
+            "description": "ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR "
         },
         "descriptor" : {
             "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"
