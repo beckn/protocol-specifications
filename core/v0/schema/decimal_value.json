@@ -1,12 +1,5 @@
 {
     "description": "Describes a decimal value",
-    "type": "object",
-    "properties": {
-        "integral" : {
-            "type" : "string"
-        },
-        "fractional" : {
-            "type" : "string"
-        }
-    }
+    "type": "string",
+    "pattern" : "[+-]?([0-9]*[.])?[0-9]+"
 }
