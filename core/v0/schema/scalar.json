@@ -16,11 +16,14 @@
             "type": "number"
         },
         "range": {
-            "min" : {
-                "type" : "number"
-            },
-            "max" : {
-                "type" : "number"
+            "type" : "object",
+            "properties" : {
+                "min" : {
+                    "type" : "number"
+                },
+                "max" : {
+                    "type" : "number"
+                }
             }
         },
         "unit": {
