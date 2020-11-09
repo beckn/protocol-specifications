@@ -1,6 +1,4 @@
 {
-    "$id": "item_quantity.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes count or amount of an item",
     "type": "object",
     "properties": {

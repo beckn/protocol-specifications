@@ -1,6 +1,4 @@
 {
-    "$id": "circle.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a circular area on the map",
     "allOf": [
         {

@@ -1,6 +1,4 @@
 {
-    "$id": "location.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the location of a runtime object. Extension not allowed",
     "type": "object",
     "properties": {

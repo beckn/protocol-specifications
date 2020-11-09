@@ -1,6 +1,4 @@
 {
-    "$id": "payment_endpoint.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes where a payment is happening from or to",
     "type": "object",
     "properties": {

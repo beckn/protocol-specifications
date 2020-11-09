@@ -1,6 +1,4 @@
 {
-    "$id": "provider.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a service provider. This can be a restaurant, a hospital, a Store etc",
     "type": "object",
     "properties": {

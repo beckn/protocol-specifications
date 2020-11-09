@@ -1,6 +1,4 @@
 {
-    "$id": "domain.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the domain of an object",
     "type": "string"
 }

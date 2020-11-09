@@ -1,6 +1,4 @@
 {
-    "$id": "policy.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a policy. Allows for domain extension.",
     "type": "object",
     "properties": {

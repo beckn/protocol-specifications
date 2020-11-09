@@ -1,6 +1,4 @@
 {
-    "$id": "quotation.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a quote",
     "type": "object",
     "properties": {

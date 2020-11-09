@@ -1,6 +1,4 @@
 {
-    "$id": "monetary_value.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a monetary value used for exchange",
     "type": "object",
     "properties": {

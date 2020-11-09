@@ -1,6 +1,4 @@
 {
-    "$id": "tracking.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the tracking info of an object",
     "type": "object",
     "properties" : { 
