@@ -1,0 +1,26 @@
+{
+    "context": {
+        "domain": "fmd",
+        "country": "ind",
+        "city": "blr",
+        "action": "track",
+        "core_version": "0.9.0",
+        "domain_version": "0.9.0",
+        "bap_id": "bap-domain.com",
+        "bap_uri": "bap-domain.com/path/to/api/",
+        "bpp_id": "dunzo-bpp.com",
+        "bpp_uri": "dunzo-bpp.com/path/to/api/",
+        "transaction_id": "bap-domain.com/2020-11-03T07:14:34.700Z/60/987907708",
+        "message_id": "bap-domain.com/track/2020-11-03T07:14:34.700Z/60/8769692",
+        "timestamp": "2020-11-03T07:14:34.700Z",
+        "key": "",
+        "ttl": "60"
+    },
+    "message": {
+        "tracking" : {
+            "tl_method" : "http/get",
+            "url" : "dunzo-bpp.com/track/order_id/jgsa794iuy87ykuyiyu7iuyiuytit",
+            "status" : "active"
+        }
+    }
+}
