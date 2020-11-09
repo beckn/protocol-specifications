@@ -6,7 +6,7 @@
             "type" : "string"
         },
         "value" : {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/decimal_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/decimal_value.json"
         }
     }
 }
