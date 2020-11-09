@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "customer" : {
-            "describtion" : "Personal details of the customer needed for billing.",
+            "description" : "Personal details of the customer needed for billing.",
             "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/person.json"
         },
         "organization" : {
