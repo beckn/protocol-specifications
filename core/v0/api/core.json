@@ -1775,13 +1775,13 @@
                                         "type": "string"
                                     },
                                     "domain": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/domain.json"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/domain.json"
                                     },
                                     "country": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/country.json#/properties/code"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/country.json#/properties/code"
                                     },
                                     "city": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/schema/0.8.0/city.json#/properties/code"
+                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/city.json#/properties/code"
                                     }
                                 }
                             }
