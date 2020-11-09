@@ -2,13 +2,17 @@
     "description": "Describes the tracking info of an object",
     "type": "object",
     "properties" : { 
+        "tl_method" : {
+            "type" : "string",
+            "enum" : ["http/get", "ws"]
+        },
         "url" : {
             "type" : "string",
             "format" : "uri"
         },
-        "required_params" : {
-            "type" : "object",
-            "description": "Required params for tracking. To be defined by domain."
+        "status" : {
+            "type" : "string",
+            "enum" : ["active", "inactive"]
         }
     }
 }
