@@ -3,7 +3,7 @@
     "type": "object",
     "properties" : {
         "descriptor": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"
         },
         "updated_at": {
             "type": "string",

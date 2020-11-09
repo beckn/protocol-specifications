@@ -1,5 +1,5 @@
 {
-    "description": "Describes the rating of a person or an object. Extension not allowed",
+   "description": "Describes the rating of a person or an object. Extension not allowed",
     "type": "object",
     "properties": {
         "value" : {

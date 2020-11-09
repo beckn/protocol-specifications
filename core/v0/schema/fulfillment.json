@@ -11,7 +11,7 @@
             "description": "This describes the type of fulfillment"
         },
         "state" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/state.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/state.json"
         },
         "tracking" : {
             "type" : "boolean",
@@ -22,10 +22,10 @@
             "description": "The person who fulfills the order",
             "allOf": [
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/person.json"
                 },
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/contact.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/contact.json"
                 }
             ]
         },
@@ -33,12 +33,12 @@
             "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
             "allOf": [
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json"
                 },
                 {
                     "properties": {
                         "time" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
                         }
                     }
                 }
@@ -48,12 +48,12 @@
             "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
             "allOf": [
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json"
                 },
                 {
                     "properties": {
                         "time" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
+                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
                         }
                     }
                 }
@@ -65,7 +65,7 @@
         "tags": {
             "type" : "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
             }
         }
     }
