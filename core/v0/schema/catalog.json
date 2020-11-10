@@ -45,7 +45,7 @@
         "exp": {
             "type": "string",
             "description": "Time after which catalog has to be refreshed",
-            "format": "datetime"
+            "format": "date-time"
         }
     }
 }
