@@ -20,7 +20,7 @@
         "images": {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/image.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/image.json"
             }
         },
         "audio" : {

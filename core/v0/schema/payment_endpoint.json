@@ -14,7 +14,7 @@
             "type":"array",
             "description": "A list of key value pairs which will be required to complete the payment. These values will be sent in the GET or POST request ",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
             }
         }
     },
