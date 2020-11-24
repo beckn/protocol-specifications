@@ -1,6 +1,4 @@
 {
-    "$id": "fulfillment.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes how a single product/service will be rendered/fulfilled to the end customer",
     "type": "object",
     "properties": {
@@ -13,7 +11,7 @@
             "description": "This describes the type of fulfillment"
         },
         "state" : {
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/state.json"
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/state.json"
         },
         "tracking" : {
             "type" : "boolean",
@@ -24,42 +22,48 @@
             "description": "The person who fulfills the order",
             "allOf": [
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/person.json"
                 },
                 {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/contact.json"
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/contact.json"
                 }
             ]
         },
-        "start_location" : {
-            "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
-            "allOf": [
-                {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+        "start" : {
+            "description" : "Details on the start of fulfillment",
+            "type" : "object",
+            "properties": {
+                "location" : {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json"
                 },
-                {
-                    "properties": {
-                        "time" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
-                        }
-                    }
+                "time" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
+                },
+                "instructions" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"
+                },
+                "contact" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/contact.json"
                 }
-            ]
+            }
         },
-        "end_location" : {
-            "description" : "The location where service will be fulfilled. In case of a domain where a service is being rendered in multiple locations, the last service location should be considered",
-            "allOf": [
-                {
-                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+        "end" : {
+            "description" : "Details on the end of fulfillment",
+            "type" : "object",
+            "properties": {
+                "location" : {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json"
                 },
-                {
-                    "properties": {
-                        "time" : {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
-                        }
-                    }
+                "time" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
+                },
+                "instructions" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"
+                },
+                "contact" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/contact.json"
                 }
-            ]
+            }
         },
         "purpose" : {
             "type" : "string"
@@ -67,7 +71,7 @@
         "tags": {
             "type" : "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
             }
         }
     }

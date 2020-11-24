@@ -1,6 +1,4 @@
 {
-    "$id": "monetary_value.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a monetary value used for exchange",
     "type": "object",
     "properties": {
@@ -8,7 +6,7 @@
             "type" : "string"
         },
         "value" : {
-            "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/decimal_value.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/decimal_value.json"
         }
     }
 }

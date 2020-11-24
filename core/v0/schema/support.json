@@ -1,6 +1,4 @@
 {
-    "$id": "support.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Customer support",
     "type": "object",
     "properties": {
@@ -14,7 +12,7 @@
         "channels" : {
             "type" : "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
             }
         }
     }

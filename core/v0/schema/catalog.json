@@ -1,34 +1,32 @@
 {
-    "$id": "catalog.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a BPP catalog",
     "type": "object",
     "properties": {
         "bpp/descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"
         },
         "bpp/categories" : {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/category.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/category.json"
             }
         },
         "bpp/fulfillments" : {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/fulfillment.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/fulfillment.json"
             }
         },
         "bpp/payments" : {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/payment.json"
             }
         },
         "bpp/offers" : {
             "type" : "array",
             "items" : {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/offer.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/offer.json"
             }
         },
         "bpp/providers" : {
@@ -36,10 +34,10 @@
             "items" : {
                 "allOf": [
                     {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/provider.json"
                     },
                     {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/provider_catalog.json"
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/provider_catalog.json"
                     }
                 ]
             }
@@ -47,7 +45,7 @@
         "exp": {
             "type": "string",
             "description": "Time after which catalog has to be refreshed",
-            "format": "datetime"
+            "format": "date-time"
         }
     }
 }

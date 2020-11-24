@@ -1,6 +1,4 @@
 {
-    "$id": "country.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a country.",
     "type": "object",
     "properties": {

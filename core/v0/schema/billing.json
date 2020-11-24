@@ -1,21 +1,19 @@
 {
-    "$id": "billing.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a billing event",
     "type": "object",
     "properties": {
         "customer" : {
-            "describtion" : "Personal details of the customer needed for billing.",
-            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/person.json"
+            "description" : "Personal details of the customer needed for billing.",
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/person.json"
         },
         "organization" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/organization.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/organization.json"
         },
         "location" : {
             "description": "Location where the bill is to be sent to",
             "allOf": [
                 {
-                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/location.json"
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json"
                 },
                 {
                     "required": ["address"]
@@ -32,7 +30,7 @@
             ]
         },  
         "time" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/time.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
         },
         "tax_number" : {
             "type" : "string"

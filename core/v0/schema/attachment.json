@@ -1,6 +1,4 @@
 {
-    "$id": "attachment.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes an attachment",
     "type": "object",
     "properties": {

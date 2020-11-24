@@ -1,0 +1,92 @@
+{
+    "context": {
+        "domain": "local-retail",
+        "country": "ind",
+        "city": "blr",
+        "action": "init",
+        "core_version": "0.9.1",
+        "bap_id": "example-bap.com",
+        "bap_uri": "example-bap.com/api/v1/",
+        "bpp_id": "example-bpp.com",
+        "bpp_uri": "example-bpp.com/api/v1/",
+        "transaction_id": "example-bap.com/2020-11-03T07:14:34.700Z/60/987907708",
+        "message_id": "example-bap.com/init/2020-11-03T07:14:34.700Z/60/987907708",
+        "timestamp": "2020-11-03T09:11:19.946Z",
+        "ttl": "T60S"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "social@example-bpp.com",
+                "locations" : [
+                    {
+                        "id" : "social@example-bpp.com/location/sarjapur-social"
+                    }
+                ]
+            },
+            "items": [
+                {
+                    "id": "social@example-bpp.com/item/beer-battered-chicken-wings",
+                    "quantity": {
+                        "count": 2
+                    }
+                }
+            ],
+            "offers": [
+                {
+                    "id": "social@example-bpp.com/offer/happy-hours"
+                }
+            ],
+            "quote" : {
+                "price" : {
+                    "value" : "",
+                    "currency" : ""
+                },
+                "breakup" : [
+                    {
+                        "type" : "item",
+                        "ref_id" : "social@example-bpp.com/item/beer-battered-chicken-wings",
+                        "title" : "Beer Battered Chicken Wings",
+                        "price" : {
+                            "currency" : "INR",
+                            "value" : "240"
+                        }
+                    },
+                    {
+                        "type" : "add_on",
+                        "ref_id" : "social@example-bpp.com/add_on/wasabi-mayo-dip",
+                        "title" : "Wasabi Mayo Dip",
+                        "price" : {
+                            "currency" : "INR",
+                            "value" : "30"
+                        }
+                    },
+                    {
+                        "type" : "offer",
+                        "ref_id" : "social@example-bpp.com/offer/happy-hours",
+                        "title" : "Happy Hours",
+                        "price" : {
+                            "currency" : "INR",
+                            "value" : "-100"
+                        }
+                    }
+                ]
+            },
+            "billing" : {
+                "name" : "John Doe",
+                "phone" : "+91-9988776611"
+            },
+            "fulfillment" : {
+                "end" : {
+                    "location" : {
+                        "gps" : "12.3843232,77.0980932"
+                    },
+                    "contact" : {
+                        "phone" : "+91-9988776611"
+                    },
+                    "instructions" : "Don't ring the doorbell"
+                }
+            }
+        }
+    }
+}

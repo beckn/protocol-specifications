@@ -1,6 +1,4 @@
 {
-    "$id": "payment_endpoint.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes where a payment is happening from or to",
     "type": "object",
     "properties": {
@@ -16,46 +14,8 @@
             "type":"array",
             "description": "A list of key value pairs which will be required to complete the payment. These values will be sent in the GET or POST request ",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/tag.json"
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
             }
         }
-    },
-    "examples": [
-        {
-            "uri" : "https://payment.example.com/pay?amount=$amount&currency=$currency&transaction_id=$transaction_id",
-            "method" : "GET",
-            "params" : [
-                {
-                    "key" : "amount",
-                    "value" : "500"
-                },
-                {
-                    "key" : "transaction_id",
-                    "value" : "f76t8o87"
-                },
-                {
-                    "key" : "currency",
-                    "value" : "INR"
-                }
-            ]
-        },
-        {
-            "uri" : "https://payment.example.com/pay",
-            "method" : "POST",
-            "params" : [
-                {
-                    "key" : "amount",
-                    "value" : "500"
-                },
-                {
-                    "key" : "transaction_id",
-                    "value" : "f76t8o87"
-                },
-                {
-                    "key" : "currency",
-                    "value" : "INR"
-                }
-            ]
-        }
-    ]
+    }
 }

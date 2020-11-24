@@ -1,0 +1,30 @@
+{
+    "context": {
+        "domain": "local-retail",
+        "country": "ind",
+        "city": "blr",
+        "action": "search",
+        "core_version": "0.9.1",
+        "bap_id": "example-bap.com",
+        "bap_uri": "example-bap.com/path/to/api/",
+        "transaction_id": "example-bap.com/2020-11-03T07:14:34.700Z/60/987907708",
+        "message_id": "example-bap.com/search/2020-11-03T07:14:34.700Z/60/987907708",
+        "timestamp": "2020-11-03T07:14:34.700Z",
+        "key": "",
+        "ttl": "60"
+    },
+    "message": {
+        "intent": {
+            "fulfillment": {
+                "end": {
+                    "location" : {
+                        "gps": {
+                            "lat": "12.979879",
+                            "lon": "77.765765"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

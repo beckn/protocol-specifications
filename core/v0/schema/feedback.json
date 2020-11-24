@@ -1,6 +1,4 @@
 {
-    "$id": "feedback.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Feedback for a service",
     "type": "object",
     "properties": {
@@ -13,10 +11,10 @@
             "description": "ID reference of the object selected in ```type```. For example, if the feedback is about an item, then ```ref_id``` will contain the ```item.id```"
         },
         "rating" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/rating.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/rating.json"
         },
         "descriptor" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/descriptor.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/descriptor.json"
         }
     }
 }

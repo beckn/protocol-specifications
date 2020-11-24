@@ -1,32 +1,41 @@
 {
-    "$id": "payment.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a payment",
     "type": "object",
     "properties": {
-        "transaction_id" : {
+        "uri" : {
             "type" : "string",
-            "description": "Transaction ID of the payment"
+            "description": "A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234",
+            "format" : "uri"
+        },
+        "tl_method" : {
+            "type" : "string",
+            "enum": [ "http/get", "http/post"]
+        },
+        "params" : {
+            "type" : "object",
+            "properties": {
+                "transaction_id" : {
+                    "type" : "string",
+                    "description": "This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests"
+                },
+                "amount" : {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/monetary_value.json#/properties/value"
+                }
+            },
+            "additionalProperties": {
+                "type" : "string"
+            }
         },
         "type" : {
             "type":"string",
             "enum": ["ON-ORDER", "PRE-FULFILLMENT", "ON-FULFILLMENT","POST-FULFILLMENT"]
         },
-        "payee" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/payment_endpoint.json"
-        },
-        "amount" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/monetary_value.json"
-        },
-        "state" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/state.json"
-        },
-        "due_date" : {
+        "status" : {
             "type" : "string",
-            "format": "date-time"
+            "enum": ["PAID", "NOT-PATD"]
         },
-        "duration" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/duration.json"
+        "time" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
         }
     }
 }

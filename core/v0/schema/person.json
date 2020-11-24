@@ -1,14 +1,12 @@
 {
-    "$id": "person.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes a person. Extension not allowed",
     "type": "object",
     "properties": {
         "name" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/name.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/name.json"
         },
         "image": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/image.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/image.json"
         },
         "dob": {
             "type": "string",
@@ -20,6 +18,12 @@
         },
         "cred" : {
             "type" : "string"
+        },
+        "tags" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
+            }
         }
     }
 }

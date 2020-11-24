@@ -1,17 +1,15 @@
 {
-    "$id": "dimensions.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the dimensions of a real-world object",
     "type": "object",
     "properties": {
         "length": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/scalar.json"
         },
         "breadth": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/scalar.json"
         },
         "height": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.0/core/v0/schema/scalar.json"
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/scalar.json"
         }
     }
 }
