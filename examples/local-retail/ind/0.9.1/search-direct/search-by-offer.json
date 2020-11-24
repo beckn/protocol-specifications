@@ -8,25 +8,16 @@
         "bap_id": "example-bap.com",
         "bap_uri": "example-bap.com/path/to/api/",
         "bpp_id": "example-bpp.com",
-        "bpp_uri": "example-bap.com/path/to/api/",
+        "bpp_uri": "example-bpp.com/path/to/api/",
         "transaction_id": "example-bap.com/2020-11-03T07:14:34.700Z/60/987907708",
         "message_id": "example-bap.com/search/2020-11-03T07:14:34.700Z/60/987907708",
         "timestamp": "2020-11-03T07:14:34.700Z",
-        "key": "",
         "ttl": "60"
     },
     "message": {
         "intent": {
-            "category": {
-                "descriptor": {
-                    "name" : "Adidas"
-                },
-                "tags" : [
-                    {
-                        "key" : "./local-retail/ind/category/type",
-                        "value" : "brand"
-                    }
-                ]
+            "offer": {
+                "id": "store@example-bpp.com/offer/flash-sale-2020"
             }
         }
     }

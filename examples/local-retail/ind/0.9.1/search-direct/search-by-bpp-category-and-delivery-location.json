@@ -8,40 +8,35 @@
         "bap_id": "example-bap.com",
         "bap_uri": "example-bap.com/path/to/api/",
         "bpp_id": "example-bpp.com",
-        "bpp_uri": "example-bap.com/path/to/api/",
+        "bpp_uri": "example-bpp.com/path/to/api/",
         "transaction_id": "example-bap.com/2020-11-03T07:14:34.700Z/60/987907708",
         "message_id": "example-bap.com/search/2020-11-03T07:14:34.700Z/60/987907708",
         "timestamp": "2020-11-03T07:14:34.700Z",
-        "ttl": "T60S"
+        "ttl": "60"
     },
     "message": {
         "intent": {
-            "provider": {
-                "locations": [
-                    {
+            "fulfillment": {
+                "end": {
+                    "location" : {
                         "gps": {
-                            "lat": "12.739784",
-                            "lon": "77.989822"
+                            "lat": "12.878763",
+                            "lon": "77.987987"
                         }
                     }
-                ],
-                "tags" : [
-                    {
-                        "key" : "./local-retail/ind/provider/type",
-                        "value" : "store"
-                    }
-                ]
+                },
+                "tags" : {
+                    "./local-retail.fulfillment.type" : "default"
+                }
             },
             "category": {
+                "id" : "lotless@example-bpp.com/category/daily-essentials",
                 "descriptor": {
-                    "name": "Adidas"
+                    "name": "Daily Essentials"
                 },
-                "tags": [
-                    {
-                        "key": "./local-retail/ind/category/type",
-                        "value": "brand"
-                    }
-                ]
+                "tags" : {
+                    "./local-retail.category.type" : "default"
+                }
             }
         }
     }
