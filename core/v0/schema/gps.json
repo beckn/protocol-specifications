@@ -1,12 +1,5 @@
 {
     "description": "Describes a gps coordinate",
-    "type": "object",
-    "properties": {
-        "lat": {
-            "type": "string"
-        },
-        "lon": {
-            "type": "string"
-        }
-    }
+    "type": "string",
+    "pattern" : "^(-?([0-8]?[0-9](.d+)?|90(.[0]+)?)s?[,]s?)+(-?([1]?[0-7]?[0-9](.d+)?|180((.[0]+)?)))$"
 }
