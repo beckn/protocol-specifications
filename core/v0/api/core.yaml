@@ -1437,11 +1437,13 @@ components:
 
     Circle:
       description: Describes a circular area on the map
-      allOf:
-        - $ref: "#/components/schemas/Gps"
-        - properties:
-            radius:
-              $ref: "#/components/schemas/Scalar"
+      type: object
+      properties:
+        gps:
+          $ref: "#/components/schemas/Gps"
+        radius:
+          $ref: "#/components/schemas/Scalar"
+
     City:
       description: Describes a city
       type: object
