@@ -1431,9 +1431,7 @@ components:
         time:
           $ref: "#/components/schemas/Time"
         tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
 
     Circle:
       description: Describes a circular area on the map
@@ -1718,9 +1716,7 @@ components:
         purpose:
           type: string
         tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
     Gps:
       description: Describes a gps coordinate
       type: string
@@ -1819,9 +1815,7 @@ components:
         purpose:
           type: string
         tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
 
     ItemQuantity:
       description: Describes count or amount of an item
@@ -1888,9 +1882,7 @@ components:
         time:
           $ref: "#/components/schemas/Time"
         tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
     Language:
       description: indicates language code. Beckn supports country codes as per ISO 639.2 standard
       type: object
@@ -2158,9 +2150,7 @@ components:
         cred:
           type: string
         tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
 
     Policy:
       description: Describes a policy. Allows for domain extension.
@@ -2245,9 +2235,7 @@ components:
           items:
             $ref: "#/components/schemas/Location"
         tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
 
     Quotation:
       description: Describes a quote
@@ -2416,9 +2404,7 @@ components:
         ref_id:
           type: string
         channels:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tags"
+          $ref: "#/components/schemas/Tags"
 
     Tags:
       description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
