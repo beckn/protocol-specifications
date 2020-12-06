@@ -2218,27 +2218,21 @@
                         "$ref": "#/components/schemas/Time"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
             "Circle": {
                 "description": "Describes a circular area on the map",
-                "allOf": [
-                    {
+                "type": "object",
+                "properties": {
+                    "gps": {
                         "$ref": "#/components/schemas/Gps"
                     },
-                    {
-                        "properties": {
-                            "radius": {
-                                "$ref": "#/components/schemas/Scalar"
-                            }
-                        }
+                    "radius": {
+                        "$ref": "#/components/schemas/Scalar"
                     }
-                ]
+                }
             },
             "City": {
                 "description": "Describes a city",
@@ -2608,10 +2602,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2763,10 +2754,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2864,10 +2852,7 @@
                         "$ref": "#/components/schemas/Time"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2996,37 +2981,30 @@
                 }
             },
             "Operator": {
-                "description": "Describes an offer",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string"
+                "description": "Describes the agent of a service",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Person"
                     },
-                    "descriptor": {
-                        "$ref": "#/components/schemas/Descriptor"
-                    },
-                    "location_ids": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Location/properties/id"
+                    {
+                        "properties": {
+                            "experience": {
+                                "type": "object",
+                                "properties": {
+                                    "label": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "unit": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
                         }
-                    },
-                    "category_ids": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Category/properties/id"
-                        }
-                    },
-                    "item_ids": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Item/properties/id"
-                        }
-                    },
-                    "time": {
-                        "$ref": "#/components/schemas/Time"
                     }
-                }
+                ]
             },
             "Option": {
                 "description": "Describes a selectable option",
@@ -3268,10 +3246,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -3402,10 +3377,7 @@
                         }
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -3635,10 +3607,7 @@
                         "type": "string"
                     },
                     "channels": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
