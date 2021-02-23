@@ -1,0 +1,141 @@
+{
+    "context": {
+        "domain": "fmd",
+        "country": "ind",
+        "city": "blr",
+        "action": "on_confirm",
+        "core_version": "0.9.0",
+        "bap_id": "bap-domain.com",
+        "bap_uri": "bap-domain.com/path/to/api/",
+        "bpp_id": "dunzo-bpp.com",
+        "bpp_uri": "dunzo-bpp.com/path/to/api/",
+        "transaction_id": "bap-domain.com/2020-11-03T07:14:34.700Z/60/987907708",
+        "message_id": "bap-domain.com/confirm/2020-11-03T07:14:34.700Z/60/8769692",
+        "timestamp": "2020-11-03T07:14:34.700Z",
+        "ttl": "60"
+    },
+    "message": {
+        "order": {
+            "id": "jgsa794iuy87ykuyiyu7iuyiuytit",
+            "state" : "ACTIVE",
+            "provider" : {
+                "id" : "dunzo-ind@dunzo-bpp.com",
+                "location" : {
+                    "id" : "dunzo-ind@dunzo-bpp.com/location/blr"
+                }
+            },
+            "items": [
+                {
+                    "category_ids" : [
+                        "dunzo-ind@dunzo-bpp.com/category/food-and-grocery"
+                    ],
+                    "tags" : [
+                        {
+                            "key" : "type",
+                            "value" : "package"
+                        }
+                    ]
+                }
+            ],
+            "billing" : {
+                "customer" : {
+                    "name" : {
+                        "full_name" : "John Doe"
+                    }
+                },
+                "location" : {
+                    "address" : {
+                        "door" : "DG007",
+                        "building" : "Building 47",
+                        "street" : "7th Cross",
+                        "city" : "Bengaluru",
+                        "state" : "Karnataka",
+                        "area_code" : "567788"
+                    },
+                    "email" : "john.doe@example.com"
+                }
+            },
+            "fulfillment" : {
+                "agent" : {
+                    "name" : {
+                        "full" : "Joseph Mathews"
+                    }
+                },
+                "tracking" : true,
+                "start" : {
+                    "location" : {
+                        "gps" : {
+                            "lat" : "12.798729",
+                            "lon" : "77.098098"
+                        },
+                        "address" : {
+                            "door" : "32",
+                            "building" : "Apollo Pharmacy",
+                            "street" : "16th Cross",
+                            "city" : "Bengaluru",
+                            "state" : "Karnataka",
+                            "area_code" : "567789"
+                        }
+                    }
+                },
+                "end" : {
+                    "location" : {
+                        "gps" : {
+                            "lat" : "12.863822",
+                            "lon" : "77.098798"
+                        },
+                        "address" : {
+                            "door" : "DG007",
+                            "building" : "Building 47",
+                            "street" : "7th Cross",
+                            "city" : "Bengaluru",
+                            "state" : "Karnataka",
+                            "area_code" : "567788"
+                        }
+                    }
+                }
+            },
+            "payment" : {
+                "uri" : "https://api.dunzo-bpp.com/pay?amt=$amount&txn_id=ksh87yriuro34iyr3p4&mode=upi&vpa=dunzo@upi",
+                "tl_method" : "http/get",
+                "params" : {
+                    "amount" : "40",
+                    "transaction_id" : "ksh87yriuro34iyr3p4",
+                    "mode" : "upi",
+                    "vpa" : "dunzo@upi"
+                },
+                "status" : "PAID"
+            },
+            "quote" : {
+                "price" : {
+                    "value" : "40",
+                    "currency" : "INR"
+                },
+                "breakup" : [
+                    {
+                        "type" : "fulfillment",
+                        "title" : "Delivery charges",
+                        "price" : {
+                            "value" : "30"
+                        }
+                    },
+                    {
+                        "type" : "tax",
+                        "title" : "CGST @ 5%",
+                        "price" : {
+                            "value" : "5"
+                        }
+                    },
+                    {
+                        "type" : "tax",
+                        "title" : "SGST @ 5%",
+                        "price" : {
+                            "value" : "5"
+                        }
+                    }
+                ],
+                "ttl" : "T300S"
+            }
+        }
+    }
+}

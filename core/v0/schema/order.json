@@ -1,48 +1,105 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the details of an order",
     "type": "object",
     "properties": {
         "id" : {
+            "type" : "string",
+            "description": "Hash of order object without id"
+        },
+        "state" : {
             "type" : "string"
         },
-        "state": {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/state.json"
+        "provider": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/provider.json#/properties/id"
+                }
+            }
         },
-        "update_action" : {
-            "type" : "string"
+        "provider_location": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json#/properties/id"
+                }
+            }
         },
-        "created_at" : {
-            "type" : "string",
-            "format": "date-time"
-        },
-        "updated_at" : {
-            "type" : "string",
-            "format": "date-time"
-        },
-        "items" : {
+        "items": {
             "type": "array",
             "items": {
-                "type" : "object",
+                "type": "object",
                 "properties": {
-                    "id" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item.json#/properties/id"
+                    "id": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/item.json#/properties/id"
                     },
-                    "quantity" : {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/item_quantity.json"
+                    "quantity": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/item_quantity.json#/properties/selected"
                     }
                 }
             }
         },
-        "billing" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/billing.json"
+        "add_ons": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/add_on.json#/properties/id"
+                    }
+                }
+            }
         },
-        "payment" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/payment.json"
+        "offers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/offer.json#/properties/id"
+                    }
+                }
+            }
         },
-        "quotation" : {
-            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/quotation.json"
+        "billing": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/billing.json"
+        },
+        "fulfillment": {
+            "allOf": [
+                {
+                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/fulfillment.json"
+                },
+                {
+                    "properties": {
+                        "customer" : {
+                            "description": "The customer who receives the fulfilled order",
+                            "allOf": [
+                                {
+                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/person.json"
+                                },
+                                {
+                                    "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/contact.json"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/fulfillment.json"
+        },
+        "quote": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/quotation.json"
+        },
+        "payment": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/payment.json"
+        },
+        "created_at" : {
+            "type" : "string",
+            "format" : "date-time"
+        },
+        "updated_at" : {
+            "type" : "string",
+            "format" : "date-time"
         }
     }
 }

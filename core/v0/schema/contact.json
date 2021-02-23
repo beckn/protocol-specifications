@@ -1,0 +1,19 @@
+{
+    "description": "Describes an API",
+    "type": "array",
+    "items": {
+        "allOf": [
+            {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/tag.json"
+            },
+            {
+                "properties": {
+                    "key" : {
+                        "type" : "string",
+                        "enum": ["phone", "email", "url"]
+                    }
+                }
+            }
+        ]
+    }
+}

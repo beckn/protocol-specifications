@@ -1,0 +1,58 @@
+{
+    "description": "Describes a provider catalog",
+    "type": "object",
+    "properties": {
+        "categories" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/category.json"
+            }
+        },
+        "fulfillments" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/fulfillment.json"
+            }
+        },
+        "payments" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/payment.json"
+            }
+        },
+        "locations" : {
+            "type" : "array",
+            "items" : {
+                "allOf": [
+                    {
+                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/location.json"
+                    },
+                    {
+                        "properties" : {
+                            "time" : {
+                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/time.json"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "offers" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/offer.json"
+            }
+        },
+        "items" : {
+            "type" : "array",
+            "items" : {
+                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/item.json"
+            }
+        },
+        "exp": {
+            "type": "string",
+            "description": "Time after which catalog has to be refreshed",
+            "format": "date-time"
+        }
+    }
+}

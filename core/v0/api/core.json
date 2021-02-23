@@ -2,17 +2,28 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Beckn Core API",
-        "description": "Beckn core API specification",
-        "version": "0.8.2"
+        "description": "Beckn Core API specification",
+        "version": "0.9.1"
     },
+    "security": [
+        {
+            "SubscriberAuth": []
+        }
+    ],
     "paths": {
         "/search": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API",
-                    "Beckn Gateway API"
+                    "Beckn Provider Platform (BPP)",
+                    "Beckn Gateway (BG)"
                 ],
                 "description": "Search for services by intent",
+                "security": [
+                    {
+                        "SubscriberAuth": [],
+                        "GatewaySubscriberAuth": []
+                    }
+                ],
                 "requestBody": {
                     "description": "BAP searches for services",
                     "content": {
@@ -21,17 +32,21 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "intent": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/intent.json"
+                                                "$ref": "#/components/schemas/Intent"
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -45,18 +60,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -69,7 +84,7 @@
         "/select": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Select items from the catalog and build your order",
                 "requestBody": {
@@ -80,17 +95,103 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                            "selected": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "$ref": "#/components/schemas/Provider/properties/id"
+                                                            },
+                                                            "locations": {
+                                                                "type": "array",
+                                                                "maxItems": 1,
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "$ref": "#/components/schemas/Location/properties/id"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "id"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "locations"
+                                                        ]
+                                                    },
+                                                    "items": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/Item/properties/id"
+                                                                },
+                                                                "quantity": {
+                                                                    "$ref": "#/components/schemas/ItemQuantity/properties/selected"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "id",
+                                                                "quantity"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "add_ons": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/AddOn/properties/id"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "id"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "offers": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/Offer/properties/id"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "id"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "provider",
+                                                    "items"
+                                                ]
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "selected"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -104,18 +205,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -128,7 +229,7 @@
         "/init": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Initialize an order by providing billing and/or shipping details",
                 "requestBody": {
@@ -139,17 +240,113 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "$ref": "#/components/schemas/Provider/properties/id"
+                                                            },
+                                                            "locations": {
+                                                                "type": "array",
+                                                                "maxItems": 1,
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "$ref": "#/components/schemas/Location/properties/id"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "id"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "locations"
+                                                        ]
+                                                    },
+                                                    "items": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/Item/properties/id"
+                                                                },
+                                                                "quantity": {
+                                                                    "$ref": "#/components/schemas/ItemQuantity/properties/selected"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "id",
+                                                                "quantity"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "add_ons": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/AddOn/properties/id"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "id"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "offers": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/Offer/properties/id"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "id"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "billing": {
+                                                        "$ref": "#/components/schemas/Billing"
+                                                    },
+                                                    "fulfillment": {
+                                                        "$ref": "#/components/schemas/Fulfillment"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "provider",
+                                                    "items",
+                                                    "add_ons",
+                                                    "offers",
+                                                    "billing",
+                                                    "fulfillment"
+                                                ]
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -163,18 +360,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -187,7 +384,7 @@
         "/confirm": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Initialize an order by providing billing and/or shipping details",
                 "requestBody": {
@@ -198,17 +395,24 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "$ref": "#/components/schemas/Order"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -222,18 +426,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -246,7 +450,7 @@
         "/status": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Fetch the latest order object",
                 "requestBody": {
@@ -257,17 +461,24 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "#/components/schemas/Order/properties/id"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order_id"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -281,18 +492,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -305,7 +516,7 @@
         "/track": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Track an active order",
                 "requestBody": {
@@ -316,21 +527,28 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "#/components/schemas/Order/properties/id"
                                             },
                                             "callback_url": {
                                                 "type": "string",
                                                 "format": "uri"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order_id"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -344,18 +562,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -368,7 +586,7 @@
         "/cancel": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Cancel an order",
                 "requestBody": {
@@ -379,20 +597,31 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json#/properties/id"
+                                                "$ref": "#/components/schemas/Order/properties/id"
                                             },
-                                            "reason_id": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json#/properties/id"
+                                            "cancellation_reason_id": {
+                                                "$ref": "#/components/schemas/Option/properties/id"
+                                            },
+                                            "descriptor": {
+                                                "$ref": "#/components/schemas/Descriptor"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order_id",
+                                            "cancellation_reason_id"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -406,18 +635,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -430,7 +659,7 @@
         "/update": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Remove object",
                 "requestBody": {
@@ -441,17 +670,29 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
+                                            "update_target": {
+                                                "description": "Comma separated values of order objects being updated. For example: ```\"update_target\":\"item,billing,fulfillment\"```",
+                                                "type": "string"
+                                            },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "$ref": "#/components/schemas/Order"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "update_target",
+                                            "order"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -465,18 +706,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -486,10 +727,10 @@
                 }
             }
         },
-        "/feedback": {
+        "/rating": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Provide feedback on a service",
                 "requestBody": {
@@ -500,12 +741,25 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/feedback.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Rating + Feedback ID as returned in get_rating_categories API"
+                                            }
+                                        },
+                                        "required": [
+                                            "id"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -519,18 +773,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -543,9 +797,20 @@
         "/support": {
             "post": {
                 "tags": [
-                    "Beckn Provider Platform API"
+                    "Beckn Provider Platform (BPP)"
                 ],
-                "description": "Fetch customer support details",
+                "description": "Contact support",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Signature",
+                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -554,12 +819,22 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/support.json"
+                                        "type": "object",
+                                        "properties": {
+                                            "ref_id": {
+                                                "type": "string",
+                                                "description": "ID of the element for which support is needed"
+                                            }
+                                        }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -573,18 +848,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -597,10 +872,18 @@
         "/on_search": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API",
-                    "Beckn Gateway API"
+                    "Beckn App Platform (BAP)",
+                    "Beckn Gateway (BG)"
                 ],
                 "description": "Send catalog",
+                "security": [
+                    {
+                        "SubscriberAuth": []
+                    },
+                    {
+                        "GatewaySubscriberAuth": []
+                    }
+                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -609,18 +892,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "catalog": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/catalog.json"
+                                                "$ref": "#/components/schemas/Catalog"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -636,69 +919,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_search/end": {
-            "post": {
-                "tags": [
-                    "Beckn App Platform API"
-                ],
-                "description": "End of search results",
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Acknowledgement of message received",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
-                                        },
-                                        "message": {
-                                            "type": "object",
-                                            "properties": {
-                                                "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
-                                                }
-                                            }
-                                        },
-                                        "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -711,7 +943,7 @@
         "/on_select": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Send draft order object with quoted price for selected items",
                 "requestBody": {
@@ -722,18 +954,58 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                            "selected": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "$ref": "#/components/schemas/Provider"
+                                                    },
+                                                    "provider_location": {
+                                                        "$ref": "#/components/schemas/Location"
+                                                    },
+                                                    "items": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/components/schemas/Item"
+                                                                },
+                                                                {
+                                                                    "properties": {
+                                                                        "quantity": {
+                                                                            "$ref": "#/components/schemas/ItemQuantity"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "add_ons": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "$ref": "#/components/schemas/AddOn"
+                                                        }
+                                                    },
+                                                    "offers": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "$ref": "#/components/schemas/Offer"
+                                                        }
+                                                    },
+                                                    "quote": {
+                                                        "$ref": "#/components/schemas/Quotation"
+                                                    }
+                                                }
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -749,18 +1021,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -773,9 +1045,20 @@
         "/on_init": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Send order object with payment details updated",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Proxy-Authorization",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Signature of message body + X-Sub-Authorization header using BG's signing public key. For example Proxy-Authorization : Signature subId='bg-example.com',algorithm='rsa-sha256' headers='Authorization' signature='Base64(RSA-SHA256(signing string))'"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -784,18 +1067,84 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                            "initialized": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "$ref": "#/components/schemas/Provider/properties/id"
+                                                            }
+                                                        }
+                                                    },
+                                                    "provider_location": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "$ref": "#/components/schemas/Location/properties/id"
+                                                            }
+                                                        }
+                                                    },
+                                                    "items": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/Item/properties/id"
+                                                                },
+                                                                "quantity": {
+                                                                    "$ref": "#/components/schemas/ItemQuantity/properties/selected"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "add_ons": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/AddOn/properties/id"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "offers": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "$ref": "#/components/schemas/Offer/properties/id"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "billing": {
+                                                        "$ref": "#/components/schemas/Billing"
+                                                    },
+                                                    "fulfillment": {
+                                                        "$ref": "#/components/schemas/Fulfillment"
+                                                    },
+                                                    "quote": {
+                                                        "$ref": "#/components/schemas/Quotation"
+                                                    },
+                                                    "payment": {
+                                                        "$ref": "#/components/schemas/Payment"
+                                                    }
+                                                }
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -811,18 +1160,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -835,7 +1184,7 @@
         "/on_confirm": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Send active order object",
                 "requestBody": {
@@ -846,18 +1195,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "$ref": "#/components/schemas/Order"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -873,18 +1222,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -897,7 +1246,7 @@
         "/on_track": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Send tracking details of an active order",
                 "requestBody": {
@@ -908,18 +1257,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "tracking": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/tracking.json"
+                                                "$ref": "#/components/schemas/Tracking"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -935,18 +1284,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -959,7 +1308,7 @@
         "/on_cancel": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object",
                 "requestBody": {
@@ -970,33 +1319,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "policies": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/policy.json"
-                                                }
-                                            },
-                                            "reasons": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/option.json"
-                                                }
-                                            },
-                                            "price": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/price.json"
-                                            },
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "$ref": "#/components/schemas/Order"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -1012,18 +1346,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -1036,7 +1370,7 @@
         "/on_update": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Returns updated service with updated runtime object",
                 "requestBody": {
@@ -1047,18 +1381,18 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "$ref": "#/components/schemas/Order"
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -1074,18 +1408,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -1098,7 +1432,7 @@
         "/on_status": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Fetch the status of a Service",
                 "requestBody": {
@@ -1109,13 +1443,13 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
                                         "properties": {
                                             "order": {
-                                                "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
+                                                "$ref": "#/components/schemas/Order"
                                             }
                                         }
                                     }
@@ -1133,18 +1467,18 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
                                     }
                                 }
@@ -1154,10 +1488,10 @@
                 }
             }
         },
-        "/on_feedback": {
+        "/on_rating": {
             "post": {
                 "tags": [
-                    "Beckn App Platform API"
+                    "Beckn App Platform (BAP)"
                 ],
                 "description": "Provide feedback on a service",
                 "requestBody": {
@@ -1168,7 +1502,7 @@
                                 "type": "object",
                                 "properties": {
                                     "context": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                        "$ref": "#/components/schemas/Context"
                                     },
                                     "message": {
                                         "type": "object",
@@ -1176,24 +1510,15 @@
                                             "feedback": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "order": {
-                                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/order.json"
-                                                    },
-                                                    "communication": {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "CHAT",
-                                                            "CALLBACK",
-                                                            "CALL",
-                                                            "EMAIL"
-                                                        ]
+                                                    "message": {
+                                                        "type": "string"
                                                     }
                                                 }
                                             }
                                         }
                                     },
                                     "error": {
-                                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 }
                             }
@@ -1209,19 +1534,432 @@
                                     "type": "object",
                                     "properties": {
                                         "context": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/context.json"
+                                            "$ref": "#/components/schemas/Context"
                                         },
                                         "message": {
                                             "type": "object",
                                             "properties": {
                                                 "ack": {
-                                                    "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json"
+                                                    "$ref": "#/components/schemas/Ack"
                                                 }
                                             }
                                         },
                                         "error": {
-                                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/error.json"
+                                            "$ref": "#/components/schemas/Error"
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_support": {
+            "post": {
+                "tags": [
+                    "Beckn App Platform (BAP)"
+                ],
+                "description": "Contact Support",
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "$ref": "#/components/schemas/Context"
+                                    },
+                                    "message": {
+                                        "type": "object",
+                                        "properties": {
+                                            "phone": {
+                                                "type": "string",
+                                                "format": "phone"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "format": "email"
+                                            },
+                                            "uri": {
+                                                "type": "string",
+                                                "format": "uri"
+                                            }
+                                        }
+                                    },
+                                    "error": {
+                                        "$ref": "#/components/schemas/Error"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Acknowledgement of message received",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "context": {
+                                            "$ref": "#/components/schemas/Context"
+                                        },
+                                        "message": {
+                                            "type": "object",
+                                            "properties": {
+                                                "ack": {
+                                                    "$ref": "#/components/schemas/Ack"
+                                                }
+                                            }
+                                        },
+                                        "error": {
+                                            "$ref": "#/components/schemas/Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subscribe": {
+            "post": {
+                "tags": [
+                    "Registry"
+                ],
+                "description": "Subscribe to a network",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "subscriber_id": {
+                                        "type": "string",
+                                        "description": "A unique ID describing a subscriber on a network.\nThe typical format of a subscriber is as follows.\n``` <fqdn>.<extension>\n```\nwhere, <br/>\n<table> <thead>\n  <tr>\n    <td>Key</th>\n    <td>Description</th>\n  </tr>\n</thead> <tbody>\n  <tr>\n    <td>fqdn</th>\n    <td>Fully qualified domain name</th>\n  </tr>\n  <tr>\n    <td>extn</td>\n    <td>Domain Extension</td>\n  </tr>\n</tbody> </table>\nThe domain name of the subscriber must be an ```https``` domain with a ```.com``` extension and a valid SSL certificate from a trusted certificate authority of the country of operation\n",
+                                        "example": "example.com.beckn.mobility.ind.blr"
+                                    },
+                                    "keys": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "signing_public_key": {
+                                                    "type": "string"
+                                                },
+                                                "encr_public_key": {
+                                                    "type": "string"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "expires": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "nonce": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration status",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "INITIATED",
+                                                "UNDER_SUBSCRIPTION",
+                                                "SUBSCRIBED",
+                                                "INVALID_SSL",
+                                                "UNSUBSCRIBED"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/on_subscribe": {
+            "post": {
+                "tags": [
+                    "Subscriber"
+                ],
+                "description": "Validates a subscriber. In this API the Registry generates a random string, encrypts it with the subscriber\\'s encryption public key and sends it to the subscriber\\'s callback URL. The subscriber then decrypts the string using it's encryption private key and sends back the decypted value to the registry. If the decrypted value is the same as the sent value, the subscriber get's added to the registry with a ```status = \"SUBSCRIBED\"```",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Signature",
+                        "description": "This contains the digital signature of the request body signed using the signing private key of the Registry",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Contains a subscriber challenge key to be decrypted by the subscriber",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "challenge": {
+                                        "type": "string",
+                                        "description": "A random string generated by the registry encrypted with the subscriber's encryption public key"
+                                    },
+                                    "subscriber_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration status",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "answer": {
+                                            "type": "string",
+                                            "description": "Decrypted value"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "INITIATED",
+                                                "UNDER_SUBSCRIPTION",
+                                                "SUBSCRIBED",
+                                                "INVALID_SSL",
+                                                "UNSUBSCRIBED"
+                                            ],
+                                            "example": "SUBSCRIBED"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lookup": {
+            "post": {
+                "tags": [
+                    "Registry"
+                ],
+                "description": "Look up subscriber(s) in a registry",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Signature",
+                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "subscriber_id": {
+                                        "type": "string"
+                                    },
+                                    "domain": {
+                                        "$ref": "#/components/schemas/Domain"
+                                    },
+                                    "country": {
+                                        "$ref": "#/components/schemas/Country/properties/code"
+                                    },
+                                    "city": {
+                                        "$ref": "#/components/schemas/City/properties/code"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of subscribers with ```state = \"SUBSCRIBED\"```",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Subscriber"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/get_cancellation_reasons": {
+            "post": {
+                "tags": [
+                    "BPP Meta APIs"
+                ],
+                "description": "Look up subscriber(s) in a registry",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Signature",
+                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Context"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of cancellation reasons",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Option"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/get_return_reasons": {
+            "post": {
+                "tags": [
+                    "BPP Meta APIs"
+                ],
+                "description": "Look up subscriber(s) in a registry",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Signature",
+                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Context"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of return reasons",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Option"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/get_rating_categories": {
+            "post": {
+                "tags": [
+                    "BPP Meta APIs"
+                ],
+                "description": "Get a list of feedback forms based on rating inputs",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Signature",
+                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "TODO",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Context"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Feedback forms",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/components/schemas/Category"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "question": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             }
@@ -1231,10 +1969,1779 @@
             }
         }
     },
-    "servers": [
-        {
-            "description": "SwaggerHub API Auto Mocking",
-            "url": "https://virtserver.swaggerhub.com/beckn/core/0.8.2"
+    "components": {
+        "securitySchemes": {
+            "SubscriberAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "Signature of message body using BAP or BPP subscriber's signing public key. <br/><br/>For example:<br/><br/><code>Authorization : Signature keyId='bap-example.com', signature='Base64(EdDSA-SHA512(requestBody))'</code>"
+            },
+            "GatewaySubscriberAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Proxy-Authorization",
+                "description": "Signature of message body + BAP/BPP's Authorization header using BG's signing public key. For example:<br/><br/><code>Proxy-Authorization : Signature keyId='bg-example.com' headers='Authorization',signature='Base64(EdDSA-SHA512(requestBody)'</code>"
+            }
+        },
+        "schemas": {
+            "Ack": {
+                "description": "Describes the ACK response",
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK",
+                        "enum": [
+                            "ACK",
+                            "NACK"
+                        ]
+                    },
+                    "signature": {
+                        "type": "string",
+                        "description": "Hash of previously received request body signed using receiver's signing public key. For example, The ACK/NACK response to a confirm call fired by a BAP must have the BPP's signature containing the hash of the confirm message body. In case the API is being routed by a BG, the BG ack will have the have the BG's signature containing the hash of the message body"
+                    }
+                }
+            },
+            "AddOn": {
+                "description": "Describes an add-on",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR "
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "price": {
+                        "$ref": "#/components/schemas/Price"
+                    }
+                }
+            },
+            "Address": {
+                "description": "Describes an address",
+                "type": "object",
+                "properties": {
+                    "door": {
+                        "type": "string",
+                        "description": "Door / Shop number of the address"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of address if applicable. Example, shop name"
+                    },
+                    "building": {
+                        "type": "string",
+                        "description": "Name of the building or block"
+                    },
+                    "street": {
+                        "type": "string",
+                        "description": "Street name or number"
+                    },
+                    "locality": {
+                        "type": "string",
+                        "description": "Name of the locality, apartments"
+                    },
+                    "ward": {
+                        "type": "string",
+                        "description": "Name or number of the ward if applicable"
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "City name"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "State name"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "Country name"
+                    },
+                    "area_code": {
+                        "type": "string",
+                        "description": "Area code. This can be Pincode, ZIP code or any equivalent"
+                    }
+                }
+            },
+            "Billing": {
+                "description": "Describes a billing event",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Personal details of the customer needed for billing.",
+                        "type": "string"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    },
+                    "tax_number": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "name",
+                    "phone"
+                ]
+            },
+            "Cancellation": {
+                "description": "Describes the ACK response",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "full",
+                            "partial"
+                        ]
+                    },
+                    "ref_id": {
+                        "type": "string"
+                    },
+                    "policies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Policy"
+                        }
+                    },
+                    "time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "cancelled_by": {
+                        "type": "string"
+                    },
+                    "reasons": {
+                        "$ref": "#/components/schemas/Option"
+                    },
+                    "selected_reason": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Option/properties/id"
+                            }
+                        }
+                    },
+                    "additional_description": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    }
+                }
+            },
+            "Catalog": {
+                "description": "Describes a BPP catalog",
+                "type": "object",
+                "properties": {
+                    "bpp/descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "bpp/categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category"
+                        }
+                    },
+                    "bpp/fulfillments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Fulfillment"
+                        }
+                    },
+                    "bpp/payments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Payment"
+                        }
+                    },
+                    "bpp/offers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Offer"
+                        }
+                    },
+                    "bpp/providers": {
+                        "type": "array",
+                        "items": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/components/schemas/Provider"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/ProviderCatalog"
+                                }
+                            ]
+                        }
+                    },
+                    "exp": {
+                        "type": "string",
+                        "description": "Time after which catalog has to be refreshed",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Category": {
+                "description": "Describes a category",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Unique id of the category"
+                    },
+                    "parent_category_id": {
+                        "$ref": "#/components/schemas/Category/properties/id"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "Circle": {
+                "description": "Describes a circular area on the map",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Gps"
+                    },
+                    {
+                        "properties": {
+                            "radius": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
+                    }
+                ]
+            },
+            "City": {
+                "description": "Describes a city",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the city"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "City code"
+                    }
+                }
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
+                    "phone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "$ref": "#/components/schemas/Tags"
+                    }
+                }
+            },
+            "Context": {
+                "description": "Describes a beckn message context",
+                "type": "object",
+                "properties": {
+                    "domain": {
+                        "$ref": "#/components/schemas/Domain"
+                    },
+                    "country": {
+                        "$ref": "#/components/schemas/Country/properties/code"
+                    },
+                    "city": {
+                        "$ref": "#/components/schemas/City/properties/code"
+                    },
+                    "action": {
+                        "type": "string",
+                        "description": "Defines the Beckn API call. Any actions other than the ennumerated actions are not supported by Beckn Protocol",
+                        "enum": [
+                            "search",
+                            "select",
+                            "init",
+                            "confirm",
+                            "update",
+                            "status",
+                            "track",
+                            "cancel",
+                            "feedback",
+                            "support",
+                            "on_search",
+                            "on_select",
+                            "on_init",
+                            "on_confirm",
+                            "on_update",
+                            "on_status",
+                            "on_track",
+                            "on_cancel",
+                            "on_feedback",
+                            "on_support",
+                            "ack"
+                        ]
+                    },
+                    "core_version": {
+                        "type": "string",
+                        "description": "Version of Beckn core API specification being used"
+                    },
+                    "bap_id": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "This is registered domain name of the BAP. Must be an HTTPS domain in open networks"
+                    },
+                    "bap_uri": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URI of the BAP. Must have the same domain name as the bap_id"
+                    },
+                    "bpp_id": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "This is registered domain name of the BPP. Must be an HTTPS domain in open networks"
+                    },
+                    "bpp_uri": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URI of the BPP. Must have the same domain name as the bap_id"
+                    },
+                    "transaction_id": {
+                        "type": "string",
+                        "description": "This is a unique value which persists across all API calls from search through confirm. The format for transaction id is an ecrypted value of the following string. '{bap_id}/{timestamp}/{ttl}/{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback transaction_id with the request transaction_id"
+                    },
+                    "message_id": {
+                        "type": "string",
+                        "description": "This is a unique value which persists during a request / callback cycle. The format for transaction id is an ecrypted value of the following string. '{bap_id}/{action}/{timestamp}/{ttl}/{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback message_id with the request message_id"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Time of request generation in RFC3339 format"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The encryption public key of the sender"
+                    },
+                    "ttl": {
+                        "$ref": "#/components/schemas/Duration"
+                    }
+                },
+                "required": [
+                    "domain",
+                    "action",
+                    "country",
+                    "city",
+                    "core_version",
+                    "transaction_id",
+                    "message_id",
+                    "bap_id",
+                    "bap_uri",
+                    "timestamp"
+                ]
+            },
+            "Country": {
+                "description": "Describes a country.",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the country"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Country code as per ISO 3166-1 and ISO 3166-2 format"
+                    }
+                }
+            },
+            "Customer": {
+                "description": "Describes the customer",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "SINGLE",
+                            "GROUP"
+                        ]
+                    },
+                    "individual": {
+                        "type": "object",
+                        "properties": {
+                            "info": {
+                                "$ref": "#/components/schemas/Person"
+                            }
+                        }
+                    },
+                    "group": {
+                        "type": "object",
+                        "properties": {
+                            "primary": {
+                                "$ref": "#/components/schemas/Person"
+                            },
+                            "count": {
+                                "type": "integer",
+                                "minimum": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "DecimalValue": {
+                "description": "Describes a decimal value",
+                "type": "string",
+                "pattern": "[+-]?([0-9]*[.])?[0-9]+"
+            },
+            "Descriptor": {
+                "description": "Describes the description of a real-world object. Maintained by Beckn Foundation",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "symbol": {
+                        "type": "string"
+                    },
+                    "short_desc": {
+                        "type": "string"
+                    },
+                    "long_desc": {
+                        "type": "string"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Image"
+                        }
+                    },
+                    "audio": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "3d_render": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                }
+            },
+            "Dimensions": {
+                "description": "Describes the dimensions of a real-world object",
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "$ref": "#/components/schemas/Scalar"
+                    },
+                    "breadth": {
+                        "$ref": "#/components/schemas/Scalar"
+                    },
+                    "height": {
+                        "$ref": "#/components/schemas/Scalar"
+                    }
+                }
+            },
+            "Domain": {
+                "description": "Describes the domain of an object",
+                "type": "string"
+            },
+            "Duration": {
+                "description": "Describes duration as per ISO8601 format",
+                "type": "string"
+            },
+            "Error": {
+                "description": "Describes an error object",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "CONTEXT-ERROR",
+                            "CORE-ERROR",
+                            "DOMAIN-ERROR",
+                            "POLICY-ERROR",
+                            "JSON-SCHEMA-ERROR"
+                        ]
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "Path to json schema generating the error. Used only during json schema validation errors"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Human readable message descirbing the error"
+                    }
+                },
+                "required": [
+                    "type",
+                    "code"
+                ]
+            },
+            "Feedback": {
+                "description": "Feedback for a service",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "order",
+                            "fulfillment",
+                            "item",
+                            "support",
+                            "person"
+                        ]
+                    },
+                    "ref_id": {
+                        "type": "string",
+                        "description": "ID reference of the object selected in ```type```. For example, if the feedback is about an item, then ```ref_id``` will contain the ```item.id```"
+                    },
+                    "rating": {
+                        "$ref": "#/components/schemas/Rating"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    }
+                }
+            },
+            "Fulfillment": {
+                "description": "Describes how a single product/service will be rendered/fulfilled to the end customer",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Unique reference ID to the fulfillment of an order"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "This describes the type of fulfillment"
+                    },
+                    "state": {
+                        "$ref": "#/components/schemas/State"
+                    },
+                    "tracking": {
+                        "type": "boolean",
+                        "description": "Indicates whether the fulfillment allows tracking",
+                        "default": false
+                    },
+                    "agent": {
+                        "description": "The person who fulfills the order",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Person"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Contact"
+                            }
+                        ]
+                    },
+                    "vehicle": {
+                        "$ref": "#/components/schemas/Vehicle"
+                    },
+                    "start": {
+                        "description": "Details on the start of fulfillment",
+                        "type": "object",
+                        "properties": {
+                            "location": {
+                                "$ref": "#/components/schemas/Location"
+                            },
+                            "time": {
+                                "$ref": "#/components/schemas/Time"
+                            },
+                            "instructions": {
+                                "$ref": "#/components/schemas/Descriptor"
+                            },
+                            "contact": {
+                                "$ref": "#/components/schemas/Contact"
+                            }
+                        }
+                    },
+                    "end": {
+                        "description": "Details on the end of fulfillment",
+                        "type": "object",
+                        "properties": {
+                            "location": {
+                                "$ref": "#/components/schemas/Location"
+                            },
+                            "time": {
+                                "$ref": "#/components/schemas/Time"
+                            },
+                            "instructions": {
+                                "$ref": "#/components/schemas/Descriptor"
+                            },
+                            "contact": {
+                                "$ref": "#/components/schemas/Contact"
+                            }
+                        }
+                    },
+                    "purpose": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "Gps": {
+                "description": "Describes a gps coordinate",
+                "type": "string",
+                "pattern": "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$"
+            },
+            "Image": {
+                "description": "Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```",
+                "type": "string"
+            },
+            "Intent": {
+                "description": "Intent of a user. Used for searching for services",
+                "type": "object",
+                "properties": {
+                    "query_string": {
+                        "type": "string"
+                    },
+                    "provider": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Provider/properties/id"
+                            },
+                            "descriptor": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "locations": {
+                                "type": "array",
+                                "maxItems": 1,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "$ref": "#/components/schemas/Location/properties/id"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "fulfillment": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Fulfillment/properties/id"
+                            },
+                            "start": {
+                                "type": "object",
+                                "properties": {
+                                    "location": {
+                                        "$ref": "#/components/schemas/Location"
+                                    },
+                                    "time": {
+                                        "$ref": "#/components/schemas/Time"
+                                    }
+                                }
+                            },
+                            "end": {
+                                "type": "object",
+                                "properties": {
+                                    "location": {
+                                        "$ref": "#/components/schemas/Location"
+                                    },
+                                    "time": {
+                                        "$ref": "#/components/schemas/Time"
+                                    }
+                                }
+                            },
+                            "tags": {
+                                "$ref": "#/components/schemas/Tags"
+                            }
+                        }
+                    },
+                    "payment": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "$ref": "#/components/schemas/Payment/properties/type"
+                            },
+                            "params": {
+                                "type": "object",
+                                "properties": {
+                                    "mode": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "category": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Category/properties/id"
+                            },
+                            "descriptor": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "offer": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Offer/properties/id"
+                            },
+                            "descriptor": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "item": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Category/properties/id"
+                            },
+                            "descriptor": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "tags": {
+                                        "$ref": "#/components/schemas/Tags"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "purpose": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "ItemQuantity": {
+                "description": "Describes count or amount of an item",
+                "type": "object",
+                "properties": {
+                    "allocated": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "measure": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
+                    },
+                    "available": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "measure": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
+                    },
+                    "maximum": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "measure": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
+                    },
+                    "minimum": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "measure": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
+                    },
+                    "selected": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "measure": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
+                    }
+                }
+            },
+            "Item": {
+                "description": "Describes an item. Allows for domain extension.",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.",
+                        "type": "string",
+                        "format": "#/components/schemas/Item/properties/id"
+                    },
+                    "parent_item_id": {
+                        "$ref": "#/components/schemas/Item/properties/id"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "price": {
+                        "$ref": "#/components/schemas/Price"
+                    },
+                    "category_id": {
+                        "$ref": "#/components/schemas/Category/properties/id"
+                    },
+                    "location_id": {
+                        "$ref": "#/components/schemas/Location/properties/id"
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "Language": {
+                "description": "indicates language code. Beckn supports country codes as per ISO 639.2 standard",
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Location": {
+                "description": "Describes the location of a runtime object. Extension not allowed",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "gps": {
+                        "$ref": "#/components/schemas/Gps"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "station_code": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "$ref": "#/components/schemas/City"
+                    },
+                    "country": {
+                        "$ref": "#/components/schemas/Country"
+                    },
+                    "circle": {
+                        "$ref": "#/components/schemas/Circle"
+                    },
+                    "polygon": {
+                        "type": "string"
+                    },
+                    "3dspace": {
+                        "type": "string"
+                    }
+                }
+            },
+            "MonetaryValue": {
+                "description": "Describes a monetary value used for exchange",
+                "type": "object",
+                "properties": {
+                    "currency": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "$ref": "#/components/schemas/DecimalValue"
+                    }
+                }
+            },
+            "Name": {
+                "description": "Describes the name of a person",
+                "type": "object",
+                "properties": {
+                    "full": {
+                        "type": "string",
+                        "description": "Format: ./{honorific prefix}/{given_name}/{family_name}/{additional_name}/{call_sign}/{honorific_suffix}"
+                    },
+                    "additional_name": {
+                        "type": "string",
+                        "description": "An additional name for a Person, can be used for a middle name."
+                    },
+                    "family_name": {
+                        "type": "string",
+                        "description": "Family name. In India, it is the last name of an Person. This can be used along with givenName instead of the name property."
+                    },
+                    "given_name": {
+                        "type": "string",
+                        "description": "Given name. In India, it is the first name of a Person. This can be used along with familyName instead of the name property."
+                    },
+                    "call_sign": {
+                        "type": "string",
+                        "description": "A callsign, as used in broadcasting and radio communications to identify people"
+                    },
+                    "honorific_prefix": {
+                        "type": "string",
+                        "description": "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr."
+                    },
+                    "honorific_suffix": {
+                        "type": "string",
+                        "description": "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW."
+                    }
+                }
+            },
+            "Offer": {
+                "description": "Describes an offer",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "location_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Location/properties/id"
+                        }
+                    },
+                    "category_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category/properties/id"
+                        }
+                    },
+                    "item_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item/properties/id"
+                        }
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    }
+                }
+            },
+            "Operator": {
+                "description": "Describes an offer",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "location_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Location/properties/id"
+                        }
+                    },
+                    "category_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category/properties/id"
+                        }
+                    },
+                    "item_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item/properties/id"
+                        }
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    }
+                }
+            },
+            "Option": {
+                "description": "Describes a selectable option",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    }
+                }
+            },
+            "Order": {
+                "description": "Describes the details of an order",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Hash of order object without id"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "provider": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "$ref": "#/components/schemas/Provider/properties/id"
+                            },
+                            "locations": {
+                                "type": "array",
+                                "maxItems": 1,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "$ref": "#/components/schemas/Location/properties/id"
+                                        }
+                                    },
+                                    "required": [
+                                        "id"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "locations"
+                        ]
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "$ref": "#/components/schemas/Item/properties/id"
+                                },
+                                "quantity": {
+                                    "$ref": "#/components/schemas/ItemQuantity/properties/selected"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "quantity"
+                            ]
+                        }
+                    },
+                    "add_ons": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "$ref": "#/components/schemas/AddOn/properties/id"
+                                }
+                            },
+                            "required": [
+                                "id"
+                            ]
+                        }
+                    },
+                    "offers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "$ref": "#/components/schemas/Offer/properties/id"
+                                }
+                            },
+                            "required": [
+                                "id"
+                            ]
+                        }
+                    },
+                    "billing": {
+                        "$ref": "#/components/schemas/Billing"
+                    },
+                    "fulfillment": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Fulfillment"
+                            },
+                            {
+                                "properties": {
+                                    "customer": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/components/schemas/Person"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/Contact"
+                                            },
+                                            {
+                                                "required": [
+                                                    "name"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "customer"
+                                ]
+                            }
+                        ]
+                    },
+                    "quote": {
+                        "$ref": "#/components/schemas/Quotation"
+                    },
+                    "payment": {
+                        "$ref": "#/components/schemas/Payment"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "provider",
+                    "items",
+                    "add_ons",
+                    "offers",
+                    "billing",
+                    "fulfillment",
+                    "quote",
+                    "payment"
+                ]
+            },
+            "Organization": {
+                "description": "Describes an organization",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "cred": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Payment": {
+                "description": "Describes a payment",
+                "type": "object",
+                "properties": {
+                    "uri": {
+                        "type": "string",
+                        "description": "A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234",
+                        "format": "uri"
+                    },
+                    "tl_method": {
+                        "type": "string",
+                        "enum": [
+                            "http/get",
+                            "http/post"
+                        ]
+                    },
+                    "params": {
+                        "type": "object",
+                        "properties": {
+                            "transaction_id": {
+                                "type": "string",
+                                "description": "This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests"
+                            },
+                            "amount": {
+                                "$ref": "#/components/schemas/MonetaryValue/properties/value"
+                            }
+                        },
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "ON-ORDER",
+                            "PRE-FULFILLMENT",
+                            "ON-FULFILLMENT",
+                            "POST-FULFILLMENT"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "PAID",
+                            "NOT-PATD"
+                        ]
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    }
+                }
+            },
+            "Person": {
+                "description": "Describes a person. Extension not allowed",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "$ref": "#/components/schemas/Name"
+                    },
+                    "image": {
+                        "$ref": "#/components/schemas/Image"
+                    },
+                    "dob": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "gender": {
+                        "type": "string",
+                        "description": "Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender"
+                    },
+                    "cred": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "Policy": {
+                "description": "Describes a policy. Allows for domain extension.",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "parent_policy_id": {
+                        "$ref": "#/components/schemas/Policy/properties/id"
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    }
+                }
+            },
+            "Price": {
+                "description": "Describes the price of an item. Allows for domain extension.",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/MonetaryValue"
+                    },
+                    {
+                        "properties": {
+                            "estimated_value": {
+                                "$ref": "#/components/schemas/DecimalValue"
+                            },
+                            "computed_value": {
+                                "$ref": "#/components/schemas/DecimalValue"
+                            },
+                            "listed_value": {
+                                "$ref": "#/components/schemas/DecimalValue"
+                            },
+                            "offered_value": {
+                                "$ref": "#/components/schemas/DecimalValue"
+                            },
+                            "minimum_value": {
+                                "$ref": "#/components/schemas/DecimalValue"
+                            },
+                            "maximum_value": {
+                                "$ref": "#/components/schemas/DecimalValue"
+                            }
+                        }
+                    }
+                ]
+            },
+            "ProviderCatalog": {
+                "description": "Describes a provider catalog",
+                "type": "object",
+                "properties": {
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category"
+                        }
+                    },
+                    "fulfillments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Fulfillment"
+                        }
+                    },
+                    "payments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Payment"
+                        }
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/components/schemas/Location"
+                                },
+                                {
+                                    "properties": {
+                                        "time": {
+                                            "$ref": "#/components/schemas/Time"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "offers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Offer"
+                        }
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "exp": {
+                        "type": "string",
+                        "description": "Time after which catalog has to be refreshed",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Provider": {
+                "description": "Describes a service provider. This can be a restaurant, a hospital, a Store etc",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}"
+                    },
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Location"
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "Quotation": {
+                "description": "Describes a quote",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "$ref": "#/components/schemas/Price"
+                    },
+                    "breakup": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "item",
+                                        "offer",
+                                        "add-on",
+                                        "fulfillment"
+                                    ]
+                                },
+                                "ref_id": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "price": {
+                                    "$ref": "#/components/schemas/Price"
+                                }
+                            }
+                        }
+                    },
+                    "ttl": {
+                        "$ref": "#/components/schemas/Duration"
+                    }
+                }
+            },
+            "Rating": {
+                "description": "Describes the rating of a person or an object. Extension not allowed",
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "unit": {
+                        "type": "string",
+                        "default": "U+2B50",
+                        "description": "Follows the unicode 13.0 format for emojis : https://unicode.org/emoji/charts/full-emoji-list.html"
+                    },
+                    "max_value": {
+                        "type": "number",
+                        "default": 5
+                    },
+                    "direction": {
+                        "type": "string",
+                        "enum": [
+                            "UP",
+                            "DOWN"
+                        ],
+                        "default": "UP"
+                    }
+                }
+            },
+            "Scalar": {
+                "description": "An object representing a scalar quantity. Extension allowed only to the limit of vector",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "CONSTANT",
+                            "VARIABLE"
+                        ]
+                    },
+                    "value": {
+                        "type": "number"
+                    },
+                    "estimated_value": {
+                        "type": "number"
+                    },
+                    "computed_value": {
+                        "type": "number"
+                    },
+                    "range": {
+                        "type": "object",
+                        "properties": {
+                            "min": {
+                                "type": "number"
+                            },
+                            "max": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "unit": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "value",
+                    "unit"
+                ]
+            },
+            "Schedule": {
+                "description": "Describes a schedule",
+                "type": "object",
+                "properties": {
+                    "frequency": {
+                        "$ref": "#/components/schemas/Duration"
+                    },
+                    "holidays": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    "times": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                }
+            },
+            "State": {
+                "description": "Describes a state",
+                "type": "object",
+                "properties": {
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "description": "ID of entity which changed the state"
+                    }
+                }
+            },
+            "Subscriber": {
+                "type": "object",
+                "description": "Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.",
+                "properties": {
+                    "subscriber_id": {
+                        "type": "string",
+                        "description": "Registered domain name of the subscriber. Must have a valid SSL certificate issued by a Certificate Authority of the operating region"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "bap",
+                            "bpp",
+                            "bg",
+                            "bppr",
+                            "bgr"
+                        ]
+                    },
+                    "cb_url": {
+                        "type": "string",
+                        "description": "Callback URL of the subscriber. The Registry will call this URL's on_subscribe API to validate the subscriber\\'s credentials"
+                    },
+                    "domain": {
+                        "$ref": "#/components/schemas/Domain"
+                    },
+                    "city": {
+                        "$ref": "#/components/schemas/City/properties/code"
+                    },
+                    "country": {
+                        "$ref": "#/components/schemas/Country/properties/code"
+                    },
+                    "signing_public_key": {
+                        "type": "string",
+                        "description": "Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\\'s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```Proxy-Authorization``` header."
+                    },
+                    "encryption_public_key": {
+                        "type": "string",
+                        "description": "Encryption public key of the BAP subscriber. Any BPP must encrypt the ```requestBody.message``` value of the ```on_search``` API using this public key."
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "INITIATED",
+                            "UNDER_SUBSCRIPTION",
+                            "SUBSCRIBED",
+                            "INVALID_SSL",
+                            "UNSUBSCRIBED"
+                        ]
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when a subscriber was added to the registry with status = INITIATED",
+                        "format": "date-time"
+                    },
+                    "updated": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expires": {
+                        "type": "string",
+                        "description": "Expiry timestamp in UTC derived from the ```lease_time``` of the subscriber",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Support": {
+                "description": "Customer support",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "order",
+                            "billing",
+                            "fulfillment"
+                        ]
+                    },
+                    "ref_id": {
+                        "type": "string"
+                    },
+                    "channels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
+                    }
+                }
+            },
+            "Tags": {
+                "description": "Describes a tag. This is a simple key-value store which is used to contain extended metadata",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
+            "Time": {
+                "description": "Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations",
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "duration": {
+                        "$ref": "#/components/schemas/Duration"
+                    },
+                    "range": {
+                        "type": "object",
+                        "properties": {
+                            "start": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "end": {
+                                "type": "string",
+                                "format": "date-time"
+                            }
+                        }
+                    },
+                    "days": {
+                        "type": "string",
+                        "description": "comma separated values representing days of the week"
+                    }
+                }
+            },
+            "TrackingData": {
+                "description": "Describes tracking data object during live tracking of an order",
+                "$ref": "#/components/schemas/Location/properties/gps"
+            },
+            "Tracking": {
+                "description": "Describes the tracking info of an object",
+                "type": "object",
+                "properties": {
+                    "tl_method": {
+                        "type": "string",
+                        "enum": [
+                            "http/get",
+                            "ws"
+                        ]
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ]
+                    }
+                }
+            },
+            "Vehicle": {
+                "description": "Describes the properties of a vehicle used in a mobility service",
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string"
+                    },
+                    "capacity": {
+                        "type": "integer"
+                    },
+                    "make": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "string"
+                    },
+                    "variant": {
+                        "type": "string"
+                    },
+                    "color": {
+                        "type": "string"
+                    },
+                    "energy_type": {
+                        "type": "string"
+                    },
+                    "registration": {
+                        "type": "string"
+                    }
+                }
+            }
         }
-    ]
+    }
 }

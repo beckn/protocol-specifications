@@ -1,6 +1,4 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/ack.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes the ACK response",
     "type": "object",
     "properties": {
@@ -11,6 +9,10 @@
                 "ACK",
                 "NACK"
             ]
+        },
+        "signature" : {
+            "type" : "string",
+            "description": "Hash of previously received request body signed using receiver's signing public key. For example, The ACK/NACK response to a confirm call fired by a BAP must have the BPP's signature containing the hash of the confirm message body. In case the API is being routed by a BG, the BG ack will have the have the BG's signature containing the hash of the message body"
         }
     }
 }

@@ -1,7 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/rating.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "description": "Describes the rating of a person or an object. Extension not allowed",
+   "description": "Describes the rating of a person or an object. Extension not allowed",
     "type": "object",
     "properties": {
         "value" : {
@@ -14,7 +12,8 @@
             "description": "Follows the unicode 13.0 format for emojis : https://unicode.org/emoji/charts/full-emoji-list.html"
         },
         "max_value" : {
-            "type" : "number"
+            "type" : "number",
+            "default" : 5
         },
         "direction" : {
             "type" : "string",

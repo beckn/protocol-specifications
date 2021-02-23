@@ -1,186 +1,22 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/schedule.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "description": "Describes a calendar",
+    "description": "Describes a schedule",
     "type": "object",
     "properties": {
-        "config": {
-            "type": "object",
-            "properties": {
-                "calendar": {
-                    "type": "string",
-                    "enum": [
-                        "GREGORIAN",
-                        "DARIAN"
-                    ],
-                    "default": "GREGORIAN"
-                }
-            },
-            "days": {
-                "type": "object",
-                "properties": {
-                    "count": {
-                        "type": "integer"
-                    },
-                    "names": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "MON",
-                                "TUE",
-                                "WED",
-                                "THU",
-                                "FRI",
-                                "SAT",
-                                "SUN"
-                            ]
-                        }
-                    }
-                }
-            },
-            "refresh_at": {
-                "type": "string",
-                "format": "date-time"
-            }
-        },
-        "year": {
-            "type": "object",
-            "properties": {
-                "val": {
-                    "type": "integer"
-                },
-                "start_date": {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            }
+        "frequency": {
+            "$ref" : "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/duration.json"
         },
         "holidays": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "date": {
-                        "type": "string",
-                        "format": "date"
-                    },
-                    "occasion": {
-                        "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/descriptor.json"
-                    }
-                }
+                "type": "string",
+                "format" : "date-time"
             }
         },
-        "week": {
-            "type": "array",
-            "items": {
-                "properties": {
-                    "days": {
-                        "type": "object",
-                        "properties": {
-                            "mon": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            },
-                            "tue": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            },
-                            "wed": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            },
-                            "thu": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            },
-                            "fri": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            },
-                            "sat": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            },
-                            "sun": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    "active": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "today": {
-            "type": "object",
-            "properties": {
-                "slots": {
-                    "type": "array",
-                    "items": {
-                        "open": {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/time.json"
-                        },
-                        "close": {
-                            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/89e04f8ffbe3ec22f1673edd3af6ca6d7da9cbc5/core/v0/schema/time.json"
-                        }
-                    }
-                }
+        "times": {
+            "type" : "array",
+            "items" : {
+                "type" : "string",
+                "format" : "date-time"
             }
         }
     }

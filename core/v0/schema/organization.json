@@ -1,0 +1,23 @@
+{
+    "description": "Describes an organization. Extension not allowed",
+    "type": "object",
+    "properties": {
+        "name" : {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/name.json"
+        },
+        "image": {
+            "$ref": "https://raw.githubusercontent.com/beckn/protocol-specifications/core-v0.9.1/core/v0/schema/image.json"
+        },
+        "email" : {
+            "type": "string",
+            "format": "email"
+        },
+        "phones": {
+            "type": "array",
+            "items" : {
+                "type": "string",
+                "description": "Phone numer in E.164 format (ITUT recommendation)"
+            }
+        }
+    }
+}
