@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/master/core/v0/schema/eta.json",
+    "$id": "https://raw.githubusercontent.com/beckn/protocol-specifications/5f3e681dafedb5ae199d59c9a5e8d65f828565ad/core/v0/schema/eta.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Describes an ETA",            
     "type": "object",
