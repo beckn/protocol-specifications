@@ -3,7 +3,7 @@
     "info": {
         "title": "Beckn Core API",
         "description": "Beckn Core API specification",
-        "version": "0.9.1"
+        "version": "0.9.1-draft03"
     },
     "security": [
         {
@@ -748,11 +748,17 @@
                                         "properties": {
                                             "id": {
                                                 "type": "string",
-                                                "description": "Rating + Feedback ID as returned in get_rating_categories API"
+                                                "description": "ID of the item to be rated"
+                                            },
+                                            "value": {
+                                                "type": "integer",
+                                                "maximum": 5,
+                                                "minimum": 0
                                             }
                                         },
                                         "required": [
-                                            "id"
+                                            "id",
+                                            "value"
                                         ]
                                     }
                                 },
@@ -1508,12 +1514,7 @@
                                         "type": "object",
                                         "properties": {
                                             "feedback": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "message": {
-                                                        "type": "string"
-                                                    }
-                                                }
+                                                "$ref": "#/components/schemas/Feedback"
                                             }
                                         }
                                     },
@@ -1618,204 +1619,6 @@
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/subscribe": {
-            "post": {
-                "tags": [
-                    "Registry"
-                ],
-                "description": "Subscribe to a network",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "subscriber_id": {
-                                        "type": "string",
-                                        "description": "A unique ID describing a subscriber on a network.\nThe typical format of a subscriber is as follows.\n``` <fqdn>.<extension>\n```\nwhere, <br/>\n<table> <thead>\n  <tr>\n    <td>Key</th>\n    <td>Description</th>\n  </tr>\n</thead> <tbody>\n  <tr>\n    <td>fqdn</th>\n    <td>Fully qualified domain name</th>\n  </tr>\n  <tr>\n    <td>extn</td>\n    <td>Domain Extension</td>\n  </tr>\n</tbody> </table>\nThe domain name of the subscriber must be an ```https``` domain with a ```.com``` extension and a valid SSL certificate from a trusted certificate authority of the country of operation\n",
-                                        "example": "example.com.beckn.mobility.ind.blr"
-                                    },
-                                    "keys": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {
-                                                "signing_public_key": {
-                                                    "type": "string"
-                                                },
-                                                "encr_public_key": {
-                                                    "type": "string"
-                                                },
-                                                "created": {
-                                                    "type": "string",
-                                                    "format": "date-time"
-                                                },
-                                                "expires": {
-                                                    "type": "string",
-                                                    "format": "date-time"
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "nonce": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Registration status",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "status": {
-                                            "type": "string",
-                                            "enum": [
-                                                "INITIATED",
-                                                "UNDER_SUBSCRIPTION",
-                                                "SUBSCRIBED",
-                                                "INVALID_SSL",
-                                                "UNSUBSCRIBED"
-                                            ]
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/on_subscribe": {
-            "post": {
-                "tags": [
-                    "Subscriber"
-                ],
-                "description": "Validates a subscriber. In this API the Registry generates a random string, encrypts it with the subscriber\\'s encryption public key and sends it to the subscriber\\'s callback URL. The subscriber then decrypts the string using it's encryption private key and sends back the decypted value to the registry. If the decrypted value is the same as the sent value, the subscriber get's added to the registry with a ```status = \"SUBSCRIBED\"```",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Signature",
-                        "description": "This contains the digital signature of the request body signed using the signing private key of the Registry",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
-                "requestBody": {
-                    "description": "Contains a subscriber challenge key to be decrypted by the subscriber",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "challenge": {
-                                        "type": "string",
-                                        "description": "A random string generated by the registry encrypted with the subscriber's encryption public key"
-                                    },
-                                    "subscriber_id": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Registration status",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "answer": {
-                                            "type": "string",
-                                            "description": "Decrypted value"
-                                        },
-                                        "status": {
-                                            "type": "string",
-                                            "enum": [
-                                                "INITIATED",
-                                                "UNDER_SUBSCRIPTION",
-                                                "SUBSCRIBED",
-                                                "INVALID_SSL",
-                                                "UNSUBSCRIBED"
-                                            ],
-                                            "example": "SUBSCRIBED"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/lookup": {
-            "post": {
-                "tags": [
-                    "Registry"
-                ],
-                "description": "Look up subscriber(s) in a registry",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Signature",
-                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
-                "requestBody": {
-                    "description": "TODO",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "subscriber_id": {
-                                        "type": "string"
-                                    },
-                                    "domain": {
-                                        "$ref": "#/components/schemas/Domain"
-                                    },
-                                    "country": {
-                                        "$ref": "#/components/schemas/Country/properties/code"
-                                    },
-                                    "city": {
-                                        "$ref": "#/components/schemas/City/properties/code"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "List of subscribers with ```state = \"SUBSCRIBED\"```",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Subscriber"
                                     }
                                 }
                             }
@@ -1996,10 +1799,6 @@
                             "ACK",
                             "NACK"
                         ]
-                    },
-                    "signature": {
-                        "type": "string",
-                        "description": "Hash of previously received request body signed using receiver's signing public key. For example, The ACK/NACK response to a confirm call fired by a BAP must have the BPP's signature containing the hash of the confirm message body. In case the API is being routed by a BG, the BG ack will have the have the BG's signature containing the hash of the message body"
                     }
                 }
             },
@@ -2218,21 +2017,27 @@
                         "$ref": "#/components/schemas/Time"
                     },
                     "tags": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
             "Circle": {
                 "description": "Describes a circular area on the map",
-                "type": "object",
-                "properties": {
-                    "gps": {
+                "allOf": [
+                    {
                         "$ref": "#/components/schemas/Gps"
                     },
-                    "radius": {
-                        "$ref": "#/components/schemas/Scalar"
+                    {
+                        "properties": {
+                            "radius": {
+                                "$ref": "#/components/schemas/Scalar"
+                            }
+                        }
                     }
-                }
+                ]
             },
             "City": {
                 "description": "Describes a city",
@@ -2506,25 +2311,14 @@
                 "description": "Feedback for a service",
                 "type": "object",
                 "properties": {
-                    "type": {
-                        "type": "string",
-                        "enum": [
-                            "order",
-                            "fulfillment",
-                            "item",
-                            "support",
-                            "person"
-                        ]
-                    },
-                    "ref_id": {
-                        "type": "string",
-                        "description": "ID reference of the object selected in ```type```. For example, if the feedback is about an item, then ```ref_id``` will contain the ```item.id```"
-                    },
-                    "rating": {
-                        "$ref": "#/components/schemas/Rating"
+                    "id": {
+                        "type": "string"
                     },
                     "descriptor": {
-                        "$ref": "#/components/schemas/Descriptor"
+                        "type": "string"
+                    },
+                    "parent_id": {
+                        "type": "string"
                     }
                 }
             },
@@ -2602,7 +2396,10 @@
                         "type": "string"
                     },
                     "tags": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
@@ -2629,12 +2426,7 @@
                                 "$ref": "#/components/schemas/Provider/properties/id"
                             },
                             "descriptor": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                }
+                                "$ref": "#/components/schemas/Descriptor"
                             },
                             "locations": {
                                 "type": "array",
@@ -2684,36 +2476,10 @@
                         }
                     },
                     "payment": {
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "$ref": "#/components/schemas/Payment/properties/type"
-                            },
-                            "params": {
-                                "type": "object",
-                                "properties": {
-                                    "mode": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
+                        "$ref": "#/components/schemas/Payment"
                     },
                     "category": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "$ref": "#/components/schemas/Category/properties/id"
-                            },
-                            "descriptor": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
+                        "$ref": "#/components/schemas/Category"
                     },
                     "offer": {
                         "type": "object",
@@ -2754,7 +2520,10 @@
                         "type": "string"
                     },
                     "tags": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
@@ -2851,8 +2620,20 @@
                     "time": {
                         "$ref": "#/components/schemas/Time"
                     },
+                    "matched": {
+                        "type": "boolean"
+                    },
+                    "related": {
+                        "type": "boolean"
+                    },
+                    "recommended": {
+                        "type": "boolean"
+                    },
                     "tags": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
@@ -2981,30 +2762,37 @@
                 }
             },
             "Operator": {
-                "description": "Describes the agent of a service",
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Person"
+                "description": "Describes an offer",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
                     },
-                    {
-                        "properties": {
-                            "experience": {
-                                "type": "object",
-                                "properties": {
-                                    "label": {
-                                        "type": "string"
-                                    },
-                                    "value": {
-                                        "type": "string"
-                                    },
-                                    "unit": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
+                    "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                    },
+                    "location_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Location/properties/id"
                         }
+                    },
+                    "category_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category/properties/id"
+                        }
+                    },
+                    "item_ids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item/properties/id"
+                        }
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
                     }
-                ]
+                }
             },
             "Option": {
                 "description": "Describes a selectable option",
@@ -3172,6 +2960,18 @@
                     }
                 }
             },
+            "Page": {
+                "description": "Describes a page in a search result",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "next_id": {
+                        "type": "string"
+                    }
+                }
+            },
             "Payment": {
                 "description": "Describes a payment",
                 "type": "object",
@@ -3246,7 +3046,10 @@
                         "type": "string"
                     },
                     "tags": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
@@ -3377,7 +3180,10 @@
                         }
                     },
                     "tags": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
@@ -3607,7 +3413,10 @@
                         "type": "string"
                     },
                     "channels": {
-                        "$ref": "#/components/schemas/Tags"
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     }
                 }
             },
