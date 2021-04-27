@@ -2020,10 +2020,7 @@
                         "$ref": "#/components/schemas/Time"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2366,10 +2363,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2464,10 +2458,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2574,10 +2565,7 @@
                         "type": "boolean"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -2986,10 +2974,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -3120,10 +3105,7 @@
                         }
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
@@ -3353,10 +3335,7 @@
                         "type": "string"
                     },
                     "channels": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        }
+                        "$ref": "#/components/schemas/Tags"
                     }
                 }
             },
