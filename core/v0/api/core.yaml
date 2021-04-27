@@ -1813,28 +1813,20 @@ components:
           $ref: '#/components/schemas/Time'
     
     Operator:
-      description: Describes an offer
-      type: object
-      properties:
-        id:
-          type: string
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        location_ids:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location/properties/id'
-        category_ids:
-          type: array
-          items:
-            $ref: '#/components/schemas/Category/properties/id'
-        item_ids:
-          type: array
-          items:
-            $ref: '#/components/schemas/Item/properties/id'
-        time:
-          $ref: '#/components/schemas/Time'
-    
+      description: Describes the agent of a service
+      allOf:
+        - $ref: "#/components/schemas/Person"
+        - properties:
+            experience:
+              type: object
+              properties:
+                label:
+                  type: string
+                value:
+                  type: string
+                unit:
+                  type: string
+
     Option:
       description: Describes a selectable option
       type: object
