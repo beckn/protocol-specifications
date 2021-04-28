@@ -2177,14 +2177,12 @@
                     "bpp/providers": {
                         "type": "array",
                         "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/Provider"
-                                },
-                                {
-                                    "$ref": "#/components/schemas/ProviderCatalog"
-                                }
-                            ]
+                            "provider": {
+                                "$ref": "#/components/schemas/Provider"
+                            },
+                            "provider_catalog": {
+                                "$ref": "#/components/schemas/ProviderCatalog"
+                            }
                         }
                     },
                     "exp": {
@@ -2218,18 +2216,15 @@
             },
             "Circle": {
                 "description": "Describes a circular area on the map",
-                "allOf": [
-                    {
+                "type": "object",
+                "properties": {
+                    "gps": {
                         "$ref": "#/components/schemas/Gps"
                     },
-                    {
-                        "properties": {
-                            "radius": {
-                                "$ref": "#/components/schemas/Scalar"
-                            }
-                        }
+                    "radius": {
+                        "$ref": "#/components/schemas/Scalar"
                     }
-                ]
+                }
             },
             "City": {
                 "description": "Describes a city",
@@ -2503,14 +2498,15 @@
                     },
                     "agent": {
                         "description": "The person who fulfills the order",
-                        "allOf": [
-                            {
+                        "type": "object",
+                        "properties": {
+                            "person": {
                                 "$ref": "#/components/schemas/Person"
                             },
-                            {
+                            "contact": {
                                 "$ref": "#/components/schemas/Contact"
                             }
-                        ]
+                        }
                     },
                     "vehicle": {
                         "$ref": "#/components/schemas/Vehicle"
@@ -2981,33 +2977,26 @@
                     "billing": {
                         "$ref": "#/components/schemas/Billing"
                     },
-                    "fulfillment": {
-                        "allOf": [
-                            {
+                    "fulfillment_and_customer": {
+                        "type": "object",
+                        "properties": {
+                            "fulfillment": {
                                 "$ref": "#/components/schemas/Fulfillment"
                             },
-                            {
+                            "customer": {
+                                "type": "object",
                                 "properties": {
-                                    "customer": {
-                                        "allOf": [
-                                            {
-                                                "$ref": "#/components/schemas/Person"
-                                            },
-                                            {
-                                                "$ref": "#/components/schemas/Contact"
-                                            },
-                                            {
-                                                "required": [
-                                                    "name"
-                                                ]
-                                            }
-                                        ]
+                                    "person": {
+                                        "$ref": "#/components/schemas/Person"
+                                    },
+                                    "contact": {
+                                        "$ref": "#/components/schemas/Contact"
                                     }
-                                },
-                                "required": [
-                                    "customer"
-                                ]
+                                }
                             }
+                        },
+                        "required": [
+                            "customer"
                         ]
                     },
                     "quote": {
@@ -3031,7 +3020,7 @@
                     "add_ons",
                     "offers",
                     "billing",
-                    "fulfillment",
+                    "fulfillment_and_customer",
                     "quote",
                     "payment"
                 ]
@@ -3136,7 +3125,10 @@
                     "tags": {
                         "$ref": "#/components/schemas/Tags"
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "Policy": {
                 "description": "Describes a policy. Allows for domain extension.",
@@ -3158,33 +3150,30 @@
             },
             "Price": {
                 "description": "Describes the price of an item. Allows for domain extension.",
-                "allOf": [
-                    {
+                "type": "object",
+                "properties": {
+                    "monetary_value": {
                         "$ref": "#/components/schemas/MonetaryValue"
                     },
-                    {
-                        "properties": {
-                            "estimated_value": {
-                                "$ref": "#/components/schemas/DecimalValue"
-                            },
-                            "computed_value": {
-                                "$ref": "#/components/schemas/DecimalValue"
-                            },
-                            "listed_value": {
-                                "$ref": "#/components/schemas/DecimalValue"
-                            },
-                            "offered_value": {
-                                "$ref": "#/components/schemas/DecimalValue"
-                            },
-                            "minimum_value": {
-                                "$ref": "#/components/schemas/DecimalValue"
-                            },
-                            "maximum_value": {
-                                "$ref": "#/components/schemas/DecimalValue"
-                            }
-                        }
+                    "estimated_value": {
+                        "$ref": "#/components/schemas/DecimalValue"
+                    },
+                    "computed_value": {
+                        "$ref": "#/components/schemas/DecimalValue"
+                    },
+                    "listed_value": {
+                        "$ref": "#/components/schemas/DecimalValue"
+                    },
+                    "offered_value": {
+                        "$ref": "#/components/schemas/DecimalValue"
+                    },
+                    "minimum_value": {
+                        "$ref": "#/components/schemas/DecimalValue"
+                    },
+                    "maximum_value": {
+                        "$ref": "#/components/schemas/DecimalValue"
                     }
-                ]
+                }
             },
             "ProviderCatalog": {
                 "description": "Describes a provider catalog",
@@ -3211,18 +3200,12 @@
                     "locations": {
                         "type": "array",
                         "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/Location"
-                                },
-                                {
-                                    "properties": {
-                                        "time": {
-                                            "$ref": "#/components/schemas/Time"
-                                        }
-                                    }
-                                }
-                            ]
+                            "location": {
+                                "$ref": "#/components/schemas/Location"
+                            },
+                            "time": {
+                                "$ref": "#/components/schemas/Time"
+                            }
                         }
                     },
                     "offers": {
