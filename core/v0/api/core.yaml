@@ -1406,26 +1406,28 @@ components:
           description: Country code as per ISO 3166-1 and ISO 3166-2 format
     Customer:
       description: Describes the customer
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - SINGLE
-            - GROUP
-        individual:
-          type: object
+      oneOf:
+        - type: object
           properties:
-            info:
+            individual:
               $ref: '#/components/schemas/Person'
-        group:
-          type: object
+          required: 
+            - individual
+        - type: object
           properties:
-            primary:
-              $ref: '#/components/schemas/Person'
-            count:
-              type: integer
-              minimum: 1
+            group:
+              type: object
+              properties:
+                primary:
+                  $ref: '#/components/schemas/Person'
+                count:
+                  type: integer
+                  minimum: 2
+              required:
+                - primary
+                - count
+          required: 
+            - group
     DecimalValue:
       description: Describes a decimal value
       type: string
