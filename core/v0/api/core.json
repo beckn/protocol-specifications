@@ -1800,7 +1800,10 @@
                             "NACK"
                         ]
                     }
-                }
+                },
+                "required": [
+                    "status"
+                ]
             },
             "AddOn": {
                 "description": "Describes an add-on",
