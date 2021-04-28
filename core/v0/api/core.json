@@ -1847,16 +1847,17 @@
                         "description": "Name or number of the ward if applicable"
                     },
                     "city": {
-                        "type": "string",
-                        "description": "City name"
+                        "$ref": "#/components/schemas/City"
                     },
                     "state": {
                         "type": "string",
                         "description": "State name"
                     },
                     "country": {
-                        "type": "string",
-                        "description": "Country name"
+                        "$ref": "#/components/schemas/Country"
+                    },
+                    "station_code": {
+                        "type": "string"
                     },
                     "area_code": {
                         "type": "string",
@@ -2656,29 +2657,59 @@
                     "descriptor": {
                         "$ref": "#/components/schemas/Descriptor"
                     },
-                    "gps": {
-                        "$ref": "#/components/schemas/Gps"
-                    },
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "station_code": {
-                        "type": "string"
-                    },
-                    "city": {
-                        "$ref": "#/components/schemas/City"
-                    },
-                    "country": {
-                        "$ref": "#/components/schemas/Country"
-                    },
-                    "circle": {
-                        "$ref": "#/components/schemas/Circle"
-                    },
-                    "polygon": {
-                        "type": "string"
-                    },
-                    "3dspace": {
-                        "type": "string"
+                    "location": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "gps": {
+                                        "$ref": "#/components/schemas/Gps"
+                                    }
+                                },
+                                "required": [
+                                    "gps"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "address": {
+                                        "$ref": "#/components/schemas/Address"
+                                    }
+                                },
+                                "required": [
+                                    "address"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "circle": {
+                                        "$ref": "#/components/schemas/Circle"
+                                    }
+                                },
+                                "required": [
+                                    "circle"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "polygon": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "polygon"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "3dspace": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "3dspace"
+                                ]
+                            }
+                        ]
                     }
                 }
             },
@@ -3461,7 +3492,7 @@
             },
             "TrackingData": {
                 "description": "Describes tracking data object during live tracking of an order",
-                "$ref": "#/components/schemas/Location/properties/gps"
+                "$ref": "#/components/schemas/Gps"
             },
             "Tracking": {
                 "description": "Describes the tracking info of an object",
