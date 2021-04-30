@@ -2442,6 +2442,9 @@
                             },
                             "tags": {
                                 "$ref": "#/components/schemas/Tags"
+                            },
+                            "vehicle": {
+                                "$ref": "#/components/schemas/Vehicle"
                             }
                         }
                     },
@@ -2452,39 +2455,10 @@
                         "$ref": "#/components/schemas/Category"
                     },
                     "offer": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "$ref": "#/components/schemas/Offer/properties/id"
-                            },
-                            "descriptor": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
+                        "$ref": "#/components/schemas/Offer"
                     },
                     "item": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "$ref": "#/components/schemas/Category/properties/id"
-                            },
-                            "descriptor": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "tags": {
-                                        "$ref": "#/components/schemas/Tags"
-                                    }
-                                }
-                            }
-                        }
+                        "$ref": "#/components/schemas/Item"
                     },
                     "purpose": {
                         "type": "string"
