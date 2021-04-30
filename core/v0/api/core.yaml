@@ -1396,12 +1396,7 @@ components:
         bpp/providers:
           type: array
           items:
-            type: object
-            properties:
-              provider:
-                $ref: '#/components/schemas/Provider'
-              provider_catalog:
-                $ref: '#/components/schemas/ProviderCatalog'
+            $ref: '#/components/schemas/Provider'
         exp:
           type: string
           description: Time after which catalog has to be refreshed
@@ -2103,10 +2098,18 @@ components:
           $ref: '#/components/schemas/DecimalValue'
         maximum_value:
           $ref: '#/components/schemas/DecimalValue'
-    ProviderCatalog:
-      description: Describes a provider catalog
+          
+    Provider:
+      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
       type: object
       properties:
+        id:
+          type: string
+          description: 'Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}'
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        time:
+          $ref: '#/components/schemas/Time'
         categories:
           type: array
           items:
@@ -2138,22 +2141,6 @@ components:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
-
-    Provider:
-      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
-      type: object
-      properties:
-        id:
-          type: string
-          description: 'Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}'
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        time:
-          $ref: '#/components/schemas/Time'
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
         tags:
           $ref: '#/components/schemas/Tags'
 
