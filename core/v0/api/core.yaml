@@ -1666,6 +1666,8 @@ components:
               $ref: '#/components/schemas/Descriptor'
             contact:
               $ref: '#/components/schemas/Contact'
+            person:
+              $ref: '#/components/schemas/Person'
         end:
           description: Details on the end of fulfillment
           type: object
@@ -1678,6 +1680,8 @@ components:
               $ref: '#/components/schemas/Descriptor'
             contact:
               $ref: '#/components/schemas/Contact'
+            person:
+              $ref: '#/components/schemas/Person'
         purpose:
           type: string
         tags:
@@ -1969,20 +1973,8 @@ components:
               - id
         billing:
           $ref: '#/components/schemas/Billing'
-        fulfillment_and_customer:
-          type: object
-          properties:
-            fulfillment:
-              $ref: '#/components/schemas/Fulfillment'
-            customer:
-              type: object
-              properties:
-                person:
-                  $ref: '#/components/schemas/Person'
-                contact:
-                  $ref: '#/components/schemas/Contact'
-          required:
-            - customer
+        fulfillment:
+          $ref: '#/components/schemas/Fulfillment'
         quote:
           $ref: '#/components/schemas/Quotation'
         payment:

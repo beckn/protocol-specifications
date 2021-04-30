@@ -2509,6 +2509,9 @@
                             },
                             "contact": {
                                 "$ref": "#/components/schemas/Contact"
+                            },
+                            "person": {
+                                "$ref": "#/components/schemas/Person"
                             }
                         }
                     },
@@ -2530,6 +2533,9 @@
                             },
                             "contact": {
                                 "$ref": "#/components/schemas/Contact"
+                            },
+                            "person": {
+                                "$ref": "#/components/schemas/Person"
                             }
                         }
                     },
@@ -2981,27 +2987,8 @@
                     "billing": {
                         "$ref": "#/components/schemas/Billing"
                     },
-                    "fulfillment_and_customer": {
-                        "type": "object",
-                        "properties": {
-                            "fulfillment": {
-                                "$ref": "#/components/schemas/Fulfillment"
-                            },
-                            "customer": {
-                                "type": "object",
-                                "properties": {
-                                    "person": {
-                                        "$ref": "#/components/schemas/Person"
-                                    },
-                                    "contact": {
-                                        "$ref": "#/components/schemas/Contact"
-                                    }
-                                }
-                            }
-                        },
-                        "required": [
-                            "customer"
-                        ]
+                    "fulfillment": {
+                        "$ref": "#/components/schemas/Fulfillment"
                     },
                     "quote": {
                         "$ref": "#/components/schemas/Quotation"
