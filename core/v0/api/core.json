@@ -2224,7 +2224,11 @@
                     "radius": {
                         "$ref": "#/components/schemas/Scalar"
                     }
-                }
+                },
+                "required": [
+                    "gps",
+                    "radius"
+                ]
             },
             "City": {
                 "description": "Describes a city",
