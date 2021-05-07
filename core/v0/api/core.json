@@ -969,12 +969,18 @@
                                             "catalog": {
                                                 "$ref": "#/components/schemas/Catalog"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "catalog"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -996,12 +1002,18 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context"
+                                    ]
                                 }
                             }
                         }
@@ -1071,12 +1083,18 @@
                                                     }
                                                 }
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "selected"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1098,12 +1116,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1210,12 +1235,18 @@
                                                     }
                                                 }
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "initialized"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1237,12 +1268,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1272,12 +1310,18 @@
                                             "order": {
                                                 "$ref": "#/components/schemas/Order"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1299,12 +1343,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1334,12 +1385,18 @@
                                             "tracking": {
                                                 "$ref": "#/components/schemas/Tracking"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "tracking"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1361,12 +1418,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1396,12 +1460,18 @@
                                             "order": {
                                                 "$ref": "#/components/schemas/Order"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1423,12 +1493,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1458,12 +1535,18 @@
                                             "order": {
                                                 "$ref": "#/components/schemas/Order"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1485,12 +1568,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1520,9 +1610,16 @@
                                             "order": {
                                                 "$ref": "#/components/schemas/Order"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "order"
+                                        ]
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context",
+                                    "message"
+                                ]
                             }
                         }
                     }
@@ -1544,12 +1641,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1579,12 +1683,18 @@
                                             "feedback": {
                                                 "$ref": "#/components/schemas/Feedback"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "feedback"
+                                        ]
                                     },
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1606,12 +1716,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
@@ -1655,7 +1772,10 @@
                                     "error": {
                                         "$ref": "#/components/schemas/Error"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "context"
+                                ]
                             }
                         }
                     }
@@ -1677,12 +1797,19 @@
                                                 "ack": {
                                                     "$ref": "#/components/schemas/Ack"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ack"
+                                            ]
                                         },
                                         "error": {
                                             "$ref": "#/components/schemas/Error"
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "context",
+                                        "message"
+                                    ]
                                 }
                             }
                         }
