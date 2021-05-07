@@ -625,8 +625,12 @@ paths:
                   properties:
                     catalog:
                       $ref: '#/components/schemas/Catalog'
+                  required:
+                    - catalog
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -642,8 +646,12 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
   /on_select:
     post:
       tags:
@@ -686,8 +694,12 @@ paths:
                             $ref: '#/components/schemas/Offer'
                         quote:
                           $ref: '#/components/schemas/Quotation'
+                  required:
+                    - selected
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -703,8 +715,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_init:
     post:
       tags:
@@ -773,8 +790,12 @@ paths:
                           $ref: '#/components/schemas/Quotation'
                         payment:
                           $ref: '#/components/schemas/Payment'
+                  required:
+                    - initialized
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -790,8 +811,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_confirm:
     post:
       tags:
@@ -811,8 +837,12 @@ paths:
                   properties:
                     order:
                       $ref: '#/components/schemas/Order'
+                  required:
+                    - order
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -828,8 +858,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_track:
     post:
       tags:
@@ -849,8 +884,12 @@ paths:
                   properties:
                     tracking:
                       $ref: '#/components/schemas/Tracking'
+                  required:
+                    - tracking
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -866,8 +905,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_cancel:
     post:
       tags:
@@ -887,8 +931,12 @@ paths:
                   properties:
                     order:
                       $ref: '#/components/schemas/Order'
+                  required:
+                    - order
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -904,8 +952,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_update:
     post:
       tags:
@@ -925,8 +978,12 @@ paths:
                   properties:
                     order:
                       $ref: '#/components/schemas/Order'
+                  required:
+                    - order
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -942,8 +999,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_status:
     post:
       tags:
@@ -963,6 +1025,11 @@ paths:
                   properties:
                     order:
                       $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+              required:
+                - context
+                - message
       responses:
         '200':
           description: Acknowledgement of message received
@@ -978,8 +1045,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_rating:
     post:
       tags:
@@ -999,8 +1071,12 @@ paths:
                   properties:
                     feedback:
                       $ref: '#/components/schemas/Feedback'
+                  required:
+                    - feedback
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1016,8 +1092,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
   /on_support:
     post:
       tags:
@@ -1046,6 +1127,8 @@ paths:
                       format: uri
                 error:
                   $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1061,8 +1144,13 @@ paths:
                     properties:
                       ack:
                         $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
                   error:
                     $ref: '#/components/schemas/Error'
+                required:
+                  - context
+                  - message
                   
   /get_cancellation_reasons:
     post:
