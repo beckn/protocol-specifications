@@ -1639,6 +1639,13 @@ components:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
           default: false
+        customer:
+          type: object
+          properties:
+            person:
+              $ref: '#/components/schemas/Person'
+            contact:
+              $ref: '#/components/schemas/Contact'
         agent:
           description: The person who fulfills the order
           type: object
@@ -1958,18 +1965,8 @@ components:
               - id
         billing:
           $ref: '#/components/schemas/Billing'
-        fulfillment_and_customer:
-          type: object
-          properties:
-            fulfillment:
-              $ref: '#/components/schemas/Fulfillment'
-            customer:
-              type: object
-              properties:
-                person:
-                  $ref: '#/components/schemas/Person'
-                contact:
-                  $ref: '#/components/schemas/Contact'
+        fulfillment:
+          $ref: '#/components/schemas/Fulfillment'
         quote:
           $ref: '#/components/schemas/Quotation'
         payment:
@@ -1986,7 +1983,7 @@ components:
         - add_ons
         - offers
         - billing
-        - fulfillment_and_customer
+        - fulfillment
         - quote
         - payment
 
