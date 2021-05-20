@@ -2804,18 +2804,6 @@
                     }
                 }
             },
-            "MonetaryValue": {
-                "description": "Describes a monetary value used for exchange",
-                "type": "object",
-                "properties": {
-                    "currency": {
-                        "type": "string"
-                    },
-                    "value": {
-                        "$ref": "#/components/schemas/DecimalValue"
-                    }
-                }
-            },
             "Name": {
               "type": "string",
               "description": "Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}",
@@ -3072,7 +3060,7 @@
                                 "description": "This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests"
                             },
                             "amount": {
-                                "$ref": "#/components/schemas/MonetaryValue/properties/value"
+                                "$ref": "#/components/schemas/Price/properties/value"
                             }
                         },
                         "additionalProperties": {
@@ -3151,8 +3139,11 @@
                 "description": "Describes the price of an item. Allows for domain extension.",
                 "type": "object",
                 "properties": {
-                    "monetary_value": {
-                        "$ref": "#/components/schemas/MonetaryValue"
+                    "currency": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "$ref": "#/components/schemas/DecimalValue"
                     },
                     "estimated_value": {
                         "$ref": "#/components/schemas/DecimalValue"
