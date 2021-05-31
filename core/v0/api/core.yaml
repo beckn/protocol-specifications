@@ -2072,6 +2072,30 @@ components:
               $ref: '#/components/schemas/MonetaryValue/properties/value'
           additionalProperties:
             type: string
+        payee:
+          type: object
+          oneOf:
+            - type: object
+              properties:
+                person:
+                  $ref: '#/components/schemas/Person'
+            - description: Virtual private account
+              type: object
+              properties:
+                vpa:
+                  type: string
+            - description: Bank account
+              type: object
+              properties:
+                bank_account:
+                  type: object
+                  properties:
+                    ifsc_code:
+                      type: string
+                    account_number:
+                      type: string
+                    account_holder_name:
+                      type: string
         type:
           type: string
           enum:
