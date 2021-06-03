@@ -521,7 +521,7 @@ paths:
                     value:
                       type: integer
                       maximum: 5
-                      minimum: 0 
+                      minimum: 1
                   required:
                     - id
                     - value
