@@ -1027,9 +1027,10 @@ paths:
                       $ref: '#/components/schemas/Order'
                   required:
                     - order
+                error:
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         '200':
           description: Acknowledgement of message received
