@@ -1614,11 +1614,13 @@
                                         "required": [
                                             "order"
                                         ]
+                                    },
+                                    "error": {
+                                        "$ref": "#/components/schemas/Error"
                                     }
                                 },
                                 "required": [
-                                    "context",
-                                    "message"
+                                    "context"
                                 ]
                             }
                         }
