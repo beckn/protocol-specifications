@@ -1840,8 +1840,6 @@ components:
           type: string
         3dspace:
           type: string
-      required:
-        - gps
           
     MonetaryValue:
       description: Describes a monetary value used for exchange
