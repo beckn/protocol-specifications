@@ -1417,10 +1417,7 @@ components:
         time:
           $ref: '#/components/schemas/Time'
         tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
-
+          $ref: '#/components/schemas/Tags'
     Circle:
       description: Describes a circular area on the map
       allOf:
@@ -1674,9 +1671,7 @@ components:
         purpose:
           type: string
         tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
+          $ref: '#/components/schemas/Tags'
     Gps:
       description: Describes a gps coordinate
       type: string
@@ -1740,10 +1735,8 @@ components:
         purpose:
           type: string
         tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
-
+          $ref: '#/components/schemas/Tags'
+            
     ItemQuantity:
       description: Describes count or amount of an item
       type: object
@@ -1815,9 +1808,7 @@ components:
         recommended:
           type: boolean
         tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
+          $ref: '#/components/schemas/Tags'
     Language:
       description: indicates language code. Beckn supports country codes as per ISO 639.2 standard
       type: object
@@ -1887,27 +1878,19 @@ components:
           $ref: '#/components/schemas/Time'
 
     Operator:
-      description: Describes an offer
-      type: object
-      properties:
-        id:
-          type: string
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        location_ids:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location/properties/id'
-        category_ids:
-          type: array
-          items:
-            $ref: '#/components/schemas/Category/properties/id'
-        item_ids:
-          type: array
-          items:
-            $ref: '#/components/schemas/Item/properties/id'
-        time:
-          $ref: '#/components/schemas/Time'
+      description: Describes the agent of a service
+      allOf:
+        - $ref: "#/components/schemas/Person"
+        - properties:
+            experience:
+              type: object
+              properties:
+                label:
+                  type: string
+                value:
+                  type: string
+                unit:
+                  type: string
 
     Option:
       description: Describes a selectable option
@@ -2082,10 +2065,7 @@ components:
         cred:
           type: string
         tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
-
+          $ref: '#/components/schemas/Tags'
     Policy:
       description: Describes a policy. Allows for domain extension.
       type: object
@@ -2169,9 +2149,7 @@ components:
           items:
             $ref: '#/components/schemas/Location'
         tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
+          $ref: '#/components/schemas/Tags'
 
     Quotation:
       description: Describes a quote
@@ -2340,10 +2318,8 @@ components:
         ref_id:
           type: string
         channels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags'
-
+          $ref: '#/components/schemas/Tags'
+    
     Tags:
       description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
       additionalProperties:
