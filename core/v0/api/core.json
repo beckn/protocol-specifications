@@ -2526,7 +2526,10 @@
                                 "$ref": "#/components/schemas/Time"
                             },
                             "instructions": {
-                                "$ref": "#/components/schemas/Descriptor"
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Descriptor"
+                                }
                             },
                             "contact": {
                                 "$ref": "#/components/schemas/Contact"
@@ -2544,7 +2547,10 @@
                                 "$ref": "#/components/schemas/Time"
                             },
                             "instructions": {
-                                "$ref": "#/components/schemas/Descriptor"
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Descriptor"
+                                }
                             },
                             "contact": {
                                 "$ref": "#/components/schemas/Contact"
