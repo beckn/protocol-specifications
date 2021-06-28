@@ -3107,10 +3107,7 @@
                     "tags": {
                         "$ref": "#/components/schemas/Tags"
                     }
-                },
-                "required": [
-                    "name"
-                ]
+                }
             },
             "Policy": {
                 "description": "Describes a policy. Allows for domain extension.",
