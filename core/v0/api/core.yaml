@@ -1855,6 +1855,8 @@ components:
           type: string
         3dspace:
           type: string
+        time:
+          $ref: '#/components/schemas/Time'
     Name:
       type: string
       description: 'Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}'
@@ -2122,10 +2124,7 @@ components:
         locations:
           type: array
           items:
-              location:
-                $ref: '#/components/schemas/Location'
-              time:
-                $ref: '#/components/schemas/Time'
+            $ref: '#/components/schemas/Location'
         offers:
           type: array
           items:

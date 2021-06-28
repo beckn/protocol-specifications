@@ -2812,6 +2812,9 @@
                     },
                     "3dspace": {
                         "type": "string"
+                    },
+                    "time": {
+                        "$ref": "#/components/schemas/Time"
                     }
                 }
             },
@@ -3199,12 +3202,7 @@
                     "locations": {
                         "type": "array",
                         "items": {
-                            "location": {
-                                "$ref": "#/components/schemas/Location"
-                            },
-                            "time": {
-                                "$ref": "#/components/schemas/Time"
-                            }
+                            "$ref": "#/components/schemas/Location"
                         }
                     },
                     "offers": {
