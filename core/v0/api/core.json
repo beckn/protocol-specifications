@@ -2059,6 +2059,20 @@
                     }
                 }
             },
+            "Agent": {
+                "description": "Describes an order executor",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Person"
+                    },
+                    {
+                        "$ref": "#/components/schemas/Contact"
+                    }
+                ],
+                "required": [
+                    "cred"
+                ]
+            },
             "Billing": {
                 "description": "Describes a billing event",
                 "type": "object",
@@ -2507,16 +2521,7 @@
                         }
                     },
                     "agent": {
-                        "description": "The person who fulfills the order",
-                        "type": "object",
-                        "properties": {
-                            "person": {
-                                "$ref": "#/components/schemas/Person"
-                            },
-                            "contact": {
-                                "$ref": "#/components/schemas/Contact"
-                            }
-                        }
+                        "$ref": "#/components/schemas/Agent"
                     },
                     "vehicle": {
                         "$ref": "#/components/schemas/Vehicle"
