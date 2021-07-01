@@ -2581,6 +2581,9 @@
                             "id": {
                                 "$ref": "#/components/schemas/Provider/properties/id"
                             },
+                            "category_id":{
+                                "$ref": "#/components/schemas/Provider/properties/category_id"
+                            },
                             "descriptor": {
                                 "$ref": "#/components/schemas/Descriptor"
                             },
@@ -3251,6 +3254,10 @@
                     "id": {
                         "type": "string",
                         "description": "Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}"
+                    },
+                    "category_id": {
+                        "type": "string",
+                        "description": "Category Id of the provider"
                     },
                     "descriptor": {
                         "$ref": "#/components/schemas/Descriptor"
