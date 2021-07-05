@@ -1313,6 +1313,13 @@ components:
         area_code:
           type: string
           description: 'Area code. This can be Pincode, ZIP code or any equivalent'
+    Agent:
+      description: Describes an order executor
+      allOf:
+        - $ref: '#/components/schemas/Person'
+        - $ref: '#/components/schemas/Contact'
+      required:
+        - cred
     Billing:
       description: Describes a billing event
       type: object
@@ -1396,9 +1403,7 @@ components:
         bpp/providers:
           type: array
           items:
-            allOf:
-              - $ref: '#/components/schemas/Provider'
-              - $ref: '#/components/schemas/ProviderCatalog'
+            $ref: '#/components/schemas/Provider'
         exp:
           type: string
           description: Time after which catalog has to be refreshed
@@ -1420,11 +1425,15 @@ components:
           $ref: '#/components/schemas/Tags'
     Circle:
       description: Describes a circular area on the map
-      allOf:
-        - $ref: '#/components/schemas/Gps'
-        - properties:
-            radius:
-              $ref: '#/components/schemas/Scalar'
+      type: object
+      properties:
+        gps:
+          $ref: '#/components/schemas/Gps'
+        radius:
+          $ref: '#/components/schemas/Scalar'
+      required:
+        - gps
+        - radius
     City:
       description: Describes a city
       type: object
@@ -1637,11 +1646,15 @@ components:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
           default: false
+        customer:
+          type: object
+          properties:
+            person:
+              $ref: '#/components/schemas/Person'
+            contact:
+              $ref: '#/components/schemas/Contact'
         agent:
-          description: The person who fulfills the order
-          allOf:
-            - $ref: '#/components/schemas/Person'
-            - $ref: '#/components/schemas/Contact'
+          $ref: '#/components/schemas/Agent'
         vehicle:
           $ref: '#/components/schemas/Vehicle'
         start:
@@ -1656,6 +1669,8 @@ components:
               $ref: '#/components/schemas/Descriptor'
             contact:
               $ref: '#/components/schemas/Contact'
+            person:
+              $ref: '#/components/schemas/Person'
         end:
           description: Details on the end of fulfillment
           type: object
@@ -1668,6 +1683,8 @@ components:
               $ref: '#/components/schemas/Descriptor'
             contact:
               $ref: '#/components/schemas/Contact'
+            person:
+              $ref: '#/components/schemas/Person'
         purpose:
           type: string
         tags:
@@ -1839,16 +1856,8 @@ components:
           type: string
         3dspace:
           type: string
-
-    MonetaryValue:
-      description: Describes a monetary value used for exchange
-      type: object
-      properties:
-        currency:
-          type: string
-        value:
-          $ref: '#/components/schemas/DecimalValue'
-
+        time:
+          $ref: '#/components/schemas/Time'
     Name:
       type: string
       description: 'Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}'
@@ -1960,17 +1969,7 @@ components:
         billing:
           $ref: '#/components/schemas/Billing'
         fulfillment:
-          allOf:
-            - $ref: '#/components/schemas/Fulfillment'
-            - properties:
-                customer:
-                  allOf:
-                    - $ref: '#/components/schemas/Person'
-                    - $ref: '#/components/schemas/Contact'
-                    - required:
-                      - name
-              required:
-                - customer
+          $ref: '#/components/schemas/Fulfillment'
         quote:
           $ref: '#/components/schemas/Quotation'
         payment:
@@ -2030,7 +2029,7 @@ components:
               type: string
               description: This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests
             amount:
-              $ref: '#/components/schemas/MonetaryValue/properties/value'
+              $ref: '#/components/schemas/Price/properties/value'
           additionalProperties:
             type: string
         type:
@@ -2081,25 +2080,36 @@ components:
 
     Price:
       description: Describes the price of an item. Allows for domain extension.
-      allOf:
-        - $ref: '#/components/schemas/MonetaryValue'
-        - properties:
-            estimated_value:
-              $ref: '#/components/schemas/DecimalValue'
-            computed_value:
-              $ref: '#/components/schemas/DecimalValue'
-            listed_value:
-              $ref: '#/components/schemas/DecimalValue'
-            offered_value:
-              $ref: '#/components/schemas/DecimalValue'
-            minimum_value:
-              $ref: '#/components/schemas/DecimalValue'
-            maximum_value:
-              $ref: '#/components/schemas/DecimalValue'
-    ProviderCatalog:
-      description: Describes a provider catalog
       type: object
       properties:
+        currency:
+          type: string
+        value:
+          $ref: '#/components/schemas/DecimalValue'
+        estimated_value:
+          $ref: '#/components/schemas/DecimalValue'
+        computed_value:
+          $ref: '#/components/schemas/DecimalValue'
+        listed_value:
+          $ref: '#/components/schemas/DecimalValue'
+        offered_value:
+          $ref: '#/components/schemas/DecimalValue'
+        minimum_value:
+          $ref: '#/components/schemas/DecimalValue'
+        maximum_value:
+          $ref: '#/components/schemas/DecimalValue'
+          
+    Provider:
+      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}'
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        time:
+          $ref: '#/components/schemas/Time'
         categories:
           type: array
           items:
@@ -2115,11 +2125,7 @@ components:
         locations:
           type: array
           items:
-            allOf:
-              - $ref: '#/components/schemas/Location'
-              - properties:
-                  time:
-                    $ref: '#/components/schemas/Time'
+            $ref: '#/components/schemas/Location'
         offers:
           type: array
           items:
@@ -2132,22 +2138,6 @@ components:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
-
-    Provider:
-      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
-      type: object
-      properties:
-        id:
-          type: string
-          description: 'Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}'
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        time:
-          $ref: '#/components/schemas/Time'
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
         tags:
           $ref: '#/components/schemas/Tags'
 
