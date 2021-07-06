@@ -2040,15 +2040,6 @@ components:
           items:
             type: object
             properties:
-              type:
-                type: string
-                enum:
-                  - item
-                  - offer
-                  - add-on
-                  - fulfillment
-              ref_id:
-                type: string
               title:
                 type: string
               price:
@@ -2234,11 +2225,6 @@ components:
       description: Describes the tracking info of an object
       type: object
       properties:
-        tl_method:
-          type: string
-          enum:
-            - http/get
-            - ws
         url:
           type: string
           format: uri
