@@ -2365,6 +2365,9 @@
                         "type": "string",
                         "description": "This describes the type of fulfillment"
                     },
+                    "provider_id": {
+                        "$ref": "#/components/schemas/Provider/properties/id"
+                    },
                     "state": {
                         "$ref": "#/components/schemas/State"
                     },
@@ -2428,9 +2431,6 @@
                                 "$ref": "#/components/schemas/Contact"
                             }
                         }
-                    },
-                    "purpose": {
-                        "type": "string"
                     },
                     "tags": {
                         "$ref": "#/components/schemas/Tags"
@@ -3009,7 +3009,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "Id of the provider. The syntax of the ID is {unique provider identifier. If the provider name has an @, it has to be escaped}@{bpp_id}"
+                        "description": "Id of the provider"
                     },
                     "descriptor": {
                         "$ref": "#/components/schemas/Descriptor"
