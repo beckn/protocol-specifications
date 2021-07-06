@@ -1617,6 +1617,8 @@ components:
               $ref: '#/components/schemas/Provider/properties/id'
             descriptor:
               $ref: '#/components/schemas/Descriptor'
+            category_id:
+              $ref: '#/components/schemas/Provider/properties/category_id'
             locations:
               type: array
               maxItems: 1
@@ -1996,6 +1998,9 @@ components:
           description: 'Id of the provider'
         descriptor:
           $ref: '#/components/schemas/Descriptor'
+        category_id:
+          type: string
+          description: 'Category Id of the provider'
         time:
           $ref: '#/components/schemas/Time'
         categories:
