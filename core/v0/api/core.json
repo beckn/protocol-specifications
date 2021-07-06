@@ -2526,9 +2526,6 @@
                 "description": "Intent of a user. Used for searching for services",
                 "type": "object",
                 "properties": {
-                    "query_string": {
-                        "type": "string"
-                    },
                     "provider": {
                         "type": "object",
                         "properties": {
@@ -2599,9 +2596,6 @@
                     },
                     "item": {
                         "$ref": "#/components/schemas/Item"
-                    },
-                    "purpose": {
-                        "type": "string"
                     },
                     "tags": {
                         "$ref": "#/components/schemas/Tags"
