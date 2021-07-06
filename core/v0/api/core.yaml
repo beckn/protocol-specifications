@@ -1842,24 +1842,6 @@ components:
           description: Hash of order object without id
         state:
           type: string
-        provider:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/Provider/properties/id'
-            locations:
-              type: array
-              maxItems: 1
-              items:
-                type: object
-                properties:
-                  id:
-                    $ref: '#/components/schemas/Location/properties/id'
-                required:
-                  - id
-          required:
-            - id
-            - locations
         items:
           type: array
           items:
