@@ -2292,7 +2292,7 @@
                             "status",
                             "track",
                             "cancel",
-                            "feedback",
+                            "rating",
                             "support",
                             "on_search",
                             "on_select",
@@ -2302,9 +2302,8 @@
                             "on_status",
                             "on_track",
                             "on_cancel",
-                            "on_feedback",
-                            "on_support",
-                            "ack"
+                            "on_rating",
+                            "on_support"
                         ]
                     },
                     "core_version": {
@@ -2314,17 +2313,17 @@
                     "bap_id": {
                         "type": "string",
                         "format": "uri",
-                        "description": "This is registered domain name of the BAP. Must be an HTTPS domain in open networks"
+                        "description": "Unique id of the BAP. By default it is the fully qualified domain name of the BAP"
                     },
                     "bap_uri": {
                         "type": "string",
                         "format": "uri",
-                        "description": "URI of the BAP. Must have the same domain name as the bap_id"
+                        "description": "URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id"
                     },
                     "bpp_id": {
                         "type": "string",
                         "format": "uri",
-                        "description": "This is registered domain name of the BPP. Must be an HTTPS domain in open networks"
+                        "description": "Unique id of the BPP. By default it is the fully qualified domain name of the BPP"
                     },
                     "bpp_uri": {
                         "type": "string",
@@ -2333,11 +2332,11 @@
                     },
                     "transaction_id": {
                         "type": "string",
-                        "description": "This is a unique value which persists across all API calls from search through confirm. The format for transaction id is an ecrypted value of the following string. '{bap_id}/{timestamp}/{ttl}/{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback transaction_id with the request transaction_id"
+                        "description": "This is a unique value which persists across all API calls from search through confirm"
                     },
                     "message_id": {
                         "type": "string",
-                        "description": "This is a unique value which persists during a request / callback cycle. The format for transaction id is an ecrypted value of the following string. '{bap_id}/{action}/{timestamp}/{ttl}/{random nonce}' using a key known only to the BAP. The BAP will decrypt this value to compare the callback message_id with the request message_id"
+                        "description": "This is a unique value which persists during a request / callback cycle"
                     },
                     "timestamp": {
                         "type": "string",
@@ -2349,7 +2348,8 @@
                         "description": "The encryption public key of the sender"
                     },
                     "ttl": {
-                        "$ref": "#/components/schemas/Duration"
+                        "type": "string",
+                        "description": "The duration in ISO8601 format after timestamp for which this message holds valid"
                     }
                 },
                 "required": [
