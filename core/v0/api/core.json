@@ -106,7 +106,7 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "selected": {
+                                            "order": {
                                                 "type": "object",
                                                 "properties": {
                                                     "provider": {
@@ -190,7 +190,7 @@
                                             }
                                         },
                                         "required": [
-                                            "selected"
+                                            "order"
                                         ]
                                     }
                                 },
@@ -1007,7 +1007,7 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "selected": {
+                                            "order": {
                                                 "type": "object",
                                                 "properties": {
                                                     "provider": {
@@ -1052,7 +1052,7 @@
                                             }
                                         },
                                         "required": [
-                                            "selected"
+                                            "order"
                                         ]
                                     },
                                     "error": {
@@ -1130,7 +1130,7 @@
                                     "message": {
                                         "type": "object",
                                         "properties": {
-                                            "initialized": {
+                                            "order": {
                                                 "type": "object",
                                                 "properties": {
                                                     "provider": {
@@ -1201,7 +1201,7 @@
                                             }
                                         },
                                         "required": [
-                                            "initialized"
+                                            "order"
                                         ]
                                     },
                                     "error": {

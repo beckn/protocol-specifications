@@ -71,7 +71,7 @@ paths:
                 message:
                   type: object
                   properties:
-                    selected:
+                    order:
                       type: object
                       properties:
                         provider:
@@ -126,7 +126,7 @@ paths:
                         - provider
                         - items
                   required:
-                    - selected
+                    - order
               required:
                 - context
                 - message
@@ -647,7 +647,7 @@ paths:
                 message:
                   type: object
                   properties:
-                    selected:
+                    order:
                       type: object
                       properties:
                         provider:
@@ -673,7 +673,7 @@ paths:
                         quote:
                           $ref: '#/components/schemas/Quotation'
                   required:
-                    - selected
+                    - order
                 error:
                   $ref: '#/components/schemas/Error'
               required:
@@ -722,7 +722,7 @@ paths:
                 message:
                   type: object
                   properties:
-                    initialized:
+                    order:
                       type: object
                       properties:
                         provider:
@@ -767,7 +767,7 @@ paths:
                         payment:
                           $ref: '#/components/schemas/Payment'
                   required:
-                    - initialized
+                    - order
                 error:
                   $ref: '#/components/schemas/Error'
               required:
