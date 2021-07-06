@@ -43,8 +43,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -143,8 +141,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -248,8 +244,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -293,8 +287,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -338,8 +330,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -386,8 +376,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -436,8 +424,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -485,8 +471,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -536,8 +520,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -588,8 +570,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -639,8 +619,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -708,8 +686,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -804,8 +780,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -851,8 +825,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -898,8 +870,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -945,8 +915,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -992,8 +960,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -1039,8 +1005,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -1086,8 +1050,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:
@@ -1138,8 +1100,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context:
-                    $ref: '#/components/schemas/Context'
                   message:
                     type: object
                     properties:

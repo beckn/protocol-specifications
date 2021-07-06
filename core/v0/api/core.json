@@ -62,9 +62,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -213,9 +210,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -374,9 +368,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -446,9 +437,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -518,9 +506,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -594,9 +579,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -673,9 +655,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -750,9 +729,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -829,9 +805,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -910,9 +883,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -993,9 +963,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1107,9 +1074,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1259,9 +1223,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1334,9 +1295,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1409,9 +1367,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1484,9 +1439,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1559,9 +1511,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1634,9 +1583,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1709,9 +1655,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
@@ -1790,9 +1733,6 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "context": {
-                                            "$ref": "#/components/schemas/Context"
-                                        },
                                         "message": {
                                             "type": "object",
                                             "properties": {
