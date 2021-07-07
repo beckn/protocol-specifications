@@ -2028,10 +2028,16 @@ components:
             transaction_id:
               type: string
               description: This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests
+            transaction_status:
+              type: string
             amount:
               $ref: '#/components/schemas/Price/properties/value'
+            currency:
+              $ref: '#/components/schemas/Price/properties/currency'
           additionalProperties:
             type: string
+          required:
+            - currency
         type:
           type: string
           enum:
