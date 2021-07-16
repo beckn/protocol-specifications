@@ -8,6 +8,9 @@
     "security": [
         {
             "SubscriberAuth": []
+        },
+        {
+            "GatewaySubscriberAuth": []
         }
     ],
     "paths": {
@@ -782,17 +785,6 @@
                     "Beckn Provider Platform (BPP)"
                 ],
                 "description": "Contact support",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Signature",
-                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1046,17 +1038,6 @@
                     "Beckn App Platform (BAP)"
                 ],
                 "description": "Send order object with payment details updated",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Proxy-Authorization",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "description": "Signature of message body + X-Sub-Authorization header using BG's signing public key. For example Proxy-Authorization : Signature subId='bg-example.com',algorithm='rsa-sha256' headers='Authorization' signature='Base64(RSA-SHA256(signing string))'"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1689,17 +1670,6 @@
                     "BPP Meta APIs"
                 ],
                 "description": "Look up subscriber(s) in a registry",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Signature",
-                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1733,17 +1703,6 @@
                     "BPP Meta APIs"
                 ],
                 "description": "Look up subscriber(s) in a registry",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Signature",
-                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1777,17 +1736,6 @@
                     "BPP Meta APIs"
                 ],
                 "description": "Get a list of feedback forms based on rating inputs",
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "Signature",
-                        "description": "This contains the digital signature of the request body signed using the signing private key of the Subscriber",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
                 "requestBody": {
                     "description": "TODO",
                     "content": {
@@ -1834,13 +1782,13 @@
                 "type": "apiKey",
                 "in": "header",
                 "name": "Authorization",
-                "description": "Signature of message body using BAP or BPP subscriber's signing public key. <br/><br/>For example:<br/><br/><code>Authorization : Signature keyId='bap-example.com', signature='Base64(EdDSA-SHA512(requestBody))'</code>"
+                "description": "Signature of message body using BAP or BPP subscriber's signing private key. Format: Authorization : Signature keyId=\"{subscriber_id}|{unique_key_id}|{algorithm}\" algorithm=\"xed25519\" created=\"1606970629\" expires=\"1607030629\" headers=\"(created) (expires) digest\" signature=\"Base64(BLAKE-512(signing string))\""
             },
             "GatewaySubscriberAuth": {
                 "type": "apiKey",
                 "in": "header",
                 "name": "Proxy-Authorization",
-                "description": "Signature of message body + BAP/BPP's Authorization header using BG's signing public key. For example:<br/><br/><code>Proxy-Authorization : Signature keyId='bg-example.com' headers='Authorization',signature='Base64(EdDSA-SHA512(requestBody)'</code>"
+                "description": "Signature of message body using BG's signing private key. Format: Proxy-Authorization:Signature keyId=\"{subscriber_id}|{unique_key_id}|{algorithm}\" algorithm=\"xed25519\" created=\"1606970629\" expires=\"1607030629\" headers=\"(created) (expires) digest\" signature=\"Base64(BLAKE-512(signing string))\""
             }
         },
         "schemas": {
