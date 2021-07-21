@@ -1432,6 +1432,8 @@ components:
         ttl:
           type: string
           description: The duration in ISO8601 format after timestamp for which this message holds valid
+        user:
+          $ref: '#/components/schemas/User'
       required:
         - domain
         - action
@@ -1559,12 +1561,7 @@ components:
           description: Indicates whether the fulfillment allows tracking
           default: false
         customer:
-          type: object
-          properties:
-            person:
-              $ref: '#/components/schemas/Person'
-            contact:
-              $ref: '#/components/schemas/Contact'
+          $ref: '#/components/schemas/User'
         agent:
           $ref: '#/components/schemas/Agent'
         vehicle:
@@ -1942,6 +1939,17 @@ components:
             - NOT-PATD
         time:
           $ref: '#/components/schemas/Time'
+
+    User: 
+      description: Describes a User.
+      type: object
+      properties: 
+        person:
+          $ref: '#/components/schemas/Person'
+        contact:
+          $ref: '#/components/schemas/Contact'
+        location:
+          $ref: '#/components/schemas/Location'
 
     Person:
       description: Describes a person. Extension not allowed
