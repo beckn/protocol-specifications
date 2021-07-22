@@ -7,3 +7,8 @@
 * __Email__ : pramod@ekstep.org
 * __Designation__ : CTO
 * __Organization__ : EkStep Foundation
+
+# Sujith Nair 
+* __Email__ : Sujith Nair
+* __Designation__ : CEO & Co-founder
+* __Organization__ : beckn Foundation
