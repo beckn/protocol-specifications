@@ -34,17 +34,17 @@ The purpose of this document is to outline and standardise the following :
 
 # Introduction
 
-Beckn is an open protocol that enables location-aware, local commerce across industries to be discovered and engaged by any beckn-enabled application. We are an open community and multiple businesses and organizations have started using Beckn Protocol to fuel their digital acceleration. This collaboration across domains, technologies and expertises will bring in new ideas which need to be part of the protocol. Hence there needs to be a standardised process for making relevant changes to the specification as well as for someone to understand the specification.
+Beckn is an open protocol that when implemented, enables any business to be discovered and engaged by any consumer application. The implementation of the protocol allow the creation of a fully decentralized open commerce network that has no central platform to concentrate or aggregate transactions. This decentralized approach to e-commerce ensures that the computation is performed at the edges rather than on a central platform. 
 
-To tackle these problems the beckn protocol should be unbundled in small editable components. The specifications will be a collection of Commentable Specification Files called CSFs.
+This open commerce network acts as a public digital infrastructure that uses existing standards for security, encryption, routing and trust. 
 
-## Beckn open communities for building open playgrounds
-
-At beckn, our goal is simple: to make the internet small-business friendly. We started on our mission by creating an open beckn protocol for commerce. Very soon, we have had community members representing diverse businesses and organizations come together and re-imagine their businesses and their ecosystems with Beckn Protocol. They are using Beckn Protocol to be more discoverable to their consumers and participate in the new way of doing business digitally.
+Beckn protocol is maintained via an open community-driven governance model. The community is comprised of multiple businesses and organizations that actively contribute to the specification to fuel their digital acceleration. This collaboration across domains, technologies and expertises will bring in new ideas which need to be part of the protocol. Hence there is a need for a standardised process for making relevant changes to the specification as well and for a retrospective understanding of the specification. This governance model is created using some of the best practices of globally recognized governance models. 
 
 ## The Beckn Credo
 
-We are an open community. So, no registrations. No memberships. No partnerships. Just a minimal footprint of an open and equally accessible Beckn Protocol that anyone can use. Multiple businesses and organizations have started using Beckn Protocol to fuel their digital acceleration. Our credo of being an open protocol creates a level-playing field for any market player, small or large.
+the beckn community is an open community. So, no registrations. No memberships. No partnerships. Just a minimal footprint of an open and equally accessible Beckn Protocol that anyone can use. Multiple businesses and organizations have started using beckn protocol to fuel their digital acceleration. The credo of being an open protocol creates a level-playing field for any market player, small or large.
+
+At beckn, the goal is simple: to make the internet small-business friendly.
 
 ### Motivation
 To make internet small-business friendly. Be a force multiplier with minimal footprint. Amplify potential
@@ -67,9 +67,10 @@ To allow open contributions from the community, an inclusive governance model is
 
 - Interoperability
 - Optimal ignorance
+- Privacy and Security
 - Scalability
 - Reusability
-- Non repudiability
+- Non repudiability and Trust
 - Unification over standardization
 
 ## Inclusiveness in Governance Approach
@@ -78,7 +79,7 @@ Since the core specification is essentially abstracted, the implementors of the 
 
 ## Areas
 
-There are many independently governable specification elements in beckn. We shall call them as areas. Each area will have multiple working groups under it.
+There are many independently governable specification elements in beckn. These elements are called areas. Each area will have multiple working groups under it.
 The following are the areas currently identified :
 -  **API**
    Core API and schema definitions
@@ -114,7 +115,7 @@ For assets (github repository, document collections, group email id etc) coming 
 
 # Contribution Process
 
-All contributions to the specification begin with the creation of a Commentable Specification File. 
+All contributions to the specification begin with the creation of a Commentable Specification File. To tackle these problems the beckn protocol has been unbundled into small editable components. These components will be documented into a list of Commentable Specification Files called CSFs.
 
 ## Creating a CSF
 
@@ -304,7 +305,7 @@ Each CSF will have a separate folder which will contain the following :
 - The main CSF file
 - Mail communications for the same for reference.
 
-All CSFs will be published in the beckn developer docs website as well.
+All CSFs will soon be published in the beckn developer docs website as well.
 
 ## Specification Backup
 
