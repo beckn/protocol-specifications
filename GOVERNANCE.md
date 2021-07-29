@@ -44,10 +44,8 @@ Beckn protocol is maintained via an open community-driven governance model. The 
 
 the beckn community is an open community. So, no registrations. No memberships. No partnerships. Just a minimal footprint of an open and equally accessible Beckn Protocol that anyone can use. Multiple businesses and organizations have started using beckn protocol to fuel their digital acceleration. The credo of being an open protocol creates a level-playing field for any market player, small or large.
 
-At beckn, the goal is simple: to make the internet small-business friendly.
-
 ### Motivation
-To make internet small-business friendly. Be a force multiplier with minimal footprint. Amplify potential
+At beckn, the goal is simple: to make the internet small-business friendly. Be a force multiplier with minimal footprint. Amplify potential
 
 ### Guiding Lights
 Open Specs, Equal access. Retain agency of small businesses. Non-Rivalrous, Non-exclusive networks
