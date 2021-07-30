@@ -53,10 +53,13 @@ Open Specs, Equal access. Retain agency of small businesses. Non-Rivalrous, Non-
 ### Community Driven
 Increase value for all participants.  Be a Network Weaver in your own way. Be a contributor of specs and best practices
 
-
 Beckn Protocol is an open commerce protocol with an abstract core, which is enabling market players to reimagine building seamless digital experiences and networks. This is very similar to how HTTP, while being a simple and open protocol has fueled seamless interaction between multiple systems and led to an explosive growth in internet adoption. 
 
 The core team within Beckn is a lean not-for-profit organization that plays the role of creating this protocol, sharing it as a public good and bringing awareness to this protocol. Beckn is structured so as to simplify and enable community members to self-organize and co-create their own digital playgrounds and networks. The community has been driving growth for themselves as well as for the digital commerce ecosystem. Being on Beckn allows your business to be more easily discoverable to your stakeholders.
+
+### Open Community Contributions
+
+Beckn has been accepting community contributions to the specification since May 2020.
 
 
 # Beckn Protocol Governance Model
