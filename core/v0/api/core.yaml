@@ -105,7 +105,6 @@ paths:
                             required:
                               - id
                       required:
-                        - provider
                         - items
                   required:
                     - order
@@ -189,7 +188,6 @@ paths:
                         fulfillment:
                           $ref: '#/components/schemas/Fulfillment'
                       required:
-                        - provider
                         - items
                         - add_ons
                         - offers
@@ -593,7 +591,7 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
+                  - message
   /on_select:
     post:
       tags:
@@ -656,7 +654,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_init:
     post:
@@ -740,7 +737,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_confirm:
     post:
@@ -785,7 +781,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_track:
     post:
@@ -830,7 +825,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_cancel:
     post:
@@ -875,7 +869,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_update:
     post:
@@ -920,7 +913,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_status:
     post:
@@ -965,7 +957,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_rating:
     post:
@@ -1010,7 +1001,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_support:
     post:
@@ -1060,7 +1050,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
 
   /get_cancellation_reasons:
@@ -1871,7 +1860,6 @@ components:
           type: string
           format: date-time
       required:
-        - provider
         - items
         - add_ons
         - offers
