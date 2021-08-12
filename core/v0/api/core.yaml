@@ -1375,7 +1375,7 @@ components:
           $ref: '#/components/schemas/City/properties/code'
         action:
           type: string
-          description: Defines the Beckn API call. Any actions other than the ennumerated actions are not supported by Beckn Protocol
+          description: Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
           enum:
             - search
             - select
@@ -1521,7 +1521,7 @@ components:
           description: Path to json schema generating the error. Used only during json schema validation errors
         message:
           type: string
-          description: Human readable message descirbing the error
+          description: Human readable message describing the error
       required:
         - type
         - code
@@ -1939,7 +1939,7 @@ components:
           type: string
           enum:
             - PAID
-            - NOT-PATD
+            - NOT-PAID
         time:
           $ref: '#/components/schemas/Time'
 
