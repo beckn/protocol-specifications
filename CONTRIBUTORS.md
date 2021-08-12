@@ -9,6 +9,11 @@
 * __Organization__ : EkStep Foundation
 
 # Sujith Nair 
-* __Email__ : Sujith Nair
+* __Email__ : sujith@beckn.org
 * __Designation__ : CEO & Co-founder
 * __Organization__ : beckn Foundation
+
+# Nirmal N R 
+* __Email__ : nirmal@framewirk.com
+* __Designation__ : Beckn Specifications Support
+* __Organization__ : Framewirk
