@@ -105,7 +105,6 @@ paths:
                             required:
                               - id
                       required:
-                        - provider
                         - items
                   required:
                     - order
@@ -189,12 +188,8 @@ paths:
                         fulfillment:
                           $ref: '#/components/schemas/Fulfillment'
                       required:
-                        - provider
                         - items
-                        - add_ons
-                        - offers
                         - billing
-                        - fulfillment
                   required:
                     - order
               required:
@@ -1871,12 +1866,8 @@ components:
           type: string
           format: date-time
       required:
-        - provider
         - items
-        - add_ons
-        - offers
         - billing
-        - fulfillment
         - quote
         - payment
 
