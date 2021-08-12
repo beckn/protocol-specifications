@@ -1608,46 +1608,9 @@ components:
       type: object
       properties:
         provider:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/Provider/properties/id'
-            descriptor:
-              $ref: '#/components/schemas/Descriptor'
-            category_id:
-              $ref: '#/components/schemas/Provider/properties/category_id'
-            locations:
-              type: array
-              maxItems: 1
-              items:
-                type: object
-                properties:
-                  id:
-                    $ref: '#/components/schemas/Location/properties/id'
+          $ref: '#/components/schemas/Provider'
         fulfillment:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/Fulfillment/properties/id'
-            start:
-              type: object
-              properties:
-                location:
-                  $ref: '#/components/schemas/Location'
-                time:
-                  $ref: '#/components/schemas/Time'
-            end:
-              type: object
-              properties:
-                location:
-                  $ref: '#/components/schemas/Location'
-                time:
-                  $ref: '#/components/schemas/Time'
-            tags:
-              $ref: '#/components/schemas/Tags'
-            vehicle:
-              $ref: '#/components/schemas/Vehicle'
-
+          $ref: '#/components/schemas/Fulfillment'
         payment:
           $ref: '#/components/schemas/Payment'
         category:
