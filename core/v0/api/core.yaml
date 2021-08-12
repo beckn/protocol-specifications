@@ -1547,6 +1547,8 @@ components:
           description: This describes the type of fulfillment
         provider_id:
           $ref: '#/components/schemas/Provider/properties/id'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
         state:
           $ref: '#/components/schemas/State'
         tracking:
@@ -1717,6 +1719,8 @@ components:
           $ref: '#/components/schemas/Price'
         category_id:
           $ref: '#/components/schemas/Category/properties/id'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
         location_id:
           $ref: '#/components/schemas/Location/properties/id'
         time:
@@ -1998,6 +2002,8 @@ components:
         category_id:
           type: string
           description: 'Category Id of the provider'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
         time:
           $ref: '#/components/schemas/Time'
         categories:
