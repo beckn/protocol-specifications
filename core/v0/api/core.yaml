@@ -6,6 +6,7 @@ info:
 
 security:
   - SubscriberAuth: []
+  - GatewaySubscriberAuth: []
 paths:
   /search:
     post:
@@ -13,9 +14,6 @@ paths:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
       description: Search for services by intent
-      security:
-        - SubscriberAuth: []
-          GatewaySubscriberAuth: []
       requestBody:
         description: BAP searches for services
         content:
@@ -105,7 +103,6 @@ paths:
                             required:
                               - id
                       required:
-                        - provider
                         - items
                   required:
                     - order
@@ -189,12 +186,8 @@ paths:
                         fulfillment:
                           $ref: '#/components/schemas/Fulfillment'
                       required:
-                        - provider
                         - items
-                        - add_ons
-                        - offers
                         - billing
-                        - fulfillment
                   required:
                     - order
               required:
@@ -501,13 +494,6 @@ paths:
       tags:
         - Beckn Provider Platform (BPP)
       description: Contact support
-      parameters:
-        - in: header
-          name: Signature
-          description: This contains the digital signature of the request body signed using the signing private key of the Subscriber
-          schema:
-            type: string
-          required: true
       requestBody:
         description: TODO
         content:
@@ -552,9 +538,6 @@ paths:
         - Beckn App Platform (BAP)
         - Beckn Gateway (BG)
       description: Send catalog
-      security:
-        - SubscriberAuth: []
-        - GatewaySubscriberAuth: []
       requestBody:
         description: TODO
         content:
@@ -663,13 +646,6 @@ paths:
       tags:
         - Beckn App Platform (BAP)
       description: Send order object with payment details updated
-      parameters:
-        - in: header
-          name: Proxy-Authorization
-          required: false
-          schema:
-            type: string
-            description: 'Signature of message body + X-Sub-Authorization header using BG''s signing public key. For example Proxy-Authorization : Signature subId=''bg-example.com'',algorithm=''rsa-sha256'' headers=''Authorization'' signature=''Base64(RSA-SHA256(signing string))'''
       requestBody:
         description: TODO
         content:
@@ -1068,13 +1044,6 @@ paths:
       tags:
         - BPP Meta APIs
       description: Look up subscriber(s) in a registry
-      parameters:
-        - in: header
-          name: Signature
-          description: This contains the digital signature of the request body signed using the signing private key of the Subscriber
-          schema:
-            type: string
-          required: true
       requestBody:
         description: TODO
         content:
@@ -1096,13 +1065,6 @@ paths:
       tags:
         - BPP Meta APIs
       description: Look up subscriber(s) in a registry
-      parameters:
-        - in: header
-          name: Signature
-          description: This contains the digital signature of the request body signed using the signing private key of the Subscriber
-          schema:
-            type: string
-          required: true
       requestBody:
         description: TODO
         content:
@@ -1124,13 +1086,6 @@ paths:
       tags:
         - BPP Meta APIs
       description: Get a list of feedback forms based on rating inputs
-      parameters:
-        - in: header
-          name: Signature
-          description: This contains the digital signature of the request body signed using the signing private key of the Subscriber
-          schema:
-            type: string
-          required: true
       requestBody:
         description: TODO
         content:
@@ -1159,12 +1114,12 @@ components:
       type: apiKey
       in: header
       name: Authorization
-      description: 'Signature of message body using BAP or BPP subscriber''s signing public key. <br/><br/>For example:<br/><br/><code>Authorization : Signature keyId=''bap-example.com'', signature=''Base64(EdDSA-SHA512(requestBody))''</code>'
+      description: 'Signature of message body using BAP or BPP subscriber''s signing public key. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}" algorithm="xed25519" created="1606970629" expires="1607030629" headers="(created) (expires) digest" signature="Base64(BLAKE-512(signing string))"</code>'
     GatewaySubscriberAuth:
       type: apiKey
       in: header
       name: Proxy-Authorization
-      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. For example:<br/><br/><code>Proxy-Authorization : Signature keyId=''bg-example.com'' headers=''Authorization'',signature=''Base64(EdDSA-SHA512(requestBody)''</code>'
+      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>Proxy-Authorization:Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}" algorithm="xed25519" created="1606970629" expires="1607030629" headers="(created) (expires) digest" signature="Base64(BLAKE-512(signing string))"</code>'
   schemas:
     Ack:
       description: Describes the ACK response
@@ -1375,7 +1330,7 @@ components:
           $ref: '#/components/schemas/City/properties/code'
         action:
           type: string
-          description: Defines the Beckn API call. Any actions other than the ennumerated actions are not supported by Beckn Protocol
+          description: Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
           enum:
             - search
             - select
@@ -1521,7 +1476,7 @@ components:
           description: Path to json schema generating the error. Used only during json schema validation errors
         message:
           type: string
-          description: Human readable message descirbing the error
+          description: Human readable message describing the error
       required:
         - type
         - code
@@ -1552,6 +1507,8 @@ components:
           description: This describes the type of fulfillment
         provider_id:
           $ref: '#/components/schemas/Provider/properties/id'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
         state:
           $ref: '#/components/schemas/State'
         tracking:
@@ -1611,46 +1568,9 @@ components:
       type: object
       properties:
         provider:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/Provider/properties/id'
-            descriptor:
-              $ref: '#/components/schemas/Descriptor'
-            category_id:
-              $ref: '#/components/schemas/Provider/properties/category_id'
-            locations:
-              type: array
-              maxItems: 1
-              items:
-                type: object
-                properties:
-                  id:
-                    $ref: '#/components/schemas/Location/properties/id'
+          $ref: '#/components/schemas/Provider'
         fulfillment:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/Fulfillment/properties/id'
-            start:
-              type: object
-              properties:
-                location:
-                  $ref: '#/components/schemas/Location'
-                time:
-                  $ref: '#/components/schemas/Time'
-            end:
-              type: object
-              properties:
-                location:
-                  $ref: '#/components/schemas/Location'
-                time:
-                  $ref: '#/components/schemas/Time'
-            tags:
-              $ref: '#/components/schemas/Tags'
-            vehicle:
-              $ref: '#/components/schemas/Vehicle'
-
+          $ref: '#/components/schemas/Fulfillment'
         payment:
           $ref: '#/components/schemas/Payment'
         category:
@@ -1722,6 +1642,8 @@ components:
           $ref: '#/components/schemas/Price'
         category_id:
           $ref: '#/components/schemas/Category/properties/id'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
         location_id:
           $ref: '#/components/schemas/Location/properties/id'
         time:
@@ -1871,12 +1793,8 @@ components:
           type: string
           format: date-time
       required:
-        - provider
         - items
-        - add_ons
-        - offers
         - billing
-        - fulfillment
         - quote
         - payment
 
@@ -1939,7 +1857,7 @@ components:
           type: string
           enum:
             - PAID
-            - NOT-PATD
+            - NOT-PAID
         time:
           $ref: '#/components/schemas/Time'
 
@@ -2007,6 +1925,8 @@ components:
         category_id:
           type: string
           description: 'Category Id of the provider'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
         time:
           $ref: '#/components/schemas/Time'
         categories:
