@@ -72,6 +72,24 @@ paths:
                     order:
                       type: object
                       properties:
+                        provider:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/components/schemas/Provider/properties/id'
+                            locations:
+                              type: array
+                              maxItems: 1
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    $ref: '#/components/schemas/Location/properties/id'
+                                required:
+                                  - id
+                          required:
+                            - id
+                            - locations
                         items:
                           type: array
                           items:
@@ -151,6 +169,24 @@ paths:
                     order:
                       type: object
                       properties:
+                        provider:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/components/schemas/Provider/properties/id'
+                            locations:
+                              type: array
+                              maxItems: 1
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    $ref: '#/components/schemas/Location/properties/id'
+                                required:
+                                  - id
+                          required:
+                            - id
+                            - locations
                         items:
                           type: array
                           items:
@@ -597,6 +633,10 @@ paths:
                     order:
                       type: object
                       properties:
+                        provider:
+                          $ref: '#/components/schemas/Provider'
+                        provider_location:
+                          $ref: '#/components/schemas/Location'
                         items:
                           type: array
                           items:
@@ -661,6 +701,16 @@ paths:
                     order:
                       type: object
                       properties:
+                        provider:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/components/schemas/Provider/properties/id'
+                        provider_location:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/components/schemas/Location/properties/id'
                         items:
                           type: array
                           items:
@@ -1748,6 +1798,24 @@ components:
           description: Hash of order object without id
         state:
           type: string
+        provider:
+          type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/Provider/properties/id'
+            locations:
+              type: array
+              maxItems: 1
+              items:
+                type: object
+                properties:
+                  id:
+                    $ref: '#/components/schemas/Location/properties/id'
+                required:
+                  - id
+          required:
+            - id
+            - locations
         items:
           type: array
           items:
