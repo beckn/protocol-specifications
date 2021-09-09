@@ -1043,7 +1043,7 @@ paths:
     post:
       tags:
         - BPP Meta APIs
-      description: Look up subscriber(s) in a registry
+      description: Get cancellation reasons from the BPP
       requestBody:
         description: TODO
         content:
@@ -1056,15 +1056,58 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                   $ref: '#/components/schemas/Option'
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+
+  /cancellation_reasons:
+    post:
+      tags:
+        - BAP Meta APIs
+      description: Get cancellation reasons from the BPP
+      requestBody:
+        description: TODO
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                  $ref: '#/components/schemas/Option'
+      responses:
+        '200':
+          description: List of cancellation reasons
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
 
   /get_return_reasons:
     post:
       tags:
         - BPP Meta APIs
-      description: Look up subscriber(s) in a registry
+      description: Get return reasons from the BPP
       requestBody:
         description: TODO
         content:
@@ -1077,9 +1120,52 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                   $ref: '#/components/schemas/Option'
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+
+  /return_reasons:
+    post:
+      tags:
+        - BAP Meta APIs
+      description: Get return reasons from the BPP
+      requestBody:
+        description: TODO
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                  $ref: '#/components/schemas/Option'
+      responses:
+        '200':
+          description: List of return reasons
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
 
   /get_rating_categories:
     post:
@@ -1098,14 +1184,57 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  allOf:
-                  - $ref: '#/components/schemas/Category'
-                  - type: object
+                type: object
+                properties:
+                  message:
+                    type: object
                     properties:
-                      question:
-                        type: string
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+
+  /rating_categories:
+    post:
+      tags:
+        - BAP Meta APIs
+      description: Get a list of feedback forms based on rating inputs
+      requestBody:
+        description: TODO
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                - $ref: '#/components/schemas/Category'
+                - type: object
+                  properties:
+                    question:
+                      type: string
+      responses:
+        '200':
+          description: Feedback forms
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
 
 
 components:
