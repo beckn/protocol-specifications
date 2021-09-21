@@ -1486,6 +1486,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/Person'
         - $ref: '#/components/schemas/Contact'
+        - type: object
+          properties:
+            rateable:
+              $ref: '#/components/schemas/Rateable'
       required:
         - cred
     Billing:
@@ -1907,6 +1911,8 @@ components:
               $ref: '#/components/schemas/Contact'
             person:
               $ref: '#/components/schemas/Person'
+        rateable:
+          $ref: '#/components/schemas/Rateable'
         tags:
           $ref: '#/components/schemas/Tags'
     Gps:
@@ -2001,6 +2007,8 @@ components:
           $ref: '#/components/schemas/Location/properties/id'
         time:
           $ref: '#/components/schemas/Time'
+        rateable:
+          $ref: '#/components/schemas/Rateable'
         matched:
           type: boolean
         related:
@@ -2315,7 +2323,12 @@ components:
         locations:
           type: array
           items:
-            $ref: '#/components/schemas/Location'
+            allOf:
+            - $ref: '#/components/schemas/Location'
+            - type: object
+              properties:
+                rateable:
+                  $ref: '#/components/schemas/Rateable'
         offers:
           type: array
           items:
@@ -2328,6 +2341,8 @@ components:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
+        rateable:
+          $ref: '#/components/schemas/Rateable'
         tags:
           $ref: '#/components/schemas/Tags'
 
@@ -2348,6 +2363,10 @@ components:
                 $ref: '#/components/schemas/Price'
         ttl:
           $ref: '#/components/schemas/Duration'
+
+    Rateable:
+      description: If the entity can be rated or not
+      type: boolean
 
     Rating:
       description: Describes the rating of a person or an object. Extension not allowed
