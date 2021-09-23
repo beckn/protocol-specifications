@@ -1079,14 +1079,17 @@ paths:
         - BPP Meta APIs
       description: Get cancellation reasons from the BPP
       requestBody:
-        description: TODO
+        description: Context header is sent as the request
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Context'
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: List of cancellation reasons
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1102,7 +1105,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
 
   /cancellation_reasons:
@@ -1111,16 +1113,24 @@ paths:
         - BAP Meta APIs
       description: Get cancellation reasons from the BPP
       requestBody:
-        description: TODO
+        description: List of cancellation reasons
         content:
           application/json:
             schema:
-              type: array
-              items:
-                  $ref: '#/components/schemas/Option'
+              type: object
+              properties:
+                context:
+                    $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    cancellation_reasons:
+                      type: array
+                      items:
+                          $ref: '#/components/schemas/Option'
       responses:
         '200':
-          description: List of cancellation reasons
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1136,7 +1146,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
 
   /get_return_reasons:
@@ -1145,14 +1154,17 @@ paths:
         - BPP Meta APIs
       description: Get return reasons from the BPP
       requestBody:
-        description: TODO
+        description: Context header is sent as the request
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Context'
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: List of return reasons
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1176,16 +1188,21 @@ paths:
         - BAP Meta APIs
       description: Get return reasons from the BPP
       requestBody:
-        description: TODO
+        description: List of return reasons
         content:
           application/json:
             schema:
-              type: array
-              items:
-                  $ref: '#/components/schemas/Option'
+              type: object
+              properties:
+                context:
+                    $ref: '#/components/schemas/Context'
+                return_reasons:
+                  type: array
+                  items:
+                      $ref: '#/components/schemas/Option'
       responses:
         '200':
-          description: List of return reasons
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1201,7 +1218,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
 
   /get_rating_categories:
@@ -1214,10 +1230,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Context'
+              type: object
+              properties:
+                context:
+                    $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: Array of categories which can be rated
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1241,16 +1260,21 @@ paths:
         - BAP Meta APIs
       description: Get a list of categories that can be rated by the BAP
       requestBody:
-        description: Context header is sent as the request
+        description: Array of categories which can be rated
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Rating/properties/rating_category'
+              type: object
+              properties:
+                context:
+                    $ref: '#/components/schemas/Context'
+                rating_categories:  
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
-          description: Array of categories which can be rated
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1278,10 +1302,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Context'
+              type: object
+              properties:
+                context:
+                    $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: Array of categories for which feedback can be given by the BAP
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1305,16 +1332,21 @@ paths:
         - BAP Meta APIs
       description: Get a list of categories for which feedback can be given by the BAP
       requestBody:
-        description: Context header is sent as the request
+        description: Array of categories for which feedback can be given by the BAP
         content:
           application/json:
             schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Rating/properties/rating_category'
+              type: object
+              properties:
+                context:
+                    $ref: '#/components/schemas/Context'
+                feedback_categories:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
-          description: Array of categories for which feedback can be given by the BAP
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1355,7 +1387,7 @@ paths:
                       $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
-          description: Array of categories for which feedback can be given by the BAP
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1379,7 +1411,7 @@ paths:
         - BAP Meta APIs
       description: Get a feedback form from the BPP
       requestBody:
-        description: The rating value and category is sent by the BAP
+        description: Feedback form sent by the BPP 
         content:
           application/json:
             schema:
@@ -1392,7 +1424,7 @@ paths:
 
       responses:
         '200':
-          description: Array of categories for which feedback can be given by the BAP
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
@@ -1409,7 +1441,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
 
 components:
   securitySchemes:
