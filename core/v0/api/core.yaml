@@ -1957,6 +1957,8 @@ components:
       description: Intent of a user. Used for searching for services
       type: object
       properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
         provider:
           $ref: '#/components/schemas/Provider'
         fulfillment:
