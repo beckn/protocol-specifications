@@ -2408,11 +2408,6 @@ components:
         rating_category:
           description: Category of the object being rated
           type: string
-          enum:
-            - order
-            - fulfillment
-            - item
-            - provider
         id:
           description: Id of the object being rated
           type: string
