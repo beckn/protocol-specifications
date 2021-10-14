@@ -662,11 +662,11 @@ paths:
       description: Send order object with payment details updated
       parameters:
         - in: header
-          name: Proxy-Authorization
+          name: X-Gateway-Authorization
           required: false
           schema:
             type: string
-            description: 'Signature of message body + X-Sub-Authorization header using BG''s signing public key. For example Proxy-Authorization : Signature subId=''bg-example.com'',algorithm=''rsa-sha256'' headers=''Authorization'' signature=''Base64(RSA-SHA256(signing string))'''
+            description: 'Signature of message body + X-Sub-Authorization header using BG''s signing public key. For example X-Gateway-Authorization : Signature subId=''bg-example.com'',algorithm=''rsa-sha256'' headers=''Authorization'' signature=''Base64(RSA-SHA256(signing string))'''
       requestBody:
         description: TODO
         content:
@@ -1152,8 +1152,8 @@ components:
     GatewaySubscriberAuth:
       type: apiKey
       in: header
-      name: Proxy-Authorization
-      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. For example:<br/><br/><code>Proxy-Authorization : Signature keyId=''bg-example.com'' headers=''Authorization'',signature=''Base64(EdDSA-SHA512(requestBody)''</code>'
+      name: X-Gateway-Authorization
+      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. For example:<br/><br/><code>X-Gateway-Authorization : Signature keyId=''bg-example.com'' headers=''Authorization'',signature=''Base64(EdDSA-SHA512(requestBody)''</code>'
   schemas:
     Ack:
       description: Describes the ACK response
@@ -2149,7 +2149,7 @@ components:
           $ref: '#/components/schemas/Country/properties/code'
         signing_public_key:
           type: string
-          description: 'Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\''s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```Proxy-Authorization``` header.'
+          description: 'Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\''s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```X-Gateway-Authorization``` header.'
         encryption_public_key:
           type: string
           description: Encryption public key of the BAP subscriber. Any BPP must encrypt the ```requestBody.message``` value of the ```on_search``` API using this public key.
