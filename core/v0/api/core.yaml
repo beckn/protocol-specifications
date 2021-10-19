@@ -1459,7 +1459,7 @@ components:
       pattern: '[+-]?([0-9]*[.])?[0-9]+'
 
     Descriptor:
-      description: Describes the description of a real-world object. Maintained by Beckn Foundation
+      description: Describes the description of a real-world object.
       type: object
       properties:
         name:
@@ -1741,7 +1741,7 @@ components:
         code:
           type: string
     Location:
-      description: Describes the location of a runtime object. Extension not allowed
+      description: Describes the location of a runtime object.
       type: object
       properties:
         id:
@@ -1944,7 +1944,7 @@ components:
           $ref: '#/components/schemas/Time'
 
     Person:
-      description: Describes a person. Extension not allowed
+      description: Describes a person.
       type: object
       properties:
         name:
@@ -2059,7 +2059,7 @@ components:
           $ref: '#/components/schemas/Duration'
 
     Rating:
-      description: Describes the rating of a person or an object. Extension not allowed
+      description: Describes the rating of a person or an object.
       type: object
       properties:
         value:
