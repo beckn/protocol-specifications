@@ -28,8 +28,6 @@ paths:
                   properties:
                     intent:
                       $ref: '#/components/schemas/Intent'
-                  required:
-                    - intent
               required:
                 - context
                 - message
@@ -87,9 +85,6 @@ paths:
                                     $ref: '#/components/schemas/Location/properties/id'
                                 required:
                                   - id
-                          required:
-                            - id
-                            - locations
                         items:
                           type: array
                           items:
@@ -101,7 +96,6 @@ paths:
                                 $ref: '#/components/schemas/ItemQuantity/properties/selected'
                             required:
                               - id
-                              - quantity
                         add_ons:
                           type: array
                           items:
@@ -120,8 +114,6 @@ paths:
                                 $ref: '#/components/schemas/Offer/properties/id'
                             required:
                               - id
-                      required:
-                        - items
                   required:
                     - order
               required:
@@ -184,9 +176,6 @@ paths:
                                     $ref: '#/components/schemas/Location/properties/id'
                                 required:
                                   - id
-                          required:
-                            - id
-                            - locations
                         items:
                           type: array
                           items:
@@ -198,7 +187,6 @@ paths:
                                 $ref: '#/components/schemas/ItemQuantity/properties/selected'
                             required:
                               - id
-                              - quantity
                         add_ons:
                           type: array
                           items:
@@ -221,9 +209,6 @@ paths:
                           $ref: '#/components/schemas/Billing'
                         fulfillment:
                           $ref: '#/components/schemas/Fulfillment'
-                      required:
-                        - items
-                        - billing
                   required:
                     - order
               required:
@@ -405,7 +390,6 @@ paths:
                       $ref: '#/components/schemas/Descriptor'
                   required:
                     - order_id
-                    - cancellation_reason_id
               required:
                 - context
                 - message
@@ -668,7 +652,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_init:
     post:
@@ -755,7 +738,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_confirm:
     post:
@@ -800,7 +782,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_track:
     post:
@@ -845,7 +826,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_cancel:
     post:
@@ -890,7 +870,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_update:
     post:
@@ -935,7 +914,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_status:
     post:
@@ -980,7 +958,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_rating:
     post:
@@ -1020,7 +997,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
   /on_support:
     post:
@@ -1070,7 +1046,6 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
                   - message
 
   /get_cancellation_reasons:
@@ -1521,8 +1496,6 @@ components:
           properties:
             rateable:
               $ref: '#/components/schemas/Rateable'
-      required:
-        - cred
     Billing:
       description: Describes a billing event
       type: object
@@ -1752,7 +1725,7 @@ components:
       pattern: '[+-]?([0-9]*[.])?[0-9]+'
 
     Descriptor:
-      description: Describes the description of a real-world object. Maintained by Beckn Foundation
+      description: Describes the description of a real-world object.
       type: object
       properties:
         name:
@@ -2057,7 +2030,7 @@ components:
         code:
           type: string
     Location:
-      description: Describes the location of a runtime object. Extension not allowed
+      description: Describes the location of a runtime object.
       type: object
       properties:
         id:
@@ -2157,9 +2130,6 @@ components:
                     $ref: '#/components/schemas/Location/properties/id'
                 required:
                   - id
-          required:
-            - id
-            - locations
         items:
           type: array
           items:
@@ -2171,7 +2141,6 @@ components:
                 $ref: '#/components/schemas/ItemQuantity/properties/selected'
             required:
               - id
-              - quantity
         add_ons:
           type: array
           items:
@@ -2204,11 +2173,6 @@ components:
         updated_at:
           type: string
           format: date-time
-      required:
-        - items
-        - billing
-        - quote
-        - payment
 
     Organization:
       description: Describes an organization
@@ -2274,7 +2238,7 @@ components:
           $ref: '#/components/schemas/Time'
 
     Person:
-      description: Describes a person. Extension not allowed
+      description: Describes a person.
       type: object
       properties:
         name:
@@ -2402,17 +2366,12 @@ components:
       type: boolean
 
     Rating:
-      description: Describes the rating of a person or an object. Extension not allowed
+      description: Describes the rating of a person or an object.
       type: object
       properties:
         rating_category:
           description: Category of the object being rated
           type: string
-          enum:
-            - order
-            - fulfillment
-            - item
-            - provider
         id:
           description: Id of the object being rated
           type: string
@@ -2436,7 +2395,7 @@ components:
           type: boolean
 
     Scalar:
-      description: An object representing a scalar quantity. Extension allowed only to the limit of vector
+      description: An object representing a scalar quantity.
       type: object
       properties:
         type:
