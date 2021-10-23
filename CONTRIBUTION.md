@@ -40,7 +40,7 @@ This document is intended for the following audience.
 
 # Context
 
-Beckn protocol specification exists as a set of public repositories on Github at https://github.com/beckn. Like all version controlled open-source repositories, there are guidelines that must be followed; design principles to be considered in order to propose changes to the files present in these repositories. These pull requests will then be reviewed by the maintainers of the repository and subsequently merged with the main / master branch of that repository. The governing body and repository maintainer of the beckn protocol specification is the **Core Working Group**. The members of the CWG can be found [here](https://github.com/orgs/beckn/teams/core-working-group).
+Beckn protocol specification exists as a set of public repositories on Github at https://github.com/beckn. Like all version controlled open-source repositories, there are guidelines that must be followed; design principles to be considered in order to propose changes to the files present in these repositories. These pull requests will then be reviewed by the maintainers of the repository and subsequently merged with the main / master branch of that repository. The governing body and repository maintainer of the beckn protocol specification is the **Core Working Group**.
 
 
 # Abstract 
