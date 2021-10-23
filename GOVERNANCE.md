@@ -1,25 +1,17 @@
 # Specification Governance
-
-
 ## Draft 02
-
 
 # Authors
 
-
-
-1. Ravi Prakash
-
+1. Ravi Prakash : ravi@becknfoundation.org
 
 # Latest Version
 
 Draft 02
 
-
 # Previous Versions
 
 Draft 01 | Deprecated
-
 
 # Scope
 
@@ -27,19 +19,14 @@ This document intends to establish processes and guidelines which build a transp
 
 This document is intended for the following audience.
 
-
-
 1. Anyone who wants to understand how contributions are reviewed and merged by the Core Working Group
 
 
 # Prerequisites
 
-
-
 1. Readers must have a working knowledge of git
 2. Readers should also know how open-source repositories are managed on Github.
 3. Readers must have knowledge and understanding of beckn protocol specification
-
 
 # Context
 
@@ -53,8 +40,6 @@ The evolution of beckn protocol specification is always use-case driven. The Cor
 
 # Terminology
 
-
-
 1. **Git:** A decentralized version control software
 2. **Github:** An online platform for managing shared repositories via git
 3. **Pull Request:** A request to merge a change to an existing version of the repository
@@ -65,10 +50,7 @@ The evolution of beckn protocol specification is always use-case driven. The Cor
 
 After reading this document, the reader should be able to
 
-
-
 1. Understand how to review and merge changes to the specification
-
 
 # Introduction
 
@@ -86,64 +68,46 @@ the beckn community is an open community. So, no registrations. No memberships. 
 
 ## Motivation
 
-At beckn, the goal is simple: to make the internet small-business friendly. Be a force multiplier with minimal footprint. Amplify potential
-
+To make the internet small-business friendly. be a force multiplier with minimal footprint.
 
 ## Guiding Lights
 
-Open Specs, Equal access. Retain agency of small businesses. Non-Rivalrous, Non-exclusive networks
-
+Open specs, equal access. retain agency of small businesses. non-rivalrous, non-exclusive networks
 
 ## Community Driven
 
-Increase value for all participants. Be a Network Weaver in your own way. Be a contributor of specs and best practices
+increase value for all participants. be a network weaver in your own way. be a contributor of specs and best practices
 
 Beckn Protocol is an open commerce protocol with an abstract core, which is enabling market players to reimagine building seamless digital experiences and networks. This is very similar to how HTTP, while being a simple and open protocol has fueled seamless interaction between multiple systems and led to an explosive growth in internet adoption.
 
-The core team within Beckn is a lean not-for-profit organization that plays the role of creating this protocol, sharing it as a public good and bringing awareness to this protocol. Beckn is structured so as to simplify and enable community members to self-organize and co-create their own digital playgrounds and networks. The community has been driving growth for themselves as well as for the digital commerce ecosystem. Being on Beckn allows your business to be more easily discoverable to your stakeholders.
-
-
 ## Open Community Contributions
 
-Beckn has been accepting community contributions to the specification since May 2020.
-
+Beckn protocol has been accepting community contributions to the specification since May 2020.
 
 # Design Principles
 
 To allow open contributions from the community, the governance model is required to apply some basic design principles while reviewing or proposing changes to the specification. They are:
 
+## Interoperability via Abstraction:
+Any feature included in the specification must be abstracted as such to allow it to be consumed across a global range of use cases. That means no feature should be linked to a specific domain, region or use case. 
 
+## Optimal ignorance:
+Before including any feature in the specification, reviewers should ask the following questions: a) _Do we need it?_ And, b) _Do we need it now? If the answer to both these questions is “Yes” then this criteria will have been met.
 
-* **Interoperability via Abstraction: **
+## Privacy and Security
+Any feature being included in the specification must be tested for any security or privacy vulnerabilities. Free text fields, loosely-typed fields and any fields that may be used to capture Personally Identifiable Information should not be accepted.
 
-    Any feature included in the specification must be abstracted as such to allow it to be consumed across a global range of use cases. That means no feature should be linked to a specific domain, region or use case. 
+## Scalability
 
-* **Optimal ignorance: **
+Any feature being included in the specification must be tested for scalability. String fields with unlimited size; arrays with unlimited size etc, must be discouraged. Any feature that is included must work at scale.
 
-    Before including any feature in the specification, reviewers should ask the following questions: a) _Do we need it?_ And, b) _Do we need it now?_
+## Reusability
+Any new feature must be checked if it can reuse components from existing schema before inclusion into the specification.
 
-
-    If the answer to both these questions is “Yes” then this criteria will have been met.
-
-* **Privacy and Security**
-
-    Any feature being included in the specification must be tested for any security or privacy vulnerabilities. Free text fields, loosely-typed fields and any fields that may be used to capture Personally Identifiable Information should not be accepted.
-
-* **Scalability**
-
-    Any feature being included in the specification must be tested for scalability. String fields with unlimited size; arrays with unlimited size etc, must be discouraged. Any feature that is included must work at scale.
-
-* **Reusability**
-
-    Any new feature must be checked if it can reuse components from existing schema before inclusion into the specification.
-
-* **Unification over Standardization**
-
-    Not all features across the globe can be standardized. Standard values vary with domain, region and adoption. In case multiple standards are being adopted for a single feature, it is recommended that both the standards are included in the feature instead of proposing a new standard. For example, if a Location schema is defined using gps and address, then the feature should include both gps and address instead of choosing one over the other. Standardization should occur as a natural consequence of market adoption rather than a forced adoption. 
-
+## Unification over Standardization
+Not all features across the globe can be standardized. Standard values vary with domain, region and adoption. In case multiple standards are being adopted for a single feature, it is recommended that both the standards are included in the feature instead of proposing a new standard. For example, if a Location schema is defined using gps and address, then the feature should include both gps and address instead of choosing one over the other. Standardization should occur as a natural consequence of market adoption rather than a forced adoption. 
 
 There will be exceptions to the above principles. The objective of the Core Working Group is to address such exceptions and define the most logical way forward to include such exceptions. 
-
 
 # Need for Governance
 
@@ -153,7 +117,6 @@ Since the core specification is essentially abstracted, the implementers of the 
 # Areas That Require Specification Governance
 
 There are many independently governable specification elements in beckn. These elements are called areas. Each area will have multiple working groups under it. The following are the areas currently identified :
-
 
 
 * **API** : Core API and schema definitions
@@ -169,22 +132,17 @@ There are many independently governable specification elements in beckn. These e
 
 Each area will have an area director which will be responsible for the functioning and creation of the WGs under it and appointing the working group chair for the same. The area director will be a volunteer from the community who will adhere to the design principles while reviewing any proposal submitted by a contributor.
 
-
 # Working Groups
 
 A working group is a collection of people who collaborate on, and are responsible for managing evolution of the specification under a specific area. 
-
 
 ## Working Group Structure
 
 Each working group has the following structure
 
-
-
 1. Working Group Administrators
 2. Working Group Committers
-3. Working Group Member
-
+3. Working Group Members
 
 ### Working Group Administrators
 
@@ -195,17 +153,13 @@ Each working group will have a working group (WG) administrator (Admin). The Adm
 
 Each working group will have at least one committer. The purpose of the committer is to review PRs against WG guidelines and design principles and post comments on Github regarding the status of the PR. 
 
-
 ### Working Group Members
 
 Anyone can send a request to be added to the working group to attend meetings and weigh in with opinions about any decision or through mails. To become part of a working group, you must send an email to the working group admin. Working group members can participate in discussions on Issues and Pull Requests, and respond to comments in the discussion forums. However, the approval of a working group member will not carry any weightage in merging PRs to the specification.
 
-
 # Managing Specification Evolution
 
 The specification will evolve over time. Changes may be made when any of the following criteria are met:
-
-
 
 1. **Clarity**. The current "way" something is done doesn't make sense, is complicated, or not clear.
 2. **Consistency**. A portion of the specification is not consistent with the rest, or with the industry standard terminology.
@@ -218,14 +172,11 @@ The specification will evolve over time. Changes may be made when any of the fol
 
 While reviewing each change in the specification committers should always consider the following:
 
-
-
 1. **Migration Impact : **Is this a construct that has a smooth implementation path from the latest specification? If so, how complicated is it to migrate implementations to the proposed change? Secondly, how large of a cohort is affected due to this change
 2. **Tooling**: Contributors should strive to support code generation, software interfaces, spec generation techniques, as well as other utilities. Some features may be impossible to support in different frameworks/languages. These should be documented and considered during the change approval process.
 3. **Visualization**: Can the specification change be graphically visualized somehow in a UI or other interface 
 
 Spec changes should be approved by a majority of the committers. Approval can be given by commenting on the issue itself, for example, "Approved by @cwgadmin" however at least one formal GitHub-based flow approval must be given. After the voting criteria is met, the working group admin can merge or assign a member to merge the PR. No change should be approved until there is documentation for it, supplied in an accompanying PR.
-
 
 # Feature Evolution
 
@@ -235,7 +186,7 @@ All new features have a life cycle starting from a proposal to a required standa
 All proposals to the specification are submitted as namespaced properties as mentioned in CONTRIBUTIONS.md. The working group has the responsibility of reviewing these proposals and classify them accordingly as draft, recommended, required or not-recommended features. Once classified, the WGs must rename the namespace with the appropriate feature stage component after review.  
 
 
-### Proposal
+## Proposal
 
 All proposals will have the following namespace
 
@@ -246,7 +197,7 @@ All proposals will have the following namespace
 
 
 
-### Draft Features
+## Draft Features
 
 All draft features will have the following namespace structure
 
@@ -257,7 +208,7 @@ All draft features will have the following namespace structure
 
 
 
-### Recommended Standard
+## Recommended Standard
 
 All recommended standards will have the following namespace structure
 
@@ -268,7 +219,7 @@ All recommended standards will have the following namespace structure
 
 
 
-### Required Standard
+## Required Standard
 
 All recommended standards will have the following namespace structure on the draft branch. All namespaces from required standards have to be replaced with the feature names before merging them to master. 
 
@@ -286,21 +237,19 @@ All recommended standards will have the following namespace structure on the dra
 "./@proposer.direction.not-recommended"
 ```
 
-
-
 # Working Group Weekly Meetings
 
 To review change requests to the specification, Working Groups should review and discuss their inclusion in weekly meetings. The meeting consists of four major agenda items.
 
-1. **Bugs: **This involves discussing all Issues that have been raised as bugs. These will have the highest priority in terms of consideration and will have to be acknowledged and resolved within one week of submission. 
+1. **Bugs:** This involves discussing all Issues that have been raised as bugs. These will have the highest priority in terms of consideration and will have to be acknowledged and resolved within one week of submission. 
 2. **Proposed Enhancements:** This involves listing all the new features that have been proposed in the form of Pull Requests to the draft branches. As there are four types of branches, there is an order of priority with which proposals to each branch should be reviewed. The order of priority is recommended as follows
     1. Minor Version Draft Branch
     2. Patch Version Draft Branch
     3. Major Version Draft Branch
 
-    As the master branch cannot accept any proposals, any proposal to the master branch must be explicitly rejected by the committers. 
+As the master branch cannot accept any proposals, any proposal to the master branch must be explicitly rejected by the committers. 
 
-3. **Draft features: **This agenda involves all the proposals that have been accepted and have been classified as draft features in the previous working group meeting. In this agenda, the working group will decide whether to classify it as a **Recommended** or a **Not Recommended** standard. 
+3. **Draft features:** This agenda involves all the proposals that have been accepted and have been classified as draft features in the previous working group meeting. In this agenda, the working group will decide whether to classify it as a **Recommended** or a **Not Recommended** standard. 
 4. **Recommended Standard:** This agenda involves all the draft features that have been accepted as a **Recommended Standard**. The outcome of this agenda is to classify whether a Recommended Standard can be classified as a **Required Standard**.
 5. **Final Decision and Commit Approvals**: This is the final agenda of the meeting and contains a list of commits that have to be merged to the various branches. 
 
@@ -359,8 +308,6 @@ If a Pull Request causes a merge conflict, the reviewer should respond with a co
 
 A release requires a vote on the release notes by CWG members within the voting period. Major or minor release voting periods will be announced by the CWG admin in the Slack channel and noted on the calendar at least 6 days in advance. During this time, CWG members who have not yet voted must note their approval on the GitHub pull request for the release notes. Patch releases must happen at the first CWG meeting of a calendar month. The CWG admin is responsible for coordinating the actual merge to main with marketing support, if any.
 
-
-
 * Patch-level releases require majority approval by WG members. (Max voting period 3 days)
 * Minor: requires approval by 66% of WG members. (Max voting period 7 days)
 * Major: requires approval by 66% of WG members. (Max voting period 14 days)
@@ -376,4 +323,3 @@ The process should be as transparent as possible. Sometimes there will be discus
 # Participation
 
 While governance of the specification is the role of the CWG, the evolution of the specification happens through the participation of members of the developer community at large. Any person willing to contribute to the effort is welcome, and contributions may include filing or participating in issues, creating pull requests, or helping others with such activities.
-
