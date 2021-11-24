@@ -2007,6 +2007,8 @@ components:
           $ref: '#/components/schemas/Price'
         category_id:
           $ref: '#/components/schemas/Category/properties/id'
+        fulfillment_id:
+          $ref: '#/components/schemas/Fulfillment/properties/id'
         rating:
           $ref: '#/components/schemas/Rating/properties/value'
         location_id:
