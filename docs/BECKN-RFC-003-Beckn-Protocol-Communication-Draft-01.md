@@ -1,38 +1,37 @@
 # Beckn Protocol Communication
 
-## ID: 
+## ID 
 BECKN-RFC-003
 
 ## Draft ID
 Draft-01
 
-## Title:
+## Title
 Beckn Protocol Communication
 
-## Category:
+## Category
 Communication
 
-## Status:
+## Status
 Protocol Draft
 
-## Published on:
+## Published on
 December 10, 2021
 
-## Expires on:
+## Expires on
 December 10, 2021 or Date of publication of next draft which ever is earlier
 
-## License:
+## License
 CC-BY-ND
 
-## Authors:
+## Authors
 1. Ravi Prakash : ravi@becknfoundation.org
 
-## Reviewers:
+## Reviewers
 1. Sujith Nair : sujith@becknfoundation.org
 2. Pramod Varma : pramod@ekstep.org
 
 # Abstract
-
 Communication on beckn enabled networks is server-to-server. Server-to-server means that communication between any two systems on a beckn network does not involve the client application. The client is free to render the data in whatever form chosen by the product. Secondly, all communication is asynchronous. Asynchronous API calls do not block (or wait) for the API call to return from the receiver server in the same session. Instead, an immediate acknowledgment is sent to the sender server in the same session and the actual response from the receiver server is in the form of a callback API call to the sender server. The above two features provide a remarkable advantage as all sorts of innovations are possible in the application layer due to the experience layer being unbundled from the session and presentation layer of the application.
 
 # Introduction
@@ -54,8 +53,8 @@ The sequence diagram of a typical beckn protocol API is shown in Figure 1. For e
 In most cases, the sender will call the API first and the receiver will respond immediately with an ACK and close the session. After an arbitrary period of time (which is dependent on the processing of the message), the receiver will respond with an API callback to the sender. The name of the callback API is the name of the sender API with an “on_” prefix. For example, if the request API is called “**search**” then the associated callback API will be “**on_search**”.
 
 <figure>
-<img src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Async-Communication.png">
-<figcaption align = "center"><b>Figure 1: </b></figcaption>
+<img align="center" src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Async-Communication.png">
+<figcaption align="center">Figure 1</figcaption>
 </figure>
 
 # Communication Protocol for Search Via Beckn Gateway
@@ -67,7 +66,7 @@ The BPPs synchronously respond with ACKs. The BPPs then asynchronously call the 
 
 <figure>
 <img src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Search-Multicast.png">
-<figcaption align = "center"><b>Figure 2: </b></figcaption>
+<figcaption align="center">Figure 2:</figcaption>
 </figure>
 
 # Communication Protocol for Search Via Beckn Gateway with Registry Lookup
@@ -75,7 +74,7 @@ The BPPs synchronously respond with ACKs. The BPPs then asynchronously call the 
 Sometimes the BG may query a Registry via the **lookup** API to get the BPP addresses and then multicast the message to the BPPs. See Figure 3.
 <figure>
 <img src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Search-Multicast-with-Reg.png">
-<figcaption align = "center"><b>Figure 3: </b></figcaption>
+<figcaption align = "center">Figure 3:Search with Registry Lookup</figcaption>
 </figure>
 
 # Communication Protocol during status updates
@@ -84,5 +83,5 @@ During the status and on_status calls, the BAP first initiates the transaction b
 
 <figure>
 <img src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Status.png">
-<figcaption align = "center"><b>Figure 4: </b></figcaption>
+<figcaption align = "center">Figure 4</figcaption>
 </figure>
