@@ -62,7 +62,7 @@ Beckn Protocol is an abstracted but **highly configurable** specification. A net
 
 
 
-1. **Network : **In the context of beckn protocol, a network refers to an open commerce network formed by the instantiation of beckn protocol specification with a standard network policy
+1. **Network :** In the context of beckn protocol, a network refers to an open commerce network formed by the instantiation of beckn protocol specification with a standard network policy
 2. **Network Participant:** Any platform that has implemented beckn protocol specification and is part of an open commerce network
 3. **Schema:** These are JSON Schema objects with properties as defined in 
 4. **Action:** These are specific events that occur during the lifecycle of a typical commerce transaction
