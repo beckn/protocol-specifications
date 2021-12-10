@@ -423,4 +423,3 @@ Rating:
           $ref: '#/components/schemas/FeedbackUrl/properties/params/properties/feedback_id'
           required: false
 ```
-
