@@ -1,16 +1,17 @@
 # Payment Contract on Beckn Protocol
 
 
-**ID:** BECKN-RFC-002
-**Draft ID:** Draft-01
-**Title:** Beckn Protocol Communication
-**Category:**	Protocol
-**Status:** Draft
-**Published on:** April 06, 2021
-**Expires on:** April 05, 2022
-**License:** CC-BY-ND
-**Author:** Ravi Prakash (ravi@becknfoundation.org)
-**Reviewers:** 
+- **ID:** BECKN-RFC-002
+- **Draft ID:** Draft-01
+- **Title:** Beckn Protocol Communication
+- **Category:**	Protocol
+- **Status:** Draft
+- **Published on:** April 06, 2021
+- **Expires on:** April 05, 2022
+- **License:** CC-BY-ND
+- **Authors:** 
+1. Ravi Prakash (ravi@becknfoundation.org)
+- **Reviewers:** 
 1. Sujith Nair : sujith@becknfoundation.org
 2. Pramod Varma : pramod@ekstep.org
 
