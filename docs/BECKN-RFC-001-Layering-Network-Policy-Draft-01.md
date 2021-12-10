@@ -1,38 +1,45 @@
 # Layering Network Policy on the Specification
 
-## Draft 01
+## ID: 
+BECKN-RFC-001
 
-# Authors
+## Draft ID
+Draft-01
 
+## Title:
+Layering Network Policy on the Specification
+
+## Category:
+Network Policy
+
+## Status:
+Protocol Draft
+
+## Published on:
+December 10, 2021
+
+## Expires on:
+December 10, 2022 or Date of publication of next draft which ever is earlier
+
+## License:
+CC-BY-ND
+
+## Authors:
 1. Ravi Prakash : ravi@becknfoundation.org
 
-# Reviewers
+## Reviewers:
 1. Sujith Nair : sujith@becknfoundation.org
 2. Pramod Varma : pramod@ekstep.org
-
-
-# Latest Version
-
-Draft 01
-
-# Previous Versions
-
-None
-
 
 # Scope
 
 This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience.
 
-
 1. Anyone who is using beckn protocol specifications to design open commerce networks  for a specific set of use cases
-
 
 # Prerequisites
 
 Readers of this document must:
-
-
 
 1. Have knowledge of the core protocol specification
 2. Have knowledge of the Architecture of Open Commerce Networks instantiated using beckn protocol. 
