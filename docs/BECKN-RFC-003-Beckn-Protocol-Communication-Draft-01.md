@@ -84,5 +84,5 @@ During the status and on_status calls, the BAP first initiates the transaction b
 
 <figure>
 <img src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Status.png">
-<figcaption align = "center"><b>Figure 3: </b></figcaption>
+<figcaption align = "center"><b>Figure 4: </b></figcaption>
 </figure>
