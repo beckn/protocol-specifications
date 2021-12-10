@@ -6,6 +6,11 @@
 
 1. Ravi Prakash : ravi@becknfoundation.org
 
+# Reviewers
+1. Sujith Nair : sujith@becknfoundation.org
+2. Pramod Varma : pramod@ekstep.org
+
+
 # Latest Version
 
 Draft 01
@@ -18,7 +23,6 @@ None
 # Scope
 
 This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience.
-
 
 
 1. Anyone who is using beckn protocol specifications to design open commerce networks  for a specific set of use cases
