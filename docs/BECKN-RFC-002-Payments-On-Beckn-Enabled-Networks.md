@@ -1,4 +1,4 @@
-# Payment Contract on Beckn Protocol
+# Payments on Beckn-Enabled Networks
 
 
 ## ID: 
@@ -8,7 +8,7 @@ BECKN-RFC-002
 Draft-01
 
 ## Title:
-Payment Contract on Beckn Protocol
+Payments on Beckn-Enabled Networks
 
 ## Category:
 Payments
