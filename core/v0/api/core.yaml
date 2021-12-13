@@ -69,52 +69,7 @@ paths:
                   type: object
                   properties:
                     order:
-                      type: object
-                      properties:
-                        provider:
-                          type: object
-                          properties:
-                            id:
-                              $ref: '#/components/schemas/Provider/properties/id'
-                            locations:
-                              type: array
-                              maxItems: 1
-                              items:
-                                type: object
-                                properties:
-                                  id:
-                                    $ref: '#/components/schemas/Location/properties/id'
-                                required:
-                                  - id
-                        items:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                $ref: '#/components/schemas/Item/properties/id'
-                              quantity:
-                                $ref: '#/components/schemas/ItemQuantity/properties/selected'
-                            required:
-                              - id
-                        add_ons:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                $ref: '#/components/schemas/AddOn/properties/id'
-                            required:
-                              - id
-                        offers:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                $ref: '#/components/schemas/Offer/properties/id'
-                            required:
-                              - id
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
               required:
@@ -160,56 +115,7 @@ paths:
                   type: object
                   properties:
                     order:
-                      type: object
-                      properties:
-                        provider:
-                          type: object
-                          properties:
-                            id:
-                              $ref: '#/components/schemas/Provider/properties/id'
-                            locations:
-                              type: array
-                              maxItems: 1
-                              items:
-                                type: object
-                                properties:
-                                  id:
-                                    $ref: '#/components/schemas/Location/properties/id'
-                                required:
-                                  - id
-                        items:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                $ref: '#/components/schemas/Item/properties/id'
-                              quantity:
-                                $ref: '#/components/schemas/ItemQuantity/properties/selected'
-                            required:
-                              - id
-                        add_ons:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                $ref: '#/components/schemas/AddOn/properties/id'
-                            required:
-                              - id
-                        offers:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                $ref: '#/components/schemas/Offer/properties/id'
-                            required:
-                              - id
-                        billing:
-                          $ref: '#/components/schemas/Billing'
-                        fulfillment:
-                          $ref: '#/components/schemas/Fulfillment'
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
               required:
