@@ -10,7 +10,7 @@ Draft-01
 Policy Administration on Beckn-Enabled Networks
 
 ## Category:
-Communication
+Policy
 
 ## Status:
 Protocol Draft
