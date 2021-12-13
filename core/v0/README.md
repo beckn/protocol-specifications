@@ -1,136 +1,89 @@
-# Supported Values
+# Beckn Protocol API Specification
 
-## Author : 
-Ravi Prakash
-## Organization : 
-Open Shared Mobility Foundation
+This folder contains the Core API specification for Beckn Protocol. It defines interoperable API endpoints for discovery, order, fulfillment and post-fulfillment actions performed between a producer and a consumer. To improve performance and scalability, some Meta APIs are also specified. All these APIs are stateless and asynchronous. 
 
-## Date:
-November 16, 2020
+The current format for representing these endpoints is [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md)
 
-## Supported Core versions
-- 0.9.1
+# Supported Actions
 
-## Abstract
-This document lists the reserved ennumerated values for various keys in the objects of core schema in the **Local Retail** domain (```"domain" : "local-retail"``` ) in the region of **India** (```"country" : "ind"```)
+## Discovery Actions
 
-## 1. Payment
+### search
+This action describes how a BAP can search for products and services.  
 
-In India, payment is possible via various modes like cash, card, bank transfer, upi etc. The ```payment.params``` object is a list of key-value pairs which provide information about the payee so that the payer can initiate the payment. The following payment objects represent various forms of payment.
+### on_search
+This action describes how a BPP can publish the catalogs of its providers.  
 
-**Required Values**
+## Order Actions
 
-- transaction_id
-- amount
+### select
+This action describes how a BAP can request a quote from a BPP
 
-### UPI Transactions:
+### on_select
+This action describes how a BPP can provide a quote to a BAP
 
-**Supported Params:**
+### init
+This action describes how a BAP can request the final payment terms from a BPP
 
-- ```vpa``` : Used in UPI transactions. Describes the virtual payment address of a payee which maps to an account known only to the payee
+### on_init
+This action describes how a BPP can provide the final payment terms to a BAP
 
-```
-{
-    ...
-    "params" : [
-        "amount" : "example-vpa@upi",
-        "transaction_id" : "klauh9soiu3hlrhfie4",
-        "vpa" : "example-vpa@upi"
-    ],
-    ...
-}
-```
+### confirm
+This action describes how a BAP can request the BPP to confirm the transaction
 
-### Bank Transactions: 
+### on_confirm
+BPP confirms the transaction
 
-**Supported Params:**
+## Fulfillment Actions
 
+### status
+BAP requests the latest status of a transaction
 
-- ```account``` : Bank account number. This is usually send
-- ```ifsc``` : IFSC code of the bank
+### on_status
+BAP returns the latest status of a transaction
 
-```
-{
-    ...
-    "params" : [
-        "amount" : "example-vpa@upi",
-        "transaction_id" : "klauh9soiu3hlrhfie4",
-        "account" : "32720083333",
-        "ifsc" ; "SBIN000075"
-    ],
-    ...
-}
-```
+### track
+BAP requests tracking details of an order
 
-## 2. Category
+### on_track
+BPP returns the tracking details of an order
 
-The ```category``` keyword is used to hierarchically organize various items in a seller's catalog. 
+### update
+BAP updates an active order
 
-### Category ID
+### on_update
+BPP returns the latest update status of the order with terms
 
-This is represented by the ```category.id``` schema. Since categories can exist at the BPP level _and_ at the provider level, the ```id``` needs to be namespaced with the correct owner of that category.
+### cancel
+BAP requests the BPP to cancel a transaction
 
-For a BPP level category, the ```id``` must be namespaced in the following format
-```
-"id" : "<bpp-id>/category/<category-id>
-```
+### on_cancel
+BPP returns latest cancellation status of the order with terms
 
-For a provider level category, the ```id``` must be namespaced in the following format
+## Post-fulfillment Actions
 
-```
-"id" : "<provider-id>@<bpp-id>/category/<category-id>
-```
+### support
+BAP requests support details for an active order
 
-To differentiate between various types of categories, the categories should contain some additional info to provide context to the BAP to allow easy grouping of the items. To do that, the ```category.tags``` schema has a reserved keyword called ```type``` which is namespaced with the domain and region of the implementation. The following examples explain how various grouping keywords are represented via the category keyword.
+### on_support
+BPP returns support details for an active order
 
-### Category Type : Brand
+### rating
+BAP rates an order
 
-#### Namespace:
+### on_rating
+BPP acknowledges the rating an order
 
-```
-./local-retail/ind/
-```
-#### Schema:
-```
-Category
-```
+## Meta Actions
 
-#### Keyword:
-```
-type"
-```
+### get_rating_categories
+BAP requests BPP to provide all the entities that can be rated
 
-#### Resultant Structure
-```
-{
-    "categories" : [
-       {
-           "id" : "example-bpp.com/category/dabur",
-           "descriptor" : {
-               "name" : "Brand"
-           },
-           "tags" : {
-               "{namespace}/{schema}/{keyword}" : "brand"
-           }
-       }
-    ],
-}
-```
+### rating_categories
+BPP sends all the entities that can be rated
 
-#### Example:
+### get_cancellation_reasons
+BAP requests BPP to return a list of cancellation reasons
 
-```
-{
-    "categories" : [
-       {
-           "id" : "example-bpp.com/category/dabur",
-           "descriptor" : {
-               "name" : "Brand"
-           },
-           "tags" : {
-               "./local-retail/ind/category/type" : "brand"
-           }
-       }
-    ],
-}
-```
+### cancellation_reasons
+BPP requests BAP to return a list of cancellation reasons
