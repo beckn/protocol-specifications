@@ -1408,6 +1408,27 @@ components:
           properties:
             rateable:
               $ref: '#/components/schemas/Rateable'
+    Authorization:
+      description: Describes an authorization mechanism
+      type: object
+      properties:
+        type: 
+          type: string
+          description: Type of authorization mechanism used
+        token:
+          type: string
+          description: Token used for authorization
+        valid_from:
+          type: string
+          format: date-time 
+          description: Timestamp in RFC3339 format from which token is valid
+        valid_to:
+          type: string
+          format: date-time 
+          description: Timestamp in RFC3339 format until which token is valid
+        status:
+          type: string
+          description: Status of the token
     Billing:
       description: Describes a billing event
       type: object
@@ -1813,6 +1834,8 @@ components:
               $ref: '#/components/schemas/Contact'
             person:
               $ref: '#/components/schemas/Person'
+            authorization:
+              $ref: '#/components/schemas/Authorization'
         end:
           description: Details on the end of fulfillment
           type: object
@@ -1827,6 +1850,8 @@ components:
               $ref: '#/components/schemas/Contact'
             person:
               $ref: '#/components/schemas/Person'
+            authorization:
+              $ref: '#/components/schemas/Authorization'
         rateable:
           $ref: '#/components/schemas/Rateable'
         tags:
