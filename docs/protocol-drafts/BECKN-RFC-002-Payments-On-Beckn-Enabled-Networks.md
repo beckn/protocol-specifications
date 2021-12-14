@@ -75,7 +75,7 @@ The BPP must send its terms to the BAP . These terms contain the following infor
 
 # Payment Contract Sequence 
 
-![alt text](https://github.com/beckn/protocol-specifications/blob/master/docs/images/Payment-Contract.png)
+![alt text](https://github.com/beckn/protocol-specifications/blob/master/docs/images/Payment-API-Sequence.png)
 
 # Payment Scenarios on beckn-enabled Networks
 
