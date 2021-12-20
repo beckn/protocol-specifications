@@ -60,6 +60,8 @@ Evolution of beckn protocol specification is guided by the **Core Working Group*
 
 The Core Working Group holds weekly web conferences to review open pull requests and discuss open issues related to the evolving specification. Participation in weekly calls and scheduled working sessions is open to the community. 
 
+This governance model is inspired from the [OpenAPI specification governance model](https://www.openapis.org/participate/how-to-contribute/governance).
+
 
 # The Beckn Credo
 
