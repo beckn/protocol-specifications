@@ -32,58 +32,70 @@ This action describes how a BPP can provide the final payment terms to a BAP
 This action describes how a BAP can request the BPP to confirm the transaction
 
 ### on_confirm
-BPP confirms the transaction
+This action describes how a BPP can return a confirmed transaction
 
 ## Fulfillment Actions
 
 ### status
-BAP requests the latest status of a transaction
+This action describes how a BAP can request the latest status of a transaction
 
 ### on_status
-BAP returns the latest status of a transaction
+This action describes how a BPP can return the latest status of a transaction
 
 ### track
-BAP requests tracking details of an order
+This action describes how a BAP can request tracking information of an order
 
 ### on_track
-BPP returns the tracking details of an order
+This action describes how a BPP can return the tracking information of an order
 
 ### update
-BAP updates an active order
+This action describes how a BAP can request the BPP to update an active order
 
 ### on_update
-BPP returns the latest update status of the order with terms
+This action describes how a BPP can return an updated order
 
 ### cancel
-BAP requests the BPP to cancel a transaction
+This action describes how a BAP can request the BPP to cancel a transaction
 
 ### on_cancel
-BPP returns latest cancellation status of the order with terms
+This action describes how a BPP can return a cancelled order
 
 ## Post-fulfillment Actions
 
 ### support
-BAP requests support details for an active order
+This action describes how a BAP can request support information for a transaction
 
 ### on_support
-BPP returns support details for an active order
+This action describes how a BPP can return support information for a transaction
 
 ### rating
-BAP rates an order
+This action describes how a BAP can provide rating for a Rateable Entity of a BPP
 
 ### on_rating
-BPP acknowledges the rating an order
+This action describes how a BPP can acknowledge the rating provided by a BAP for a Rateable Entity of a BPP
 
 ## Meta Actions
 
 ### get_rating_categories
-BAP requests BPP to provide all the entities that can be rated
+This action describes how a BAP requests a BPP to provide all the Rateable Entities
 
 ### rating_categories
-BPP sends all the entities that can be rated
+This action describes how a BPP returns all the Rateable Entities to a BAP
 
 ### get_cancellation_reasons
-BAP requests BPP to return a list of cancellation reasons
+This action describes how a BAP requests a BPP to provide a list of cancellation reasons
 
 ### cancellation_reasons
-BPP requests BAP to return a list of cancellation reasons
+This action describes how a BPP returns the list of cancellation reasons to a BAP
+
+### get_feedback_categories
+This action describes how a BAP requests a BPP to provide a list of categories for which feedback can be given
+
+### feedback_categories
+This action describes how a BPP returns the list of categories for which feedback can be given
+
+### get_feedback_form
+This action describes how a BAP requests a BPP to provide a feedback form for a particular rating category and value
+
+### feedback_form
+This action describes how a BPP returns a feedback form for a particular rating category and value
