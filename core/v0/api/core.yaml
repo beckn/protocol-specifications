@@ -1818,6 +1818,10 @@ components:
               $ref: '#/components/schemas/Contact'
         agent:
           $ref: '#/components/schemas/Agent'
+        person:
+          $ref: '#/components/schemas/Person'
+        contact:
+          $ref: '#/components/schemas/Contact'
         vehicle:
           $ref: '#/components/schemas/Vehicle'
         start:
