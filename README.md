@@ -4,16 +4,28 @@ metaTitle: "Beckn Protocol Transaction API Core"
 metaDescription: "Domain agnostic transaction specification for e-commerce"
 ---
 
-## Release History
+## Specification Evolution
 
-| Version   |    Release Date       | Status         |
-|-----------|-----------------------|----------------|
-|  0.9.2    |    27 July, 2021      | Active         |
-|  0.9.1    |    09 November, 2020  | Active         |
-|  0.9.0    |    02 November, 2020  | Deprecated     |
-|  0.8.2    |    10 August, 2020    | Deprecated     |
-|  0.8.0    |    21 May, 2020       | Deprecated     |
-|  0.7.1    |    17 April, 2020     | Deprecated     |
+| Domain                | Version   |    Release Date       |
+|-----------------------|-----------|-----------------------|
+|   Core   |    0.9.3-draft      | TBA       |
+|   Core   |    0.9.2      | 27 July, 2021        |
+|   Core   |    0.9.1  | 09 November, 2020        |
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/fd154368c4670218ce6ad0fc8ee4ada5c401b485/final-mile-delivery/v0)   |  0.8.3  |    10 October, 2020      |
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/ba54b53aa341d6d0bc0f65633b0a33ff75b628ab/final-mile-delivery/v0)   |  0.8.2  |    21 August, 2020      |
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/029496c7e969fc322f654e19ee4ae7299c25fdb5/final-mile-delivery/v0)   |  0.8.1  |    19 August, 2020      | 
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0)   |  0.8.0    |    10 August, 2020      |
+| [Core](https://github.com/beckn/protocol-specifications/tree/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/v0)   |  0.8.2    |    10 August, 2020      |
+| [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/83006c82ae1f7069f6b609211245e651d21d90ab/final-mile-delivery/archives/schema/0.7.0)   |  0.7.0    |    06 July, 2020      |
+| [Mobility](https://github.com/beckn/protocol-specifications/tree/master/mobility/schema/0.8.0)   |  0.8.0    |    02 July, 2020      |
+| Final Mile Delivery   |  0.6.0 (depr)   |    02 June, 2020      |
+| [Food and Beverage](https://github.com/beckn/protocol-specifications/tree/master/food-and-beverage/schema/0.4.0)     |  0.4.0    |    02 June, 2020      |
+| Final Mile Delivery   |  0.5.1 (depr)    |    21 May, 2020       |
+| [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.8.0)                  |  0.8.0    |    21 May, 2020       |
+| [Healthcare](https://developers.beckn.org/Healthcare)            |  0.5.0    |    02 May, 2020       |
+| Food and Beverage     |  0.3.1 (depr)    |    22 April, 2020     |
+| [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.7.1)                  |  0.7.1    |    17 April, 2020     |
+| [Mobility](https://github.com/beckn/protocol-specifications/tree/master/mobility/schema/0.7.1)              |  0.7.1    |    09 December, 2019  |
 
 # Introduction
 
