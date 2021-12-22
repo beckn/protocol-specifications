@@ -156,3 +156,7 @@ The same was added to the following :
 **Authorization object in fulfillment start and end**
 - New schema object Authorization added
 - New property authorization added to Fulfillment schema object and refers to the newly created Authorization object.
+
+### December 22, 2021
+
+**Added document object array in order**
