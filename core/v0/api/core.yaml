@@ -1692,6 +1692,17 @@ components:
           $ref: '#/components/schemas/Scalar'
         height:
           $ref: '#/components/schemas/Scalar'
+    
+    Document:
+      description: Describes a document which can be sent as a url
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        label:
+          type: string
+    
     Domain:
       description: Describes the domain of an object
       type: string
@@ -2102,6 +2113,10 @@ components:
                 $ref: '#/components/schemas/Offer/properties/id'
             required:
               - id
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         billing:
           $ref: '#/components/schemas/Billing'
         fulfillment:
