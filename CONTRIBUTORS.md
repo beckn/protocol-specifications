@@ -1,14 +1,17 @@
 # Ravi Prakash  
-* __Email__ : ravi@beckn.org
-* __Designation__ : Principal Architect
-* __Organization__ : Open Shared Mobility Foundation
+* __Github__ : [core-wg-admin](https://github.com/core-wg-admin)
 
 # Pramod Varma 
-* __Email__ : pramod@ekstep.org
-* __Designation__ : CTO
-* __Organization__ : EkStep Foundation
+* __Github__ : [pramodkvarma](https://github.com/pramodkvarma)
+
+# Nirmal Rajeevan 
+* __Github__ : [techframewirk](https://github.com/techframewirk)
 
 # Sujith Nair 
-* __Email__ : Sujith Nair
-* __Designation__ : CEO & Co-founder
-* __Organization__ : beckn Foundation
+* __Github__ : [sjthnrk](https://github.com/sjthnrk)
+
+# Paul Kapustin
+* __Github__ : [pkapustin](https://github.com/pkapustin)
+
+# Venky Mahadevan
+* __Github__ : [venkatramanm](https://github.com/venkatramanm)

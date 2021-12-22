@@ -1,136 +1,101 @@
-# Supported Values
+# Beckn Protocol API Specification
 
-## Author : 
-Ravi Prakash
-## Organization : 
-Open Shared Mobility Foundation
+This folder contains the Core API specification for Beckn Protocol. It defines interoperable API endpoints for discovery, order, fulfillment and post-fulfillment actions performed between a producer and a consumer. To improve performance and scalability, some Meta APIs are also specified. All these APIs are stateless and asynchronous. 
 
-## Date:
-November 16, 2020
+The current format for representing these endpoints is [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md)
 
-## Supported Core versions
-- 0.9.1
+# Supported Actions
 
-## Abstract
-This document lists the reserved ennumerated values for various keys in the objects of core schema in the **Local Retail** domain (```"domain" : "local-retail"``` ) in the region of **India** (```"country" : "ind"```)
+## Discovery Actions
 
-## 1. Payment
+### search
+This action describes how a BAP can search for products and services.  
 
-In India, payment is possible via various modes like cash, card, bank transfer, upi etc. The ```payment.params``` object is a list of key-value pairs which provide information about the payee so that the payer can initiate the payment. The following payment objects represent various forms of payment.
+### on_search
+This action describes how a BPP can publish the catalogs of its providers.  
 
-**Required Values**
+## Order Actions
 
-- transaction_id
-- amount
+### select
+This action describes how a BAP can request a quote from a BPP
 
-### UPI Transactions:
+### on_select
+This action describes how a BPP can provide a quote to a BAP
 
-**Supported Params:**
+### init
+This action describes how a BAP can request the final payment terms from a BPP
 
-- ```vpa``` : Used in UPI transactions. Describes the virtual payment address of a payee which maps to an account known only to the payee
+### on_init
+This action describes how a BPP can provide the final payment terms to a BAP
 
-```
-{
-    ...
-    "params" : [
-        "amount" : "example-vpa@upi",
-        "transaction_id" : "klauh9soiu3hlrhfie4",
-        "vpa" : "example-vpa@upi"
-    ],
-    ...
-}
-```
+### confirm
+This action describes how a BAP can request the BPP to confirm the transaction
 
-### Bank Transactions: 
+### on_confirm
+This action describes how a BPP can return a confirmed transaction
 
-**Supported Params:**
+## Fulfillment Actions
 
+### status
+This action describes how a BAP can request the latest status of a transaction
 
-- ```account``` : Bank account number. This is usually send
-- ```ifsc``` : IFSC code of the bank
+### on_status
+This action describes how a BPP can return the latest status of a transaction
 
-```
-{
-    ...
-    "params" : [
-        "amount" : "example-vpa@upi",
-        "transaction_id" : "klauh9soiu3hlrhfie4",
-        "account" : "32720083333",
-        "ifsc" ; "SBIN000075"
-    ],
-    ...
-}
-```
+### track
+This action describes how a BAP can request tracking information of an order
 
-## 2. Category
+### on_track
+This action describes how a BPP can return the tracking information of an order
 
-The ```category``` keyword is used to hierarchically organize various items in a seller's catalog. 
+### update
+This action describes how a BAP can request the BPP to update an active order
 
-### Category ID
+### on_update
+This action describes how a BPP can return an updated order
 
-This is represented by the ```category.id``` schema. Since categories can exist at the BPP level _and_ at the provider level, the ```id``` needs to be namespaced with the correct owner of that category.
+### cancel
+This action describes how a BAP can request the BPP to cancel a transaction
 
-For a BPP level category, the ```id``` must be namespaced in the following format
-```
-"id" : "<bpp-id>/category/<category-id>
-```
+### on_cancel
+This action describes how a BPP can return a cancelled order
 
-For a provider level category, the ```id``` must be namespaced in the following format
+## Post-fulfillment Actions
 
-```
-"id" : "<provider-id>@<bpp-id>/category/<category-id>
-```
+### support
+This action describes how a BAP can request support information for a transaction
 
-To differentiate between various types of categories, the categories should contain some additional info to provide context to the BAP to allow easy grouping of the items. To do that, the ```category.tags``` schema has a reserved keyword called ```type``` which is namespaced with the domain and region of the implementation. The following examples explain how various grouping keywords are represented via the category keyword.
+### on_support
+This action describes how a BPP can return support information for a transaction
 
-### Category Type : Brand
+### rating
+This action describes how a BAP can provide rating for a Rateable Entity of a BPP
 
-#### Namespace:
+### on_rating
+This action describes how a BPP can acknowledge the rating provided by a BAP for a Rateable Entity of a BPP
 
-```
-./local-retail/ind/
-```
-#### Schema:
-```
-Category
-```
+## Meta Actions
 
-#### Keyword:
-```
-type"
-```
+### get_rating_categories
+This action describes how a BAP requests a BPP to provide all the Rateable Entities
 
-#### Resultant Structure
-```
-{
-    "categories" : [
-       {
-           "id" : "example-bpp.com/category/dabur",
-           "descriptor" : {
-               "name" : "Brand"
-           },
-           "tags" : {
-               "{namespace}/{schema}/{keyword}" : "brand"
-           }
-       }
-    ],
-}
-```
+### rating_categories
+This action describes how a BPP returns all the Rateable Entities to a BAP
 
-#### Example:
+### get_cancellation_reasons
+This action describes how a BAP requests a BPP to provide a list of cancellation reasons
 
-```
-{
-    "categories" : [
-       {
-           "id" : "example-bpp.com/category/dabur",
-           "descriptor" : {
-               "name" : "Brand"
-           },
-           "tags" : {
-               "./local-retail/ind/category/type" : "brand"
-           }
-       }
-    ],
-}
-```
+### cancellation_reasons
+This action describes how a BPP returns the list of cancellation reasons to a BAP
+
+### get_feedback_categories
+This action describes how a BAP requests a BPP to provide a list of categories for which feedback can be given
+
+### feedback_categories
+This action describes how a BPP returns the list of categories for which feedback can be given
+
+### get_feedback_form
+This action describes how a BAP requests a BPP to provide a feedback form for a particular rating category and value
+
+### feedback_form
+This action describes how a BPP returns a feedback form for a particular rating category and value

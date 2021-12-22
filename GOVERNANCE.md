@@ -54,7 +54,7 @@ After reading this document, the reader should be able to
 
 # Introduction
 
-Beckn protocol is maintained via an open community-driven governance model. The community comprises multiple businesses and organizations that actively contribute to the specification to fuel their digital acceleration. This collaboration across domains, technologies and expertises will bring in new ideas which need to be part of the protocol. Hence there is a need for a standardised process for making relevant changes to the specification as well and for a retrospective understanding of the specification. The governance model for beckn protocol has been created using some of the best practices of globally recognized governance models.
+The Beckn protocol is maintained via an open community-driven governance model. The community comprises multiple businesses and organizations that actively contribute to the specification to fuel their digital acceleration. This collaboration across domains, technologies and expertises will bring in new ideas which need to be part of the protocol. Hence there is a need for a standardised process for making relevant changes to the specification as well and for a retrospective understanding of the specification. The governance model for beckn protocol has been created using some of the best practices of globally recognized governance models.
 
 Evolution of beckn protocol specification is guided by the **Core Working Group**. This working group contains members that bring their API expertise, industry knowledge, incorporate feedback from the community, and expand the group of committers as and when appropriate. All development activity on the future specification will be performed as features on a draft branch and merged into this branch. Upon release of the future specification, this branch will be merged to master.
 
@@ -65,7 +65,7 @@ This governance model is inspired from the [OpenAPI specification governance mod
 
 # The Beckn Credo
 
-the beckn community is an open community. So, no registrations. No memberships. No partnerships. Just a minimal footprint of an open and equally accessible Beckn Protocol that anyone can use. Multiple businesses and organizations have started using beckn protocol to fuel their digital acceleration. The credo of being an open protocol creates a level-playing field for any market player, small or large.
+The Beckn community is an open community. So, no registrations. No memberships. No partnerships. Just a minimal footprint of an open and equally accessible Beckn Protocol that anyone can use. Multiple businesses and organizations have started using beckn protocol to fuel their digital acceleration. The credo of being an open protocol creates a level-playing field for any market player, small or large.
 
 
 ## Motivation
@@ -78,33 +78,33 @@ Open specs, equal access. retain agency of small businesses. non-rivalrous, non-
 
 ## Community Driven
 
-increase value for all participants. be a network weaver in your own way. be a contributor of specs and best practices
+Increase value for all participants. be a network weaver in your own way. be a contributor of specs and best practices
 
-Beckn Protocol is an open commerce protocol with an abstract core, which is enabling market players to reimagine building seamless digital experiences and networks. This is very similar to how HTTP, while being a simple and open protocol has fueled seamless interaction between multiple systems and led to an explosive growth in internet adoption.
+The Beckn Protocol is an open commerce protocol with an abstract core, which is enabling market players to reimagine building seamless digital experiences and networks. This is very similar to how HTTP, while being a simple and open protocol has fueled seamless interaction between multiple systems and led to an explosive growth in internet adoption.
 
 ## Open Community Contributions
 
-Beckn protocol has been accepting community contributions to the specification since May 2020.
+The Beckn Protocol has been accepting community contributions to the specification since May 2020.
 
 # Design Principles
 
-To allow open contributions from the community, the governance model is required to apply some basic design principles while reviewing or proposing changes to the specification. They are:
+To allow open contributions from the community, a governance model is required to apply some basic design principles while reviewing or proposing changes to the specification. They are:
 
 ## Interoperability via Abstraction:
-Any feature included in the specification must be abstracted as such to allow it to be consumed across a global range of use cases. That means no feature should be linked to a specific domain, region or use case. 
+Any feature included in the specification must be abstracted so as to allow it to be consumed across a global range of use cases. That means no feature should be linked to a specific domain, region or use case. 
 
 ## Optimal ignorance:
 Before including any feature in the specification, reviewers should ask the following questions: a) _Do we need it?_ And, b) _Do we need it now? If the answer to both these questions is “Yes” then this criteria will have been met.
 
 ## Privacy and Security
-Any feature being included in the specification must be tested for any security or privacy vulnerabilities. Free text fields, loosely-typed fields and any fields that may be used to capture Personally Identifiable Information should not be accepted.
+Any feature being included in the specification must be tested for any security or privacy vulnerabilities. Free text fields, loosely-typed fields and any fields that may be used to implicitly capture Personally Identifiable Information should not be accepted.
 
 ## Scalability
 
 Any feature being included in the specification must be tested for scalability. String fields with unlimited size; arrays with unlimited size etc, must be discouraged. Any feature that is included must work at scale.
 
 ## Reusability
-Any new feature must be checked if it can reuse components from existing schema before inclusion into the specification.
+Any new feature must be checked if it can reuse components from the existing schema before inclusion into the specification.
 
 ## Unification over Standardization
 Not all features across the globe can be standardized. Standard values vary with domain, region and adoption. In case multiple standards are being adopted for a single feature, it is recommended that both the standards are included in the feature instead of proposing a new standard. For example, if a Location schema is defined using gps and address, then the feature should include both gps and address instead of choosing one over the other. Standardization should occur as a natural consequence of market adoption rather than a forced adoption. 
@@ -113,12 +113,12 @@ There will be exceptions to the above principles. The objective of the Core Work
 
 # Need for Governance
 
-Since the core specification is essentially abstracted, the implementers of the specification must use instances of the core specification for various domains, regions and scope. Moreover, beckn protocol specification is built by applying policies on the core specification. Hence, there is a need for a strong and inclusive governance model that adheres to the basic design principles while simultaneously being inclusive in its approach to evolution as opposed to a foundation controlled evolution.
+Since the core specification is essentially abstracted, the implementers of the specification must use instances of the core specification for various domains, regions and scope. Moreover, the Beckn Protocol specification is built by applying policies on the core specification. Hence, there is a need for a strong and inclusive governance model that adheres to the basic design principles while simultaneously being inclusive in its approach to evolution as opposed to a foundation-controlled evolution.
 
 
 # Areas That Require Specification Governance
 
-There are many independently governable specification elements in beckn. These elements are called areas. Each area will have multiple working groups under it. The following are the areas currently identified :
+There are many independently governable specification elements in the Beckn Protocol. These elements are called areas. Each area will have multiple working groups under it. The following are the areas currently identified :
 
 
 * **API** : Core API and schema definitions
@@ -130,34 +130,33 @@ There are many independently governable specification elements in beckn. These e
 * **Missions** : Specific implementation related working groups
 
 
-# Area Director
+# Area Director (AD)
 
-Each area will have an area director which will be responsible for the functioning and creation of the WGs under it and appointing the working group chair for the same. The area director will be a volunteer from the community who will adhere to the design principles while reviewing any proposal submitted by a contributor.
+Each area will have an Area Director who will be responsible for the functioning and creation of the Working Groups (WG) under it and appointing the WG chair(s). The AD will be a volunteer from the community who will adhere to the design principles while reviewing any proposal submitted by a contributor.
 
-# Working Groups
+# Working Groups (WG)
 
-A working group is a collection of people who collaborate on, and are responsible for managing evolution of the specification under a specific area. 
+A Working Group is a collection of people who collaborate on, and are responsible for managing evolution of the specification. 
 
 ## Working Group Structure
 
-Each working group has the following structure
+Each WG has the following structure
 
-1. Working Group Administrators
-2. Working Group Committers
-3. Working Group Members
+1. WG Administrators
+2. WG Committers
+3. WG Members
 
 ### Working Group Administrators
 
-Each working group will have a working group (WG) administrator (Admin). The Admin will be responsible for declaring a rough consensus on any decision the group has to make. Having full consensus is preferred but not required. During a decision process if the admin decides that the issues brought forward have been discussed enough and the group has made an informed decision, the chair can declare that there is rough consensus to go ahead with the decision. For assets (github repository, document collections, group email id etc) coming under each working group, the admin will have access to modify it.
-
+Each WG will have an Administrator (Admin). The Admin will be responsible for declaring a rough consensus on any decision the group has to make. Having full consensus is preferred but not required. During a decision process if the Admin decides that the issues brought forward have been discussed enough and the group has made an informed decision, the Admin can declare that there is rough consensus to go ahead with the decision. For assets (github repository, document collections, group email id etc) coming under each WG, the Admin will have access to modify it.
 
 ### Working Group Committers
 
-Each working group will have at least one committer. The purpose of the committer is to review PRs against WG guidelines and design principles and post comments on Github regarding the status of the PR. 
+Each WG will have at least one committer. The purpose of the committer is to review PRs against WG guidelines and design principles and post comments on Github regarding the status of the PR. 
 
 ### Working Group Members
 
-Anyone can send a request to be added to the working group to attend meetings and weigh in with opinions about any decision or through mails. To become part of a working group, you must send an email to the working group admin. Working group members can participate in discussions on Issues and Pull Requests, and respond to comments in the discussion forums. However, the approval of a working group member will not carry any weightage in merging PRs to the specification.
+Anyone can send a request to be added to the WG to attend meetings and weigh in with opinions about any decision or through mails. To become part of a WG, one must send an email to the WG Admin. WG members can participate in discussions on Issues and Pull Requests, and respond to comments in the discussion forums. However, the approval of a working group member will not be decisiove in merging PRs to the specification.
 
 # Managing Specification Evolution
 
@@ -166,19 +165,18 @@ The specification will evolve over time. Changes may be made when any of the fol
 1. **Clarity**. The current "way" something is done doesn't make sense, is complicated, or not clear.
 2. **Consistency**. A portion of the specification is not consistent with the rest, or with the industry standard terminology.
 3. **Necessary functionality**. We are missing functionality because of a certain design of the specification.
-4. **Forward-looking** **Designs**. As usage of APIs evolves to new protocols, formats, and patterns, we should always consider what the next important functionality should be.
-5. **Impact**. A change will provide an impact on a large number of use cases. We should not be forced to accommodate every use case. Maintainers should strive to make the common and important use cases both well supported and common in the definition of the OAI Spec. We cannot be edge-case driven.
-
+4. **Forward-looking Designs**. As usage of APIs evolves to new protocols, formats, and patterns, we should always consider what the next important functionality should be.
+5. **Impact**. A change will have an impact on a large number of use cases. We should not be forced to accommodate every use case. Maintainers should strive to make the common and important use cases both well supported and common in the definition of the OAI Spec. We cannot be edge-case driven.
 
 # Specification Review Guidelines
 
 While reviewing each change in the specification committers should always consider the following:
 
-1. **Migration Impact : **Is this a construct that has a smooth implementation path from the latest specification? If so, how complicated is it to migrate implementations to the proposed change? Secondly, how large of a cohort is affected due to this change
+1. **Migration Impact**: Is this a construct that has a smooth implementation path from the latest specification? If so, how complicated is it to migrate implementations to the proposed change? Secondly, how large of a cohort is affected due to this change
 2. **Tooling**: Contributors should strive to support code generation, software interfaces, spec generation techniques, as well as other utilities. Some features may be impossible to support in different frameworks/languages. These should be documented and considered during the change approval process.
 3. **Visualization**: Can the specification change be graphically visualized somehow in a UI or other interface 
 
-Spec changes should be approved by a majority of the committers. Approval can be given by commenting on the issue itself, for example, "Approved by @cwgadmin" however at least one formal GitHub-based flow approval must be given. After the voting criteria is met, the working group admin can merge or assign a member to merge the PR. No change should be approved until there is documentation for it, supplied in an accompanying PR.
+Spec changes should be approved by a majority of the committers. Approval can be given by commenting on the issue itself, for example, "Approved by @cwgadmin" however at least one formal GitHub-based flow approval must be given. After the voting criteria is met, the WG Admin can merge or assign a member to merge the PR. No change should be approved until there is documentation for it, supplied in an accompanying PR.
 
 # Feature Evolution
 
