@@ -24,8 +24,9 @@ metaDescription: "Domain agnostic transaction specification for e-commerce"
 | [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.8.0)                  |  0.8.0    |    21 May, 2020       |
 | [Healthcare](https://developers.beckn.org/Healthcare)            |  0.5.0    |    02 May, 2020       |
 | Food and Beverage     |  0.3.1 (depr)    |    22 April, 2020     |
-| [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.7.1)                  |  0.7.1    |    17 April, 2020     |
-| [Mobility](https://github.com/beckn/protocol-specifications/tree/master/mobility/schema/0.7.1)              |  0.7.1    |    09 December, 2019  |
+| Core (depr)                |  0.7.1    |    17 April, 2020     |
+| Mobility  (depr)             |  0.7.1    |    09 December, 2019  |
+| Mobility (depr)              |  0.7.0    |    31 October, 2019  |
 
 # Introduction
 
