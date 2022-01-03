@@ -1833,8 +1833,7 @@ components:
           $ref: '#/components/schemas/Person'
         contact:
           $ref: '#/components/schemas/Contact'
-        vehicle:
-          $ref: '#/components/schemas/Vehicle'
+
         start:
           description: Details on the start of fulfillment
           type: object
@@ -2519,26 +2518,3 @@ components:
           enum:
             - active
             - inactive
-
-    Vehicle:
-      description: Describes the properties of a vehicle used in a mobility service
-      type: object
-      properties:
-        category:
-          type: string
-        capacity:
-          type: integer
-        make:
-          type: string
-        model:
-          type: string
-        size:
-          type: string
-        variant:
-          type: string
-        color:
-          type: string
-        energy_type:
-          type: string
-        registration:
-          type: string
