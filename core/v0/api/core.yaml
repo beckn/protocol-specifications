@@ -1572,30 +1572,6 @@ components:
           $ref: '#/components/schemas/Country/properties/code'
         city:
           $ref: '#/components/schemas/City/properties/code'
-        action:
-          type: string
-          description: Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
-          enum:
-            - search
-            - select
-            - init
-            - confirm
-            - update
-            - status
-            - track
-            - cancel
-            - rating
-            - support
-            - on_search
-            - on_select
-            - on_init
-            - on_confirm
-            - on_update
-            - on_status
-            - on_track
-            - on_cancel
-            - on_rating
-            - on_support
         core_version:
           type: string
           description: Version of Beckn core API specification being used
