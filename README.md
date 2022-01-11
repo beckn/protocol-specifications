@@ -8,7 +8,7 @@ metaDescription: "Domain agnostic transaction specification for e-commerce"
 
 | Domain                | Version   |    Release Date       |
 |-----------------------|-----------|-----------------------|
-|   Core   |    0.9.3-draft      | TBA       |
+|   Core   |    0.9.3      | 22 December 2021       |
 |   Core   |    0.9.2      | 27 July, 2021        |
 |   Core   |    0.9.1  | 09 November, 2020        |
 | [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/fd154368c4670218ce6ad0fc8ee4ada5c401b485/final-mile-delivery/v0)   |  0.8.3  |    10 October, 2020      |
