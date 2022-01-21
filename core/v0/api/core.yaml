@@ -2194,6 +2194,11 @@ components:
             - NOT-PAID
         time:
           $ref: '#/components/schemas/Time'
+        collected_by:
+          type: string
+          enum:
+            - BAP
+            - BPP
 
     Person:
       description: Describes a person.
