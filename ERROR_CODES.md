@@ -31,15 +31,6 @@ CC-BY-ND
 1. Sujith Nair : sujith@becknfoundation.org
 2. Pramod Varma : pramod@ekstep.org
 
-## To Comment
-All comments to be sent to comments@beckn.org with the subject line:
-
->“CSF034-Draft-02 | <Title of your comment>”  *(without quotation marks)*
-
-For example, if you have a comment titled, “What if the payment mode is not supported?”, the Subject line should be,
-
->CSF034-Draft-01 | What if the payment mode is not supported?
-
 ## Introduction
   This document outlines the error codes which must be returned by a BPP. 
 
@@ -76,9 +67,10 @@ For example, if you have a comment titled, “What if the payment mode is not su
   |50004|Support unavailable|When the BPP receives an object if for which it does not provide support|
 
   ## Acknowledgements
-  The author would like to thank the following individuals for their contributions in creating the first draft of this document.f (in alphabetical order):
+  The author would like to thank the following individuals for their contributions in creating the first draft of this document (in alphabetical order):
 
 1. Pramod Varma, Beckn Foundation
 2. Sujith Nair, Beckn Foundation
+3. Supriyo Ghosh, ONDC
 
 *Copyright (c) 2022 Beckn Foundation. All rights reserved.*
