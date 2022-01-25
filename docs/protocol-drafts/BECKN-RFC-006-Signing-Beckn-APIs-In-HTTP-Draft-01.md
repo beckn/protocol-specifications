@@ -117,11 +117,11 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
  
   "ack": {
   
-	"status": "NACK"
+&emsp;&emsp;"status": "NACK"
   
-  }
+&emsp;}
    
-  }
+&nbsp;}
  
 }
 
@@ -206,11 +206,11 @@ Proxy-Authenticate: Signature realm="example-bpp.com",headers="(created) (expire
  
     "ack": {
     
-	"status": "NACK"
+&emsp;&emsp;"status": "NACK"
   
-   }
+&emsp;}
    
- }
+&nbsp;}
  
 }
 
@@ -243,11 +243,11 @@ WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires)
  
     "ack": {
     
-	"status": "NACK"
+&emsp;&emsp;"status": "NACK"
   
-   }
+&emsp;}
    
- }
+&nbsp;}
  
 }
 
@@ -302,11 +302,11 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
  
     "ack": {
     
-	"status": "NACK"
+&emsp;&emsp;"status": "NACK"
   
-   }
+&emsp;}
    
- }
+&nbsp;}
  
 }
 
@@ -366,11 +366,11 @@ HTTP/1.1 401 Unauthorized
  
     "ack": {
     
-	"status": "NACK"
+&emsp;&emsp;"status": "NACK"
   
-   }
+&emsp;}
    
- }
+&nbsp;}
  
 }
 
@@ -406,6 +406,5 @@ WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires)
 
 &emsp;}
    
-}
-
+&nbsp;}
 }
