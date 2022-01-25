@@ -403,7 +403,9 @@ WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires)
  
     "ack": {
 &emsp;&emsp;"status": "NACK"
+
 &emsp;}
    
 }
+
 }
