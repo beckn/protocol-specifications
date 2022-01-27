@@ -71,7 +71,7 @@ In [Beckn-One](https://github.com/venkatramanm/beckn-portal) (which is a referen
 	
 5. On firing a test search api from the beckn-one bap, a payload was pushed to the topic ROOT.IND.std080.nic2004:52110.search.all.[a_txn_id].[a_message_id]
  
-5. Humbhionline's BPP picked up the search request from the wild card topic subscription (ROOT.*.*.nic2004:52110.search.all.>). Processed it asyncronously and pushed the response payload to the on_search queue  being listened to by the beckn-one bap. 
+5. Humbhionline's BPP picked up the search request from the wild card topic subscription (ROOT.\*.*.nic2004:52110.search.all.>). Processed it asyncronously and pushed the response payload to the on_search queue  being listened to by the beckn-one bap. 
 
 6. Beckn One bAP was subscribed to the following topics 
 
@@ -111,7 +111,7 @@ In [Beckn-One](https://github.com/venkatramanm/beckn-portal) (which is a referen
 
 # How Can some one try out the pub sub gateway of beckn-one. 
 1. You can mark the apitest on Beckn-One as 'via queue'. and the Sandbox tool would put the payload in an appropriate queue. 
-2. Your BPP/BAP need to listen on appropriate queues to get the messages. 
+2. Your BPP/BAP need to listen on appropriate queues to get the messages. 	
 3. You would need  to support the queue based subscription as another mechanism to receive messages other than the http connection so that existing functionality is also supported.
 
  
