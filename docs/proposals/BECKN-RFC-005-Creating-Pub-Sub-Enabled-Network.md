@@ -32,7 +32,7 @@ CC-BY-ND
 1. Sujith Nair : sujith@becknfoundation.org
 2. Pramod Varma : pramod@ekstep.org
 3. Ravi Prakash : ravi@becknfoundation.org
-4. 
+
 
 # Introduction
 Pub Subscribe is a popular industry standard where events are published by _publishers_ to a message queue on specific topics. _Subscribers_ listening to specific topics/topic wildcards, on the queue are notified of the event. _Subscribers_ typically take actions on these events asyncronously and go back to listening for more events of interest.
@@ -42,18 +42,21 @@ The Beckn protocol as on Jan 21 2021 has been documented according to openapi sp
 # The experiment.
 In [Beckn-One](https://github.com/venkatramanm/beckn-portal) (which is a reference network for Beckn applications), the following experiment was conducted. 
 
-1. A system wide open message broker (nats.io and  hivemq were tried out)  was be made available for BAP and BPP registered on the network
-2. TOPIC via which communication was enabled were designed according to the following pattern
+1. A system wide open message broker was made available for BAPs and BPPs registered on the network. (nats.io and  hivemq were tried out)
+2. Topics via which communication was enabled were designed according to the following pattern
 
 		ROOT/[Country]/[City]/[domain]/[action]/[intended_subscriber_id]/[transaction_id]/[message_id] (in hive mq) 
+		AND 
+		ROOT.[Country].[City].[domain].[action].[intended_subscriber_id].[transaction_id].[message_id] (in nats.io) 
 		
-		** Note 
-		* topic level separators, single level wild cards and multilevel wild cards are different by brokers
-		* For Search requests the intended_subscriber_id  field was always "all" in BAP and BPP. 
-		* Special characters like "/" in the fields would need to be escaped so that they are not confused with level separator. For uniformity, we replaced all broker specific special characters by strings "_separator_", "_single_level_wild_card_" and "_multi_level_wild_card_" respectively
+		*Note*
 		
-3. Sandbox BAP in beckn-one published a **Cloud event** to the complete  topic with no wild card. 
-4. Humbhionline BPP subscribed to specific topic or wild card topic and received the **Cloud event*.  
+		1. Topic level separators, single level wild cards and multilevel wild cards are different by brokers
+		2. For Search requests the intended_subscriber_id  field was always "all" in BAP and BPP. 
+		3. Special characters like "/" in the fields would need to be escaped so that they are not confused with level separator. For uniformity, we replaced all broker specific special characters by strings "_separator_", "_single_level_wild_card_" and "_multi_level_wild_card_" respectively
+		
+1. Sandbox BAP in beckn-one published a **Cloud event** to the complete  topic with no wild card. 
+2. Humbhionline BPP was listening to multiple topics. Some of which were complete topic and some were wild cards. 
 		
 		Extract from Humbhionline  logs. 
 		================================
@@ -66,8 +69,10 @@ In [Beckn-One](https://github.com/venkatramanm/beckn-portal) (which is a referen
 		Subscribed to topic ROOT.*.*.nic2004:52110.track.mandi_separator_succinct_separator_in.>
 		Subscribed to topic ROOT.*.*.nic2004:52110.status.mandi_separator_succinct_separator_in.>
 	
-5. On firing a test search api on beckn-one the bap, simply put the payload to the topic. 
-5. Humbhionline's BPP picked up the search request. Processed it asyncronously and pushed the response payload to the on_search queue  being listened to by the beckn-one bap. 
+5. On firing a test search api from the beckn-one bap, a payload was pushed to the topic ROOT.IND.std080.nic2004:52110.search.all.[a_txn_id].[a_message_id]
+ 
+5. Humbhionline's BPP picked up the search request from the wild card topic subscription (ROOT.*.*.nic2004:52110.search.all.>). Processed it asyncronously and pushed the response payload to the on_search queue  being listened to by the beckn-one bap. 
+
 6. Beckn One bAP was subscribed to the following topics 
 
 		Extract from Beckn-One Logs
@@ -105,7 +110,7 @@ In [Beckn-One](https://github.com/venkatramanm/beckn-portal) (which is a referen
 
 
 # How Can some one try out the pub sub gateway of beckn-one. 
-1. You can mark the apitest on Beckn-One as 'via queue'. and the BAP would put in queue. 
+1. You can mark the apitest on Beckn-One as 'via queue'. and the Sandbox tool would put the payload in an appropriate queue. 
 2. Your BPP/BAP need to listen on appropriate queues to get the messages. 
 3. You would need  to support the queue based subscription as another mechanism to receive messages other than the http connection so that existing functionality is also supported.
 
