@@ -8,7 +8,7 @@ metaDescription: "Domain agnostic transaction specification for e-commerce"
 
 | Domain                | Version   |    Release Date       |
 |-----------------------|-----------|-----------------------|
-|   Core   |    0.9.3-draft      | TBA       |
+|   Core   |    0.9.3      | 22 December 2021       |
 |   Core   |    0.9.2      | 27 July, 2021        |
 |   Core   |    0.9.1  | 09 November, 2020        |
 | [Final Mile Delivery](https://github.com/beckn/protocol-specifications/tree/fd154368c4670218ce6ad0fc8ee4ada5c401b485/final-mile-delivery/v0)   |  0.8.3  |    10 October, 2020      |
@@ -24,8 +24,9 @@ metaDescription: "Domain agnostic transaction specification for e-commerce"
 | [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.8.0)                  |  0.8.0    |    21 May, 2020       |
 | [Healthcare](https://developers.beckn.org/Healthcare)            |  0.5.0    |    02 May, 2020       |
 | Food and Beverage     |  0.3.1 (depr)    |    22 April, 2020     |
-| [Core](https://github.com/beckn/protocol-specifications/tree/master/core/schema/0.7.1)                  |  0.7.1    |    17 April, 2020     |
-| [Mobility](https://github.com/beckn/protocol-specifications/tree/master/mobility/schema/0.7.1)              |  0.7.1    |    09 December, 2019  |
+| Core (depr)                |  0.7.1    |    17 April, 2020     |
+| Mobility  (depr)             |  0.7.1    |    09 December, 2019  |
+| Mobility (depr)              |  0.7.0    |    31 October, 2019  |
 
 # Introduction
 
