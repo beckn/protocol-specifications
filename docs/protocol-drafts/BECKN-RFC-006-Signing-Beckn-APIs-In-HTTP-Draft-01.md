@@ -103,11 +103,9 @@ The BG performs the following steps to authenticate the BAP and also ensure mess
 
 **Headers:**
 
-`HTTP/1.1 401 Unauthorized`
-
-`WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"`
-
-...
+`HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
+...`
 
 **Request Body:**
 
