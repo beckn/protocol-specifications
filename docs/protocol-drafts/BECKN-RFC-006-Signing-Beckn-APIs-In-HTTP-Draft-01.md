@@ -112,9 +112,9 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
 `{
  "message": {
   "ack": {
-&emsp;&emsp;"status": "NACK"
-&emsp;}
-&nbsp;}
+"status": "NACK"
+}
+}
 }`
 
 
@@ -183,25 +183,17 @@ The BG will now look up the registry for the public key of the subscriber by sen
 **Headers:**
 
 `HTTP/1.1 401 Unauthorized
-
 Proxy-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires) digest"
-
 ...`
 
 **Request Body:**
 
 `{
-
  "message": {
- 
     "ack": {
-    
-&emsp;&emsp;"status": "NACK"
-  
-&emsp;}
-   
-&nbsp;}
- 
+"status": "NACK"
+}
+}
 }`
 
 
@@ -220,25 +212,17 @@ The BPP performs the following steps to authenticate the BAP and also ensure mes
 **Headers**
 
 `HTTP/1.1 401 Unauthorized
-
 WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires) digest"
-
 ...`
 
 **Request Body**
 
 `{
-
  "message": {
- 
     "ack": {
-    
-&emsp;&emsp;"status": "NACK"
-  
-&emsp;}
-   
-&nbsp;}
- 
+"status": "NACK"
+}
+}
 }`
 
 
@@ -279,25 +263,17 @@ The BG performs the following steps to authenticate the BPP and also ensure mess
 **Headers**
 
 `HTTP/1.1 401 Unauthorized
-
 WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
-
 ...`
 
 **Request Body**
 
 `{
-
  "message": {
- 
     "ack": {
-    
-&emsp;&emsp;"status": "NACK"
-  
-&emsp;}
-   
-&nbsp;}
- 
+"status": "NACK"
+}
+}
 }`
 
 
@@ -343,25 +319,17 @@ The BAP performs the following steps to authenticate the BAP and the BG and also
 **Headers**
 
 `HTTP/1.1 401 Unauthorized
-
 /Proxy-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
-
 ...`
 
 **Request Body**
 
 `{
-
  "message": {
- 
     "ack": {
-    
-&emsp;&emsp;"status": "NACK"
-  
-&emsp;}
-   
-&nbsp;}
- 
+"status": "NACK"
+}
+}
 }`
 
 
@@ -379,23 +347,16 @@ The BAP performs the following steps to authenticate the BAP and also ensure mes
 **Headers**
 
 `HTTP/1.1 401 Unauthorized
-
 WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
-
 ...`
 
 
 **Request Body:**
 
 `{
-
  "message": {
- 
     "ack": {
-&emsp;&emsp;"status": "NACK"
-
-&emsp;}
-   
-&nbsp;}
-
+"status": "NACK"
+}
+}
 }`
