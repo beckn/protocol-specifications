@@ -103,15 +103,15 @@ The BG performs the following steps to authenticate the BAP and also ensure mess
 
 **Headers:**
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized
 
 WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
 
-...
+...`
 
 **Request Body:**
 
-{
+`{
 
  "message": {
  
@@ -123,7 +123,7 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
    
 &nbsp;}
  
-}
+}`
 
 
 
@@ -182,7 +182,7 @@ The BPP performs the following steps to authenticate the BAP and the BG and also
 4. The keyID also contains a unique_public_key_id which is used when the BG has uploaded multiple public keys to a registry OR when the same domain is being used for implementing multiple subscribers.
 5. The BG will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the subscriber's public key matching the subscriber_id and unique_key_id. It will get the BG’s public key :
 
-`The BG will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the subscriber's public key matching the subscriber_id and unique_key_id. It will get the BG’s public key :`
+The BG will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the subscriber's public key matching the subscriber_id and unique_key_id. It will get the BG’s public key :
 
 6. If no valid key is found, the BPP must return a NACK response with 401 Unauthorised response code.
 7. BPP will use the BG's public key to verify the signature. If the signature is verified, the BG is considered to be authenticated.
@@ -190,15 +190,15 @@ The BPP performs the following steps to authenticate the BAP and the BG and also
 
 **Headers:**
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized
 
 Proxy-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires) digest"
 
-...
+...`
 
 **Request Body:**
 
-{
+`{
 
  "message": {
  
@@ -210,7 +210,7 @@ Proxy-Authenticate: Signature realm="example-bpp.com",headers="(created) (expire
    
 &nbsp;}
  
-}
+}`
 
 
 
@@ -227,15 +227,15 @@ The BPP performs the following steps to authenticate the BAP and also ensure mes
 
 **Headers**
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized
 
 WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires) digest"
 
-...
+...`
 
 **Request Body**
 
-{
+`{
 
  "message": {
  
@@ -247,7 +247,7 @@ WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires)
    
 &nbsp;}
  
-}
+}`
 
 
 
@@ -286,15 +286,15 @@ The BG performs the following steps to authenticate the BPP and also ensure mess
 
 **Headers**
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized
 
 WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
 
-...
+...`
 
 **Request Body**
 
-{
+`{
 
  "message": {
  
@@ -306,7 +306,7 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
    
 &nbsp;}
  
-}
+}`
 
 
 ### Step 8 : BG signs callback before calling BAP
@@ -350,15 +350,15 @@ The BAP performs the following steps to authenticate the BAP and the BG and also
 
 **Headers**
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized
 
 /Proxy-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
 
-...
+...`
 
 **Request Body**
 
-{
+`{
 
  "message": {
  
@@ -370,7 +370,7 @@ HTTP/1.1 401 Unauthorized
    
 &nbsp;}
  
-}
+}`
 
 
 ### Step 10 : BAP verifies BPP signature
@@ -386,16 +386,16 @@ The BAP performs the following steps to authenticate the BAP and also ensure mes
 
 **Headers**
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized
 
 WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
 
-...
+...`
 
 
 **Request Body:**
 
-{
+`{
 
  "message": {
  
@@ -406,4 +406,4 @@ WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires)
    
 &nbsp;}
 
-}
+}`
