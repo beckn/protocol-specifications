@@ -286,9 +286,7 @@ Before forwarding the request to the BAP, the BG performs the following steps to
 4. Concatenate the three values, i.e the `created`, `expires` and `digest` in the format as shown below. The below string is the signing string which the BG is going to use to sign the request.
 
 `(created): 1402170695
-
 (expires): 1402170995
-
 digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=`
 
 5. The BG will then sign this string using it's registered signing private key via the ed25519 Signature Scheme.
