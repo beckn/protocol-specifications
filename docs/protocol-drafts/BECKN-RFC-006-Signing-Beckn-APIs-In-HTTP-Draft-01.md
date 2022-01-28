@@ -95,7 +95,7 @@ The BG performs the following steps to authenticate the BAP and also ensure mess
 4. The keyId also contains a unique_key_id which is used when the BAP has uploaded multiple public keys to a registry OR when the same domain is being used for implementing multiple types of subscribers.
 5. The BG will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the subscriber's public key matching the subscriber_id and unique_key_id.It will receive the public key of the BAP :
 
-`awGPjRK6i/Vg/lWr+0xObclVxlwZXvTjWYtlu6NeOHk=`
+`&emsp;awGPjRK6i/Vg/lWr+0xObclVxlwZXvTjWYtlu6NeOHk=`
 
 6. If no valid key is found, the BPP must return a NACK response with 401 Unauthorised response code.
 7. BG will use the BAP's public key to verify the signature. If signature is verified, the BAP is considered to be authenticated. If not BG should return a 401 error.
