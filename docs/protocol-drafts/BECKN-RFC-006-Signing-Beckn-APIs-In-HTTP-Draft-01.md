@@ -110,17 +110,11 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
 **Request Body:**
 
 `{
-
  "message": {
- 
   "ack": {
-  
 &emsp;&emsp;"status": "NACK"
-  
 &emsp;}
-   
 &nbsp;}
- 
 }`
 
 
