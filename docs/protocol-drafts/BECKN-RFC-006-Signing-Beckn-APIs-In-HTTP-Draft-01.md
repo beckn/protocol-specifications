@@ -16,7 +16,7 @@ Below is the format of a BAP/BPP Authorization header in the typical HTTP Signat
 
 The BG will send its signature in the X-Gateway-Authorization header in the exact same format as shown below.
 
-`X-Gateway-Authorization:Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}" algorithm="ed25519" created="1606970629" expires="1607030629" headers="(created) (expires) digest" signature="Base64(ed25519_sign(signing string))"`
+`X-Gateway-Authorization:Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}", algorithm="ed25519", created="1606970629", expires="1607030629", headers="(created) (expires) digest", signature="Base64(ed25519_sign(signing string))"`
 
 ## Hashing Algorithm
 For computing the digest of the request body, the hashing function will use the BLAKE-512 (2b) hashing algorithm. BLAKE is a cryptographic hash function based on Dan Bernstein's ChaCha stream cipher. For more documentation on the BLAKE-512(2b) algorithm, please go to [RFC7693](https://tools.ietf.org/html/rfc7693).
