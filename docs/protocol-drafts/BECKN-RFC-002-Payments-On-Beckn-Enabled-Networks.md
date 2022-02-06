@@ -155,7 +155,7 @@ Immediate payment on order placement to a UPI Endpoint
 ```
 {
     "uri": "payto://upi/example@upi?amount=$currency:$value&message=hello",
-    "method": "PAYTO",
+    "method": "UPI",
     "type": "ON-ORDER",
     "status": "NOT-PAID",
     "params": {
@@ -171,7 +171,7 @@ Transfer to a Payment Gateway Endpoint
 ```
 {
     "uri": "https://pay.example.com?amount=$value&cur=$currency",
-    "method": "PAYTO",
+    "method": "HTTP/POST",
     "type": "ON-ORDER",
     "status": "NOT-PAID",
     "params": {
