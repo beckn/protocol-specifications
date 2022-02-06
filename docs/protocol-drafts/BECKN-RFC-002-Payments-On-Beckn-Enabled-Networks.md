@@ -133,7 +133,7 @@ Payment Collection by a BAP and settled at the end of the month to a bank accoun
 {
     "collected_by": "bap",
     "uri": "payto://bank/98273982749428?amount=$currency:$value&ifsc=$ifsc&message=hello",
-    "method": "PAYTO",
+    "tl_method": "PAYTO",
     "type": "POST_FULFILLMENT",
     "status": "NOT-PAID",
     "params": {
@@ -155,7 +155,7 @@ Immediate payment on order placement to a UPI Endpoint
 ```
 {
     "uri": "payto://upi/example@upi?amount=$currency:$value&message=hello",
-    "method": "UPI",
+    "tl_method": "UPI",
     "type": "ON-ORDER",
     "status": "NOT-PAID",
     "params": {
@@ -171,7 +171,7 @@ Transfer to a Payment Gateway Endpoint
 ```
 {
     "uri": "https://pay.example.com?amount=$value&cur=$currency",
-    "method": "HTTP/POST",
+    "tl_method": "HTTP/POST",
     "type": "ON-ORDER",
     "status": "NOT-PAID",
     "params": {
