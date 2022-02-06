@@ -2164,6 +2164,8 @@ components:
           enum:
             - http/get
             - http/post
+            - payto
+            - upi
         params:
           type: object
           properties:
