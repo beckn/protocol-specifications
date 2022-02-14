@@ -155,7 +155,7 @@ Immediate payment on order placement to a UPI Endpoint
 ```
 {
     "uri": "payto://upi/example@upi?amount=$currency:$value&message=hello",
-    "tl_method": "UPI",
+    "tl_method": "PAYTO",
     "type": "ON-ORDER",
     "status": "NOT-PAID",
     "params": {
@@ -181,7 +181,27 @@ Transfer to a Payment Gateway Endpoint
 }
 ```
 
+## Example 4
+Payment Collection by a BAP and settled at the end of the month using UPI before 15th of February 2022
 
+```
+{
+    "collected_by": "bap",
+    "uri": "upi://pay?pa=UPIID@oksbi&amp;pn=NAME&amp;&tr=123456789&amp;cu=INR&amp;am=200",
+    "tl_method": "UPI",
+    "type": "POST_FULFILLMENT",
+    "status": "NOT-PAID",
+    "params": {
+        "value": "200",
+        "currency": "INR"
+    },
+    "time": {
+        "range": {
+            "end": "2022-02-15 00:00:00"
+        }
+    }
+}
+```
 
 
 
