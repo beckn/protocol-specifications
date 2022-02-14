@@ -1,13 +1,14 @@
 # Specification Governance
-## Version 0.5.0, Draft 01
 
 # Authors
 
 1. Ravi Prakash : ravi@becknfoundation.org
 
-# Draft Version
+# Version
+0.6.0
 
-Draft 03
+# Draft Version 
+Draft 01
 
 # Previous Versions
 
@@ -110,7 +111,7 @@ This governance model is inspired from the [OpenAPI ](https://www.openapis.org/p
 ## Need for Governance
 Since the core specification is essentially abstracted, the implementors of the specification must use instances of the core specification for various domains, regions and scope. Moreover, the beckn protocol specification is implemented by applying policies on the core specification. Hence, there is a need for a strong and inclusive governance model that adheres to the basic design principles while simultaneously being inclusive in its approach to evolution as opposed to a foundation-controlled evolution.
 
-## Areas That Require Specification Governance
+## Areas That Require Governance
 
 There are many independently governable specification elements in the Beckn Protocol. These elements are called areas. Each area will have multiple working groups under it. The following are the areas currently identified :
 
@@ -168,21 +169,52 @@ Each area will have an Area Director who will be responsible for the functioning
 
 A Working Group is a collection of people who collaborate on, and are responsible for managing evolution of the specification. 
 
-## Working Group Structure
+## Purpose of Specification Working Groups
 
-Each WG has the following structure
+## Working Group Roles
 
-1. WG Administrators
-2. WG Committers
-3. WG Members
+Each WG has the following roles
 
-### Working Group Administrators
+1. Administrator
+2. Core Committer
+3. API Designer
+4. System Architect
+5. Community Manager
+6. Project Manager
+7. Subject Matter Expert
+8. Implementation Expert
+9. Call Moderator
+10. Scribe
 
-Each WG will have an Administrator (Admin). The Admin will be responsible for declaring a rough consensus on any decision the group has to make. Having full consensus is preferred but not required. During a decision process if the Admin decides that the issues brought forward have been discussed enough and the group has made an informed decision, the Admin can declare that there is rough consensus to go ahead with the decision. For assets (github repository, document collections, group email id etc) coming under each WG, the Admin will have access to modify it.
+### Administrator
 
-### Working Group Committers
+Each WG will have an Administrator (Admin).  The Admin will be responsible for declaring a rough consensus on any decision the group has to make. Having full consensus is preferred but not required. During a decision process if the Admin decides that the issues brought forward have been discussed enough and the group has made an informed decision, the Admin can declare that there is rough consensus to go ahead with the decision. For assets (github repository, document collections, group email id etc) coming under each WG, the Admin will have access to modify it.
 
-Each WG will have at least one committer. The purpose of the committer is to review PRs against WG guidelines and design principles and post comments on Github regarding the status of the PR. 
+There could be more than one person in the group qualified for an Administrator role, but at any time there will only be one person playing that role. The remaining members may be selected via a selection process that is mutually agreed by the members of the working group. 
+
+#### Selection Criteria for a WG Admin
+1. Architectural expertise
+2. Domain expertise across multiple industry sectors
+3. Implementation expertise across multiple technologies
+4. In-depth understanding of beckn protocol design principles and its applications
+5. Open-source experience
+6. Experience with Git and Github management
+
+### Core Committers
+
+Each WG will have at least one Core Committer. The objective of a core committer is to 
+1. Review Proposals
+2. Review Protocol Drafts
+3. Respond to discussion threads
+4. Review and merge PRs to the specification.
+
+#### Selection Criteria for a Core Committer
+1. Architectural expertise
+2. Domain expertise across multiple industry sectors
+3. Implementation expertise across multiple technologies
+4. In-depth understanding of beckn protocol and its applications
+5. Open-source experience
+
 
 ### Working Group Members
 
@@ -198,9 +230,9 @@ The specification will evolve over time. Changes may be made when any of the fol
 4. **Forward-looking Designs**. As usage of APIs evolves to new protocols, formats, and patterns, we should always consider what the next important functionality should be.
 5. **Impact**. A change will have an impact on a large number of use cases. We should not be forced to accommodate every use case. Maintainers should strive to make the common and important use cases both well supported and common in the definition of the OAI Spec. We cannot be edge-case driven.
 
-# Specification Review Guidelines
+# Specification Evolution Guidelines
 
-While reviewing each change in the Core Working Group should always consider the following:
+Any change made to specification must happen via a rigourous and comprehensive review mechanism. The review broadly requires the core committers to apply each of the design principles on the proposed change and submit an objective response to the proposer(s). 
 
 1. **Relevance**: Beckn protocol has defined clear boundaries on what is in-scope of beckn protocol and what is not. CWG members should ask themselves some basic questions like. Is it network-specific? Is it technology-specific? Is it implementation-specific? 
 
@@ -222,7 +254,6 @@ All development activity on the future specification will be performed as featur
 ## Proposal
 
 All proposals will have the following namespace
-
 
 ```
 "./@alice-dev.direction.proposed"
@@ -261,10 +292,7 @@ All recommended standards will have the following namespace structure on the dra
 "./@proposer.feature.required"
 ```
 
-
-
 ### Not Recommended
-
 
 ```
 "./@proposer.direction.not-recommended"
