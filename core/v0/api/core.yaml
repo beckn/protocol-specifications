@@ -1944,7 +1944,7 @@ components:
             measure:
               $ref: '#/components/schemas/Scalar'
     Item:
-      description: Describes an item. Allows for domain extension.
+      description: Describes a product or a service offered to the end consumer by the provider.
       type: object
       properties:
         id:
