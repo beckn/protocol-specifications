@@ -1343,7 +1343,7 @@ components:
       description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>X-Gateway-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
   schemas:
     Ack:
-      description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has properties like status
+      description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfully and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status
       type: object
       properties:
         status:
@@ -1355,7 +1355,7 @@ components:
       required:
         - status
     AddOn:
-      description: Describes an ancillary item sold to the buyer of a main product or service<br>This has properties like id,descriptor,price
+      description: Describes an ancillary item sold to the buyer of a main product or service<br>This has properties like id,descriptor,price<br>This schema is used in the addons array in the Order schema object
       type: object
       properties:
         id:
@@ -1366,7 +1366,7 @@ components:
         price:
           $ref: '#/components/schemas/Price'
     Address:
-      description: Describes the postal address of a location. This is the address that can be accessed by mail.<br>This has properties like door number, name of the address, building number, street, locality, ward, state and country, and area code<br>This schema is used in the following locations <br><ul><li>location.address</li><li>billing.address</li></ul><br>This is used in the following situations.<br><ul><li>This is typically used during the discovery stage when specifying the address of a provider. For example When specifying the address of a store</li><li>This is typically used during the order stage when specifying the billing address of a consumer</li><li>This is typically used during the order stage when specifying the address where fulfillment starts. For example When specifying pickup location</li><li>This is typically used during the order stage when specifying the address where fulfillment ends. For example When specifying drop location</li></ul><br>This is used to allow the fulfillment agent to reach the exact location of fulfillment start or end. This is done because, just GPS coordinates may not be enough to reach the exact points of fulfillment. The postal address provides granularity till the door number of a physical location. <br>This is used by the user to physically go to the store location during store-pickup.<br>This is used by the fulfillment agent to physcally go to the provider's location to pickup an order<br>This is used by the fulfillment agent to physcally go to the consumer's location to deliver an order<br>The address can be used by the consumer app to geolocate the position of a provider's store on a map. <br>The address can be used by the agent's app to geolocate the position of the start of fulfillment on a map<br>The address can be used by the agent to physically go to the exact location where a fulfillment starts of ends.
+      description: Describes the postal address of a location. This is the address that can be accessed by mail.<br>This has properties like door number, name of the address, building number, street, locality, ward, state and country, and area code<br>This schema is used in the following locations <br><ul><li>location.address</li><li>billing.address</li></ul><br>This is used in the following situations.<br><ul><li>This is typically used during the discovery stage when specifying the address of a provider. For example- When specifying the address of a store</li><li>This is typically used during the order stage when specifying the billing address of a consumer</li><li>This is typically used during the order stage when specifying the address where fulfillment starts. For example- When specifying pickup location</li><li>This is typically used during the order stage when specifying the address where fulfillment ends. For example- When specifying drop location</li></ul><br>This is used to allow the fulfillment agent to reach the exact location of fulfillment start or end. This is done because, just GPS coordinates may not be enough to reach the exact points of fulfillment. The postal address provides granularity till the door number of a physical location. <br>This is used by the BAP to send the billing address of the user to the BPP for creating an order.<br>This is used by the user to physically go to the store location during store-pickup.<br>This is used by the fulfillment agent to physically go to the provider's location to pickup an order<br>This is used by the fulfillment agent to physically go to the consumer's location to deliver an order<br>This is used by a BPP for saving the billing address for confirming an order<br>The address can be used by the consumer app to geolocate the position of a provider's store on a map. <br>The address can be used by the agent's app to geolocate the position of the start of fulfillment on a map<br>The address can be used by the agent to physically go to the exact location where a fulfillment starts of ends.<br>The address will be saved as the billing address for the order created by the BPP
       type: object
       properties:
         door:
@@ -1400,7 +1400,7 @@ components:
           type: string
           description: 'Area code. This can be Pincode, ZIP code or any equivalent'
     Agent:
-      description: Describes direct performer or driver or executor of an order fulfillment.<br>This has properties such as name, image, dob, gender, cred, tags, phone, email and rateable
+      description: Describes the direct performer or driver or executor of the fulfillment of an order. In the healthcare domain it can be a doctor while in the mobility domain it can be a taxi driver.<br>This has properties such as name, image, dob, gender, cred, tags, phone, email and rateable<br>This schema is used in the agent property of the Fulfillment schema object<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to convey details of the person who will be fulfilling the order so that the customer can make an informed decision about the product or service they need to purchase</li><li>This is typically used in the fulfillment stage when the BPP assigns an agent to fulfill the order post confirmation of the same</li></ul><br>This is used to allow the BPP to send the details of the person fulfilling the order to the end user.
       allOf:
         - $ref: '#/components/schemas/Person'
         - $ref: '#/components/schemas/Contact'
@@ -1409,7 +1409,7 @@ components:
             rateable:
               $ref: '#/components/schemas/Rateable'
     Authorization:
-      description: Describes an authorization mechanism used in the order lifecycle.<br>This has properties like type, token, valid_from, valid_to and status
+      description: Describes an authorization mechanism used in the order lifecycle.<br>This has properties like type, token, valid_from, valid_to and status<br>This is used in the following situations.<br><ul><li>Typically in the fulfillment stage when BPP sends wants an authorization mechanism that the customer needs to use for starting/ending the fulfillment process</li></ul><br>This is used to allow a user to authorize the validity of their order with an agent so that fulfillment of the order can start/end. This is also used as proof of presence of the customer so that an agent can start/end the fulfillment.<br>This can be used by the user to start fulfillment by providing the token as proof of presence.<br>This can be used by the user as a proof of purchase of service to an agent at start/end of fulfillment<br>This can be used by the user to end fulfillment by providing the token as proof of completion of service.<br><br>The authorization mechanism can be used in several ways to authorize the start or end of a fulfillment.<br>In the mobility domain a BPP which renders taxi services may give an OTP to the BAP after confirming the order. The end user will give the OTP to the agent(taxi driver) as proof of presence to start the taxi service<br>In the logistics domain a BPP that renders courier services can give an OTP to the BAP while the delivery service is being performed the agent. The end user will give the OTP to the agent so that they can mark the package as successfully delivered.<br>In the mobility domain a public transit BPP can send a signed QR code string to the BAP. The BAP will render it as a QR code which the end user will present to a ticketing agent who can read the QR code using their device and authenticate the validity of the ticket
       type: object
       properties:
         type: 
@@ -1488,7 +1488,7 @@ components:
         additional_description:
           $ref: '#/components/schemas/Descriptor'
     Catalog:
-      description: Describes the products or services offered by a BPP. This is typically sent as the response to a search intent from a BAP. The payment terms, offers and terms of fulfillment supported by the BPP can also be included here.<br>This has properties like bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers and exp
+      description: Describes the products or services offered by a BPP. This is typically sent as the response to a search intent from a BAP. The payment terms, offers and terms of fulfillment supported by the BPP can also be included here.<br>This has properties like bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers and exp<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the details of the products and services it offers as response to a search intent from the BAP. </li></ul>
       type: object
       properties:
         bpp/descriptor:
@@ -1518,7 +1518,7 @@ components:
           description: Time after which catalog has to be refreshed
           format: date-time
     Category:
-      description: Describes a type or division of providers or items regarded as having one or more shared characteristics<br>This has properties like id,parent_category_id,descriptor,time,tags
+      description: Describes a type or division of providers or items regarded as having one or more shared characteristics<br>This has properties like id,parent_category_id,descriptor,time,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog because the price of the same product or service can change based on the category </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li></ul>
       type: object
       properties:
         id:
@@ -1533,7 +1533,7 @@ components:
         tags:
           $ref: '#/components/schemas/Tags'
     Circle:
-      description: Describes a circular region of a specified radius centered at a specified GPS coordinate.<br>This has properties like gps,radius
+      description: Describes a circular region of a specified radius centered at a specified GPS coordinate.<br>This has properties like gps,radius<br>This is used when a circular area needs to be represented as a location.
       type: object
       properties:
         gps:
@@ -1554,7 +1554,7 @@ components:
           type: string
           description: City code
     Contact:
-      description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags
+      description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.
       type: object
       properties:
         phone:
@@ -1695,7 +1695,7 @@ components:
           $ref: '#/components/schemas/Scalar'
     
     Document:
-      description: Describes a piece of written or printed matter in electronic form that provides information or evidence or that serves as an official record. This will be given a URL.<br>This has properties like url,label
+      description: Describes a piece of written or printed matter in electronic form that provides information or evidence or that serves as an official record. This will be given a URL.<br>This has properties like url,label<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage if any documents from the user are needed by the BPP to confirm the order</li><li>This is typically used in the fulfilment and post fulfillment stage if the BPP needs to send any documents related to the order to the user</li></ul><br>This is used to allow documents to be exchanged between the BAP and the BPP
       type: object
       properties:
         url:
@@ -1713,7 +1713,7 @@ components:
       type: string
 
     Error:
-      description: Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant<br>This has properties like type,code,path,message
+      description: Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant<br>This has properties like type,code,path,message<br>This schema is used in the response of all the beckn API calls as well as the callback beckn APIs<br>This is used to return the details of an error that happened while processing a beckn API call received by a network participant.
       type: object
       properties:
         type:
@@ -1738,7 +1738,7 @@ components:
         - code
 
     Feedback:
-      description: Describes the mechanism by which a BPP can receive feedback for a service or a product. This can be in the form of a feedback form which can be rendered by the BAP or a URL which the BAP can present to the end customer.<br>This has properties like feedback_forum,feedback_url
+      description: Describes the mechanism by which a BPP can receive feedback for a service or a product. This can be in the form of a feedback form which can be rendered by the BAP or a URL which the BAP can present to the end customer.<br>This has properties like feedback_forum,feedback_url<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when a BAP sends feedback for a service or product or a fulfillment agent provided by the BPP</li><li>This is typically used in the post fulfillment stage when the BPP sends the feedback form or URL that needs to be used by the BAP</li></ul>
       type: object
       properties:
         feedback_form:
@@ -1747,7 +1747,7 @@ components:
           $ref: '#/components/schemas/FeedbackUrl'
           
     FeedbackForm: 
-      description: Describes a feedback form that a BPP can send to get feedback from the BAP. The BAP render this and will send the response of the form in this same structure.<br>This has properties like description,id,parent_id,question,answer,answer_type
+      description: Describes a feedback form that a BPP can send to get feedback from the BAP. The BAP render this and will send the response of the form in this same structure.<br>This has properties like description,id,parent_id,question,answer,answer_type<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when a BAP sends feedback for a service or product or a fulfillment agent provided by the BPP in a feedback form</li><li>This is typically used in the post fulfillment stage when the BPP sends the feedback form that needs to be used by the BAP</li></ul>
       type: array
       items:
         $ref: '#/components/schemas/FeedbackFormElement'
@@ -1775,7 +1775,7 @@ components:
             - text
       
     FeedbackUrl:
-      description: Describes the feedback URL that an end customer can use to provide feedback to the BPP for products or services.<br>This has properties like url,tl_method,params
+      description: Describes the feedback URL that an end customer can use to provide feedback to the BPP for products or services.<br>This has properties like url,tl_method,params<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when the BPP sends the feedback URL that needs to be used by the BAP for providing feedback for a service or product or fulfillment agent</li></ul>
       type: object
       properties:
         url:
@@ -1802,7 +1802,7 @@ components:
 
 
     Fulfillment:
-      description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags
+      description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>
       type: object
       properties:
         id:
@@ -1873,14 +1873,14 @@ components:
         tags:
           $ref: '#/components/schemas/Tags'
     Gps:
-      description: Describes a GPS coordinates which is a unique identifier of a precise geographic location on the earth, usually expressed in alphanumeric characters.<br>
+      description: Describes a GPS coordinates which is a unique identifier of a precise geographic location on the earth.<br>
       type: string
       pattern: '^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
     Image:
       description: 'Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```'
       type: string
     Intent:
-      description: Intent of a user. Used for searching for products or services.<br>This has properties like descriptor,provider,fulfillment,payment,category,offer,item,tags
+      description: Intent of a user. Used for searching for products or services.<br>This has properties like descriptor,provider,fulfillment,payment,category,offer,item,tags<br>This is typically used by the BAP to send the purpose of the user's search to the BPP. This will be used by the BPP to find products or services it offers that may match the user's intent.
       type: object
       properties:
         descriptor:
