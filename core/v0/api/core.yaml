@@ -1950,7 +1950,6 @@ components:
         id:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
-          format: '#/components/schemas/Item/properties/id'
         parent_item_id:
           $ref: '#/components/schemas/Item/properties/id'
         descriptor:
