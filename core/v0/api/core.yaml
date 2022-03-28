@@ -1945,7 +1945,7 @@ components:
             measure:
               $ref: '#/components/schemas/Scalar'
     Item:
-      description: Describes a product or a service offered to the end consumer by the provider. In the mobility domain item can represent a fare product like one way journey while in the logistics domain it can represent the delivery service offering while in the local retail domain it can represent a product like a grocery item.<br>This has properties like id,parent_item_id,descriptor,price,category_id,fulfillment_id,rating,time,location_id,time,rateable,matched,related,recommended, tags
+      description: Describes a product or a service offered to the end consumer by the provider. In the mobility domain item can represent a fare product like one way journey while in the logistics domain it can represent the delivery service offering while in the local retail domain it can represent a product like a grocery item.<br>This has properties like id,parent_item_id,descriptor,price,category_id,fulfillment_id,rating,time,location_id,time,rateable,matched,related,recommended, tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the catalog of products or services it offers to the BAP in the items array</li><li>This is typically used in the order stage when the BAP sends the details of the item the user wants to purchase</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order object containing the details of the products or services purchased in the order</li></ul>
       type: object
       properties:
         id:
@@ -2062,7 +2062,7 @@ components:
         descriptor:
           $ref: '#/components/schemas/Descriptor'
     Order:
-      description: Describes an order which contains the terms, details, status and identifier of a transaction between a BAP and a BPP. This is usually an exchange of goods or services for money.<br>This has properties like id,state,provider,items,add_ons,offers,documents,billings,fulfillment,quote,payment,created_at,updated_at
+      description: Describes an order which contains the terms, details, status and identifier of a transaction between a BAP and a BPP. This is usually an exchange of goods or services for money.<br>This has properties like id,state,provider,items,add_ons,offers,documents,billings,fulfillment,quote,payment,created_at,updated_at<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage when the BAP sends the details of the order it wishes to create</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order details</li></ul>
       type: object
       properties:
         id:
