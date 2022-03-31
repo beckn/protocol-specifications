@@ -95,7 +95,7 @@ The BPPs immediately respond with ACKs. Soon after, the BPPs call the `on_search
 
 Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses and then broadcast the message to the BPPs.
 
-It is possible to encrypt the `message` information transmitted via a BG. In that case,BG will have no visibility into the transaction information contained in the `message` field and only uses the `context` header to perform BPP discovery and routing. If the `message` data is not encrypted, then it is **not recommended** to send PII data during `search` as it is typically not required to discover products and services.
+To protect the privacy and confidentiality of the user, it is possible to encrypt the `message` information transmitted via a BG. In that case,BG will have no visibility into the transaction information contained in the `message` field and only uses the `context` header to perform BPP discovery and routing.
 
 
 # Acknowledgments
