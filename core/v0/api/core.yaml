@@ -2125,6 +2125,8 @@ components:
           $ref: '#/components/schemas/Quotation'
         payment:
           $ref: '#/components/schemas/Payment'
+        policy:
+          $ref: '#/components/schemas/OrderPolicy'
         created_at:
           type: string
           format: date-time
