@@ -2544,3 +2544,90 @@ components:
           type: string
         registration:
           type: string
+
+    OrderPolicy:
+      description: Describes an order related policy.
+      type: object
+      properties:
+        ref_object_id:
+          description: id of the object for which policy is defined. Can be left out for order
+        policy_type:
+          description: what type of policy is being defined
+          type: string
+          enum:
+            - cancellation
+            - return
+            - cart_update
+            - fulfillment_update
+            - replacement
+        policy_definitions:
+          description: Defining the policy for specific windows of the order status/time
+          type: array
+          items :
+            type: object
+            properties:
+              allowed:
+                description: if action is allowed or not
+                type: boolean
+              time:
+                description: Describes time frame for which this policy definition applies to
+                type: object
+                properties:
+                  from:
+                    description: From what state of order/time this policy definition applies
+                    type: object
+                    properties:
+                      order_state:
+                        description: state refers to the state of the order and offset is an additional duration that can be given to add an extra amount of time after the order state.
+                        type: object
+                        properties:
+                          state:
+                            $ref: '#/components/schemas/Order/properties/state'
+                          offset:
+                            $ref: '#/components/schemas/Duration'
+                      time:
+                        $ref: '#/components/schemas/Time'
+                  to:
+                    description: Till what state of the order this policy definition applies
+                    type: object
+                    properties:
+                      order_state:
+                        description: state refers to the state of the order and offset is an additional duration that can be given to specify an amount of time after the order state.
+                        type: object
+                        properties:
+                          state:
+                            $ref: '#/components/schemas/Order/properties/state'
+                          offset:
+                            $ref: '#/components/schemas/Duration'
+                      time:
+                        $ref: '#/components/schemas/Time'
+              process_fees:
+                description: how much the customer will have to pay for the action
+                type: object
+                properties:
+                  type:
+                    description: whether it is a fixed amount payment or percentage of order/item value
+                    type: string
+                    enum:
+                      - fixed
+                      - percentage
+                  price:
+                    $ref: '#/components/schemas/Price'
+                  percentage:
+                    $ref: '#/components/schemas/DecimalValue'
+              amount:
+                description: how much amount is charged for the applying the policy
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - fixed
+                      - percentage
+                  price:
+                    $ref: '#/components/schemas/Price'
+                  percentage:
+                    $ref: '#/components/schemas/DecimalValue'
+        description:
+          $ref: '#/components/schemas/Descriptor'
+
