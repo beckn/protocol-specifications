@@ -132,6 +132,14 @@ Once the rating handshake is complete, the Rating should happen via the followin
 
 4.  The Rating Receiver must call the on_rating action on the Rating Sender's API. the message must contain any additional information that may be required after the rating is complete. (Requires further elaboration)
 
+
+### Communication Sequence
+
+
+<figure>
+<img align="center" src="https://github.com/beckn/protocol-specifications/blob/draft/docs/images/rating%20handshake.png">
+</figure>
+
 Rating Ledger Architecture
 ==========================
 
