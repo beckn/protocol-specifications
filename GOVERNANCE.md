@@ -124,6 +124,15 @@ Beckn protocol specification adopts a set of design principles that must be adhe
 - Periodically stress-test the design principles on the various components of the specification
 - Record any violation of said design principles and report it to the violator with suggested changes
 
+
+### Licensing
+Beckn protocol is currently covered under a CC-BY-ND License. Just like the design principles, the licensing also may change basis the extent of adoption by the community. At the beginning, to ensure common adoption across the ecosystem, it is recommended to have a strict "Non-Derivative" license and gradually move to a slightly more lenient license as adoption becomes more standardized. The Core Working Group must:
+
+- Clearly define what is allowed and not allowed as per the licensing rules in practical implementation scenarios
+- Gather feedback from the ecosystem around issues faced by implementors due to the licensing
+- Provide solutions to overcome problems around licensing
+- If all of the above fail to achieve outomes, also consider changing the license to make the protocol more flexible without loss of interoperability 
+
 ### API
 Beckn protocol defines a set of actions that may be implemented as APIs. The Core Working Group must:
 
