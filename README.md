@@ -89,7 +89,7 @@ In most cases, the sender will call the API first and the receiver will respond 
 
 Most communication in a beckn enabled network involves two entities - the BAP and the BPP. But sometimes, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the recommended flow of communication is as follows.
 
-If the address of the BPP is _not_ specified in the `context` field of the request body, only then should the BAP should call the BG. The BG may then broadcast this request to multiple BPPs that match the `context` of the request. 
+If the address of the BPP is _not_ specified in the `context` field of the request body, only then should the BAP should call the `search` request to the BG. The BG may then broadcast this request to multiple BPPs that match the `context` of the request. 
 
 Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses that _match_ the `context` and then broadcast the message to those BPPs.
 
