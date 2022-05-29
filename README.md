@@ -87,9 +87,9 @@ In most cases, the sender will call the API first and the receiver will respond 
 
 ## Communication Protocol Via Beckn Gateway
 
-Most communication in a beckn enabled network involves two entities. But sometimes, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the flow of communication should be as follows.
+Most communication in a beckn enabled network involves two entities - the BAP and the BPP. But sometimes, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the recommended flow of communication is as follows.
 
-If the address of the BPP is not specified in the `context` field of the request body, then the BAP should call the BG and the BG may broadcast this request to multiple BPPs. 
+If the address of the BPP is not specified in the `context` field of the request body, only then should the BAP should call the BG. The BG may then broadcast this request to multiple BPPs that match the `context` of the request. 
 
 Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses and then broadcast the message to the BPPs.
 
