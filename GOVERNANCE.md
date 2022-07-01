@@ -1,9 +1,5 @@
 # Specification Governance
 
-# Authors
-
-1. Ravi Prakash : ravi@becknfoundation.org
-
 # Version
 0.6.0
 
