@@ -33,7 +33,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -79,7 +79,7 @@ paths:
 
 
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -122,7 +122,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -165,7 +165,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -208,7 +208,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -254,7 +254,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -301,7 +301,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -348,7 +348,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -386,7 +386,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -429,7 +429,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -475,7 +475,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -492,7 +492,7 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
+                  - message
   /on_select:
     post:
       tags:
@@ -542,7 +542,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -628,7 +628,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -672,7 +672,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -716,7 +716,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -760,7 +760,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -804,7 +804,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -848,7 +848,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -887,7 +887,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -936,7 +936,7 @@ paths:
               required:
                 - context
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -970,7 +970,7 @@ paths:
                 context:
                   $ref: '#/components/schemas/Context'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1011,7 +1011,7 @@ paths:
                       items:
                           $ref: '#/components/schemas/Option'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1045,7 +1045,7 @@ paths:
                 context:
                   $ref: '#/components/schemas/Context'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1083,7 +1083,7 @@ paths:
                   items:
                       $ref: '#/components/schemas/Option'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1117,7 +1117,7 @@ paths:
                 context:
                     $ref: '#/components/schemas/Context'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1155,7 +1155,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1189,7 +1189,7 @@ paths:
                 context:
                     $ref: '#/components/schemas/Context'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1227,7 +1227,7 @@ paths:
                   items:
                     $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1268,7 +1268,7 @@ paths:
                     rating_category:
                       $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1305,7 +1305,7 @@ paths:
                     $ref: '#/components/schemas/Feedback'
 
       responses:
-        '200':
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1330,17 +1330,17 @@ components:
       type: apiKey
       in: header
       name: Authorization
-      description: 'Signature of message body using BAP or BPP subscriber''s signing public key. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(BLAKE-512(signing string))"</code>'
+      description: 'Signature of message body using BAP or BPP subscriber''s signing public key. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
     GatewaySubscriberAuth:
       type: apiKey
       in: header
       name: Proxy-Authorization
-      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>Proxy-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(BLAKE-512(signing string))"</code><p><b>Note:</b>This header will be deprecated soon and will no longer be supported in future releases. New implementors are requested to use the X-Gateway-Authorization header. Existing implementations are requested to migrate their header to the new header. The deprecation date will be set after discussion as per the standard specification governance process.</p>'
+      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>Proxy-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code><p><b>Note:</b>This header will be deprecated soon and will no longer be supported in future releases. New implementors are requested to use the X-Gateway-Authorization header. Existing implementations are requested to migrate their header to the new header. The deprecation date will be set after discussion as per the standard specification governance process.</p>'
     GatewaySubscriberAuthNew:
       type: apiKey
       in: header
       name: X-Gateway-Authorization
-      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>X-Gateway-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(BLAKE-512(signing string))"</code>'
+      description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>X-Gateway-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
   schemas:
     Ack:
       description: Describes the ACK response
@@ -1601,7 +1601,7 @@ components:
           description: Version of Beckn core API specification being used
         bap_id:
           type: string
-          format: uri
+          # format: uri
           description: Unique id of the BAP. By default it is the fully qualified domain name of the BAP
         bap_uri:
           type: string
@@ -1609,7 +1609,7 @@ components:
           description: URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
         bpp_id:
           type: string
-          format: uri
+          # format: uri
           description: Unique id of the BPP. By default it is the fully qualified domain name of the BPP
         bpp_uri:
           type: string
@@ -1725,7 +1725,7 @@ components:
             - JSON-SCHEMA-ERROR
         code:
           type: string
-          description: 'Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo'
+          description: 'Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo'
         path:
           type: string
           description: Path to json schema generating the error. Used only during json schema validation errors
@@ -1944,13 +1944,13 @@ components:
             measure:
               $ref: '#/components/schemas/Scalar'
     Item:
-      description: Describes an item. Allows for domain extension.
+      description: Describes a product or a service offered to the end consumer by the provider.
       type: object
       properties:
         id:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
-          format: '#/components/schemas/Item/properties/id'
+          # format: '#/components/schemas/Item/properties/id'
         parent_item_id:
           $ref: '#/components/schemas/Item/properties/id'
         descriptor:
@@ -2164,6 +2164,8 @@ components:
           enum:
             - http/get
             - http/post
+            - payto
+            - upi
         params:
           type: object
           properties:
