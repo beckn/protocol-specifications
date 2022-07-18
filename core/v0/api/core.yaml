@@ -2019,6 +2019,17 @@ components:
           type: string
         time:
           $ref: '#/components/schemas/Time'
+
+    Organization:
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        address:
+          $ref: '#/components/schemas/Address'
+        contact:
+          $ref: '#/components/schemas/Contact'
+
     Name:
       type: string
       description: 'Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}'
