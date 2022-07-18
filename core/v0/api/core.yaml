@@ -1558,12 +1558,21 @@ components:
     Contact:
       type: object
       properties:
+        name:
+          '#/components/schemas/Name'
+        address:
+          $ref: '#/components/schemas/Address'
         phone:
           type: string
         email:
           type: string
+        jcard:
+          type: object
+          description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
         tags:
           $ref: '#/components/schemas/Tags'
+
+    
     Context:
       description: Describes a beckn message context
       type: object
