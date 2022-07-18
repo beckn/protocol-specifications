@@ -1559,12 +1559,21 @@ components:
       description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.
       type: object
       properties:
+        name:
+          '#/components/schemas/Name'
+        address:
+          $ref: '#/components/schemas/Address'
         phone:
           type: string
         email:
           type: string
+        jcard:
+          type: object
+          description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
         tags:
           $ref: '#/components/schemas/Tags'
+
+    
     Context:
       description: Describes the context header of the message being sent.<br>This has properties like domain,country,city,action,code_version,bap_id,bap_uri,bpp_id,bpp_uri,transaction_id,message-id,timestamp,key,ttl
       type: object
