@@ -2033,8 +2033,7 @@ components:
 
     Name:
       type: string
-      description: 'Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}'
-      pattern: '^\./[^/]+/[^/]*/[^/]*/[^/]*/[^/]*/[^/]*$'
+      description: 'Describes the name of a person'
 
     Offer:
       description: Describes how a product or a service will be rendered at a reduced price to the user<br>This has properties like id,descriptor,location_ids,category_ids,item_ids,time
