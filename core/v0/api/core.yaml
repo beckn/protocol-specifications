@@ -1367,6 +1367,8 @@ components:
       description: Describes an address
       type: object
       properties:
+        full:
+          type: string
         door:
           type: string
           description: Door / Shop number of the address
