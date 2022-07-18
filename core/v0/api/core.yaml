@@ -2235,6 +2235,7 @@ components:
           type: string
         tags:
           $ref: '#/components/schemas/Tags'
+
     Policy:
       description: Describes a policy. Allows for domain extension.
       type: object
