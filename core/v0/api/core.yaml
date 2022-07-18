@@ -1399,6 +1399,7 @@ components:
         area_code:
           type: string
           description: 'Area code. This can be Pincode, ZIP code or any equivalent'
+
     Agent:
       description: Describes an order executor
       allOf:
@@ -1408,6 +1409,7 @@ components:
           properties:
             rateable:
               $ref: '#/components/schemas/Rateable'
+
     Authorization:
       description: Describes an authorization mechanism
       type: object
