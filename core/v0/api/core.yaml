@@ -2166,10 +2166,12 @@ components:
               $ref: '#/components/schemas/Price/properties/value'
             currency:
               $ref: '#/components/schemas/Price/properties/currency'
-          additionalProperties:
-            type: string
-          required:
-            - currency
+            bank_code:
+              type: string
+            bank_account_number:
+              type: string
+            virtual_payment_address:
+              type: string
         type:
           type: string
           enum:
