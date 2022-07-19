@@ -22,17 +22,17 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     intent:
-                      $ref: '#/components/schemas/Intent'
+                      $ref: "#/components/schemas/Intent"
               required:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -43,11 +43,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /select:
@@ -63,12 +63,12 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
               required:
@@ -76,7 +76,7 @@ paths:
                 - message
 
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -87,11 +87,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /init:
@@ -107,19 +107,19 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
               required:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -130,11 +130,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /confirm:
@@ -150,19 +150,19 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
               required:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -173,11 +173,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /status:
@@ -193,19 +193,19 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order_id:
-                      $ref: '#/components/schemas/Order/properties/id'
+                      $ref: "#/components/schemas/Order/properties/id"
                   required:
                     - order_id
               required:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -216,11 +216,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /track:
@@ -236,12 +236,12 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order_id:
-                      $ref: '#/components/schemas/Order/properties/id'
+                      $ref: "#/components/schemas/Order/properties/id"
                     callback_url:
                       type: string
                       format: uri
@@ -251,7 +251,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -262,11 +262,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /cancel:
@@ -282,23 +282,23 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order_id:
-                      $ref: '#/components/schemas/Order/properties/id'
+                      $ref: "#/components/schemas/Order/properties/id"
                     cancellation_reason_id:
-                      $ref: '#/components/schemas/Option/properties/id'
+                      $ref: "#/components/schemas/Option/properties/id"
                     descriptor:
-                      $ref: '#/components/schemas/Descriptor'
+                      $ref: "#/components/schemas/Descriptor"
                   required:
                     - order_id
               required:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -309,11 +309,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /update:
@@ -329,7 +329,7 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
@@ -337,7 +337,7 @@ paths:
                       description: 'Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"```'
                       type: string
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - update_target
                     - order
@@ -345,7 +345,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -356,11 +356,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /rating:
@@ -376,14 +376,14 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
-                  $ref: '#/components/schemas/Rating'
+                  $ref: "#/components/schemas/Rating"
               required:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -394,11 +394,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -415,7 +415,7 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
@@ -426,7 +426,7 @@ paths:
                 - context
                 - message
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -437,11 +437,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -459,20 +459,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     catalog:
-                      $ref: '#/components/schemas/Catalog'
+                      $ref: "#/components/schemas/Catalog"
                   required:
                     - catalog
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -483,11 +483,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - context
   /on_select:
@@ -503,18 +503,18 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -525,11 +525,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_init:
@@ -545,20 +545,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -569,11 +569,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_confirm:
@@ -589,20 +589,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -613,11 +613,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_track:
@@ -633,20 +633,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     tracking:
-                      $ref: '#/components/schemas/Tracking'
+                      $ref: "#/components/schemas/Tracking"
                   required:
                     - tracking
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -657,11 +657,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_cancel:
@@ -677,20 +677,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -701,11 +701,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_update:
@@ -721,20 +721,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -745,11 +745,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_status:
@@ -765,20 +765,20 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     order:
-                      $ref: '#/components/schemas/Order'
+                      $ref: "#/components/schemas/Order"
                   required:
                     - order
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -789,11 +789,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_rating:
@@ -809,16 +809,18 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
-                  feedback:
-                    $ref: '#/components/schemas/FeedbackForm'
+                  type: object
+                  properties:
+                    feedback:
+                      $ref: "#/components/schemas/FeedbackForm"
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -829,11 +831,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
   /on_support:
@@ -849,7 +851,7 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
@@ -863,11 +865,11 @@ paths:
                       type: string
                       format: uri
                 error:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -878,11 +880,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -899,9 +901,9 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -912,11 +914,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -933,16 +935,16 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     cancellation_reasons:
                       type: array
                       items:
-                          $ref: '#/components/schemas/Option'
+                        $ref: "#/components/schemas/Option"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -953,11 +955,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -974,9 +976,9 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -987,11 +989,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1008,13 +1010,13 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 return_reasons:
                   type: array
                   items:
-                      $ref: '#/components/schemas/Option'
+                    $ref: "#/components/schemas/Option"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1025,11 +1027,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1046,9 +1048,9 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1059,11 +1061,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1080,13 +1082,13 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
-                rating_categories:  
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Rating/properties/rating_category'
+                  $ref: "#/components/schemas/Context"
+                rating_categories:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1097,11 +1099,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1118,9 +1120,9 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1131,11 +1133,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1152,13 +1154,13 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 feedback_categories:
                   type: array
                   items:
-                    $ref: '#/components/schemas/Rating/properties/rating_category'
+                    $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1169,14 +1171,14 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
-                    
+
   /get_feedback_form:
     post:
       tags:
@@ -1190,16 +1192,16 @@ paths:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
                   type: object
                   properties:
                     rating_value:
-                      $ref: '#/components/schemas/Rating/properties/value'
+                      $ref: "#/components/schemas/Rating/properties/value"
                     rating_category:
-                      $ref: '#/components/schemas/Rating/properties/rating_category'
+                      $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1210,11 +1212,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1224,19 +1226,19 @@ paths:
         - BAP Meta APIs
       description: Get a feedback form from the BPP
       requestBody:
-        description: Feedback form sent by the BPP 
+        description: Feedback form sent by the BPP
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: '#/components/schemas/Context'
+                  $ref: "#/components/schemas/Context"
                 message:
-                    $ref: '#/components/schemas/Feedback'
+                  $ref: "#/components/schemas/Feedback"
 
       responses:
-        '200':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1247,11 +1249,11 @@ paths:
                     type: object
                     properties:
                       ack:
-                        $ref: '#/components/schemas/Ack'
+                        $ref: "#/components/schemas/Ack"
                     required:
                       - ack
                   error:
-                    $ref: '#/components/schemas/Error'
+                    $ref: "#/components/schemas/Error"
                 required:
                   - message
 
@@ -1275,7 +1277,7 @@ components:
       properties:
         status:
           type: string
-          description: 'Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK'
+          description: "Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK"
           enum:
             - ACK
             - NACK
@@ -1288,11 +1290,11 @@ components:
       properties:
         id:
           type: string
-          description: 'ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR '
+          description: "ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR "
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         price:
-          $ref: '#/components/schemas/Price'
+          $ref: "#/components/schemas/Price"
 
     Address:
       description: Describes an address
@@ -1305,7 +1307,7 @@ components:
           description: Door / Shop number of the address
         name:
           type: string
-          description: 'Name of address if applicable. Example, shop name'
+          description: "Name of address if applicable. Example, shop name"
         building:
           type: string
           description: Name of the building or block
@@ -1314,7 +1316,7 @@ components:
           description: Street name or number
         locality:
           type: string
-          description: 'Name of the locality, apartments'
+          description: "Name of the locality, apartments"
         ward:
           type: string
           description: Name or number of the ward if applicable
@@ -1329,23 +1331,23 @@ components:
           description: Country name
         area_code:
           type: string
-          description: 'Area code. This can be Pincode, ZIP code or any equivalent'
+          description: "Area code. This can be Pincode, ZIP code or any equivalent"
 
     Agent:
       description: Describes an order executor
       allOf:
-        - $ref: '#/components/schemas/Person'
-        - $ref: '#/components/schemas/Contact'
+        - $ref: "#/components/schemas/Person"
+        - $ref: "#/components/schemas/Contact"
         - type: object
           properties:
             rateable:
-              $ref: '#/components/schemas/Rateable'
+              $ref: "#/components/schemas/Rateable"
 
     Authorization:
       description: Describes an authorization mechanism
       type: object
       properties:
-        type: 
+        type:
           type: string
           description: Type of authorization mechanism used
         token:
@@ -1353,11 +1355,11 @@ components:
           description: Token used for authorization
         valid_from:
           type: string
-          format: date-time 
+          format: date-time
           description: Timestamp in RFC3339 format from which token is valid
         valid_to:
           type: string
-          format: date-time 
+          format: date-time
           description: Timestamp in RFC3339 format until which token is valid
         status:
           type: string
@@ -1371,16 +1373,16 @@ components:
           description: Personal details of the customer needed for billing.
           type: string
         organization:
-          $ref: '#/components/schemas/Organization'
+          $ref: "#/components/schemas/Organization"
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         email:
           type: string
           format: email
         phone:
           type: string
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
         tax_number:
           type: string
         created_at:
@@ -1404,21 +1406,21 @@ components:
         policies:
           type: array
           items:
-            $ref: '#/components/schemas/Policy'
+            $ref: "#/components/schemas/Policy"
         time:
           type: string
           format: date-time
         cancelled_by:
           type: string
         reasons:
-          $ref: '#/components/schemas/Option'
+          $ref: "#/components/schemas/Option"
         selected_reason:
           type: object
           properties:
             id:
-              $ref: '#/components/schemas/Option/properties/id'
+              $ref: "#/components/schemas/Option/properties/id"
         additional_description:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
 
     CancellationTerms:
       type: object
@@ -1441,37 +1443,36 @@ components:
       type: object
       properties:
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         dimensions:
-          $ref: '#/components/schemas/Dimensions'
-        
+          $ref: "#/components/schemas/Dimensions"
 
     Catalog:
       description: Describes a BPP catalog
       type: object
       properties:
         bpp/descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         bpp/categories:
           type: array
           items:
-            $ref: '#/components/schemas/Category'
+            $ref: "#/components/schemas/Category"
         bpp/fulfillments:
           type: array
           items:
-            $ref: '#/components/schemas/Fulfillment'
+            $ref: "#/components/schemas/Fulfillment"
         bpp/payments:
           type: array
           items:
-            $ref: '#/components/schemas/Payment'
+            $ref: "#/components/schemas/Payment"
         bpp/offers:
           type: array
           items:
-            $ref: '#/components/schemas/Offer'
+            $ref: "#/components/schemas/Offer"
         bpp/providers:
           type: array
           items:
-            $ref: '#/components/schemas/Provider'
+            $ref: "#/components/schemas/Provider"
         exp:
           type: string
           description: Time after which catalog has to be refreshed
@@ -1485,22 +1486,22 @@ components:
           type: string
           description: Unique id of the category
         parent_category_id:
-          $ref: '#/components/schemas/Category/properties/id'
+          $ref: "#/components/schemas/Category/properties/id"
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
         tags:
-          $ref: '#/components/schemas/Tags'
+          $ref: "#/components/schemas/Tags"
 
     Circle:
       description: Describes a circular area on the map
       type: object
       properties:
         gps:
-          $ref: '#/components/schemas/Gps'
+          $ref: "#/components/schemas/Gps"
         radius:
-          $ref: '#/components/schemas/Scalar'
+          $ref: "#/components/schemas/Scalar"
       required:
         - gps
         - radius
@@ -1520,9 +1521,9 @@ components:
       type: object
       properties:
         name:
-          '#/components/schemas/Name'
+          $ref: "#/components/schemas/Name"
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         phone:
           type: string
         email:
@@ -1531,18 +1532,18 @@ components:
           type: object
           description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
         tags:
-          $ref: '#/components/schemas/Tags'
-    
+          $ref: "#/components/schemas/Tags"
+
     Context:
       description: Describes a beckn message context
       type: object
       properties:
         domain:
-          $ref: '#/components/schemas/Domain'
+          $ref: "#/components/schemas/Domain"
         country:
-          $ref: '#/components/schemas/Country/properties/code'
+          $ref: "#/components/schemas/Country/properties/code"
         city:
-          $ref: '#/components/schemas/City/properties/code'
+          $ref: "#/components/schemas/City/properties/code"
         action:
           type: string
           description: Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
@@ -1633,7 +1634,7 @@ components:
           type: string
         type:
           type: string
-          default: 'VerifiableCredential'
+          default: "VerifiableCredential"
         issuer:
           type: string
         issuance_date:
@@ -1653,11 +1654,11 @@ components:
               type: string
             type:
               type: string
-          
+
     DecimalValue:
       description: Describes a decimal value
       type: string
-      pattern: '[+-]?([0-9]*[.])?[0-9]+'
+      pattern: "[+-]?([0-9]*[.])?[0-9]+"
 
     Descriptor:
       description: Describes the description of a real-world object.
@@ -1676,7 +1677,7 @@ components:
         images:
           type: array
           items:
-            $ref: '#/components/schemas/Image'
+            $ref: "#/components/schemas/Image"
         audio:
           type: string
           format: uri
@@ -1692,12 +1693,12 @@ components:
       type: object
       properties:
         length:
-          $ref: '#/components/schemas/Scalar'
+          $ref: "#/components/schemas/Scalar"
         breadth:
-          $ref: '#/components/schemas/Scalar'
+          $ref: "#/components/schemas/Scalar"
         height:
-          $ref: '#/components/schemas/Scalar'
-    
+          $ref: "#/components/schemas/Scalar"
+
     Document:
       description: Describes a document which can be sent as a url
       type: object
@@ -1707,7 +1708,7 @@ components:
           format: uri
         label:
           type: string
-    
+
     Domain:
       description: Describes the domain of an object
       type: string
@@ -1730,7 +1731,7 @@ components:
             - JSON-SCHEMA-ERROR
         code:
           type: string
-          description: 'Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo'
+          description: "Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo"
         path:
           type: string
           description: Path to json schema generating the error. Used only during json schema validation errors
@@ -1746,16 +1747,16 @@ components:
       type: object
       properties:
         feedback_form:
-          $ref: '#/components/schemas/FeedbackForm'
+          $ref: "#/components/schemas/FeedbackForm"
         feedback_url:
-          $ref: '#/components/schemas/FeedbackUrl'
-          
-    FeedbackForm: 
+          $ref: "#/components/schemas/FeedbackUrl"
+
+    FeedbackForm:
       description: Describes a feedback form that a BPP can send to get feedback from the BAP
       type: array
       items:
-        $ref: '#/components/schemas/FeedbackFormElement'
-    
+        $ref: "#/components/schemas/FeedbackFormElement"
+
     FeedbackFormElement:
       description: An element in the feedback form. It can be question or an answer to the question.
       type: object
@@ -1763,21 +1764,21 @@ components:
         id:
           type: string
         parent_id:
-          $ref: '#/components/schemas/FeedbackFormElement/properties/id'
+          $ref: "#/components/schemas/FeedbackFormElement/properties/id"
         question:
           description: Specifies the question to which the answer options will be contained in the child FeedbackFormElements
           type: string
         answer:
-          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id  
+          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id
           type: string
         answer_type:
           description: Specifies how the answer option should be rendered.
           type: string
-          enum :
+          enum:
             - radio
             - checkbox
             - text
-      
+
     FeedbackUrl:
       description: Describes how a feedback URL will be sent by the BPP
       type: object
@@ -1802,9 +1803,6 @@ components:
           required:
             - feedback_id
 
-
-
-
     Fulfillment:
       description: Describes how a single product/service will be rendered/fulfilled to the end customer
       type: object
@@ -1816,11 +1814,11 @@ components:
           type: string
           description: This describes the type of fulfillment
         provider_id:
-          $ref: '#/components/schemas/Provider/properties/id'
+          $ref: "#/components/schemas/Provider/properties/id"
         rating:
-          $ref: '#/components/schemas/Rating/properties/value'
+          $ref: "#/components/schemas/Rating/properties/value"
         state:
-          $ref: '#/components/schemas/State'
+          $ref: "#/components/schemas/State"
         tracking:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
@@ -1829,81 +1827,81 @@ components:
           type: object
           properties:
             person:
-              $ref: '#/components/schemas/Person'
+              $ref: "#/components/schemas/Person"
             contact:
-              $ref: '#/components/schemas/Contact'
+              $ref: "#/components/schemas/Contact"
         agent:
-          $ref: '#/components/schemas/Agent'
+          $ref: "#/components/schemas/Agent"
         person:
-          $ref: '#/components/schemas/Person'
+          $ref: "#/components/schemas/Person"
         contact:
-          $ref: '#/components/schemas/Contact'
+          $ref: "#/components/schemas/Contact"
         vehicle:
-          $ref: '#/components/schemas/Vehicle'
+          $ref: "#/components/schemas/Vehicle"
         start:
           description: Details on the start of fulfillment
           type: object
           properties:
             location:
-              $ref: '#/components/schemas/Location'
+              $ref: "#/components/schemas/Location"
             time:
-              $ref: '#/components/schemas/Time'
+              $ref: "#/components/schemas/Time"
             instructions:
-              $ref: '#/components/schemas/Descriptor'
+              $ref: "#/components/schemas/Descriptor"
             contact:
-              $ref: '#/components/schemas/Contact'
+              $ref: "#/components/schemas/Contact"
             person:
-              $ref: '#/components/schemas/Person'
+              $ref: "#/components/schemas/Person"
             authorization:
-              $ref: '#/components/schemas/Authorization'
+              $ref: "#/components/schemas/Authorization"
         end:
           description: Details on the end of fulfillment
           type: object
           properties:
             location:
-              $ref: '#/components/schemas/Location'
+              $ref: "#/components/schemas/Location"
             time:
-              $ref: '#/components/schemas/Time'
+              $ref: "#/components/schemas/Time"
             instructions:
-              $ref: '#/components/schemas/Descriptor'
+              $ref: "#/components/schemas/Descriptor"
             contact:
-              $ref: '#/components/schemas/Contact'
+              $ref: "#/components/schemas/Contact"
             person:
-              $ref: '#/components/schemas/Person'
+              $ref: "#/components/schemas/Person"
             authorization:
-              $ref: '#/components/schemas/Authorization'
+              $ref: "#/components/schemas/Authorization"
         rateable:
-          $ref: '#/components/schemas/Rateable'
+          $ref: "#/components/schemas/Rateable"
         tags:
-          $ref: '#/components/schemas/Tags'
+          $ref: "#/components/schemas/Tags"
     Gps:
       description: Describes a gps coordinate
       type: string
       pattern: '^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
     Image:
-      description: 'Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```'
+      description: "Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```"
       type: string
     Intent:
       description: Intent of a user. Used for searching for services
       type: object
       properties:
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         provider:
-          $ref: '#/components/schemas/Provider'
+          $ref: "#/components/schemas/Provider"
         fulfillment:
-          $ref: '#/components/schemas/Fulfillment'
+          $ref: "#/components/schemas/Fulfillment"
         payment:
-          $ref: '#/components/schemas/Payment'
+          $ref: "#/components/schemas/Payment"
         category:
-          $ref: '#/components/schemas/Category'
+          $ref: "#/components/schemas/Category"
         offer:
-          $ref: '#/components/schemas/Offer'
+          $ref: "#/components/schemas/Offer"
         item:
-          $ref: '#/components/schemas/Item'
+          $ref: "#/components/schemas/Item"
         tags:
-          $ref: '#/components/schemas/Tags'
-            
+          $ref: "#/components/schemas/Tags"
+
     ItemQuantity:
       description: Describes count or amount of an item
       type: object
@@ -1915,7 +1913,7 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: '#/components/schemas/Scalar'
+              $ref: "#/components/schemas/Scalar"
         available:
           type: object
           properties:
@@ -1923,7 +1921,7 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: '#/components/schemas/Scalar'
+              $ref: "#/components/schemas/Scalar"
         maximum:
           type: object
           properties:
@@ -1931,7 +1929,7 @@ components:
               type: integer
               minimum: 1
             measure:
-              $ref: '#/components/schemas/Scalar'
+              $ref: "#/components/schemas/Scalar"
         minimum:
           type: object
           properties:
@@ -1939,7 +1937,7 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: '#/components/schemas/Scalar'
+              $ref: "#/components/schemas/Scalar"
         selected:
           type: object
           properties:
@@ -1947,7 +1945,7 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: '#/components/schemas/Scalar'
+              $ref: "#/components/schemas/Scalar"
     Item:
       description: Describes a product or a service offered to the end consumer by the provider.
       type: object
@@ -1956,27 +1954,27 @@ components:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
         parent_item_id:
-          $ref: '#/components/schemas/Item/properties/id'
+          $ref: "#/components/schemas/Item/properties/id"
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         price:
-          $ref: '#/components/schemas/Price'
+          $ref: "#/components/schemas/Price"
         quantity:
-          $ref: '#/components/schemas/ItemQuantity'
+          $ref: "#/components/schemas/ItemQuantity"
         category_id:
-          $ref: '#/components/schemas/Category/properties/id'
+          $ref: "#/components/schemas/Category/properties/id"
         fulfillment_id:
-          $ref: '#/components/schemas/Fulfillment/properties/id'
+          $ref: "#/components/schemas/Fulfillment/properties/id"
         rating:
-          $ref: '#/components/schemas/Rating/properties/value'
+          $ref: "#/components/schemas/Rating/properties/value"
         location_id:
-          $ref: '#/components/schemas/Location/properties/id'
+          $ref: "#/components/schemas/Location/properties/id"
         payment_id:
-          $ref: '#/components/schemas/Payment/properties/id'
+          $ref: "#/components/schemas/Payment/properties/id"
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
         rateable:
-          $ref: '#/components/schemas/Rateable'
+          $ref: "#/components/schemas/Rateable"
         matched:
           type: boolean
         related:
@@ -1984,7 +1982,7 @@ components:
         recommended:
           type: boolean
         tags:
-          $ref: '#/components/schemas/Tags'
+          $ref: "#/components/schemas/Tags"
 
     Language:
       description: indicates language code. Beckn supports country codes as per ISO 639.2 standard
@@ -2000,39 +1998,39 @@ components:
         id:
           type: string
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         gps:
-          $ref: '#/components/schemas/Gps'
+          $ref: "#/components/schemas/Gps"
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         station_code:
           type: string
         city:
-          $ref: '#/components/schemas/City'
+          $ref: "#/components/schemas/City"
         country:
-          $ref: '#/components/schemas/Country'
+          $ref: "#/components/schemas/Country"
         circle:
-          $ref: '#/components/schemas/Circle'
+          $ref: "#/components/schemas/Circle"
         polygon:
           type: string
         3dspace:
           type: string
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
 
     Organization:
       type: object
       properties:
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         contact:
-          $ref: '#/components/schemas/Contact'
+          $ref: "#/components/schemas/Contact"
 
     Name:
       type: string
-      description: 'Describes the name of a person'
+      description: "Describes the name of a person"
 
     Offer:
       description: Describes an offer
@@ -2041,21 +2039,21 @@ components:
         id:
           type: string
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         location_ids:
           type: array
           items:
-            $ref: '#/components/schemas/Location/properties/id'
+            $ref: "#/components/schemas/Location/properties/id"
         category_ids:
           type: array
           items:
-            $ref: '#/components/schemas/Category/properties/id'
+            $ref: "#/components/schemas/Category/properties/id"
         item_ids:
           type: array
           items:
-            $ref: '#/components/schemas/Item/properties/id'
+            $ref: "#/components/schemas/Item/properties/id"
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
 
     Operator:
       description: Describes the agent of a service
@@ -2079,7 +2077,7 @@ components:
         id:
           type: string
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
 
     Order:
       description: Describes the details of an order
@@ -2091,41 +2089,41 @@ components:
         state:
           type: string
         provider:
-          $ref: '#/components/schemas/Provider'
+          $ref: "#/components/schemas/Provider"
         items:
           type: array
           items:
-            $ref: '#/components/schemas/Item'
+            $ref: "#/components/schemas/Item"
         add_ons:
           type: array
           items:
-            $ref: '#/components/schemas/AddOn'
+            $ref: "#/components/schemas/AddOn"
         offers:
           type: array
           items:
-            $ref: '#/components/schemas/Offer'
+            $ref: "#/components/schemas/Offer"
         documents:
           type: array
           items:
-            $ref: '#/components/schemas/Document'
+            $ref: "#/components/schemas/Document"
         billing:
-          $ref: '#/components/schemas/Billing'
+          $ref: "#/components/schemas/Billing"
         fulfillments:
           type: array
           items:
-            $ref: '#/components/schemas/Fulfillment'
+            $ref: "#/components/schemas/Fulfillment"
         cancellation_terms:
-          $ref: '#/components/schemas/CancellationTerms'
+          $ref: "#/components/schemas/CancellationTerms"
         return_terms:
-          $ref: '#/components/schemas/ReturnTerms'
+          $ref: "#/components/schemas/ReturnTerms"
         replacement_terms:
-          $ref: '#/components/schemas/ReplacementTerms'
+          $ref: "#/components/schemas/ReplacementTerms"
         update_terms:
-          $ref: '#/components/schemas/UpdateTerms'
+          $ref: "#/components/schemas/UpdateTerms"
         quote:
-          $ref: '#/components/schemas/Quotation'
+          $ref: "#/components/schemas/Quotation"
         payment:
-          $ref: '#/components/schemas/Payment'
+          $ref: "#/components/schemas/Payment"
         created_at:
           type: string
           format: date-time
@@ -2141,7 +2139,7 @@ components:
           type: string
         next_id:
           type: string
-    
+
     Payload:
       type: object
       properties:
@@ -2152,7 +2150,7 @@ components:
               type: string
             list:
               items:
-                $ref: '#/components/schemas/Person'
+                $ref: "#/components/schemas/Person"
         cargo:
           type: object
           properties:
@@ -2160,15 +2158,17 @@ components:
               type: string
             list:
               items:
-                $ref: '#/components/schemas/CargoItem'
+                $ref: "#/components/schemas/CargoItem"
 
     Payment:
       description: Describes a payment
       type: object
       properties:
+        id:
+          type: string
         uri:
           type: string
-          description: 'A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234'
+          description: "A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234"
           format: uri
         params:
           type: object
@@ -2179,9 +2179,9 @@ components:
             transaction_status:
               type: string
             amount:
-              $ref: '#/components/schemas/Price/properties/value'
+              $ref: "#/components/schemas/Price/properties/value"
             currency:
-              $ref: '#/components/schemas/Price/properties/currency'
+              $ref: "#/components/schemas/Price/properties/currency"
             bank_code:
               type: string
             bank_account_number:
@@ -2201,7 +2201,7 @@ components:
             - PAID
             - NOT-PAID
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
 
     Person:
       description: Describes a person
@@ -2211,21 +2211,21 @@ components:
           type: string
           description: Describes the identity of the person
         name:
-          $ref: '#/components/schemas/Name'
+          $ref: "#/components/schemas/Name"
         image:
-          $ref: '#/components/schemas/Image'
+          $ref: "#/components/schemas/Image"
         dob:
           type: string
           format: date
         gender:
           type: string
-          description: 'Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender'
+          description: "Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender"
         creds:
           type: array
           items:
-            $ref: '#/components/schemas/Credential'
+            $ref: "#/components/schemas/Credential"
         tags:
-          $ref: '#/components/schemas/Tags'
+          $ref: "#/components/schemas/Tags"
 
     Policy:
       description: Describes a policy. Allows for domain extension.
@@ -2234,11 +2234,11 @@ components:
         id:
           type: string
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         parent_policy_id:
-          $ref: '#/components/schemas/Policy/properties/id'
+          $ref: "#/components/schemas/Policy/properties/id"
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
 
     Price:
       description: Describes the price of an item. Allows for domain extension.
@@ -2247,80 +2247,80 @@ components:
         currency:
           type: string
         value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         estimated_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         computed_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         listed_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         offered_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         minimum_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         maximum_value:
-          $ref: '#/components/schemas/DecimalValue'
-          
+          $ref: "#/components/schemas/DecimalValue"
+
     Provider:
-      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
+      description: "Describes a service provider. This can be a restaurant, a hospital, a Store etc"
       type: object
       properties:
         id:
           type: string
-          description: 'Id of the provider'
+          description: "Id of the provider"
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         category_id:
           type: string
-          description: 'Category Id of the provider'
+          description: "Category Id of the provider"
         rating:
-          $ref: '#/components/schemas/Rating/properties/value'
+          $ref: "#/components/schemas/Rating/properties/value"
         time:
-          $ref: '#/components/schemas/Time'
+          $ref: "#/components/schemas/Time"
         categories:
           type: array
           items:
-            $ref: '#/components/schemas/Category'
+            $ref: "#/components/schemas/Category"
         fulfillments:
           type: array
           items:
-            $ref: '#/components/schemas/Fulfillment'
+            $ref: "#/components/schemas/Fulfillment"
         payments:
           type: array
           items:
-            $ref: '#/components/schemas/Payment'
+            $ref: "#/components/schemas/Payment"
         locations:
           type: array
           items:
             allOf:
-            - $ref: '#/components/schemas/Location'
-            - type: object
-              properties:
-                rateable:
-                  $ref: '#/components/schemas/Rateable'
+              - $ref: "#/components/schemas/Location"
+              - type: object
+                properties:
+                  rateable:
+                    $ref: "#/components/schemas/Rateable"
         offers:
           type: array
           items:
-            $ref: '#/components/schemas/Offer'
+            $ref: "#/components/schemas/Offer"
         items:
           type: array
           items:
-            $ref: '#/components/schemas/Item'
+            $ref: "#/components/schemas/Item"
         exp:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
         rateable:
-          $ref: '#/components/schemas/Rateable'
+          $ref: "#/components/schemas/Rateable"
         tags:
-          $ref: '#/components/schemas/Tags'
+          $ref: "#/components/schemas/Tags"
 
     Quotation:
       description: Describes a quote
       type: object
       properties:
         price:
-          $ref: '#/components/schemas/Price'
+          $ref: "#/components/schemas/Price"
         breakup:
           type: array
           items:
@@ -2329,9 +2329,9 @@ components:
               title:
                 type: string
               price:
-                $ref: '#/components/schemas/Price'
+                $ref: "#/components/schemas/Price"
         ttl:
-          $ref: '#/components/schemas/Duration'
+          $ref: "#/components/schemas/Duration"
 
     Rateable:
       description: If the entity can be rated or not
@@ -2350,7 +2350,7 @@ components:
         value:
           description: Rating value given to the object
           type: string
-          
+
     RatingAck:
       type: object
       properties:
@@ -2403,18 +2403,18 @@ components:
             - CONSTANT
             - VARIABLE
         value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         estimated_value:
-          type: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         computed_value:
-          type: '#/components/schemas/DecimalValue'
+          $ref: "#/components/schemas/DecimalValue"
         range:
           type: object
           properties:
             min:
-              type: '#/components/schemas/DecimalValue'
+              $ref: "#/components/schemas/DecimalValue"
             max:
-              type: '#/components/schemas/DecimalValue'
+              $ref: "#/components/schemas/DecimalValue"
         unit:
           type: string
 
@@ -2423,7 +2423,7 @@ components:
       type: object
       properties:
         frequency:
-          $ref: '#/components/schemas/Duration'
+          $ref: "#/components/schemas/Duration"
         holidays:
           type: array
           items:
@@ -2440,7 +2440,7 @@ components:
       type: object
       properties:
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         updated_at:
           type: string
           format: date-time
@@ -2450,7 +2450,7 @@ components:
 
     Subscriber:
       type: object
-      description: 'Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.'
+      description: "Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR."
       properties:
         subscriber_id:
           type: string
@@ -2467,11 +2467,11 @@ components:
           type: string
           description: Callback URL of the subscriber. The Registry will call this URL's on_subscribe API to validate the subscriber\'s credentials
         domain:
-          $ref: '#/components/schemas/Domain'
+          $ref: "#/components/schemas/Domain"
         city:
-          $ref: '#/components/schemas/City/properties/code'
+          $ref: "#/components/schemas/City/properties/code"
         country:
-          $ref: '#/components/schemas/Country/properties/code'
+          $ref: "#/components/schemas/Country/properties/code"
         signing_public_key:
           type: string
           description: 'Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\''s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```X-Gateway-Authorization``` header.'
@@ -2511,8 +2511,8 @@ components:
         ref_id:
           type: string
         channels:
-          $ref: '#/components/schemas/Tags'
-    
+          $ref: "#/components/schemas/Tags"
+
     Tags:
       description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
       additionalProperties:
@@ -2528,7 +2528,7 @@ components:
           type: string
           format: date-time
         duration:
-          $ref: '#/components/schemas/Duration'
+          $ref: "#/components/schemas/Duration"
         range:
           type: object
           properties:
@@ -2542,11 +2542,11 @@ components:
           type: string
           description: comma separated values representing days of the week
         schedule:
-          $ref: '#/components/schemas/Schedule'
+          $ref: "#/components/schemas/Schedule"
 
     TrackingData:
       description: Describes tracking data object during live tracking of an order
-      $ref: '#/components/schemas/Location/properties/gps'
+      $ref: "#/components/schemas/Location/properties/gps"
 
     Tracking:
       description: Describes the tracking info of an object
