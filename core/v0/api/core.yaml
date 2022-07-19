@@ -2364,6 +2364,36 @@ components:
           type: string
           format: uri
 
+    ReplacementTerms:
+      type: object
+      properties:
+        replace_by:
+          type: string
+          format: date-time
+        replacement_eligible:
+          type: boolean
+        other_terms:
+          type: array
+          items:
+            type: string
+
+    ReturnTerms:
+      type: object
+      properties:
+        return_by:
+          type: string
+          format: date-time
+        refund_eligible:
+          type: boolean
+        refund_percentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        other_terms:
+          type: array
+          items:
+            type: string
+
     Scalar:
       description: An object representing a scalar quantity.
       type: object
