@@ -2005,16 +2005,6 @@ components:
         time:
           $ref: '#/components/schemas/Time'
 
-    Organization:
-      type: object
-      properties:
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        address:
-          $ref: '#/components/schemas/Address'
-        contact:
-          $ref: '#/components/schemas/Contact'
-
     Name:
       type: string
       description: 'Describes the name of a person'
@@ -2119,13 +2109,14 @@ components:
           format: date-time
 
     Organization:
-      description: Describes an organization such as a school, NGO, corporation, club, company etc.<br>This has properties like name,cred
       type: object
       properties:
-        name:
-          type: string
-        cred:
-          type: string
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        address:
+          $ref: '#/components/schemas/Address'
+        contact:
+          $ref: '#/components/schemas/Contact'
 
     Page:
       description: Describes a page in a search result
