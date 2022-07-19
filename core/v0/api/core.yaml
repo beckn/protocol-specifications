@@ -2562,6 +2562,17 @@ components:
             - active
             - inactive
 
+    UpdateTerms:
+      type: object
+      properties:
+        update_by:
+          type: string
+          format: date-time
+        other_terms:
+          type: array
+          items:
+            type: string
+
     Vehicle:
       description: Describes the properties of a vehicle used in a mobility service
       type: object
