@@ -1390,9 +1390,7 @@ components:
         updated_at:
           type: string
           format: date-time
-      required:
-        - name
-        - phone
+
     Cancellation:
       description: Describes the ACK response
       type: object
