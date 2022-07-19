@@ -1946,6 +1946,8 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
+        quantity:
+          $ref: '#/components/schemas/ItemQuantity'
         category_id:
           $ref: '#/components/schemas/Category/properties/id'
         fulfillment_id:
