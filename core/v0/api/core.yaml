@@ -1282,6 +1282,7 @@ components:
             - NACK
       required:
         - status
+
     AddOn:
       description: Describes an ancillary item (products/services) sold to the buyer of a main product or service<br>This has properties like id,descriptor,price<br>This schema is used in the addons array in the Order schema object
       type: object
@@ -1293,6 +1294,7 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
+
     Address:
       description: Describes the postal address of a location. This is the address that can be accessed by mail.<br>This has properties like door number, name of the address, building number, street, locality, ward, state and country, and area code<br>This schema is used in the following locations <br><ul><li>location.address</li><li>billing.address</li></ul><br>This is used in the following situations.<br><ul><li>This is typically used during the discovery stage when specifying the address of a provider. For example- When specifying the address of a store</li><li>This is typically used during the order stage when specifying the billing address of a consumer</li><li>This is typically used during the order stage when specifying the address where fulfillment starts. For example- When specifying pickup location</li><li>This is typically used during the order stage when specifying the address where fulfillment ends. For example- When specifying drop location</li></ul><br>This is used to allow the fulfillment agent to reach the exact location of fulfillment start or end. This is done because, just GPS coordinates may not be enough to reach the exact points of fulfillment. The postal address provides granularity till the door number of a physical location. <br>This is used by the BAP to send the billing address of the user to the BPP for creating an order.<br>This is used by the user to physically go to the store location during store-pickup.<br>This is used by the fulfillment agent to physically go to the provider's location to pickup an order<br>This is used by the fulfillment agent to physically go to the consumer's location to deliver an order<br>This is used by a BPP for saving the billing address for confirming an order<br>The address can be used by the consumer app to geolocate the position of a provider's store on a map. <br>The address can be used by the agent's app to geolocate the position of the start of fulfillment on a map<br>The address can be used by the agent to physically go to the exact location where a fulfillment starts of ends.<br>The address will be saved as the billing address for the order created by the BPP
       type: object
@@ -1361,6 +1363,7 @@ components:
         status:
           type: string
           description: Status of the token
+
     Billing:
       description: Describes the billing details of an entity.<br>This has properties like name,organization,address,email,phone,time,tax_number, created_at,updated_at
       type: object
@@ -1449,6 +1452,7 @@ components:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
+
     Category:
       description: Describes a type or division of providers or items regarded as having one or more shared characteristics<br>This has properties like id,parent_category_id,descriptor,time,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog because the price of the same product or service can change based on the category </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li></ul>
       type: object
@@ -1464,6 +1468,7 @@ components:
           $ref: '#/components/schemas/Time'
         tags:
           $ref: '#/components/schemas/Tags'
+
     Circle:
       description: Describes a circular region of a specified radius centered at a specified GPS coordinate.<br>This has properties like gps,radius<br>This is used when a circular area needs to be represented as a location.
       type: object
@@ -1475,6 +1480,7 @@ components:
       required:
         - gps
         - radius
+
     City:
       description: Describes a city or a town<br>This has properties like name,code
       type: object
@@ -1485,6 +1491,7 @@ components:
         code:
           type: string
           description: City code
+
     Contact:
       description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.
       type: object
@@ -1502,7 +1509,6 @@ components:
           description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
         tags:
           $ref: '#/components/schemas/Tags'
-
     
     Context:
       description: Describes the context header of the message being sent.<br>This has properties like domain,country,city,action,code_version,bap_id,bap_uri,bpp_id,bpp_uri,transaction_id,message-id,timestamp,key,ttl
@@ -1584,6 +1590,7 @@ components:
         - bap_id
         - bap_uri
         - timestamp
+
     Country:
       description: Describes a country.<br>This has properties like name,code
       type: object
@@ -1918,12 +1925,14 @@ components:
           type: boolean
         tags:
           $ref: '#/components/schemas/Tags'
+
     Language:
       description: Describes a specific language using a language code.<br>This has properties like code
       type: object
       properties:
         code:
           type: string
+
     Location:
       description: Describes the location of something, for example, where an event is happening, where a store is located, or where an action takes place<br>This has properties like id,descriptor,gps,address,station code,city,country,circle,polygon,3d space,time
       type: object
@@ -2011,6 +2020,7 @@ components:
           type: string
         descriptor:
           $ref: '#/components/schemas/Descriptor'
+
     Order:
       description: Describes an order which contains the terms, details, status and identifier of a transaction between a BAP and a BPP. This is usually an exchange of goods or services for money.<br>This has properties like id,state,provider,items,add_ons,offers,documents,billings,fulfillment,quote,payment,created_at,updated_at<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage when the BAP sends the details of the order it wishes to create</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order details</li></ul>
       type: object
@@ -2351,6 +2361,7 @@ components:
           items:
             type: string
             format: date-time
+
     State:
       description: Describes the state of an order or fulfillment<br>This has properties like descriptor, updated_at,updated_by
       type: object
@@ -2363,6 +2374,7 @@ components:
         updated_by:
           type: string
           description: ID of entity which changed the state
+
     Subscriber:
       type: object
       description: Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.<br>This has properties like subscriber_id,type, cb_url,domain, city, country, sigining_public_key, encryption_public_key,status,created, updated expiries
@@ -2432,6 +2444,7 @@ components:
       description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
       additionalProperties:
         type: string
+
     Time:
       description: Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations<br>This has properties like label, time stamp,duration,range, days, schedule
       type: object
