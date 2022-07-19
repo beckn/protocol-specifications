@@ -2117,15 +2117,6 @@ components:
           type: string
           format: date-time
 
-    Organization:
-      description: Describes an organization
-      type: object
-      properties:
-        name:
-          type: string
-        cred:
-          type: string
-
     Page:
       description: Describes a page in a search result
       type: object
