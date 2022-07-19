@@ -6,7 +6,6 @@ info:
 
 security:
   - SubscriberAuth: []
-  - GatewaySubscriberAuth: []
   - GatewaySubscriberAuthNew: []
 paths:
   /search:
