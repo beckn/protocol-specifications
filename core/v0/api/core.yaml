@@ -2564,6 +2564,17 @@ components:
             - active
             - inactive
 
+    UpdateTerms:
+      type: object
+      properties:
+        update_by:
+          type: string
+          format: date-time
+        other_terms:
+          type: array
+          items:
+            type: string
+
     Vehicle:
       description: Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration
       type: object
