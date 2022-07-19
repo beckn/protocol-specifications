@@ -1420,6 +1420,16 @@ components:
               $ref: '#/components/schemas/Option/properties/id'
         additional_description:
           $ref: '#/components/schemas/Descriptor'
+
+    CargoItem:
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        dimensions:
+          $ref: '#/components/schemas/Dimensions'
+        
+
     Catalog:
       description: Describes a BPP catalog
       type: object
