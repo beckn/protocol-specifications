@@ -1608,6 +1608,36 @@ components:
         code:
           type: string
           description: Country code as per ISO 3166-1 and ISO 3166-2 format
+
+    Credential:
+      description: Describes a credential of an entity - Person or Organization
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          default: 'VerifiableCredential'
+        issuer:
+          type: string
+        issuance_date:
+          type: string
+          format: date-time
+        credential_subject:
+          type: object
+          properties:
+            id:
+              type: string
+            additionalProperties:
+              type: object
+        credential_schema:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+          
     DecimalValue:
       description: Describes a decimal value
       type: string
