@@ -2115,14 +2115,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Fulfillment'
-        cancellation_policy:
-          $ref: '#/components/schemas/CancellationPolicy'
-        return_policy:
-          $ref: '#/components/schemas/ReturnPolicy'
-        replacement_policy:
-          $ref: '#/components/schemas/ReplacementPolicy'
-        update_policy:
-          $ref: '#/components/schemas/UpdatePolicy'
+        cancellation_terms:
+          $ref: '#/components/schemas/CancellationTerms'
+        return_terms:
+          $ref: '#/components/schemas/ReturnTerms'
+        replacement_terms:
+          $ref: '#/components/schemas/ReplacementTerms'
+        update_terms:
+          $ref: '#/components/schemas/UpdateTerms'
         quote:
           $ref: '#/components/schemas/Quotation'
         payment:
