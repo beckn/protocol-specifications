@@ -1421,6 +1421,23 @@ components:
         additional_description:
           $ref: '#/components/schemas/Descriptor'
 
+    CancellationTerms:
+      type: object
+      properties:
+        cancel_by:
+          type: string
+          format: date-time
+        refund_eligible:
+          type: boolean
+        refund_percentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        other_terms:
+          type: array
+          items:
+            type: string
+
     CargoItem:
       type: object
       properties:
