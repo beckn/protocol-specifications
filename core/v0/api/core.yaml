@@ -2126,7 +2126,26 @@ components:
           type: string
         next_id:
           type: string
-
+    
+    Payload:
+      type: object
+      properties:
+        persons:
+          type: object
+          properties:
+            count:
+              type: string
+            list:
+              items:
+                $ref: '#/components/schemas/Person'
+        cargo:
+          type: object
+          properties:
+            count:
+              type: string
+            list:
+              items:
+                $ref: '#/components/schemas/CargoItem'
 
     Payment:
       description: Describes the payment mechanism to be used for the order.<br>This has properties like uri,tl_method,params,type,status,time. For more info please check BECKN-RFC-002 <a href="https://github.com/beckn/protocol-specifications/blob/core-0.9.4-draft/docs/protocol-drafts/BECKN-002-Payments-On-Beckn-Enabled-Networks.md">Payments on Beckn-Enabled Networks</a>
