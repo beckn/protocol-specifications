@@ -2188,9 +2188,12 @@ components:
           $ref: '#/components/schemas/Time'
 
     Person:
-      description: Describes a person.
+      description: Describes a person
       type: object
       properties:
+        id:
+          type: string
+          description: Describes the identity of the person
         name:
           $ref: '#/components/schemas/Name'
         image:
