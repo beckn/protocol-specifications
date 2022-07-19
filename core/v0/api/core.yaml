@@ -1955,6 +1955,8 @@ components:
           $ref: '#/components/schemas/Rating/properties/value'
         location_id:
           $ref: '#/components/schemas/Location/properties/id'
+        payment_id:
+          $ref: '#/components/schemas/Payment/properties/id'
         time:
           $ref: '#/components/schemas/Time'
         rateable:
