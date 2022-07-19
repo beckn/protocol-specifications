@@ -812,7 +812,8 @@ paths:
                 context:
                   $ref: '#/components/schemas/Context'
                 message:
-                  $ref: '#/components/schemas/RatingAck'
+                  feedback:
+                    $ref: '#/components/schemas/FeedbackForm'
                 error:
                   $ref: '#/components/schemas/Error'
               required:
