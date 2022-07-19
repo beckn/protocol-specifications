@@ -2192,6 +2192,9 @@ components:
       description: Describes a person as any individual<br>This has the properties like name,image,dob,gender,cred,tags
       type: object
       properties:
+        id:
+          type: string
+          description: Describes the identity of the person
         name:
           $ref: '#/components/schemas/Name'
         image:
