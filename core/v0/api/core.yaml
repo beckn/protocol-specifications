@@ -1664,6 +1664,9 @@ components:
         audio:
           type: string
           format: uri
+        video:
+          type: string
+          format: uri
         3d_render:
           type: string
           format: uri
