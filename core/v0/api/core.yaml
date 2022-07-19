@@ -1282,6 +1282,7 @@ components:
             - NACK
       required:
         - status
+
     AddOn:
       description: Describes an add-on
       type: object
@@ -1293,6 +1294,7 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
+
     Address:
       description: Describes an address
       type: object
@@ -1361,6 +1363,7 @@ components:
         status:
           type: string
           description: Status of the token
+
     Billing:
       description: Describes a billing event
       type: object
@@ -1449,6 +1452,7 @@ components:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
+
     Category:
       description: Describes a category
       type: object
@@ -1464,6 +1468,7 @@ components:
           $ref: '#/components/schemas/Time'
         tags:
           $ref: '#/components/schemas/Tags'
+
     Circle:
       description: Describes a circular area on the map
       type: object
@@ -1475,6 +1480,7 @@ components:
       required:
         - gps
         - radius
+
     City:
       description: Describes a city
       type: object
@@ -1485,6 +1491,7 @@ components:
         code:
           type: string
           description: City code
+
     Contact:
       type: object
       properties:
@@ -1501,7 +1508,6 @@ components:
           description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
         tags:
           $ref: '#/components/schemas/Tags'
-
     
     Context:
       description: Describes a beckn message context
@@ -1583,6 +1589,7 @@ components:
         - bap_id
         - bap_uri
         - timestamp
+
     Country:
       description: Describes a country.
       type: object
@@ -1917,12 +1924,14 @@ components:
           type: boolean
         tags:
           $ref: '#/components/schemas/Tags'
+
     Language:
       description: indicates language code. Beckn supports country codes as per ISO 639.2 standard
       type: object
       properties:
         code:
           type: string
+
     Location:
       description: Describes the location of a runtime object.
       type: object
@@ -2010,6 +2019,7 @@ components:
           type: string
         descriptor:
           $ref: '#/components/schemas/Descriptor'
+
     Order:
       description: Describes the details of an order
       type: object
@@ -2349,6 +2359,7 @@ components:
           items:
             type: string
             format: date-time
+
     State:
       description: Describes a state
       type: object
@@ -2361,6 +2372,7 @@ components:
         updated_by:
           type: string
           description: ID of entity which changed the state
+
     Subscriber:
       type: object
       description: 'Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.'
@@ -2430,6 +2442,7 @@ components:
       description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
       additionalProperties:
         type: string
+
     Time:
       description: Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
       type: object
