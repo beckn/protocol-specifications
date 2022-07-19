@@ -2075,57 +2075,37 @@ components:
         state:
           type: string
         provider:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/Provider/properties/id'
-            locations:
-              type: array
-              maxItems: 1
-              items:
-                type: object
-                properties:
-                  id:
-                    $ref: '#/components/schemas/Location/properties/id'
-                required:
-                  - id
+          $ref: '#/components/schemas/Provider'
         items:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                $ref: '#/components/schemas/Item/properties/id'
-              quantity:
-                $ref: '#/components/schemas/ItemQuantity/properties/selected'
-            required:
-              - id
+            $ref: '#/components/schemas/Item'
         add_ons:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                $ref: '#/components/schemas/AddOn/properties/id'
-            required:
-              - id
+            $ref: '#/components/schemas/AddOn'
         offers:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                $ref: '#/components/schemas/Offer/properties/id'
-            required:
-              - id
+            $ref: '#/components/schemas/Offer'
         documents:
           type: array
           items:
             $ref: '#/components/schemas/Document'
         billing:
           $ref: '#/components/schemas/Billing'
-        fulfillment:
-          $ref: '#/components/schemas/Fulfillment'
+        fulfillments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fulfillment'
+        cancellation_policy:
+          $ref: '#/components/schemas/CancellationPolicy'
+        return_policy:
+          $ref: '#/components/schemas/ReturnPolicy'
+        replacement_policy:
+          $ref: '#/components/schemas/ReplacementPolicy'
+        update_policy:
+          $ref: '#/components/schemas/UpdatePolicy'
         quote:
           $ref: '#/components/schemas/Quotation'
         payment:
