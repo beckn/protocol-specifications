@@ -2359,23 +2359,20 @@ components:
             - CONSTANT
             - VARIABLE
         value:
-          type: number
+          $ref: '#/components/schemas/DecimalValue'
         estimated_value:
-          type: number
+          type: '#/components/schemas/DecimalValue'
         computed_value:
-          type: number
+          type: '#/components/schemas/DecimalValue'
         range:
           type: object
           properties:
             min:
-              type: number
+              type: '#/components/schemas/DecimalValue'
             max:
-              type: number
+              type: '#/components/schemas/DecimalValue'
         unit:
           type: string
-      required:
-        - value
-        - unit
 
     Schedule:
       description: Describes schedule as a repeating time period used to describe a regularly recurring event. At a minimum a schedule will specify frequency which describes the interval between occurrences of the event. Additional information can be provided to specify the schedule more precisely. This includes identifying the timestamps(s) of when the event will take place. Schedules may also have holidays to exclude a specific day from the schedule.<br>This has properties like frequency, holidays, times
