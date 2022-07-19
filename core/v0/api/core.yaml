@@ -2327,30 +2327,27 @@ components:
       type: object
       properties:
         rating_category:
-          description: Category of the object being rated
+          description: Category of the entity being rated
           type: string
         id:
           description: Id of the object being rated
           type: string
         value:
           description: Rating value given to the object
-          type: number
-          minimum: 0
-        feedback_form: 
-          $ref: '#/components/schemas/FeedbackForm'
-        feedback_id:
-          $ref: '#/components/schemas/FeedbackUrl/properties/params/properties/feedback_id'
+          type: string
           
     RatingAck:
       description: Describes the acknowledgement that feedback or rating has been recorded by the BPP.<br>
       type: object
       properties:
-        feedback_ack:
-          description: If feedback has been recorded or not
-          type: boolean
         rating_ack:
-          description: If rating has been recorded or not
           type: boolean
+        feedback_ack:
+          type: boolean
+        feedback_url:
+          description: URL to a feedback form sent in response to a rating received
+          type: string
+          format: uri
 
     Scalar:
       description: Describes a scalar quantity.<br>This has properties like value, estimated_value, computed_value,range, unit
