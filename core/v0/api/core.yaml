@@ -2125,7 +2125,26 @@ components:
           type: string
         next_id:
           type: string
-
+    
+    Payload:
+      type: object
+      properties:
+        persons:
+          type: object
+          properties:
+            count:
+              type: string
+            list:
+              items:
+                $ref: '#/components/schemas/Person'
+        cargo:
+          type: object
+          properties:
+            count:
+              type: string
+            list:
+              items:
+                $ref: '#/components/schemas/CargoItem'
 
     Payment:
       description: Describes a payment
