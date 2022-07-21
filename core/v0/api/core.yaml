@@ -32,7 +32,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -76,7 +76,7 @@ paths:
                 - message
 
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -119,7 +119,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -162,7 +162,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -205,7 +205,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -251,7 +251,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -298,7 +298,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -345,7 +345,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -383,7 +383,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -426,7 +426,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -472,7 +472,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -489,7 +489,7 @@ paths:
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
-                  - context
+                  - message
   /on_select:
     post:
       tags:
@@ -514,7 +514,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -558,7 +558,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -602,7 +602,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -646,7 +646,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -690,7 +690,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -734,7 +734,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -778,7 +778,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -820,7 +820,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -869,7 +869,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -903,7 +903,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -944,7 +944,7 @@ paths:
                       items:
                         $ref: "#/components/schemas/Option"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -978,7 +978,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1016,7 +1016,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Option"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1050,7 +1050,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1088,7 +1088,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1122,7 +1122,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1160,7 +1160,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1201,7 +1201,7 @@ paths:
                     rating_category:
                       $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1238,7 +1238,7 @@ paths:
                   $ref: "#/components/schemas/Feedback"
 
       responses:
-        "200":
+        'default':
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1269,7 +1269,6 @@ components:
       in: header
       name: X-Gateway-Authorization
       description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>X-Gateway-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
-
   schemas:
     Ack:
       description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfully and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status. The validation done at this point is only technical in nature (validating if the schema is as per specification, if the signature and caller is valid, if the endpoint itself is implemented) and no functional validation (as per business logic) needs to be done before sending this.
@@ -1574,7 +1573,7 @@ components:
           description: Version of Beckn core API specification being used
         bap_id:
           type: string
-          format: uri
+          # format: uri
           description: Unique id of the BAP. By default it is the fully qualified domain name of the BAP
         bap_uri:
           type: string
@@ -1582,7 +1581,7 @@ components:
           description: URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
         bpp_id:
           type: string
-          format: uri
+          # format: uri
           description: Unique id of the BPP. By default it is the fully qualified domain name of the BPP
         bpp_uri:
           type: string
