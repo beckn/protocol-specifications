@@ -69,7 +69,7 @@ While beckn protocol it designed to be transport agnostic, it is conventional to
 
 Communication on beckn enabled networks is server-to-server. Server-to-server means that communication between any two systems on a beckn network does not involve the client application. The client is free to render the data in whatever form chosen by the product. Secondly, all communication is asynchronous. Asynchronous API calls do not block (or wait) for the API call to return from the receiver server in the same session. Instead, an immediate acknowledgment is sent to the sender server in the same session and the actual response from the receiver server is in the form of a callback API call to the sender server. The above two features provide a remarkable advantage as all sorts of innovations are possible in the application layer due to the experience layer being unbundled from the session and presentation layer of the application.
 
-A beckn enabled network has multiple entities (CSF005) communicating with each other via standard protocol APIs. The following types of communication are possible.
+A beckn enabled network has multiple entities communicating with each other via standard protocol APIs. The following types of communication are possible. The communication can be between,
 
 - BAP and BG
 - BAP and BPP
@@ -87,15 +87,15 @@ In most cases, the sender will call the API first and the receiver will respond 
 
 ## Communication Protocol Via Beckn Gateway
 
-Most communication in a beckn enabled network involves two entities. But sometimes, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the flow of communication should be as follows.
+Most communication in a beckn enabled network involves two entities - the BAP and the BPP. But sometimes during the discovery stage, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the recommended flow of communication is as follows.
 
-If the address of the BPP is not specified in the `context` field of the request body, then the BAP should call the BG and the BG may broadcast this API to multiple BPPs. 
+If the address of the BPP is _not_ specified in the `context` field of the request body, only then should the BAP should call the `search` request to the BG. The BG may then broadcast this request to multiple BPPs that match the `context` of the request. 
 
-The BPPs immediately respond with ACKs. Soon after, the BPPs call the `on_search` API which is sent back to the BAP.
+Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses that _match_ the `context` and then broadcast the message to those BPPs.
 
-Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses and then broadcast the message to the BPPs.
+The BPPs immediately respond with ACKs. Soon after, the BPPs call the `on_search` API which is sent back to the BG. The BG then forwards those requests back to the BAPs.
 
-To protect the privacy and confidentiality of the user, it is possible to encrypt the `message` information transmitted via a BG. In that case,BG will have no visibility into the transaction information contained in the `message` field and only uses the `context` header to perform BPP discovery and routing.
+To protect the privacy and confidentiality of the end user, it is recommended not to send _Personally Identifiable Information_ (PII) or _transactional information_ in the `message` object when transmitting via a BG. The BG should be able to only use the `context` header to perform BPP discovery and routing.
 
 
 # Acknowledgments
