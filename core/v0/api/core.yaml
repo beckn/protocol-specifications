@@ -32,7 +32,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -76,7 +76,7 @@ paths:
                 - message
 
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -119,7 +119,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -162,7 +162,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -205,7 +205,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -251,7 +251,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -298,7 +298,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -345,7 +345,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -383,7 +383,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -426,7 +426,7 @@ paths:
                 - context
                 - message
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -472,7 +472,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -514,7 +514,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -558,7 +558,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -602,7 +602,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -646,7 +646,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -690,7 +690,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -734,7 +734,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -778,7 +778,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -820,7 +820,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -869,7 +869,7 @@ paths:
               required:
                 - context
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -903,7 +903,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -944,7 +944,7 @@ paths:
                       items:
                         $ref: "#/components/schemas/Option"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -978,7 +978,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1016,7 +1016,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Option"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1050,7 +1050,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1088,7 +1088,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1122,7 +1122,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1160,7 +1160,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1201,7 +1201,7 @@ paths:
                     rating_category:
                       $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1238,7 +1238,7 @@ paths:
                   $ref: "#/components/schemas/Feedback"
 
       responses:
-        "200":
+        default:
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1423,22 +1423,24 @@ components:
           $ref: "#/components/schemas/Descriptor"
 
     CancellationTerms:
+      description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level. 
       type: object
       properties:
+        id:
+          description: ID of the cancellation term
+          type: string
         cancel_by:
           type: string
           format: date-time
         refund_eligible:
           type: boolean
-        refund_percentage:
-          type: integer
-          minimum: 0
-          maximum: 100
         other_terms:
           type: array
           items:
             type: string
-
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
+          
     CargoItem:
       type: object
       properties:
@@ -1516,6 +1518,20 @@ components:
         code:
           type: string
           description: City code
+    
+    ConfirmationTerms:
+      description: Describes the terms required to be fulfilled confirm an order
+      type: object
+      properties:
+        req_media:
+          type: array
+          items:
+            $ref: "#/components/schemas/MediaFile"
+        req_formdata:
+          $ref: "#/components/schemas/Form"
+        req_formdata_url:
+          type: string
+          format: uri
 
     Contact:
       description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.
@@ -1574,7 +1590,6 @@ components:
           description: Version of Beckn core API specification being used
         bap_id:
           type: string
-          format: uri
           description: Unique id of the BAP. By default it is the fully qualified domain name of the BAP
         bap_uri:
           type: string
@@ -1582,7 +1597,6 @@ components:
           description: URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
         bpp_id:
           type: string
-          format: uri
           description: Unique id of the BPP. By default it is the fully qualified domain name of the BPP
         bpp_uri:
           type: string
@@ -1675,6 +1689,10 @@ components:
           type: string
         long_desc:
           type: string
+        media:
+          type: array
+          items:
+            $ref: "#/components/schemas/MediaFile"
         images:
           type: array
           items:
@@ -1748,29 +1766,30 @@ components:
       type: object
       properties:
         feedback_form:
-          $ref: "#/components/schemas/FeedbackForm"
+          $ref: "#/components/schemas/Form"
         feedback_url:
-          $ref: "#/components/schemas/FeedbackUrl"
+          type: string
+          format: uri
 
-    FeedbackForm:
+    Form:
       description: Describes a feedback form that a BPP can send to get feedback from the BAP
       type: array
       items:
-        $ref: "#/components/schemas/FeedbackFormElement"
+        $ref: "#/components/schemas/FormElement"
 
-    FeedbackFormElement:
+    FormElement:
       description: Describes a single element in the feedback form. It can be question or an answer to the question.<br>This has properties like id,parent_id,question,answer,answer_type
       type: object
       properties:
         id:
           type: string
         parent_id:
-          $ref: "#/components/schemas/FeedbackFormElement/properties/id"
+          $ref: "#/components/schemas/FormElement/properties/id"
         question:
-          description: Specifies the question to which the answer options will be contained in the child FeedbackFormElements
+          description: Specifies the question to which the answer options will be contained in the child FormElements
           type: string
         answer:
-          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id
+          description: Specifies an answer option to which the question will be in the FormElement specified in parent_id
           type: string
         answer_type:
           description: Specifies how the answer option should be rendered.
@@ -1779,30 +1798,6 @@ components:
             - radio
             - checkbox
             - text
-
-    FeedbackUrl:
-      description: Describes the feedback URL that an end customer can use to provide feedback to the BPP for products or services.<br>This has properties like url,tl_method,params<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when the BPP sends the feedback URL that needs to be used by the BAP for providing feedback for a service or product or fulfillment agent</li></ul>
-      type: object
-      properties:
-        url:
-          description: feedback URL sent by the BPP
-          type: string
-          format: uri
-        tl_method:
-          type: string
-          enum:
-            - http/get
-            - http/post
-        params:
-          type: object
-          properties:
-            feedback_id:
-              type: string
-              description: This value will be placed in the the $feedback_id url param in case of http/get and in the requestBody http/post requests
-          additionalProperties:
-            type: string
-          required:
-            - feedback_id
 
     Fulfillment:
       description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>
@@ -1917,6 +1912,7 @@ components:
               $ref: "#/components/schemas/Scalar"
         available:
           type: object
+          description: This represents the exact quantity available for purchase of the item. The buyer can only purchase multiples of this
           properties:
             count:
               type: integer
@@ -1924,6 +1920,7 @@ components:
             measure:
               $ref: "#/components/schemas/Scalar"
         maximum:
+          description: This represents the maximum quantity allowed for purchase of the item
           type: object
           properties:
             count:
@@ -1932,6 +1929,7 @@ components:
             measure:
               $ref: "#/components/schemas/Scalar"
         minimum:
+          description: This represents the minimum quantity allowed for purchase of the item
           type: object
           properties:
             count:
@@ -1940,6 +1938,7 @@ components:
             measure:
               $ref: "#/components/schemas/Scalar"
         selected:
+          description: This represents the quantity selected for purchase of the item
           type: object
           properties:
             count:
@@ -1947,6 +1946,17 @@ components:
               minimum: 0
             measure:
               $ref: "#/components/schemas/Scalar"
+        unitized:
+          description: This represents the quantity available in a single unit of the item
+          type: object
+          properties:
+            count:
+              type: integer
+              minimum: 1
+              maximum: 1
+            measure:
+              $ref: "#/components/schemas/Scalar"
+
     Item:
       description: Describes a product or a service offered to the end consumer by the provider. In the mobility domain item can represent a fare product like one way journey while in the logistics domain it can represent the delivery service offering while in the local retail domain it can represent a product like a grocery item.<br>This has properties like id,parent_item_id,descriptor,price,category_id,fulfillment_id,rating,time,location_id,time,rateable,matched,related,recommended, tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the catalog of products or services it offers to the BAP in the items array</li><li>This is typically used in the order stage when the BAP sends the details of the item the user wants to purchase</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order object containing the details of the products or services purchased in the order</li></ul>
       type: object
@@ -1958,6 +1968,8 @@ components:
           $ref: "#/components/schemas/Item/properties/id"
         descriptor:
           $ref: "#/components/schemas/Descriptor"
+        manufacturer:
+          $ref: "#/components/schemas/Organization"
         price:
           $ref: "#/components/schemas/Price"
         quantity:
@@ -1972,6 +1984,18 @@ components:
           $ref: "#/components/schemas/Location/properties/id"
         payment_id:
           $ref: "#/components/schemas/Payment/properties/id"
+        confirmation_terms:
+          $ref: "#/components/schemas/ConfirmationTerms"
+        cancellation_terms:
+          $ref: "#/components/schemas/CancellationTerms"
+        return_terms:
+          $ref: "#/components/schemas/ReturnTerms"
+        replacement_terms:
+          $ref: "#/components/schemas/ReplacementTerms"
+        refund_terms:
+          $ref: "#/components/schemas/RefundTerms"
+        update_terms:
+          $ref: "#/components/schemas/UpdateTerms"
         time:
           $ref: "#/components/schemas/Time"
         rateable:
@@ -2018,6 +2042,25 @@ components:
           type: string
         time:
           $ref: "#/components/schemas/Time"
+
+    MediaFile:
+      type: object
+      properties:
+        filename:
+          type: string
+        mimetype:
+          description: indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF's RFC 6838
+          type: string
+        url:
+          description: The URL of the document
+          type: string
+          format: uri
+        signature:
+          description: The digital signature of the file signed by the sender
+          type: string
+        dsa:
+          description: The signing algorithm used by the sender
+          type: string
 
     Name:
       type: string
@@ -2103,10 +2146,14 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Fulfillment"
+        confirmation_terms:
+          $ref: "#/components/schemas/ConfirmationTerms"
         cancellation_terms:
           $ref: "#/components/schemas/CancellationTerms"
         return_terms:
           $ref: "#/components/schemas/ReturnTerms"
+        refund_terms:
+          $ref: "#/components/schemas/RefundTerms"
         replacement_terms:
           $ref: "#/components/schemas/ReplacementTerms"
         update_terms:
@@ -2126,11 +2173,11 @@ components:
       type: object
       properties:
         descriptor:
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         contact:
-          $ref: '#/components/schemas/Contact'
+          $ref: "#/components/schemas/Contact"
 
     Page:
       description: Describes a page in a search result
@@ -2365,9 +2412,29 @@ components:
           type: string
           format: uri
 
+    RefundTerms:
+      type: object
+      properties:
+        id:
+          description: ID of the term
+          type: string
+        refund_percentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        other_terms:
+          type: array
+          items:
+            type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
+
     ReplacementTerms:
       type: object
       properties:
+        id:
+          description: ID of the replacement term
+          type: string
         replace_by:
           type: string
           format: date-time
@@ -2377,10 +2444,16 @@ components:
           type: array
           items:
             type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     ReturnTerms:
+      description:  Describes the return policy of an item or an order
       type: object
       properties:
+        id:
+          description: ID of the return term
+          type: string
         return_by:
           type: string
           format: date-time
@@ -2394,6 +2467,8 @@ components:
           type: array
           items:
             type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     Scalar:
       description: Describes a scalar quantity.<br>This has properties like value, estimated_value, computed_value,range, unit
@@ -2548,7 +2623,7 @@ components:
 
     TrackingData:
       description: Describes tracking data information to know the status of an object/process or live locations/actions of object and tracking activity<br>This has the GPS coordinates properties
-      $ref: '#/components/schemas/Location/properties/gps'
+      $ref: "#/components/schemas/Location/properties/gps"
 
     Tracking:
       description: Describes as tracking which is useful for knowing the location of time sensitive deliveries.<br>This has properties like URL and status of the object
@@ -2566,6 +2641,9 @@ components:
     UpdateTerms:
       type: object
       properties:
+        id:
+          type: string
+          description: ID of the update terms
         update_by:
           type: string
           format: date-time
@@ -2573,6 +2651,8 @@ components:
           type: array
           items:
             type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     Vehicle:
       description: Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration
