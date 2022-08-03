@@ -1673,6 +1673,10 @@ components:
           type: string
         long_desc:
           type: string
+        media:
+          type: array
+          items:
+            $ref: "#/components/schemas/MediaFile"
         images:
           type: array
           items:
