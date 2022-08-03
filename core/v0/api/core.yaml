@@ -1518,6 +1518,20 @@ components:
         code:
           type: string
           description: City code
+    
+    ConfirmationTerms:
+      description: Describes the terms required to be fulfilled confirm an order
+      type: object
+      properties:
+        req_media:
+          type: array
+          items:
+            $ref: "#/components/schemas/MediaFile"
+        req_formdata:
+          $ref: "#/components/schemas/Form"
+        req_formdata_url:
+          type: string
+          format: uri
 
     Contact:
       description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.
