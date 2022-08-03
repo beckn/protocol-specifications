@@ -1766,29 +1766,30 @@ components:
       type: object
       properties:
         feedback_form:
-          $ref: "#/components/schemas/FeedbackForm"
+          $ref: "#/components/schemas/Form"
         feedback_url:
-          $ref: "#/components/schemas/FeedbackUrl"
+          type: string
+          format: uri
 
-    FeedbackForm:
+    Form:
       description: Describes a feedback form that a BPP can send to get feedback from the BAP
       type: array
       items:
-        $ref: "#/components/schemas/FeedbackFormElement"
+        $ref: "#/components/schemas/FormElement"
 
-    FeedbackFormElement:
+    FormElement:
       description: Describes a single element in the feedback form. It can be question or an answer to the question.<br>This has properties like id,parent_id,question,answer,answer_type
       type: object
       properties:
         id:
           type: string
         parent_id:
-          $ref: "#/components/schemas/FeedbackFormElement/properties/id"
+          $ref: "#/components/schemas/FormElement/properties/id"
         question:
-          description: Specifies the question to which the answer options will be contained in the child FeedbackFormElements
+          description: Specifies the question to which the answer options will be contained in the child FormElements
           type: string
         answer:
-          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id
+          description: Specifies an answer option to which the question will be in the FormElement specified in parent_id
           type: string
         answer_type:
           description: Specifies how the answer option should be rendered.
