@@ -32,7 +32,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -76,7 +76,7 @@ paths:
                 - message
 
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -119,7 +119,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -162,7 +162,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -205,7 +205,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -251,7 +251,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -298,7 +298,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -345,7 +345,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -383,7 +383,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -426,7 +426,7 @@ paths:
                 - context
                 - message
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -472,7 +472,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -489,7 +489,7 @@ paths:
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
-                  - message
+                  - context
   /on_select:
     post:
       tags:
@@ -514,7 +514,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -558,7 +558,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -602,7 +602,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -646,7 +646,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -690,7 +690,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -734,7 +734,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -778,7 +778,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -820,7 +820,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -869,7 +869,7 @@ paths:
               required:
                 - context
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -903,7 +903,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -944,7 +944,7 @@ paths:
                       items:
                         $ref: "#/components/schemas/Option"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -978,7 +978,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1016,7 +1016,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Option"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1050,7 +1050,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1088,7 +1088,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1122,7 +1122,7 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1160,7 +1160,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1201,7 +1201,7 @@ paths:
                     rating_category:
                       $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1238,7 +1238,7 @@ paths:
                   $ref: "#/components/schemas/Feedback"
 
       responses:
-        'default':
+        "200":
           description: Acknowledgement of message received
           content:
             application/json:
@@ -1269,6 +1269,7 @@ components:
       in: header
       name: X-Gateway-Authorization
       description: 'Signature of message body + BAP/BPP''s Authorization header using BG''s signing public key. Format:<br/><br/><code>X-Gateway-Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
+
   schemas:
     Ack:
       description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfully and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status. The validation done at this point is only technical in nature (validating if the schema is as per specification, if the signature and caller is valid, if the endpoint itself is implemented) and no functional validation (as per business logic) needs to be done before sending this.
@@ -1573,7 +1574,7 @@ components:
           description: Version of Beckn core API specification being used
         bap_id:
           type: string
-          # format: uri
+          format: uri
           description: Unique id of the BAP. By default it is the fully qualified domain name of the BAP
         bap_uri:
           type: string
@@ -1581,7 +1582,7 @@ components:
           description: URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
         bpp_id:
           type: string
-          # format: uri
+          format: uri
           description: Unique id of the BPP. By default it is the fully qualified domain name of the BPP
         bpp_uri:
           type: string
@@ -1749,17 +1750,10 @@ components:
         feedback_form:
           $ref: "#/components/schemas/FeedbackForm"
         feedback_url:
-<<<<<<< HEAD
-          $ref: '#/components/schemas/FeedbackUrl'
-          
-    FeedbackForm: 
-      description: Describes a feedback form that a BPP can send to get feedback from the BAP. The BAP render this and will send the response of the form in this same structure.<br>This has properties like description,id,parent_id,question,answer,answer_type<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when a BAP sends feedback for a service or product or a fulfillment agent provided by the BPP in a feedback form</li><li>This is typically used in the post fulfillment stage when the BPP sends the feedback form that needs to be used by the BAP</li></ul>
-=======
           $ref: "#/components/schemas/FeedbackUrl"
 
     FeedbackForm:
       description: Describes a feedback form that a BPP can send to get feedback from the BAP
->>>>>>> Bug fixes in openapi file
       type: array
       items:
         $ref: "#/components/schemas/FeedbackFormElement"
@@ -1886,11 +1880,7 @@ components:
       type: string
       pattern: '^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
     Image:
-<<<<<<< HEAD
-      description: 'Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:https://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```'
-=======
       description: "Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```"
->>>>>>> Bug fixes in openapi file
       type: string
     Intent:
       description: Intent of a user. Used in the discovery stage for declaring the intent of the user. BAP can declare the intent of the consumer including <ul><li>What they want (A product, service, offer)</li><li>Who they want (A seller, service provider, agent etc)</li><li>Where they want it and where they want it from</li><li>When they want it (start and end time of fulfillment</li><li>How they want to pay for it</li></ul><br>This has properties like descriptor,provider,fulfillment,payment,category,offer,item,tags<br>This is typically used by the BAP to send the purpose of the user's search to the BPP. This will be used by the BPP to find products or services it offers that may match the user's intent.<br>For example, in Mobility, the mobility consumer declares a mobility intent. In this case, the mobility consumer declares information that describes various aspects of their journey like,<ul><li>Where would they like to begin their journey (intent.fulfillment.start.location)</li><li>Where would they like to end their journey (intent.fulfillment.end.location)</li><li>When would they like to begin their journey (intent.fulfillment.start.time)</li><li>When would they like to end their journey (intent.fulfillment.end.time)</li><li>Who is the transport service provider they would like to avail services from (intent.provider)</li><li>Who is traveling (This is not recommended in public networks) (intent.fulfillment.customer)</li><li>What kind of fare product would they like to purchase (intent.item)</li><li>What add-on services would they like to avail</li><li>What offers would they like to apply on their booking (intent.offer)</li><li>What category of services would they like to avail (intent.category)</li><li>What additional luggage are they carrying</li><li>How would they like to pay for their journey (intent.payment)</li></ul><br>For example, in health domain, a consumer declares the intent for a lab booking the describes various aspects of their booking like,<ul><li>Where would they like to get their scan/test done (intent.fulfillment.start.location)</li><li>When would they like to get their scan/test done (intent.fulfillment.start.time)</li><li>When would they like to get the results of their test/scan (intent.fulfillment.end.time)</li><li>Who is the service provider they would like to avail services from (intent.provider)</li><li>Who is getting the test/scan (intent.fulfillment.customer)</li><li>What kind of test/scan would they like to purchase (intent.item)</li><li>What category of services would they like to avail (intent.category)</li><li>How would they like to pay for their journey (intent.payment)</li></ul>
@@ -2029,19 +2019,6 @@ components:
         time:
           $ref: "#/components/schemas/Time"
 
-<<<<<<< HEAD
-=======
-    Organization:
-      type: object
-      properties:
-        descriptor:
-          $ref: "#/components/schemas/Descriptor"
-        address:
-          $ref: "#/components/schemas/Address"
-        contact:
-          $ref: "#/components/schemas/Contact"
-
->>>>>>> Bug fixes in openapi file
     Name:
       type: string
       description: "Describes the name of a person"
@@ -2286,11 +2263,7 @@ components:
           $ref: "#/components/schemas/DecimalValue"
 
     Provider:
-<<<<<<< HEAD
       description: Describes a service provider. This can be a restaurant, a hospital, a Store etc<br>This has properties like id,descriptor,category_id,rating,time,categories,fulfillment,payments,locations,offers,items,exp,rateables,tags
-=======
-      description: "Describes a service provider. This can be a restaurant, a hospital, a Store etc"
->>>>>>> Bug fixes in openapi file
       type: object
       properties:
         id:
@@ -2479,11 +2452,7 @@ components:
 
     Subscriber:
       type: object
-<<<<<<< HEAD
       description: Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.<br>This has properties like subscriber_id,type, cb_url,domain, city, country, sigining_public_key, encryption_public_key,status,created, updated expiries
-=======
-      description: "Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR."
->>>>>>> Bug fixes in openapi file
       properties:
         subscriber_id:
           type: string
@@ -2578,13 +2547,8 @@ components:
           $ref: "#/components/schemas/Schedule"
 
     TrackingData:
-<<<<<<< HEAD
       description: Describes tracking data information to know the status of an object/process or live locations/actions of object and tracking activity<br>This has the GPS coordinates properties
       $ref: '#/components/schemas/Location/properties/gps'
-=======
-      description: Describes tracking data object during live tracking of an order
-      $ref: "#/components/schemas/Location/properties/gps"
->>>>>>> Bug fixes in openapi file
 
     Tracking:
       description: Describes as tracking which is useful for knowing the location of time sensitive deliveries.<br>This has properties like URL and status of the object
