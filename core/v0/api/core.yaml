@@ -2444,10 +2444,16 @@ components:
           type: array
           items:
             type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     ReturnTerms:
+      description:  Describes the return policy of an item or an order
       type: object
       properties:
+        id:
+          description: ID of the return term
+          type: string
         return_by:
           type: string
           format: date-time
@@ -2461,6 +2467,8 @@ components:
           type: array
           items:
             type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     Scalar:
       description: Describes a scalar quantity.<br>This has properties like value, estimated_value, computed_value,range, unit
@@ -2633,6 +2641,9 @@ components:
     UpdateTerms:
       type: object
       properties:
+        id:
+          type: string
+          description: ID of the update terms
         update_by:
           type: string
           format: date-time
@@ -2640,6 +2651,8 @@ components:
           type: array
           items:
             type: string
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     Vehicle:
       description: Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration
