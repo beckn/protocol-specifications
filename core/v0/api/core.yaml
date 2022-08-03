@@ -2036,6 +2036,25 @@ components:
         time:
           $ref: "#/components/schemas/Time"
 
+    MediaFile:
+      type: object
+      properties:
+        filename:
+          type: string
+        mimetype:
+          description: indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF's RFC 6838
+          type: string
+        url:
+          description: The URL of the document
+          type: string
+          format: uri
+        signature:
+          description: The digital signature of the file signed by the sender
+          type: string
+        dsa:
+          description: The signing algorithm used by the sender
+          type: string
+
     Name:
       type: string
       description: "Describes the name of a person"
