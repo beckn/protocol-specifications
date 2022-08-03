@@ -1968,6 +1968,8 @@ components:
           $ref: "#/components/schemas/Item/properties/id"
         descriptor:
           $ref: "#/components/schemas/Descriptor"
+        manufacturer:
+          $ref: "#/components/schemas/Organization"
         price:
           $ref: "#/components/schemas/Price"
         quantity:
