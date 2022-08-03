@@ -1984,6 +1984,18 @@ components:
           $ref: "#/components/schemas/Location/properties/id"
         payment_id:
           $ref: "#/components/schemas/Payment/properties/id"
+        confirmation_terms:
+          $ref: "#/components/schemas/ConfirmationTerms"
+        cancellation_terms:
+          $ref: "#/components/schemas/CancellationTerms"
+        return_terms:
+          $ref: "#/components/schemas/ReturnTerms"
+        replacement_terms:
+          $ref: "#/components/schemas/ReplacementTerms"
+        refund_terms:
+          $ref: "#/components/schemas/RefundTerms"
+        update_terms:
+          $ref: "#/components/schemas/UpdateTerms"
         time:
           $ref: "#/components/schemas/Time"
         rateable:
@@ -2134,10 +2146,14 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Fulfillment"
+        confirmation_terms:
+          $ref: "#/components/schemas/ConfirmationTerms"
         cancellation_terms:
           $ref: "#/components/schemas/CancellationTerms"
         return_terms:
           $ref: "#/components/schemas/ReturnTerms"
+        refund_terms:
+          $ref: "#/components/schemas/RefundTerms"
         replacement_terms:
           $ref: "#/components/schemas/ReplacementTerms"
         update_terms:
