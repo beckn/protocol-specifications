@@ -1423,22 +1423,24 @@ components:
           $ref: "#/components/schemas/Descriptor"
 
     CancellationTerms:
+      description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level. 
       type: object
       properties:
+        id:
+          description: ID of the cancellation term
+          type: string
         cancel_by:
           type: string
           format: date-time
         refund_eligible:
           type: boolean
-        refund_percentage:
-          type: integer
-          minimum: 0
-          maximum: 100
         other_terms:
           type: array
           items:
             type: string
-
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
+          
     CargoItem:
       type: object
       properties:
