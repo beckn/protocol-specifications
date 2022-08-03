@@ -1919,6 +1919,7 @@ components:
               $ref: "#/components/schemas/Scalar"
         available:
           type: object
+          description: This represents the exact quantity available for purchase of the item. The buyer can only purchase multiples of this
           properties:
             count:
               type: integer
@@ -1926,6 +1927,7 @@ components:
             measure:
               $ref: "#/components/schemas/Scalar"
         maximum:
+          description: This represents the maximum quantity allowed for purchase of the item
           type: object
           properties:
             count:
@@ -1934,6 +1936,7 @@ components:
             measure:
               $ref: "#/components/schemas/Scalar"
         minimum:
+          description: This represents the minimum quantity allowed for purchase of the item
           type: object
           properties:
             count:
@@ -1942,6 +1945,7 @@ components:
             measure:
               $ref: "#/components/schemas/Scalar"
         selected:
+          description: This represents the quantity selected for purchase of the item
           type: object
           properties:
             count:
