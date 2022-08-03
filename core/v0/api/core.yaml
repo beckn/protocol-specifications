@@ -1799,30 +1799,6 @@ components:
             - checkbox
             - text
 
-    FeedbackUrl:
-      description: Describes the feedback URL that an end customer can use to provide feedback to the BPP for products or services.<br>This has properties like url,tl_method,params<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when the BPP sends the feedback URL that needs to be used by the BAP for providing feedback for a service or product or fulfillment agent</li></ul>
-      type: object
-      properties:
-        url:
-          description: feedback URL sent by the BPP
-          type: string
-          format: uri
-        tl_method:
-          type: string
-          enum:
-            - http/get
-            - http/post
-        params:
-          type: object
-          properties:
-            feedback_id:
-              type: string
-              description: This value will be placed in the the $feedback_id url param in case of http/get and in the requestBody http/post requests
-          additionalProperties:
-            type: string
-          required:
-            - feedback_id
-
     Fulfillment:
       description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>
       type: object
