@@ -241,3 +241,4 @@ Not all future new features will be introduced in this way. Some new features im
 
 While governance of the specification is the role of the CWG, the evolution of the specification happens through the participation of members of the developer community at large. Any person willing to contribute to the effort is welcome, and contributions may include filing or participating in issues, creating pull requests, or helping others with such activities.
 
+However, during any interaction with the community or its members, there is a code of conduct and a set of community guidelines that everyone is expected to adhere to. Please find the details [here](https://becknprotocol.io/community-guidelines/).
