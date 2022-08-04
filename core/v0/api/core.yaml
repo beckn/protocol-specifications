@@ -814,7 +814,7 @@ paths:
                   type: object
                   properties:
                     feedback:
-                      $ref: "#/components/schemas/FeedbackForm"
+                      $ref: "#/components/schemas/Form"
                 error:
                   $ref: "#/components/schemas/Error"
               required:
