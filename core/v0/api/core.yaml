@@ -13,9 +13,8 @@ paths:
       tags:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
-      description: Search for services by intent
+      description: Search for products and services
       requestBody:
-        description: BAP searches for services
         content:
           application/json:
             schema:
@@ -33,7 +32,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -56,7 +55,6 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Select items from the catalog and build your order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -77,7 +75,7 @@ paths:
 
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -98,9 +96,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize an order by providing billing and/or shipping details
+      description: Initialize an order by providing additional information needed to fulfill the order. e.g. billing, shipping details, etc...
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -120,7 +117,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -141,9 +138,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize an order by providing billing and/or shipping details
+      description: Confirm the order.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -163,7 +159,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -186,7 +182,6 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Fetch the latest order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -197,16 +192,16 @@ paths:
                 message:
                   type: object
                   properties:
-                    order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                    order:
+                      $ref: "#/components/schemas/Order"
                   required:
-                    - order_id
+                    - order
               required:
                 - context
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -227,9 +222,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Track an active order
+      description: Fetch tracking information for the fulfillment of an active order.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -241,18 +235,18 @@ paths:
                   type: object
                   properties:
                     order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
                     callback_url:
                       type: string
                       format: uri
-                  required:
+                    required:
                     - order_id
               required:
                 - context
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -275,7 +269,6 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Cancel an order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -286,20 +279,16 @@ paths:
                 message:
                   type: object
                   properties:
-                    order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
-                    cancellation_reason_id:
-                      $ref: "#/components/schemas/Option/properties/id"
-                    descriptor:
-                      $ref: "#/components/schemas/Descriptor"
+                    order:
+                      $ref: "#/components/schemas/Order"
                   required:
-                    - order_id
+                    - order
               required:
                 - context
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -320,9 +309,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Remove object
+      description: Update an order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -333,20 +321,16 @@ paths:
                 message:
                   type: object
                   properties:
-                    update_target:
-                      description: 'Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"```'
-                      type: string
                     order:
                       $ref: "#/components/schemas/Order"
                   required:
-                    - update_target
                     - order
               required:
                 - context
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -369,7 +353,6 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Provide feedback on a service
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -378,13 +361,18 @@ paths:
                 context:
                   $ref: "#/components/schemas/Context"
                 message:
-                  $ref: "#/components/schemas/Rating"
+                  type: object
+                  properties:
+                    rating :
+                      $ref: "#/components/schemas/Rating"
+                  required:
+                    - rating
               required:
                 - context
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -406,9 +394,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Contact support
+      description: Fetch Support information
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -419,15 +406,16 @@ paths:
                 message:
                   type: object
                   properties:
-                    ref_id:
-                      type: string
-                      description: ID of the element for which support is needed
+                    order:
+                      $ref: "#/components/schemas/Order"
+                  required:
+                    - order
               required:
                 - context
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -452,7 +440,6 @@ paths:
         - Beckn Gateway (BG)
       description: Send catalog
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -473,7 +460,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -496,7 +483,6 @@ paths:
         - Beckn App Platform (BAP)
       description: Send draft order object with quoted price for selected items
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -509,13 +495,15 @@ paths:
                   properties:
                     order:
                       $ref: "#/components/schemas/Order"
+                  required:
+                    - order
                 error:
                   $ref: "#/components/schemas/Error"
               required:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -538,7 +526,6 @@ paths:
         - Beckn App Platform (BAP)
       description: Send order object with payment details updated
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -559,7 +546,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -580,9 +567,8 @@ paths:
     post:
       tags:
         - Beckn App Platform (BAP)
-      description: Send active order object
+      description: Send confirmed order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -603,7 +589,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -626,7 +612,6 @@ paths:
         - Beckn App Platform (BAP)
       description: Send tracking details of an active order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -647,7 +632,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -668,9 +653,8 @@ paths:
     post:
       tags:
         - Beckn App Platform (BAP)
-      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+      description: Send cancelled order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -691,7 +675,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -712,9 +696,8 @@ paths:
     post:
       tags:
         - Beckn App Platform (BAP)
-      description: Returns updated service with updated runtime object
+      description: Returns updated order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -735,7 +718,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -756,9 +739,8 @@ paths:
     post:
       tags:
         - Beckn App Platform (BAP)
-      description: Fetch the status of a Service
+      description: Send latest order object.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -779,7 +761,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -800,9 +782,8 @@ paths:
     post:
       tags:
         - Beckn App Platform (BAP)
-      description: Provide feedback on a service
+      description: Accept rating and send an optional feedback form.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -821,7 +802,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -842,9 +823,8 @@ paths:
     post:
       tags:
         - Beckn App Platform (BAP)
-      description: Contact Support
+      description: Send Support information
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -870,7 +850,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -904,7 +884,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -945,7 +925,7 @@ paths:
                         $ref: "#/components/schemas/Option"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -979,7 +959,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1017,7 +997,7 @@ paths:
                     $ref: "#/components/schemas/Option"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1051,7 +1031,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1089,7 +1069,7 @@ paths:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1123,7 +1103,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1161,7 +1141,7 @@ paths:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1202,7 +1182,7 @@ paths:
                       $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
@@ -1239,7 +1219,7 @@ paths:
 
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
             application/json:
               schema:
