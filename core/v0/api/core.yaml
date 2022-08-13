@@ -222,7 +222,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Fetch tracking information for the fulfillment of an active order.
+      description: Get tracking information for the fulfillment of an active order.
       requestBody:
         content:
           application/json:
@@ -235,16 +235,16 @@ paths:
                   type: object
                   properties:
                     order_id:
-                      $ref: '#/components/schemas/Order/properties/id'
+                      $ref: "#/components/schemas/Order/properties/id"
                     callback_url:
                       type: string
                       format: uri
-                    required:
+                  required:
                     - order_id
               required:
                 - context
                 - message
-      responses:
+    responses:
         default:
           description: Acknowledgement of message received , Send 202 for ack.status = ACK and 406 for ack.status = NACK
           content:
