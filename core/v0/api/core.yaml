@@ -13,16 +13,20 @@ paths:
       tags:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
-      description: Search for services by intent
+      description: BAP declares the customer's intent to buy/avail products or services
       requestBody:
-        description: BAP searches for services
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - search
                 message:
                   type: object
                   properties:
@@ -39,13 +43,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - search
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - search
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - search
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -54,16 +131,22 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Select items from the catalog and build your order
+      description: BAP declares the customer's cart (or equivalent) created by selecting objects from the catalog
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - select
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -74,7 +157,6 @@ paths:
               required:
                 - context
                 - message
-
       responses:
         default:
           description: Acknowledgement of message received
@@ -83,13 +165,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - select
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - select
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - select
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -100,14 +255,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Initialize an order by providing billing and/or shipping details
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - init
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -126,13 +287,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - init
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - init
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - init
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -143,14 +377,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Initialize an order by providing billing and/or shipping details
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - confirm
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -169,13 +409,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - confirm
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - confirm
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - confirm
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -186,14 +499,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Fetch the latest order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - status
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -212,13 +531,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - status
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - status
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - status
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -229,14 +621,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Track an active order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - track
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -258,13 +656,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - track
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - track
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - track
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -275,14 +746,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Cancel an order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - cancel
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -305,13 +782,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - cancel
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - cancel
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - cancel
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -322,14 +872,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Remove object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - update
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -352,13 +908,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - update
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - update
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - update
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -369,14 +998,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Provide feedback on a service
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - rating
+                      required:
+                        - action
                 message:
                   $ref: "#/components/schemas/Rating"
               required:
@@ -390,13 +1025,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - rating
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - rating
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - rating
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -408,14 +1116,20 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Contact support
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - support
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -433,13 +1147,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - support
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - support
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - support
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -448,18 +1235,24 @@ paths:
   /on_search:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
       description: Send catalog
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_support
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -479,31 +1272,110 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_support
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                    required:
+                      - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_support
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                     required:
                       - ack
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
-                  - context
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_support
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
   /on_select:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Send draft order object with quoted price for selected items
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_select
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -521,13 +1393,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_select
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_select
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_select
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -535,17 +1480,23 @@ paths:
   /on_init:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Send order object with payment details updated
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_init
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -565,13 +1516,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_init
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_init
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_init
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -579,17 +1603,23 @@ paths:
   /on_confirm:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Send active order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_confirm
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -609,13 +1639,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_confirm
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_confirm
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_confirm
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -623,17 +1726,23 @@ paths:
   /on_track:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Send tracking details of an active order
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_track
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -653,13 +1762,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_track
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_track
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_track
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -667,17 +1849,23 @@ paths:
   /on_cancel:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_cancel
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -697,13 +1885,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_cancel
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_cancel
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_cancel
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -711,17 +1972,23 @@ paths:
   /on_update:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Returns updated service with updated runtime object
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_update
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -741,13 +2008,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_update
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_update
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_update
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -755,17 +2095,23 @@ paths:
   /on_status:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Fetch the status of a Service
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_status
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -785,13 +2131,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_status
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_status
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_status
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -799,17 +2218,23 @@ paths:
   /on_rating:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Provide feedback on a service
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_rating
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -827,13 +2252,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_rating
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_rating
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_rating
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -841,17 +2339,23 @@ paths:
   /on_support:
     post:
       tags:
-        - Beckn App Platform (BAP)
+        - Beckn Application Platform (BAP)
       description: Contact Support
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
               type: object
               properties:
                 context:
-                  $ref: "#/components/schemas/Context"
+                  allOf:
+                    - $ref: "#/components/schemas/Context"
+                    - properties:
+                        action:
+                          enum:
+                            - on_support
+                      required:
+                        - action
                 message:
                   type: object
                   properties:
@@ -876,13 +2380,86 @@ paths:
               schema:
                 type: object
                 properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_support
                   message:
                     type: object
                     properties:
                       ack:
-                        $ref: "#/components/schemas/Ack"
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
                     required:
                       - ack
+                required:
+                  - context
+                  - message
+        "400":
+          description: Message not acknowledged due to a failed schema validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_support
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+        "401":
+          description: Message not acknowledged due to a failed signature validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  context:
+                    allOf:
+                      - $ref: "#/components/schemas/Context"
+                      - properties:
+                          action:
+                            enum:
+                              - on_support
+                        required:
+                          - action
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - NACK
                   error:
                     $ref: "#/components/schemas/Error"
                 required:
@@ -1106,157 +2683,7 @@ paths:
                     $ref: "#/components/schemas/Error"
                 required:
                   - message
-
-  /get_feedback_categories:
-    post:
-      tags:
-        - BPP Meta APIs
-      description: Get a list of categories for which feedback can be given by the BAP
-      requestBody:
-        description: Context header is sent as the request
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-      responses:
-        default:
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-
-  /feedback_categories:
-    post:
-      tags:
-        - BAP Meta APIs
-      description: Get a list of categories for which feedback can be given by the BAP
-      requestBody:
-        description: Array of categories for which feedback can be given by the BAP
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                feedback_categories:
-                  type: array
-                  items:
-                    $ref: "#/components/schemas/Rating/properties/rating_category"
-      responses:
-        default:
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-
-  /get_feedback_form:
-    post:
-      tags:
-        - BPP Meta APIs
-      description: Request a feedback form from the BPP
-      requestBody:
-        description: The rating value and category is sent by the BAP
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                message:
-                  type: object
-                  properties:
-                    rating_value:
-                      $ref: "#/components/schemas/Rating/properties/value"
-                    rating_category:
-                      $ref: "#/components/schemas/Rating/properties/rating_category"
-      responses:
-        default:
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-
-  /feedback_form:
-    post:
-      tags:
-        - BAP Meta APIs
-      description: Get a feedback form from the BPP
-      requestBody:
-        description: Feedback form sent by the BPP
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                message:
-                  $ref: "#/components/schemas/Feedback"
-
-      responses:
-        default:
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-
+                  
 components:
   securitySchemes:
     SubscriberAuth:
@@ -1278,19 +2705,16 @@ components:
         status:
           type: string
           description: "Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK"
-          enum:
-            - ACK
-            - NACK
       required:
         - status
 
     AddOn:
-      description: Describes an ancillary item (products/services) sold to the buyer of a main product or service<br>This has properties like id,descriptor,price<br>This schema is used in the addons array in the Order schema object
+      description: Describes an ancillary item (products/services) sold to the buyer of a main product or service<br>This has properties like id,descriptor,price<br>This schema is used in the addons array in the Order schema object. This does not exist independently in a catalog and is always associated with an item.
       type: object
       properties:
         id:
           type: string
-          description: "ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR "
+          description: "ID of the add-on"
         descriptor:
           $ref: "#/components/schemas/Descriptor"
         price:
@@ -1302,6 +2726,7 @@ components:
       properties:
         full:
           type: string
+          description: Full unformatted address of a location
         door:
           type: string
           description: Door / Shop number of the address
@@ -1334,14 +2759,16 @@ components:
           description: "Area code. This can be Pincode, ZIP code or any equivalent"
 
     Agent:
-      description: Describes the direct performer or driver or executor of the fulfillment of an order. In the healthcare domain it can be a doctor while in the mobility domain it can be a taxi driver.<br>This has properties such as name, image, dob, gender, cred, tags, phone, email and rateable<br>This schema is used in the agent property of the Fulfillment schema object<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to convey details of the person who will be fulfilling the order so that the customer can make an informed decision about the product or service they need to purchase</li><li>This is typically used in the fulfillment stage when the BPP assigns an agent to fulfill the order post confirmation of the same</li></ul><br>This is used to allow the BPP to send the details of the person fulfilling the order to the end user.
-      allOf:
-        - $ref: "#/components/schemas/Person"
-        - $ref: "#/components/schemas/Contact"
-        - type: object
-          properties:
-            rateable:
-              $ref: "#/components/schemas/Rateable"
+      description: Describes the direct performer, driver or executor of the fulfillment of an order. In the healthcare domain it can be a doctor while in the mobility domain it can be a taxi driver.<br>This has properties such as name, image, dob, gender, cred, tags, phone, email and rateable<br>This schema is used in the agent property of the Fulfillment schema object<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to convey details of the person who will be fulfilling the order so that the customer can make an informed decision about the product or service they need to purchase</li><li>This is typically used in the fulfillment stage when the BPP assigns an agent to fulfill the order post confirmation of the same</li></ul><br>This is used to allow the BPP to send the details of the person fulfilling the order to the end user.
+      properties:
+        person:
+          $ref: "#/components/schemas/Person"
+        contact:
+          $ref: "#/components/schemas/Contact"
+        organization:
+          $ref: "#/components/schemas/Organization"
+        rating_policy:
+          $ref: "#/components/schemas/RatingPolicy"
 
     Authorization:
       description: Describes an authorization mechanism used in the order lifecycle. Can be used to attach authorization token to any interaction.<br>This has properties like type, token, valid_from, valid_to and status<br>This is used in the following situations.<br><ul><li>Typically in the fulfillment stage when BPP sends an authorization mechanism that the BAP needs to use for authorizing any interaction</li></ul><br>This is used to allow a user to authorize the validity of their order with a person executing the order so that fulfillment of the order can start/end. This is also used as proof of presence of the customer so that a person executing the order can start/end the fulfillment.<br>This can be used by the user to start fulfillment by providing the token as proof of presence.<br>This can be used by the user as a proof of purchase of service to a person executing the order at start/end of fulfillment<br>This can be used by the user to end fulfillment by providing the token as proof of completion of service.<br><br>The authorization mechanism can be used in several ways to authorize the start or end of a fulfillment.<br>In the mobility domain a BPP which renders taxi services may give an OTP to the BAP after confirming the order. The end user will give the OTP to the taxi driver as proof of presence to start the taxi service<br>In the logistics domain a BPP that renders courier services can give an OTP to the BAP while the delivery service is being performed by a delivery agent. The end user will give the OTP to the delivery agent so that they can mark the package as successfully delivered.<br>In the mobility domain a public transit BPP can send a signed QR code string to the BAP. The BAP will render it as a QR code which the end user will present to a ticketing employee who can read the QR code using their device and authenticate the validity of the ticket
@@ -1383,8 +2810,9 @@ components:
           type: string
         time:
           $ref: "#/components/schemas/Time"
-        tax_number:
+        tax_id:
           type: string
+          description: ID of the billable entity as recognized by the taxation authority
         created_at:
           type: string
           format: date-time
@@ -1393,37 +2821,21 @@ components:
           format: date-time
 
     Cancellation:
-      description: Describes the ACK response
+      description: Describes a cancellation event
       type: object
       properties:
-        type:
-          type: string
-          enum:
-            - full
-            - partial
-        ref_id:
-          type: string
-        policies:
-          type: array
-          items:
-            $ref: "#/components/schemas/Policy"
         time:
           type: string
           format: date-time
         cancelled_by:
-          type: string
-        reasons:
+          $ref: "#/components/schemas/Person"
+        reason:
           $ref: "#/components/schemas/Option"
-        selected_reason:
-          type: object
-          properties:
-            id:
-              $ref: "#/components/schemas/Option/properties/id"
         additional_description:
           $ref: "#/components/schemas/Descriptor"
 
     CancellationTerms:
-      description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level. 
+      description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level.
       type: object
       properties:
         id:
@@ -1440,7 +2852,7 @@ components:
             type: string
         external_ref:
           $ref: "#/components/schemas/MediaFile"
-          
+
     CargoItem:
       type: object
       properties:
@@ -1453,25 +2865,25 @@ components:
       description: Describes the products or services offered by a BPP. This is typically sent as the response to a search intent from a BAP. The payment terms, offers and terms of fulfillment supported by the BPP can also be included here. The BPP can show hierarchical nature of products/services in its catalog using the parent_category_id in categories. The BPP can also send a ttl (time to live) in the context which is the duration for which a BAP can cache the catalog and use the cached catalog.  <br>This has properties like bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers and exp<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the details of the products and services it offers as response to a search intent from the BAP. </li></ul>
       type: object
       properties:
-        bpp/descriptor:
+        descriptor:
           $ref: "#/components/schemas/Descriptor"
-        bpp/categories:
+        categories:
           type: array
           items:
             $ref: "#/components/schemas/Category"
-        bpp/fulfillments:
+        fulfillments:
           type: array
           items:
             $ref: "#/components/schemas/Fulfillment"
-        bpp/payments:
+        payments:
           type: array
           items:
             $ref: "#/components/schemas/Payment"
-        bpp/offers:
+        offers:
           type: array
           items:
             $ref: "#/components/schemas/Offer"
-        bpp/providers:
+        providers:
           type: array
           items:
             $ref: "#/components/schemas/Provider"
@@ -1486,7 +2898,7 @@ components:
       properties:
         id:
           type: string
-          description: Unique id of the category
+          description: ID of the category
         parent_category_id:
           $ref: "#/components/schemas/Category/properties/id"
         descriptor:
@@ -1518,7 +2930,7 @@ components:
         code:
           type: string
           description: City code
-    
+
     ConfirmationTerms:
       description: Describes the terms required to be fulfilled confirm an order
       type: object
@@ -1564,27 +2976,6 @@ components:
         action:
           type: string
           description: Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
-          enum:
-            - search
-            - select
-            - init
-            - confirm
-            - update
-            - status
-            - track
-            - cancel
-            - rating
-            - support
-            - on_search
-            - on_select
-            - on_init
-            - on_confirm
-            - on_update
-            - on_status
-            - on_track
-            - on_cancel
-            - on_rating
-            - on_support
         core_version:
           type: string
           description: Version of Beckn core API specification being used
@@ -2146,6 +3537,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Fulfillment"
+        cancellation:
+          $ref: "#/components/schemas/Cancellation"
         confirmation_terms:
           $ref: "#/components/schemas/ConfirmationTerms"
         cancellation_terms:
@@ -2412,6 +3805,13 @@ components:
           type: string
           format: uri
 
+    RatingPolicy:
+      description: Describes the rating policy of an entity involved in a transaction
+      type: object
+      properties:
+        rateable:
+          type: boolean
+
     RefundTerms:
       type: object
       properties:
@@ -2448,7 +3848,7 @@ components:
           $ref: "#/components/schemas/MediaFile"
 
     ReturnTerms:
-      description:  Describes the return policy of an item or an order
+      description: Describes the return policy of an item or an order
       type: object
       properties:
         id:
