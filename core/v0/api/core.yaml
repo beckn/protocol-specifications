@@ -2797,12 +2797,14 @@ components:
       type: object
       properties:
         name:
-          description: Personal details of the customer needed for billing.
+          description: Name of the billable entity
           type: string
         organization:
           $ref: "#/components/schemas/Organization"
         address:
-          $ref: "#/components/schemas/Address"
+          description: The address of the billable entity
+          allOf:
+          - $ref: "#/components/schemas/Address"
         email:
           type: string
           format: email
@@ -2810,15 +2812,9 @@ components:
           type: string
         time:
           $ref: "#/components/schemas/Time"
-        tax_id:
+        tax_number:
           type: string
           description: ID of the billable entity as recognized by the taxation authority
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
 
     Cancellation:
       description: Describes a cancellation event
@@ -2842,24 +2838,44 @@ components:
           description: ID of the cancellation term
           type: string
         cancel_by:
-          type: string
-          format: date-time
+          description: Information related to the time of cancellation.
+          allOf:
+            - $ref: "#/components/schemas/Time"
         refund_eligible:
+          description: This field indicates whether refund is eligible on cancellation
           type: boolean
-        other_terms:
-          type: array
-          items:
-            type: string
         external_ref:
           $ref: "#/components/schemas/MediaFile"
+      additionalProperties:
+        type: string
+        
 
     CargoItem:
       type: object
       properties:
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          description: Physical description of the cargo item. This can contain the name, short description about the item, images, an audio recording etc
+          allOf:
+            - $ref: "#/components/schemas/Descriptor"
         dimensions:
-          $ref: "#/components/schemas/Dimensions"
+          description: Dimensions of the cargo item. 
+          allOf:
+          - $ref: "#/components/schemas/Dimensions"
+        weight:
+          description: This is a scalar quantity representing the weight of the cargo item
+          allOf:
+          - $ref: "#/components/schemas/Scalar"
+          - properties:
+              unit:
+                description: A unit of weight
+        price:
+          description: The price of the cargo item.
+          allOf:
+          - $ref: "#/components/schemas/Price"
+        tags:
+          type: object
+          additionalProperties:
+            type: string
 
     Catalog:
       description: Describes the products or services offered by a BPP. This is typically sent as the response to a search intent from a BAP. The payment terms, offers and terms of fulfillment supported by the BPP can also be included here. The BPP can show hierarchical nature of products/services in its catalog using the parent_category_id in categories. The BPP can also send a ttl (time to live) in the context which is the duration for which a BAP can cache the catalog and use the cached catalog.  <br>This has properties like bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers and exp<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the details of the products and services it offers as response to a search intent from the BAP. </li></ul>
@@ -2905,6 +2921,8 @@ components:
           $ref: "#/components/schemas/Descriptor"
         time:
           $ref: "#/components/schemas/Time"
+        ttl:
+          description: Time to live for an instance of this schema
         tags:
           $ref: "#/components/schemas/Tags"
 
@@ -3219,8 +3237,6 @@ components:
               $ref: "#/components/schemas/Contact"
         agent:
           $ref: "#/components/schemas/Agent"
-        person:
-          $ref: "#/components/schemas/Person"
         contact:
           $ref: "#/components/schemas/Contact"
         vehicle:
@@ -3397,6 +3413,8 @@ components:
           type: boolean
         recommended:
           type: boolean
+        ttl:
+          description: Time to live for an instance of this schema
         tags:
           $ref: "#/components/schemas/Tags"
 
@@ -3602,14 +3620,17 @@ components:
                 $ref: "#/components/schemas/CargoItem"
 
     Payment:
-      description: Describes the payment mechanism to be used for the order.<br>This has properties like uri,tl_method,params,type,status,time. For more info please check BECKN-RFC-002 <a href="https://github.com/beckn/protocol-specifications/blob/core-0.9.4-draft/docs/protocol-drafts/BECKN-002-Payments-On-Beckn-Enabled-Networks.md">Payments on Beckn-Enabled Networks</a>
+      description: Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider's autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.
       type: object
       properties:
         id:
+          description: ID of the payment term that can be referred at an item or an order level in a catalog
           type: string
-        uri:
+        collected_by:
+          description: This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly.   
+        url:
           type: string
-          description: "A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234"
+          description: A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If tl_method = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234
           format: uri
         params:
           type: object
@@ -3617,8 +3638,6 @@ components:
             transaction_id:
               type: string
               description: This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests
-            transaction_status:
-              type: string
             amount:
               $ref: "#/components/schemas/Price/properties/value"
             currency:
@@ -3753,6 +3772,9 @@ components:
           format: date-time
         rateable:
           $ref: "#/components/schemas/Rateable"
+        ttl:
+          description: Time to live in seconds for an instance of this schema
+          type: integer
         tags:
           $ref: "#/components/schemas/Tags"
 
@@ -3767,6 +3789,8 @@ components:
           items:
             type: object
             properties:
+              item:
+                $ref: "#/components/schemas/Item"
               title:
                 type: string
               price:
@@ -3822,12 +3846,10 @@ components:
           type: integer
           minimum: 0
           maximum: 100
-        other_terms:
-          type: array
-          items:
-            type: string
         external_ref:
           $ref: "#/components/schemas/MediaFile"
+      additionalProperties:
+        type: string
 
     ReplacementTerms:
       type: object
@@ -3836,16 +3858,13 @@ components:
           description: ID of the replacement term
           type: string
         replace_by:
-          type: string
-          format: date-time
+          $ref: "#/components/schemas/Time"
         replacement_eligible:
           type: boolean
-        other_terms:
-          type: array
-          items:
-            type: string
         external_ref:
           $ref: "#/components/schemas/MediaFile"
+      additionalProperties:
+        type: string
 
     ReturnTerms:
       description: Describes the return policy of an item or an order
@@ -3855,8 +3874,7 @@ components:
           description: ID of the return term
           type: string
         return_by:
-          type: string
-          format: date-time
+          $ref: "#/components/schemas/Time"
         refund_eligible:
           type: boolean
         refund_percentage:
