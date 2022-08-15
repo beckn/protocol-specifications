@@ -37,7 +37,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -159,7 +159,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -281,7 +281,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -403,7 +403,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -525,7 +525,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -650,7 +650,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -776,7 +776,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -902,7 +902,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1019,7 +1019,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1141,7 +1141,7 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1266,7 +1266,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1387,7 +1387,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1510,7 +1510,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1633,7 +1633,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1756,7 +1756,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -1879,7 +1879,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2002,7 +2002,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2125,7 +2125,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2246,7 +2246,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2374,7 +2374,7 @@ paths:
                 - context
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2481,7 +2481,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2522,7 +2522,7 @@ paths:
                         $ref: "#/components/schemas/Option"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2556,7 +2556,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2594,7 +2594,7 @@ paths:
                     $ref: "#/components/schemas/Option"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2628,7 +2628,7 @@ paths:
                   $ref: "#/components/schemas/Context"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2666,7 +2666,7 @@ paths:
                     $ref: "#/components/schemas/Rating/properties/rating_category"
       responses:
         default:
-          description: Acknowledgement of message received
+          description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
               schema:
@@ -2683,7 +2683,7 @@ paths:
                     $ref: "#/components/schemas/Error"
                 required:
                   - message
-                  
+
 components:
   securitySchemes:
     SubscriberAuth:
@@ -2699,7 +2699,7 @@ components:
 
   schemas:
     Ack:
-      description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfully and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status. The validation done at this point is only technical in nature (validating if the schema is as per specification, if the signature and caller is valid, if the endpoint itself is implemented) and no functional validation (as per business logic) needs to be done before sending this.
+      description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfuly and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status. The validation done at this point is only technical in nature (validating if the schema is as per specification, if the signature and caller is valid, if the endpoint itself is implemented) and no functional validation (as per business logic) needs to be done before sending this.
       type: object
       properties:
         status:
@@ -2771,7 +2771,7 @@ components:
           $ref: "#/components/schemas/RatingPolicy"
 
     Authorization:
-      description: Describes an authorization mechanism used in the order lifecycle. Can be used to attach authorization token to any interaction.<br>This has properties like type, token, valid_from, valid_to and status<br>This is used in the following situations.<br><ul><li>Typically in the fulfillment stage when BPP sends an authorization mechanism that the BAP needs to use for authorizing any interaction</li></ul><br>This is used to allow a user to authorize the validity of their order with a person executing the order so that fulfillment of the order can start/end. This is also used as proof of presence of the customer so that a person executing the order can start/end the fulfillment.<br>This can be used by the user to start fulfillment by providing the token as proof of presence.<br>This can be used by the user as a proof of purchase of service to a person executing the order at start/end of fulfillment<br>This can be used by the user to end fulfillment by providing the token as proof of completion of service.<br><br>The authorization mechanism can be used in several ways to authorize the start or end of a fulfillment.<br>In the mobility domain a BPP which renders taxi services may give an OTP to the BAP after confirming the order. The end user will give the OTP to the taxi driver as proof of presence to start the taxi service<br>In the logistics domain a BPP that renders courier services can give an OTP to the BAP while the delivery service is being performed by a delivery agent. The end user will give the OTP to the delivery agent so that they can mark the package as successfully delivered.<br>In the mobility domain a public transit BPP can send a signed QR code string to the BAP. The BAP will render it as a QR code which the end user will present to a ticketing employee who can read the QR code using their device and authenticate the validity of the ticket
+      description: Describes an authorization mechanism used in the order lifecycle. Can be used to attach authorization token to any interaction.<br>This has properties like type, token, valid_from, valid_to and status<br>This is used in the following situations.<br><ul><li>Typically in the fulfillment stage when BPP sends an authorization mechanism that the BAP needs to use for authorizing any interaction</li></ul><br>This is used to allow a user to authorize the validity of their order with a person executing the order so that fulfillment of the order can start/end. This is also used as proof of presence of the customer so that a person executing the order can start/end the fulfillment.<br>This can be used by the user to start fulfillment by providing the token as proof of presence.<br>This can be used by the user as a proof of purchase of service to a person executing the order at start/end of fulfillment<br>This can be used by the user to end fulfillment by providing the token as proof of completion of service.<br><br>The authorization mechanism can be used in several ways to authorize the start or end of a fulfillment.<br>In the mobility domain a BPP which renders taxi services may give an OTP to the BAP after confirming the order. The end user will give the OTP to the taxi driver as proof of presence to start the taxi service<br>In the logistics domain a BPP that renders courier services can give an OTP to the BAP while the delivery service is being performed by a delivery agent. The end user will give the OTP to the delivery agent so that they can mark the package as successfuly delivered.<br>In the mobility domain a public transit BPP can send a signed QR code string to the BAP. The BAP will render it as a QR code which the end user will present to a ticketing employee who can read the QR code using their device and authenticate the validity of the ticket
       type: object
       properties:
         type:
