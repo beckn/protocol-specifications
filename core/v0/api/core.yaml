@@ -3248,7 +3248,7 @@ components:
       type: object
       properties:
         id:
-          description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+          description: This is the most unique identifier of a service item.
           type: string
         parent_item_id:
           $ref: "#/components/schemas/Item/properties/id"
