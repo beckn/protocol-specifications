@@ -3817,17 +3817,19 @@ components:
         schedule:
           $ref: "#/components/schemas/Schedule"
 
-    TrackingData:
-      description: Describes tracking data information to know the status of an object/process or live locations/actions of object and tracking activity<br>This has the GPS coordinates properties
-      $ref: "#/components/schemas/Location/properties/gps"
-
     Tracking:
-      description: Describes as tracking which is useful for knowing the location of time sensitive deliveries.<br>This has properties like URL and status of the object
+      description: Contains tracking information that can be used by the BAP to track the fulfillment of an order in real-time. which is useful for knowing the location of time sensitive deliveries.
       type: object
       properties:
+        id:
+          type: string
         url:
           type: string
           format: uri
+        mime_type:
+          type: string
+        location:
+          $ref: "#/components/schemas/Location"
         status:
           type: string
           enum:
