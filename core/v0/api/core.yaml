@@ -3673,20 +3673,6 @@ components:
               descriptor:
                 $ref: "#/components/schemas/Descriptor"
 
-    RefundTerms:
-      type: object
-      properties:
-        id:
-          description: ID of the term
-          type: string
-        refund_percentage:
-          type: integer
-          minimum: 0
-          maximum: 100
-        external_ref:
-          $ref: "#/components/schemas/MediaFile"
-      additionalProperties:
-        type: string
 
     ReplacementTerms:
       type: object
