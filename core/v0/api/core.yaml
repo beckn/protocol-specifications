@@ -3687,7 +3687,7 @@ components:
         external_ref:
           $ref: "#/components/schemas/MediaFile"
 
-    ReplacementTerms:
+    ReplacementTerm:
       type: object
       properties:
         id:
