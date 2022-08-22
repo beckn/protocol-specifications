@@ -3075,8 +3075,8 @@ components:
           description: This describes the type of fulfillment
         provider_id:
           $ref: "#/components/schemas/Provider/properties/id"
-        rating:
-          $ref: "#/components/schemas/Rating/properties/value"
+        rating_policy:
+          $ref: "#/components/schemas/RatingPolicy"
         state:
           $ref: "#/components/schemas/State"
         tracking:
