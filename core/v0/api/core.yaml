@@ -3533,19 +3533,6 @@ components:
         tags:
           $ref: "#/components/schemas/Tags"
 
-    Policy:
-      description: Describes a policy.<br>This has properties like id_description,parent_policy_id,time
-      type: object
-      properties:
-        id:
-          type: string
-        descriptor:
-          $ref: "#/components/schemas/Descriptor"
-        parent_policy_id:
-          $ref: "#/components/schemas/Policy/properties/id"
-        time:
-          $ref: "#/components/schemas/Time"
-
     Price:
       description: Describes the price of a product or service<br>This has properties like currency_value,estimated_value,computed_value,listed_value,offered_value,Minimum_value,maximum_value
       type: object
