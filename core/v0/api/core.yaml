@@ -3769,56 +3769,6 @@ components:
           type: string
           description: ID of entity which changed the state
 
-    Subscriber:
-      type: object
-      description: Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.<br>This has properties like subscriber_id,type, cb_url,domain, city, country, sigining_public_key, encryption_public_key,status,created, updated expiries
-      properties:
-        subscriber_id:
-          type: string
-          description: Registered domain name of the subscriber. Must have a valid SSL certificate issued by a Certificate Authority of the operating region
-        type:
-          type: string
-          enum:
-            - bap
-            - bpp
-            - bg
-            - bppr
-            - bgr
-        cb_url:
-          type: string
-          description: Callback URL of the subscriber. The Registry will call this URL's on_subscribe API to validate the subscriber\'s credentials
-        domain:
-          $ref: "#/components/schemas/Domain"
-        city:
-          $ref: "#/components/schemas/City/properties/code"
-        country:
-          $ref: "#/components/schemas/Country/properties/code"
-        signing_public_key:
-          type: string
-          description: 'Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\''s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```X-Gateway-Authorization``` header.'
-        encryption_public_key:
-          type: string
-          description: Encryption public key of the BAP subscriber. Any BPP must encrypt the ```requestBody.message``` value of the ```on_search``` API using this public key.
-        status:
-          type: string
-          enum:
-            - INITIATED
-            - UNDER_SUBSCRIPTION
-            - SUBSCRIBED
-            - INVALID_SSL
-            - UNSUBSCRIBED
-        created:
-          type: string
-          description: Timestamp when a subscriber was added to the registry with status = INITIATED
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        expires:
-          type: string
-          description: Expiry timestamp in UTC derived from the ```lease_time``` of the subscriber
-          format: date-time
-
     Support:
       description: Customer support
       type: object
