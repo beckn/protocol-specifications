@@ -1239,7 +1239,7 @@ paths:
       tags:
         - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
-      description: Send catalog
+      description: BPP sends its catalog in response to a search request. 
       requestBody:
         content:
           application/json:
@@ -1252,7 +1252,7 @@ paths:
                     - properties:
                         action:
                           enum:
-                            - on_support
+                            - on_search
                       required:
                         - action
                 message:
@@ -1280,7 +1280,7 @@ paths:
                       - properties:
                           action:
                             enum:
-                              - on_support
+                              - on_search
                   message:
                     type: object
                     properties:
@@ -1309,7 +1309,7 @@ paths:
                       - properties:
                           action:
                             enum:
-                              - on_support
+                              - on_search
                         required:
                           - action
                   message:
@@ -1341,7 +1341,7 @@ paths:
                       - properties:
                           action:
                             enum:
-                              - on_support
+                              - on_search
                         required:
                           - action
                   message:
