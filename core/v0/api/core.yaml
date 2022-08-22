@@ -3034,15 +3034,18 @@ components:
         - type
         - code
 
-    Feedback:
-      description: Describes the mechanism by which a BPP can receive feedback for a service or a product. This can be in the form of a feedback form which can be rendered by the BAP or a URL which the BAP can present to the end customer.<br>This has properties like feedback_forum,feedback_url<br>This is used in the following situations.<br><ul><li>This is typically used in the post fulfillment stage when a BAP sends feedback for a service or product or a fulfillment agent provided by the BPP</li><li>This is typically used in the post fulfillment stage when the BPP sends the feedback form or URL that needs to be used by the BAP</li></ul>
+    Fee:
       type: object
+      description: A fee applied on a particular entity
       properties:
-        feedback_form:
-          $ref: "#/components/schemas/Form"
-        feedback_url:
-          type: string
-          format: uri
+        percentage:
+          description: Percentage of a value 
+          allOf:
+            - $ref: "#/components/schemas/DecimalValue"
+        amount:
+          description: A fixed amount applied on the total order value
+          allOf:
+            - $ref: "#/components/schemas/Price"
 
     Form:
       description: Describes a feedback form that a BPP can send to get feedback from the BAP
