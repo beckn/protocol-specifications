@@ -3677,6 +3677,15 @@ components:
               descriptor:
                 $ref: "#/components/schemas/Descriptor"
 
+    RefundTerm:
+      type: object
+      properties:
+        refund_within:
+          description: Time within which refund will be processed.
+          allOf:
+            - $ref: "#/components/schemas/Time"
+        external_ref:
+          $ref: "#/components/schemas/MediaFile"
 
     ReplacementTerms:
       type: object
