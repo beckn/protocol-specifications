@@ -2646,42 +2646,15 @@ components:
           $ref: "#/components/schemas/Price"
 
     Address:
-      description: Describes the postal address of a location. This is the address that can be accessed by mail.<br>This has properties like door number, name of the address, building number, street, locality, ward, state and country, and area code<br>This schema is used in the following locations <br><ul><li>location.address</li><li>billing.address</li></ul><br>This is used in the following situations.<br><ul><li>This is typically used during the discovery stage when specifying the address of a provider. For example- When specifying the address of a store</li><li>This is typically used during the order stage when specifying the billing address of a consumer</li><li>This is typically used during the order stage when specifying the address where fulfillment starts. For example- When specifying pickup location</li><li>This is typically used during the order stage when specifying the address where fulfillment ends. For example- When specifying drop location</li></ul><br>This is used to allow the fulfillment agent to reach the exact location of fulfillment start or end. This is done because, just GPS coordinates may not be enough to reach the exact points of fulfillment. The postal address provides granularity till the door number of a physical location. <br>This is used by the BAP to send the billing address of the user to the BPP for creating an order.<br>This is used by the user to physically go to the store location during store-pickup.<br>This is used by the fulfillment agent to physically go to the provider's location to pickup an order<br>This is used by the fulfillment agent to physically go to the consumer's location to deliver an order<br>This is used by a BPP for saving the billing address for confirming an order<br>The address can be used by the consumer app to geolocate the position of a provider's store on a map. <br>The address can be used by the agent's app to geolocate the position of the start of fulfillment on a map<br>The address can be used by the agent to physically go to the exact location where a fulfillment starts of ends.<br>The address will be saved as the billing address for the order created by the BPP
+      description: Describes the postal address of a location.
       type: object
       properties:
         full:
           type: string
-          description: Full unformatted address of a location
-        door:
+          description: Full unformatted address of a location.
+        format:
           type: string
-          description: Door / Shop number of the address
-        name:
-          type: string
-          description: "Name of address if applicable. Example, shop name"
-        building:
-          type: string
-          description: Name of the building or block
-        street:
-          type: string
-          description: Street name or number
-        locality:
-          type: string
-          description: "Name of the locality, apartments"
-        ward:
-          type: string
-          description: Name or number of the ward if applicable
-        city:
-          type: string
-          description: City name
-        state:
-          type: string
-          description: State name
-        country:
-          type: string
-          description: Country name
-        area_code:
-          type: string
-          description: "Area code. This can be Pincode, ZIP code or any equivalent"
+          description: Defines the address formatting standard
 
     Agent:
       description: Describes the direct performer, driver or executor of the fulfillment of an order. In the healthcare domain it can be a doctor while in the mobility domain it can be a taxi driver.<br>This has properties such as name, image, dob, gender, cred, tags, phone, email and rateable<br>This schema is used in the agent property of the Fulfillment schema object<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to convey details of the person who will be fulfilling the order so that the customer can make an informed decision about the product or service they need to purchase</li><li>This is typically used in the fulfillment stage when the BPP assigns an agent to fulfill the order post confirmation of the same</li></ul><br>This is used to allow the BPP to send the details of the person fulfilling the order to the end user.
