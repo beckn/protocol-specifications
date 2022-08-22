@@ -3048,32 +3048,20 @@ components:
             - $ref: "#/components/schemas/Price"
 
     Form:
-      description: Describes a feedback form that a BPP can send to get feedback from the BAP
-      type: array
-      items:
-        $ref: "#/components/schemas/FormElement"
-
-    FormElement:
-      description: Describes a single element in the feedback form. It can be question or an answer to the question.<br>This has properties like id,parent_id,question,answer,answer_type
+      description: Describes a form that needs to be rendered to the BAP user before the confirmation of an order.
       type: object
       properties:
-        id:
+        url:
+          description: The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. The BAP can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the BAP can process the form data and reproduce it as per the standard specified in the form.
           type: string
-        parent_id:
-          $ref: "#/components/schemas/FormElement/properties/id"
-        question:
-          description: Specifies the question to which the answer options will be contained in the child FormElements
+          format: uri
+        data:
+          description: Sometimes, the BPP can directly send the form content instead of a URL. This content will again follow the mime_type field for processing. Typically forms should be sent as an html string starting with <form></form> tags. The application must render this form after removing any css or javascript code if necessary. The `action` attribute in the form should have a url where the form needs to be submitted.  
           type: string
-        answer:
-          description: Specifies an answer option to which the question will be in the FormElement specified in parent_id
+        mime_type:
+          description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838. 
           type: string
-        answer_type:
-          description: Specifies how the answer option should be rendered.
-          type: string
-          enum:
-            - radio
-            - checkbox
-            - text
+          
 
     Fulfillment:
       description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>
