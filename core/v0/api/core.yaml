@@ -3001,14 +3001,6 @@ components:
       description: Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant<br>This has properties like type,code,path,message<br>This schema is used in the response of all the beckn API calls as well as the callback beckn APIs<br>This is used to return the details of an error that happened while processing a beckn API call received by a network participant.
       type: object
       properties:
-        type:
-          type: string
-          enum:
-            - CONTEXT-ERROR
-            - CORE-ERROR
-            - DOMAIN-ERROR
-            - POLICY-ERROR
-            - JSON-SCHEMA-ERROR
         code:
           type: string
           description: "Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo"
