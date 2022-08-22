@@ -2241,7 +2241,9 @@ paths:
                   type: object
                   properties:
                     feedback:
-                      $ref: "#/components/schemas/Form"
+                      description: A feedback form to allow the user to provide additional information on the rating provided
+                      allOf:
+                        - $ref: "#/components/schemas/Form"
                 error:
                   $ref: "#/components/schemas/Error"
               required:
