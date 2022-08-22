@@ -893,7 +893,9 @@ paths:
                       description: 'Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"```'
                       type: string
                     order:
-                      $ref: "#/components/schemas/Order"
+                      description: Updated order object
+                      allOf:
+                        - $ref: "#/components/schemas/Order"
                   required:
                     - update_target
                     - order
