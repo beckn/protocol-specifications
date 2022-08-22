@@ -2824,20 +2824,6 @@ components:
           type: string
           description: City code
 
-    ConfirmationTerms:
-      description: Describes the terms required to be fulfilled confirm an order
-      type: object
-      properties:
-        req_media:
-          type: array
-          items:
-            $ref: "#/components/schemas/MediaFile"
-        req_formdata:
-          $ref: "#/components/schemas/Form"
-        req_formdata_url:
-          type: string
-          format: uri
-
     Contact:
       description: Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.
       type: object
@@ -3836,22 +3822,6 @@ components:
             - active
             - inactive
 
-    UpdateTerms:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ID of the update terms
-        update_by:
-          type: string
-          format: date-time
-        other_terms:
-          type: array
-          items:
-            type: string
-        external_ref:
-          $ref: "#/components/schemas/MediaFile"
-
     Vehicle:
       description: Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration
       type: object
@@ -3879,4 +3849,3 @@ components:
       description: Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. Sometimes, selection of catalog elements is not enough for the BPP to confirm an order. For example, to confirm a flight ticket, the airline requires details of the passengers along with information on baggage, identity, in addition to the class of ticket. Similarly, a logistics company may require details on the nature of shipment in order to confirm the shipping. A recruiting firm may require additional details on the applicant in order to confirm a job application. For all such purposes, the BPP can choose to send this object attached to any object in the catalog that is required to be sent while placing the order. This object can typically be sent at an item level or at the order level. The item level XInput will override the Order level XInput as it indicates a special requirement of information for that particular item. Hence the BAP must render a separate form for the Item and another form at the Order level before confirmation.
       allOf:
         - $ref: "#/components/schemas/Form"
-
