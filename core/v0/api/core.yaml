@@ -3649,19 +3649,6 @@ components:
           description: Rating value given to the object
           type: string
 
-    RatingAck:
-      description: Describes the acknowledgement that feedback or rating has been recorded by the BPP.<br>
-      type: object
-      properties:
-        rating_ack:
-          type: boolean
-        feedback_ack:
-          type: boolean
-        feedback_url:
-          description: URL to a feedback form sent in response to a rating received
-          type: string
-          format: uri
-
     RatingPolicy:
       description: Describes the rating policy of an entity involved in a transaction
       type: object
