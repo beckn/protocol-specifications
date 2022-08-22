@@ -2363,15 +2363,8 @@ paths:
                 message:
                   type: object
                   properties:
-                    phone:
-                      type: string
-                      format: phone
-                    email:
-                      type: string
-                      format: email
-                    uri:
-                      type: string
-                      format: uri
+                    support:
+                      $ref: "#/components/schemas/Support"
                 error:
                   $ref: "#/components/schemas/Error"
               required:
@@ -2524,78 +2517,6 @@ paths:
                       type: array
                       items:
                         $ref: "#/components/schemas/Option"
-      responses:
-        default:
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-
-  /get_return_reasons:
-    post:
-      tags:
-        - BPP Meta APIs
-      description: Get return reasons from the BPP
-      requestBody:
-        description: Context header is sent as the request
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-      responses:
-        default:
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-
-  /return_reasons:
-    post:
-      tags:
-        - BAP Meta APIs
-      description: Get return reasons from the BPP
-      requestBody:
-        description: List of return reasons
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                return_reasons:
-                  type: array
-                  items:
-                    $ref: "#/components/schemas/Option"
       responses:
         default:
           description: Acknowledgement of message received after successful validation of schema and signature
