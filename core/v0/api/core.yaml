@@ -3271,9 +3271,13 @@ components:
         payment_id:
           $ref: "#/components/schemas/Payment/properties/id"
         cancellation_terms:
-          $ref: "#/components/schemas/CancellationTerms"
+          type: array
+          items:
+            $ref: "#/components/schemas/CancellationTerm"
         return_terms:
-          $ref: "#/components/schemas/ReturnTerms"
+          type: array
+          items:
+            $ref: "#/components/schemas/ReturnTerm"
         replacement_terms:
           $ref: "#/components/schemas/ReplacementTerms"
         refund_terms:
