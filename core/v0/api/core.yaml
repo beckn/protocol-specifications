@@ -3465,35 +3465,6 @@ components:
         contact:
           $ref: "#/components/schemas/Contact"
 
-    Page:
-      description: Describes a page in a search result
-      type: object
-      properties:
-        id:
-          type: string
-        next_id:
-          type: string
-
-    Payload:
-      type: object
-      properties:
-        persons:
-          type: object
-          properties:
-            count:
-              type: string
-            list:
-              items:
-                $ref: "#/components/schemas/Person"
-        cargo:
-          type: object
-          properties:
-            count:
-              type: string
-            list:
-              items:
-                $ref: "#/components/schemas/CargoItem"
-
     Payment:
       description: Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider's autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.
       type: object
