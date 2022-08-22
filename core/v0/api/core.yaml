@@ -2991,17 +2991,6 @@ components:
           type: string
           format: uri
 
-    Dimensions:
-      description: Describes the length, width and height of a real-world object.<br>This has properties like length,breadth,height
-      type: object
-      properties:
-        length:
-          $ref: "#/components/schemas/Scalar"
-        breadth:
-          $ref: "#/components/schemas/Scalar"
-        height:
-          $ref: "#/components/schemas/Scalar"
-
     Document:
       description: Describes a piece of written or printed matter in electronic form that provides information or evidence or that serves as an official record. This will be given as a URL. In the case of sensitive information being exchanged, such documents may be encrypted and additional authorization such as an an OTP or password may be implemented when the URL is accessed.<br>This has properties like url,label<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage if any documents from the user are needed by the BPP to confirm the order</li><li>This is typically used in the fulfilment and post fulfillment stage if the BPP needs to send any documents related to the order to the user</li></ul><br>This is used to allow documents to be exchanged between the BAP and the BPP
       type: object
