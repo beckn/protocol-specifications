@@ -3298,13 +3298,13 @@ components:
           description: Time to live for an instance of this schema
         tags:
           $ref: "#/components/schemas/Tags"
-
-    Language:
-      description: Describes a specific language using a language code.<br>This has properties like code
-      type: object
-      properties:
-        code:
-          type: string
+        domain_extns:
+          type: object
+          properties:
+            domain:
+              type: string
+          additionalProperties:
+            type: string  
 
     Location:
       description: Describes the location of something, for example, where an event is happening, where a store is located, or where an action takes place<br>This has properties like id,descriptor,gps,address,station code,city,country,circle,polygon,3d space,time
