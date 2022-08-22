@@ -3393,11 +3393,17 @@ components:
       properties:
         id:
           type: string
-          description: Hash of order object without id
-        state:
-          type: string
+          description: Human-readable ID of the order. This is generated at the BPP layer. The BPP can either generate order id within its system or forward the order ID created at the provider level.  
+        ref_order_ids:
+          description: A list of order IDs to link this order to previous orders. 
+          type: array
+          items:
+            type: string
+            description: ID of a previous order
         provider:
-          $ref: "#/components/schemas/Provider"
+          description: Details of the provider whose catalog items have been selected.
+          allOf:
+            - $ref: "#/components/schemas/Provider"
         items:
           type: array
           items:
@@ -3422,22 +3428,26 @@ components:
             $ref: "#/components/schemas/Fulfillment"
         cancellation:
           $ref: "#/components/schemas/Cancellation"
-        confirmation_terms:
-          $ref: "#/components/schemas/ConfirmationTerms"
         cancellation_terms:
-          $ref: "#/components/schemas/CancellationTerms"
+          type: array
+          items:
+            $ref: "#/components/schemas/CancellationTerm"
         return_terms:
-          $ref: "#/components/schemas/ReturnTerms"
-        refund_terms:
-          $ref: "#/components/schemas/RefundTerms"
+          type: array
+          items:
+            $ref: "#/components/schemas/ReturnTerm"
         replacement_terms:
-          $ref: "#/components/schemas/ReplacementTerms"
-        update_terms:
-          $ref: "#/components/schemas/UpdateTerms"
+          type: array
+          items:
+            $ref: "#/components/schemas/ReplacementTerm"
+        rating_policy:
+          $ref: "#/components/schemas/RatingPolicy"
         quote:
           $ref: "#/components/schemas/Quotation"
-        payment:
-          $ref: "#/components/schemas/Payment"
+        payments:
+          type: array
+          items:
+            $ref: "#/components/schemas/Payment"
         created_at:
           type: string
           format: date-time
