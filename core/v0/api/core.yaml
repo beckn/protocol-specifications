@@ -3642,6 +3642,13 @@ components:
         rating_category:
           description: Category of the entity being rated
           type: string
+          enum:
+            - Item
+            - Order
+            - Fulfillment
+            - Provider
+            - Agent
+            - Support
         id:
           description: Id of the object being rated
           type: string
