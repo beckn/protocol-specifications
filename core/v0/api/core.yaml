@@ -1136,9 +1136,8 @@ paths:
                 message:
                   type: object
                   properties:
-                    ref_id:
-                      type: string
-                      description: ID of the element for which support is needed
+                    support:
+                      $ref: "#/components/schemas/Support"
               required:
                 - context
                 - message
