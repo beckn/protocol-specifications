@@ -3270,8 +3270,6 @@ components:
           $ref: "#/components/schemas/Location/properties/id"
         payment_id:
           $ref: "#/components/schemas/Payment/properties/id"
-        confirmation_terms:
-          $ref: "#/components/schemas/ConfirmationTerms"
         cancellation_terms:
           $ref: "#/components/schemas/CancellationTerms"
         return_terms:
