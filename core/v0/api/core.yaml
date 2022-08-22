@@ -3279,15 +3279,15 @@ components:
           items:
             $ref: "#/components/schemas/ReturnTerm"
         replacement_terms:
-          $ref: "#/components/schemas/ReplacementTerms"
-        refund_terms:
-          $ref: "#/components/schemas/RefundTerms"
-        update_terms:
-          $ref: "#/components/schemas/UpdateTerms"
+          type: array
+          items:
+            $ref: "#/components/schemas/ReplacementTerm"
+        xinput_required:
+          $ref: "#/components/schemas/XInput"
         time:
           $ref: "#/components/schemas/Time"
-        rateable:
-          $ref: "#/components/schemas/Rateable"
+        rating_policy:
+          $ref: "#/components/schemas/RatingPolicy"
         matched:
           type: boolean
         related:
