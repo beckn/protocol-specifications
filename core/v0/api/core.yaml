@@ -3128,8 +3128,22 @@ components:
               $ref: "#/components/schemas/Person"
             authorization:
               $ref: "#/components/schemas/Authorization"
-        rateable:
-          $ref: "#/components/schemas/Rateable"
+        route:
+          type: object
+          properties:
+            path:
+              type: array
+              items:
+                $ref: "#/components/schemas/Gps"
+            stops:
+              type: array
+              items:
+                type: object
+                properties:
+                  location:
+                    $ref: "#/components/schemas/Location"
+                  time:
+                    $ref: "#/components/schemas/Time"
         tags:
           $ref: "#/components/schemas/Tags"
     Gps:
