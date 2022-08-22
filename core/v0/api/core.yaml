@@ -2726,24 +2726,31 @@ components:
         additional_description:
           $ref: "#/components/schemas/Descriptor"
 
-    CancellationTerms:
+    CancellationTerm:
       description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level.
       type: object
       properties:
-        id:
-          description: ID of the cancellation term
-          type: string
+        refund_eligible:
+         description: Indicates if cancellation will result in a refund 
+         type: boolean
+        return_eligible:
+          description: Indicates if cancellation will result in a return to origin 
+          type: boolean
+        replacement_eligible:
+          description: Indicates if cancellation will result in a replacement 
+          type: boolean
+        fulfillment_state:
+          description: The state of fulfillment during which these terms are applicable.
+          allOf:
+            - $ref: "#/components/schemas/State"
         cancel_by:
           description: Information related to the time of cancellation.
           allOf:
             - $ref: "#/components/schemas/Time"
-        refund_eligible:
-          description: This field indicates whether refund is eligible on cancellation
-          type: boolean
+        cancellation_fee:
+          $ref: "#/components/schemas/Fee"
         external_ref:
           $ref: "#/components/schemas/MediaFile"
-      additionalProperties:
-        type: string
         
 
     CargoItem:
