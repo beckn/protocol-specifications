@@ -2967,12 +2967,21 @@ components:
           type: string
         code:
           type: string
-        symbol:
-          type: string
         short_desc:
           type: string
         long_desc:
           type: string
+        additional_desc:
+          type: object
+          properties:
+            url:
+              type: string
+            content_type:
+              type: string
+              enum:
+                - text/plain
+                - text/html
+                - application/json
         media:
           type: array
           items:
@@ -3330,6 +3339,9 @@ components:
           type: string
         time:
           $ref: "#/components/schemas/Time"
+        updated_at:
+          type: string
+          format: date-time
 
     MediaFile:
       type: object
