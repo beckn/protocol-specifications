@@ -3773,16 +3773,18 @@ components:
       description: Customer support
       type: object
       properties:
-        type:
+        callback:
           type: string
-          enum:
-            - order
-            - billing
-            - fulfillment
-        ref_id:
+          format: phone
+        phone:
           type: string
-        channels:
-          $ref: "#/components/schemas/Tags"
+          format: phone
+        email:
+          type: string
+          format: email
+        url:
+          type: string
+          format: uri
 
     Tags:
       description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
