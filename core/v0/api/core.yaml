@@ -2629,7 +2629,7 @@ components:
       properties:
         status:
           type: string
-          description: "Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK"
+          description: Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK
       required:
         - status
 
