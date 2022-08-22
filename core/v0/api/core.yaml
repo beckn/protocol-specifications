@@ -3318,8 +3318,6 @@ components:
           $ref: "#/components/schemas/Gps"
         address:
           $ref: "#/components/schemas/Address"
-        station_code:
-          type: string
         city:
           $ref: "#/components/schemas/City"
         country:
