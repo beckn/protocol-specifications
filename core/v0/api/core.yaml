@@ -1013,7 +1013,10 @@ paths:
                       required:
                         - action
                 message:
-                  $ref: "#/components/schemas/Rating"
+                  type: object
+                  properties:
+                    rating:
+                      $ref: "#/components/schemas/Rating"
               required:
                 - context
                 - message
