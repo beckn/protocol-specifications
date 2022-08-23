@@ -1,0 +1,20 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../schemas/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - on_select
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      order:
+        $ref: "../schemas/Order.yaml"
+  error:
+    $ref: "../schemas/Error.yaml"
+required:
+  - context

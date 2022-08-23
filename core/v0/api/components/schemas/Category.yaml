@@ -1,0 +1,17 @@
+description: Describes a type or division of providers or items regarded as having one or more shared characteristics<br>This has properties like id,parent_category_id,descriptor,time,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog because the price of the same product or service can change based on the category </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li></ul>
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the category
+  parent_category_id:
+    $ref: "#/properties/id"
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  time:
+    $ref: "./Time.yaml"
+  ttl:
+    description: Time to live for an instance of this schema
+  tags:
+    $ref: "./Tags.yaml"
+

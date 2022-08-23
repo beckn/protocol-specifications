@@ -1,0 +1,22 @@
+description: Describes how a product or a service will be rendered at a reduced price to the user<br>This has properties like id,descriptor,location_ids,category_ids,item_ids,time
+type: object
+properties:
+  id:
+    type: string
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  location_ids:
+    type: array
+    items:
+      $ref: "./Location.yaml#/properties/id"
+  category_ids:
+    type: array
+    items:
+      $ref: "./Category.yaml#/properties/id"
+  item_ids:
+    type: array
+    items:
+      $ref: "./Item.yaml#/properties/id"
+  time:
+    $ref: "./Time.yaml"
+

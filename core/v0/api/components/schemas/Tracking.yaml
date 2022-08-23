@@ -1,0 +1,17 @@
+description: Contains tracking information that can be used by the BAP to track the fulfillment of an order in real-time. which is useful for knowing the location of time sensitive deliveries.
+type: object
+properties:
+  id:
+    type: string
+  url:
+    type: string
+    format: uri
+  mime_type:
+    type: string
+  location:
+    $ref: "./Location.yaml"
+  status:
+    type: string
+    enum:
+      - active
+      - inactive

@@ -1,0 +1,9 @@
+type: object
+properties:
+  refund_within:
+    description: Time within which refund will be processed.
+    allOf:
+      - $ref: "./Time.yaml"
+  external_ref:
+    $ref: "./MediaFile.yaml"
+

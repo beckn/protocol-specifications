@@ -1,0 +1,3 @@
+description: Described the sector, industry or field for which the current beckn transaction is for. Examples of domains are mobility, local retail, logistics etc. Each network can choose its own codes for specifying a domain within the network.
+type: string
+

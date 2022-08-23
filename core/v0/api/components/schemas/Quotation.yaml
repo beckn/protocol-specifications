@@ -1,0 +1,19 @@
+description: Describes a quote. It is the estimated price of products or services from the BPP.<br>This has properties like price, breakup, ttl
+type: object
+properties:
+  price:
+    $ref: "./Price.yaml"
+  breakup:
+    type: array
+    items:
+      type: object
+      properties:
+        item:
+          $ref: "./Item.yaml"
+        title:
+          type: string
+        price:
+          $ref: "./Price.yaml"
+  ttl:
+    $ref: "./Duration.yaml"
+

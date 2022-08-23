@@ -1,0 +1,8 @@
+description: Describes the direct performer, driver or executor of the fulfillment of an order. In the healthcare domain it can be a doctor while in the mobility domain it can be a taxi driver.<ul><li>This is used in the discovery stage when the BPP wants to convey details of the person who will be fulfilling the order so that the customer can make an informed decision about the product or service they need to purchase</li><li>This is used in the fulfillment stage when the BPP assigns an agent to fulfill the order post confirmation</li></ul>
+properties:
+  person:
+    $ref: "./Person.yaml"
+  contact:
+    $ref: "./Contact.yaml"
+  organization:
+    $ref: "./Organization.yaml"

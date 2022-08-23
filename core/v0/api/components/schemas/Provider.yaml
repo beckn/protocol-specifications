@@ -1,0 +1,56 @@
+description: Describes a service provider. This can be a restaurant, a hospital, a Store etc<br>This has properties like id,descriptor,category_id,rating,time,categories,fulfillment,payments,locations,offers,items,exp,rateables,tags
+type: object
+properties:
+  id:
+    type: string
+    description: "Id of the provider"
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  category_id:
+    type: string
+    description: "Category Id of the provider"
+  rating:
+    $ref: "./Rating.yaml#/properties/value"
+  time:
+    $ref: "./Time.yaml"
+  categories:
+    type: array
+    items:
+      $ref: "./Category.yaml"
+  fulfillments:
+    type: array
+    items:
+      $ref: "./Fulfillment.yaml"
+  payments:
+    type: array
+    items:
+      $ref: "./Payment.yaml"
+  locations:
+    type: array
+    items:
+      allOf:
+        - $ref: "./Location.yaml"
+        - type: object
+          properties:
+            rateable:
+              $ref: "./Rateable.yaml"
+  offers:
+    type: array
+    items:
+      $ref: "./Offer.yaml"
+  items:
+    type: array
+    items:
+      $ref: "./Item.yaml"
+  exp:
+    type: string
+    description: Time after which catalog has to be refreshed
+    format: date-time
+  rateable:
+    $ref: "./Rateable.yaml"
+  ttl:
+    description: Time to live in seconds for an instance of this schema
+    type: integer
+  tags:
+    $ref: "./Tags.yaml"
+

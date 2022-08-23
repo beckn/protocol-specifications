@@ -1,0 +1,20 @@
+description: Describes the price of a product or service<br>This has properties like currency_value,estimated_value,computed_value,listed_value,offered_value,Minimum_value,maximum_value
+type: object
+properties:
+  currency:
+    type: string
+  value:
+    $ref: "./DecimalValue.yaml"
+  estimated_value:
+    $ref: "./DecimalValue.yaml"
+  computed_value:
+    $ref: "./DecimalValue.yaml"
+  listed_value:
+    $ref: "./DecimalValue.yaml"
+  offered_value:
+    $ref: "./DecimalValue.yaml"
+  minimum_value:
+    $ref: "./DecimalValue.yaml"
+  maximum_value:
+    $ref: "./DecimalValue.yaml"
+

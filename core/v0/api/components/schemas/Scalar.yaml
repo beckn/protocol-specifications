@@ -1,0 +1,23 @@
+description: Describes a scalar quantity.<br>This has properties like value, estimated_value, computed_value,range, unit
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - CONSTANT
+      - VARIABLE
+  value:
+    $ref: "./DecimalValue.yaml"
+  estimated_value:
+    $ref: "./DecimalValue.yaml"
+  computed_value:
+    $ref: "./DecimalValue.yaml"
+  range:
+    type: object
+    properties:
+      min:
+        $ref: "./DecimalValue.yaml"
+      max:
+        $ref: "./DecimalValue.yaml"
+  unit:
+    type: string
