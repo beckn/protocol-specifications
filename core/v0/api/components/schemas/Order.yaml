@@ -1,0 +1,71 @@
+description: Describes an order which contains the terms, details, status and identifier of a transaction between a BAP and a BPP. This is usually an exchange of goods or services for money.<br>This has properties like id,state,provider,items,add_ons,offers,documents,billings,fulfillment,quote,payment,created_at,updated_at<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage when the BAP sends the details of the order it wishes to create</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order details</li></ul>
+type: object
+properties:
+  id:
+    type: string
+    description: Human-readable ID of the order. This is generated at the BPP layer. The BPP can either generate order id within its system or forward the order ID created at the provider level.
+  ref_order_ids:
+    description: A list of order IDs to link this order to previous orders.
+    type: array
+    items:
+      type: string
+      description: ID of a previous order
+  provider:
+    description: Details of the provider whose catalog items have been selected.
+    allOf:
+      - $ref: "./Provider.yaml"
+  items:
+    type: array
+    items:
+      $ref: "./Item.yaml"
+  add_ons:
+    type: array
+    items:
+      $ref: "./AddOn.yaml"
+  offers:
+    type: array
+    items:
+      $ref: "./Offer.yaml"
+  documents:
+    type: array
+    items:
+      $ref: "./Document.yaml"
+  billing:
+    $ref: "./Billing.yaml"
+  fulfillments:
+    type: array
+    items:
+      $ref: "./Fulfillment.yaml"
+  cancellation:
+    $ref: "./Cancellation.yaml"
+  cancellation_terms:
+    type: array
+    items:
+      $ref: "./CancellationTerm.yaml"
+  return_terms:
+    type: array
+    items:
+      $ref: "./ReturnTerm.yaml"
+  replacement_terms:
+    type: array
+    items:
+      $ref: "./ReplacementTerm.yaml"
+  refund_terms:
+    type: array
+    items:
+      $ref: "./RefundTerm.yaml"
+  rating_policy:
+    $ref: "./RatingPolicy.yaml"
+  quote:
+    $ref: "./Quotation.yaml"
+  payments:
+    type: array
+    items:
+      $ref: "./Payment.yaml"
+  created_at:
+    type: string
+    format: date-time
+  updated_at:
+    type: string
+    format: date-time
+

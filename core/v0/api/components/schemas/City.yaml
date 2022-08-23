@@ -1,0 +1,11 @@
+description: Describes a city or a town<br>This has properties like name,code
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the city
+  code:
+    type: string
+    description: City code
+
+

@@ -1,0 +1,58 @@
+description: Describes the count or amount of an item<br>This has properties like allocated,available,maximum,minimum,selected
+type: object
+properties:
+  allocated:
+    type: object
+    properties:
+      count:
+        type: integer
+        minimum: 0
+      measure:
+        $ref: "./Scalar.yaml"
+  available:
+    type: object
+    description: This represents the exact quantity available for purchase of the item. The buyer can only purchase multiples of this
+    properties:
+      count:
+        type: integer
+        minimum: 0
+      measure:
+        $ref: "./Scalar.yaml"
+  maximum:
+    description: This represents the maximum quantity allowed for purchase of the item
+    type: object
+    properties:
+      count:
+        type: integer
+        minimum: 1
+      measure:
+        $ref: "./Scalar.yaml"
+  minimum:
+    description: This represents the minimum quantity allowed for purchase of the item
+    type: object
+    properties:
+      count:
+        type: integer
+        minimum: 0
+      measure:
+        $ref: "./Scalar.yaml"
+  selected:
+    description: This represents the quantity selected for purchase of the item
+    type: object
+    properties:
+      count:
+        type: integer
+        minimum: 0
+      measure:
+        $ref: "./Scalar.yaml"
+  unitized:
+    description: This represents the quantity available in a single unit of the item
+    type: object
+    properties:
+      count:
+        type: integer
+        minimum: 1
+        maximum: 1
+      measure:
+        $ref: "./Scalar.yaml"
+

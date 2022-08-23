@@ -1,0 +1,161 @@
+Ack:
+  $ref: "./components/schemas/Ack.yaml"
+AddOn:
+  $ref: "./components/schemas/AddOn.yaml"
+Address:
+  $ref: "./components/schemas/Address.yaml"
+Agent:
+  $ref: "./components/schemas/Agent.yaml"
+Authorization:
+  $ref: "./components/schemas/Authorization.yaml"
+Billing:
+  $ref: "./components/schemas/Billing.yaml"
+Cancellation:
+  $ref: "./components/schemas/Cancellation.yaml"
+
+CancellationTerm:
+  $ref: "./components/schemas/CancellationTerm.yaml"
+Catalog:
+  $ref: "./components/schemas/Catalog.yaml"
+
+Category:
+  $ref: "./components/schemas/Category.yaml"
+
+Circle:
+  $ref: "./components/schemas/Circle.yaml"
+
+City:
+  $ref: "./components/schemas/City.yaml"
+Contact:
+  $ref: "./components/schemas/Contact.yaml"
+
+Context:
+  $ref: "./components/schemas/Context.yaml"
+
+Country:
+  $ref: "./components/schemas/Country.yaml"
+
+Credential:
+  $ref: "./components/schemas/Credential.yaml"
+
+DecimalValue:
+  $ref: "./components/schemas/DecimalValue.yaml"
+
+Descriptor:
+  $ref: "./components/schemas/Descriptor.yaml"
+
+Document:
+  $ref: "./components/schemas/Document.yaml"
+
+Domain:
+  $ref: "./components/schemas/Domain.yaml"
+
+Duration:
+  $ref: "./components/schemas/Duration.yaml"
+
+Error:
+  $ref: "./components/schemas/Error.yaml"
+
+Fee:
+  $ref: "./components/schemas/Fee.yaml"
+
+Form:
+  $ref: "./components/schemas/Form.yaml"
+
+Fulfillment:
+  $ref: "./components/schemas/Fulfillment.yaml"
+
+Gps:
+  $ref: "./components/schemas/Gps.yaml"
+
+Image:
+  $ref: "./components/schemas/Image.yaml"
+Intent:
+  $ref: "./components/schemas/Intent.yaml"
+
+ItemQuantity:
+  $ref: "./components/schemas/ItemQuantity.yaml"
+
+Item:
+  $ref: "./components/schemas/Item.yaml"
+
+Location:
+  $ref: "./components/schemas/Location.yaml"
+
+MediaFile:
+  $ref: "./components/schemas/MediaFile.yaml"
+
+Name:
+  $ref: "./components/schemas/Name.yaml"
+
+Offer:
+  $ref: "./components/schemas/Offer.yaml"
+
+Option:
+  $ref: "./components/schemas/Option.yaml"
+
+Order:
+  $ref: "./components/schemas/Order.yaml"
+
+Organization:
+  $ref: "./components/schemas/Organization.yaml"
+
+Payment:
+  $ref: "./components/schemas/Payment.yaml"
+
+Person:
+  $ref: "./components/schemas/Person.yaml"
+
+Price:
+  $ref: "./components/schemas/Price.yaml"
+
+Provider:
+  $ref: "./components/schemas/Provider.yaml"
+
+Quotation:
+  $ref: "./components/schemas/Quotation.yaml"
+
+Rateable:
+  $ref: "./components/schemas/Rateable.yaml"
+
+Rating:
+  $ref: "./components/schemas/Rating.yaml"
+
+RatingPolicy:
+  $ref: "./components/schemas/RatingPolicy.yaml"
+
+RefundTerm:
+  $ref: "./components/schemas/RefundTerm.yaml"
+
+ReplacementTerm:
+  $ref: "./components/schemas/ReplacementTerm.yaml"
+
+ReturnTerm:
+  $ref: "./components/schemas/ReturnTerm.yaml"
+
+Scalar:
+  $ref: "./components/schemas/Scalar.yaml"
+
+Schedule:
+  $ref: "./components/schemas/Schedule.yaml"
+
+State:
+  $ref: "./components/schemas/State.yaml"
+
+Support:
+  $ref: "./components/schemas/Support.yaml"
+
+Tags:
+  $ref: "./components/schemas/Tags.yaml"
+
+Time:
+  $ref: "./components/schemas/Time.yaml"
+
+Tracking:
+  $ref: "./components/schemas/Tracking.yaml"
+
+Vehicle:
+  $ref: "./components/schemas/Vehicle.yaml"
+
+XInput:
+  $ref: "./components/schemas/XInput.yaml"

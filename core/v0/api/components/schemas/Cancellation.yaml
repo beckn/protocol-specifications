@@ -1,0 +1,13 @@
+description: Describes a cancellation event
+type: object
+properties:
+  time:
+    type: string
+    format: date-time
+  cancelled_by:
+    $ref: "./Person.yaml"
+  reason:
+    $ref: "./Option.yaml"
+  additional_description:
+    $ref: "./Descriptor.yaml"
+

@@ -1,0 +1,27 @@
+description: Describes the location of something, for example, where an event is happening, where a store is located, or where an action takes place<br>This has properties like id,descriptor,gps,address,station code,city,country,circle,polygon,3d space,time
+type: object
+properties:
+  id:
+    type: string
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  gps:
+    $ref: "./Gps.yaml"
+  address:
+    $ref: "./Address.yaml"
+  city:
+    $ref: "./City.yaml"
+  country:
+    $ref: "./Country.yaml"
+  circle:
+    $ref: "./Circle.yaml"
+  polygon:
+    type: string
+  3dspace:
+    type: string
+  time:
+    $ref: "./Time.yaml"
+  updated_at:
+    type: string
+    format: date-time
+

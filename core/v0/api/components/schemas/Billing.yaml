@@ -1,0 +1,22 @@
+description: Describes the billing details of an entity.<br>This has properties like name,organization,address,email,phone,time,tax_number, created_at,updated_at
+type: object
+properties:
+  name:
+    description: Name of the billable entity
+    type: string
+  organization:
+    $ref: "./Organization.yaml"
+  address:
+    description: The address of the billable entity
+    allOf:
+    - $ref: "./Address.yaml"
+  email:
+    type: string
+    format: email
+  phone:
+    type: string
+  time:
+    $ref: "./Time.yaml"
+  tax_number:
+    type: string
+    description: ID of the billable entity as recognized by the taxation authority

@@ -1,0 +1,20 @@
+description: Describes the rating of a person or an object<br>This has properties like rating category,id,value, feedback_id,feedback_form
+type: object
+properties:
+  rating_category:
+    description: Category of the entity being rated
+    type: string
+    enum:
+      - Item
+      - Order
+      - Fulfillment
+      - Provider
+      - Agent
+      - Support
+  id:
+    description: Id of the object being rated
+    type: string
+  value:
+    description: Rating value given to the object
+    type: string
+

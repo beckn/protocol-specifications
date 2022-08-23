@@ -1,0 +1,4 @@
+description: Describes if the entity can be rated or not
+type: boolean
+
+

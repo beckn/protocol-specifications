@@ -1,0 +1,58 @@
+description: Describes the context header of the message being sent.<br>This has properties like domain,country,city,action,code_version,bap_id,bap_uri,bpp_id,bpp_uri,transaction_id,message-id,timestamp,key,ttl
+type: object
+properties:
+  domain:
+    $ref: "./Domain.yaml"
+  country:
+    $ref: "./Country.yaml#/properties/code"
+  city:
+    $ref: "./City.yaml#/properties/code"
+
+  action:
+    type: string
+    description: Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
+  core_version:
+    type: string
+    description: Version of Beckn core API specification being used
+  bap_id:
+    type: string
+    description: Unique id of the BAP. By default it is the fully qualified domain name of the BAP
+  bap_uri:
+    type: string
+    format: uri
+    description: URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
+  bpp_id:
+    type: string
+    description: Unique id of the BPP. By default it is the fully qualified domain name of the BPP
+  bpp_uri:
+    type: string
+    format: uri
+    description: URI of the BPP. Must have the same domain name as the bap_id
+  transaction_id:
+    type: string
+    description: This is a unique value which persists across all API calls from search through confirm
+  message_id:
+    type: string
+    description: This is a unique value which persists during a request / callback cycle
+  timestamp:
+    type: string
+    format: date-time
+    description: Time of request generation in RFC3339 format
+  key:
+    type: string
+    description: The encryption public key of the sender
+  ttl:
+    type: string
+    description: The duration in ISO8601 format after timestamp for which this message holds valid
+required:
+  - domain
+  - action
+  - country
+  - city
+  - core_version
+  - transaction_id
+  - message_id
+  - bap_id
+  - bap_uri
+  - timestamp
+

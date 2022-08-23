@@ -1,0 +1,3150 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Beckn Core API",
+    "description": "Beckn Core API specification",
+    "version": "release-1.x"
+  },
+  "security": [
+    {
+      "SubscriberAuth": []
+    },
+    {
+      "GatewaySubscriberAuth": []
+    }
+  ],
+  "paths": {
+    "/search": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)",
+          "Beckn Gateway (BG)"
+        ],
+        "description": "BAP declares the customer's intent to buy/avail products or services",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "search"
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "intent": {
+                        "$ref": "#/components/schemas/Intent"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/select": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "BAP declares the customer's cart (or equivalent) created by selecting objects from the catalog",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "select"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/init": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Initialize an order by providing billing and/or shipping details",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "init"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Acknowledgement of message received after successful validation of schema and signature",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "ack": {
+                          "allOf": [
+                            {
+                              "$ref": "#/components/schemas/Ack"
+                            },
+                            {
+                              "properties": {
+                                "status": {
+                                  "enum": [
+                                    "ACK",
+                                    "NACK"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ack"
+                      ]
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/Error"
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/confirm": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Initialize an order by providing billing and/or shipping details",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "confirm"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/status": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Fetch the latest order object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "status"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order_id": {
+                        "$ref": "#/components/schemas/Order/properties/id"
+                      }
+                    },
+                    "required": [
+                      "order_id"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/track": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Track an active order",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "track"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order_id": {
+                        "$ref": "#/components/schemas/Order/properties/id"
+                      },
+                      "callback_url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "order_id"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/cancel": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Cancel an order",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "cancel"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order_id": {
+                        "$ref": "#/components/schemas/Order/properties/id"
+                      },
+                      "cancellation_reason_id": {
+                        "$ref": "#/components/schemas/Option/properties/id"
+                      },
+                      "descriptor": {
+                        "$ref": "#/components/schemas/Descriptor"
+                      }
+                    },
+                    "required": [
+                      "order_id"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/update": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Remove object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "update"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "update_target": {
+                        "description": "Comma separated values of order objects being updated. For example: ```\"update_target\":\"item,billing,fulfillment\"```",
+                        "type": "string"
+                      },
+                      "order": {
+                        "description": "Updated order object",
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/Order"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "update_target",
+                      "order"
+                    ]
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/rating": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Provide feedback on a service",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "rating"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "rating": {
+                        "$ref": "#/components/schemas/Rating"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/support": {
+      "post": {
+        "tags": [
+          "Beckn Provider Platform (BPP)"
+        ],
+        "description": "Contact support",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "support"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "support": {
+                        "$ref": "#/components/schemas/Support"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "context",
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_search": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)",
+          "Beckn Gateway (BG)"
+        ],
+        "description": "BPP sends its catalog in response to a search request.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_search"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "catalog": {
+                        "$ref": "#/components/schemas/Catalog"
+                      }
+                    },
+                    "required": [
+                      "catalog"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_select": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Send draft order object with quoted price for selected items",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_select"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    }
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_init": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Send order object with payment details updated",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_init"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_confirm": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Send active order object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_confirm"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_track": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Send tracking details of an active order",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_track"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "tracking": {
+                        "$ref": "#/components/schemas/Tracking"
+                      }
+                    },
+                    "required": [
+                      "tracking"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_cancel": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_cancel"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_update": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Returns updated service with updated runtime object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_update"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_status": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Fetch the status of a Service",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_status"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "required": [
+                      "order"
+                    ]
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_rating": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Provide feedback on a service",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_rating"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "feedback": {
+                        "description": "A feedback form to allow the user to provide additional information on the rating provided",
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/Form"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/on_support": {
+      "post": {
+        "tags": [
+          "Beckn Application Platform (BAP)"
+        ],
+        "description": "Contact Support",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Context"
+                      },
+                      {
+                        "properties": {
+                          "action": {
+                            "enum": [
+                              "on_support"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "action"
+                        ]
+                      }
+                    ]
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "support": {
+                        "$ref": "#/components/schemas/Support"
+                      }
+                    }
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                },
+                "required": [
+                  "context"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/get_cancellation_reasons": {
+      "post": {
+        "tags": [
+          "BPP Meta APIs"
+        ],
+        "description": "Get cancellation reasons from the BPP",
+        "requestBody": {
+          "description": "Context header is sent as the request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "$ref": "#/components/schemas/Context"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/cancellation_reasons": {
+      "post": {
+        "tags": [
+          "BAP Meta APIs"
+        ],
+        "description": "Get cancellation reasons from the BPP",
+        "requestBody": {
+          "description": "List of cancellation reasons",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "$ref": "#/components/schemas/Context"
+                  },
+                  "message": {
+                    "type": "object",
+                    "properties": {
+                      "cancellation_reasons": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/Option"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/get_rating_categories": {
+      "post": {
+        "tags": [
+          "BPP Meta APIs"
+        ],
+        "description": "Get a list of categories that can be rated by the BAP",
+        "requestBody": {
+          "description": "Context header is sent as the request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "$ref": "#/components/schemas/Context"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    },
+    "/rating_categories": {
+      "post": {
+        "tags": [
+          "BAP Meta APIs"
+        ],
+        "description": "Get a list of categories that can be rated by the BAP",
+        "requestBody": {
+          "description": "Array of categories which can be rated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "$ref": "#/components/schemas/Context"
+                  },
+                  "rating_categories": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Rating/properties/rating_category"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "$ref": "#/paths/~1init/post/responses/default"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "SubscriberAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Signature of message body using BAP or BPP subscriber's signing public key. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId=\"{subscriber_id}|{unique_key_id}|{algorithm}\",algorithm=\"ed25519\",created=\"1606970629\",expires=\"1607030629\",headers=\"(created) (expires) digest\",signature=\"Base64(signing string)\"</code>"
+      },
+      "GatewaySubscriberAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Gateway-Authorization",
+        "description": "Signature of message body + BAP/BPP's Authorization header using BG's signing public key. Format:<br/><br/><code>X-Gateway-Authorization : Signature keyId=\"{subscriber_id}|{unique_key_id}|{algorithm}\",algorithm=\"ed25519\",created=\"1606970629\",expires=\"1607030629\",headers=\"(created) (expires) digest\",signature=\"Base64(signing string)\"</code>"
+      }
+    },
+    "schemas": {
+      "Ack": {
+        "description": "Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfuly and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status. The validation done at this point is only technical in nature (validating if the schema is as per specification, if the signature and caller is valid, if the endpoint itself is implemented) and no functional validation (as per business logic) needs to be done before sending this.",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK",
+            "enum": [
+              "ACK",
+              "NACK"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "AddOn": {
+        "description": "Describes an ancillary item (products/services) sold to the buyer of a main product or service<br>This has properties like id,descriptor,price<br>This schema is used in the addons array in the Order schema object. This does not exist independently in a catalog and is always associated with an item.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the add-on"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          }
+        }
+      },
+      "Address": {
+        "description": "Describes the postal address of a location.",
+        "type": "object",
+        "properties": {
+          "full": {
+            "type": "string",
+            "description": "Full unformatted address of a location."
+          },
+          "format": {
+            "type": "string",
+            "description": "Defines the address formatting standard"
+          }
+        }
+      },
+      "Agent": {
+        "description": "Describes the direct performer, driver or executor of the fulfillment of an order. In the healthcare domain it can be a doctor while in the mobility domain it can be a taxi driver.<ul><li>This is used in the discovery stage when the BPP wants to convey details of the person who will be fulfilling the order so that the customer can make an informed decision about the product or service they need to purchase</li><li>This is used in the fulfillment stage when the BPP assigns an agent to fulfill the order post confirmation</li></ul>",
+        "properties": {
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          }
+        }
+      },
+      "Authorization": {
+        "description": "Describes an authorization mechanism used in the order lifecycle. Can be used to attach authorization token to any interaction.<br>This has properties like type, token, valid_from, valid_to and status<br>This is used in the following situations.<br><ul><li>Typically in the fulfillment stage when BPP sends an authorization mechanism that the BAP needs to use for authorizing any interaction</li></ul><br>This is used to allow a user to authorize the validity of their order with a person executing the order so that fulfillment of the order can start/end. This is also used as proof of presence of the customer so that a person executing the order can start/end the fulfillment.<br>This can be used by the user to start fulfillment by providing the token as proof of presence.<br>This can be used by the user as a proof of purchase of service to a person executing the order at start/end of fulfillment<br>This can be used by the user to end fulfillment by providing the token as proof of completion of service.<br><br>The authorization mechanism can be used in several ways to authorize the start or end of a fulfillment.<br>In the mobility domain a BPP which renders taxi services may give an OTP to the BAP after confirming the order. The end user will give the OTP to the taxi driver as proof of presence to start the taxi service<br>In the logistics domain a BPP that renders courier services can give an OTP to the BAP while the delivery service is being performed by a delivery agent. The end user will give the OTP to the delivery agent so that they can mark the package as successfuly delivered.<br>In the mobility domain a public transit BPP can send a signed QR code string to the BAP. The BAP will render it as a QR code which the end user will present to a ticketing employee who can read the QR code using their device and authenticate the validity of the ticket",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of authorization mechanism used"
+          },
+          "token": {
+            "type": "string",
+            "description": "Token used for authorization"
+          },
+          "valid_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp in RFC3339 format from which token is valid"
+          },
+          "valid_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp in RFC3339 format until which token is valid"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the token"
+          }
+        }
+      },
+      "Billing": {
+        "description": "Describes the billing details of an entity.<br>This has properties like name,organization,address,email,phone,time,tax_number, created_at,updated_at",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of the billable entity",
+            "type": "string"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "address": {
+            "description": "The address of the billable entity",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          },
+          "tax_number": {
+            "type": "string",
+            "description": "ID of the billable entity as recognized by the taxation authority"
+          }
+        }
+      },
+      "Cancellation": {
+        "description": "Describes a cancellation event",
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cancelled_by": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/Option"
+          },
+          "additional_description": {
+            "$ref": "#/components/schemas/Descriptor"
+          }
+        }
+      },
+      "CancellationTerm": {
+        "description": "Describes the cancellation policy of an item or an order. This can be referenced at an item or order level.",
+        "type": "object",
+        "properties": {
+          "refund_eligible": {
+            "description": "Indicates if cancellation will result in a refund",
+            "type": "boolean"
+          },
+          "return_eligible": {
+            "description": "Indicates if cancellation will result in a return to origin",
+            "type": "boolean"
+          },
+          "replacement_eligible": {
+            "description": "Indicates if cancellation will result in a replacement",
+            "type": "boolean"
+          },
+          "fulfillment_state": {
+            "description": "The state of fulfillment during which these terms are applicable.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/State"
+              }
+            ]
+          },
+          "cancel_by": {
+            "description": "Information related to the time of cancellation.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Time"
+              }
+            ]
+          },
+          "cancellation_fee": {
+            "$ref": "#/components/schemas/Fee"
+          },
+          "external_ref": {
+            "$ref": "#/components/schemas/MediaFile"
+          }
+        }
+      },
+      "Catalog": {
+        "description": "Describes the products or services offered by a BPP. This is typically sent as the response to a search intent from a BAP. The payment terms, offers and terms of fulfillment supported by the BPP can also be included here. The BPP can show hierarchical nature of products/services in its catalog using the parent_category_id in categories. The BPP can also send a ttl (time to live) in the context which is the duration for which a BAP can cache the catalog and use the cached catalog.  <br>This has properties like bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers and exp<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the details of the products and services it offers as response to a search intent from the BAP. </li></ul>",
+        "type": "object",
+        "properties": {
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          },
+          "fulfillments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Fulfillment"
+            }
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            }
+          },
+          "offers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Offer"
+            }
+          },
+          "providers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Provider"
+            }
+          },
+          "exp": {
+            "type": "string",
+            "description": "Time after which catalog has to be refreshed",
+            "format": "date-time"
+          }
+        }
+      },
+      "Category": {
+        "description": "Describes a type or division of providers or items regarded as having one or more shared characteristics<br>This has properties like id,parent_category_id,descriptor,time,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog because the price of the same product or service can change based on the category </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li></ul>",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the category"
+          },
+          "parent_category_id": {
+            "$ref": "#/components/schemas/Category/properties/id"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          },
+          "ttl": {
+            "description": "Time to live for an instance of this schema"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          }
+        }
+      },
+      "Circle": {
+        "description": "Describes a circular region of a specified radius centered at a specified GPS coordinate.<br>This has properties like gps,radius<br>This is used when a circular area needs to be represented as a location.",
+        "type": "object",
+        "properties": {
+          "gps": {
+            "$ref": "#/components/schemas/Gps"
+          },
+          "radius": {
+            "$ref": "#/components/schemas/Scalar"
+          }
+        },
+        "required": [
+          "gps",
+          "radius"
+        ]
+      },
+      "City": {
+        "description": "Describes a city or a town<br>This has properties like name,code",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the city"
+          },
+          "code": {
+            "type": "string",
+            "description": "City code"
+          }
+        }
+      },
+      "Contact": {
+        "description": "Describes the contact information of an entity including phone number or an email ID<br>This has properties like phone,email,tags<br>This is used to allow the BPP or BAP to send contact details of a person.",
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/Name"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "jcard": {
+            "type": "object",
+            "description": "A Jcard object as per draft-ietf-jcardcal-jcard-03 specification"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          }
+        }
+      },
+      "Context": {
+        "description": "Describes the context header of the message being sent.<br>This has properties like domain,country,city,action,code_version,bap_id,bap_uri,bpp_id,bpp_uri,transaction_id,message-id,timestamp,key,ttl",
+        "type": "object",
+        "properties": {
+          "domain": {
+            "$ref": "#/components/schemas/Domain"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country/properties/code"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City/properties/code"
+          },
+          "action": {
+            "type": "string",
+            "description": "Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol"
+          },
+          "core_version": {
+            "type": "string",
+            "description": "Version of Beckn core API specification being used"
+          },
+          "bap_id": {
+            "type": "string",
+            "description": "Unique id of the BAP. By default it is the fully qualified domain name of the BAP"
+          },
+          "bap_uri": {
+            "type": "string",
+            "format": "uri",
+            "description": "URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id"
+          },
+          "bpp_id": {
+            "type": "string",
+            "description": "Unique id of the BPP. By default it is the fully qualified domain name of the BPP"
+          },
+          "bpp_uri": {
+            "type": "string",
+            "format": "uri",
+            "description": "URI of the BPP. Must have the same domain name as the bap_id"
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": "This is a unique value which persists across all API calls from search through confirm"
+          },
+          "message_id": {
+            "type": "string",
+            "description": "This is a unique value which persists during a request / callback cycle"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Time of request generation in RFC3339 format"
+          },
+          "key": {
+            "type": "string",
+            "description": "The encryption public key of the sender"
+          },
+          "ttl": {
+            "type": "string",
+            "description": "The duration in ISO8601 format after timestamp for which this message holds valid"
+          }
+        },
+        "required": [
+          "domain",
+          "action",
+          "country",
+          "city",
+          "core_version",
+          "transaction_id",
+          "message_id",
+          "bap_id",
+          "bap_uri",
+          "timestamp"
+        ]
+      },
+      "Country": {
+        "description": "Describes a country.<br>This has properties like name,code",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the country"
+          },
+          "code": {
+            "type": "string",
+            "description": "Country code as per ISO 3166-1 and ISO 3166-2 format"
+          }
+        }
+      },
+      "Credential": {
+        "description": "Describes a credential of an entity - Person or Organization",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "default": "VerifiableCredential"
+          },
+          "issuer": {
+            "type": "string"
+          },
+          "issuance_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "credential_subject": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "credential_schema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "DecimalValue": {
+        "description": "Describes a numerical value in decimal form",
+        "type": "string",
+        "pattern": "[+-]?([0-9]*[.])?[0-9]+"
+      },
+      "Descriptor": {
+        "description": "Describes the description used to describe or identify a real world object<br>This has properties like name,code,symbol,short_desc,long_desc,images,audio,3d_render",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "short_desc": {
+            "type": "string"
+          },
+          "long_desc": {
+            "type": "string"
+          },
+          "additional_desc": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "content_type": {
+                "type": "string",
+                "enum": [
+                  "text/plain",
+                  "text/html",
+                  "application/json"
+                ]
+              }
+            }
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MediaFile"
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Image"
+            }
+          }
+        }
+      },
+      "Document": {
+        "description": "Describes a piece of written or printed matter in electronic form that provides information or evidence or that serves as an official record. This will be given as a URL. In the case of sensitive information being exchanged, such documents may be encrypted and additional authorization such as an an OTP or password may be implemented when the URL is accessed.<br>This has properties like url,label<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage if any documents from the user are needed by the BPP to confirm the order</li><li>This is typically used in the fulfilment and post fulfillment stage if the BPP needs to send any documents related to the order to the user</li></ul><br>This is used to allow documents to be exchanged between the BAP and the BPP",
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      },
+      "Domain": {
+        "description": "Described the sector, industry or field for which the current beckn transaction is for. Examples of domains are mobility, local retail, logistics etc. Each network can choose its own codes for specifying a domain within the network.",
+        "type": "string"
+      },
+      "Duration": {
+        "description": "Describes duration as per ISO8601 format",
+        "type": "string"
+      },
+      "Error": {
+        "description": "Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant<br>This has properties like type,code,path,message<br>This schema is used in the response of all the beckn API calls as well as the callback beckn APIs<br>This is used to return the details of an error that happened while processing a beckn API call received by a network participant.",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo"
+          },
+          "path": {
+            "type": "string",
+            "description": "Path to json schema generating the error. Used only during json schema validation errors"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human readable message describing the error"
+          }
+        },
+        "required": [
+          "type",
+          "code"
+        ]
+      },
+      "Fee": {
+        "type": "object",
+        "description": "A fee applied on a particular entity",
+        "properties": {
+          "percentage": {
+            "description": "Percentage of a value",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DecimalValue"
+              }
+            ]
+          },
+          "amount": {
+            "description": "A fixed amount applied on the total order value",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Price"
+              }
+            ]
+          }
+        }
+      },
+      "Form": {
+        "description": "Describes a form that needs to be rendered to the BAP user before the confirmation of an order.",
+        "type": "object",
+        "properties": {
+          "url": {
+            "description": "The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. The BAP can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the BAP can process the form data and reproduce it as per the standard specified in the form.",
+            "type": "string",
+            "format": "uri"
+          },
+          "data": {
+            "description": "Sometimes, the BPP can directly send the form content instead of a URL. This content will again follow the mime_type field for processing. Typically forms should be sent as an html string starting with <form></form> tags. The application must render this form after removing any css or javascript code if necessary. The `action` attribute in the form should have a url where the form needs to be submitted.",
+            "type": "string"
+          },
+          "mime_type": {
+            "description": "This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.",
+            "type": "string"
+          }
+        }
+      },
+      "Fulfillment": {
+        "description": "Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique reference ID to the fulfillment of an order"
+          },
+          "type": {
+            "type": "string",
+            "description": "This describes the type of fulfillment"
+          },
+          "provider_id": {
+            "$ref": "#/components/schemas/Provider/properties/id"
+          },
+          "rating_policy": {
+            "$ref": "#/components/schemas/RatingPolicy"
+          },
+          "state": {
+            "$ref": "#/components/schemas/State"
+          },
+          "tracking": {
+            "type": "boolean",
+            "description": "Indicates whether the fulfillment allows tracking",
+            "default": false
+          },
+          "customer": {
+            "type": "object",
+            "properties": {
+              "person": {
+                "$ref": "#/components/schemas/Person"
+              },
+              "contact": {
+                "$ref": "#/components/schemas/Contact"
+              }
+            }
+          },
+          "agent": {
+            "$ref": "#/components/schemas/Agent"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "vehicle": {
+            "$ref": "#/components/schemas/Vehicle"
+          },
+          "start": {
+            "description": "Details on the start of fulfillment",
+            "type": "object",
+            "properties": {
+              "location": {
+                "$ref": "#/components/schemas/Location"
+              },
+              "time": {
+                "$ref": "#/components/schemas/Time"
+              },
+              "instructions": {
+                "$ref": "#/components/schemas/Descriptor"
+              },
+              "contact": {
+                "$ref": "#/components/schemas/Contact"
+              },
+              "person": {
+                "$ref": "#/components/schemas/Person"
+              },
+              "authorization": {
+                "$ref": "#/components/schemas/Authorization"
+              }
+            }
+          },
+          "end": {
+            "description": "Details on the end of fulfillment",
+            "type": "object",
+            "properties": {
+              "location": {
+                "$ref": "#/components/schemas/Location"
+              },
+              "time": {
+                "$ref": "#/components/schemas/Time"
+              },
+              "instructions": {
+                "$ref": "#/components/schemas/Descriptor"
+              },
+              "contact": {
+                "$ref": "#/components/schemas/Contact"
+              },
+              "person": {
+                "$ref": "#/components/schemas/Person"
+              },
+              "authorization": {
+                "$ref": "#/components/schemas/Authorization"
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Gps"
+                }
+              },
+              "stops": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "$ref": "#/components/schemas/Location"
+                    },
+                    "time": {
+                      "$ref": "#/components/schemas/Time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "domain_extns": {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Gps": {
+        "description": "Describes a GPS coordinates which is a unique identifier of a precise geographic location on the earth.<br>",
+        "type": "string",
+        "pattern": "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$"
+      },
+      "Image": {
+        "description": "Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```",
+        "type": "string"
+      },
+      "Intent": {
+        "description": "Intent of a user. Used in the discovery stage for declaring the intent of the user. BAP can declare the intent of the consumer including <ul><li>What they want (A product, service, offer)</li><li>Who they want (A seller, service provider, agent etc)</li><li>Where they want it and where they want it from</li><li>When they want it (start and end time of fulfillment</li><li>How they want to pay for it</li></ul><br>This has properties like descriptor,provider,fulfillment,payment,category,offer,item,tags<br>This is typically used by the BAP to send the purpose of the user's search to the BPP. This will be used by the BPP to find products or services it offers that may match the user's intent.<br>For example, in Mobility, the mobility consumer declares a mobility intent. In this case, the mobility consumer declares information that describes various aspects of their journey like,<ul><li>Where would they like to begin their journey (intent.fulfillment.start.location)</li><li>Where would they like to end their journey (intent.fulfillment.end.location)</li><li>When would they like to begin their journey (intent.fulfillment.start.time)</li><li>When would they like to end their journey (intent.fulfillment.end.time)</li><li>Who is the transport service provider they would like to avail services from (intent.provider)</li><li>Who is traveling (This is not recommended in public networks) (intent.fulfillment.customer)</li><li>What kind of fare product would they like to purchase (intent.item)</li><li>What add-on services would they like to avail</li><li>What offers would they like to apply on their booking (intent.offer)</li><li>What category of services would they like to avail (intent.category)</li><li>What additional luggage are they carrying</li><li>How would they like to pay for their journey (intent.payment)</li></ul><br>For example, in health domain, a consumer declares the intent for a lab booking the describes various aspects of their booking like,<ul><li>Where would they like to get their scan/test done (intent.fulfillment.start.location)</li><li>When would they like to get their scan/test done (intent.fulfillment.start.time)</li><li>When would they like to get the results of their test/scan (intent.fulfillment.end.time)</li><li>Who is the service provider they would like to avail services from (intent.provider)</li><li>Who is getting the test/scan (intent.fulfillment.customer)</li><li>What kind of test/scan would they like to purchase (intent.item)</li><li>What category of services would they like to avail (intent.category)</li><li>How would they like to pay for their journey (intent.payment)</li></ul>",
+        "type": "object",
+        "properties": {
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/Provider"
+          },
+          "fulfillment": {
+            "$ref": "#/components/schemas/Fulfillment"
+          },
+          "payment": {
+            "$ref": "#/components/schemas/Payment"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "offer": {
+            "$ref": "#/components/schemas/Offer"
+          },
+          "item": {
+            "$ref": "#/components/schemas/Item"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          }
+        }
+      },
+      "ItemQuantity": {
+        "description": "Describes the count or amount of an item<br>This has properties like allocated,available,maximum,minimum,selected",
+        "type": "object",
+        "properties": {
+          "allocated": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "measure": {
+                "$ref": "#/components/schemas/Scalar"
+              }
+            }
+          },
+          "available": {
+            "type": "object",
+            "description": "This represents the exact quantity available for purchase of the item. The buyer can only purchase multiples of this",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "measure": {
+                "$ref": "#/components/schemas/Scalar"
+              }
+            }
+          },
+          "maximum": {
+            "description": "This represents the maximum quantity allowed for purchase of the item",
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "measure": {
+                "$ref": "#/components/schemas/Scalar"
+              }
+            }
+          },
+          "minimum": {
+            "description": "This represents the minimum quantity allowed for purchase of the item",
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "measure": {
+                "$ref": "#/components/schemas/Scalar"
+              }
+            }
+          },
+          "selected": {
+            "description": "This represents the quantity selected for purchase of the item",
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "measure": {
+                "$ref": "#/components/schemas/Scalar"
+              }
+            }
+          },
+          "unitized": {
+            "description": "This represents the quantity available in a single unit of the item",
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1
+              },
+              "measure": {
+                "$ref": "#/components/schemas/Scalar"
+              }
+            }
+          }
+        }
+      },
+      "Item": {
+        "description": "Describes a product or a service offered to the end consumer by the provider. In the mobility domain item can represent a fare product like one way journey while in the logistics domain it can represent the delivery service offering while in the local retail domain it can represent a product like a grocery item.<br>This has properties like id,parent_item_id,descriptor,price,category_id,fulfillment_id,rating,time,location_id,time,rateable,matched,related,recommended, tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the catalog of products or services it offers to the BAP in the items array</li><li>This is typically used in the order stage when the BAP sends the details of the item the user wants to purchase</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order object containing the details of the products or services purchased in the order</li></ul>",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "This is the most unique identifier of a service item.",
+            "type": "string"
+          },
+          "parent_item_id": {
+            "$ref": "#/components/schemas/Item/properties/id"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "manufacturer": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/ItemQuantity"
+          },
+          "category_id": {
+            "$ref": "#/components/schemas/Category/properties/id"
+          },
+          "fulfillment_id": {
+            "$ref": "#/components/schemas/Fulfillment/properties/id"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/Rating/properties/value"
+          },
+          "location_id": {
+            "$ref": "#/components/schemas/Location/properties/id"
+          },
+          "payment_id": {
+            "$ref": "#/components/schemas/Payment/properties/id"
+          },
+          "cancellation_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CancellationTerm"
+            }
+          },
+          "return_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReturnTerm"
+            }
+          },
+          "replacement_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReplacementTerm"
+            }
+          },
+          "xinput_required": {
+            "$ref": "#/components/schemas/XInput"
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          },
+          "rating_policy": {
+            "$ref": "#/components/schemas/RatingPolicy"
+          },
+          "matched": {
+            "type": "boolean"
+          },
+          "related": {
+            "type": "boolean"
+          },
+          "recommended": {
+            "type": "boolean"
+          },
+          "ttl": {
+            "description": "Time to live for an instance of this schema"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "domain_extns": {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Location": {
+        "description": "Describes the location of something, for example, where an event is happening, where a store is located, or where an action takes place<br>This has properties like id,descriptor,gps,address,station code,city,country,circle,polygon,3d space,time",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "gps": {
+            "$ref": "#/components/schemas/Gps"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "circle": {
+            "$ref": "#/components/schemas/Circle"
+          },
+          "polygon": {
+            "type": "string"
+          },
+          "3dspace": {
+            "type": "string"
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "MediaFile": {
+        "type": "object",
+        "properties": {
+          "mimetype": {
+            "description": "indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF's RFC 6838",
+            "type": "string"
+          },
+          "url": {
+            "description": "The URL of the file",
+            "type": "string",
+            "format": "uri"
+          },
+          "signature": {
+            "description": "The digital signature of the file signed by the sender",
+            "type": "string"
+          },
+          "dsa": {
+            "description": "The signing algorithm used by the sender",
+            "type": "string"
+          }
+        }
+      },
+      "Name": {
+        "type": "string",
+        "description": "Describes the name of a person"
+      },
+      "Offer": {
+        "description": "Describes how a product or a service will be rendered at a reduced price to the user<br>This has properties like id,descriptor,location_ids,category_ids,item_ids,time",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "location_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Location/properties/id"
+            }
+          },
+          "category_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category/properties/id"
+            }
+          },
+          "item_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item/properties/id"
+            }
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          }
+        }
+      },
+      "Option": {
+        "description": "Describes a selectable option<br>This has properties like id,description",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          }
+        }
+      },
+      "Order": {
+        "description": "Describes an order which contains the terms, details, status and identifier of a transaction between a BAP and a BPP. This is usually an exchange of goods or services for money.<br>This has properties like id,state,provider,items,add_ons,offers,documents,billings,fulfillment,quote,payment,created_at,updated_at<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage when the BAP sends the details of the order it wishes to create</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order details</li></ul>",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Human-readable ID of the order. This is generated at the BPP layer. The BPP can either generate order id within its system or forward the order ID created at the provider level."
+          },
+          "ref_order_ids": {
+            "description": "A list of order IDs to link this order to previous orders.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "ID of a previous order"
+            }
+          },
+          "provider": {
+            "description": "Details of the provider whose catalog items have been selected.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Provider"
+              }
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            }
+          },
+          "add_ons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddOn"
+            }
+          },
+          "offers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Offer"
+            }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Document"
+            }
+          },
+          "billing": {
+            "$ref": "#/components/schemas/Billing"
+          },
+          "fulfillments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Fulfillment"
+            }
+          },
+          "cancellation": {
+            "$ref": "#/components/schemas/Cancellation"
+          },
+          "cancellation_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CancellationTerm"
+            }
+          },
+          "return_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReturnTerm"
+            }
+          },
+          "replacement_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReplacementTerm"
+            }
+          },
+          "refund_terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefundTerm"
+            }
+          },
+          "rating_policy": {
+            "$ref": "#/components/schemas/RatingPolicy"
+          },
+          "quote": {
+            "$ref": "#/components/schemas/Quotation"
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Organization": {
+        "description": "Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider's autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "ID of the payment term that can be referred at an item or an order level in a catalog",
+            "type": "string"
+          },
+          "collected_by": {
+            "description": "This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly."
+          },
+          "url": {
+            "type": "string",
+            "description": "A payment url to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If tl_method = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234",
+            "format": "uri"
+          },
+          "params": {
+            "type": "object",
+            "properties": {
+              "transaction_id": {
+                "type": "string",
+                "description": "This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests"
+              },
+              "amount": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "currency": {
+                "$ref": "#/components/schemas/Price/properties/currency"
+              },
+              "bank_code": {
+                "type": "string"
+              },
+              "bank_account_number": {
+                "type": "string"
+              },
+              "virtual_payment_address": {
+                "type": "string"
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "ON-ORDER",
+              "PRE-FULFILLMENT",
+              "ON-FULFILLMENT",
+              "POST-FULFILLMENT"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PAID",
+              "NOT-PAID"
+            ]
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          }
+        }
+      },
+      "Payment": {
+        "description": "Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider's autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "ID of the payment term that can be referred at an item or an order level in a catalog",
+            "type": "string"
+          },
+          "collected_by": {
+            "description": "This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly."
+          },
+          "url": {
+            "type": "string",
+            "description": "A payment url to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If tl_method = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234",
+            "format": "uri"
+          },
+          "params": {
+            "type": "object",
+            "properties": {
+              "transaction_id": {
+                "type": "string",
+                "description": "This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests"
+              },
+              "amount": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "currency": {
+                "$ref": "#/components/schemas/Price/properties/currency"
+              },
+              "bank_code": {
+                "type": "string"
+              },
+              "bank_account_number": {
+                "type": "string"
+              },
+              "virtual_payment_address": {
+                "type": "string"
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "ON-ORDER",
+              "PRE-FULFILLMENT",
+              "ON-FULFILLMENT",
+              "POST-FULFILLMENT"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PAID",
+              "NOT-PAID"
+            ]
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          }
+        }
+      },
+      "Person": {
+        "description": "Describes a person as any individual<br>This has the properties like name,image,dob,gender,cred,tags",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Describes the identity of the person"
+          },
+          "name": {
+            "$ref": "#/components/schemas/Name"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "dob": {
+            "type": "string",
+            "format": "date"
+          },
+          "gender": {
+            "type": "string",
+            "description": "Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender"
+          },
+          "creds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Credential"
+            }
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          }
+        }
+      },
+      "Price": {
+        "description": "Describes the price of a product or service<br>This has properties like currency_value,estimated_value,computed_value,listed_value,offered_value,Minimum_value,maximum_value",
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "estimated_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "computed_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "listed_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "offered_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "minimum_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "maximum_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          }
+        }
+      },
+      "Provider": {
+        "description": "Describes a service provider. This can be a restaurant, a hospital, a Store etc<br>This has properties like id,descriptor,category_id,rating,time,categories,fulfillment,payments,locations,offers,items,exp,rateables,tags",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the provider"
+          },
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "category_id": {
+            "type": "string",
+            "description": "Category Id of the provider"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/Rating/properties/value"
+          },
+          "time": {
+            "$ref": "#/components/schemas/Time"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          },
+          "fulfillments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Fulfillment"
+            }
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            }
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Location"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "rateable": {
+                      "$ref": "#/components/schemas/Rateable"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "offers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Offer"
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            }
+          },
+          "exp": {
+            "type": "string",
+            "description": "Time after which catalog has to be refreshed",
+            "format": "date-time"
+          },
+          "rateable": {
+            "$ref": "#/components/schemas/Rateable"
+          },
+          "ttl": {
+            "description": "Time to live in seconds for an instance of this schema",
+            "type": "integer"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          }
+        }
+      },
+      "Quotation": {
+        "description": "Describes a quote. It is the estimated price of products or services from the BPP.<br>This has properties like price, breakup, ttl",
+        "type": "object",
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "breakup": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "item": {
+                  "$ref": "#/components/schemas/Item"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "price": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/Duration"
+          }
+        }
+      },
+      "Rateable": {
+        "description": "Describes if the entity can be rated or not",
+        "type": "boolean"
+      },
+      "Rating": {
+        "description": "Describes the rating of a person or an object<br>This has properties like rating category,id,value, feedback_id,feedback_form",
+        "type": "object",
+        "properties": {
+          "rating_category": {
+            "description": "Category of the entity being rated",
+            "type": "string",
+            "enum": [
+              "Item",
+              "Order",
+              "Fulfillment",
+              "Provider",
+              "Agent",
+              "Support"
+            ]
+          },
+          "id": {
+            "description": "Id of the object being rated",
+            "type": "string"
+          },
+          "value": {
+            "description": "Rating value given to the object",
+            "type": "string"
+          }
+        }
+      },
+      "RatingPolicy": {
+        "description": "Describes the rating policy of an object. This can be set in various places to indicate whether the object can be rated or not.",
+        "type": "object",
+        "properties": {
+          "rateable": {
+            "type": "boolean",
+            "default": false
+          },
+          "range": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "descriptor": {
+                  "$ref": "#/components/schemas/Descriptor"
+                }
+              }
+            }
+          }
+        }
+      },
+      "RefundTerm": {
+        "type": "object",
+        "properties": {
+          "refund_within": {
+            "description": "Time within which refund will be processed.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Time"
+              }
+            ]
+          },
+          "external_ref": {
+            "$ref": "#/components/schemas/MediaFile"
+          }
+        }
+      },
+      "ReplacementTerm": {
+        "type": "object",
+        "properties": {
+          "replace_within": {
+            "description": "Applicable only for buyer managed returns where the buyer has to replace the item before a certain date-time, failing which they will not be eligible for replacement",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Time"
+              }
+            ]
+          },
+          "external_ref": {
+            "$ref": "#/components/schemas/MediaFile"
+          }
+        }
+      },
+      "ReturnTerm": {
+        "description": "Describes the return policy of an item or an order",
+        "type": "object",
+        "properties": {
+          "return_within": {
+            "description": "Applicable only for buyer managed returns where the buyer has to return the item to the origin before a certain date-time, failing which they will not be eligible for refund.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Time"
+              }
+            ]
+          },
+          "fulfillment_managed_by": {
+            "enum": [
+              "CUSTOMER",
+              "PROVIDER"
+            ]
+          },
+          "return_location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "external_ref": {
+            "$ref": "#/components/schemas/MediaFile"
+          }
+        }
+      },
+      "Scalar": {
+        "description": "Describes a scalar quantity.<br>This has properties like value, estimated_value, computed_value,range, unit",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "CONSTANT",
+              "VARIABLE"
+            ]
+          },
+          "value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "estimated_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "computed_value": {
+            "$ref": "#/components/schemas/DecimalValue"
+          },
+          "range": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              "max": {
+                "$ref": "#/components/schemas/DecimalValue"
+              }
+            }
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      },
+      "Schedule": {
+        "description": "Describes schedule as a repeating time period used to describe a regularly recurring event. At a minimum a schedule will specify frequency which describes the interval between occurrences of the event. Additional information can be provided to specify the schedule more precisely. This includes identifying the timestamps(s) of when the event will take place. Schedules may also have holidays to exclude a specific day from the schedule.<br>This has properties like frequency, holidays, times",
+        "type": "object",
+        "properties": {
+          "frequency": {
+            "$ref": "#/components/schemas/Duration"
+          },
+          "holidays": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "times": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      "State": {
+        "description": "Describes the state of an order or fulfillment<br>This has properties like descriptor, updated_at,updated_by",
+        "type": "object",
+        "properties": {
+          "descriptor": {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_by": {
+            "type": "string",
+            "description": "ID of entity which changed the state"
+          }
+        }
+      },
+      "Support": {
+        "description": "Customer support",
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "string",
+            "format": "phone"
+          },
+          "phone": {
+            "type": "string",
+            "format": "phone"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "Tags": {
+        "description": "Describes a tag. This is a simple key-value store which is used to contain extended metadata",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "Time": {
+        "description": "Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations<br>This has properties like label, time stamp,duration,range, days, schedule",
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "duration": {
+            "$ref": "#/components/schemas/Duration"
+          },
+          "range": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "days": {
+            "type": "string",
+            "description": "comma separated values representing days of the week"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/Schedule"
+          }
+        }
+      },
+      "Tracking": {
+        "description": "Contains tracking information that can be used by the BAP to track the fulfillment of an order in real-time. which is useful for knowing the location of time sensitive deliveries.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mime_type": {
+            "type": "string"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "inactive"
+            ]
+          }
+        }
+      },
+      "Vehicle": {
+        "description": "Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration",
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "capacity": {
+            "type": "integer"
+          },
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "energy_type": {
+            "type": "string"
+          },
+          "registration": {
+            "type": "string"
+          }
+        }
+      },
+      "XInput": {
+        "description": "Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. Sometimes, selection of catalog elements is not enough for the BPP to confirm an order. For example, to confirm a flight ticket, the airline requires details of the passengers along with information on baggage, identity, in addition to the class of ticket. Similarly, a logistics company may require details on the nature of shipment in order to confirm the shipping. A recruiting firm may require additional details on the applicant in order to confirm a job application. For all such purposes, the BPP can choose to send this object attached to any object in the catalog that is required to be sent while placing the order. This object can typically be sent at an item level or at the order level. The item level XInput will override the Order level XInput as it indicates a special requirement of information for that particular item. Hence the BAP must render a separate form for the Item and another form at the Order level before confirmation.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Form"
+          }
+        ]
+      }
+    }
+  }
+}
