@@ -1,0 +1,26 @@
+description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level.
+type: object
+properties:
+  refund_eligible:
+   description: Indicates if cancellation will result in a refund
+   type: boolean
+  return_eligible:
+    description: Indicates if cancellation will result in a return to origin
+    type: boolean
+  replacement_eligible:
+    description: Indicates if cancellation will result in a replacement
+    type: boolean
+  fulfillment_state:
+    description: The state of fulfillment during which these terms are applicable.
+    allOf:
+      - $ref: "./State.yaml"
+  cancel_by:
+    description: Information related to the time of cancellation.
+    allOf:
+      - $ref: "./Time.yaml"
+  cancellation_fee:
+    $ref: "./Fee.yaml"
+  external_ref:
+    $ref: "./MediaFile.yaml"
+
+

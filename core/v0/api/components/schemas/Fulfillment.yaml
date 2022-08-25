@@ -1,0 +1,90 @@
+description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>
+type: object
+properties:
+  id:
+    type: string
+    description: Unique reference ID to the fulfillment of an order
+  type:
+    type: string
+    description: This describes the type of fulfillment
+  provider_id:
+    $ref: "./Provider.yaml#/properties/id"
+  rating_policy:
+    $ref: "./RatingPolicy.yaml"
+  state:
+    $ref: "./State.yaml"
+  tracking:
+    type: boolean
+    description: Indicates whether the fulfillment allows tracking
+    default: false
+  customer:
+    type: object
+    properties:
+      person:
+        $ref: "./Person.yaml"
+      contact:
+        $ref: "./Contact.yaml"
+  agent:
+    $ref: "./Agent.yaml"
+  contact:
+    $ref: "./Contact.yaml"
+  vehicle:
+    $ref: "./Vehicle.yaml"
+  start:
+    description: Details on the start of fulfillment
+    type: object
+    properties:
+      location:
+        $ref: "./Location.yaml"
+      time:
+        $ref: "./Time.yaml"
+      instructions:
+        $ref: "./Descriptor.yaml"
+      contact:
+        $ref: "./Contact.yaml"
+      person:
+        $ref: "./Person.yaml"
+      authorization:
+        $ref: "./Authorization.yaml"
+  end:
+    description: Details on the end of fulfillment
+    type: object
+    properties:
+      location:
+        $ref: "./Location.yaml"
+      time:
+        $ref: "./Time.yaml"
+      instructions:
+        $ref: "./Descriptor.yaml"
+      contact:
+        $ref: "./Contact.yaml"
+      person:
+        $ref: "./Person.yaml"
+      authorization:
+        $ref: "./Authorization.yaml"
+  route:
+    type: object
+    properties:
+      path:
+        type: array
+        items:
+          $ref: "./Gps.yaml"
+      stops:
+        type: array
+        items:
+          type: object
+          properties:
+            location:
+              $ref: "./Location.yaml"
+            time:
+              $ref: "./Time.yaml"
+  tags:
+    $ref: "./Tags.yaml"
+  domain_extns:
+    type: object
+    properties:
+      domain:
+        type: string
+    additionalProperties:
+      type: string
+

@@ -1,0 +1,12 @@
+type: object
+description: A fee applied on a particular entity
+properties:
+  percentage:
+    description: Percentage of a value
+    allOf:
+      - $ref: "./DecimalValue.yaml"
+  amount:
+    description: A fixed amount applied on the total order value
+    allOf:
+      - $ref: "./Price.yaml"
+

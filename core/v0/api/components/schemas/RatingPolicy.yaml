@@ -1,0 +1,16 @@
+description: Describes the rating policy of an object. This can be set in various places to indicate whether the object can be rated or not.
+type: object
+properties:
+  rateable:
+    type: boolean
+    default: false
+  range:
+    type: array
+    items:
+      type: object
+      properties:
+        value:
+          type: string
+        descriptor:
+          $ref: "./Descriptor.yaml"
+

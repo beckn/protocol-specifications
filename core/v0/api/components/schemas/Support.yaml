@@ -1,0 +1,16 @@
+description: Customer support
+type: object
+properties:
+  callback:
+    type: string
+    format: phone
+  phone:
+    type: string
+    format: phone
+  email:
+    type: string
+    format: email
+  url:
+    type: string
+    format: uri
+

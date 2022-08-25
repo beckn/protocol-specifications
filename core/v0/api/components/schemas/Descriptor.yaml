@@ -1,0 +1,31 @@
+description: Describes the description used to describe or identify a real world object<br>This has properties like name,code,symbol,short_desc,long_desc,images,audio,3d_render
+type: object
+properties:
+  name:
+    type: string
+  code:
+    type: string
+  short_desc:
+    type: string
+  long_desc:
+    type: string
+  additional_desc:
+    type: object
+    properties:
+      url:
+        type: string
+      content_type:
+        type: string
+        enum:
+          - text/plain
+          - text/html
+          - application/json
+  media:
+    type: array
+    items:
+      $ref: "./MediaFile.yaml"
+  images:
+    type: array
+    items:
+      $ref: "./Image.yaml"
+

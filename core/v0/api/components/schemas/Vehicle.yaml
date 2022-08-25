@@ -1,0 +1,22 @@
+description: Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration
+type: object
+properties:
+  category:
+    type: string
+  capacity:
+    type: integer
+  make:
+    type: string
+  model:
+    type: string
+  size:
+    type: string
+  variant:
+    type: string
+  color:
+    type: string
+  energy_type:
+    type: string
+  registration:
+    type: string
+

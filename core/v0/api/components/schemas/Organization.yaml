@@ -1,0 +1,43 @@
+description: Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider's autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.
+type: object
+properties:
+  id:
+    description: ID of the payment term that can be referred at an item or an order level in a catalog
+    type: string
+  collected_by:
+    description: This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly.
+  url:
+    type: string
+    description: A payment url to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If tl_method = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234
+    format: uri
+  params:
+    type: object
+    properties:
+      transaction_id:
+        type: string
+        description: This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests
+      amount:
+        $ref: "./Price.yaml#/properties/value"
+      currency:
+        $ref: "./Price.yaml#/properties/currency"
+      bank_code:
+        type: string
+      bank_account_number:
+        type: string
+      virtual_payment_address:
+        type: string
+  type:
+    type: string
+    enum:
+      - ON-ORDER
+      - PRE-FULFILLMENT
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+  status:
+    type: string
+    enum:
+      - PAID
+      - NOT-PAID
+  time:
+    $ref: "./Time.yaml"
+
