@@ -68,4 +68,8 @@ properties:
   updated_at:
     type: string
     format: date-time
+  tags:
+    type: array
+    items:
+      $ref: "./Tag.yaml"
 

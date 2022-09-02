@@ -52,5 +52,7 @@ properties:
     description: Time to live in seconds for an instance of this schema
     type: integer
   tags:
-    $ref: "./Tags.yaml"
+    type: array
+    items:
+      $ref: "./Tag.yaml"
 
