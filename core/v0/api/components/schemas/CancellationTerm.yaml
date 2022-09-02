@@ -10,9 +10,6 @@ properties:
   return_eligible:
     description: Indicates if cancellation will result in a return to origin
     type: boolean
-  replacement_eligible:
-    description: Indicates if cancellation will result in a replacement
-    type: boolean
   fulfillment_state:
     description: The state of fulfillment during which these terms are applicable.
     allOf:
