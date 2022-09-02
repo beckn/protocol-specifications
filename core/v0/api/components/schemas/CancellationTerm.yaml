@@ -1,6 +1,9 @@
 description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level.
 type: object
 properties:
+  reason_required:
+    description: Indicates whether a reason is required to cancel the order
+    type: boolean
   refund_eligible:
    description: Indicates if cancellation will result in a refund
    type: boolean
