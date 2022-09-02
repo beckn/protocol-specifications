@@ -9,7 +9,7 @@ properties:
     description: Path to json schema generating the error. Used only during json schema validation errors
   message:
     type: string
-    description: Human readable message describing the error
+    description: Human readable message describing the error. Used mainly for logging. Not recommended to be shown to the user.
 required:
-  - type
   - code
+  - path
