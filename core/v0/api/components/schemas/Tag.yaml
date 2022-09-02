@@ -1,0 +1,21 @@
+description: A simple read-only key-value store which is used to contain extended metadata for search optimization, recommendations, and general information display purposes. Tags are read-only can cannot be changed once set. 
+type: object
+properties:
+  namespace:
+    description: The namespace associated with the tag. 
+    type: string
+    default: default
+  key:
+    description: The machine-readable name of the tag. Beckn protocol has reserved certain keywords from being re-defined in any namespaces. 
+    type: string
+  label:
+    description: The human-readable name of the tag. This is usually for display purposes.
+    type: string
+  value:
+    description: The value of the tag key
+    type: string
+  hidden:
+    description: It indicates whether this tag is for display purposes or not.
+    type: boolean
+    default: false
+
