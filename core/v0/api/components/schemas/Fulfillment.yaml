@@ -79,7 +79,9 @@ properties:
             time:
               $ref: "./Time.yaml"
   tags:
-    $ref: "./Tags.yaml"
+    type: array
+    items:
+      $ref: "./Tag.yaml"
   domain_extns:
     type: object
     properties:

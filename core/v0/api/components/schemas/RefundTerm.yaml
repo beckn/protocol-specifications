@@ -1,7 +1,7 @@
 type: object
 properties:
   refund_within:
-    description: Time within which refund will be processed.
+    description: Time within which refund will be processed after successful cancellation.
     allOf:
       - $ref: "./Time.yaml"
   external_ref:

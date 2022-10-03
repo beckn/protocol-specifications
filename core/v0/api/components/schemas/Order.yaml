@@ -10,6 +10,10 @@ properties:
     items:
       type: string
       description: ID of a previous order
+  type:
+    description: This is used to indicate the type of order being created to BPPs. Sometimes orders can be linked to previous orders, like a replacement order in a retail domain. A follow-up consultation in healthcare domain. A single order part of a subscription order. The list of order types can be standardized at the network level. Some recommendations for order types can be REPLACEMENT, FOLLOW-UP
+    type: string
+    default: DEFAULT
   provider:
     description: Details of the provider whose catalog items have been selected.
     allOf:
@@ -68,4 +72,8 @@ properties:
   updated_at:
     type: string
     format: date-time
+  tags:
+    type: array
+    items:
+      $ref: "./Tag.yaml"
 

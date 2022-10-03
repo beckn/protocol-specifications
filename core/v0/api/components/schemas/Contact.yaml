@@ -13,5 +13,7 @@ properties:
     type: object
     description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
   tags:
-    $ref: "./Tags.yaml"
+    type: array
+    items:
+      $ref: "./Tag.yaml"
 

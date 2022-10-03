@@ -13,5 +13,7 @@ properties:
   ttl:
     description: Time to live for an instance of this schema
   tags:
-    $ref: "./Tags.yaml"
+    type: array
+    items:
+      $ref: "./Tag.yaml"
 
