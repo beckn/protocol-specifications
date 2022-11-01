@@ -1,9 +1,14 @@
-description: Describes an ancillary item (products/services) sold to the buyer of a main product or service<br>This has properties like id,descriptor,price<br>This schema is used in the addons array in the Order schema object. This does not exist independently in a catalog and is always associated with an item.
+description: Describes an additional item offered as a value-addition to a product or service. This does not exist independently in a catalog and is always associated with an item.
 type: object
 properties:
   id:
+    description: Provider-defined ID of the add-on
     type: string
-    description: "ID of the add-on"
+  item_ids:
+    description: Item IDs this add-on can be purchased with
+    type: array
+    items:
+      type: string
   descriptor:
     $ref: "./Descriptor.yaml"
   price:
