@@ -15,16 +15,22 @@ properties:
     properties:
       transaction_id:
         type: string
-        description: This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests
+        description: The reference transaction ID associated with a payment activity
       amount:
-        $ref: "./Price.yaml#/properties/value"
+        type: string
       currency:
-        $ref: "./Price.yaml#/properties/currency"
+        type: string
       bank_code:
         type: string
       bank_account_number:
         type: string
       virtual_payment_address:
+        type: string
+      source_bank_code:
+        type: string
+      source_bank_account_number:
+        type: string
+      source_virtual_payment_address:
         type: string
   type:
     type: string
