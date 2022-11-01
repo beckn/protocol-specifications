@@ -1,4 +1,4 @@
-description: Describes the cancellation policy of an item or an order. This can be referenced at an item or order level.
+description: Describes the cancellation terms of an item or an order. This can be referenced at an item or order level. Item-level cancellation terms can override the terms at the order level.
 type: object
 properties:
   reason_required:
@@ -14,13 +14,45 @@ properties:
     description: The state of fulfillment during which these terms are applicable.
     allOf:
       - $ref: "./State.yaml"
+  return_policy:
+    description: Describes the return policy of an item or an order
+    type: object
+    properties:
+      return_eligible:
+        description: Indicates whether the item is eligible for return
+        type: boolean
+      return_within:
+        description: Applicable only for buyer managed returns where the buyer has to return the item to the origin before a certain date-time, failing which they will not be eligible for refund.
+        allOf:
+          - $ref: "./Time.yaml"
+      return_location:
+        $ref: "./Location.yaml"
+      fulfillment_managed_by:
+        enum:
+        - customer
+        - provider
+  refund_policy:
+    type: object
+    properties:
+      refund_eligible:
+        description: Indicates if cancellation will result in a refund
+        type: boolean
+      refund_within:
+        description: Time within which refund will be processed after successful cancellation.
+        allOf:
+          - $ref: "./Time.yaml"
+      refund_amount:
+        $ref: "./Price.yaml"
   cancel_by:
     description: Information related to the time of cancellation.
     allOf:
       - $ref: "./Time.yaml"
   cancellation_fee:
     $ref: "./Fee.yaml"
+  xinput_required:
+    $ref: "./XInput.yaml"
   external_ref:
     $ref: "./MediaFile.yaml"
 
 
+    
