@@ -3,13 +3,10 @@ type: object
 properties:
   code:
     type: string
-    description: "Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo"
+    description: Standard error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-005-ERROR-CODES-DRAFT-01.md of this repo"
   path:
     type: string
     description: Path to json schema generating the error. Used only during json schema validation errors
   message:
     type: string
     description: Human readable message describing the error. Used mainly for logging. Not recommended to be shown to the user.
-required:
-  - code
-  - path
