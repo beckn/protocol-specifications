@@ -1,11 +1,20 @@
-description: Describes a city or a town<br>This has properties like name,code
+description: Describes a city
 type: object
 properties:
   name:
-    type: string
     description: Name of the city
-  code:
     type: string
+  code:
     description: City code
-
-
+    type: string
+  map_url:
+    type: string
+    description: The url to the map of the country. This can be a globally recognized map or the one specified by the network policy.
+  boundary:
+    description: The geo-spatial polygon representing the boundary of the city
+    type: string
+  tags:
+    description: Any other information regarding the country
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
