@@ -19,4 +19,14 @@ properties:
     type: string
   registration:
     type: string
+  wheels_count:
+    type: string
+  cargo_volumne:
+    type: string
+  wheelchair_access:
+    type: string
+  code:
+    type: string
+  emission_standard:
+    type: string
 
