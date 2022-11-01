@@ -1,14 +1,14 @@
-description: Describes a service provider. This can be a restaurant, a hospital, a Store etc<br>This has properties like id,descriptor,category_id,rating,time,categories,fulfillment,payments,locations,offers,items,exp,rateables,tags
+description: Describes the catalog of a business. 
 type: object
 properties:
   id:
     type: string
-    description: "Id of the provider"
+    description: Id of the provider
   descriptor:
     $ref: "./Descriptor.yaml"
   category_id:
     type: string
-    description: "Category Id of the provider"
+    description: Category Id of the provider at the BPP-level catalog
   rating:
     $ref: "./Rating.yaml#/properties/value"
   time:
@@ -28,12 +28,7 @@ properties:
   locations:
     type: array
     items:
-      allOf:
-        - $ref: "./Location.yaml"
-        - type: object
-          properties:
-            rateable:
-              $ref: "./Rateable.yaml"
+      $ref: "./Location.yaml"
   offers:
     type: array
     items:
@@ -49,10 +44,10 @@ properties:
   rateable:
     $ref: "./Rateable.yaml"
   ttl:
-    description: Time to live in seconds for an instance of this schema
+    description: The time-to-live in seconds, for this object. This can be overriden at deeper levels. A value of -1 indicates that this object is not cacheable. 
     type: integer
+    minimum: -1
   tags:
     type: array
     items:
-      $ref: "./Tag.yaml"
-
+      $ref: "./TagGroup.yaml"
