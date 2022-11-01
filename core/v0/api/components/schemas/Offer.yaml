@@ -1,4 +1,4 @@
-description: Describes how a product or a service will be rendered at a reduced price to the user<br>This has properties like id,descriptor,location_ids,category_ids,item_ids,time
+description: An offer associated with a catalog. This is typically used to promote a particular product and enable more purchases. 
 type: object
 properties:
   id:
@@ -19,4 +19,10 @@ properties:
       $ref: "./Item.yaml#/properties/id"
   time:
     $ref: "./Time.yaml"
-
+  tags:
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
+  exp:
+    description: Timestamp after which the offer will expire
+    type: string
