@@ -5,9 +5,13 @@ properties:
     type: string
     description: Describes the identity of the person
   name:
-    $ref: "./Name.yaml"
+    description: the name of the person
+    type: string
   image:
     $ref: "./Image.yaml"
+  age:
+    type: string
+    format: date
   dob:
     type: string
     format: date
@@ -21,5 +25,5 @@ properties:
   tags:
     type: array
     items:
-      $ref: "./Tag.yaml"
+      $ref: "./TagGroup.yaml"
 
