@@ -1,11 +1,14 @@
-description: Describes the acknowledgement message a BPP, BAP or BG sends as response to any beckn API calls. This can represent the acknowledged or not acknowledged status response.<br>This has one property status<br>This schema is used in the response of all the beckn API calls<br>This is used to convey the acknowledgement status of a beckn API call received by a network participant. If the network participant received the API call successfuly and has validated the request is as per protocol specifications and signature verified it can send back an ACK as status. Or else it will send NACK as status. The validation done at this point is only technical in nature (validating if the schema is as per specification, if the signature and caller is valid, if the endpoint itself is implemented) and no functional validation (as per business logic) needs to be done before sending this.
+description: Describes the acknowledgement sent in response to an API call. If the implementation uses HTTP/S, then Ack must be returned in the same session. Every API call to a BPP must be responded to with an Ack whether the BPP intends to respond with a callback or not. This has one property called `status` that indicates the status of the Acknowledgement.
 type: object
 properties:
   status:
     type: string
-    description: Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK
+    description: The status of the acknowledgement. If the request passes the validation criteria of the BPP, then this is set to ACK. If a BPP responds with status = `ACK` to a request, it is required to respond with a callback. If the request fails the validation criteria, then this is set to NACK. Additionally, if a BPP does not intend to respond with a callback even after the request meets the validation criteria, it should set this value to `NACK`. 
     enum:
       - ACK
       - NACK
-required:
-  - status
+  tags:
+    description: A list of tags containing any additional information sent along with the Acknowledgement. 
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
