@@ -1,3 +1,4 @@
+description: This object contains a url to a media file. 
 type: object
 properties:
   mimetype:
