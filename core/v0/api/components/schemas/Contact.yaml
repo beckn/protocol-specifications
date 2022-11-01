@@ -2,7 +2,8 @@ description: Describes the contact information of an entity
 type: object
 properties:
   name:
-    $ref: "./Name.yaml"
+    description: The name of the contact
+    type: string
   address:
     $ref: "./Address.yaml"
   phone:
