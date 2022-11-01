@@ -1,18 +1,20 @@
-description: Describes how a single product/service will be rendered/fulfilled to the end customer<br>This has properties like id,type,provider_id,rating,state,tracking, customer,agent,person,contact,vehicle,start,end,rateable,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the order stage when the BPP sends the fulfillment terms to the BAP</li><li>This is typically used in the fulfillment stage when the BPP sends the status and current details of fulfillment to the BAP</li></ul>
+description: Describes how a an order will be rendered/fulfilled to the end-customer
 type: object
 properties:
   id:
-    type: string
     description: Unique reference ID to the fulfillment of an order
-  type:
     type: string
-    description: This describes the type of fulfillment
-  provider_id:
-    $ref: "./Provider.yaml#/properties/id"
-  rating_policy:
-    $ref: "./RatingPolicy.yaml"
+  type:
+    description: A code that describes the mode of fulfillment. This is typically set when there are multiple ways an order can be fulfilled. For example, a retail order can be fulfilled either via store pickup or a home delivery. Similarly, a medical consultation can be provided either in-person or via tele-consultation. The network policy must publish standard fulfillment type codes for the different modes of fulfillment.
+    type: string
+  rating:
+    description: The rating value of the fulfullment service.
+    allOf:
+      - $ref: "./Rating.yaml#/properties/value"
   state:
-    $ref: "./State.yaml"
+    description: The current state of fulfillment. The BPP must set this value whenever the state of the order fulfillment changes and fire an unsolicited `on_status` call.
+    allOf: 
+      - $ref: "./State.yaml"
   tracking:
     type: boolean
     description: Indicates whether the fulfillment allows tracking
@@ -30,63 +32,23 @@ properties:
     $ref: "./Contact.yaml"
   vehicle:
     $ref: "./Vehicle.yaml"
+  stops:
+    description: The list logical stops encountered during the fulfillment of an order. It is recommended to use this property when there is atleast one intermediate stop between the start and the end of the fulfillment. For fulfillments that contain only a start and an end, it is recommended to use the start and stop property. 
+    type: array
+    items:
+      $ref: "./Stop.yaml"
   start:
     description: Details on the start of fulfillment
-    type: object
-    properties:
-      location:
-        $ref: "./Location.yaml"
-      time:
-        $ref: "./Time.yaml"
-      instructions:
-        $ref: "./Descriptor.yaml"
-      contact:
-        $ref: "./Contact.yaml"
-      person:
-        $ref: "./Person.yaml"
-      authorization:
-        $ref: "./Authorization.yaml"
+    allOf:
+      - $ref: "./Stop.yaml"
   end:
     description: Details on the end of fulfillment
-    type: object
-    properties:
-      location:
-        $ref: "./Location.yaml"
-      time:
-        $ref: "./Time.yaml"
-      instructions:
-        $ref: "./Descriptor.yaml"
-      contact:
-        $ref: "./Contact.yaml"
-      person:
-        $ref: "./Person.yaml"
-      authorization:
-        $ref: "./Authorization.yaml"
-  route:
-    type: object
-    properties:
-      path:
-        type: array
-        items:
-          $ref: "./Gps.yaml"
-      stops:
-        type: array
-        items:
-          type: object
-          properties:
-            location:
-              $ref: "./Location.yaml"
-            time:
-              $ref: "./Time.yaml"
+    allOf:
+      - $ref: "./Stop.yaml"
+  path:
+    description: The physical path taken by the agent that can be rendered on a map. The allowed format of this property can be set by the network.
+    type: string
   tags:
     type: array
     items:
-      $ref: "./Tag.yaml"
-  domain_extns:
-    type: object
-    properties:
-      domain:
-        type: string
-    additionalProperties:
-      type: string
-
+      $ref: "./TagGroup.yaml"
