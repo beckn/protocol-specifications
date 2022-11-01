@@ -24,7 +24,10 @@ properties:
     items:
       $ref: "./Provider.yaml"
   exp:
+    description: Timestamp after which catalog will expire
     type: string
-    description: Time after which catalog has to be refreshed
     format: date-time
+  ttl:
+    description: Duration in seconds after which this catalog will expire
+    type: string
 
