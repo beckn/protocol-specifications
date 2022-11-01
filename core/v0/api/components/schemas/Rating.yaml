@@ -1,4 +1,4 @@
-description: Describes the rating of a person or an object<br>This has properties like rating category,id,value, feedback_id,feedback_form
+description: Describes the rating of an entity
 type: object
 properties:
   rating_category:
@@ -15,6 +15,6 @@ properties:
     description: Id of the object being rated
     type: string
   value:
-    description: Rating value given to the object
+    description: Rating value given to the object. This can be a single value or can also contain an inequality operator like gt, gte, lt, lte. This can also contain an inequality expression containing logical operators like && and ||. 
     type: string
 
