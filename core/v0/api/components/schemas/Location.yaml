@@ -1,4 +1,4 @@
-description: Describes the location of something, for example, where an event is happening, where a store is located, or where an action takes place<br>This has properties like id,descriptor,gps,address,station code,city,country,circle,polygon,3d space,time
+description: The physical location of something
 type: object
 properties:
   id:
@@ -11,6 +11,8 @@ properties:
     $ref: "./Address.yaml"
   city:
     $ref: "./City.yaml"
+  state:
+    $ref: "./CountryState.yaml"
   country:
     $ref: "./Country.yaml"
   circle:
@@ -24,4 +26,3 @@ properties:
   updated_at:
     type: string
     format: date-time
-
