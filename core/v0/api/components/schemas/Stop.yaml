@@ -1,0 +1,18 @@
+description: A logical point in space and time during the fulfillment of an order. 
+type: object
+properties:
+  location:
+    $ref: "./Location.yaml"
+  type:
+    description: The type of the stop. Allowed values of this property can be set by the network. 
+    type: string
+  time:
+    $ref: "./Time.yaml"
+  instructions:
+    $ref: "./Descriptor.yaml"
+  contact:
+    $ref: "./Contact.yaml"
+  person:
+    $ref: "./Person.yaml"
+  authorization:
+    $ref: "./Authorization.yaml"
