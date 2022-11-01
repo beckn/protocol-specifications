@@ -1,9 +1,9 @@
-description: Describes the postal address of a location.
+description: Describes a postal address.
 type: object
 properties:
   full:
-    type: string
     description: Full unformatted address of a location.
-  format:
     type: string
+  format:
     description: Defines the address formatting standard
+    type: string
