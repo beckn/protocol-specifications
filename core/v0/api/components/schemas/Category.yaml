@@ -1,9 +1,9 @@
-description: Describes a type or division of providers or items regarded as having one or more shared characteristics<br>This has properties like id,parent_category_id,descriptor,time,tags<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog because the price of the same product or service can change based on the category </li><li>This is typically used in the discovery stage when the BPP wants to categorize the products or services in its catalog as additional information about the product or service </li></ul>
+description: A label under which a collection of items can be grouped.
 type: object
 properties:
   id:
-    type: string
     description: ID of the category
+    type: string
   parent_category_id:
     $ref: "#/properties/id"
   descriptor:
@@ -15,5 +15,5 @@ properties:
   tags:
     type: array
     items:
-      $ref: "./Tag.yaml"
+      $ref: "./TagGroup.yaml"
 
