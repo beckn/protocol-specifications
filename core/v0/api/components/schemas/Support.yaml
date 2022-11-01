@@ -1,6 +1,8 @@
-description: Customer support
+description: Details of customer support
 type: object
 properties:
+  ref_id:
+    type: string
   callback:
     type: string
     format: phone
@@ -13,4 +15,3 @@ properties:
   url:
     type: string
     format: uri
-
