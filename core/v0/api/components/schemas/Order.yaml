@@ -1,4 +1,4 @@
-description: Describes an order which contains the terms, details, status and identifier of a transaction between a BAP and a BPP. This is usually an exchange of goods or services for money.<br>This has properties like id,state,provider,items,add_ons,offers,documents,billings,fulfillment,quote,payment,created_at,updated_at<br>This is used in the following situations.<br><ul><li>This is typically used in the order stage when the BAP sends the details of the order it wishes to create</li><li>This is typically used in the fulfillment stage when the BPP/BAP sends the order details</li></ul>
+description: Describes a legal purchase order. It contains the complete details of the legal contract created between the buyer and the seller. 
 type: object
 properties:
   id:
@@ -10,10 +10,19 @@ properties:
     items:
       type: string
       description: ID of a previous order
+  state:
+    type: string
+    enum:
+      - ACTIVE
+      - COMPLETE
+      - CANCELLED
   type:
-    description: This is used to indicate the type of order being created to BPPs. Sometimes orders can be linked to previous orders, like a replacement order in a retail domain. A follow-up consultation in healthcare domain. A single order part of a subscription order. The list of order types can be standardized at the network level. Some recommendations for order types can be REPLACEMENT, FOLLOW-UP
+    description: This is used to indicate the type of order being created to BPPs. Sometimes orders can be linked to previous orders, like a replacement order in a retail domain. A follow-up consultation in healthcare domain. A single order part of a subscription order. The list of order types can be standardized at the network level.
     type: string
     default: DEFAULT
+    enum:
+      - DRAFT
+      - DEFAULT
   provider:
     description: Details of the provider whose catalog items have been selected.
     allOf:
@@ -46,20 +55,10 @@ properties:
     type: array
     items:
       $ref: "./CancellationTerm.yaml"
-  return_terms:
-    type: array
-    items:
-      $ref: "./ReturnTerm.yaml"
   replacement_terms:
     type: array
     items:
       $ref: "./ReplacementTerm.yaml"
-  refund_terms:
-    type: array
-    items:
-      $ref: "./RefundTerm.yaml"
-  rating_policy:
-    $ref: "./RatingPolicy.yaml"
   quote:
     $ref: "./Quotation.yaml"
   payments:
@@ -75,5 +74,4 @@ properties:
   tags:
     type: array
     items:
-      $ref: "./Tag.yaml"
-
+      $ref: "./TagGroup.yaml"
