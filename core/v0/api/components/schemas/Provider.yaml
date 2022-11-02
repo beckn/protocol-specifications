@@ -42,7 +42,8 @@ properties:
     description: Time after which catalog has to be refreshed
     format: date-time
   rateable:
-    $ref: "./Rateable.yaml"
+    description: Whether this provider can be rated or not
+    type: boolean
   ttl:
     description: The time-to-live in seconds, for this object. This can be overriden at deeper levels. A value of -1 indicates that this object is not cacheable. 
     type: integer
