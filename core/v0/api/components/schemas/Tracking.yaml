@@ -6,8 +6,6 @@ properties:
   url:
     type: string
     format: uri
-  mime_type:
-    type: string
   location:
     $ref: "./Location.yaml"
   status:
