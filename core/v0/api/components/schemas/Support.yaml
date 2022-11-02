@@ -3,7 +3,7 @@ type: object
 properties:
   ref_id:
     type: string
-  callback:
+  callback_phone:
     type: string
     format: phone
   phone:
