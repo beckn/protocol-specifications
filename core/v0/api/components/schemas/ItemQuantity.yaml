@@ -1,7 +1,8 @@
-description: Describes the count or amount of an item<br>This has properties like allocated,available,maximum,minimum,selected
+description: Describes the count or amount of an item
 type: object
 properties:
   allocated:
+    description: This represents the exact quantity allocated for purchase of the item. 
     type: object
     properties:
       count:
@@ -10,8 +11,8 @@ properties:
       measure:
         $ref: "./Scalar.yaml"
   available:
-    type: object
     description: This represents the exact quantity available for purchase of the item. The buyer can only purchase multiples of this
+    type: object
     properties:
       count:
         type: integer
