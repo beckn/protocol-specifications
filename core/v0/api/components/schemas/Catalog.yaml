@@ -3,19 +3,18 @@ type: object
 properties:
   descriptor:
     $ref: "./Descriptor.yaml"
-  categories:
-    type: array
-    items:
-      $ref: "./Category.yaml"
   fulfillments:
+    description: Fulfillment modes offered at the BPP level. This is used when a BPP itself offers fulfillments on behalf of the providers it has onboarded. 
     type: array
     items:
       $ref: "./Fulfillment.yaml"
   payments:
+    description: Payment terms offered by the BPP for all transactions. This can be overriden at the provider level. 
     type: array
     items:
       $ref: "./Payment.yaml"
   offers:
+    description: Offers at the BPP-level. This is common across all providers onboarded by the BPP. 
     type: array
     items:
       $ref: "./Offer.yaml"
