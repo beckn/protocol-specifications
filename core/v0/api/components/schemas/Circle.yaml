@@ -1,11 +1,8 @@
-description: Describes a circular region of a specified radius centered at a specified GPS coordinate.<br>This has properties like gps,radius<br>This is used when a circular area needs to be represented as a location.
+description: Describes a circular region of a specified radius centered at a specified GPS coordinate.
 type: object
 properties:
   gps:
     $ref: "./Gps.yaml"
   radius:
     $ref: "./Scalar.yaml"
-required:
-  - gps
-  - radius
 
