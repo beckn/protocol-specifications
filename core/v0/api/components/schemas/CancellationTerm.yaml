@@ -51,6 +51,8 @@ properties:
     $ref: "./Fee.yaml"
   xinput_required:
     $ref: "./XInput.yaml"
+  xinput_response:
+    $ref: "./XInputResponse.yaml"
   external_ref:
     $ref: "./MediaFile.yaml"
 
