@@ -1,4 +1,4 @@
-description: Describes a scalar quantity
+description: Describes a scalar
 type: object
 properties:
   type:
