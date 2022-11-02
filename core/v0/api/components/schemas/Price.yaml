@@ -1,4 +1,4 @@
-description: Describes the price of a product or service<br>This has properties like currency_value,estimated_value,computed_value,listed_value,offered_value,Minimum_value,maximum_value
+description: Describes the price of a product or service
 type: object
 properties:
   currency:
