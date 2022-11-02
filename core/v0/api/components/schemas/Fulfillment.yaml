@@ -7,6 +7,9 @@ properties:
   type:
     description: A code that describes the mode of fulfillment. This is typically set when there are multiple ways an order can be fulfilled. For example, a retail order can be fulfilled either via store pickup or a home delivery. Similarly, a medical consultation can be provided either in-person or via tele-consultation. The network policy must publish standard fulfillment type codes for the different modes of fulfillment.
     type: string
+  rateable:
+    description: Whether the fulfillment can be rated or not
+    type: boolean
   rating:
     description: The rating value of the fulfullment service.
     allOf:
@@ -20,12 +23,7 @@ properties:
     description: Indicates whether the fulfillment allows tracking
     default: false
   customer:
-    type: object
-    properties:
-      person:
-        $ref: "./Person.yaml"
-      contact:
-        $ref: "./Contact.yaml"
+    $ref: "./Customer.yaml"
   agent:
     $ref: "./Agent.yaml"
   contact:
