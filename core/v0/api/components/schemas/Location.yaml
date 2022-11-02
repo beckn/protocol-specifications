@@ -11,10 +11,14 @@ properties:
     $ref: "./Address.yaml"
   city:
     $ref: "./City.yaml"
+  district:
+    type: string
   state:
     $ref: "./CountryState.yaml"
   country:
     $ref: "./Country.yaml"
+  area_code:
+    type:
   circle:
     $ref: "./Circle.yaml"
   polygon:
