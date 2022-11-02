@@ -23,6 +23,3 @@ properties:
     type: array
     items:
       $ref: "./TagGroup.yaml"
-  exp:
-    description: Timestamp after which the offer will expire
-    type: string
