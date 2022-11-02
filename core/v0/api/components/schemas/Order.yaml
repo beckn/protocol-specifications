@@ -28,49 +28,61 @@ properties:
     allOf:
       - $ref: "./Provider.yaml"
   items:
+    description: The items purchased / availed in this order
     type: array
     items:
       $ref: "./Item.yaml"
   add_ons:
+    description: The add-ons purchased / availed in this order
     type: array
     items:
       $ref: "./AddOn.yaml"
   offers:
+    description: The offers applied in this order
     type: array
     items:
       $ref: "./Offer.yaml"
-  documents:
-    type: array
-    items:
-      $ref: "./Document.yaml"
   billing:
-    $ref: "./Billing.yaml"
+    description: The billing details of this order
+    allOf:
+      - $ref: "./Billing.yaml"
   fulfillments:
+    description: The fulfillments involved in completing this order
     type: array
     items:
       $ref: "./Fulfillment.yaml"
   cancellation:
-    $ref: "./Cancellation.yaml"
+    description: The cancellation details of this order
+    allOf:
+      - $ref: "./Cancellation.yaml"
   cancellation_terms:
+    description: The cancellation terms of this order. This can be overriden at the item level cancellation terms. 
     type: array
     items:
       $ref: "./CancellationTerm.yaml"
-  replacement_terms:
-    type: array
-    items:
-      $ref: "./ReplacementTerm.yaml"
   quote:
-    $ref: "./Quotation.yaml"
+    description: The mutually agreed upon quotation for this order. 
+    allOf:
+      - $ref: "./Quotation.yaml"
   payments:
+    description: The terms of settlement for this order
     type: array
     items:
       $ref: "./Payment.yaml"
   created_at:
+    description: The date-time of creation of this order
     type: string
     format: date-time
   updated_at:
+    description: The date-time of updated of this order
     type: string
     format: date-time
+  xinput_required:
+    description: Additional input required from the customer to confirm this order
+    allOf:
+      - $ref: "./XInput.yaml"
+  xinput_response:
+    $ref: "./XInputResponse.yaml"
   tags:
     type: array
     items:
