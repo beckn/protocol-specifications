@@ -1,4 +1,4 @@
-description: A unique operational configuration of a trusted platform on a network. 
+description: A subscription entry on the registry. 
 type: object
 properties:  
   id:
