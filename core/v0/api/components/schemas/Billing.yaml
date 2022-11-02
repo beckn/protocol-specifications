@@ -5,7 +5,9 @@ properties:
     description: Name of the billable entity
     type: string
   organization:
-    $ref: "./Organization.yaml"
+    description: Details of the organization being billed. 
+    allOf:
+      - $ref: "./Organization.yaml"
   address:
     description: The address of the billable entity
     allOf:
@@ -16,7 +18,9 @@ properties:
   phone:
     type: string
   time:
-    $ref: "./Time.yaml"
+    description: Details regarding the billing period
+    allOf:
+      - $ref: "./Time.yaml"
   tax_number:
-    type: string
     description: ID of the billable entity as recognized by the taxation authority
+    type: string
