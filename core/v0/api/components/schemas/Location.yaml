@@ -18,7 +18,7 @@ properties:
   country:
     $ref: "./Country.yaml"
   area_code:
-    type:
+    type: string
   circle:
     $ref: "./Circle.yaml"
   polygon:
@@ -30,3 +30,5 @@ properties:
   updated_at:
     type: string
     format: date-time
+  rateable:
+    type: boolean
