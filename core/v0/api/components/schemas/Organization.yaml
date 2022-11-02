@@ -1,4 +1,4 @@
-description: An organization
+description: An organization. Usually a recognized business entity. 
 type: object
 properties:
   descriptor:
