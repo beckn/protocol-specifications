@@ -1,4 +1,4 @@
-description: Describes a scalar quantity.<br>This has properties like value, estimated_value, computed_value,range, unit
+description: Describes a scalar quantity
 type: object
 properties:
   type:
