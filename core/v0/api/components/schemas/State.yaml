@@ -1,4 +1,4 @@
-description: Describes the state of an order or fulfillment<br>This has properties like descriptor, updated_at,updated_by
+description: Describes the state of an order or fulfillment
 type: object
 properties:
   descriptor:
