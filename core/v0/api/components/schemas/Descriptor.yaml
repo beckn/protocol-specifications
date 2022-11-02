@@ -1,4 +1,4 @@
-description: Describes the description used to describe or identify a real world object<br>This has properties like name,code,symbol,short_desc,long_desc,images,audio,3d_render
+description: Physical description of something.
 type: object
 properties:
   name:
