@@ -1,5 +1,6 @@
 Ack:
   $ref: "./components/schemas/Ack.yaml"
+  
 AddOn:
   $ref: "./components/schemas/AddOn.yaml"
 
@@ -41,6 +42,9 @@ Context:
 
 Country:
   $ref: "./components/schemas/Country.yaml"
+
+CountryState:
+  $ref: "./components/schemas/CountryState.yaml"
 
 Credential:
   $ref: "./components/schemas/Credential.yaml"
@@ -95,9 +99,6 @@ Location:
 
 MediaFile:
   $ref: "./components/schemas/MediaFile.yaml"
-
-Name:
-  $ref: "./components/schemas/Name.yaml"
 
 Offer:
   $ref: "./components/schemas/Offer.yaml"
