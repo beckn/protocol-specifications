@@ -2,8 +2,8 @@ description: An organization. Usually a recognized business entity.
 type: object
 properties:
   descriptor:
-    $ref: "#/components/schemas/Descriptor"
+    $ref: "./Descriptor.yaml"
   address:
-    $ref: "#/components/schemas/Address"
+    $ref: "./Address.yaml"
   contact:
-    $ref: "#/components/schemas/Contact"
+    $ref: "./Contact.yaml"
