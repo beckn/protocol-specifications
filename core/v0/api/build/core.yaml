@@ -732,11 +732,6 @@ components:
         id:
           description: Provider-defined ID of the add-on
           type: string
-        item_ids:
-          description: Item IDs this add-on can be purchased with
-          type: array
-          items:
-            type: string
         descriptor:
           $ref: '#/components/schemas/Descriptor'
         price:
@@ -1217,26 +1212,22 @@ components:
           description: Indicates whether the fulfillment allows tracking
           default: false
         customer:
-          $ref: '#/components/schemas/Customer'
+          description: The person that will ultimately receive the order
+          allOf:
+            - $ref: '#/components/schemas/Customer'
         agent:
-          $ref: '#/components/schemas/Agent'
+          description: The agent that is currently handling the fulfillment of the order
+          allOf:
+            - $ref: '#/components/schemas/Agent'
         contact:
           $ref: '#/components/schemas/Contact'
         vehicle:
           $ref: '#/components/schemas/Vehicle'
         stops:
-          description: 'The list logical stops encountered during the fulfillment of an order. It is recommended to use this property when there is atleast one intermediate stop between the start and the end of the fulfillment. For fulfillments that contain only a start and an end, it is recommended to use the start and stop property.'
+          description: The list of logical stops encountered during the fulfillment of an order.
           type: array
           items:
             $ref: '#/components/schemas/Stop'
-        start:
-          description: Details on the start of fulfillment
-          allOf:
-            - $ref: '#/components/schemas/Stop'
-        end:
-          description: Details on the end of fulfillment
-          allOf:
-            - $ref: '#/components/schemas/Stop'
         path:
           description: The physical path taken by the agent that can be rendered on a map. The allowed format of this property can be set by the network.
           type: string
@@ -1409,8 +1400,6 @@ components:
           items:
             allOf:
               - $ref: '#/components/schemas/Fulfillment/properties/id'
-        rating:
-          $ref: '#/components/schemas/Rating/properties/value'
         location_ids:
           description: Provider Locations this item is available in
           type: array
@@ -1423,6 +1412,10 @@ components:
           items:
             allOf:
               - $ref: '#/components/schemas/Payment/properties/id'
+        add_ons:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddOn'
         cancellation_terms:
           description: Cancellation terms of this item
           type: array
@@ -1446,6 +1439,10 @@ components:
         rateable:
           description: Whether this item can be rated
           type: boolean
+        rating:
+          description: The rating of the item
+          allOf:
+            - $ref: '#/components/schemas/Rating/properties/value'
         matched:
           description: Whether this item is an exact match of the request
           type: boolean
@@ -1967,19 +1964,33 @@ components:
       description: A logical point in space and time during the fulfillment of an order.
       type: object
       properties:
+        id:
+          type: string
+        parent_stop_id:
+          type: string
         location:
-          $ref: '#/components/schemas/Location'
+          description: Location of the stop
+          allOf:
+            - $ref: '#/components/schemas/Location'
         type:
-          description: The type of the stop. Allowed values of this property can be set by the network.
+          description: The type of stop. Allowed values of this property can be defined by the network policy.
           type: string
         time:
-          $ref: '#/components/schemas/Time'
+          descriptions: Timings applicable at the stop.
+          allOf:
+            - $ref: '#/components/schemas/Time'
         instructions:
-          $ref: '#/components/schemas/Descriptor'
+          description: Instructions that need to be followed at the stop
+          allOf:
+            - $ref: '#/components/schemas/Descriptor'
         contact:
-          $ref: '#/components/schemas/Contact'
+          description: Contact details of the stop
+          allOf:
+            - $ref: '#/components/schemas/Contact'
         person:
-          $ref: '#/components/schemas/Person'
+          description: The details of the person present at the stop
+          allOf:
+            - $ref: '#/components/schemas/Person'
         authorization:
           $ref: '#/components/schemas/Authorization'
     Subscriber:
@@ -2144,17 +2155,26 @@ components:
       type: object
       properties:
         id:
+          description: A unique tracking reference number
           type: string
         url:
+          description: 'A URL to the tracking endpoint. This can be a link to a tracking webpage, a webhook URL created by the BAP where BPP can push the tracking data, or a GET url creaed by the BPP which the BAP can poll to get the tracking data. It can also be a websocket URL where the BPP can push real-time tracking data.'
           type: string
           format: uri
         location:
-          $ref: '#/components/schemas/Location'
+          description: 'In case there is no real-time tracking endpoint available, this field will contain the latest location of the entity being tracked. The BPP will update this value everytime the BAP calls the track API.'
+          allOf:
+            - $ref: '#/components/schemas/Location'
         status:
+          description: 'This value indicates if the tracking is currently active or not. If this value is `active`, then the BAP can begin tracking the order. If this value is `inactive`, the tracking URL is considered to be expired and the BAP should stop tracking the order.'
           type: string
           enum:
             - active
             - inactive
+        xinput_required:
+          description: Any additional information required by the BPP to begin tracking the order
+          allOf:
+            - $ref: '#/components/schemas/XInput'
     Vehicle:
       description: 'Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration'
       type: object

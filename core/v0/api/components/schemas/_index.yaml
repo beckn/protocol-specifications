@@ -1,0 +1,185 @@
+Ack:
+  $ref: "./Ack.yaml"
+  
+AddOn:
+  $ref: "./AddOn.yaml"
+
+Address:
+  $ref: "./Address.yaml"
+
+Agent:
+  $ref: "./Agent.yaml"
+
+Authorization:
+  $ref: "./Authorization.yaml"
+
+Billing:
+  $ref: "./Billing.yaml"
+
+Cancellation:
+  $ref: "./Cancellation.yaml"
+
+CancellationTerm:
+  $ref: "./CancellationTerm.yaml"
+
+Catalog:
+  $ref: "./Catalog.yaml"
+
+Category:
+  $ref: "./Category.yaml"
+
+Circle:
+  $ref: "./Circle.yaml"
+
+City:
+  $ref: "./City.yaml"
+
+Contact:
+  $ref: "./Contact.yaml"
+
+Context:
+  $ref: "./Context.yaml"
+
+Country:
+  $ref: "./Country.yaml"
+
+CountryState:
+  $ref: "./CountryState.yaml"
+
+Credential:
+  $ref: "./Credential.yaml"
+
+Customer:
+  $ref: "./Customer.yaml"
+
+DecimalValue:
+  $ref: "./DecimalValue.yaml"
+
+Descriptor:
+  $ref: "./Descriptor.yaml"
+
+Document:
+  $ref: "./Document.yaml"
+
+Domain:
+  $ref: "./Domain.yaml"
+
+Duration:
+  $ref: "./Duration.yaml"
+
+Error:
+  $ref: "./Error.yaml"
+
+Fee:
+  $ref: "./Fee.yaml"
+
+Form:
+  $ref: "./Form.yaml"
+
+Fulfillment:
+  $ref: "./Fulfillment.yaml"
+
+Gps:
+  $ref: "./Gps.yaml"
+
+Image:
+  $ref: "./Image.yaml"
+
+Intent:
+  $ref: "./Intent.yaml"
+
+ItemQuantity:
+  $ref: "./ItemQuantity.yaml"
+
+Item:
+  $ref: "./Item.yaml"
+
+Location:
+  $ref: "./Location.yaml"
+
+MediaFile:
+  $ref: "./MediaFile.yaml"
+
+Offer:
+  $ref: "./Offer.yaml"
+
+Option:
+  $ref: "./Option.yaml"
+
+Order:
+  $ref: "./Order.yaml"
+
+Organization:
+  $ref: "./Organization.yaml"
+
+Payment:
+  $ref: "./Payment.yaml"
+
+Person:
+  $ref: "./Person.yaml"
+
+Price:
+  $ref: "./Price.yaml"
+
+Provider:
+  $ref: "./Provider.yaml"
+
+Quotation:
+  $ref: "./Quotation.yaml"
+
+Rating:
+  $ref: "./Rating.yaml"
+
+RefundTerm:
+  $ref: "./RefundTerm.yaml"
+
+Region:
+  $ref: "./Region.yaml"
+
+ReplacementTerm:
+  $ref: "./ReplacementTerm.yaml"
+
+ReturnTerm:
+  $ref: "./ReturnTerm.yaml"
+
+Scalar:
+  $ref: "./Scalar.yaml"
+
+Schedule:
+  $ref: "./Schedule.yaml"
+
+State:
+  $ref: "./State.yaml"
+
+Stop:
+  $ref: "./Stop.yaml"
+
+Subscriber:
+  $ref: "./Subscriber.yaml"
+
+Subscription:
+  $ref: "./Subscription.yaml"
+
+Support:
+  $ref: "./Support.yaml"
+
+Tag:
+  $ref: "./Tag.yaml"
+
+TagGroup:
+  $ref: "./TagGroup.yaml"
+
+Time:
+  $ref: "./Time.yaml"
+
+Tracking:
+  $ref: "./Tracking.yaml"
+
+Vehicle:
+  $ref: "./Vehicle.yaml"
+
+XInput:
+  $ref: "./XInput.yaml"
+
+XInputResponse:
+  $ref: "./XInputResponse.yaml"

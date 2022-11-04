@@ -15,26 +15,25 @@ The compilation flow is illustrated below
 
 ## Step 1 : Create the schema index file
 
-- Go to the ```core/v0/api/``` folder
+- Go to the ```core/v0/api/components/schemas/``` folder
 - Create a file ```_index.yaml```. If already present, open it in a text editor
-- It will contain a list of schema with $refs pointing to specific schema files in the ```components/schemas/``` folder as shown below
+- It will contain a list of schema with $refs pointing to specific schema files in the current folder as shown below
 
 ```
 Ack:
-  $ref: "./components/schemas/Ack.yaml"
+  $ref: "./Ack.yaml"
   
 AddOn:
-  $ref: "./components/schemas/AddOn.yaml"
-
+  $ref: "./AddOn.yaml"
 ...
-
 ```
-- Ensure that each file in the ```components/schemas``` folder has an entry in this file. If it is not present, it will not be compiled
+- Ensure that each file in the ```schemas``` folder has an entry in this file. If it is not present, it will not be compiled
 
 
 ## Step 2 : Create the unresolved OpenAPI file
 
-- In the same folder (`core/v0/api/`), create a file - `unresolved.yaml`. If it is already present, open it in a text editor.
+- Go to the `core/v0/api/` folder
+- In this folder, create a file - `core-unresolved.yaml`. If it is already present, open it in a text editor.
 - In the file, you will see the following
 
 ```
@@ -67,7 +66,7 @@ paths:
 ...
 
 ```
-- As you can see, the ```unresolved.yaml``` contains the unresolved Open API definitions with references to the APIs found in ```core/v0/api/components/io/```
+- As you can see, the ```core-unresolved.yaml``` contains the unresolved Open API definitions with references to the APIs found in ```core/v0/api/components/io/```
 - Ensure each API definition in the ```core/v0/api/components/io/``` folder is referenced in this file. If it is not present, it will not be compiled. 
 - Once all API referencing is done, save this file and close it.
 
@@ -82,14 +81,17 @@ sudo npm install -g swagger-cli
 
 ## Generate the resolved OpenAPI definition file
 
-- Go to the folder ```core/v0/api/```
+- Go to the root directory of this project i.e ```protocol-specifications/```
 - Run the following command
 
 ```
-swagger-cli bundle unresolved.yaml --outfile _build/core.yaml --type yaml
+swagger-cli bundle core/v0/api/core-unresolved.yaml --outfile core/v0/api/build/core.yaml --type yaml
 ```
+
 - If the command runs successfully, you should see an output like this,
 
 ```
-Created _build/core.yaml from unresolved.yaml
+Created core/v0/api/build/core.yaml from core/v0/api/core-unresolved.yaml
 ```
+
+- Commit the changes and push the updated code
