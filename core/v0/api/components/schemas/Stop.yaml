@@ -1,18 +1,32 @@
 description: A logical point in space and time during the fulfillment of an order. 
 type: object
 properties:
+  id:
+    type: string
+  parent_stop_id:
+    type: string
   location:
-    $ref: "./Location.yaml"
+    description: Location of the stop
+    allOf:
+      - $ref: "./Location.yaml"
   type:
-    description: The type of the stop. Allowed values of this property can be set by the network. 
+    description: The type of stop. Allowed values of this property can be defined by the network policy. 
     type: string
   time:
-    $ref: "./Time.yaml"
+    descriptions: Timings applicable at the stop.
+    allOf:
+      - $ref: "./Time.yaml"
   instructions:
-    $ref: "./Descriptor.yaml"
+    description: Instructions that need to be followed at the stop
+    allOf:
+      - $ref: "./Descriptor.yaml"
   contact:
-    $ref: "./Contact.yaml"
+    description: Contact details of the stop
+    allOf:
+      - $ref: "./Contact.yaml"
   person:
-    $ref: "./Person.yaml"
+    description: The details of the person present at the stop
+    allOf:
+      - $ref: "./Person.yaml"
   authorization:
     $ref: "./Authorization.yaml"
