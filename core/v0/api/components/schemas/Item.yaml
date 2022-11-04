@@ -40,8 +40,6 @@ properties:
     items:
       allOf:
         - $ref: "./Fulfillment.yaml#/properties/id"
-  rating:
-    $ref: "./Rating.yaml#/properties/value"
   location_ids:
     description: Provider Locations this item is available in
     type: array
@@ -54,6 +52,10 @@ properties:
     items:
       allOf:
         - $ref: "./Payment.yaml#/properties/id"
+  add_ons:
+    type: array
+    items:
+      $ref: "./AddOn.yaml"
   cancellation_terms:
     description: Cancellation terms of this item
     type: array
@@ -77,6 +79,10 @@ properties:
   rateable:
     description: Whether this item can be rated
     type: boolean
+  rating:
+    description: The rating of the item
+    allOf:
+      - $ref: "./Rating.yaml#/properties/value"
   matched:
     description: Whether this item is an exact match of the request
     type: boolean
