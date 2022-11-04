@@ -23,26 +23,22 @@ properties:
     description: Indicates whether the fulfillment allows tracking
     default: false
   customer:
-    $ref: "./Customer.yaml"
+    description: The person that will ultimately receive the order
+    allOf:
+      - $ref: "./Customer.yaml"
   agent:
-    $ref: "./Agent.yaml"
+    description: The agent that is currently handling the fulfillment of the order
+    allOf:
+      - $ref: "./Agent.yaml"
   contact:
     $ref: "./Contact.yaml"
   vehicle:
     $ref: "./Vehicle.yaml"
   stops:
-    description: The list logical stops encountered during the fulfillment of an order. It is recommended to use this property when there is atleast one intermediate stop between the start and the end of the fulfillment. For fulfillments that contain only a start and an end, it is recommended to use the start and stop property. 
+    description: The list of logical stops encountered during the fulfillment of an order. 
     type: array
     items:
       $ref: "./Stop.yaml"
-  start:
-    description: Details on the start of fulfillment
-    allOf:
-      - $ref: "./Stop.yaml"
-  end:
-    description: Details on the end of fulfillment
-    allOf:
-      - $ref: "./Stop.yaml"
   path:
     description: The physical path taken by the agent that can be rendered on a map. The allowed format of this property can be set by the network.
     type: string
