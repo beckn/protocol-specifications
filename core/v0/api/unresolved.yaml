@@ -1,0 +1,300 @@
+openapi: 3.0.0
+info:
+  title: Beckn Protocol Core
+  description: Beckn Core API specification
+  version: "1.0.0"
+
+security:
+  - SubscriberAuth: []
+  - GatewaySubscriberAuth: []
+paths:
+  /search:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+        - Beckn Gateway (BG)
+      description: BAP declares the customer's intent to buy/avail products or services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./components/io/Search.yaml"
+
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /select:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: BAP declares the customer's cart (or equivalent) created by selecting objects from the catalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Select.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /init:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Initialize an order by providing billing and/or shipping details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Init.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /confirm:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Initialize an order by providing billing and/or shipping details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Confirm.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /status:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Fetch the latest order object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Status.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /track:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Track an active order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Track.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /cancel:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Cancel an order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Cancel.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /update:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Remove object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Update.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /rating:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Provide feedback on a service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/Rating.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /support:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Contact support
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./components/io/Support.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_search:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+        - Beckn Gateway (BG)
+      description: BPP sends its catalog in response to a search request. 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/OnSearch.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_select:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Send draft order object with quoted price for selected items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./components/io/OnSelect.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_init:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Send order object with payment details updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./components/io/OnInit.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_confirm:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Send active order object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./components/io/OnConfirm.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_track:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Send tracking details of an active order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./components/io/OnTrack.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_cancel:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/OnCancel.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_update:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Returns updated service with updated runtime object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/OnUpdate.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+  /on_status:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Fetch the status of a Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/OnStatus.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+  /on_rating:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Provide feedback on a service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/OnRating.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+
+  /on_support:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Contact Support
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./components/io/OnSupport.yaml"
+      responses:
+        default:
+          $ref: "./components/io/Response.yaml"
+components:
+  securitySchemes:
+    SubscriberAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Signature of message body using BAP or BPP subscriber''s signing public key. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
+  schemas:
+    $ref: "./schemas/_index.yaml"
+
