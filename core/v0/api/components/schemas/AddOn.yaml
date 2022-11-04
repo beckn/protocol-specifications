@@ -4,11 +4,6 @@ properties:
   id:
     description: Provider-defined ID of the add-on
     type: string
-  item_ids:
-    description: Item IDs this add-on can be purchased with
-    type: array
-    items:
-      type: string
   descriptor:
     $ref: "./Descriptor.yaml"
   price:
