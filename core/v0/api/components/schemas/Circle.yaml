@@ -1,8 +1,0 @@
-description: Describes a circular region of a specified radius centered at a specified GPS coordinate.
-type: object
-properties:
-  gps:
-    $ref: "./Gps.yaml"
-  radius:
-    $ref: "./Scalar.yaml"
-

@@ -1,9 +1,0 @@
-description: An organization. Usually a recognized business entity. 
-type: object
-properties:
-  descriptor:
-    $ref: "./Descriptor.yaml"
-  address:
-    $ref: "./Address.yaml"
-  contact:
-    $ref: "./Contact.yaml"

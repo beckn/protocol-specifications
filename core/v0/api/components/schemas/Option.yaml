@@ -1,8 +1,0 @@
-description: Describes a selectable option<br>This has properties like id,description
-type: object
-properties:
-  id:
-    type: string
-  descriptor:
-    $ref: "./Descriptor.yaml"
-

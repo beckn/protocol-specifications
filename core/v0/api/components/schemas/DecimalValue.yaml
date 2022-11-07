@@ -1,4 +1,0 @@
-description: Describes a numerical value in decimal form
-type: string
-pattern: "[+-]?([0-9]*[.])?[0-9]+"
-
