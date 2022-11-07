@@ -1,0 +1,19 @@
+description: A label under which a collection of items can be grouped.
+type: object
+properties:
+  id:
+    description: ID of the category
+    type: string
+  parent_category_id:
+    $ref: "#/properties/id"
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  time:
+    $ref: "./Time.yaml"
+  ttl:
+    description: Time to live for an instance of this schema
+  tags:
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
+

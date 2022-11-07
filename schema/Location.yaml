@@ -1,0 +1,34 @@
+description: The physical location of something
+type: object
+properties:
+  id:
+    type: string
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  gps:
+    $ref: "./Gps.yaml"
+  address:
+    $ref: "./Address.yaml"
+  city:
+    $ref: "./City.yaml"
+  district:
+    type: string
+  state:
+    $ref: "./CountryState.yaml"
+  country:
+    $ref: "./Country.yaml"
+  area_code:
+    type: string
+  circle:
+    $ref: "./Circle.yaml"
+  polygon:
+    type: string
+  3dspace:
+    type: string
+  time:
+    $ref: "./Time.yaml"
+  updated_at:
+    type: string
+    format: date-time
+  rateable:
+    type: boolean

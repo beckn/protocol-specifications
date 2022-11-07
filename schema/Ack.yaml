@@ -1,0 +1,14 @@
+description: Describes the acknowledgement sent in response to an API call. If the implementation uses HTTP/S, then Ack must be returned in the same session. Every API call to a BPP must be responded to with an Ack whether the BPP intends to respond with a callback or not. This has one property called `status` that indicates the status of the Acknowledgement.
+type: object
+properties:
+  status:
+    type: string
+    description: The status of the acknowledgement. If the request passes the validation criteria of the BPP, then this is set to ACK. If a BPP responds with status = `ACK` to a request, it is required to respond with a callback. If the request fails the validation criteria, then this is set to NACK. Additionally, if a BPP does not intend to respond with a callback even after the request meets the validation criteria, it should set this value to `NACK`. 
+    enum:
+      - ACK
+      - NACK
+  tags:
+    description: A list of tags containing any additional information sent along with the Acknowledgement. 
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"

@@ -1,0 +1,32 @@
+description: Describes the products or services offered by a BPP. This is typically sent as the response to a search intent from a BAP. The payment terms, offers and terms of fulfillment supported by the BPP can also be included here. The BPP can show hierarchical nature of products/services in its catalog using the parent_category_id in categories. The BPP can also send a ttl (time to live) in the context which is the duration for which a BAP can cache the catalog and use the cached catalog.  <br>This has properties like bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers and exp<br>This is used in the following situations.<br><ul><li>This is typically used in the discovery stage when the BPP sends the details of the products and services it offers as response to a search intent from the BAP. </li></ul>
+type: object
+properties:
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  fulfillments:
+    description: Fulfillment modes offered at the BPP level. This is used when a BPP itself offers fulfillments on behalf of the providers it has onboarded. 
+    type: array
+    items:
+      $ref: "./Fulfillment.yaml"
+  payments:
+    description: Payment terms offered by the BPP for all transactions. This can be overriden at the provider level. 
+    type: array
+    items:
+      $ref: "./Payment.yaml"
+  offers:
+    description: Offers at the BPP-level. This is common across all providers onboarded by the BPP. 
+    type: array
+    items:
+      $ref: "./Offer.yaml"
+  providers:
+    type: array
+    items:
+      $ref: "./Provider.yaml"
+  exp:
+    description: Timestamp after which catalog will expire
+    type: string
+    format: date-time
+  ttl:
+    description: Duration in seconds after which this catalog will expire
+    type: string
+

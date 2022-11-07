@@ -1,0 +1,12 @@
+description: Describes the state of an order or fulfillment
+type: object
+properties:
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  updated_at:
+    type: string
+    format: date-time
+  updated_by:
+    type: string
+    description: ID of entity which changed the state
+

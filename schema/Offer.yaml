@@ -1,0 +1,25 @@
+description: An offer associated with a catalog. This is typically used to promote a particular product and enable more purchases. 
+type: object
+properties:
+  id:
+    type: string
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  location_ids:
+    type: array
+    items:
+      $ref: "./Location.yaml#/properties/id"
+  category_ids:
+    type: array
+    items:
+      $ref: "./Category.yaml#/properties/id"
+  item_ids:
+    type: array
+    items:
+      $ref: "./Item.yaml#/properties/id"
+  time:
+    $ref: "./Time.yaml"
+  tags:
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
