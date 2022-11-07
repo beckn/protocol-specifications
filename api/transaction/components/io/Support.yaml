@@ -1,0 +1,19 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - support
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      support:
+        $ref: "../../../../schema/Support.yaml"
+required:
+  - context
+  - message

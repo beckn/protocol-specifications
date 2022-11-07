@@ -1,0 +1,21 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - status
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      order_id:
+        $ref: "../../../../schema/Order.yaml#/properties/id"
+    required:
+      - order_id
+required:
+  - context
+  - message
