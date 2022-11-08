@@ -78,6 +78,12 @@ A beckn enabled network has multiple entities communicating with each other via 
 - BPP and Registry
 - BG and Registry
 
+where 
+
+- BAPs are Beckn Application Platforms / senders
+- BPPs are Beckn Provider Platforms / receivers
+- BGs are Beckn Gateways
+
 All API calls between any two entities on the beckn network are asynchronous. Meaning, an API call from a BAP server (sender) to a BPP server (receiver) does not expect an informational response from a BPP in the same session. The immediate response in the same session is merely an acknowledgment or ACK which basically means, “Hey, I have received your request and it looks okay during validation of the input. Let me call you back when I have the details you need”. The actual response is sent later in the form of a standard callback API which the sender is required to implement. 
 
 ## Communication Protocol Between 2 Entities
