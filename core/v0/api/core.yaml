@@ -34,23 +34,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /select:
     post:
       tags:
@@ -80,23 +64,7 @@ paths:
 
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /init:
     post:
       tags:
@@ -123,23 +91,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /confirm:
     post:
       tags:
@@ -166,23 +118,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /status:
     post:
       tags:
@@ -209,23 +145,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /track:
     post:
       tags:
@@ -255,23 +175,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /cancel:
     post:
       tags:
@@ -302,23 +206,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /update:
     post:
       tags:
@@ -349,23 +237,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /rating:
     post:
       tags:
@@ -387,23 +259,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /support:
     post:
@@ -430,24 +286,7 @@ paths:
                 - message
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_search:
     post:
       tags:
@@ -476,23 +315,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - context
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_select:
     post:
       tags:
@@ -543,23 +366,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_init:
     post:
       tags:
@@ -629,23 +436,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_confirm:
     post:
       tags:
@@ -673,23 +464,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_track:
     post:
       tags:
@@ -717,23 +492,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_cancel:
     post:
       tags:
@@ -761,23 +520,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_update:
     post:
       tags:
@@ -805,23 +548,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_status:
     post:
       tags:
@@ -849,23 +576,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_rating:
     post:
       tags:
@@ -888,23 +599,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /on_support:
     post:
       tags:
@@ -937,24 +632,7 @@ paths:
                 - context
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /get_cancellation_reasons:
     post:
       tags:
@@ -971,23 +649,7 @@ paths:
                   $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /cancellation_reasons:
     post:
@@ -1012,23 +674,7 @@ paths:
                           $ref: '#/components/schemas/Option'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /get_return_reasons:
     post:
@@ -1046,23 +692,7 @@ paths:
                   $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /return_reasons:
     post:
@@ -1084,23 +714,7 @@ paths:
                       $ref: '#/components/schemas/Option'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /get_rating_categories:
     post:
@@ -1118,23 +732,7 @@ paths:
                     $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /rating_categories:
     post:
@@ -1156,24 +754,7 @@ paths:
                       $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /get_feedback_categories:
     post:
       tags:
@@ -1190,23 +771,7 @@ paths:
                     $ref: '#/components/schemas/Context'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
   /feedback_categories:
     post:
@@ -1228,24 +793,7 @@ paths:
                     $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-                    
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'                    
   /get_feedback_form:
     post:
       tags:
@@ -1269,24 +817,7 @@ paths:
                       $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
   /feedback_form:
     post:
       tags:
@@ -1306,23 +837,7 @@ paths:
 
       responses:
         '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
+          $ref: '#/components/responses/MessageRecievedAcknowledgement'
 
 components:
   securitySchemes:
@@ -2542,3 +2057,23 @@ components:
           type: string
         registration:
           type: string
+  responses:
+    MessageRecievedAcknowledgement:
+      description: Acknowledgement of message received
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: object
+                properties:
+                  ack:
+                    $ref: '#/components/schemas/Ack'
+                required:
+                  - ack
+              error:
+                $ref: '#/components/schemas/Error'
+            required:
+              - message
+
