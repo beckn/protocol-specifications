@@ -22,6 +22,10 @@ properties:
     type: array
     items:
       $ref: "./Credential.yaml"
+  languages:
+    type: array
+    items:
+      $ref: "./Language.yaml"
   tags:
     type: array
     items:
