@@ -14,11 +14,15 @@ The BG subscriber is expected to send a `X-Gateway-Authorization` header where t
 
 Below is the format of a BAP/BPP Authorization header in the typical HTTP Signature format:
 
-`Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(ed25519_sign(signing string))"`
+```
+Authorization : Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(ed25519_sign(signing string))"
+```
 
 The BG will send its signature in the `X-Gateway-Authorization` header in the exact same format as shown below.
 
-`X-Gateway-Authorization:Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}", algorithm="ed25519", created="1606970629", expires="1607030629", headers="(created) (expires) digest", signature="Base64(ed25519_sign(signing string))"`
+```
+X-Gateway-Authorization:Signature keyId="{subscriber_id}|{unique_key_id}|{algorithm}", algorithm="ed25519", created="1606970629", expires="1607030629", headers="(created) (expires) digest", signature="Base64(ed25519_sign(signing string))"
+```
 
 ### Signature Attributes
 
@@ -50,12 +54,16 @@ For computing the digest of the request body, the hashing function will use the 
 
 Example of a Blake 512 [hash](https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2b_algorithm) is shown below:
 
-`BLAKE2b-512("The quick brown fox jumps over the lazy dog") =
-a8add4bdddfd93e4877d2746e62817b116364a1fa7bc148d95090bc7333b3673f82401cf7aa2e4cb1ecd90296e3f14cb5413f8ed77be73045b13914cdcd6a918`
+```
+BLAKE2b-512("The quick brown fox jumps over the lazy dog") =
+a8add4bdddfd93e4877d2746e62817b116364a1fa7bc148d95090bc7333b3673f82401cf7aa2e4cb1ecd90296e3f14cb5413f8ed77be73045b13914cdcd6a918
+```
 
 The above hex value encoded in base64 is as below : 
 
-`qK3Uvd39k+SHfSdG5igXsRY2Sh+nvBSNlQkLxzM7NnP4JAHPeqLkyx7NkCluPxTLVBP47Xe+cwRbE5FM3NapGA==`
+```
+qK3Uvd39k+SHfSdG5igXsRY2Sh+nvBSNlQkLxzM7NnP4JAHPeqLkyx7NkCluPxTLVBP47Xe+cwRbE5FM3NapGA==
+```
 
 ## Signing Algorithm
 To digitally sign the signing string, the subscribers should use the "ed25519" signature scheme.
@@ -65,12 +73,16 @@ To digitally sign the signing string, the subscribers should use the "ed25519" s
 ### Step 1 : BAP signs request and calls BG
 Let the below be the request body in this example : 
 
-`{"context":{"domain":"nic2004:60212","country":"IND","city":"Kochi","action":"search","core_version":"0.9.1","bap_id":"bap.stayhalo.in","bap_uri":"https://8f9f-49-207-209-131.ngrok.io/protocol/","transaction_id":"e6d9f908-1d26-4ff3-a6d1-3af3d3721054","message_id":"a2fe6d52-9fe4-4d1a-9d0b-dccb8b48522d","timestamp":"2022-01-04T09:17:55.971Z","ttl":"P1M"},"message":{"intent":{"fulfillment":{"start":{"location":{"gps":"10.108768, 76.347517"}},"end":{"location":{"gps":"10.102997, 76.353480"}}}}}}`
+```
+{"context":{"domain":"nic2004:60212","country":"IND","city":"Kochi","action":"search","core_version":"0.9.1","bap_id":"bap.stayhalo.in","bap_uri":"https://8f9f-49-207-209-131.ngrok.io/protocol/","transaction_id":"e6d9f908-1d26-4ff3-a6d1-3af3d3721054","message_id":"a2fe6d52-9fe4-4d1a-9d0b-dccb8b48522d","timestamp":"2022-01-04T09:17:55.971Z","ttl":"P1M"},"message":{"intent":{"fulfillment":{"start":{"location":{"gps":"10.108768, 76.347517"}},"end":{"location":{"gps":"10.102997, 76.353480"}}}}}}
+```
 
 Let BAP’s keys be :
 
-`signing_public_key=awGPjRK6i/Vg/lWr+0xObclVxlwZXvTjWYtlu6NeOHk=
-signing_private_key=lP3sHA+9gileOkXYJXh4Jg8tK0gEEMbf9yCPnFpbldhrAY+NErqL9WD+Vav7TE5tyVXGXBle9ONZi2W7o144eQ==`
+```
+signing_public_key=awGPjRK6i/Vg/lWr+0xObclVxlwZXvTjWYtlu6NeOHk=
+signing_private_key=lP3sHA+9gileOkXYJXh4Jg8tK0gEEMbf9yCPnFpbldhrAY+NErqL9WD+Vav7TE5tyVXGXBle9ONZi2W7o144eQ==
+```
 
 The BAP performs the following steps to create the Authorization header
 1. Generate the digest of the request body using the BLAKE-512 hashing function
@@ -79,17 +91,23 @@ The BAP performs the following steps to create the Authorization header
 
 2. Generate the created field. The `created` field expresses when the signature was created. The value MUST be a Unix timestamp integer value. A signature with a `created` timestamp value that is in the future MUST NOT be processed.
 
-`(created): 1641287875`
+```
+(created): 1641287875
+```
 
 3. Generate the expires field. The `expires` field expresses when the signature ceases to be valid. The value MUST be a Unix timestamp integer value. A signature with an `expires` timestamp value that is in the past MUST NOT be processed.
 
-`(expires): 1641291475`
+```
+(expires): 1641291475
+```
 
 4. Concatenate the three values, i.e the `created`, `expires` and `digest` in the format as shown below. The below string is the signing string which the BAP is going to use to sign the request
 
-`(created): 1641287875
+```
+(created): 1641287875
 (expires): 1641291475
-digest: BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1+BMu5nA94o4DT3pTFXuUg7sw==`
+digest: BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1+BMu5nA94o4DT3pTFXuUg7sw==
+```
 
 5. The BAP will then sign this string using it's registered signing private key via the Ed25519 Signature Scheme
 
@@ -99,7 +117,9 @@ digest: BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1
 
 7. Finally the Authorization header will look like this. (Let's assume subscriber_id = example-bap.com, unique_key_id = bap1234)
 
-`Signature keyId="example-bap.com|ae3ea24b-cfec-495e-81f8-044aaef164ac|ed25519",algorithm="ed25519",created="1641287875",expires="1641291475",headers="(created) (expires) digest",signature="cjbhP0PFyrlSCNszJM1F/YmHDVAWsZqJUPzojnE/7TJU3fJ/rmIlgaUHEr5E0/2PIyf0tpSnWtT6cyNNlpmoAQ=="`
+```
+Signature keyId="example-bap.com|ae3ea24b-cfec-495e-81f8-044aaef164ac|ed25519",algorithm="ed25519",created="1641287875",expires="1641291475",headers="(created) (expires) digest",signature="cjbhP0PFyrlSCNszJM1F/YmHDVAWsZqJUPzojnE/7TJU3fJ/rmIlgaUHEr5E0/2PIyf0tpSnWtT6cyNNlpmoAQ=="
+```
 
 8. Finally the BAP includes the `Authorization` header in the request and calls the BG API
 
@@ -129,18 +149,20 @@ The BG performs the following steps to authenticate the BAP and also ensure mess
 
 **Headers:**
 
-`HTTP/1.1 401 Unauthorized
+```
+HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
-...`
+...
+```
 
 **Request Body:**
 ```
 {
- "message": {
-  "ack": {
-"status": "NACK"
-}
-}
+    "message": {
+        "ack": {
+            "status": "NACK"
+        }
+    }
 }
 ```
 
@@ -150,8 +172,10 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
 ### Step 3 : BG signs request before forwarding request to BPP
 Let the BG’s keys be :
 
-`signing_public_key=7YRZXVeIJ0/Va56vYgzT1Uirg6mnq3FY0MBZY9DJft0=
-signing_private_key=hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q==`
+```
+signing_public_key=7YRZXVeIJ0/Va56vYgzT1Uirg6mnq3FY0MBZY9DJft0=
+signing_private_key=hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q==
+```
 
 Before forwarding the request to the BPP, the BG performs the following steps to create the X-Gateway-Authorization header.
 
@@ -169,9 +193,11 @@ Before forwarding the request to the BPP, the BG performs the following steps to
 
 4. Concatenate the three values, i.e the `created`, `expires` and `digest` in the format as shown below. The below string is the signing string which the BG is going to use to sign the request
 
-`(created): 1641287885
+```
+(created): 1641287885
 (expires): 1641291485
-digest: BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1+BMu5nA94o4DT3pTFXuUg7sw==`
+digest: BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1+BMu5nA94o4DT3pTFXuUg7sw==
+```
 
 5. The BG will then sign this string using its registered signing private key via the Ed25519 Signature Scheme
 6. Finally the BG will generate a base64 encoded string of the signature and insert it into the signature parameter of the X-Gateway-Authorization header
@@ -180,7 +206,9 @@ digest: BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1
 
 7. Finally the `X-Gateway-Authorization` header will look like this. (Let's assume `subscriber_id` = example-bg.com, `unique_key_id` = ae3ea24b-cfec-495e-81f8-044aaef164ac)
 
-`Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="`
+```
+Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="
+```
 
 8. Finally the BG includes the X-Gateway-Authorization header in the request and calls the BPP search API
 
@@ -208,19 +236,23 @@ The BPP performs the following steps to authenticate the BAP and the BG and also
 
 **Headers:**
 
-`HTTP/1.1 401 Unauthorized
+```
+HTTP/1.1 401 Unauthorized
 Proxy-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires) digest"
-...`
+...
+```
 
 **Request Body:**
 
-`{
- "message": {
-    "ack": {
-"status": "NACK"
+```
+{
+    "message": {
+        "ack": {
+            "status": "NACK"
+        }
+    }
 }
-}
-}`
+```
 
 
 
@@ -237,19 +269,23 @@ The BPP performs the following steps to authenticate the BAP and also ensure mes
 
 **Headers**
 
-`HTTP/1.1 401 Unauthorized
+```
+HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires) digest"
-...`
+...
+```
 
 **Request Body**
 
-`{
- "message": {
-    "ack": {
-"status": "NACK"
+```
+{
+    "message": {
+        "ack": {
+            "status": "NACK"
+        }
+    }
 }
-}
-}`
+```
 
 
 
@@ -261,15 +297,19 @@ The BPP performs the following steps to create the Authorization header
 3. Generate the expires field. The `expires` field expresses when the signature ceases to be valid. The value MUST be a Unix timestamp integer value. A signature with an `expires` timestamp value that is in the past MUST NOT be processed.
 4. Concatenate the three values, i.e the `created`, `expires` and `digest` in the format as shown below. The below string is the signing string which the BPP is going to use to sign the request.
 
-`(created): 1402170695
+```
+(created): 1402170695
 (expires): 1402170995
-digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=`
+digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
+```
 
 5. Sign this string using it's registered signing private key via the ed25519 Signature Scheme.
 6. Generate a base64 encoded string of the signature and insert it into the signature parameter of the Authorization header.
 7. The final Authorization header will look like this. (Let's assume subscriber_id = example-bpp.com, unique_key_id = bpp5678).
 
-`Signature keyId="example-bpp.com|74b43deb-236e-4498-8f5a-ca75d6c67b9d|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="`
+```
+Signature keyId="example-bpp.com|74b43deb-236e-4498-8f5a-ca75d6c67b9d|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="
+```
 
 9. Finally the BPP includes the Authorization header in the request and calls the BG API.
 
@@ -288,19 +328,23 @@ The BG performs the following steps to authenticate the BPP and also ensure mess
 
 **Headers**
 
-`HTTP/1.1 401 Unauthorized
+```
+HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
-...`
+...
+```
 
 **Request Body**
 
-`{
- "message": {
-    "ack": {
-"status": "NACK"
+```
+{
+    "message": {
+        "ack": {
+            "status": "NACK"
+        }
+    }
 }
-}
-}`
+```
 
 
 ### Step 8 : BG signs callback before calling BAP
@@ -311,15 +355,19 @@ Before forwarding the request to the BAP, the BG performs the following steps to
 3. Generate the `expires` field. The `expires` field expresses when the signature ceases to be valid. The value MUST be a Unix timestamp integer value. A signature with an `expires` timestamp value that is in the past MUST NOT be processed.
 4. Concatenate the three values, i.e the `created`, `expires` and `digest` in the format as shown below. The below string is the signing string which the BG is going to use to sign the request.
 
-`(created): 1402170695
+```
+(created): 1402170695
 (expires): 1402170995
-digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=`
+digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
+```
 
 5. The BG will then sign this string using it's registered signing private key via the ed25519 Signature Scheme.
 6. Finally the BG will generate a base64 encoded string of the signature and insert it into the signature parameter of the X-Gateway-Authorization header.
 7. Finally the X-Gateway-Authorization header will look like this. (Let's assume subscriber_id = example-bg.com, unique_key_id = bg3456).
 
-`Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="`
+```
+Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="
+```
 
 8. Finally the BG includes the X-Gateway-Authorization header in the request and calls the BAP API.
 
@@ -342,19 +390,23 @@ The BAP performs the following steps to authenticate the BAP and the BG and also
 
 **Headers**
 
-`HTTP/1.1 401 Unauthorized
+```
+HTTP/1.1 401 Unauthorized
 /Proxy-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
-...`
+...
+```
 
 **Request Body**
 
-`{
- "message": {
-    "ack": {
-"status": "NACK"
+```
+{
+    "message": {
+        "ack": {
+            "status": "NACK"
+        }
+    }
 }
-}
-}`
+```
 
 
 ### Step 10 : BAP verifies BPP signature
@@ -370,17 +422,21 @@ The BAP performs the following steps to authenticate the BAP and also ensure mes
 
 **Headers**
 
-`HTTP/1.1 401 Unauthorized
+```
+HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
-...`
+...
+```
 
 
 **Request Body:**
 
-`{
- "message": {
-    "ack": {
-"status": "NACK"
+```
+{
+    "message": {
+        "ack": {
+            "status": "NACK"
+        }
+    }
 }
-}
-}`
+```
