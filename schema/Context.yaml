@@ -5,14 +5,10 @@ properties:
     description: Domain code that is relevant to this transaction context
     allOf:
       - $ref: "./Domain.yaml#/properties/code"
-  country:
-    description: The ISO 3166-1 or ISO 3166-2 code representing the country where the transaction is intended to be fulfilled. If the consumer and provider are in separate countries, this field will carry the country code of the consumer. 
+  location:
+    description: The location where the transaction is intended to be fulfilled.
     allOf:
-      - $ref: "./Country.yaml#/properties/code"
-  region:
-    description: The region code where the transaction is intended to be fulfilled.
-    allOf:
-      - $ref: "./Region.yaml#/properties/code"
+      - $ref: "./Location.yaml"
   action:
     description: The Beckn protocol method being called by the sender and executed at the receiver.
     type: string
