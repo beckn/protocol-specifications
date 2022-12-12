@@ -4,15 +4,21 @@ properties:
   id:
     type: string
     description: Describes the identity of the person
+  url:
+    description: Profile url of the person
+    type: string
+    format: uri
   name:
     description: the name of the person
     type: string
   image:
     $ref: "./Image.yaml"
   age:
-    type: string
-    format: date
+    description: Age of the person
+    allOf:
+      $ref: "./Duration.yaml"
   dob:
+    description: Date of birth of the person
     type: string
     format: date
   gender:
