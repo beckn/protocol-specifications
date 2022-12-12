@@ -1,4 +1,4 @@
-description: Describes the state of a country
+description: A bounded geopolitical region of governance inside a country. 
 type: object
 properties:
   name:
@@ -7,16 +7,4 @@ properties:
   code:
     type: string
     description: State code as per country or international standards
-  map_url:
-    description: The url to the map of the state. This can be a globally recognized map or the one specified by the network policy.
-    type: string
-    format: uri
-  boundary:
-    description: The geo-spatial polygon representing the boundary of the state
-    type: string  
-  tags:
-    description: Any other information regarding the state
-    type: array
-    items:
-      $ref: "./TagGroup.yaml"
 
