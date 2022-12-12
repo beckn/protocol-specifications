@@ -12,15 +12,25 @@ properties:
     description: The address of the billable entity
     allOf:
     - $ref: "./Address.yaml"
+  state:
+    description: The state where the billable entity resides. This is important for state-level tax calculation
+    allOf:
+    - $ref: "./State.yaml"
+  city:
+    description: The city where the billable entity resides. 
+    allOf:
+    - $ref: "./City.yaml"
   email:
+    description: Email address where the bill is sent to
     type: string
     format: email
   phone:
+    description: Phone number of the billable entity
     type: string
   time:
     description: Details regarding the billing period
     allOf:
       - $ref: "./Time.yaml"
-  tax_number:
+  tax_id:
     description: ID of the billable entity as recognized by the taxation authority
     type: string
