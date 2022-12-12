@@ -11,4 +11,9 @@ properties:
   mime_type:
     description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
     type: string
-
+    enum:
+      - text/html
+      - application/xml
+  submission_id:
+    type: string
+    format: uuid
