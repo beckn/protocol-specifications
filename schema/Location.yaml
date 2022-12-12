@@ -14,7 +14,7 @@ properties:
   district:
     type: string
   state:
-    $ref: "./CountryState.yaml"
+    $ref: "./State.yaml"
   country:
     $ref: "./Country.yaml"
   area_code:
