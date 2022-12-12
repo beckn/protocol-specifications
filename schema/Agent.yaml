@@ -6,3 +6,5 @@ properties:
     $ref: "./Contact.yaml"
   organization:
     $ref: "./Organization.yaml"
+  rating:
+    $ref: "./Rating.yaml#/properties/value"
