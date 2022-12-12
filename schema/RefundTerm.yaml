@@ -1,0 +1,16 @@
+description: Refund term of an item or an order
+type: object
+properties:
+  fulfillment_state:
+    description: The state of fulfillment during which this term is applicable.
+    allOf:
+      - $ref: "./State.yaml"
+  refund_eligible:
+    description: Indicates if cancellation will result in a refund
+    type: boolean
+  refund_within:
+    description: Time within which refund will be processed after successful cancellation.
+    allOf:
+      - $ref: "./Time.yaml"
+  refund_amount:
+    $ref: "./Price.yaml"
