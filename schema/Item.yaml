@@ -61,17 +61,25 @@ properties:
     type: array
     items:
       $ref: "./CancellationTerm.yaml"
+  refund_terms:
+    description: Refund terms of this item
+    type: array
+    items:
+      $ref: "./RefundTerm.yaml"    
   replacement_terms:
     description: Replacement terms of this item
     type: array
     items:
       $ref: "./ReplacementTerm.yaml"
-  xinput_required:
+  return_terms:
+    description: Return terms of this item
+    type: array
+    items:
+      $ref: "./ReturnTerm.yaml"
+  xinput:
     description: Additional input required from the customer to purchase / avail this item
     allOf:
       - $ref: "./XInput.yaml"
-  xinput_response:
-    $ref: "./XInputResponse.yaml"
   time:
     description: Temporal attributes of this item. This property is used when the item exists on the catalog only for a limited period of time. 
     allOf:
@@ -94,7 +102,7 @@ properties:
     type: boolean
   ttl:
     description: Time to live in seconds for an instance of this schema
-    type: string
+    type: string    
   tags:
     type: array
     items:
