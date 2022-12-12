@@ -26,6 +26,10 @@ properties:
     type: array
     items:
       $ref: "./Language.yaml"
+  skills:
+    type: array
+    items:
+      $ref: "./Skill.yaml"
   tags:
     type: array
     items:
