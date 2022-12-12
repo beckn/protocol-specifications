@@ -10,7 +10,8 @@ properties:
     items:
       type: string
       description: ID of a previous order
-  state:
+  status:
+    description: Status of the order. Allowed values can be defined by the network policy
     type: string
     enum:
       - ACTIVE
@@ -56,10 +57,25 @@ properties:
     allOf:
       - $ref: "./Cancellation.yaml"
   cancellation_terms:
-    description: The cancellation terms of this order. This can be overriden at the item level cancellation terms. 
+    description: Cancellation terms of this item
     type: array
     items:
       $ref: "./CancellationTerm.yaml"
+  refund_terms:
+    description: Refund terms of this item
+    type: array
+    items:
+      $ref: "./RefundTerm.yaml"    
+  replacement_terms:
+    description: Replacement terms of this item
+    type: array
+    items:
+      $ref: "./ReplacementTerm.yaml"
+  return_terms:
+    description: Return terms of this item
+    type: array
+    items:
+      $ref: "./ReturnTerm.yaml"
   quote:
     description: The mutually agreed upon quotation for this order. 
     allOf:
@@ -77,12 +93,10 @@ properties:
     description: The date-time of updated of this order
     type: string
     format: date-time
-  xinput_required:
+  xinput:
     description: Additional input required from the customer to confirm this order
     allOf:
       - $ref: "./XInput.yaml"
-  xinput_response:
-    $ref: "./XInputResponse.yaml"
   tags:
     type: array
     items:
