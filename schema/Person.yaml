@@ -22,6 +22,10 @@ properties:
     type: array
     items:
       $ref: "./Credential.yaml"
+  skills:
+    type: array
+    items:
+      $ref: "./Skill.yaml"
   tags:
     type: array
     items:
