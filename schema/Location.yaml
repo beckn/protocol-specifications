@@ -42,8 +42,6 @@ properties:
   3dspace:
     description: The three dimensional region describing this location
     type: string
-  time:
-    $ref: "./Time.yaml"
   rating:
     description: The rating of this location
     allOf:
