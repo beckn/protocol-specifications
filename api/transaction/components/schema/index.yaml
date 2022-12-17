@@ -43,9 +43,6 @@ Context:
 Country:
   $ref: "../../../../schema/Country.yaml"
 
-CountryState:
-  $ref: "../../../../schema/CountryState.yaml"
-
 Credential:
   $ref: "../../../../schema/Credential.yaml"
 
@@ -75,6 +72,9 @@ Form:
 
 Fulfillment:
   $ref: "../../../../schema/Fulfillment.yaml"
+
+FulfillmentState:
+  $ref: "../../../../schema/FulfillmentState.yaml"
 
 Gps:
   $ref: "../../../../schema/Gps.yaml"
@@ -168,6 +168,3 @@ Vehicle:
 
 XInput:
   $ref: "../../../../schema/XInput.yaml"
-
-XInputResponse:
-  $ref: "../../../../schema/XInputResponse.yaml"
