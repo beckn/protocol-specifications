@@ -325,8 +325,10 @@ paths:
                 message:
                   type: object
                   properties:
-                    rating:
-                      $ref: '#/components/schemas/Rating'
+                    ratings:
+                      type: array
+                      items:
+                        - $ref: '#/components/schemas/Rating'
               required:
                 - context
                 - message
@@ -658,14 +660,15 @@ paths:
                 message:
                   type: object
                   properties:
-                    feedback:
+                    feedback_form:
                       description: A feedback form to allow the user to provide additional information on the rating provided
                       allOf:
-                        - $ref: '#/components/schemas/Form'
+                        - $ref: '#/components/schemas/XInput'
                 error:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -783,6 +786,14 @@ components:
           description: The address of the billable entity
           allOf:
             - $ref: '#/components/schemas/Address'
+        state:
+          description: The state where the billable entity resides
+          allOf:
+            - $ref: '#/components/schemas/State'
+        city:
+          description: The city where the billable entity resides
+          allOf:
+            - $ref: '#/components/schemas/City'
         email:
           type: string
           format: email
@@ -868,10 +879,8 @@ components:
             - $ref: '#/components/schemas/Time'
         cancellation_fee:
           $ref: '#/components/schemas/Fee'
-        xinput_required:
+        xinput:
           $ref: '#/components/schemas/XInput'
-        xinput_response:
-          $ref: '#/components/schemas/XInputResponse'
         external_ref:
           $ref: '#/components/schemas/MediaFile'
     Catalog:
@@ -973,14 +982,10 @@ components:
           description: Domain code that is relevant to this transaction context
           allOf:
             - $ref: '#/components/schemas/Domain/properties/code'
-        country:
-          description: 'The ISO 3166-1 or ISO 3166-2 code representing the country where the transaction is intended to be fulfilled. If the consumer and provider are in separate countries, this field will carry the country code of the consumer.'
+        location:
+          description: The location where the transaction is intended to be fulfilled.
           allOf:
-            - $ref: '#/components/schemas/Country/properties/code'
-        region:
-          description: The region code where the transaction is intended to be fulfilled.
-          allOf:
-            - $ref: '#/components/schemas/Region/properties/code'
+            - $ref: '#/components/schemas/Location'
         action:
           description: The Beckn protocol method being called by the sender and executed at the receiver.
           type: string
@@ -1042,28 +1047,6 @@ components:
           type: string
         tags:
           description: Any other information regarding the country
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
-    CountryState:
-      description: Describes the state of a country
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the state
-        code:
-          type: string
-          description: State code as per country or international standards
-        map_url:
-          description: The url to the map of the state. This can be a globally recognized map or the one specified by the network policy.
-          type: string
-          format: uri
-        boundary:
-          description: The geo-spatial polygon representing the boundary of the state
-          type: string
-        tags:
-          description: Any other information regarding the state
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
@@ -1227,6 +1210,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+    FulfillmentState:
+      description: Describes the state of fulfillment
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        updated_at:
+          type: string
+          format: date-time
+        updated_by:
+          type: string
+          description: ID of entity which changed the state
     Gps:
       description: Describes a GPS coordinate
       type: string
@@ -1419,12 +1414,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReplacementTerm'
-        xinput_required:
+        xinput:
           description: Additional input required from the customer to purchase / avail this item
           allOf:
             - $ref: '#/components/schemas/XInput'
-        xinput_response:
-          $ref: '#/components/schemas/XInputResponse'
         time:
           description: Temporal attributes of this item. This property is used when the item exists on the catalog only for a limited period of time.
           allOf:
@@ -1448,6 +1441,7 @@ components:
         ttl:
           description: Time to live in seconds for an instance of this schema
           type: string
+        created_at: null
         tags:
           type: array
           items:
@@ -1469,7 +1463,7 @@ components:
         district:
           type: string
         state:
-          $ref: '#/components/schemas/CountryState'
+          $ref: '#/components/schemas/State'
         country:
           $ref: '#/components/schemas/Country'
         area_code:
@@ -1551,7 +1545,8 @@ components:
           items:
             type: string
             description: ID of a previous order
-        state:
+        status:
+          description: Status of the order. Allowed values can be defined by the network policy
           type: string
           enum:
             - ACTIVE
@@ -1618,12 +1613,10 @@ components:
           description: The date-time of updated of this order
           type: string
           format: date-time
-        xinput_required:
+        xinput:
           description: Additional input required from the customer to confirm this order
           allOf:
             - $ref: '#/components/schemas/XInput'
-        xinput_response:
-          $ref: '#/components/schemas/XInputResponse'
         tags:
           type: array
           items:
@@ -1635,7 +1628,17 @@ components:
         descriptor:
           $ref: '#/components/schemas/Descriptor'
         address:
-          $ref: '#/components/schemas/Address'
+          description: The postal address of the organization
+          allOf:
+            - $ref: '#/components/schemas/Address'
+        state:
+          description: The state where the organization's address is registered
+          allOf:
+            - $ref: '#/components/schemas/State'
+        city:
+          description: The city where the the organization's address is registered
+          allOf:
+            - $ref: '#/components/schemas/City'
         contact:
           $ref: '#/components/schemas/Contact'
     Payment:
@@ -1716,6 +1719,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Credential'
+        experience:
+          type: string
         tags:
           type: array
           items:
@@ -1933,17 +1938,19 @@ components:
             type: string
             format: date-time
     State:
-      description: Describes the state of an order or fulfillment
+      description: Describes the state of a country
       type: object
       properties:
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        updated_at:
+        name:
           type: string
-          format: date-time
-        updated_by:
+          description: Name of the state
+        code:
           type: string
-          description: ID of entity which changed the state
+          description: State code as per country or international standards
+        map_url:
+          description: The url to the map of the state. This can be a globally recognized map or the one specified by the network policy.
+          type: string
+          format: uri
     Stop:
       description: A logical point in space and time during the fulfillment of an order.
       type: object
@@ -2110,17 +2117,13 @@ components:
           type: string
     XInput:
       description: 'Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. Sometimes, selection of catalog elements is not enough for the BPP to confirm an order. For example, to confirm a flight ticket, the airline requires details of the passengers along with information on baggage, identity, in addition to the class of ticket. Similarly, a logistics company may require details on the nature of shipment in order to confirm the shipping. A recruiting firm may require additional details on the applicant in order to confirm a job application. For all such purposes, the BPP can choose to send this object attached to any object in the catalog that is required to be sent while placing the order. This object can typically be sent at an item level or at the order level. The item level XInput will override the Order level XInput as it indicates a special requirement of information for that particular item. Hence the BAP must render a separate form for the Item and another form at the Order level before confirmation.'
-      allOf:
-        - $ref: '#/components/schemas/Form'
-    XInputResponse:
-      description: The response to the form fetched via the XInput URL
-      type: array
-      items:
-        type: object
-        properties:
-          input:
-            description: The _name_ attribute of the input tag in the XInput form
-            type: string
-          value:
-            description: 'The value of the input field. Files must be sent as data URLs. For more information on Data URLs visit https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs'
+      type: object
+      properties:
+        form:
+          $ref: '#/components/schemas/Form'
+        required:
+          description: Indicates whether the form data is mandatorily required by the BPP to confirm the order.
+          type: boolean
+        form_submission:
+          data:
             type: string
