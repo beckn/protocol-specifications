@@ -1,0 +1,11 @@
+description: Network Participant decrypts the challenge string using its private key and returns the decrypted value.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        answer:
+          description: Decrypted challenge string
+          type: string
+      required:
+        - answer

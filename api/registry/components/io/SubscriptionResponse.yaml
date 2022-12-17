@@ -1,0 +1,10 @@
+description: The Registry returns the status of the subscription request.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - UNDER_SUBSCRIPTION
