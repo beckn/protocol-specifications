@@ -1,4 +1,4 @@
-description: Describes a selectable option<br>This has properties like id,description
+description: Describes a selectable option
 type: object
 properties:
   id:
