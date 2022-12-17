@@ -18,7 +18,7 @@ properties:
   bap_id:
     description: Subscriber ID of the BAP
     allOf:
-      - $ref: "./Subscriber.yaml#/properties/id"
+      - $ref: "./Subscriber.yaml#/properties/subscriber_id"
   bap_uri:
     description: Subscriber URL of the BAP for accepting callbacks from BPPs.
     allOf:
@@ -26,7 +26,7 @@ properties:
   bpp_id:
     description: Subscriber ID of the BPP
     allOf:
-      - $ref: "./Subscriber.yaml#/properties/id"
+      - $ref: "./Subscriber.yaml#/properties/subscriber_id"
   bpp_uri:
     description: Subscriber URL of the BPP for accepting calls from BAPs.
     allOf:
