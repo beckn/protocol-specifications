@@ -12,8 +12,10 @@ properties:
   message:
     type: object
     properties:
-      rating:
-        $ref: "../../../../schema/Rating.yaml"
+      ratings:
+        type: array
+        items:
+          - $ref: "../../../../schema/Rating.yaml"
 required:
   - context
   - message
