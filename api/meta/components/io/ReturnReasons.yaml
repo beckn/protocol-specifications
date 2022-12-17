@@ -1,0 +1,23 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - return_reasons
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      return_reasons:
+        type: array
+        items:
+            $ref: '../../../../schema/Option.yaml'
+    required:
+      - return_reasons
+required:
+  - context
+  - message
