@@ -1,10 +1,11 @@
 description: A unique operational configuration of a trusted platform on a network. 
 type: object
 properties:  
-  id:
-    description: A globally unique identifier of the platform, Typically it is the fully qualified domain name of the platform. 
+  subscriber_id:
+    description: A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform. 
     type: string
   url:
+    description: The callback URL of the Subscriber. This should necessarily contain the same domain name as set in `subscriber_id``.
     type: string
     format: uri
   type:
@@ -18,11 +19,7 @@ properties:
     description: Operating industry domain that this subscriber offers its products or services in. A single subscriber can operate in multiple domains. Each operating domain must have a unique subscriber object entry in the req
     allOf:
       - $ref: "./Domain.yaml#/properties/code"
-  region:
-    description: The region of operation of this subscriber inside the boundary of a country
+  location:
+    description: The region of operation of this subscriber
     allOf:
-      - $ref: "./Region.yaml#/properties/code"
-  country:
-    description: The ISO 3166-1 or ISO 3166-2 code representing the country where the subscriber operates in 
-    allOf:
-      - $ref: "./Country.yaml#/properties/code"
+      - $ref: "./Location.yaml"
