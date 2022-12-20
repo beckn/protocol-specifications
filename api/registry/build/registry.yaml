@@ -103,7 +103,6 @@ components:
       description: Describes a GPS coordinate
       type: string
       pattern: '^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
-      example: '22.983743,77.343094'
     Location:
       description: The physical location of something
       type: object
@@ -203,12 +202,6 @@ components:
                 code:
                   description: City code
                   type: string
-                map_url:
-                  type: string
-                  description: The url to the map of the country. This can be a globally recognized map or the one specified by the network policy.
-                boundary:
-                  description: The geo-spatial polygon representing the boundary of the city
-                  type: string
         district:
           description: 'The state this location is, or is located within'
           type: string
@@ -236,13 +229,6 @@ components:
                 code:
                   type: string
                   description: Country code as per ISO 3166-1 and ISO 3166-2 format
-                map_url:
-                  description: The url to the map of the country. This can be a globally recognized map or the one specified by the network policy.
-                  type: string
-                  format: uri
-                boundary:
-                  description: The geo-spatial polygon representing the boundary of the country
-                  type: string
         area_code:
           type: string
         circle:
@@ -297,7 +283,7 @@ components:
         subscriber_id:
           description: 'A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform.'
           type: string
-        cb_url:
+        url:
           description: The callback URL of the Subscriber. This should necessarily contain the same domain name as set in `subscriber_id``.
           type: string
           format: uri
