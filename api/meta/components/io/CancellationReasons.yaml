@@ -17,7 +17,7 @@ properties:
         items:
             $ref: '../../../../schema/Option.yaml'
     required:
-      - order
+      - cancellation_reasons
 required:
   - context
   - message
