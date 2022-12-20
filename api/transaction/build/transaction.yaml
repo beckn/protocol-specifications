@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Beckn Protocol Core
-  description: Beckn Core API specification
+  description: Beckn Core Transaction API specification
   version: 1.0.0
 security:
   - SubscriberAuth: []
@@ -750,6 +750,8 @@ components:
           $ref: '#/components/schemas/Contact'
         organization:
           $ref: '#/components/schemas/Organization'
+        rating:
+          $ref: '#/components/schemas/Rating/properties/value'
     Authorization:
       description: 'Describes an authorization mechanism used to start or end the fulfillment of an order. For example, in the mobility sector, the driver may require a one-time password to initiate the ride. In the healthcare sector, a patient may need to provide a password to open a video conference link during a teleconsultation.'
       type: object
@@ -787,23 +789,25 @@ components:
           allOf:
             - $ref: '#/components/schemas/Address'
         state:
-          description: The state where the billable entity resides
+          description: The state where the billable entity resides. This is important for state-level tax calculation
           allOf:
             - $ref: '#/components/schemas/State'
         city:
-          description: The city where the billable entity resides
+          description: The city where the billable entity resides.
           allOf:
             - $ref: '#/components/schemas/City'
         email:
+          description: Email address where the bill is sent to
           type: string
           format: email
         phone:
+          description: Phone number of the billable entity
           type: string
         time:
           description: Details regarding the billing period
           allOf:
             - $ref: '#/components/schemas/Time'
-        tax_number:
+        tax_id:
           description: ID of the billable entity as recognized by the taxation authority
           type: string
     Cancellation:
@@ -831,48 +835,13 @@ components:
       description: Describes the cancellation terms of an item or an order. This can be referenced at an item or order level. Item-level cancellation terms can override the terms at the order level.
       type: object
       properties:
+        fulfillment_state:
+          description: The state of fulfillment during which this term is applicable.
+          allOf:
+            - $ref: '#/components/schemas/FulfillmentState'
         reason_required:
           description: Indicates whether a reason is required to cancel the order
           type: boolean
-        refund_eligible:
-          description: Indicates if cancellation will result in a refund
-          type: boolean
-        return_eligible:
-          description: Indicates if cancellation will result in a return to origin
-          type: boolean
-        fulfillment_state:
-          description: The state of fulfillment during which these terms are applicable.
-          allOf:
-            - $ref: '#/components/schemas/State'
-        return_policy:
-          description: Describes the return policy of an item or an order
-          type: object
-          properties:
-            return_eligible:
-              description: Indicates whether the item is eligible for return
-              type: boolean
-            return_within:
-              description: 'Applicable only for buyer managed returns where the buyer has to return the item to the origin before a certain date-time, failing which they will not be eligible for refund.'
-              allOf:
-                - $ref: '#/components/schemas/Time'
-            return_location:
-              $ref: '#/components/schemas/Location'
-            fulfillment_managed_by:
-              enum:
-                - customer
-                - provider
-        refund_policy:
-          type: object
-          properties:
-            refund_eligible:
-              description: Indicates if cancellation will result in a refund
-              type: boolean
-            refund_within:
-              description: Time within which refund will be processed after successful cancellation.
-              allOf:
-                - $ref: '#/components/schemas/Time'
-            refund_amount:
-              $ref: '#/components/schemas/Price'
         cancel_by:
           description: Information related to the time of cancellation.
           allOf:
@@ -952,17 +921,6 @@ components:
         code:
           description: City code
           type: string
-        map_url:
-          type: string
-          description: The url to the map of the country. This can be a globally recognized map or the one specified by the network policy.
-        boundary:
-          description: The geo-spatial polygon representing the boundary of the city
-          type: string
-        tags:
-          description: Any other information regarding the country
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
     Contact:
       description: Describes the contact information of an entity
       type: object
@@ -995,12 +953,13 @@ components:
         bap_id:
           description: Subscriber ID of the BAP
           allOf:
-            - description: 'A globally unique identifier of the platform, Typically it is the fully qualified domain name of the platform.'
+            - description: 'A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform.'
               type: string
         bap_uri:
           description: Subscriber URL of the BAP for accepting callbacks from BPPs.
           allOf:
-            - type: string
+            - description: The callback URL of the Subscriber. This should necessarily contain the same domain name as set in `subscriber_id``.
+              type: string
               format: uri
         bpp_id:
           description: Subscriber ID of the BPP
@@ -1038,18 +997,6 @@ components:
         code:
           type: string
           description: Country code as per ISO 3166-1 and ISO 3166-2 format
-        map_url:
-          description: The url to the map of the country. This can be a globally recognized map or the one specified by the network policy.
-          type: string
-          format: uri
-        boundary:
-          description: The geo-spatial polygon representing the boundary of the country
-          type: string
-        tags:
-          description: Any other information regarding the country
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
     Credential:
       description: Describes a credential of an entity - Person or Organization
       type: object
@@ -1161,6 +1108,12 @@ components:
         mime_type:
           description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
           type: string
+          enum:
+            - text/html
+            - application/xml
+        submission_id:
+          type: string
+          format: uuid
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -1409,11 +1362,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CancellationTerm'
+        refund_terms:
+          description: Refund terms of this item
+          type: array
+          items:
+            description: Refund term of an item or an order
+            type: object
+            properties:
+              fulfillment_state:
+                description: The state of fulfillment during which this term is applicable.
+                allOf:
+                  - $ref: '#/components/schemas/State'
+              refund_eligible:
+                description: Indicates if cancellation will result in a refund
+                type: boolean
+              refund_within:
+                description: Time within which refund will be processed after successful cancellation.
+                allOf:
+                  - $ref: '#/components/schemas/Time'
+              refund_amount:
+                $ref: '#/components/schemas/Price'
         replacement_terms:
           description: Replacement terms of this item
           type: array
           items:
             $ref: '#/components/schemas/ReplacementTerm'
+        return_terms:
+          description: Return terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/ReturnTerm'
         xinput:
           description: Additional input required from the customer to purchase / avail this item
           allOf:
@@ -1441,7 +1419,6 @@ components:
         ttl:
           description: Time to live in seconds for an instance of this schema
           type: string
-        created_at: null
         tags:
           type: array
           items:
@@ -1454,33 +1431,47 @@ components:
           type: string
         descriptor:
           $ref: '#/components/schemas/Descriptor'
+        map_url:
+          description: The url to the map of the location. This can be a globally recognized map url or the one specified by the network policy.
+          type: string
+          format: uri
         gps:
-          $ref: '#/components/schemas/Gps'
+          description: The GPS co-ordinates of this location.
+          allOf:
+            - $ref: '#/components/schemas/Gps'
         address:
-          $ref: '#/components/schemas/Address'
+          description: The address of this location.
+          allOf:
+            - $ref: '#/components/schemas/Address'
         city:
-          $ref: '#/components/schemas/City'
+          description: 'The city this location is, or is located within'
+          allOf:
+            - $ref: '#/components/schemas/City'
         district:
+          description: 'The state this location is, or is located within'
           type: string
         state:
-          $ref: '#/components/schemas/State'
+          description: 'The state this location is, or is located within'
+          allOf:
+            - $ref: '#/components/schemas/State'
         country:
-          $ref: '#/components/schemas/Country'
+          description: 'The country this location is, or is located within'
+          allOf:
+            - $ref: '#/components/schemas/Country'
         area_code:
           type: string
         circle:
           $ref: '#/components/schemas/Circle'
         polygon:
+          description: The boundary polygon of this location
           type: string
         3dspace:
+          description: The three dimensional region describing this location
           type: string
-        time:
-          $ref: '#/components/schemas/Time'
-        updated_at:
-          type: string
-          format: date-time
-        rateable:
-          type: boolean
+        rating:
+          description: The rating of this location
+          allOf:
+            - $ref: '#/components/schemas/Rating/properties/value'
     MediaFile:
       description: This object contains a url to a media file.
       type: object
@@ -1525,7 +1516,7 @@ components:
           items:
             $ref: '#/components/schemas/TagGroup'
     Option:
-      description: 'Describes a selectable option<br>This has properties like id,description'
+      description: Describes a selectable option
       type: object
       properties:
         id:
@@ -1592,10 +1583,25 @@ components:
           allOf:
             - $ref: '#/components/schemas/Cancellation'
         cancellation_terms:
-          description: The cancellation terms of this order. This can be overriden at the item level cancellation terms.
+          description: Cancellation terms of this item
           type: array
           items:
             $ref: '#/components/schemas/CancellationTerm'
+        refund_terms:
+          description: Refund terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/Item/properties/refund_terms/items'
+        replacement_terms:
+          description: Replacement terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/ReplacementTerm'
+        return_terms:
+          description: Return terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/ReturnTerm'
         quote:
           description: The mutually agreed upon quotation for this order.
           allOf:
@@ -1679,7 +1685,7 @@ components:
         type:
           type: string
           enum:
-            - ON-ORDER
+            - PRE-ORDER
             - PRE-FULFILLMENT
             - ON-FULFILLMENT
             - POST-FULFILLMENT
@@ -1701,15 +1707,21 @@ components:
         id:
           type: string
           description: Describes the identity of the person
+        url:
+          description: Profile url of the person
+          type: string
+          format: uri
         name:
           description: the name of the person
           type: string
         image:
           $ref: '#/components/schemas/Image'
         age:
-          type: string
-          format: date
+          description: Age of the person
+          allOf:
+            $ref: '#/components/schemas/Duration'
         dob:
+          description: Date of birth of the person
           type: string
           format: date
         gender:
@@ -1719,8 +1731,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Credential'
-        experience:
-          type: string
+        languages:
+          type: array
+          items:
+            description: Describes a language known to the person.
+            type: object
+            properties:
+              code:
+                type: string
+              name:
+                type: string
+        skills:
+          type: array
+          items:
+            description: Describes a skill of the person.
+            type: object
+            properties:
+              code:
+                type: string
+              name:
+                type: string
         tags:
           type: array
           items:
@@ -1873,8 +1903,13 @@ components:
           type: string
           description: The url to the map of the region. This can be a globally recognized map or the one specified by the network policy.
     ReplacementTerm:
+      description: The replacement policy of an item or an order
       type: object
       properties:
+        fulfillment_state:
+          description: The state of fulfillment during which this term is applicable.
+          allOf:
+            - $ref: '#/components/schemas/State'
         replace_within:
           description: 'Applicable only for buyer managed returns where the buyer has to replace the item before a certain date-time, failing which they will not be eligible for replacement'
           allOf:
@@ -1885,18 +1920,27 @@ components:
       description: Describes the return policy of an item or an order
       type: object
       properties:
-        return_within:
+        fulfillment_state:
+          description: The state of fulfillment during which this term IETF''s applicable.
+          allOf:
+            - $ref: '#/components/schemas/State'
+        return_eligible:
+          description: Indicates whether the item is eligible for return
+          type: boolean
+        return_time:
           description: 'Applicable only for buyer managed returns where the buyer has to return the item to the origin before a certain date-time, failing which they will not be eligible for refund.'
           allOf:
             - $ref: '#/components/schemas/Time'
-        fulfillment_managed_by:
-          enum:
-            - CUSTOMER
-            - PROVIDER
         return_location:
-          $ref: '#/components/schemas/Location'
-        external_ref:
-          $ref: '#/components/schemas/MediaFile'
+          desription: The location where the item or order must / will be returned to
+          allOf:
+            - $ref: '#/components/schemas/Location'
+        fulfillment_managed_by:
+          description: The entity that will perform the return
+          type: string
+          enum:
+            - CONSUMER
+            - PROVIDER
     Scalar:
       description: Describes a scalar
       type: object
@@ -1938,7 +1982,7 @@ components:
             type: string
             format: date-time
     State:
-      description: Describes the state of a country
+      description: A bounded geopolitical region of governance inside a country.
       type: object
       properties:
         name:
@@ -1947,10 +1991,6 @@ components:
         code:
           type: string
           description: State code as per country or international standards
-        map_url:
-          description: The url to the map of the state. This can be a globally recognized map or the one specified by the network policy.
-          type: string
-          format: uri
     Stop:
       description: A logical point in space and time during the fulfillment of an order.
       type: object
