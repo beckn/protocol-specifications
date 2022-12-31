@@ -1,0 +1,25 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - cancel
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      order_id:
+        $ref: "../../../../schema/Order.yaml#/properties/id"
+      cancellation_reason_id:
+        $ref: "../../../../schema/Option.yaml#/properties/id"
+      descriptor:
+        $ref: "../../../../schema/Descriptor.yaml"
+    required:
+      - order_id
+required:
+  - context
+  - message

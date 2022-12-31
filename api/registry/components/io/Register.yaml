@@ -1,0 +1,7 @@
+allOf:
+  - $ref: "../../../../schema/Subscriber.yaml"
+  - properties:
+      nonce:
+        type: string
+      xinput_response:
+        $ref: "../../../../schema/XInputResponse.yaml"

@@ -1,0 +1,17 @@
+type: object
+properties:
+  context:
+    allOf:
+        - $ref: "../../../../schema/Context.yaml"
+        - properties:
+            action:
+              enum:
+                - search
+  message:
+    type: object
+    properties:
+      intent:
+        $ref: "../../../../schema/Intent.yaml"
+required:
+  - context
+  - message

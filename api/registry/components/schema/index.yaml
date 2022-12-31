@@ -1,0 +1,15 @@
+Gps:
+  $ref: "../../../../schema/Gps.yaml"
+
+Location:
+  $ref: "../../../../schema/Location.yaml"
+
+Scalar:
+  $ref: "../../../../schema/Scalar.yaml"
+
+Subscriber:
+  $ref: "../../../../schema/Subscriber.yaml"
+
+Subscription:
+  $ref: "../../../../schema/Subscription.yaml"
+

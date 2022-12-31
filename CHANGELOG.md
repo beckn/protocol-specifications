@@ -1,5 +1,91 @@
 # Changelog
 
+## Core v1.0 - 31st December 2022
+###  API Changes
+
+| API Endpoint | 0.9.3 | 1.0 |
+|---------|-------|-------|
+| rating | Sends a single rating | Allows multiple ratings to be sent  |
+| support| Returns a ref_id | Returns a **Support** object |
+| on_select| Returns a few fields from **Order** object | Returns the complete **Order** object | 
+| on_init | Returns a few fields from **Order** object | Returns the complete **Order** object  |
+| on_rating | Returned **RatingAck** object | Returns an **XInput** object |
+| on_support | Returned phone, email and url | Returns a **Support** object |
+
+
+### Schema Changes
+
+| Schema | Added  | Removed | Modified |
+|--------|--------|---------|----------|
+| Ack| tags| - | - | - |
+| Address| - | all named fields | Changed to string ,  entities enclosing Address have address as string and also have named city , state , area_code fields pointing to corresponding object types.|
+| Agent| person , contact , organization , rating|all attributes that originally existed|
+| Billing | state , city , *country*  ,  *area_code*  | created_at ,  updated_at | address | 
+| Cancellation|reason , addtional_description|type , ref_id , policies , reasons , selected_reason|
+| Catalog| ttl | - | Removed "bpp/" prefix from attrbutes that had them  
+| Category| ttl | - | tags datatype changed to TagGroup| 
+| Context|location , version|core_version , city , country|
+| Descriptor||symbol , audio , 3d_render|media , additional_desc|
+| Domain|name , code , additional_info|-|type changed from String to object
+| Error|||type - Enum restriction removed|
+| Fulfillment||provider_id , person , customer.person ,  customer.contact , start , end|rateable , stops(array of FulfillmentStop) , path , tags (TagGroup)|customer type changed to point to (Customer) |
+| Image|-|-|Schema changed from string to set of properties|
+| Intent|-|-|tags changed from (Tags)  to array of (TagGroup)
+| ItemQuantity|unitized|-|-|
+| Item|parent_item_quantity ,  manufacturer , quantity , category_ids ,  fulfillment_ids ,  location_ids ,  payment_id ,  add_ons , cancellation_terms ,  refund_terms , replacement_terms ,  return_terms , xinput ,  ttl|category_id ,  location_id ,  fulfillent_id ,  |tags 
+| Location|map_url , district ,  state , area_code ,  rating|station_code|
+| Offer|tags|-|-|
+| Order|ref_order_ids , status ,  type , fulfillments , cancellation , cancellation_terms ,  refund_terms ,  replacement_terms ,  return_terms ,  payments ,  xinput ,  tags|state , documents , fulfillment ,  payment| items  , add_ons , offers 
+| Organization|descriptor , address , city , state , contact|name , cred|
+| Payment|id ,  collected_by , url , params.bank_code ,  params.bank_account_number , virtual_payment_address ,  source_bank_code ,  source_bank_account_number ,  source_virtual_payment_address , tags  | tl_method , uri , params.transaction_status| type enum changed ON_ORDER to PRE_ORDER| 
+| Person | id , url , age , creds , languages , skills|cred|tags
+| Provider| ttl|locations.rateable | tags
+| Quotation| id  , breakup[].item| |
+| Rating|| feedback_form , feedback_id|
+| Scalar||| value , estimated_value ,  computed_value ,  range.min , range.max - > number to DecimalValue|
+| Tracking| id , location| | |
+| Vehicle| wheels_count , cargo_volumne , wheelchair_access ,  code , emmission_standard| 
+
+### New Schemas
+|Name|
+|-|
+|CancellationTerm| 
+|Credential|
+|Customer|
+|Fee|
+|Form|
+|FulfillmentState|
+|MediaFile|
+|Region|
+|ReplacementTerm|
+|ReturnTerm|
+|Stop|
+|Subscription|
+|Support |
+|Tag|
+|TagGroup|
+|XInput|
+
+### Removed Schemas
+|Schema|
+|-|
+|Dimensions| 
+|Document|
+|Feedback|
+|FeedbackForm|
+|FeedbackFormElement|
+|FeedbackUrl|
+|Language|
+|Subscriber|
+|Operator|
+|Page|
+|Policy|
+|Rateable|
+|RatingAck|
+|Tags|
+|TrackingData|
+
+
 ## Core v0.9.3
 
 ### 13 July, 2021

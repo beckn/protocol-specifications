@@ -1,0 +1,21 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - rating
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      ratings:
+        type: array
+        items:
+          - $ref: "../../../../schema/Rating.yaml"
+required:
+  - context
+  - message

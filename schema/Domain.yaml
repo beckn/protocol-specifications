@@ -1,0 +1,13 @@
+description: Described the industry sector or sub-sector. The network policy should contain codes for all the industry sectors supported by the network. Domains can be created in varying levels of granularity. The granularity of a domain can be decided by the participants of the network. Too broad domains will result in irrelevant search broadcast calls to BPPs that don't have services supporting the domain. Too narrow domains will result in a large number of registry entries for each BPP. It is recommended that network facilitators actively collaborate with various working groups and network participants to carefully choose domain codes keeping in mind relevance, performance, and opportunity cost. It is recommended that networks choose broad domains like mobility, logistics, healthcare etc, and progressively granularize them as and when the number of network participants for each domain grows large. 
+type: object
+properties:
+  name:
+    description: Name of the domain
+    type: string
+  code:
+    description: Standard code representing the domain. The standard is usually published as part of the network policy. Furthermore, the network facilitator should also provide a mechanism to provide the supported domains of a network.
+  additional_info:
+    description: A url that contains addtional information about that domain.
+    allOf:
+      - $ref: "./MediaFile.yaml"
+

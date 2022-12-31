@@ -1,0 +1,19 @@
+description: An organization. Usually a recognized business entity. 
+type: object
+properties:
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  address:
+    description: The postal address of the organization
+    allOf:
+      - $ref: "./Address.yaml"
+  state:
+    description: The state where the organization's address is registered
+    allOf:
+    - $ref: "./State.yaml"
+  city:
+    description: The city where the the organization's address is registered
+    allOf:
+    - $ref: "./City.yaml"
+  contact:
+    $ref: "./Contact.yaml"

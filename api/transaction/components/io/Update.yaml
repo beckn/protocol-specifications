@@ -1,0 +1,27 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - update
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      update_target:
+        description: 'Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"```'
+        type: string
+      order:
+        description: Updated order object
+        allOf:
+          - $ref: "../../../../schema/Order.yaml"
+    required:
+      - update_target
+      - order
+required:
+  - context
+  - message

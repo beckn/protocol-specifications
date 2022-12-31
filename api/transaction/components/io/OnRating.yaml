@@ -1,0 +1,23 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - on_rating
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      feedback_form:
+        description: A feedback form to allow the user to provide additional information on the rating provided
+        allOf:
+          - $ref: "../../../../schema/XInput.yaml"
+  error:
+    $ref: "../../../../schema/Error.yaml"
+required:
+  - context
+  - message

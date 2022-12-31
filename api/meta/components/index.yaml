@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  title: Beckn Protocol Meta API
+  description: This document contains all the meta API endpoints that are implemented by the network participants. The information returned from these endpoints typically contain cacheable information. 
+  version: "1.0.0"
+security:
+  - SubscriberAuth: []
+paths:
+  /get_cancellation_reasons:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: BAP fetches the list of cancellation reasons from BPP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/GetCancellationReasons.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+  /cancellation_reasons:
+    post:
+      tags:
+        - Beckn Application Platform (BPP)
+      description: BPP sends cancellation reasons to BAP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/CancellationReasons.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+  /get_return_reasons:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: BAP requests BPP to provide the list of return reasons
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/GetReturnReasons.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+
+  /return_reasons:
+    post:
+      tags:
+        - Beckn Application Platform (BPP)
+      description: BPP provides the list of return reasons to the BAP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/ReturnReasons.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+  /get_rating_categories:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: BAP requests BPP to provide the list of entities that can be rated on its system
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/GetRatingCategories.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+  /rating_categories:
+    post:
+      tags:
+        - Beckn Application Platform (BPP)
+      description: BPP provides the list of entities that can be rated in its system to the BAP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/RatingCategories.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+components:
+  securitySchemes:
+    SubscriberAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Signature of message body using signing public key of the caller. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
+  schemas:
+    $ref: "./schema/index.yaml"
+

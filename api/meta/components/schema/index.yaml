@@ -1,0 +1,8 @@
+Context:
+  $ref: "../../../../schema/Context.yaml"
+
+Option:
+  $ref: "../../../../schema/Option.yaml"
+
+Rating:
+  $ref: "../../../../schema/Rating.yaml"

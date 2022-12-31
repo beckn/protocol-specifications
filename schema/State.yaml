@@ -1,0 +1,10 @@
+description: A bounded geopolitical region of governance inside a country. 
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the state
+  code:
+    type: string
+    description: State code as per country or international standards
+

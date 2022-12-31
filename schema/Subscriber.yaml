@@ -1,0 +1,25 @@
+description: A unique operational configuration of a trusted platform on a network. 
+type: object
+properties:  
+  subscriber_id:
+    description: A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform. 
+    type: string
+  url:
+    description: The callback URL of the Subscriber. This should necessarily contain the same domain name as set in `subscriber_id``.
+    type: string
+    format: uri
+  type:
+    description: The role of subscriber on the network
+    type: string
+    enum:
+      - BAP
+      - BPP
+      - BG
+  domain:
+    description: Operating industry domain that this subscriber offers its products or services in. A single subscriber can operate in multiple domains. Each operating domain must have a unique subscriber object entry in the req
+    allOf:
+      - $ref: "./Domain.yaml#/properties/code"
+  location:
+    description: The region of operation of this subscriber
+    allOf:
+      - $ref: "./Location.yaml"

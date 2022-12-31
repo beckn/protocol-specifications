@@ -1,0 +1,20 @@
+description: Describes an authorization mechanism used to start or end the fulfillment of an order. For example, in the mobility sector, the driver may require a one-time password to initiate the ride. In the healthcare sector, a patient may need to provide a password to open a video conference link during a teleconsultation. 
+type: object
+properties:
+  type:
+    description: Type of authorization mechanism used. The allowed values for this field can be published as part of the network policy.
+    type: string
+  token:
+    description: Token used for authorization. This is typically generated at the BPP. The BAP can send this value to the user via any channel that it uses to authenticate the user like SMS, Email, Push notification, or in-app rendering. 
+    type: string  
+  valid_from:
+    description: Timestamp in RFC3339 format from which token is valid
+    type: string
+    format: date-time
+  valid_to:
+    description: Timestamp in RFC3339 format until which token is valid
+    type: string
+    format: date-time
+  status:
+    description: Status of the token
+    type: string

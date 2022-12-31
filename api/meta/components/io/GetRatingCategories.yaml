@@ -1,0 +1,13 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - get_rating_categories
+        required:
+          - action
+required:
+  - context

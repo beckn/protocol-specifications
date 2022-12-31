@@ -1,0 +1,7 @@
+description: Array of subscribers matching the lookup request attributes
+content:
+  application/json:
+    schema:
+      type: array
+      items:
+        $ref: '../../../../schema/Subscription.yaml'

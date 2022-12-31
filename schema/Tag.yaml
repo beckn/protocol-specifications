@@ -1,0 +1,14 @@
+description: Describes a tag. This is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.
+type: object
+properties:
+  descriptor:
+    description: Description of the Tag, can be used to store detailed information.
+    allOf:
+      - $ref: "./Descriptor.yaml"
+  value:
+    description: The value of the tag. This set by the BPP and rendered as-is by the BAP.
+    type: string
+  display:
+    description: This value indicates if the tag is intended for display purposes. If set to `true`, then this tag must be displayed. If it is set to `false`, it should not be displayed. This value can override the group display value.
+    type: boolean
+

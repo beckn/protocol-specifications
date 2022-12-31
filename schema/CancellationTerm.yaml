@@ -1,0 +1,23 @@
+description: Describes the cancellation terms of an item or an order. This can be referenced at an item or order level. Item-level cancellation terms can override the terms at the order level.
+type: object
+properties:
+  fulfillment_state:
+    description: The state of fulfillment during which this term is applicable.
+    allOf:
+      - $ref: "./FulfillmentState.yaml"
+  reason_required:
+    description: Indicates whether a reason is required to cancel the order
+    type: boolean
+  cancel_by:
+    description: Information related to the time of cancellation.
+    allOf:
+      - $ref: "./Time.yaml"
+  cancellation_fee:
+    $ref: "./Fee.yaml"
+  xinput:
+    $ref: "./XInput.yaml"
+  external_ref:
+    $ref: "./MediaFile.yaml"
+
+
+    

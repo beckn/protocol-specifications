@@ -1,0 +1,110 @@
+description: Describes a product or a service offered to the end consumer by the provider. In the mobility sector, it can represent a fare product like one way journey. In the logistics sector, it can represent the delivery service offering. In the retail domain it can represent a product like a grocery item.
+type: object
+properties:
+  id:
+    description: ID of the item.
+    type: string
+  parent_item_id:
+    description: ID of the item, this item is a variant of
+    allOf:
+      - $ref: "./Item.yaml#/properties/id"
+  parent_item_quantity:
+    description: The number of units of the parent item, this item is a multiple of
+    allOf:
+      - $ref: "./ItemQuantity.yaml"
+  descriptor:
+    description: Physical description of the item
+    allOf:
+      - $ref: "./Descriptor.yaml"
+  manufacturer:
+    description: The manufacturer of this item. Relevant only for retail use cases
+    allOf:
+      - $ref: "./Organization.yaml"
+  price:
+    description: The selling price of this item
+    allOf:
+      - $ref: "./Price.yaml"
+  quantity:
+    description: The selling quantity of the item
+    allOf:
+      - $ref: "./ItemQuantity.yaml"
+  category_ids:
+    description: Categories this item can be listed under
+    type: array
+    items:
+      allOf:
+        - $ref: "./Category.yaml#/properties/id"
+  fulfillment_ids:
+    description: Fulfillment modes through which this item can be ordered
+    type: array
+    items:
+      allOf:
+        - $ref: "./Fulfillment.yaml#/properties/id"
+  location_ids:
+    description: Provider Locations this item is available in
+    type: array
+    items:
+      allOf:
+        - $ref: "./Location.yaml#/properties/id"
+  payment_ids:
+    description: Payment modes through which this item can be ordered
+    type: array
+    items:
+      allOf:
+        - $ref: "./Payment.yaml#/properties/id"
+  add_ons:
+    type: array
+    items:
+      $ref: "./AddOn.yaml"
+  cancellation_terms:
+    description: Cancellation terms of this item
+    type: array
+    items:
+      $ref: "./CancellationTerm.yaml"
+  refund_terms:
+    description: Refund terms of this item
+    type: array
+    items:
+      $ref: "./RefundTerm.yaml"    
+  replacement_terms:
+    description: Replacement terms of this item
+    type: array
+    items:
+      $ref: "./ReplacementTerm.yaml"
+  return_terms:
+    description: Return terms of this item
+    type: array
+    items:
+      $ref: "./ReturnTerm.yaml"
+  xinput:
+    description: Additional input required from the customer to purchase / avail this item
+    allOf:
+      - $ref: "./XInput.yaml"
+  time:
+    description: Temporal attributes of this item. This property is used when the item exists on the catalog only for a limited period of time. 
+    allOf:
+      - $ref: "./Time.yaml"
+  rateable:
+    description: Whether this item can be rated
+    type: boolean
+  rating:
+    description: The rating of the item
+    allOf:
+      - $ref: "./Rating.yaml#/properties/value"
+  matched:
+    description: Whether this item is an exact match of the request
+    type: boolean
+  related:
+    description: Whether this item is a related item to the exactly matched item
+    type: boolean
+  recommended:
+    description: Whether this item is a recommended item to a response
+    type: boolean
+  ttl:
+    description: Time to live in seconds for an instance of this schema
+    type: string    
+  tags:
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
+

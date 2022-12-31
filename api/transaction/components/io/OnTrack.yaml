@@ -1,0 +1,22 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - on_track
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      tracking:
+        $ref: "../../../../schema/Tracking.yaml"
+    required:
+      - tracking
+  error:
+    $ref: "../../../../schema/Error.yaml"
+required:
+  - context

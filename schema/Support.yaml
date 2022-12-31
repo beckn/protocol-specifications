@@ -1,0 +1,17 @@
+description: Details of customer support
+type: object
+properties:
+  ref_id:
+    type: string
+  callback_phone:
+    type: string
+    format: phone
+  phone:
+    type: string
+    format: phone
+  email:
+    type: string
+    format: email
+  url:
+    type: string
+    format: uri

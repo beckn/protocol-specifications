@@ -1,7 +1,8 @@
 # Ravi Prakash  
-* __Email__ : ravi@becknfoundation.org
-* __Github__ : [core-wg-admin](https://github.com/core-wg-admin)
+* __Github__ : [ravi-prakash-v](https://github.com/ravi-prakash-v)
 
 # Pramod Varma 
-* __Email__ : pramod@ekstep.org
 * __Github__ : [pramodkvarma](https://github.com/pramodkvarma)
+
+# Venkataraman Mahadevan
+* __Github__ : [venkatramanm](https://github.com/venkatramanm)

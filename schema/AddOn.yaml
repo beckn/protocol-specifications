@@ -1,0 +1,10 @@
+description: Describes an additional item offered as a value-addition to a product or service. This does not exist independently in a catalog and is always associated with an item.
+type: object
+properties:
+  id:
+    description: Provider-defined ID of the add-on
+    type: string
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  price:
+    $ref: "./Price.yaml"

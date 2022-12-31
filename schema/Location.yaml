@@ -1,0 +1,49 @@
+description: The physical location of something
+type: object
+properties:
+  id:
+    type: string
+  descriptor:
+    $ref: "./Descriptor.yaml"
+  map_url:
+    description: The url to the map of the location. This can be a globally recognized map url or the one specified by the network policy.
+    type: string
+    format: uri
+  gps:
+    description: The GPS co-ordinates of this location.
+    allOf:
+      - $ref: "./Gps.yaml"
+  address:
+    description: The address of this location.
+    allOf:
+      - $ref: "./Address.yaml"
+  city:
+    description: The city this location is, or is located within
+    allOf:
+      - $ref: "./City.yaml"
+  district:
+    description: The state this location is, or is located within
+    type: string
+  state:
+    description: The state this location is, or is located within
+    allOf:
+      - $ref: "./State.yaml"
+  country:
+    description: The country this location is, or is located within
+    allOf:
+      - $ref: "./Country.yaml"
+  area_code:
+    type: string
+  circle:
+    $ref: "./Circle.yaml"
+  polygon:
+    description: The boundary polygon of this location
+    type: string
+  3dspace:
+    description: The three dimensional region describing this location
+    type: string
+  rating:
+    description: The rating of this location
+    allOf:
+      - $ref: "./Rating.yaml#/properties/value"
+  
