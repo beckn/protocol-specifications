@@ -77,7 +77,6 @@
 |FeedbackUrl|
 |Language|
 |Subscriber|
-|Tags|
 |Operator|
 |Page|
 |Policy|
