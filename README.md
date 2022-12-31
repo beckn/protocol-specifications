@@ -8,6 +8,7 @@ metaDescription: "Domain agnostic transaction specification for e-commerce"
 
 | Domain                | Version   |    Release Date       |
 |-----------------------|-----------|-----------------------|
+|   Core   |    1.0.0      | 31 December 2022       |
 |   Core   |    0.9.3      | 22 December 2021       |
 |   Core   |    0.9.2      | 27 July, 2021        |
 |   Core   |    0.9.1  | 09 November, 2020        |
