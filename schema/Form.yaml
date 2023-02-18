@@ -6,8 +6,10 @@ properties:
     type: string
     format: uri
   data:
-    description: The form content string. This content will again follow the mime_type field for processing. Typically forms should be sent as an html string starting with <form></form> tags. The application must render this form after removing any css or javascript code if necessary. The `action` attribute in the form should have a url where the form needs to be submitted.
-    type: string
+    description: The form submission data
+    type: object
+    additionalProperties:
+      type: string
   mime_type:
     description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
     type: string
