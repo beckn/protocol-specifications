@@ -9,19 +9,19 @@ properties:
     allOf:
       - $ref: "./Item.yaml#/properties/id"
   parent_item_quantity:
-    description: The number of units of the parent item, this item is a multiple of
+    description: The number of units of the parent item this item is a multiple of
     allOf:
       - $ref: "./ItemQuantity.yaml"
   descriptor:
     description: Physical description of the item
     allOf:
       - $ref: "./Descriptor.yaml"
-  manufacturer:
-    description: The manufacturer of this item. Relevant only for retail use cases
+  creator:
+    description: The creator of this item
     allOf:
       - $ref: "./Organization.yaml"
   price:
-    description: The selling price of this item
+    description: The price of this item, if it has intrinsic value
     allOf:
       - $ref: "./Price.yaml"
   quantity:
@@ -35,7 +35,7 @@ properties:
       allOf:
         - $ref: "./Category.yaml#/properties/id"
   fulfillment_ids:
-    description: Fulfillment modes through which this item can be ordered
+    description: Modes through which this item can be fulfilled
     type: array
     items:
       allOf:
@@ -47,7 +47,7 @@ properties:
       allOf:
         - $ref: "./Location.yaml#/properties/id"
   payment_ids:
-    description: Payment modes through which this item can be ordered
+    description: Payment modalities through which this item can be ordered
     type: array
     items:
       allOf:
@@ -67,12 +67,12 @@ properties:
     items:
       $ref: "./RefundTerm.yaml"    
   replacement_terms:
-    description: Replacement terms of this item
+    description: Terms that are applicable be met when this item is replaced
     type: array
     items:
       $ref: "./ReplacementTerm.yaml"
   return_terms:
-    description: Return terms of this item
+    description: Terms that are applicable when this item is returned
     type: array
     items:
       $ref: "./ReturnTerm.yaml"
