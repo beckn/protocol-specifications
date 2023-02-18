@@ -15,7 +15,7 @@ properties:
       ratings:
         type: array
         items:
-          - $ref: "../../../../schema/Rating.yaml"
+          $ref: "../../../../schema/Rating.yaml"
 required:
   - context
   - message
