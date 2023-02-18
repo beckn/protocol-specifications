@@ -13,7 +13,7 @@ properties:
     allOf:
       - $ref: "./Time.yaml"
   return_location:
-    desription: The location where the item or order must / will be returned to
+    description: The location where the item or order must / will be returned to
     allOf:
       - $ref: "./Location.yaml"
   fulfillment_managed_by:
