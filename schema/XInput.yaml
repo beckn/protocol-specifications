@@ -7,6 +7,3 @@ properties:
   required:
     description: Indicates whether the form data is mandatorily required by the BPP to confirm the order. 
     type: boolean
-  form_submission:
-    data:
-      type: string

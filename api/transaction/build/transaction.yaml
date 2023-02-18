@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Beckn Protocol Core
   description: Beckn Core Transaction API specification
-  version: 1.0.0
+  version: 1.1.0
 security:
   - SubscriberAuth: []
 paths:
@@ -328,7 +328,7 @@ paths:
                     ratings:
                       type: array
                       items:
-                        - $ref: '#/components/schemas/Rating'
+                        $ref: '#/components/schemas/Rating'
               required:
                 - context
                 - message
@@ -1103,8 +1103,10 @@ components:
           type: string
           format: uri
         data:
-          description: The form content string. This content will again follow the mime_type field for processing. Typically forms should be sent as an html string starting with <form></form> tags. The application must render this form after removing any css or javascript code if necessary. The `action` attribute in the form should have a url where the form needs to be submitted.
-          type: string
+          description: The form submission data
+          type: object
+          additionalProperties:
+            type: string
         mime_type:
           description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
           type: string
@@ -1134,7 +1136,7 @@ components:
         state:
           description: The current state of fulfillment. The BPP must set this value whenever the state of the order fulfillment changes and fire an unsolicited `on_status` call.
           allOf:
-            - $ref: '#/components/schemas/State'
+            - $ref: '#/components/schemas/FulfillmentState'
         tracking:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
@@ -1310,19 +1312,19 @@ components:
           allOf:
             - $ref: '#/components/schemas/Item/properties/id'
         parent_item_quantity:
-          description: 'The number of units of the parent item, this item is a multiple of'
+          description: The number of units of the parent item this item is a multiple of
           allOf:
             - $ref: '#/components/schemas/ItemQuantity'
         descriptor:
           description: Physical description of the item
           allOf:
             - $ref: '#/components/schemas/Descriptor'
-        manufacturer:
-          description: The manufacturer of this item. Relevant only for retail use cases
+        creator:
+          description: The creator of this item
           allOf:
             - $ref: '#/components/schemas/Organization'
         price:
-          description: The selling price of this item
+          description: 'The price of this item, if it has intrinsic value'
           allOf:
             - $ref: '#/components/schemas/Price'
         quantity:
@@ -1336,7 +1338,7 @@ components:
             allOf:
               - $ref: '#/components/schemas/Category/properties/id'
         fulfillment_ids:
-          description: Fulfillment modes through which this item can be ordered
+          description: Modes through which this item can be fulfilled
           type: array
           items:
             allOf:
@@ -1348,7 +1350,7 @@ components:
             allOf:
               - $ref: '#/components/schemas/Location/properties/id'
         payment_ids:
-          description: Payment modes through which this item can be ordered
+          description: Payment modalities through which this item can be ordered
           type: array
           items:
             allOf:
@@ -1383,12 +1385,12 @@ components:
               refund_amount:
                 $ref: '#/components/schemas/Price'
         replacement_terms:
-          description: Replacement terms of this item
+          description: Terms that are applicable be met when this item is replaced
           type: array
           items:
             $ref: '#/components/schemas/ReplacementTerm'
         return_terms:
-          description: Return terms of this item
+          description: Terms that are applicable when this item is returned
           type: array
           items:
             $ref: '#/components/schemas/ReturnTerm'
@@ -1719,7 +1721,7 @@ components:
         age:
           description: Age of the person
           allOf:
-            $ref: '#/components/schemas/Duration'
+            - $ref: '#/components/schemas/Duration'
         dob:
           description: Date of birth of the person
           type: string
@@ -1932,7 +1934,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/Time'
         return_location:
-          desription: The location where the item or order must / will be returned to
+          description: The location where the item or order must / will be returned to
           allOf:
             - $ref: '#/components/schemas/Location'
         fulfillment_managed_by:
@@ -2160,6 +2162,3 @@ components:
         required:
           description: Indicates whether the form data is mandatorily required by the BPP to confirm the order.
           type: boolean
-        form_submission:
-          data:
-            type: string

@@ -16,7 +16,7 @@ properties:
   age:
     description: Age of the person
     allOf:
-      $ref: "./Duration.yaml"
+      - $ref: "./Duration.yaml"
   dob:
     description: Date of birth of the person
     type: string
