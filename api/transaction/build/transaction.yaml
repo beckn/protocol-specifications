@@ -1721,7 +1721,7 @@ components:
         age:
           description: Age of the person
           allOf:
-            $ref: '#/components/schemas/Duration'
+            - $ref: '#/components/schemas/Duration'
         dob:
           description: Date of birth of the person
           type: string
@@ -1934,7 +1934,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/Time'
         return_location:
-          desription: The location where the item or order must / will be returned to
+          description: The location where the item or order must / will be returned to
           allOf:
             - $ref: '#/components/schemas/Location'
         fulfillment_managed_by:
