@@ -1987,12 +1987,12 @@ components:
         items:
           type: array
           items:
+            allOf:
+              - $ref: '#/components/schemas/Item'
+              - properties:
+                  quantity:
+                    $ref: '#/components/schemas/ItemQuantity/properties/selected'
             type: object
-            properties:
-              id:
-                $ref: '#/components/schemas/Item/properties/id'
-              quantity:
-                $ref: '#/components/schemas/ItemQuantity/properties/selected'
             required:
               - id
         add_ons:
