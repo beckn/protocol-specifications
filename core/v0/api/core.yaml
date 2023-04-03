@@ -75,9 +75,6 @@ paths:
               required:
                 - context
                 - message
-
-
-
       responses:
         '200':
           description: Acknowledgement of message received
@@ -404,7 +401,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /support:
     post:
       tags:
@@ -447,7 +443,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /on_search:
     post:
       tags:
@@ -954,7 +949,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /get_cancellation_reasons:
     post:
       tags:
@@ -988,7 +982,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /cancellation_reasons:
     post:
       tags:
@@ -1002,14 +995,14 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: '#/components/schemas/Context'
                 message:
                   type: object
                   properties:
                     cancellation_reasons:
                       type: array
                       items:
-                          $ref: '#/components/schemas/Option'
+                        $ref: '#/components/schemas/Option'
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1029,7 +1022,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /get_return_reasons:
     post:
       tags:
@@ -1063,7 +1055,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /return_reasons:
     post:
       tags:
@@ -1077,11 +1068,11 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: '#/components/schemas/Context'
                 return_reasons:
                   type: array
                   items:
-                      $ref: '#/components/schemas/Option'
+                    $ref: '#/components/schemas/Option'
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1101,7 +1092,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /get_rating_categories:
     post:
       tags:
@@ -1115,7 +1105,7 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: '#/components/schemas/Context'
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1135,7 +1125,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /rating_categories:
     post:
       tags:
@@ -1149,11 +1138,11 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
-                rating_categories:  
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Rating/properties/rating_category'
+                  $ref: '#/components/schemas/Context'
+                rating_categories:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Rating/properties/rating_category'
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1173,7 +1162,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /get_feedback_categories:
     post:
       tags:
@@ -1187,7 +1175,7 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: '#/components/schemas/Context'
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1207,7 +1195,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /feedback_categories:
     post:
       tags:
@@ -1221,7 +1208,7 @@ paths:
               type: object
               properties:
                 context:
-                    $ref: '#/components/schemas/Context'
+                  $ref: '#/components/schemas/Context'
                 feedback_categories:
                   type: array
                   items:
@@ -1245,7 +1232,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-                    
   /get_feedback_form:
     post:
       tags:
@@ -1286,14 +1272,13 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
   /feedback_form:
     post:
       tags:
         - BAP Meta APIs
       description: Get a feedback form from the BPP
       requestBody:
-        description: Feedback form sent by the BPP 
+        description: Feedback form sent by the BPP
         content:
           application/json:
             schema:
@@ -1302,8 +1287,7 @@ paths:
                 context:
                   $ref: '#/components/schemas/Context'
                 message:
-                    $ref: '#/components/schemas/Feedback'
-
+                  $ref: '#/components/schemas/Feedback'
       responses:
         '200':
           description: Acknowledgement of message received
@@ -1323,7 +1307,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-
 components:
   securitySchemes:
     SubscriberAuth:
@@ -1348,7 +1331,7 @@ components:
       properties:
         status:
           type: string
-          description: 'Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK'
+          description: Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK
           enum:
             - ACK
             - NACK
@@ -1374,7 +1357,7 @@ components:
           description: Door / Shop number of the address
         name:
           type: string
-          description: 'Name of address if applicable. Example, shop name'
+          description: Name of address if applicable. Example, shop name
         building:
           type: string
           description: Name of the building or block
@@ -1383,7 +1366,7 @@ components:
           description: Street name or number
         locality:
           type: string
-          description: 'Name of the locality, apartments'
+          description: Name of the locality, apartments
         ward:
           type: string
           description: Name or number of the ward if applicable
@@ -1398,7 +1381,7 @@ components:
           description: Country name
         area_code:
           type: string
-          description: 'Area code. This can be Pincode, ZIP code or any equivalent'
+          description: Area code. This can be Pincode, ZIP code or any equivalent
     Agent:
       description: Describes an order executor
       allOf:
@@ -1412,7 +1395,7 @@ components:
       description: Describes an authorization mechanism
       type: object
       properties:
-        type: 
+        type:
           type: string
           description: Type of authorization mechanism used
         token:
@@ -1420,11 +1403,11 @@ components:
           description: Token used for authorization
         valid_from:
           type: string
-          format: date-time 
+          format: date-time
           description: Timestamp in RFC3339 format from which token is valid
         valid_to:
           type: string
-          format: date-time 
+          format: date-time
           description: Timestamp in RFC3339 format until which token is valid
         status:
           type: string
@@ -1656,7 +1639,6 @@ components:
       description: Describes a decimal value
       type: string
       pattern: '[+-]?([0-9]*[.])?[0-9]+'
-
     Descriptor:
       description: Describes the description of a real-world object.
       type: object
@@ -1681,7 +1663,6 @@ components:
         3d_render:
           type: string
           format: uri
-
     Dimensions:
       description: Describes the dimensions of a real-world object
       type: object
@@ -1692,7 +1673,6 @@ components:
           $ref: '#/components/schemas/Scalar'
         height:
           $ref: '#/components/schemas/Scalar'
-    
     Document:
       description: Describes a document which can be sent as a url
       type: object
@@ -1702,15 +1682,12 @@ components:
           format: uri
         label:
           type: string
-    
     Domain:
       description: Describes the domain of an object
       type: string
-
     Duration:
       description: Describes duration as per ISO8601 format
       type: string
-
     Error:
       description: Describes an error object
       type: object
@@ -1725,7 +1702,7 @@ components:
             - JSON-SCHEMA-ERROR
         code:
           type: string
-          description: 'Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo'
+          description: Beckn specific error code. For full list of error codes, refer to error_codes.md in the root folder of this repo
         path:
           type: string
           description: Path to json schema generating the error. Used only during json schema validation errors
@@ -1735,7 +1712,6 @@ components:
       required:
         - type
         - code
-
     Feedback:
       description: Feedback for a service
       type: object
@@ -1744,13 +1720,11 @@ components:
           $ref: '#/components/schemas/FeedbackForm'
         feedback_url:
           $ref: '#/components/schemas/FeedbackUrl'
-          
-    FeedbackForm: 
+    FeedbackForm:
       description: Describes a feedback form that a BPP can send to get feedback from the BAP
       type: array
       items:
         $ref: '#/components/schemas/FeedbackFormElement'
-    
     FeedbackFormElement:
       description: An element in the feedback form. It can be question or an answer to the question.
       type: object
@@ -1763,16 +1737,15 @@ components:
           description: Specifies the question to which the answer options will be contained in the child FeedbackFormElements
           type: string
         answer:
-          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id  
+          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id
           type: string
         answer_type:
           description: Specifies how the answer option should be rendered.
           type: string
-          enum :
+          enum:
             - radio
             - checkbox
             - text
-      
     FeedbackUrl:
       description: Describes how a feedback URL will be sent by the BPP
       type: object
@@ -1796,10 +1769,6 @@ components:
             type: string
           required:
             - feedback_id
-
-
-
-
     Fulfillment:
       description: Describes how a single product/service will be rendered/fulfilled to the end customer
       type: object
@@ -1874,7 +1843,7 @@ components:
     Gps:
       description: Describes a gps coordinate
       type: string
-      pattern: '^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
+      pattern: ^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$
     Image:
       description: 'Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```'
       type: string
@@ -1898,7 +1867,6 @@ components:
           $ref: '#/components/schemas/Item'
         tags:
           $ref: '#/components/schemas/Tags'
-            
     ItemQuantity:
       description: Describes count or amount of an item
       type: object
@@ -2012,8 +1980,7 @@ components:
     Name:
       type: string
       description: 'Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}'
-      pattern: '^\./[^/]+/[^/]*/[^/]*/[^/]*/[^/]*/[^/]*$'
-
+      pattern: ^\./[^/]+/[^/]*/[^/]*/[^/]*/[^/]*/[^/]*$
     Offer:
       description: Describes an offer
       type: object
@@ -2036,11 +2003,10 @@ components:
             $ref: '#/components/schemas/Item/properties/id'
         time:
           $ref: '#/components/schemas/Time'
-
     Operator:
       description: Describes the agent of a service
       allOf:
-        - $ref: "#/components/schemas/Person"
+        - $ref: '#/components/schemas/Person'
         - properties:
             experience:
               type: object
@@ -2051,7 +2017,6 @@ components:
                   type: string
                 unit:
                   type: string
-
     Option:
       description: Describes a selectable option
       type: object
@@ -2131,7 +2096,6 @@ components:
         updated_at:
           type: string
           format: date-time
-
     Organization:
       description: Describes an organization
       type: object
@@ -2140,7 +2104,6 @@ components:
           type: string
         cred:
           type: string
-
     Page:
       description: Describes a page in a search result
       type: object
@@ -2149,8 +2112,6 @@ components:
           type: string
         next_id:
           type: string
-
-
     Payment:
       description: Describes a payment
       type: object
@@ -2194,7 +2155,6 @@ components:
             - NOT-PAID
         time:
           $ref: '#/components/schemas/Time'
-
     Person:
       description: Describes a person.
       type: object
@@ -2208,7 +2168,7 @@ components:
           format: date
         gender:
           type: string
-          description: 'Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender'
+          description: Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender
         cred:
           type: string
         tags:
@@ -2225,7 +2185,6 @@ components:
           $ref: '#/components/schemas/Policy/properties/id'
         time:
           $ref: '#/components/schemas/Time'
-
     Price:
       description: Describes the price of an item. Allows for domain extension.
       type: object
@@ -2246,19 +2205,18 @@ components:
           $ref: '#/components/schemas/DecimalValue'
         maximum_value:
           $ref: '#/components/schemas/DecimalValue'
-          
     Provider:
-      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
+      description: Describes a service provider. This can be a restaurant, a hospital, a Store etc
       type: object
       properties:
         id:
           type: string
-          description: 'Id of the provider'
+          description: Id of the provider
         descriptor:
           $ref: '#/components/schemas/Descriptor'
         category_id:
           type: string
-          description: 'Category Id of the provider'
+          description: Category Id of the provider
         rating:
           $ref: '#/components/schemas/Rating/properties/value'
         time:
@@ -2279,11 +2237,11 @@ components:
           type: array
           items:
             allOf:
-            - $ref: '#/components/schemas/Location'
-            - type: object
-              properties:
-                rateable:
-                  $ref: '#/components/schemas/Rateable'
+              - $ref: '#/components/schemas/Location'
+              - type: object
+                properties:
+                  rateable:
+                    $ref: '#/components/schemas/Rateable'
         offers:
           type: array
           items:
@@ -2300,7 +2258,6 @@ components:
           $ref: '#/components/schemas/Rateable'
         tags:
           $ref: '#/components/schemas/Tags'
-
     Quotation:
       description: Describes a quote
       type: object
@@ -2318,11 +2275,9 @@ components:
                 $ref: '#/components/schemas/Price'
         ttl:
           $ref: '#/components/schemas/Duration'
-
     Rateable:
       description: If the entity can be rated or not
       type: boolean
-
     Rating:
       description: Describes the rating of a person or an object.
       type: object
@@ -2337,11 +2292,10 @@ components:
           description: Rating value given to the object
           type: number
           minimum: 0
-        feedback_form: 
+        feedback_form:
           $ref: '#/components/schemas/FeedbackForm'
         feedback_id:
           $ref: '#/components/schemas/FeedbackUrl/properties/params/properties/feedback_id'
-          
     RatingAck:
       type: object
       properties:
@@ -2351,7 +2305,6 @@ components:
         rating_ack:
           description: If rating has been recorded or not
           type: boolean
-
     Scalar:
       description: An object representing a scalar quantity.
       type: object
@@ -2379,7 +2332,6 @@ components:
       required:
         - value
         - unit
-
     Schedule:
       description: Describes a schedule
       type: object
@@ -2410,7 +2362,7 @@ components:
           description: ID of entity which changed the state
     Subscriber:
       type: object
-      description: 'Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.'
+      description: Any entity which wants to authenticate itself on a network. This can be a BAP, BPP, BG, BPPR or a BGR.
       properties:
         subscriber_id:
           type: string
@@ -2434,7 +2386,7 @@ components:
           $ref: '#/components/schemas/Country/properties/code'
         signing_public_key:
           type: string
-          description: 'Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\''s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```X-Gateway-Authorization``` header.'
+          description: Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\'s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```X-Gateway-Authorization``` header.
         encryption_public_key:
           type: string
           description: Encryption public key of the BAP subscriber. Any BPP must encrypt the ```requestBody.message``` value of the ```on_search``` API using this public key.
@@ -2457,7 +2409,6 @@ components:
           type: string
           description: Expiry timestamp in UTC derived from the ```lease_time``` of the subscriber
           format: date-time
-
     Support:
       description: Customer support
       type: object
@@ -2502,11 +2453,9 @@ components:
           description: comma separated values representing days of the week
         schedule:
           $ref: '#/components/schemas/Schedule'
-
     TrackingData:
       description: Describes tracking data object during live tracking of an order
       $ref: '#/components/schemas/Location/properties/gps'
-
     Tracking:
       description: Describes the tracking info of an object
       type: object
@@ -2519,7 +2468,6 @@ components:
           enum:
             - active
             - inactive
-
     Vehicle:
       description: Describes the properties of a vehicle used in a mobility service
       type: object
