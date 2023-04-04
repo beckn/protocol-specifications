@@ -2358,9 +2358,8 @@ components:
           type: string
         channels:
           $ref: '#/components/schemas/Tags'
-    
     Tags:
-      description: Describes a tag. This is a simple key-value store which is used to contain extended metadata
+      description: A simple key-value store which is used to contain extended metadata. However, grouped tags can be created using the recommendations provided in docs/protocol-drafts/BECKN-The-Tags-Schema-Draft-01.md
       additionalProperties:
         type: string
     Time:
