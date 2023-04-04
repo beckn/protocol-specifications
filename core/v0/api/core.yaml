@@ -2,8 +2,7 @@ openapi: 3.0.0
 info:
   title: Beckn Core API
   description: Beckn Core API specification
-  version: 0.9.3
-
+  version: 0.9.4
 security:
   - SubscriberAuth: []
   - GatewaySubscriberAuth: []
