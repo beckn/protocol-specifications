@@ -1548,6 +1548,10 @@ components:
         ttl:
           type: string
           description: The duration in ISO8601 format after timestamp for which this message holds valid
+        max_callbacks:
+          type: integer
+          description: The maximum number of callbacks the BAP expects from the BPP. If set to zero, then BAP is not expecting a callback. If set to -1 the BAP can expect any number of callbacks.
+          default: 1
       required:
         - domain
         - action
