@@ -312,6 +312,8 @@ FulfillmentPolicy1:
       properties:
         person:
           $ref: '#/components/schemas/Person'
+        organization:
+          $ref: '#/components/schemas/Organization'
         contact:
           $ref: '#/components/schemas/Contact'
     agent:
