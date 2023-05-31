@@ -310,6 +310,9 @@ FulfillmentPolicy1:
     customer:
       type: object
       properties:
+        id:
+          description: ID of the customer.
+          type: string
         person:
           $ref: '#/components/schemas/Person'
         organization:

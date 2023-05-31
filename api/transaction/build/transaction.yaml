@@ -1014,6 +1014,9 @@ components:
       description: Describes a customer buying/availing a product or a service
       type: object
       properties:
+        id:
+          description: ID of the customer.
+          type: string
         person:
           $ref: '#/components/schemas/Person'
         organization:
@@ -2032,7 +2035,7 @@ components:
       description: Details of customer support
       type: object
       properties:
-        ref_id:
+        order_id:
           type: string
         callback_phone:
           type: string
