@@ -350,7 +350,7 @@ components:
                   type: object
                   properties:
                     gps:
-                      $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/gps/allOf/0'
+                      $ref: '/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/gps/allOf/0'
                     radius:
                       description: Describes a scalar
                       type: object
@@ -365,16 +365,16 @@ components:
                           type: string
                           pattern: '[+-]?([0-9]*[.])?[0-9]+'
                         estimated_value:
-                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                          $ref: '/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                         computed_value:
-                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                          $ref: '/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                         range:
                           type: object
                           properties:
                             min:
-                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                              $ref: '/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                             max:
-                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                              $ref: '/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                         unit:
                           type: string
                 polygon:
