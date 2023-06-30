@@ -1,2 +1,8 @@
-description: Describes a postal address.
-type: string
+- name: John Doe
+  address_lines:
+    - 123 Main Street
+    - Apartment 4B
+  city: New York
+  state: New York
+  country: United States
+  area_code: 12345
