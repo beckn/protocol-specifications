@@ -25,19 +25,18 @@
 
 ### 1.7.3 Pull Requests
 > Add link to Pull Requests
+
 ## 1.8 Errata
 > Add link to Errata
+
 # 2. Context
 Beckn protocol defines a domain-agnostic specification that can be used to represent any customer- provider transaction by implementing a standard set of APIs and schema. Creating a transaction ideally involves the customer discovering products and services offered by various providers, selecting the desired products or services, obtaining the terms of service and payment, and then finally confirming the order. But sometimes,  the provider might require additional metadata in order to confirm a transaction. This requirement may be due to legal requirements imposed by the regulatory authorities, or business requirements to allow better serviceability. 
 
 For example, a logistics service provider might require additional information from the logistics customer (like a restaurant) like the dimensions of the package, category of items (food, flammable, fragile etc), approximate weight of the package, the order Number etc,to confirm the order. All of this information needs to be transmitted to the person availing the logistics service. 
 
-
 Similarly, a healthcare service might want the patient to provide information like, their medical history, a description of their symptoms, details of the insurance, etc, before confirming the order.  
 
-
 The nature of additional information required could vary significantly across sectors. These fields could be varied and many, and adding them as protocol attributes would make the protocol bulky and cluttered. 
-
 
 There is a need for a feature in beckn protocol that allows the BPP to capture additional information (over and above what has been published in the catalog) from the customer regarding the order without extending the core transaction protocol.
 
@@ -52,43 +51,45 @@ Such a schema tremendously improves the flexibility of beckn protocol, enabling 
 
 The XInput feature of the protocol MAY be implemented as a building block on the BAP and at the BPP respectively with different features. This section contains the key digital functionalities that MUST / SHOULD / MAY be supported by the implementation of the XInput schema.
 
-## 4.1 Form Declaration
+## 4.1 Form Declaration (Applicable only for BPPs)
 
 ### 4.1.1 Recommendations for BPPs
 The following recommendations contain features that a BPP must allow while implementing the XInput feature
 
-- BPPs MUST be able to declare a form related to a catalog item or an entire order.
-- BPPs MUST be able to declare that the form needs to be submitted in multiple steps. For example, to collect additional information from an applicant like Personal Details, Academic Details, Financial Information etc, before applying for a scholarship.
-- BPPs MUST be able to declare if a form can be natively rendered on a BAP or opened on a browser
-- BPPs MUST be able to declare if a form can be submitted multiple times
+- BPPs MUST be able to manage forms with varying degrees of complexity
+- BPPs MUST be able to declare all form controls available to the user. For more information, refer to [W3C Form Controls](https://www.w3.org/TR/2002/WD-xforms-20020118/slice8.html) 
+- BPPs MUST be able to explicitly declare that the form needs to be submitted in multiple steps. For example, to collect additional information from an applicant like Personal Details, Academic Details, Financial Information etc, before applying for a scholarship. For example, based on the form declaration by the BPP, a BAP must be able to render a form like the one shown below
+![Multi-step-HTML-forms-2](https://github.com/beckn/protocol-specifications/assets/52468749/599f6d21-21a7-452a-94b4-f17ed4a4be1a)
+- BPPs MUST be able to declare if the form can be natively rendered on a BAP or opened on a browser
+- BPPs MUST be able to declare if a particular form can be submitted multiple times
 - BPPs MUST be able to declare if a previously submitted form data can be edited and re-submitted
 - In case of multi-step forms, the BPPs MUST be able to declare if a particular step allows the user to go back to the previous step
 - BPPs MUST be able to digitally sign the form content to allow non-repudiability of the form structure
-- BPPs MUST be able to add all form controls like navigation, resubmission, redirect, in an XInput object
-- BPPs MUST be able to host the form on a URL and add the link to the XInput object
+- BPPs MUST be able to host the form on a URL
+- BPPs SHOULD be able to statically or dynamically link it to a catalog item or an entire order
+  
 ### 4.1.2 Recommendations for BAPs
 NONE
 
+## 4.2 Form Modeling
+Form modeling refers to the non-visible attribute of a Form that describes what a form does. It defines the individual model items and constraints and other run-time aspects of the form. Models are transmitted only when BPP is implementing XForms. This can be represented in the XForms model element, which in XHTML would typically be contained within the head section. Beckn protocol does not provide any recommendations for form modeling. BPPs can implement any model for a form behind the network interface. However, in some cases BPPs can choose to transmit the model along with the presentation that the BAPs can render and process before submission. 
 
-## 4.2 Form Modeling (Applicable only for XForms implementations)
-### 4.2.1 Implementation Criteria for BPPs
+Following are some recommendations for BPPs and BAPs where the model is transmitted along with the presentation. 
+
+### 4.2.1 Recommendations for BPPs
+- 
 - This functionality is applicable for BPPs that want to enable BAPs to natively render forms on their UI.
-- This functionality is applicable for BPPs that have implemented XForms standard
-- If BPPs DO NOT satisfy the above two criteria, the below recommendations are irrelevant. 
+- This functionality is applicable for BPPs that have implemented [W3C XForms standard]
+- If BPPs DO NOT satisfy the above two criteria, the below recommendations are irrelevant.
+- BPPs MUST be able to create and model a form according to the recommendations published in the XForms specification
 
-### 4.2.2 Implementation Criteria for BAPs
+### 4.2.2 Recommendations for BAPs
 - This functionality is applicable for BAPs that have the capability to natively render forms on their UI
 - This functionality is applicable for BAPs that have implemented XForms standard
 - If BAPs DO NOT satisfy the above two criteria, the below recommendations are irrelevant
 
-### 4.2.3 Recommendations for BPPs
-- BPPs MUST be able to create and model a form according to the recommendations published in the XForms specification
-
-### 4.2.4 Recommendations for BAPs
-- BAPs must be able to model the form on their UI according to the recommendations published in the XForms specification
-
-## 4.3 Workflow Management 
-
+## 4.3 Form Controls 
+This functionality allows BAPs and BPPs to manage form workflows like Go Back, Skip, Save, 
 ### 4.3.1 Recommendations for BPPs
 - BPPs MUST be able to specify the current state of a form submission workflow
 - BPPs MUST be able to host the form on a URL and add it to a Form object
