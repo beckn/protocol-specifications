@@ -212,6 +212,76 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
 }
 ```
 
+#### Workflow
+
+```mermaid
+    sequenceDiagram
+    participant BAP UI
+    participant BAP Beckn Protocol Interface
+    participant BPP Beckn Protocol Interface
+    participant BPP Web Server
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_search (with xinput field set)
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface 
+    BAP UI ->> BPP Web Server: GET https://path/to/form
+    activate BAP UI
+    activate BPP Web Server
+    BPP Web Server ->> BAP UI: 200 OK (form.html)
+    deactivate BAP UI
+    deactivate BPP Web Server
+    BAP UI --> BAP UI: render form
+```
+
+> Note : It is important to note that the BAP can render the application in a webview if the external webpage is mobile responsive. However it does come at the cost of user experience. 
+
+### 8.1.2 : Discovering and applying for a job natively on the BAP with single page form
+
+#### Workflow
+
+```mermaid
+    sequenceDiagram
+    participant BAP UI
+    participant BAP XInput Service
+    participant BAP Beckn Protocol Interface
+    participant BPP Beckn Protocol Interface
+    participant BPP XInput Service
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_search (with xinput field set)
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface 
+    BAP XInput Service ->> BPP XInput Service: GET https://path/to/form
+    activate BAP XInput Service
+    activate BPP XInput Service
+    BPP XInput Service ->> BAP XInput Service: 200 OK (form.html)
+    deactivate BAP XInput Service
+    deactivate BPP XInput Service
+    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/submit
+    activate BAP XInput Service
+    activate BPP XInput Service
+    note right of BAP XInput Service: BAP submits the form <br/> hosted at the BPP.
+    BPP XInput Service ->> BAP XInput Service: 200 OK (Ack)
+    deactivate BAP XInput Service
+    deactivate BPP XInput Service
+```
+
+
 
 #### Workflow
 
