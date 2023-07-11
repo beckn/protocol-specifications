@@ -184,7 +184,43 @@ This functionality allows BAPs and BPPs to manage form workflows like Go Back, S
 - An XInput object that contains a single form hosted on a URL. This form should open in a browser and not natively rendered on the BAP
 
 # 8. Example Workflows
-## Requesting BAP user to fill a form before selecting an item from the catalog using a single form hosted at a 3rd party URL with NO form controls on the BAP
+## 8.1 External Forms
+In the following set of examples the BAP user has to go to an external website to fill and submit a form
+### 8.1.1 : Discovery of a job and applying on employer's career portal
+In this example, a BPP returns a catalog of jobs as a response to a `search` request. The Item object in the Job catalog will look like this.
+
+```
+{
+    "id": "1",
+    "description": {
+        "name": "Software Development Engineer - I",
+        "code": "SDE-1",
+        "short_desc": "Job opening for a Senior Software Engineer"
+    },
+    "xinput": {
+        "descriptor": {
+            "name": "Apply Now"
+        },
+        "header": {
+            "redirect": true
+        },
+        "form": {
+            "url": "https://example.com/careers/sse-1/applyNow",
+            "mime_type": "text/html"
+        }
+    }
+}
+```
+
+
+#### Workflow
+
+**Form Declaration**
+The BPP does not have to declare the form over the protocol as it is an external URL
+
+**Form Modeling**
+The BPP Does not have to 
+### Requesting BAP user to fill a form before selecting an item from the catalog using a single form hosted at a 3rd party URL with NO form controls on the BAP
 - BPP adds URL to XInput object with Form Controls
 - Item object
 - Workflow
