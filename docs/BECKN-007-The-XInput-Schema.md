@@ -67,29 +67,57 @@ The following recommendations contain features that a BPP must allow while imple
 - BPPs MUST be able to digitally sign the form content to allow non-repudiability of the form structure
 - BPPs MUST be able to host the form on a URL
 - BPPs SHOULD be able to statically or dynamically link it to a catalog item or an entire order
-  
-### 4.1.2 Recommendations for BAPs
-NONE
 
-## 4.2 Form Modeling
+## 4.2 Form Modeling 
 Form modeling refers to the non-visible attribute of a Form that describes what a form does. It defines the individual model items and constraints and other run-time aspects of the form. Models are transmitted only when BPP is implementing XForms. This can be represented in the XForms model element, which in XHTML would typically be contained within the head section. Beckn protocol does not provide any recommendations for form modeling. BPPs can implement any model for a form behind the network interface. However, in some cases BPPs can choose to transmit the model along with the presentation that the BAPs can render and process before submission. 
 
-Following are some recommendations for BPPs and BAPs where the model is transmitted along with the presentation. 
-
 ### 4.2.1 Recommendations for BPPs
-- 
-- This functionality is applicable for BPPs that want to enable BAPs to natively render forms on their UI.
-- This functionality is applicable for BPPs that have implemented [W3C XForms standard]
-- If BPPs DO NOT satisfy the above two criteria, the below recommendations are irrelevant.
+> Note: This functionality is applicable for BPPs that have implemented [W3C XForms standard] and want to transmit the model along with the forms
 - BPPs MUST be able to create and model a form according to the recommendations published in the XForms specification
 
 ### 4.2.2 Recommendations for BAPs
-- This functionality is applicable for BAPs that have the capability to natively render forms on their UI
-- This functionality is applicable for BAPs that have implemented XForms standard
-- If BAPs DO NOT satisfy the above two criteria, the below recommendations are irrelevant
+> Note: This functionality is applicable for BAPs that have the capability to natively process XHTML documents
+- BAPs should be able to render the form based on the model on their UI
 
 ## 4.3 Form Controls 
-This functionality allows BAPs and BPPs to manage form workflows like Go Back, Skip, Save, 
+Controls are objects that display data or make it easier for users to enter or edit data, perform an action, or make a selection. In general, controls make the form easier to use. Examples of common controls include list boxes, option buttons, and command buttons.
+
+### 4.3.1 Recommendations for BPPs
+- BPPs should be able to add form control elements like text boxes, radio buttons, checkboxes, dropdown lists, sliders, etc as markup elements inside an HTML or an XHTML document
+
+### 4.3.2 Recommendations for BAPs
+- BAPs SHOULD be able to render the form controls by parsing the HTML or XHTML document
+
+## 4.4 Form Transmission
+Form Transmission refers to the interaction where a BAP fetches the form from its URL contained in the `XInput.form.url` property as shown in the image below
+
+![Fetching a form](https://github.com/beckn/protocol-specifications/assets/52468749/7f0a1636-8b87-402d-8fa7-1b2e438bb465)
+
+### 4.4.1 Recommendations for BPPs
+- BPPs MUST be able to return an HTML or XHTML document when requested from a valid BAP
+- In case of HTTP/S implementations, the BPP MUST return a HTML or XHTML document with the appropriate headers
+- In case the form has expired, the BPP MUST send an HTML or XHTML document with a 404 status code
+- In case the form is accessed by an unauthorized BAP, the BPP must send send an HTML or XHTML document with a 403 status code (for HTTP/S implementations)
+
+### 4.4.2 Recommendations for BAPs
+- BAPs MUST be able to fetch the form from the URL present in the `form.url` property of the `XInput` object
+- BAPs MUST be able to verify the digital signature of the form using the public key of the BPP 
+
+
+## 4.5 Form Rendering (Applicable for BAPs)
+### 4.5.1 Recommendations for BPPs
+### 4.5.2 Recommendations for BAPs
+## 4.6 Form Navigation
+### 4.6.1 Recommendations for BPPs
+- If form navigation is allowed, BPPs MUST be able to return the previous form with saved information when requested by a BAP
+- If form navigation is NOT allowed, BPPs MUST be able to return an error with a message restricting the user from navigating
+### 4.6.2 Recommendations for BAPs
+- BAPs SHOULD allow the user to navigate from one step of the form to another if allowed by the BPP
+- BAPs SHOULD NOT allow the user to navigate to navigate the form if NOT allowed by the BPP
+
+## 4.7 Workflow Management
+This functionality allows BAPs and BPPs to manage form workflows like Go Back, Skip, Save
+
 ### 4.3.1 Recommendations for BPPs
 - BPPs MUST be able to specify the current state of a form submission workflow
 - BPPs MUST be able to host the form on a URL and add it to a Form object
@@ -101,22 +129,7 @@ This functionality allows BAPs and BPPs to manage form workflows like Go Back, S
 - BAPs SHOULD be able to navigate the form
 - BAPs SHOULD be able to redirect the user to an external URL on a browser
 
-## 4.4 Form Transmission
-### 4.4.1 Recommendations for BPPs
-- BPPs MUST be able to transmit the currently active form to the BAP
-- BPPs MUST be able to transmit the number of 
-### 4.4.2 Recommendations for BAPs
-## 4.5 Form Rendering
-### 4.5.1 Recommendations for BPPs
-### 4.5.2 Recommendations for BAPs
-## 4.6 Form Navigation
-### 4.6.1 Recommendations for BPPs
-- If form navigation is allowed, BPPs MUST be able to return the previous form with saved information when requested by a BAP
-- If form navigation is NOT allowed, BPPs MUST be able to return an error with a message restricting the user from navigating
-### 4.6.2 Recommendations for BAPs
-- BAPs SHOULD allow the user to navigate from one step of the form to another if allowed by the BPP
-- BAPs SHOULD NOT allow the user to navigate to navigate the form if NOT allowed by the BPP
-## 4.7 Form Submission
+## 4.8 Form Submission
 ### 4.7.1 Recommendations for BPPs
 ### 4.7.2 Recommendations for BAPs
 
