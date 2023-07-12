@@ -207,7 +207,8 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
         "form": {
             "url": "https://example.com/careers/sse-1/applyNow",
             "mime_type": "text/html"
-        }
+        },
+        "required": true
     }
 }
 ```
@@ -216,10 +217,12 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
 
 ```mermaid
     sequenceDiagram
+    actor Job Applicant
+    participant Browser
     participant BAP UI
+    participant BAP XInput Service
     participant BAP Beckn Protocol Interface
     participant BPP Beckn Protocol Interface
-    participant BPP Web Server
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
@@ -231,17 +234,28 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     activate BPP Beckn Protocol Interface
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
     deactivate BPP Beckn Protocol Interface
-    deactivate BAP Beckn Protocol Interface 
-    BAP UI ->> BPP Web Server: GET https://path/to/form
-    activate BAP UI
+    deactivate BAP Beckn Protocol Interface
+    BAP Beckn Protocol Interface -->> BAP UI: PUSH catalog
+    BAP UI ->> BAP UI: Render Catalog
+    Job Applicant ->> BAP UI: Click on Job (Item)
+    BAP UI ->> BAP UI: Render Job Details with "Apply Now" Button <br/> with link to Item.xinput.form.url
+    Job Applicant ->> BAP UI: Click on "Apply Now"
+    BAP UI -->> Browser: Redirect to Item.xinput.form.url
+    Browser ->> BPP Web Server: GET https://path/to/form
+    activate Browser
     activate BPP Web Server
-    BPP Web Server ->> BAP UI: 200 OK (form.html)
-    deactivate BAP UI
+    BPP Web Server ->> Browser: 200 OK (form.html)
+    deactivate Browser
     deactivate BPP Web Server
-    BAP UI --> BAP UI: render form
+    Browser ->> BPP Web Server: POST https://path/to/form/submit
+    activate Browser
+    activate BPP Web Server
+    BPP Web Server ->> Browser: 200 OK (successful submission)
+    deactivate Browser
+    deactivate BPP Web Server
 ```
 
-> Note : It is important to note that the BAP can render the application in a webview if the external webpage is mobile responsive. However it does come at the cost of user experience. 
+> Note : It is important to note that the BAP can render the application in a webview if the external webpage is mobile responsive. However it does come at the cost of user experience.
 
 ### 8.1.2 : Discovering and applying for a job natively on the BAP with single page form
 
@@ -249,6 +263,8 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
 
 ```mermaid
     sequenceDiagram
+    actor Job Applicant
+    participant Browser
     participant BAP UI
     participant BAP XInput Service
     participant BAP Beckn Protocol Interface
@@ -265,31 +281,33 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     activate BPP Beckn Protocol Interface
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
     deactivate BPP Beckn Protocol Interface
-    deactivate BAP Beckn Protocol Interface 
-    BAP XInput Service ->> BPP XInput Service: GET https://path/to/form
-    activate BAP XInput Service
+    deactivate BAP Beckn Protocol Interface
+    BAP Beckn Protocol Interface -->> BAP UI: PUSH catalog
+    BAP UI ->> BAP UI: Render Catalog
+    Job Applicant ->> BAP UI: Click on Job (Item)
+    BAP UI ->> BAP UI: Render Job Details with "Apply Now" Button <br/> with link to Item.xinput.form.url
+    Job Applicant ->> BAP UI: Click on "Apply Now"
+    BAP UI -->> Browser: Redirect to Item.xinput.form.url
+    Browser ->> BPP XInput Service: GET https://path/to/form
+    activate Browser
     activate BPP XInput Service
-    BPP XInput Service ->> BAP XInput Service: 200 OK (form.html)
-    deactivate BAP XInput Service
+    BPP XInput Service ->> Browser: 200 OK (form.html)
+    deactivate Browser
     deactivate BPP XInput Service
-    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/submit
+    BAP XInput Service -->> BAP UI: PUSH URL to form
+    BAP UI ->> BAP XInput Service: submit
+    activate BAP UI
     activate BAP XInput Service
+    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/submit
     activate BPP XInput Service
     note right of BAP XInput Service: BAP submits the form <br/> hosted at the BPP.
     BPP XInput Service ->> BAP XInput Service: 200 OK (Ack)
-    deactivate BAP XInput Service
     deactivate BPP XInput Service
+    BAP XInput Service ->> BAP UI: 200 OK (Ack)
+    deactivate BAP XInput Service
+    deactivate BAP UI
 ```
 
-
-
-#### Workflow
-
-**Form Declaration**
-The BPP does not have to declare the form over the protocol as it is an external URL
-
-**Form Modeling**
-The BPP Does not have to 
 ### Requesting BAP user to fill a form before selecting an item from the catalog using a single form hosted at a 3rd party URL with NO form controls on the BAP
 - BPP adds URL to XInput object with Form Controls
 - Item object
