@@ -205,6 +205,7 @@ This functionality allows BAPs and BPPs to manage form workflows like Go Back, S
 
 # 6. Cross Cutting Requirements
 ## 6.1 Security Considerations
+- Some BPPs may have security concerts like SSL injection
 
 # 7. Data Model
 The proposed design of this feature is as follows.
