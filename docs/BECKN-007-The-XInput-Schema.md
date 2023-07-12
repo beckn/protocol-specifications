@@ -128,6 +128,12 @@ Form Transmission refers to the interaction where a BAP fetches the form from it
 ### 4.5.2 Recommendations for BAPs
 - TODO
 
+### Review Notes:
+- BAPs should have proper rendering engines
+- In some use cases, insurance, hotel booking can be easily rendered
+- In general purpose form rendering (like a Visa Application), might be difficult to convert natively into an XForms application. In such cases 
+- BAPs should render messages on 
+
 ## 4.6 Form Navigation
 ### 4.6.1 Recommendations for BPPs
 - If form navigation is allowed, BPPs MUST be able to return the previous form with saved information when requested by a BAP
