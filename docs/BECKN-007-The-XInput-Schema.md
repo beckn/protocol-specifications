@@ -40,7 +40,7 @@ The nature of additional information required could vary significantly across se
 
 There is a need for a feature in beckn protocol that allows the BPP to capture additional information (over and above what has been published in the catalog) from the customer regarding the order without extending the core transaction protocol.
 
-### ADd Examples for
+### Review Notes: Add Examples for
 - Insurance
 - Lending (KYC, Financial info)
 - Jobs and skilling
@@ -73,6 +73,10 @@ The following recommendations contain features that a BPP must allow while imple
 - BPPs MUST be able to digitally sign the form content to allow non-repudiability of the form structure
 - BPPs MUST be able to host the form on a URL
 - BPPs SHOULD be able to statically or dynamically link it to a catalog item or an entire order
+#### Review Notes:
+- Support for off-protocol contractual negotiations (back and forth). Explore if `XInput` is required. Or treat it as a separate problem statement. How is the negotiation attached to the contract / order. Ability to attach _Documents_ to the transaction MUST be supported
+- Example: In exports, chat history must be attached
+- Two-way form filling should be supported i.e on BAP side as well
 
 ## 4.2 Form Modeling 
 Form modeling refers to the non-visible attribute of a Form that describes what a form does. It defines the individual model items and constraints and other run-time aspects of the form. Models are transmitted only when BPP is implementing XForms. This can be represented in the XForms model element, which in XHTML would typically be contained within the head section. Beckn protocol does not provide any recommendations for form modeling. BPPs can implement any model for a form behind the network interface. However, in some cases BPPs can choose to transmit the model along with the presentation that the BAPs can render and process before submission. 
