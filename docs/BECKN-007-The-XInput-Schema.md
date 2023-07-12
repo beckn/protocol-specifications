@@ -363,7 +363,22 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     BPP Web Server ->> Browser: 200 OK (successful submission)
     deactivate Browser
     deactivate BPP Web Server
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: confirm
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_confirm 
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
 ```
+
+### Review Notes:
+- Protocol MUST allow closure of a transaction even though form filling happened off the network (through a `confirm` and provide `status` accordingly)
 
 > Note : It is important to note that the BAP can render the application in a webview if the external webpage is mobile responsive. However it does come at the cost of user experience.
 
@@ -449,6 +464,9 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     }
 }
 ```
+### Review Notes:
+- Requesting form input before calling _select_ may not happen
+
 ## Requesting additional information from a BAP user before selecting multiple items from the catalog using a multiple forms
 ## Requesting additional information from a BAP user before initializing an order
 ## Requesting additional information from a BAP user before confirming an order
