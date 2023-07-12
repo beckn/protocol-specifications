@@ -113,10 +113,21 @@ Form Transmission refers to the interaction where a BAP fetches the form from it
 - BAPs MUST be able to fetch the form from the URL present in the `form.url` property of the `XInput` object
 - BAPs MUST be able to verify the digital signature of the form using the public key of the BPP 
 
-
+### Review Notes:  
+- Transaction ID must be embedded in the form
+- Should the form have an ID?
+- What else? Is Form ID same as Transaction ID?
+- BPP should also be able to fetch the form from the BAP
+- Separate BAP, BPP authorization from user auth
+- BAP must always send Signature header when accessing ANY url access. BPP may authenticate the BAP or not depending on nature of form
+- ALL URLs that are embedded in the protocol must have a Signed token
+  
 ## 4.5 Form Rendering (Applicable for BAPs)
 ### 4.5.1 Recommendations for BPPs
+- TODO
 ### 4.5.2 Recommendations for BAPs
+- TODO
+
 ## 4.6 Form Navigation
 ### 4.6.1 Recommendations for BPPs
 - If form navigation is allowed, BPPs MUST be able to return the previous form with saved information when requested by a BAP
@@ -166,6 +177,8 @@ This functionality allows BAPs and BPPs to manage form workflows like Go Back, S
 - Upon receiving an on_search, the BAP MUST first check if an Item object has an `xinput` property set. If it is set, then it must consume the Item.xinput property as an XInput object
 - Upon receiving an XInput object in Item.xinput during on_search, the BAP must 
 - Upon receiving an on_select, on_init, on_confirm, on_update, and on_cancel, request, the BAP MUST first check if the Order object has an `xinput` property set. If it is set, then it must consume the Item.xinput property as an XInput object
+
+
 ## 5.4 Form Rendering
 ### 5.4.1 Recommendations for BPPs
 ### 5.4.2 Recommendations for BAPs
