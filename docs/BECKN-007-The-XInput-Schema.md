@@ -40,6 +40,12 @@ The nature of additional information required could vary significantly across se
 
 There is a need for a feature in beckn protocol that allows the BPP to capture additional information (over and above what has been published in the catalog) from the customer regarding the order without extending the core transaction protocol.
 
+### ADd Examples for
+- Insurance
+- Lending (KYC, Financial info)
+- Jobs and skilling
+- Airline ticket (traveller details, names, travel insurance, coupon code etc)
+
 
 # 3. Description
 
