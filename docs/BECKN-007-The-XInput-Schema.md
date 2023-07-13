@@ -333,6 +333,8 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     participant BAP XInput Service
     participant BAP Beckn Protocol Interface
     participant BPP Beckn Protocol Interface
+    participant BPP XInput Service
+    participant BPP XInput Web Server
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
@@ -363,13 +365,51 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     BPP Web Server ->> Browser: 200 OK (successful submission)
     deactivate Browser
     deactivate BPP Web Server
-    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: confirm
+    Job Applicant -->> BAP UI: Job Applicant enters application ID
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: init
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_init <br/> with link to a form  
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+
+    % Get the form %
+    BAP XInput Service ->> BPP XInput Service: GET https://path/to/form 
+    activate BAP XInput Service 
+    activate BPP XInput Service
+    BPP XInput Service ->> BAP XInput Service: 200 OK (form.xhtml)
+    deactivate BAP XInput Service
+    deactivate BPP XInput Service
+    BAP XInput Service -->> BAP UI: PUSH XForm object
+    BAP UI ->> BAP UI: Render Form with "Confirm Application" Button <br/> with link to Order.xinput.form.url
+    Job Applicant -->> BAP UI: Enters Application ID
+    Job Applicant -->> BAP UI: Clicks on "Confirm Application"
+    BAP UI ->> BAP Beckn Protocol Interface : confirmApplication
+    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/confirm
+    activate BAP XInput Service
+    activate BPP XInput Service
+    BPP XInput Service ->> BAP XInput Service: 200 OK (successful submission) with submission ID
+    deactivate BAP XInput Service
+    deactivate BPP XInput Service
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: confirm <br/> with order.id = Application ID
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
     BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
     deactivate BPP Beckn Protocol Interface
     deactivate BAP Beckn Protocol Interface
     BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_confirm 
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_status
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
