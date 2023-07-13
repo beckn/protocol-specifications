@@ -294,10 +294,8 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
 - An XInput object that contains a single form hosted on a URL. This form should open in a browser and not natively rendered on the BAP
 
 # 8. Example Workflows
-## 8.1 External Forms
-In the following set of examples the BAP user has to go to an external website to fill and submit a form
-### 8.1.1 : Discovery of a job and applying on employer's career portal
-In this example, a BPP returns a catalog of jobs as a response to a `search` request. The Item object in the Job catalog will look like this.
+#### 8.1.1 Discovery of a job and redirecting to employer's career portal to finish application.
+In this example, a BPP returns a catalog of jobs as a response to a `search` request. The `Item` object in the Job catalog will look like this.
 
 ```
 {
@@ -322,6 +320,55 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     }
 }
 ```
+In the following set of examples the BAP user has to go to an external website to fill and submit a form
+
+
+```mermaid
+    sequenceDiagram
+    actor Job Applicant
+    participant Browser
+    participant BAP UI
+    participant BAP XInput Service
+    participant BAP Beckn Protocol Interface
+    participant BPP Beckn Protocol Interface
+    participant BPP XInput Service
+    participant BPP Web Server
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_search (with xinput field set)
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BAP Beckn Protocol Interface -->> BAP UI: PUSH catalog
+    BAP UI ->> BAP UI: Render Catalog
+    Job Applicant ->> BAP UI: Click on Job (Item)
+    BAP UI ->> BAP UI: Render Job Details with "Apply Now" Button <br/> with link to Item.xinput.form.url
+    Job Applicant ->> BAP UI: Click on "Apply Now"
+    BAP UI -->> Browser: Redirect to Item.xinput.form.url
+    Browser ->> BPP Web Server: GET https://path/to/form?transaction_id={{context.transaction_id}}
+    activate Browser
+    activate BPP Web Server
+    BPP Web Server ->> Browser: 200 OK (form.html)
+    deactivate Browser
+    deactivate BPP Web Server
+    Browser ->> BPP Web Server: POST https://path/to/form/submit with <br/> {... , "transaction_id" = "{{context.transaction_id}}"}
+    activate Browser
+    activate BPP Web Server
+    BPP Web Server -->> Job Application Service: application = <br/> confirmApplication(<br/>{..., "transaction_id" = <br/>"{{context.transaction_id}}"})
+    Job Application Service -->> BPP Beckn Protocol Interface: createOrder(application)
+    BPP Web Server ->> Browser: Response ( Status : 200 OK, Content-type: text/html )
+    deactivate Browser
+    deactivate BPP Web Server    
+```
+
+#### 8.1.2 :  Fetching confirmed job application submitted on external website into BAP 
+
 
 #### Workflow
 
@@ -380,9 +427,10 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     deactivate BAP Beckn Protocol Interface
 
     % Get the form %
-    BAP XInput Service ->> BPP XInput Service: GET https://path/to/form 
+    BAP XInput Service ->> BPP XInput Service: GET https://path/to/form?transaction_id={{context.transaction_id}}
     activate BAP XInput Service 
     activate BPP XInput Service
+    BPP XInput Service -->> BPP Beckn Protocol Interface: store transaction_id
     BPP XInput Service ->> BAP XInput Service: 200 OK (form.xhtml)
     deactivate BAP XInput Service
     deactivate BPP XInput Service
@@ -390,18 +438,22 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     BAP UI ->> BAP UI: Render Form with "Confirm Application" Button <br/> with link to Order.xinput.form.url
     Job Applicant -->> BAP UI: Enters Application ID
     Job Applicant -->> BAP UI: Clicks on "Confirm Application"
-    BAP UI ->> BAP Beckn Protocol Interface : confirmApplication
-    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/confirm
+    BAP UI ->> BAP XInput Service : confirmApplication
+    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/submit with <br/> transaction_id = {{context.transaction_id}}, <br/> "application_id" : "{{application_id}}" 
     activate BAP XInput Service
     activate BPP XInput Service
-    BPP XInput Service ->> BAP XInput Service: 200 OK (successful submission) with submission ID
+    BPP XInput Service ->> BAP XInput Service: 200 OK
     deactivate BAP XInput Service
     deactivate BPP XInput Service
-    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: confirm <br/> with order.id = Application ID
+
+
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: confirm
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
     BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
     deactivate BPP Beckn Protocol Interface
+    BPP XInput Service -->> BPP Beckn Protocol Interface: match transaction_id
+  
     deactivate BAP Beckn Protocol Interface
     BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_confirm 
     activate BAP Beckn Protocol Interface
@@ -517,185 +569,6 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
 
 
 > Everything below this line is draft
-
-## This version
-
-&lt;to be added later>
-
-
-## Latest published version
-
-&lt;to be added later>
-
-
-## Latest editor's draft
-
-&lt;to be added later>
-
-
-## Implementation report
-
-&lt;Useful thing to have but will be added later>
-
-
-## Editors
-
-Ravi Prakash (FIDE)
-
-
-## Authors
-
-Ravi Prakash (FIDE)
-
-
-## Feedback
-
-Issues:
-
-Discussions
-
-PRs
-
-
-## Errata
-
-No Errata exists as of now
-
-
-# 2. Authors
-
-
-
-1. Ravi Prakash
-
-
-# 3. Context
-
-
-# 4. Problem Description
-
-
-# 5. Key Digital Functionalities
-
-
-## 5.1 Form Declaration
-
-
-### 5.1.1 Recommendations for BPPs
-
-
-## 5.2 Form Modeling
-
-
-### 5.2.1 Recommendations For BPPs
-
-
-
-1. Add something here
-
-
-### 5.2.2 Recommendations For BAPs
-
-
-
-1. Add something here
-
-
-## 5.3 Form Submission
-
-
-### 5.3.1 Recommendations For BPPs
-
-
-
-1. Add something here
-
-
-### 5.3.2 Recommendations For BAPs
-
-
-
-1. Add something here
-
-
-## 5.4 Form Navigation
-
-
-### 5.4.1 Recommendations For BPPs
-
-
-### 5.4.2 Recommendations For BAPs
-
-
-# 6. Functional Recommendations
-
-
-## Form Declaration
-
-
-
-* 
-
-
-## Form Modeling
-
-
-## Form Transmission
-
-For BPPs
-
-
-
-1. 
-
-For BAPs
-
-
-
-1. 
-
-
-## Form Fetching
-
-
-
-2. 
-
-
-## Form Submission
-
-
-
-1. Upon receiving a form submission, the XInput feature must generate a unique submission ID
-
-
-## Form Navigation
-
-
-# Data Model
-
-
-
-
-
-# Workflows
-
-
-## Recommendations for BPPs
-
-The following recommendations are for BPPs who will create the form to be rendered on BAPs and receive the submissions from it. 
-
-
-### Declaring the form
-
-
-
-* 
-
-
-### Modeling the form
-
-
 
 * BPPs can model the form in two ways namely, a) using HTML5 Forms, or b) xForms 2.0 objects
 * For creating HTML Forms, please refer to [this](https://www.w3schools.com/html/html_forms.asp) tutorial
