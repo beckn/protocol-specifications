@@ -294,8 +294,42 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
 - An XInput object that contains a single form hosted on a URL. This form should open in a browser and not natively rendered on the BAP
 
 # 8. Example Workflows
-## 8.1 Discovery and application for a job opening on external website.
 
+### Review Notes:
+- Create Issues for example creation and assign them to community members - Ravi
+- DSEP (Ask DSEP Community)
+  - Scholarship Application
+  - Job Application
+  - Course / Admissions application
+- Financial Services (ONDC)
+  - Insurance Buying
+  - Mutual Funds
+  - Credit
+- Mobility 
+  - Airline Ticketing / Web Check-in
+  - Bus Seat Booking
+- Logistics
+  - Export / Import
+- Healthcare
+  - Insurance (Pick the right examples)
+- G2P and B2G
+  - Government Procurement
+  - Availing Government Healthcare Services
+- ODR
+  - Talk to ODR team to get examples
+- Energy
+  - Power purchase agreement
+  - Energy Trading    
+- Focus on Examples that are of varying degrees of complexity
+  - Single Page (External)
+  - Multi-page (External0
+  - Single Page (External)
+  - Multi-page (External)
+  - Resubmittable forms
+  - Multi-submittable forms
+  - Explore Energy Exchange (ex: Power Purchase Agreements)
+    
+## 8.1 Discovery and application for a job opening on external website.
 
 ### 8.1.1 Discovery of jobs
 
