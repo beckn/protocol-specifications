@@ -328,6 +328,10 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
   - Resubmittable forms
   - Multi-submittable forms
   - Explore Energy Exchange (ex: Power Purchase Agreements)
+  - File Upload
+  - Multiple File Upload
+  - Credentials (Verifiable / Non Verifiable (simple doc))
+  - Doc URL sharing
     
 ## 8.1 Discovery and application for a job opening on external website.
 
@@ -427,6 +431,10 @@ In the following set of examples the BAP user has to go to an external website t
     deactivate Browser
     deactivate BPP Web Server    
 ```
+
+### Review Notes:
+- All GET urls must have a URL parameter, One human readable, and other machine readable
+- Add signed token (sign the transation_id using private key of BAP)
 
 #### 8.1.2 :  Fetching confirmed job application submitted on external website into BAP 
 
