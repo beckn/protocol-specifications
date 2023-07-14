@@ -427,7 +427,7 @@ In the following set of examples the BAP user has to go to an external website t
     deactivate BAP Beckn Protocol Interface
 ```
 
-### Review Notes:
+### Review Notes - DONE:
 - Protocol MUST allow closure of a transaction even though form filling happened off the network (through a `confirm` and provide `status` accordingly)
 
 > Note : It is important to note that the BAP can render the application in a webview if the external webpage is mobile responsive. However it does come at the cost of user experience.
@@ -500,21 +500,20 @@ In the following set of examples the BAP user has to go to an external website t
             "Financial Information",
             "Terms and Conditions"
         ],
-        "prev_page": "",
         "resubmit": false,
-        "submit_before": "select",
-        "goback": "https://example.com/path/to/form.html?page=3"
+        "multiple_sumbissions": false,
     },
     "form": {
+        "id" : "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
         "url": "https://example.com/path/to/form.html?page=3",
         "mime_type": "text/html",
         "signature": "Signature keyId='example-bpp.com|74b43deb-236e-4498-8f5a-ca75d6c67b9d|ed25519',algorithm='ed25519',created='1641287885',expires='1641287885',headers='(created) (expires) digest',signature=;hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=='",
-        "nonce": "q6QAdBGloVSkLuLHWO",
+        "nonce": "8cfddbd2-1b70-441b-bc9b-f60f8c501df6",
         "method": "POST"
     }
 }
 ```
-### Review Notes:
+### Review Notes - DONE:
 - Requesting form input before calling _select_ may not happen
 
 ## Requesting additional information from a BAP user before selecting multiple items from the catalog using a multiple forms
