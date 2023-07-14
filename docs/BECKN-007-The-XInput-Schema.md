@@ -294,9 +294,35 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
 - An XInput object that contains a single form hosted on a URL. This form should open in a browser and not natively rendered on the BAP
 
 # 8. Example Workflows
-#### 8.1.1 Discovery of a job and redirecting to employer's career portal to finish application.
-In this example, a BPP returns a catalog of jobs as a response to a `search` request. The `Item` object in the Job catalog will look like this.
+## 8.1 Discovery and application for a job opening on external website.
 
+
+### 8.1.1 Discovery of jobs
+
+```mermaid
+    sequenceDiagram
+    actor Job Applicant
+    participant Browser
+    participant BAP UI
+    participant BAP XInput Service
+    participant BAP Beckn Protocol Interface
+    participant BPP Beckn Protocol Interface
+    participant BPP XInput Service
+    participant BPP Web Server
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_search (with xinput field set)
+    activate BAP Beckn Protocol Interface
+    activate BPP Beckn Protocol Interface
+    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
+    deactivate BPP Beckn Protocol Interface
+    deactivate BAP Beckn Protocol Interface
+```
+In this example, a BPP returns a catalog of jobs as a response to a `search` request. The `Item` object in the Job catalog will look like this.
 ```
 {
     "id": "1",
@@ -320,8 +346,9 @@ In this example, a BPP returns a catalog of jobs as a response to a `search` req
     }
 }
 ```
-In the following set of examples the BAP user has to go to an external website to fill and submit a form
 
+### 8.1.2 Redirecting to employer's career portal to finish application.
+In the following set of examples the BAP user has to go to an external website to fill and submit a form
 
 ```mermaid
     sequenceDiagram
@@ -351,7 +378,7 @@ In the following set of examples the BAP user has to go to an external website t
     BAP UI ->> BAP UI: Render Job Details with "Apply Now" Button <br/> with link to Item.xinput.form.url
     Job Applicant ->> BAP UI: Click on "Apply Now"
     BAP UI -->> Browser: Redirect to Item.xinput.form.url
-    Browser ->> BPP Web Server: GET https://path/to/form?transaction_id={{context.transaction_id}}
+    Browser ->> BPP Web Server: GET https://example.com/careers/sse-1/applyNow?transaction_id={{context.transaction_id}}
     activate Browser
     activate BPP Web Server
     BPP Web Server ->> Browser: 200 OK (form.html)
@@ -375,87 +402,18 @@ In the following set of examples the BAP user has to go to an external website t
 ```mermaid
     sequenceDiagram
     actor Job Applicant
-    participant Browser
     participant BAP UI
-    participant BAP XInput Service
     participant BAP Beckn Protocol Interface
     participant BPP Beckn Protocol Interface
-    participant BPP XInput Service
-    participant BPP XInput Web Server
-    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: search
-    activate BAP Beckn Protocol Interface
-    activate BPP Beckn Protocol Interface
-    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
-    deactivate BPP Beckn Protocol Interface
-    deactivate BAP Beckn Protocol Interface
-    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_search (with xinput field set)
-    activate BAP Beckn Protocol Interface
-    activate BPP Beckn Protocol Interface
-    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
-    deactivate BPP Beckn Protocol Interface
-    deactivate BAP Beckn Protocol Interface
-    BAP Beckn Protocol Interface -->> BAP UI: PUSH catalog
-    BAP UI ->> BAP UI: Render Catalog
-    Job Applicant ->> BAP UI: Click on Job (Item)
-    BAP UI ->> BAP UI: Render Job Details with "Apply Now" Button <br/> with link to Item.xinput.form.url
-    Job Applicant ->> BAP UI: Click on "Apply Now"
-    BAP UI -->> Browser: Redirect to Item.xinput.form.url
-    Browser ->> BPP Web Server: GET https://path/to/form
-    activate Browser
-    activate BPP Web Server
-    BPP Web Server ->> Browser: 200 OK (form.html)
-    deactivate Browser
-    deactivate BPP Web Server
-    Browser ->> BPP Web Server: POST https://path/to/form/submit
-    activate Browser
-    activate BPP Web Server
-    BPP Web Server ->> Browser: 200 OK (successful submission)
-    deactivate Browser
-    deactivate BPP Web Server
-    Job Applicant -->> BAP UI: Job Applicant enters application ID
-    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: init
-    activate BAP Beckn Protocol Interface
-    activate BPP Beckn Protocol Interface
-    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
-    deactivate BPP Beckn Protocol Interface
-    deactivate BAP Beckn Protocol Interface
-    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_init <br/> with link to a form  
-    activate BAP Beckn Protocol Interface
-    activate BPP Beckn Protocol Interface
-    BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
-    deactivate BPP Beckn Protocol Interface
-    deactivate BAP Beckn Protocol Interface
-
-    % Get the form %
-    BAP XInput Service ->> BPP XInput Service: GET https://path/to/form?transaction_id={{context.transaction_id}}
-    activate BAP XInput Service 
-    activate BPP XInput Service
-    BPP XInput Service -->> BPP Beckn Protocol Interface: store transaction_id
-    BPP XInput Service ->> BAP XInput Service: 200 OK (form.xhtml)
-    deactivate BAP XInput Service
-    deactivate BPP XInput Service
-    BAP XInput Service -->> BAP UI: PUSH XForm object
-    BAP UI ->> BAP UI: Render Form with "Confirm Application" Button <br/> with link to Order.xinput.form.url
-    Job Applicant -->> BAP UI: Enters Application ID
-    Job Applicant -->> BAP UI: Clicks on "Confirm Application"
-    BAP UI ->> BAP XInput Service : confirmApplication
-    BAP XInput Service ->> BPP XInput Service: POST https://path/to/form/submit with <br/> transaction_id = {{context.transaction_id}}, <br/> "application_id" : "{{application_id}}" 
-    activate BAP XInput Service
-    activate BPP XInput Service
-    BPP XInput Service ->> BAP XInput Service: 200 OK
-    deactivate BAP XInput Service
-    deactivate BPP XInput Service
-
-
+    participant BPP Web Server
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: confirm
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
     BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: Ack
     deactivate BPP Beckn Protocol Interface
-    BPP XInput Service -->> BPP Beckn Protocol Interface: match transaction_id
-  
     deactivate BAP Beckn Protocol Interface
-    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_confirm 
+    BPP Beckn Protocol Interface -->> BPP Beckn Protocol Interface: order = fetchOrder(<br/>{{context.transaction_id}})
+    BPP Beckn Protocol Interface->>BAP Beckn Protocol Interface: on_confirm (with message.order = order)
     activate BAP Beckn Protocol Interface
     activate BPP Beckn Protocol Interface
     BAP Beckn Protocol Interface->>BPP Beckn Protocol Interface: Ack
