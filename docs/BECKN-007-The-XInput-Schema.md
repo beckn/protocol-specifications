@@ -297,6 +297,8 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
 
 ### Review Notes:
 - Create Issues for example creation and assign them to community members - Ravi
+- Retail (ONDC)
+  - Showing variant options for products that don't have individual SKUs. Example: Mattress Buying with 4 selections (color, size etc)
 - DSEP (Ask DSEP Community)
   - Scholarship Application
   - Job Application
