@@ -329,11 +329,13 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
   - Multi-page (External)
   - Resubmittable forms
   - Multi-submittable forms
-  - Explore Energy Exchange (ex: Power Purchase Agreements)
   - File Upload
   - Multiple File Upload
   - Credentials (Verifiable / Non Verifiable (simple doc))
   - Doc URL sharing
+  - Request for additional information post confirm (via on_update)
+  - Form submission leading to an on_status
+  - 
     
 ## 8.1 Discovery and application for a job opening on external website.
 
@@ -472,7 +474,8 @@ In the following set of examples the BAP user has to go to an external website t
 ```
 
 ### Review Notes - DONE:
-- Protocol MUST allow closure of a transaction even though form filling happened off the network (through a `confirm` and provide `status` accordingly)
+- Protocol MUST allow closure of a transaction even though form filling happened off the network (through a `confirm` and provide `status` accordingly) - DONE
+- Send on_init / on_status after receiving external form submission
 
 > Note : It is important to note that the BAP can render the application in a webview if the external webpage is mobile responsive. However it does come at the cost of user experience.
 
