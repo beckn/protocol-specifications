@@ -1,0 +1,20 @@
+name: Validate OpenAPI Schema
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate_openapi_schema:
+    name: Validate OpenAPI Schema
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate OpenAPI schema
+        uses: thiyagu06/openapi-validator-action@v1
+        with:
+          filepath: "./api/meta/build/meta.yaml"
