@@ -97,7 +97,7 @@ paths:
         - Beckn Application Platform (BPP)
       description: BPP provides the list of return reasons to the BAP
       requestBody:
-        content:
+        content:asf
           application/json:
             schema:
               type: object
