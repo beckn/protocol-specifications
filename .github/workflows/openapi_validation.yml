@@ -18,3 +18,10 @@ jobs:
         uses: thiyagu06/openapi-validator-action@v1
         with:
           filepath: "./api/meta/build/meta.yaml"
+
+      - name: Check validation status
+        run: |
+          if [ "${{ steps.validation.outcome }}" == 'failure' ]; then
+            echo "OpenAPI validation failed. Blocking the pull request merge."
+            exit 1
+          fi
