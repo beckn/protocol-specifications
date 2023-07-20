@@ -14,14 +14,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Validate OpenAPI schema
+      - name: Validate OpenAPI schema for meta.yaml
+        id: validate_meta
         uses: thiyagu06/openapi-validator-action@v1
         with:
           filepath: "./api/meta/build/meta.yaml"
-
-      - name: Check validation status
-        run: |
-          if [ "${{ steps.validation.outcome }}" == 'failure' ]; then
-            echo "OpenAPI validation failed. Blocking the pull request merge."
-            exit 1
-          fi
+          
+      - name: Validate OpenAPI schema for registry.yaml
+        id: validate_registry
+        uses: thiyagu06/openapi-validator-action@v1
+        with:
+          filepath: "./api/registry/build/registry.yaml"
+          
+      - name: Validate OpenAPI schema for transaction.yaml
+        id: validate_transaction
+        uses: thiyagu06/openapi-validator-action@v1
+        with:
+          filepath: "./api/transaction/build/transaction.yaml"
