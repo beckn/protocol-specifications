@@ -10,7 +10,7 @@ This document specifies the algorithms used in generating the keys, how to const
 
 The BAP and BPP subscriber is expected to send an `Authorization` header as defined in [RFC 7235](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12) the "auth-scheme" is "Signature" and the "auth-param" parameters meet the requirements listed in Section 2 of [this](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12) document.
 
-The BG subscriber is expected to send a `X-Gateway-Authorization` header where the "auth-scheme" is "Signature" and the "auth-param" parameters meet the requirements listed in Section 2 of [this](https://tools.ietf.org/id/draft-cavage-http-signatures-12.html) document.
+The BG subscriber is expected to send a `X-Gateway-Authorization` header where the "auth-scheme" is "Signature" and the "auth-param" parameters meet the requirements listed in Section 2 of [this](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12) document.
 
 Below is the format of a BAP/BPP Authorization header in the typical HTTP Signature format:
 
