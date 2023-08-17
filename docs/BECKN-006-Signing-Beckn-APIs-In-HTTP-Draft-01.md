@@ -3,12 +3,12 @@
 ## Context
 When communicating over HTTP using Beckn APIs, the subscribers need to authenticate themselves to perform transactions with other subscribers. Due to the commercial nature of the transactions, every request/callback pair is considered to be a "contract" between two parties. Therefore, it is imperative that all requests and callbacks are digitally signed by the sender and subsequently verified by the receiver.
 Furthermore, it is also desirable to ensure that the message was not altered or tampered with during transit.
-This document describes a way for network subscribers (BAP/BPPs) and proxy subscribers (BGs) to simultaneously add authentication and message integrity to HTTP messages by using digital signatures. How the signatures are generated and the format of those signatures is out of scope of this document and can be found in this IETF document - [Signing HTTP Messages](https://tools.ietf.org/id/draft-cavage-http-signatures-12.html).
+This document describes a way for network subscribers (BAP/BPPs) and proxy subscribers (BGs) to simultaneously add authentication and message integrity to HTTP messages by using digital signatures. How the signatures are generated and the format of those signatures is out of scope of this document and can be found in this IETF document - [Signing HTTP Messages](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12).
 This document specifies the algorithms used in generating the keys, how to construct the signing strings being passed in the headers. Also, it specifies clearly the format of the HTTP headers used for authenticating BAP, BPPs and BGs.
 
 ## Subscriber Authentication
 
-The BAP and BPP subscriber is expected to send an `Authorization` header (as defined in [RFC 7235](https://tools.ietf.org/id/draft-cavage-http-signatures-12.html#RFC7235), [Section 4.1](https://tools.ietf.org/html/rfc7235#section-2.1)) where the "auth-scheme" is "Signature" and the "auth-param" parameters meet the requirements listed in Section 2 of [this](https://tools.ietf.org/id/draft-cavage-http-signatures-12.html) document.
+The BAP and BPP subscriber is expected to send an `Authorization` header (as defined in [RFC 7235](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12) the "auth-scheme" is "Signature" and the "auth-param" parameters meet the requirements listed in Section 2 of [this](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12) document.
 
 The BG subscriber is expected to send a `X-Gateway-Authorization` header where the "auth-scheme" is "Signature" and the "auth-param" parameters meet the requirements listed in Section 2 of [this](https://tools.ietf.org/id/draft-cavage-http-signatures-12.html) document.
 
