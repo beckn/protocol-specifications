@@ -82,15 +82,17 @@ The term "OPTIONAL" is synonymous with "MAY".
 
 ## Examples and Correct Usage
 
+In this section, we provide examples that demonstrate the correct usage of the key words defined in this document. The examples are related to a hypothetical Beckn Application Platforms (BAPs) that interacts with a Beckn Provider Platform (BPP) using beckn protocol APIs.
+
 ### Example 1: Using "REQUIRED" and "MUST"
 
 - REQUIRED. The BPP MUST implement the `search` endpoint to receive an `Intent` object sent by BAPs.
-- REQUIRED. The BPP MUST return a catalog of energy sources on the on_search callback endpoint specified in the context.bpp_uri field of the search request body.
-- REQUIRED. Any energy provider-related information like `name`, `logo`, `short_desc` must be mapped to the `Provider.descriptor` schema.
+- REQUIRED. The BPP MUST return a catalog of products on the `on_search` callback endpoint specified in the `context.bpp_uri` field of the `search` request body.
+- REQUIRED. Any provider-related information like `name`, `logo`, `short_desc` MUST be mapped to the `Provider.descriptor` schema.
 - REQUIRED. If the BPP does not want to respond to a `search` request, it MUST return an `ack.status` value equal to `NACK`.
 
 ### Example 2: Using "RECOMMENDED" and "SHOULD"
-- RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a `Catalog` that best matches the `Intent`. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to typical financial service use cases.
+- RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a `Catalog` that best matches the `Intent`. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to the use case.
 
 ## Conclusion
 
