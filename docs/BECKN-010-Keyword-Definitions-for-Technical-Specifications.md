@@ -82,7 +82,7 @@ The term "OPTIONAL" is synonymous with "MAY".
 
 ## Examples and Correct Usage
 
-In this section, we provide examples that demonstrate the correct usage of the key words defined in this document. The examples are related to a hypothetical Beckn Application Platforms (BAPs) that interacts with a Beckn Provider Platform (BPP) using beckn protocol APIs.
+In this section, we provide examples that demonstrate the correct usage of the key words defined in this document. The examples are related to a hypothetical Beckn Application Platform (BAP) that interacts with a Beckn Provider Platform (BPP) using beckn protocol APIs.
 
 ### Example 1: Using "REQUIRED" and "MUST"
 
