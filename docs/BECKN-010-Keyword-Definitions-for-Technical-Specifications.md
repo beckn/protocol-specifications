@@ -1,50 +1,101 @@
 # Keyword Definitions for Technical Specifications
 
-Abstract
+#### CWG Working Draft - September 01, 2023
+
+## Document Details
+### This version
+https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+
+### Latest published version
+None
+
+### Latest editor's draft
+https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+
+### Implementation report
+TODO
+
+### Editors
+Ravi Prakash (FIDE)
+
+### Authors
+Ravi Prakash (FIDE)
+
+### Feedback
+
+Issues: TODO
+Discussions: TODO
+PRs: TODO
+
+### Errata
+No Errata exists as of now
+
+## Abstract
+
 This document outlines the definitions of key words that are commonly used in technical specifications, standards, and protocols. The aim is to provide a uniform interpretation of these terms to avoid ambiguity and misinterpretation.
 
-Introduction
+## Introduction
+
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described below. These definitions aim to ensure that the terms are understood precisely and consistently to avoid confusion in the interpretation of standards, specifications, and protocols.
 
-Definitions
-MUST
-The term "MUST" implies an absolute requirement. Failure to meet a "MUST" requirement means that the item in question does not conform to the standard, and thus cannot claim compliance.
+## Definitions
 
-MUST NOT
-The term "MUST NOT" indicates an absolute prohibition. If an item violates a "MUST NOT" requirement, it is considered non-compliant with the standard.
+### MUST
 
-REQUIRED
-The term "REQUIRED" is synonymous with "MUST" and indicates an absolute requirement that has to be fulfilled.
+The term "MUST" implies an absolute requirement.
 
-SHALL
-The term "SHALL" is equivalent to "MUST" and indicates an absolute requirement. Not fulfilling a "SHALL" requirement makes the item non-compliant.
+### MUST NOT
 
-SHALL NOT
-The term "SHALL NOT" is equivalent to "MUST NOT" and indicates an absolute prohibition.
+The term "MUST NOT" indicates an absolute prohibition.
 
-SHOULD
-The term "SHOULD" indicates a strong recommendation. While not an absolute requirement, failure to adhere to a "SHOULD" guideline may result in suboptimal behavior or interoperability issues.
+### REQUIRED
 
-SHOULD NOT
-The term "SHOULD NOT" indicates a strong recommendation against a particular action. While not an absolute prohibition, taking the action cautioned against may result in suboptimal behavior or interoperability issues.
+The term "REQUIRED" is synonymous with "MUST".
 
-RECOMMENDED
-The term "RECOMMENDED" is synonymous with "SHOULD" and indicates a course of action that is advised for optimal compliance and interoperability.
+### SHALL
 
-MAY
-The term "MAY" indicates that an item is truly optional. There is no recommendation or requirement to implement the feature described.
+The term "SHALL" is equivalent to "MUST".
 
-OPTIONAL
-The term "OPTIONAL" is synonymous with "MAY" and indicates that the implementation of a particular feature is at the discretion of the party involved.
+### SHALL NOT
 
-Conclusion
+The term "SHALL NOT" is equivalent to "MUST NOT".
+
+### SHOULD
+
+The term "SHOULD" indicates a strong recommendation.
+
+### SHOULD NOT
+
+The term "SHOULD NOT" indicates a strong recommendation against.
+
+### RECOMMENDED
+
+The term "RECOMMENDED" is synonymous with "SHOULD".
+
+### MAY
+
+The term "MAY" indicates that an item is truly optional.
+
+### OPTIONAL
+
+The term "OPTIONAL" is synonymous with "MAY".
+
+## Examples and Correct Usage
+
+### Example 1: Using "REQUIRED" and "MUST"
+
+- REQUIRED. The BPP MUST implement the `search` endpoint to receive an `Intent` object sent by BAPs.
+- REQUIRED. The BPP MUST return a catalog of energy sources on the on_search callback endpoint specified in the context.bpp_uri field of the search request body.
+- REQUIRED. Any energy provider-related information like `name`, `logo`, `short_desc` must be mapped to the `Provider.descriptor` schema.
+- REQUIRED. If the BPP does not want to respond to a `search` request, it MUST return an `ack.status` value equal to `NACK`.
+
+### Example 2: Using "RECOMMENDED" and "SHOULD"
+- RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a `Catalog` that best matches the `Intent`. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to typical financial service use cases.
+
+## Conclusion
+
 The definitions provided in this document are intended to clarify the interpretation of key terms used in technical specifications, standards, and protocols. Adherence to these definitions will ensure a consistent understanding and implementation of such documents.
 
-Author Information
-[Your Name]
-[Your Organization]
-[Your Email]
+> Note : This document is subject to change and may be updated to include additional terms or to refine existing definitions.
 
-References
-N/A
 
