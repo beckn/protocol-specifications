@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - master
+      - draft
 
 jobs:
   validate_openapi_schema_meta:
@@ -27,7 +28,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Validate OpenAPI schema for registry.yaml
         id: validate_registry
         uses: thiyagu06/openapi-validator-action@v1
@@ -41,7 +42,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Validate OpenAPI schema for transaction.yaml
         id: validate_transaction
         uses: thiyagu06/openapi-validator-action@v1
