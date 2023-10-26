@@ -738,6 +738,11 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
+        quantity:
+          description: The selling quantity of the item
+          allOf:
+            - $ref: '#/components/schemas/ItemQuantity'
+        
     Address:
       description: Describes a postal address.
       type: string
