@@ -1126,6 +1126,10 @@ components:
         type:
           description: 'A code that describes the mode of fulfillment. This is typically set when there are multiple ways an order can be fulfilled. For example, a retail order can be fulfilled either via store pickup or a home delivery. Similarly, a medical consultation can be provided either in-person or via tele-consultation. The network policy must publish standard fulfillment type codes for the different modes of fulfillment.'
           type: string
+        documents:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Document'
         rateable:
           description: Whether the fulfillment can be rated or not
           type: boolean
@@ -1319,6 +1323,11 @@ components:
           description: Physical description of the item
           allOf:
             - $ref: '#/components/schemas/Descriptor'
+        documents:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Document'
+        
         creator:
           description: The creator of this item
           allOf:
@@ -1556,6 +1565,10 @@ components:
           description: Details of the provider whose catalog items have been selected.
           allOf:
             - $ref: '#/components/schemas/Provider'
+        documents:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Document'
         items:
           description: The items purchased / availed in this order
           type: array
@@ -2162,3 +2175,21 @@ components:
         required:
           description: Indicates whether the form data is mandatorily required by the BPP to confirm the order.
           type: boolean
+
+    Document:
+      description: Describes a document which can be sent as a url
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/descriptor'
+        url:
+          type: string
+          format: uri
+        label:
+          type: string
+        mime_type:
+          description: Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.
+          type: string
+          enum:
+            - application/pdf
+
