@@ -256,7 +256,7 @@ paths:
                       items:
                         $ref: '#/components/schemas/Rating/properties/rating_category'
                   required:
-                    - return_reasons
+                    - rating_categories
               required:
                 - context
                 - message
