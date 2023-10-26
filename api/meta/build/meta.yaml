@@ -350,7 +350,7 @@ components:
                   type: object
                   properties:
                     gps:
-                      $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/gps/allOf/0'
+                      $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/Gps'
                     radius:
                       description: Describes a scalar
                       type: object
@@ -365,16 +365,16 @@ components:
                           type: string
                           pattern: '[+-]?([0-9]*[.])?[0-9]+'
                         estimated_value:
-                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
                         computed_value:
-                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
                         range:
                           type: object
                           properties:
                             min:
-                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                              $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
                             max:
-                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                              $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
                         unit:
                           type: string
                 polygon:
