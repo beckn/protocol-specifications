@@ -63,7 +63,7 @@ All communication using beckn protocol have the following packet structure
 
 ## Transport Protocol
 
-While beckn protocol it designed to be transport agnostic, it is conventional to use HTTP as the default transport protocol. Additional layers like security and trust can be layered on top of this protocol using exisiting standards like HTTPS and SSL. It is recommended that any platform implementing beckn protocol use HTTPS to secure its communication.
+While beckn protocol is designed to be transport agnostic, it is conventional to use HTTP as the default transport protocol. Additional layers like security and trust can be layered on top of this protocol using exisiting standards like HTTPS and SSL. It is recommended that any platform implementing beckn protocol use HTTPS to secure its communication.
 
 
 ## Communication
