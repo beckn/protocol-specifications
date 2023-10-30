@@ -1099,28 +1099,6 @@ components:
           description: A fixed value
           allOf:
             - $ref: '#/components/schemas/Price'
-    Form:
-      description: Describes a form
-      type: object
-      properties:
-        url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
-          type: string
-          format: uri
-        data:
-          description: The form submission data
-          type: object
-          additionalProperties:
-            type: string
-        mime_type:
-          description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
-          type: string
-          enum:
-            - text/html
-            - application/xml
-        submission_id:
-          type: string
-          format: uuid
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -2182,11 +2160,61 @@ components:
       description: 'Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. Sometimes, selection of catalog elements is not enough for the BPP to confirm an order. For example, to confirm a flight ticket, the airline requires details of the passengers along with information on baggage, identity, in addition to the class of ticket. Similarly, a logistics company may require details on the nature of shipment in order to confirm the shipping. A recruiting firm may require additional details on the applicant in order to confirm a job application. For all such purposes, the BPP can choose to send this object attached to any object in the catalog that is required to be sent while placing the order. This object can typically be sent at an item level or at the order level. The item level XInput will override the Order level XInput as it indicates a special requirement of information for that particular item. Hence the BAP must render a separate form for the Item and another form at the Order level before confirmation.'
       type: object
       properties:
-        form:
-          $ref: '#/components/schemas/Form'
         required:
           description: Indicates whether the form data is mandatorily required by the BPP to confirm the order.
           type: boolean
+        head:
+          description: Head section of the form
+          type: object
+          properties:
+            descriptor:
+              $ref: '#/components/schemas/descriptor'
+            index:
+              type: object
+              properties:
+                min: 
+                  type: integer
+                cur: 
+                  type: integer
+                max: 
+                  type: integer
+            headings: 
+              type: array
+              items:  
+                type: string           
+        form:
+          $ref: '#/components/schemas/Form'
+    Form:
+      description: Describes a form
+      type: object
+      properties:
+        url:
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          type: string
+          format: uri
+        data:
+          description: The form submission data
+          type: object
+          additionalProperties:
+            type: string
+        mime_type:
+          description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
+          type: string
+          enum:
+            - text/html
+            - application/xml
+        resubmit: 
+          type: boolean
+        submission_id:
+          type: string
+          format: uuid
+        auth: 
+          type: object
+          properties: 
+            descriptor:
+              $ref: '#/components/schemas/Descriptor'
+            value: 
+              type: string
 
     Document:
       description: Describes a document which can be sent as a url
