@@ -428,8 +428,8 @@ components:
           description: The encryption public key of the sender
           type: string
         ttl:
-          description: The duration in ISO8601 format after timestamp for which this message holds valid
-          type: string
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/Duration'
+
     Option:
       description: Describes a selectable option
       type: object

@@ -887,8 +887,7 @@ components:
           type: string
           format: date-time
         ttl:
-          description: Duration in seconds after which this catalog will expire
-          type: string
+          $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
       type: object
@@ -903,7 +902,7 @@ components:
         time:
           $ref: '#/components/schemas/Time'
         ttl:
-          description: Time to live for an instance of this schema
+          $ref: '#/components/schemas/Duration'
         tags:
           type: array
           items:
@@ -990,8 +989,7 @@ components:
           description: The encryption public key of the sender
           type: string
         ttl:
-          description: The duration in ISO8601 format after timestamp for which this message holds valid
-          type: string
+          $ref: '#/components/schemas/Duration'
     Country:
       description: Describes a country
       type: object
@@ -1411,8 +1409,7 @@ components:
           description: Whether this item is a recommended item to a response
           type: boolean
         ttl:
-          description: Time to live in seconds for an instance of this schema
-          type: string
+          $ref: '#/components/schemas/Duration'
         tags:
           type: array
           items:
@@ -1825,9 +1822,7 @@ components:
           description: Whether this provider can be rated or not
           type: boolean
         ttl:
-          description: 'The time-to-live in seconds, for this object. This can be overriden at deeper levels. A value of -1 indicates that this object is not cacheable.'
-          type: integer
-          minimum: -1
+          $ref: '#/components/schemas/Duration'
         tags:
           type: array
           items:
