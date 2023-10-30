@@ -1782,19 +1782,19 @@ components:
         currency:
           type: string
         value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
         estimated_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
         computed_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
         listed_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
         offered_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
         minimum_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
         maximum_value:
-          $ref: '#/components/schemas/DecimalValue'
+          $ref: string
     Provider:
       description: Describes the catalog of a business.
       type: object
