@@ -2048,6 +2048,9 @@ components:
       description: Details of customer support
       type: object
       properties:
+        order_id:
+          type: string
+          description: ID of the Order for which support is needed
         ref_id:
           type: string
         callback_phone:
@@ -2062,6 +2065,10 @@ components:
         url:
           type: string
           format: uri
+        docs: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/Document'
     Tag:
       description: 'Describes a tag. This is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
       type: object
@@ -2186,7 +2193,7 @@ components:
       type: object
       properties:
         descriptor:
-          $ref: '#/components/schemas/descriptor'
+          $ref: '#/components/schemas/Descriptor'
         url:
           type: string
           format: uri
