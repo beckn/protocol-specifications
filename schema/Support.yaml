@@ -3,6 +3,9 @@ type: object
 properties:
   order_id:
     type: string
+    description: ID of the Order for which support is needed
+  ref_id:
+    type: string
   callback_phone:
     type: string
     format: phone
@@ -15,3 +18,7 @@ properties:
   url:
     type: string
     format: uri
+  docs: 
+    type: array
+    items: 
+      $ref: '#/components/schemas/Document'
