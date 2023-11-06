@@ -24,11 +24,15 @@ properties:
         type: string
       bank_account_number:
         type: string
+      bank_account_name:
+        type: string
       virtual_payment_address:
         type: string
       source_bank_code:
         type: string
       source_bank_account_number:
+        type: string
+      source_bank_account_name:
         type: string
       source_virtual_payment_address:
         type: string
