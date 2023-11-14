@@ -9,6 +9,10 @@ properties:
     description: The provider from which the customer wants to place to the order from
     allOf:
       - $ref: "./Provider.yaml"
+  location:
+    description: The Location from which the customer initiate search
+    allOf:
+      - $ref: "./Location.yaml"
   fulfillment:
     description: Details on how the customer wants their order fulfilled
     allOf:

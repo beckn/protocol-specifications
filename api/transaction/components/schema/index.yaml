@@ -55,6 +55,9 @@ DecimalValue:
 Descriptor:
   $ref: "../../../../schema/Descriptor.yaml"
 
+Document:
+  $ref: "../../../../schema/Document.yaml"
+
 Domain:
   $ref: "../../../../schema/Domain.yaml"
 
