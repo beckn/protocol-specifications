@@ -21,4 +21,4 @@ properties:
   docs: 
     type: array
     items: 
-      $ref: '#/components/schemas/Document'
+      $ref: './Document.yaml'

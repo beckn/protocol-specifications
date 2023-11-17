@@ -156,25 +156,21 @@ paths:
                                       description: 'Indicates the display properties of the tag group. If display is set to false, then the group will not be displayed. If it is set to true, it should be displayed. However, group-level display properties can be overriden by individual tag-level display property. As this schema is purely for catalog display purposes, it is not recommended to send this value during search.'
                                       type: boolean
                                       default: true
-                                    code:
-                                      description: 'The machine-readable name of the tag group. The allowed values of this property can be published at three levels namely, a) Core specification, b) industry sector-specific adaptations, and c) Network-specific adaptations. Except core, each adaptation (sector or network) should prefix a unique namespace with the allowed value. Values outside the allowed values may or may not be ignored by the rendering platform. As this schema is purely for catalog display purposes, it is not recommended to send this value during search.'
-                                      type: string
-                                    name:
-                                      description: 'A human-readable string describing the heading under which the tags are to be displayed. Sometimes, the network policy may reserve some names for this property. Values outside the reserved values can be set by the BPP. However,the BAP may choose to rename or even ignore this value and render the output purely using code property, but it is recommended for BAPs to keep the name same to avoid confusion and provide consistency. As this schema is purely for catalog display purposes, it is not recommended to send this value during `search`.'
-                                      type: string
+                                    descriptor:
+                                      description: 'Description of the TagGroup, can be used to store detailed information.'
+                                      allOf:
+                                        - $ref: '#/components/schemas/Option/properties/descriptor'
                                     list:
                                       description: 'An array of Tag objects listed under this group. This property can be set by BAPs during search to narrow the `search` and achieve more relevant results. When received during `on_search`, BAPs must render this list under the heading described by the `name` property of this schema.'
                                       type: array
                                       items:
-                                        description: 'Describes a tag. This is a simple key-value store which is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
+                                        description: 'Describes a tag. This is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
                                         type: object
                                         properties:
-                                          code:
-                                            description: 'The machine-readable name of the tag. The allowed values of this property can be published at three levels namely, a) Core specification, b) industry sector-specific adaptations, and c) Network-specific adaptations. Except core, each adaptation (sector or network) should prefix a unique namespace with the allowed value.'
-                                            type: string
-                                          name:
-                                            description: 'The human-readable name of the tag. This set by the BPP and rendered as-is by the BAP. Sometimes, the network policy may reserve some names for this property. Values outside the reserved values can be set by the BPP. However,the BAP may choose to rename or even ignore this value and render the output purely using the `code` property, but it is recommended for BAPs to keep the name same to avoid confusion and provide consistency.'
-                                            type: string
+                                          descriptor:
+                                            description: 'Description of the Tag, can be used to store detailed information.'
+                                            allOf:
+                                              - $ref: '#/components/schemas/Option/properties/descriptor'
                                           value:
                                             description: The value of the tag. This set by the BPP and rendered as-is by the BAP.
                                             type: string
@@ -350,7 +346,7 @@ components:
                   type: object
                   properties:
                     gps:
-                      $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/Gps'
+                      $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/gps/allOf/0'
                     radius:
                       description: Describes a scalar
                       type: object
@@ -365,16 +361,16 @@ components:
                           type: string
                           pattern: '[+-]?([0-9]*[.])?[0-9]+'
                         estimated_value:
-                          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
+                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                         computed_value:
-                          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
+                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                         range:
                           type: object
                           properties:
                             min:
-                              $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
+                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                             max:
-                              $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/DecimalValue'
+                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
                         unit:
                           type: string
                 polygon:
@@ -428,8 +424,8 @@ components:
           description: The encryption public key of the sender
           type: string
         ttl:
-          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/build/transaction.yaml#/components/schemas/Duration'
-
+          description: Describes duration as per ISO8601 format
+          type: string
     Option:
       description: Describes a selectable option
       type: object

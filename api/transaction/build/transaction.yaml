@@ -739,10 +739,9 @@ components:
         price:
           $ref: '#/components/schemas/Price'
         quantity:
-          description: The selling quantity of the item
+          description: The Selling quantity of the Item
           allOf:
             - $ref: '#/components/schemas/ItemQuantity'
-        
     Address:
       description: Describes a postal address.
       type: string
@@ -1017,13 +1016,8 @@ components:
       description: Describes a customer buying/availing a product or a service
       type: object
       properties:
-        id:
-          description: ID of the customer.
-          type: string
         person:
           $ref: '#/components/schemas/Person'
-        organization:
-          $ref: '#/components/schemas/Organization'
         contact:
           $ref: '#/components/schemas/Contact'
     DecimalValue:
@@ -1061,6 +1055,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Image'
+    Document:
+      description: Describes a document which can be sent as a url
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        url:
+          type: string
+          format: uri
+        label:
+          type: string
+        mime_type:
+          description: 'Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.'
+          type: string
+          enum:
+            - application/pdf
     Domain:
       description: 'Described the industry sector or sub-sector. The network policy should contain codes for all the industry sectors supported by the network. Domains can be created in varying levels of granularity. The granularity of a domain can be decided by the participants of the network. Too broad domains will result in irrelevant search broadcast calls to BPPs that don''t have services supporting the domain. Too narrow domains will result in a large number of registry entries for each BPP. It is recommended that network facilitators actively collaborate with various working groups and network participants to carefully choose domain codes keeping in mind relevance, performance, and opportunity cost. It is recommended that networks choose broad domains like mobility, logistics, healthcare etc, and progressively granularize them as and when the number of network participants for each domain grows large.'
       type: object
@@ -1102,6 +1112,37 @@ components:
           description: A fixed value
           allOf:
             - $ref: '#/components/schemas/Price'
+    Form:
+      description: Describes a form
+      type: object
+      properties:
+        url:
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          type: string
+          format: uri
+        data:
+          description: The form submission data
+          type: object
+          additionalProperties:
+            type: string
+        mime_type:
+          description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
+          type: string
+          enum:
+            - text/html
+            - application/xml
+        resubmit:
+          type: boolean
+        submission_id:
+          type: string
+          format: uuid
+        auth:
+          type: object
+          properties:
+            descriptor:
+              $ref: '#/components/schemas/Descriptor'
+            value:
+              type: string
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -1112,10 +1153,6 @@ components:
         type:
           description: 'A code that describes the mode of fulfillment. This is typically set when there are multiple ways an order can be fulfilled. For example, a retail order can be fulfilled either via store pickup or a home delivery. Similarly, a medical consultation can be provided either in-person or via tele-consultation. The network policy must publish standard fulfillment type codes for the different modes of fulfillment.'
           type: string
-        documents:
-          type: array
-          items: 
-            $ref: '#/components/schemas/Document'
         rateable:
           description: Whether the fulfillment can be rated or not
           type: boolean
@@ -1127,6 +1164,11 @@ components:
           description: The current state of fulfillment. The BPP must set this value whenever the state of the order fulfillment changes and fire an unsolicited `on_status` call.
           allOf:
             - $ref: '#/components/schemas/FulfillmentState'
+        documents:
+          description: The Documents associated to the fullfilment
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         tracking:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
@@ -1207,6 +1249,10 @@ components:
           description: The provider from which the customer wants to place to the order from
           allOf:
             - $ref: '#/components/schemas/Provider'
+        location:
+          description: The Location from which the customer initiate search
+          allOf:
+            - $ref: '#/components/schemas/Location'
         fulfillment:
           description: Details on how the customer wants their order fulfilled
           allOf:
@@ -1309,15 +1355,15 @@ components:
           description: Physical description of the item
           allOf:
             - $ref: '#/components/schemas/Descriptor'
-        documents:
-          type: array
-          items: 
-            $ref: '#/components/schemas/Document'
-        
         creator:
           description: The creator of this item
           allOf:
             - $ref: '#/components/schemas/Organization'
+        documents:
+          description: The Documents associated to the Item
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         price:
           description: 'The price of this item, if it has intrinsic value'
           allOf:
@@ -1550,15 +1596,16 @@ components:
           description: Details of the provider whose catalog items have been selected.
           allOf:
             - $ref: '#/components/schemas/Provider'
-        documents:
-          type: array
-          items: 
-            $ref: '#/components/schemas/Document'
         items:
           description: The items purchased / availed in this order
           type: array
           items:
             $ref: '#/components/schemas/Item'
+        documents:
+          description: The Documents associated to the Order
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         add_ons:
           description: The add-ons purchased / availed in this order
           type: array
@@ -1766,19 +1813,19 @@ components:
         currency:
           type: string
         value:
-          $ref: string
+          type: string
         estimated_value:
-          $ref: string
+          type: string
         computed_value:
-          $ref: string
+          type: string
         listed_value:
-          $ref: string
+          type: string
         offered_value:
-          $ref: string
+          type: string
         minimum_value:
-          $ref: string
+          type: string
         maximum_value:
-          $ref: string
+          type: string
     Provider:
       description: Describes the catalog of a business.
       type: object
@@ -2047,9 +2094,9 @@ components:
         url:
           type: string
           format: uri
-        docs: 
+        docs:
           type: array
-          items: 
+          items:
             $ref: '#/components/schemas/Document'
     Tag:
       description: 'Describes a tag. This is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
@@ -2172,68 +2219,19 @@ components:
           type: object
           properties:
             descriptor:
-              $ref: '#/components/schemas/descriptor'
+              $ref: '#/components/schemas/Descriptor'
             index:
               type: object
               properties:
-                min: 
+                min:
                   type: integer
-                cur: 
+                cur:
                   type: integer
-                max: 
+                max:
                   type: integer
-            headings: 
+            headings:
               type: array
-              items:  
-                type: string           
+              items:
+                type: string
         form:
           $ref: '#/components/schemas/Form'
-    Form:
-      description: Describes a form
-      type: object
-      properties:
-        url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
-          type: string
-          format: uri
-        data:
-          description: The form submission data
-          type: object
-          additionalProperties:
-            type: string
-        mime_type:
-          description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
-          type: string
-          enum:
-            - text/html
-            - application/xml
-        resubmit: 
-          type: boolean
-        submission_id:
-          type: string
-          format: uuid
-        auth: 
-          type: object
-          properties: 
-            descriptor:
-              $ref: '#/components/schemas/Descriptor'
-            value: 
-              type: string
-
-    Document:
-      description: Describes a document which can be sent as a url
-      type: object
-      properties:
-        descriptor:
-          $ref: '#/components/schemas/Descriptor'
-        url:
-          type: string
-          format: uri
-        label:
-          type: string
-        mime_type:
-          description: Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.
-          type: string
-          enum:
-            - application/pdf
-
