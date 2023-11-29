@@ -1131,6 +1131,7 @@ components:
           enum:
             - text/html
             - application/xml
+            - application/html
         resubmit:
           type: boolean
         submission_id:
