@@ -96,7 +96,6 @@ The Tags schema is explicitly referenced in the following schemas.
 * Contact.tags
 * Fulfillment.tags
 * Intent.tags
-* Intent.tags
 * Item.tags
 * Person.tags
 * Provider.tags

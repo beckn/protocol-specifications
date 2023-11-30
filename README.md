@@ -94,7 +94,7 @@ If the address of the BPP is _not_ specified in the `context` field of the reque
 
 Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses that _match_ the `context` and then broadcast the message to those BPPs.
 
-The BPPs immediately respond with ACKs. Soon after, the BPPs call the `on_search` API which is sent back to the BG. The BG then forwards those requests back to the BAPs.
+The BPPs immediately respond with ACKs. Soon after, the BPPs call the `on_search` API of the BAPs.
 
 To protect the privacy and confidentiality of the end user, it is recommended not to send _Personally Identifiable Information_ (PII) or _transactional information_ in the `message` object when transmitting via a BG. The BG should be able to only use the `context` header to perform BPP discovery and routing.
 

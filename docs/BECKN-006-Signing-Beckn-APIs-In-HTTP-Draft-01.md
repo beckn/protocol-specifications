@@ -164,9 +164,7 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
         }
     }
 }
-```
-
-**NOTE : If the network policy does not allow more than one key-pair per subscriber on the registry, then the `unique_key_id` component is NOT NEEDED in the `keyId` attribure. In such a case, the Authorization header will look like this. 
+``` 
 
 
 ### Step 3 : BG signs request before forwarding request to BPP
@@ -228,7 +226,7 @@ The BPP performs the following steps to authenticate the BAP and the BG and also
 2. Split the keyID string using the delimiter `|`. 
 3. The keyID uses the format {subscriber id}|{unique_public_key_id}|{signing algorithm} . If the signing algorithm extracted from the keyId does not match the value of the algorithm field in the X-Gateway-Authorization header, then the BPP should return an error.
 4. The keyID also contains a unique_public_key_id which is used when the BG has uploaded multiple public keys to a registry OR when the same domain is being used for implementing multiple subscribers.
-5. The BG will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the `lookup` API or from a _cached copy_ of the registry
+5. The BPP will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the `lookup` API or from a _cached copy_ of the registry
 
 6. If no valid key is found, the BPP must return a NACK response with 401 Unauthorised response code.
 7. BPP will use the BG's public key to verify the signature. If the signature is verified, the BG is considered to be authenticated.
@@ -264,8 +262,8 @@ The BPP performs the following steps to authenticate the BAP and also ensure mes
 3. The keyID uses the format {subscriber id}|{unique_key_id}|{signing algorithm}. If the signing algorithm extracted from the keyId does not match the value of the algorithm field in the Authorization header, then the BPP should return an error.
 4. The keyId also contains a unique_public_key_id which is used when the BAP has uploaded multiple public keys to a registry OR when the same domain is being used for implementing multiple types of subscribers.
 5. The BPP will now look up the registry for the public key of the BAP by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the BAP's public key matching the subscriber_id and unique_key_id.
-6. BG will use the BAP's public key to verify the signature. If signature is verified, the BAP is considered to be authenticated. If not BG should return a 401 error.
-7. If the signature is not verified, the BG must return a NACK response with 401 Unauthorised response code with a WWW-Authenticate header. For example, for an invalid signature, the BPP must return the following:
+6. BPP will use the BAP's public key to verify the signature. If signature is verified, the BAP is considered to be authenticated. If not BPP should return a 401 error.
+7. If the signature is not verified, the BPP must return a NACK response with 401 Unauthorised response code with a WWW-Authenticate header. For example, for an invalid signature, the BPP must return the following:
 
 **Headers**
 
@@ -289,7 +287,7 @@ WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires)
 
 
 
-### Step 6 : BPP signs callback and calls BG
+### Step 6 : BPP signs callback and calls BAP
 The BPP performs the following steps to create the Authorization header
 
 1. Generate the digest of the request body using the BLAKE-512 hashing function.
@@ -311,106 +309,11 @@ digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 Signature keyId="example-bpp.com|74b43deb-236e-4498-8f5a-ca75d6c67b9d|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="
 ```
 
-9. Finally the BPP includes the Authorization header in the request and calls the BG API.
+9. Finally the BPP includes the Authorization header in the request and calls the BAP API.
 
 
-
-### Step 7 : BG verifies BPP signature
-The BG performs the following steps to authenticate the BPP and also ensure message integrity.
-
-1. BG gets keyId from the Authorization header.
-2. BG splits the keyId string into subscriber ID, Unique Key ID and algorithm using the delimiter "|".
-3. The keyId uses the format {subscriber id}|{unique_key_id}|{signing algorithm} . If the signing algorithm extracted from the keyId does not match the value of the algorithm parameter in the Authorization header, then the BG should return an 401 unauthorised error.
-4. The keyId also contains a unique_key_id which is used when the BPP has uploaded multiple public keys to a registry OR when the same domain is being used for implementing multiple types of subscribers.
-5. The BG will now look up the registry for the public key of the BPP by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the BPP's public key matching the subscriber_id and unique_key_id.
-6. BG will use the BPP's public key to verify the signature. If signature is verified, the BPP is considered to be authenticated. If not BG should return a 401 error
-7. If the signature is not verified, the BG must return a NACK response with 401 Unauthorised response code with a WWW-Authenticate header. For example, for an invalid signature, the BG must return the following:
-
-**Headers**
-
-```
-HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) digest"
-...
-```
-
-**Request Body**
-
-```
-{
-    "message": {
-        "ack": {
-            "status": "NACK"
-        }
-    }
-}
-```
-
-
-### Step 8 : BG signs callback before calling BAP
-Before forwarding the request to the BAP, the BG performs the following steps to create the X-Gateway-Authorization header
-
-1. Generate the digest of the request body using the BLAKE-512 hashing function.
-2. Generate the `created` field. The `created` field expresses when the signature was created. The value MUST be a Unix timestamp integer value. A signature with a `created` timestamp value that is in the future MUST NOT be processed.
-3. Generate the `expires` field. The `expires` field expresses when the signature ceases to be valid. The value MUST be a Unix timestamp integer value. A signature with an `expires` timestamp value that is in the past MUST NOT be processed.
-4. Concatenate the three values, i.e the `created`, `expires` and `digest` in the format as shown below. The below string is the signing string which the BG is going to use to sign the request.
-
-```
-(created): 1402170695
-(expires): 1402170995
-digest: BLAKE-512=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
-```
-
-5. The BG will then sign this string using it's registered signing private key via the ed25519 Signature Scheme.
-6. Finally the BG will generate a base64 encoded string of the signature and insert it into the signature parameter of the X-Gateway-Authorization header.
-7. Finally the X-Gateway-Authorization header will look like this. (Let's assume subscriber_id = example-bg.com, unique_key_id = bg3456).
-
-```
-Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",algorithm="ed25519",created="1641287885",expires="1641287885",headers="(created) (expires) digest",signature="hJ5sCmbe7s9Wateq6QAdBGloVSkLuLHWOXcRkzrMcVLthFldV4gnT9Vrnq9iDNPVSKuDqaercVjQwFlj0Ml+3Q=="
-```
-
-8. Finally the BG includes the X-Gateway-Authorization header in the request and calls the BAP API.
-
-**Note:**
-
-1. The difference between the `created` and the `expires` field should be equal to the TTL of the request.
-2. Also, the `expires` value should not be more than the expiration time of the key used for signing the request. If the expires value appears to be going beyond the lifespan of the signing key, generate a new key and update it on the registry via subscribe API OR use an existing registered key with an expiry time greater than the `expires` value of the signature.
-
-
-### Step 9 : BAP verifies BG signature
-The BAP performs the following steps to authenticate the BAP and the BG and also ensure message integrity.
-
-1. Get keyId from the X-Gateway-Authorization header
-2. Split the keyID string using the delimiter `|`.
-3. The keyID uses the format {subscriber id}|{unique_public_key_id}|{signing algorithm} . If the signing algorithm extracted from the keyId does not match the value of the algorithm field in the X-Gateway-Authorization header, then the BPP should return an error.
-4. The keyID also contains a unique_public_key_id which is used when the BG has uploaded multiple public keys to a registry OR when the same domain is being used for implementing multiple subscribers
-5. The BAP will now look up the registry for the public key of the subscriber by sending the subscriber_id and the unique_key_id via the lookup API or by retrieving a cached copy of the subscriber's public key matching the subscriber_id and unique_key_id. If no valid key is found, the BPP must return
-6. BPP will use the BG's public key to verify the signature. If signature is verified, the BG is considered to be authenticated.
-7. If the signature is not verified, the BPP must return a NACK response with 401 Unauthorised response code with a Proxy-Authenticate header. For example, for an invalid BG signature, the BAP must return the following:
-
-**Headers**
-
-```
-HTTP/1.1 401 Unauthorized
-/Proxy-Authenticate: Signature realm="example-bap.com",headers="(created) (expires) digest"
-...
-```
-
-**Request Body**
-
-```
-{
-    "message": {
-        "ack": {
-            "status": "NACK"
-        }
-    }
-}
-```
-
-
-### Step 10 : BAP verifies BPP signature
-The BAP performs the following steps to authenticate the BAP and also ensure message integrity during transit.
+### Step 7 : BAP verifies BPP signature
+The BAP performs the following steps to authenticate the BPP and also ensure message integrity during transit.
 
 1. BAP gets keyId from the Authorization header
 2. BAP splits the keyID string using the delimiter `|`.

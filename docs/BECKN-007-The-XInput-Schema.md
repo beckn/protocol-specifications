@@ -37,7 +37,7 @@ Beckn protocol defines a domain-agnostic specification that can be used to repre
 
 For example, a logistics service provider might require additional information from the logistics customer (like a restaurant) like the dimensions of the package, category of items (food, flammable, fragile etc), approximate weight of the package, the order Number etc,
 
-to confirm the order. All of this information needs to be transmitted to the person availing the logistics service. 
+to confirm the order. All of this information needs to be transmitted by the person availing the logistics service. 
 
 Similarly, a healthcare service might want the patient to provide information like, their medical history, a description of their symptoms, details of the insurance, etc, before confirming the order.  
 
@@ -146,8 +146,6 @@ Order:
         xinput:
             $ref: '#/components/schemas/XInput'
         ...
-```
-
 ```
 
 #### Usage in the `CancellationTerm` schema
@@ -296,7 +294,7 @@ In this example, the Logistics BPP can create a XInput object containing a link 
      <input type="number" id="pwidth" name="pwidth" value="0" />
      <label for="pheight">Package height in cm</label>
      <input type="number" id="pheight" name="pheight" value="0" />
-     <label for="itemCategory">Select your degree</label>
+     <label for="itemCategory">Select the package category</label>
      <select name="itemCategory" id="itemCategory">
        <option value="fnb">Food and Beverages</option>
        <option value="bns">Books and Stationery</option>

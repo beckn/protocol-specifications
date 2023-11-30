@@ -130,7 +130,7 @@ Policy administrators and network participants can adopt the below workflow. Thi
 
 # Policy Framework Roles
 1. Policy Adopter (BPPs, BAPs, BGs, Registries)
-2. Policy Publisher (SRO or equivalent)
+2. Policy Publisher (NFO or equivalent)
 3. Policy Auditor (Monitoring and Reporting)
 
 # Policy Implementation Architecture

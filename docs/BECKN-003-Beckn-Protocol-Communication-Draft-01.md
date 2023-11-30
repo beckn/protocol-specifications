@@ -62,7 +62,7 @@ In most cases, the sender will call the API first and the receiver will respond 
 Most communication in a beckn enabled network involves two entities. But sometimes, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the flow of communication should be as follows.
 
 If the address of the BPP is not specified in the context of the API call, then the BAP should call the BG and the BG may multicast this API to multiple BPPs. 
-The BPPs synchronously respond with ACKs. The BPPs then asynchronously call the **on_search** API which is sent back to the BAP. 
+The BPPs synchronously respond with ACKs. The BPPs then asynchronously call the **on_search** API of the BAP (The figure shows the on_search API of the BG being called. Now the on_search of BAP is directly called by the BPP). 
 
 <figure>
 <img src="https://github.com/beckn/protocol-specifications/blob/master/docs/images/Search-Multicast.png">
