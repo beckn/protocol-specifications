@@ -16,6 +16,16 @@ properties:
     enum:
       - text/html
       - application/xml
+      - application/html
+  resubmit: 
+    type: boolean
   submission_id:
     type: string
     format: uuid
+  auth: 
+    type: object
+    properties: 
+      descriptor:
+        $ref: "./Descriptor.yaml"
+      value: 
+        type: string

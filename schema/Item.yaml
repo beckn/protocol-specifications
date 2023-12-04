@@ -20,6 +20,11 @@ properties:
     description: The creator of this item
     allOf:
       - $ref: "./Organization.yaml"
+  documents:
+    description: The Documents associated to the Item
+    type: array
+    items:
+      $ref: "./Document.yaml"
   price:
     description: The price of this item, if it has intrinsic value
     allOf:
@@ -101,8 +106,7 @@ properties:
     description: Whether this item is a recommended item to a response
     type: boolean
   ttl:
-    description: Time to live in seconds for an instance of this schema
-    type: string    
+    $ref: "./Duration.yaml"
   tags:
     type: array
     items:

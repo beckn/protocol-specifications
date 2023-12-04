@@ -11,7 +11,7 @@ properties:
   time:
     $ref: "./Time.yaml"
   ttl:
-    description: Time to live for an instance of this schema
+    $ref: "./Duration.yaml"
   tags:
     type: array
     items:

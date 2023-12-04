@@ -90,18 +90,14 @@ Not all feedback can be accommodated as a change and there may be solid argument
 # Contribution Process
 
 
-![Flow](http://13.235.139.60/dev-docs-images/PR%20Flowchart.png)
-
-
-
 ## 1. Review the specification
 
 All contributors are expected to review the specification before submitting a proposal. If there is anything that a contributor does not understand, they are free to pose questions to the beckn open community of developers. 
 
 
-## 2. Join the Beckn Open Community on Slack
+## 2. Join the Beckn Open Community on Discord
 
-Joining the open community on Slack is a simple process. Click [here](https://join.slack.com/t/beckn/shared_invite/zt-ucfhmyow-5XuHdRpFrqO2sh4gzcnuQw) to join the developer community on Slack. This is useful to have quick real-time interactions with the developers in the community. 
+Joining the open community on Discord is a simple process. Click [here]( https://bit.ly/bocWebInvite) to join the developer community on Discord. This is useful to have quick real-time interactions with the members of the community. 
 
 
 ## 3. Initiate / participate in discussion threads on Github

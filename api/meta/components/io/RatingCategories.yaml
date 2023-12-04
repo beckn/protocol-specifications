@@ -17,7 +17,7 @@ properties:
         items:
             $ref: '../../../../schema/Rating.yaml#/properties/rating_category'
     required:
-      - return_reasons
+      - rating_categories
 required:
   - context
   - message

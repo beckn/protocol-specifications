@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Beckn Protocol Core
   description: Beckn Core Transaction API specification
-  version: 1.1.0
+  version: 1.2.0
 security:
   - SubscriberAuth: []
 paths:
@@ -738,6 +738,10 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
+        quantity:
+          description: The Selling quantity of the Item
+          allOf:
+            - $ref: '#/components/schemas/ItemQuantity'
     Address:
       description: Describes a postal address.
       type: string
@@ -882,8 +886,7 @@ components:
           type: string
           format: date-time
         ttl:
-          description: Duration in seconds after which this catalog will expire
-          type: string
+          $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
       type: object
@@ -898,7 +901,7 @@ components:
         time:
           $ref: '#/components/schemas/Time'
         ttl:
-          description: Time to live for an instance of this schema
+          $ref: '#/components/schemas/Duration'
         tags:
           type: array
           items:
@@ -985,8 +988,7 @@ components:
           description: The encryption public key of the sender
           type: string
         ttl:
-          description: The duration in ISO8601 format after timestamp for which this message holds valid
-          type: string
+          $ref: '#/components/schemas/Duration'
     Country:
       description: Describes a country
       type: object
@@ -1014,13 +1016,8 @@ components:
       description: Describes a customer buying/availing a product or a service
       type: object
       properties:
-        id:
-          description: ID of the customer.
-          type: string
         person:
           $ref: '#/components/schemas/Person'
-        organization:
-          $ref: '#/components/schemas/Organization'
         contact:
           $ref: '#/components/schemas/Contact'
     DecimalValue:
@@ -1058,6 +1055,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Image'
+    Document:
+      description: Describes a document which can be sent as a url
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        url:
+          type: string
+          format: uri
+        label:
+          type: string
+        mime_type:
+          description: 'Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.'
+          type: string
+          enum:
+            - application/pdf
     Domain:
       description: 'Described the industry sector or sub-sector. The network policy should contain codes for all the industry sectors supported by the network. Domains can be created in varying levels of granularity. The granularity of a domain can be decided by the participants of the network. Too broad domains will result in irrelevant search broadcast calls to BPPs that don''t have services supporting the domain. Too narrow domains will result in a large number of registry entries for each BPP. It is recommended that network facilitators actively collaborate with various working groups and network participants to carefully choose domain codes keeping in mind relevance, performance, and opportunity cost. It is recommended that networks choose broad domains like mobility, logistics, healthcare etc, and progressively granularize them as and when the number of network participants for each domain grows large.'
       type: object
@@ -1118,9 +1131,19 @@ components:
           enum:
             - text/html
             - application/xml
+            - application/html
+        resubmit:
+          type: boolean
         submission_id:
           type: string
           format: uuid
+        auth:
+          type: object
+          properties:
+            descriptor:
+              $ref: '#/components/schemas/Descriptor'
+            value:
+              type: string
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -1142,6 +1165,11 @@ components:
           description: The current state of fulfillment. The BPP must set this value whenever the state of the order fulfillment changes and fire an unsolicited `on_status` call.
           allOf:
             - $ref: '#/components/schemas/FulfillmentState'
+        documents:
+          description: The Documents associated to the fullfilment
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         tracking:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
@@ -1222,6 +1250,10 @@ components:
           description: The provider from which the customer wants to place to the order from
           allOf:
             - $ref: '#/components/schemas/Provider'
+        location:
+          description: The Location from which the customer initiate search
+          allOf:
+            - $ref: '#/components/schemas/Location'
         fulfillment:
           description: Details on how the customer wants their order fulfilled
           allOf:
@@ -1328,6 +1360,11 @@ components:
           description: The creator of this item
           allOf:
             - $ref: '#/components/schemas/Organization'
+        documents:
+          description: The Documents associated to the Item
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         price:
           description: 'The price of this item, if it has intrinsic value'
           allOf:
@@ -1424,8 +1461,7 @@ components:
           description: Whether this item is a recommended item to a response
           type: boolean
         ttl:
-          description: Time to live in seconds for an instance of this schema
-          type: string
+          $ref: '#/components/schemas/Duration'
         tags:
           type: array
           items:
@@ -1566,6 +1602,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Item'
+        documents:
+          description: The Documents associated to the Order
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
         add_ons:
           description: The add-ons purchased / availed in this order
           type: array
@@ -1681,11 +1722,15 @@ components:
               type: string
             bank_account_number:
               type: string
+            bank_account_name:
+              type: string
             virtual_payment_address:
               type: string
             source_bank_code:
               type: string
             source_bank_account_number:
+              type: string
+            source_bank_account_name:
               type: string
             source_virtual_payment_address:
               type: string
@@ -1769,19 +1814,19 @@ components:
         currency:
           type: string
         value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
         estimated_value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
         computed_value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
         listed_value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
         offered_value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
         minimum_value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
         maximum_value:
-          $ref: '#/components/schemas/DecimalValue'
+          type: string
     Provider:
       description: Describes the catalog of a business.
       type: object
@@ -1830,9 +1875,7 @@ components:
           description: Whether this provider can be rated or not
           type: boolean
         ttl:
-          description: 'The time-to-live in seconds, for this object. This can be overriden at deeper levels. A value of -1 indicates that this object is not cacheable.'
-          type: integer
-          minimum: -1
+          $ref: '#/components/schemas/Duration'
         tags:
           type: array
           items:
@@ -2037,6 +2080,9 @@ components:
       properties:
         order_id:
           type: string
+          description: ID of the Order for which support is needed
+        ref_id:
+          type: string
         callback_phone:
           type: string
           format: phone
@@ -2049,6 +2095,10 @@ components:
         url:
           type: string
           format: uri
+        docs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
     Tag:
       description: 'Describes a tag. This is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
       type: object
@@ -2162,8 +2212,27 @@ components:
       description: 'Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. Sometimes, selection of catalog elements is not enough for the BPP to confirm an order. For example, to confirm a flight ticket, the airline requires details of the passengers along with information on baggage, identity, in addition to the class of ticket. Similarly, a logistics company may require details on the nature of shipment in order to confirm the shipping. A recruiting firm may require additional details on the applicant in order to confirm a job application. For all such purposes, the BPP can choose to send this object attached to any object in the catalog that is required to be sent while placing the order. This object can typically be sent at an item level or at the order level. The item level XInput will override the Order level XInput as it indicates a special requirement of information for that particular item. Hence the BAP must render a separate form for the Item and another form at the Order level before confirmation.'
       type: object
       properties:
-        form:
-          $ref: '#/components/schemas/Form'
         required:
           description: Indicates whether the form data is mandatorily required by the BPP to confirm the order.
           type: boolean
+        head:
+          description: Head section of the form
+          type: object
+          properties:
+            descriptor:
+              $ref: '#/components/schemas/Descriptor'
+            index:
+              type: object
+              properties:
+                min:
+                  type: integer
+                cur:
+                  type: integer
+                max:
+                  type: integer
+            headings:
+              type: array
+              items:
+                type: string
+        form:
+          $ref: '#/components/schemas/Form'

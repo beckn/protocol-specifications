@@ -4,17 +4,16 @@ properties:
   currency:
     type: string
   value:
-    $ref: "./DecimalValue.yaml"
+    type: string
   estimated_value:
-    $ref: "./DecimalValue.yaml"
+    type: string
   computed_value:
-    $ref: "./DecimalValue.yaml"
+    type: string
   listed_value:
-    $ref: "./DecimalValue.yaml"
+    type: string
   offered_value:
-    $ref: "./DecimalValue.yaml"
+    type: string
   minimum_value:
-    $ref: "./DecimalValue.yaml"
+    type: string
   maximum_value:
-    $ref: "./DecimalValue.yaml"
-
+    type: string

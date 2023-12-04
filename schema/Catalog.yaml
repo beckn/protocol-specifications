@@ -27,6 +27,4 @@ properties:
     type: string
     format: date-time
   ttl:
-    description: Duration in seconds after which this catalog will expire
-    type: string
-
+    $ref: "./Duration.yaml"

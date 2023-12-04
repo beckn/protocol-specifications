@@ -33,6 +33,11 @@ properties:
     type: array
     items:
       $ref: "./Item.yaml"
+  documents:
+    description: The Documents associated to the Order
+    type: array
+    items:
+      $ref: "./Document.yaml"
   add_ons:
     description: The add-ons purchased / availed in this order
     type: array

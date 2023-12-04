@@ -2,8 +2,28 @@
 description: Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. Sometimes, selection of catalog elements is not enough for the BPP to confirm an order. For example, to confirm a flight ticket, the airline requires details of the passengers along with information on baggage, identity, in addition to the class of ticket. Similarly, a logistics company may require details on the nature of shipment in order to confirm the shipping. A recruiting firm may require additional details on the applicant in order to confirm a job application. For all such purposes, the BPP can choose to send this object attached to any object in the catalog that is required to be sent while placing the order. This object can typically be sent at an item level or at the order level. The item level XInput will override the Order level XInput as it indicates a special requirement of information for that particular item. Hence the BAP must render a separate form for the Item and another form at the Order level before confirmation.
 type: object
 properties:
-  form:
-    $ref: "./Form.yaml"
   required:
     description: Indicates whether the form data is mandatorily required by the BPP to confirm the order. 
     type: boolean
+  head:
+    description: Head section of the form
+    type: object
+    properties:
+      descriptor:
+        $ref: './Descriptor.yaml'
+      index:
+        type: object
+        properties:
+          min: 
+            type: integer
+          cur: 
+            type: integer
+          max: 
+            type: integer
+      headings: 
+        type: array
+        items:  
+          type: string         
+  form:
+    $ref: "./Form.yaml"
+    

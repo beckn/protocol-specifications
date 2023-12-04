@@ -8,3 +8,8 @@ properties:
     $ref: "./Descriptor.yaml"
   price:
     $ref: "./Price.yaml"
+  quantity:
+    description: The Selling quantity of the Item
+    allOf:
+      - $ref: "./ItemQuantity.yaml"
+

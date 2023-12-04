@@ -47,6 +47,5 @@ properties:
     description: The encryption public key of the sender
     type: string
   ttl:
-    description: The duration in ISO8601 format after timestamp for which this message holds valid
-    type: string
+    $ref: "./Duration.yaml"
 
