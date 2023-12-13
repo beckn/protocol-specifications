@@ -1,7 +1,12 @@
 description: Describes a customer buying/availing a product or a service
 type: object
 properties:
+  id: 
+    type: string
+    description: ID of the customer.
   person:
     $ref: "./Person.yaml"
+  organization: 
+    $ref: "./Organization.yaml"
   contact:
     $ref: "./Contact.yaml"

@@ -1016,8 +1016,13 @@ components:
       description: Describes a customer buying/availing a product or a service
       type: object
       properties:
+        id:
+          type: string
+          description: ID of the customer.
         person:
           $ref: '#/components/schemas/Person'
+        organization:
+          $ref: '#/components/schemas/Organization'
         contact:
           $ref: '#/components/schemas/Contact'
     DecimalValue:
