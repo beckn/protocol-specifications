@@ -1,0 +1,39 @@
+name: OpenAPI Validation
+on:
+ pull_request:
+    branches:
+      - master
+
+    paths:
+      - 'transaction.yaml'
+      - 'meta.yaml'
+      - 'registry.yaml'
+
+jobs:
+ transaction-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Validate OpenAPI specification
+        uses: stoplight/spectral@v3
+        with:
+          path: transaction.yaml
+ meta-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Validate OpenAPI specification
+        uses: stoplight/spectral@v3
+        with:
+          path: meta.yaml
+ registry-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Validate OpenAPI specification
+        uses: stoplight/spectral@v3
+        with:
+          path: registry.yaml
