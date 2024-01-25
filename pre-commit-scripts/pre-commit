@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# pre-commit.sample
+
+run_verify_command () {
+    command=$1
+    if
+        eval $1
+    then
+        return 0
+    else
+        echo "*****Spec validation has failed for following command******"
+        echo "$command"
+        echo "*****Commit has been aborted******"
+        git stash pop -q
+        exit 1
+    fi
+}
+
+
+
+git stash -q --keep-index
+
+# Add one line per file that needs to be checked
+run_verify_command "beckn-spec-validator -b api/meta/build/meta.yaml -v false"
+run_verify_command "beckn-spec-validator -b api/transaction/build/transaction.yaml -v false"
+run_verify_command "beckn-spec-validator -b api/registry/build/registry.yaml -v false"
+
+git stash pop -q
+exit 0
