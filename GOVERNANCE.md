@@ -123,12 +123,12 @@ Beckn protocol specification adopts a set of design principles that must be adhe
 
 
 ### Licensing
-Beckn protocol is currently covered under a Creative Commons License. Just like the design principles, the licensing also may change basis the extent of adoption by the community. The Core Working Group must:
+Beckn protocol is currently covered under a Creative Commons License. Just like the design principles, the licensing also may change the basis of the extent of adoption by the community. The Core Working Group must:
 
 - Clearly define what is allowed and not allowed as per the licensing rules in practical implementation scenarios
 - Gather feedback from the ecosystem around issues faced by implementors due to the licensing
 - Provide solutions to overcome problems around licensing
-- If all of the above fail to achieve outomes, also consider changing the license to make the protocol more flexible without loss of interoperability 
+- If all of the above fail to achieve outcomes, also consider changing the license to make the protocol more flexible without loss of interoperability 
 
 ### API
 Beckn protocol defines a set of actions that may be implemented as APIs. The Core Working Group must:
@@ -223,7 +223,7 @@ Each WG will have at least one Core Committer. The objective of a core committer
 
 ### Working Group Members
 
-Anyone can send a request to be added to the WG to attend meetings and weigh in with opinions about any decision or through mails. To become part of a WG, one must send an email to the WG Admin. WG members can participate in discussions on Issues and Pull Requests, and respond to comments in the discussion forums. However, the approval of a working group member will not be decisiove in merging PRs to the specification.
+Anyone can send a request to be added to the WG to attend meetings and weigh in with opinions about any decision or through mails. To become part of a WG, one must send an email to the WG Admin. WG members can participate in discussions on Issues and Pull Requests, and respond to comments in the discussion forums. However, the approval of a working group member will not be decisive in merging PRs to the specification.
 
 # Managing Specification Evolution
 
@@ -237,7 +237,7 @@ The specification will evolve over time. Changes may be made when any of the fol
 
 # Specification Evolution Guidelines
 
-Any change made to specification must happen via a rigourous and comprehensive review mechanism. The review broadly requires the core committers to apply each of the design principles on the proposed change and submit an objective response to the proposer(s). 
+Any change made to specification must happen via a rigorous and comprehensive review mechanism. The review broadly requires the core committers to apply each of the design principles on the proposed change and submit an objective response to the proposer(s). 
 
 1. **Relevance**: Beckn protocol has defined clear boundaries on what is in-scope of beckn protocol and what is not. CWG members should ask themselves some basic questions like. Is it network-specific? Is it technology-specific? Is it implementation-specific? 
 
@@ -251,7 +251,7 @@ Spec changes should be approved by a majority of the committers. Approval can be
 
 All new features have a lifecycle starting from a proposal to a protocol standard. All new features to the specification must start with a status as “proposed”. Upon review, the CWG will decide to move forward with a discussion on the change and then move it to a “draft” status. If the feature is considered to become part of the specification, it will be moved to the “recommended” status. And if the feature is widely accepted and adopted by the ecosystem, then it will be moved to a “required” status after which it will become part of the core specification.
 
-All proposals to the specification are submitted as namespaced properties as mentioned in CONTRIBUTIONS.md. The working group has the responsibility of reviewing these proposals and classify them accordingly as draft, recommended, required or not-recommended features. Once classified, the WGs must rename the namespace with the appropriate feature stage component after review.  
+All proposals to the specification are submitted as namespaced properties as mentioned in CONTRIBUTIONS.md. The working group has the responsibility of reviewing these proposals and classifying them accordingly as draft, recommended, required or not-recommended features. Once classified, the WGs must rename the namespace with the appropriate feature stage component after review.  
 
 All development activity on the future specification will be performed as features on a draft branch and merged into this branch. Upon release of the future specification, this branch will be merged to master.
 
