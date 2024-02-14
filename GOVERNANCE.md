@@ -123,7 +123,7 @@ Beckn protocol specification adopts a set of design principles that must be adhe
 
 
 ### Licensing
-Beckn protocol is currently covered under a Creative Commons License. Just like the design principles, the license of Beckn protocol speification may change in the future depending on the scale of its adoption by the community. The Core Working Group must:
+Beckn protocol is currently covered under a Creative Commons License. Just like the design principles, the license of Beckn protocol specification may change in the future depending on the scale of its adoption by the community. The Core Working Group must:
 
 - Clearly define what is allowed and not allowed as per the licensing rules in practical implementation scenarios
 - Gather feedback from the ecosystem around issues faced by implementors due to the licensing
