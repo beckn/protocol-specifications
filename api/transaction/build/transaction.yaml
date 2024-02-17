@@ -215,6 +215,8 @@ paths:
                   properties:
                     order_id:
                       $ref: '#/components/schemas/Order/properties/id'
+                    fulfillment_id:
+                      $ref: '#/components/schemas/Fulfillment/properties/id'
                     callback_url:
                       type: string
                       format: uri
