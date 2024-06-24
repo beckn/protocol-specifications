@@ -1421,7 +1421,7 @@ components:
               fulfillment_state:
                 description: The state of fulfillment during which this term is applicable.
                 allOf:
-                  - $ref: '#/components/schemas/State'
+                  - $ref: '#/components/schemas/FulfillmentState'
               refund_eligible:
                 description: Indicates if cancellation will result in a refund
                 type: boolean
@@ -1964,7 +1964,7 @@ components:
         fulfillment_state:
           description: The state of fulfillment during which this term is applicable.
           allOf:
-            - $ref: '#/components/schemas/State'
+            - $ref: '#/components/schemas/FulfillmentState'
         replace_within:
           description: 'Applicable only for buyer managed returns where the buyer has to replace the item before a certain date-time, failing which they will not be eligible for replacement'
           allOf:
@@ -1978,7 +1978,7 @@ components:
         fulfillment_state:
           description: The state of fulfillment during which this term IETF''s applicable.
           allOf:
-            - $ref: '#/components/schemas/State'
+            - $ref: '#/components/schemas/FulfillmentState'
         return_eligible:
           description: Indicates whether the item is eligible for return
           type: boolean
