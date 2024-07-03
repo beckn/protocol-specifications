@@ -1,38 +1,30 @@
-# Layering Network Policy on the Specification
-
-## ID: 
-BECKN-RFC-001
-
-## Draft ID
-Draft-01
-
-## Title:
-Layering Network Policy on the Specification
+# BECKN-001:Layering Network Policy on the Specification
 
 ## Category:
 Network Policy
 
-## Status:
-Protocol Draft
-
 ## Published on:
 December 10, 2021
 
-## Expires on:
-December 10, 2022 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 2nd, 2024 
 
 ## License:
-CC-BY-ND
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
+1. Ravi Prakash : ravi@becknprotocol.io
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknfoundation.org
+1. Sujith Nair : sujith@becknprotocol.io
 2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
+
+replace email with github ids.
 
 # Scope
-
 This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience.
 
 1. Anyone who is using beckn protocol specifications to design open commerce networks  for a specific set of use cases
@@ -45,6 +37,9 @@ Readers of this document must:
 2. Have knowledge of the Architecture of Open Commerce Networks instantiated using beckn protocol. 
 3. Have knowledge of Open API 3.0 Specification
 
+# Abstract
+
+Beckn Protocol is an abstracted but **highly configurable** specification. A network is an **instantiation** of the core protocol specification. However, to instantiate a network, additional policies must be layered via machine-readable configuration files. These configurations vary from network to network depending upon the use cases supported by them. These configurations allow sector-specific policies to be applied on a network _without_ changing the underlying core specification. This document defines a methodology to publish these network-specific policies as machine-readable documents that can be read by network participants to create API validation middleware.
 
 # Context
 
@@ -53,14 +48,7 @@ Beckn protocol is a set of specifications that enables any two platforms to perf
 Similarly, a network might put a limit on the number of matched items that can be returned in a single catalog object. To maintain interoperability but also allow its configurability, beckn protocol specification governance restricts modification of the core schema and actions. However, to allow its adaptability, instead of forcing all specification users to adhere to the core specification and, beckn protocol governance allows creation of network-specific policies. These policies allow sector-agnostic rules and validation criteria to be published along with the specification based on recommendations and comments received from various ecosystem contributors and network participants implementing the protocol. These rules and policies must be layered on the core specification and published as a separate document that can be accessed by the network participants in a machine readable manner. 
 
 
-# Abstract
-
-Beckn Protocol is an abstracted but **highly configurable** specification. A network is an **instantiation** of the core protocol specification. However, to instantiate a network, additional policies must be layered via machine-readable configuration files. These configurations vary from network to network depending upon the use cases supported by them. These configurations allow sector-specific policies to be applied on a network _without_ changing the underlying core specification. This document defines a methodology to publish these network-specific policies as machine-readable documents that can be read by network participants to create API validation middleware.
-
-
-# Terminology
-
-
+# Terminology ( should go to separate RFC - BECKN-012-Terminology.md ) 
 
 1. **Network :** In the context of beckn protocol, a network refers to an open commerce network formed by the instantiation of beckn protocol specification with a standard network policy
 2. **Network Participant:** Any platform that has implemented beckn protocol specification and is part of an open commerce network
@@ -104,47 +92,6 @@ A network policy is a set of rules that must be published by the architects of b
 ## Inheritance and Polymorphism in Open API 3.0
 
 The core specification currently exists in the form of an Open API Specification 3.0 document with some reserved modifications. To layer policy on the specification, beckn protocol governance allows layering of policies by way of configuration. This configuration is done on the core Open API document by using the inheritance and polymorphism feature of Open API Specification 3.0. Inheritance and polymorphism are terms used in Object Oriented Design and are applicable to beckn protocol specifications as well. To learn more about Inheritance and Polymorphism as a generic concept, click here. 
-
-In Open API 3.0, inheritance and Polymorphism are enabled using the “allOf”, “oneOf” and “anyOf” keywords. 
-
-
-### The allOf keyword
-
-While implementing a protocol API, the data-model may have model schemas that share common properties. Instead of describing these properties for each schema repeatedly, it is possible to describe the schemas as a composition of the common property set and schema-specific properties. In OpenAPI version 3, we can do this with the allOf keyword[4] as shown in the example below
-
-
-```
-components:
-  schemas:
-    Tags:
-      type: object
-
-    CategoryTags:
-      allOf:# Combines the basic Tags model and the inline Category Tags model
-        - $ref: '#/components/schemas/Tags
-        - type: object
-          properties:
-            brand:
-              type: string
-              enum:
-            - brand
-            - purpose
-            - season
-```
-
-
-As shown above, the **CategoryTags** schema introduces a property called “brand” that is extended from the otherwise generic **Tags** object in the core specification.
-
-
-### The oneOf keyword
-
-This keyword allows the validator to validate a value against exactly one of the subschemas out of several schemas.
-
-
-### The anyOf keyword
-
-This keyword allows the validator to validate a value against exactly one or more of the subschemas out of several schemas.
-
 
 ## Applying Network-Specific Policies using Open API 3.0
 
