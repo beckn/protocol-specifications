@@ -1,37 +1,26 @@
-# Policy Administration on Beckn-Enabled Networks
-
-## ID: 
-BECKN-RFC-004
-
-## Draft ID
-Draft-01
-
-## Title:
-Policy Administration on Beckn-Enabled Networks
+# BECKN-004:Policy Administration on Beckn-Enabled Networks
 
 ## Category:
 Policy
 
-## Status:
-Protocol Draft
-
 ## Published on:
 December 10, 2021
 
-## Expires on:
-December 10, 2022 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
 ## License:
-CC-BY-ND
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
-2. Sujith Nair : sujith@becknfoundation.org
+1. Ravi Prakash : ravi@becknprotocol.io
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknfoundation.org
+1. Sujith Nair : sujith@becknprotocol.io
 2. Pramod Varma : pramod@ekstep.org
-
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
 # Introduction
 

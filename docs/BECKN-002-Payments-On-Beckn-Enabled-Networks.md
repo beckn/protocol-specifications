@@ -1,36 +1,26 @@
-# Payments on Beckn-Enabled Networks
-
-
-## ID: 
-BECKN-RFC-002
-
-## Draft ID
-Draft-01
-
-## Title:
-Payments on Beckn-Enabled Networks
+# BECKN-002:Payments on Beckn-Enabled Networks
 
 ## Category:
 Payments
 
-## Status:
-Protocol Draft
-
 ## Published on:
 December 10, 2021
 
-## Expires on:
-April 05, 2022 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
 ## License:
-CC-BY-ND
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
+1. Ravi Prakash : ravi@becknprotocol.io
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknfoundation.org
+1. Sujith Nair : sujith@becknprotocol.io
 2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
 # Introduction
 In beckn-enabled networks, payments are expected to be settled outside the network. Meaning, the implementers of beckn-enabled applications are expected to use existing payment infrastructures in their region(s) of operation to collect, process and settle payments. Since payments is a highly regulated industry across the world, different geo-political regions may choose different standards and modalities to enable digital payments.  Therefore, it is left to the implementer to templatize such region-specific payment modalities and dynamically enable them on the respective user applications of both the payer and payee, based on their respective geo-political locations. 

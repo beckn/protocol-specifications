@@ -22,8 +22,6 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial-Sh
 2. Pramod Varma : pramod@ekstep.org
 3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
-replace email with github ids.
-
 # Scope
 This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience.
 

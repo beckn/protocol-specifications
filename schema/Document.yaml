@@ -7,9 +7,7 @@ properties:
   url:
     type: string
     format: uri
-  label:
-    type: string
-  mime_type:
+  mimetype:
     description: Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.
     type: string
     enum:

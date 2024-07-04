@@ -1,52 +1,23 @@
-# Document Details
-## Supported Protocol Version
+# BECKN-009:Tags, the Edge of Beckn
 
-TODO
+## Published on:
+January 21, 2022
 
+## Last Updated on:
+July 4th, 2024
 
-## This version
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-TODO
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
+## Authors:
+1. Ravi Prakash : ravi@becknprotocol.io
 
-## Latest published version
-
-TODO
-
-
-## Latest editor's draft
-
-TODO
-
-## Stress Test report
-
-TODO
-
-## Implementation report
-
-TODO
-
-
-## Editors
-Ravi Prakash (Beckn Foundation)
-
-
-## Authors
-Ravi Prakash (Beckn Foundation)
-
-
-## Feedback
-
-Issues: TODO
-
-Discussions : TODO
-
-PRs : TODO
-
-
-## Errata
-
-No Errata exists as of now
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
 
 # Context
@@ -278,8 +249,6 @@ TODO
 # Acknowledgements
 
 The author would like to thank the following	people for their support and contributions to this document. 
-
-
 
 1. Venkataramanan Mahadevan
 2. Pramod Varma

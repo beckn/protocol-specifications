@@ -17,3 +17,5 @@ properties:
     type: string
   maximum_value:
     type: string
+  unit:
+    type: string

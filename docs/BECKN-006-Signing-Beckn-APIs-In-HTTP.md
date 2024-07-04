@@ -1,4 +1,23 @@
-# Signing Beckn APIs in HTTP - Draft 04
+# BECKN-006:Signing Beckn APIs in HTTP
+
+## Published on:
+January 21, 2022
+
+## Last Updated on:
+July 4th, 2024
+
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Authors:
+1. Ravi Prakash : ravi@becknprotocol.io
+
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
 ## Context
 When communicating over HTTP using Beckn APIs, the subscribers need to authenticate themselves to perform transactions with other subscribers. Due to the commercial nature of the transactions, every request/callback pair is considered to be a "contract" between two parties. Therefore, it is imperative that all requests and callbacks are digitally signed by the sender and subsequently verified by the receiver.

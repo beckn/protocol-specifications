@@ -1,28 +1,23 @@
-# Error Codes for BPP
-
-## ID: 
-BECKN-005
-
-## Draft ID
-Draft-01
-
-## Title:
-Error Codes
-
-## Status:
-Protocol Draft
+# BECKN-005:Error Codes for BPP
 
 ## Published on:
 January 21, 2022
 
-## Expires on:
-January 20, 2023 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
 ## License:
-CC-BY-ND
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
+1. Ravi Prakash : ravi@becknprotocol.io
+
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
 ## Introduction
   This document outlines the error codes which must be returned by a BPP. 
@@ -60,7 +55,7 @@ CC-BY-ND
   |50004|Support unavailable|When the BPP receives an object if for which it does not provide support|
 
   ## Acknowledgements
-  The author would like to thank the following individuals for their contributions in creating the first draft of this document (in alphabetical order):
+  The author would like to thank the following individuals for their contributions in creating this document (in alphabetical order):
 
 1. Pramod Varma, Beckn Foundation
 2. Sujith Nair, Beckn Foundation

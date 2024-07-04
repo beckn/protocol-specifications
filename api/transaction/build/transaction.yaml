@@ -738,10 +738,6 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
-        quantity:
-          description: The Selling quantity of the Item
-          allOf:
-            - $ref: '#/components/schemas/ItemQuantity'
     Address:
       description: Describes a postal address.
       type: string
@@ -1069,9 +1065,7 @@ components:
         url:
           type: string
           format: uri
-        label:
-          type: string
-        mime_type:
+        mimetype:
           description: 'Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.'
           type: string
           enum:
@@ -1122,7 +1116,7 @@ components:
       type: object
       properties:
         url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mimetype specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
           type: string
           format: uri
         data:
@@ -1130,7 +1124,7 @@ components:
           type: object
           additionalProperties:
             type: string
-        mime_type:
+        mimetype:
           description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
           type: string
           enum:
@@ -1831,6 +1825,8 @@ components:
         minimum_value:
           type: string
         maximum_value:
+          type: string
+        unit:
           type: string
     Provider:
       description: Describes the catalog of a business.

@@ -2,7 +2,7 @@ description: Describes a form
 type: object
 properties:
   url:
-    description: The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.
+    description: The URL from where the form can be fetched. The content fetched from the url must be processed as per the mimetype specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.
     type: string
     format: uri
   data:
@@ -10,7 +10,7 @@ properties:
     type: object
     additionalProperties:
       type: string
-  mime_type:
+  mimetype:
     description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
     type: string
     enum:
@@ -19,8 +19,10 @@ properties:
       - application/html
   resubmit: 
     type: boolean
+    description: Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc.
   submission_id:
     type: string
+    description: A unique identifier associated with a submission of a form.
     format: uuid
   auth: 
     type: object
@@ -29,3 +31,4 @@ properties:
         $ref: "./Descriptor.yaml"
       value: 
         type: string
+        description: The token that will be used for the authentication. It could be JWT (JSON Web Token), OAuth etc.

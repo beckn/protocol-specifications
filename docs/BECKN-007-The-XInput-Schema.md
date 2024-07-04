@@ -1,36 +1,23 @@
-# The XInput Schema
-#### CWG Working Draft - November 08, 2022
+# BECKN-007:The XInput Schema
 
-## Document Details
-### This version
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-007-The-XInput-Schema.md
+## Published on:
+January 21, 2022
 
-### Latest published version
-TODO
+## Last Updated on:
+July 4th, 2024
 
-### Latest editor's draft
-TODO
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-### Implementation report
-TODO
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-### Editors
-Ravi Prakash (Beckn Foundation)
+## Authors:
+1. Ravi Prakash : ravi@becknprotocol.io
 
-### Authors
-Ravi Prakash (Beckn Foundation)
-
-
-### Feedback
-
-Issues: TODO
-Discussions: TODO
-PRs: TODO
-
-
-### Errata
-No Errata exists as of now
-
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
 ## Context
 Beckn protocol defines a domain-agnostic specification that can be used to represent any customer- provider transaction by implementing a standard set of APIs and schema. Creating a transaction ideally involves the customer discovering products and services offered by various providers, selecting the desired products or services, obtaining the terms of service and payment, and then finally confirming the order. But sometimes,  the provider might require additional metadata in order to confirm a transaction. This requirement may be due to legal requirements imposed by the regulatory authorities, or business requirements to allow better serviceability. 
@@ -109,7 +96,7 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
    properties:
      code:
        type: string
-       description: For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo
+       description: For full list of error codes, refer to docs/BECKN-005-Error-Codes.md of this repo
      path:
        type: string
        description: Path to json schema generating the error. Used only during json schema validation errors

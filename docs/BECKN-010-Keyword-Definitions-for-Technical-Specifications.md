@@ -1,34 +1,24 @@
-# Keyword Definitions for Technical Specifications
+# BECKN-010:Keyword Definitions for Technical Specifications
 
-#### CWG Working Draft - September 01, 2023
+## Published on:
+January 21, 2022
 
-## Document Details
-### This version
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+## Last Updated on:
+July 4th, 2024
 
-### Latest published version
-None
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-### Latest editor's draft
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-### Implementation report
-TODO
+## Authors:
+1. Ravi Prakash : ravi@becknprotocol.io
 
-### Editors
-Ravi Prakash (FIDE)
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
 
-### Authors
-Ravi Prakash (FIDE)
-
-### Feedback
-
-Issues: TODO
-Discussions: TODO
-PRs: TODO
-
-### Errata
-No Errata exists as of now
 
 ## Abstract
 

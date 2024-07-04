@@ -1,11 +1,24 @@
-# Rating and Reputation on Beckn Protocol
+# BECKN-008:Rating and Reputation on Beckn Protocol
 
-*Draft 01*
+## Published on:
+January 21, 2022
 
-Author:
-=======
+## Last Updated on:
+July 4th, 2024
 
-Ravi Prakash (ravi@becknfoundation.org)
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Authors:
+1. Ravi Prakash : ravi@becknprotocol.io
+
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
+
 
 Scope
 =====

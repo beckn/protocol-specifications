@@ -1,14 +1,29 @@
-# Search Provider <!-- Metadata: type: Outline; tags: todo; created: 2023-07-29 23:48:05; reads: 291; read: 2023-08-05 18:57:52; revision: 291; modified: 2023-08-05 18:57:52; importance: 1/5; urgency: 1/5; -->
+# BECKN-011:Search Provider
 
+## Published on:
+July 29th, 2023
 
-# Context <!-- Metadata: type: Note; created: 2023-07-29 23:48:05; reads: 13; read: 2023-08-05 00:27:13; revision: 10; modified: 2023-08-05 00:27:09; -->
+## Last Updated on:
+July 4th, 2024
+
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Authors:
+1. Ravi Prakash : ravi@becknprotocol.io
+
+## Reviewers:
+1. Sujith Nair : sujith@becknprotocol.io
+2. Pramod Varma : pramod@ekstep.org
+3. Venkatraman Mahadevan : venkatramanm@gmail.com
+
+# Context
 When BAP fires a `/search` on the gateway, the gateway needs to `lookup` on the registry for all available BPPS that are up and running and cascade the call on to those BPPS. These BPPS in turn do the processing and respond with an `on_search` callback to the BAP. All this takes time and is fairly repetitive. To overcome this problem on the user experience, Buyer apps have arrived at several strategies like : 
 1. Cache the entire catalogue of the sellers 
 2. Pull incremental changes to catalogue from sellers based on timestamping. 
 3. Have BPPS push  their catalogue changes to all the BAPS on the network.
-
-
-
 
 
 # Problem <!-- Metadata: type: Note; created: 2023-07-29 23:48:05; reads: 13; read: 2023-08-05 18:51:59; revision: 3; modified: 2023-08-05 00:29:50; -->
@@ -76,7 +91,6 @@ Examples to be documented here.
 # Acknowledgements <!-- Metadata: type: Note; created: 2023-07-29 23:48:05; reads: 3; read: 2023-08-05 00:15:13; revision: 1; modified: 2023-07-29 23:48:05; -->
 
 The author would like to thank the following people for their support and contributions to this document. 
-
 
 1. Ravi Prakash
 2. Pramod Varma
