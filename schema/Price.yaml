@@ -27,4 +27,4 @@ properties:
     description: Monetary cost of an item, a decimal represented as string
   unit:
     type: string
-    description: A custom unit of payment, i.e. carbon credit, bitcoin, etc.
+    description: A unit of payment that can act as an instrument of exchange, i.e. carbon credit, bitcoin, etc.

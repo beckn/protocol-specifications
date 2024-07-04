@@ -1071,7 +1071,7 @@ components:
         url:
           type: string
           format: uri
-        mimetype:
+        mime_type:
           description: 'Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.'
           type: string
           enum:
@@ -1122,7 +1122,7 @@ components:
       type: object
       properties:
         url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mimetype specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
           type: string
           format: uri
         data:
@@ -1130,7 +1130,7 @@ components:
           type: object
           additionalProperties:
             type: string
-        mimetype:
+        mime_type:
           description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
           type: string
           enum:
@@ -1527,7 +1527,7 @@ components:
       description: This object contains a url to a media file.
       type: object
       properties:
-        mimetype:
+        mime_type:
           description: 'indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF''s RFC 6838'
           type: string
         url:
