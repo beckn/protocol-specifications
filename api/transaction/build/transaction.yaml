@@ -820,6 +820,7 @@ components:
           format: date-time
         cancelled_by:
           type: string
+          description: 'Indicated who canceled a specific entity, such as an order or a booking.'
           enum:
             - CONSUMER
             - PROVIDER
@@ -882,6 +883,7 @@ components:
           type: string
           format: date-time
         ttl:
+          description: Represents the validity of the request.
           $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
@@ -925,8 +927,10 @@ components:
       type: object
       properties:
         phone:
+          description: Phone number of an entity.
           type: string
         email:
+          description: Email of an entity.
           type: string
         jcard:
           type: object
@@ -1000,9 +1004,11 @@ components:
       type: object
       properties:
         id:
+          description: A unique identifier for the credential
           type: string
         type:
           type: string
+          description: 'Type of the credential, i.e. token, SAML, ssh keys etc.'
           default: VerifiableCredential
         url:
           description: URL of the credential
@@ -1133,8 +1139,10 @@ components:
             - application/html
         resubmit:
           type: boolean
+          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc.'
         submission_id:
           type: string
+          description: A unique identifier associated with a submission of a form.
           format: uuid
         auth:
           type: object
@@ -1143,6 +1151,7 @@ components:
               $ref: '#/components/schemas/Descriptor'
             value:
               type: string
+              description: 'The token that will be used for the authentication. It could be JWT (JSON Web Token), OAuth etc.'
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -1165,7 +1174,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/FulfillmentState'
         documents:
-          description: The Documents associated to the fullfilment
+          description: 'The Documents associated with the fullfilment object. For example in the case of online courses, it could represent a certificate of completion of a course.'
           type: array
           items:
             $ref: '#/components/schemas/Document'
