@@ -1,23 +1,35 @@
 # BECKN-006:Signing Beckn APIs in HTTP
 
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Category:
+Authentication
+
 ## Published on:
 January 21, 2022
 
 ## Last Updated on:
 July 4th, 2024
 
-## License:
-This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-006-Signing-Beckn-APIs-In-HTTP.md) to view the history of changes to this document
 
-![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-006)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-006)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknprotocol.io
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknprotocol.io
-2. Pramod Varma : pramod@ekstep.org
-3. Venkatraman Mahadevan : venkatramanm@gmail.com
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 ## Context
 When communicating over HTTP using Beckn APIs, the subscribers need to authenticate themselves to perform transactions with other subscribers. Due to the commercial nature of the transactions, every request/callback pair is considered to be a "contract" between two parties. Therefore, it is imperative that all requests and callbacks are digitally signed by the sender and subsequently verified by the receiver.

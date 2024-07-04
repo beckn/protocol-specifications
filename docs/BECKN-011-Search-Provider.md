@@ -1,23 +1,35 @@
 # BECKN-011:Search Provider
 
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Category:
+Search Provider
+
 ## Published on:
 July 29th, 2023
 
 ## Last Updated on:
 July 4th, 2024
 
-## License:
-This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-011-Search-Provider.md) to view the history of changes to this document
 
-![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-011)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-011)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknprotocol.io
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknprotocol.io
-2. Pramod Varma : pramod@ekstep.org
-3. Venkatraman Mahadevan : venkatramanm@gmail.com
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 # Context
 When BAP fires a `/search` on the gateway, the gateway needs to `lookup` on the registry for all available BPPS that are up and running and cascade the call on to those BPPS. These BPPS in turn do the processing and respond with an `on_search` callback to the BAP. All this takes time and is fairly repetitive. To overcome this problem on the user experience, Buyer apps have arrived at several strategies like : 
