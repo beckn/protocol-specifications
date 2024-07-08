@@ -1,34 +1,36 @@
-# Keyword Definitions for Technical Specifications
+# BECKN-010:Keyword Definitions for Technical Specifications
 
-#### CWG Working Draft - September 01, 2023
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Document Details
-### This version
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-### Latest published version
-None
+## Category:
+Keywords for Technical Specification
 
-### Latest editor's draft
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+## Published on:
+January 21, 2022
 
-### Implementation report
-TODO
+## Last Updated on:
+July 4th, 2024
 
-### Editors
-Ravi Prakash (FIDE)
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md) to view the history of changes to this document
 
-### Authors
-Ravi Prakash (FIDE)
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-010)
 
-### Feedback
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-010)
 
-Issues: TODO
-Discussions: TODO
-PRs: TODO
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
-### Errata
-No Errata exists as of now
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
+
 
 ## Abstract
 

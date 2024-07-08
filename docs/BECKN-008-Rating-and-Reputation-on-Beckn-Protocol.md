@@ -1,11 +1,36 @@
-# Rating and Reputation on Beckn Protocol
+# BECKN-008:Rating and Reputation on Beckn Protocol
 
-*Draft 01*
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-Author:
-=======
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-Ravi Prakash (ravi@becknfoundation.org)
+## Category:
+Rating and Reputation
+
+## Published on:
+January 21, 2022
+
+## Last Updated on:
+July 4th, 2024
+
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-008-Rating-and-Reputation-on-Beckn-Protocol.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-008)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-008)
+
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
+
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
+
 
 Scope
 =====

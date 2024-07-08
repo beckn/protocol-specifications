@@ -27,4 +27,5 @@ properties:
     type: string
     format: date-time
   ttl:
+    description: Represents the validity of the request.
     $ref: "./Duration.yaml"

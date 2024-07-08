@@ -1,38 +1,40 @@
-# Beckn Protocol Communication
+# BECKN-003:Beckn Protocol Communication
 
-## ID 
-BECKN-RFC-003
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Draft ID
-Draft-01
-
-## Title
-Beckn Protocol Communication
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Category
 Communication
 
-## Status
-Protocol Draft
-
 ## Published on
 December 10, 2021
 
-## Expires on
-December 10, 2021 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
-## License
-CC-BY-ND
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-003-Beckn-Protocol-Communication.md) to view the history of changes to this document
 
-## Authors
-1. Ravi Prakash : ravi@becknfoundation.org
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-003)
 
-## Reviewers
-1. Sujith Nair : sujith@becknfoundation.org
-2. Pramod Varma : pramod@ekstep.org
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-003)
+
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
+
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 # Abstract
-Communication on beckn enabled networks is server-to-server. Server-to-server means that communication between any two systems on a beckn network does not involve the client application. The client is free to render the data in whatever form chosen by the product. Secondly, all communication is asynchronous. Asynchronous API calls do not block (or wait) for the API call to return from the receiver server in the same session. Instead, an immediate acknowledgment is sent to the sender server in the same session and the actual response from the receiver server is in the form of a callback API call to the sender server. The above two features provide a remarkable advantage as all sorts of innovations are possible in the application layer due to the experience layer being unbundled from the session and presentation layer of the application.
+Communication on beckn enabled networks is server-to-server. Server-to-server means that communication between any two systems on a beckn network does not involve the client application (like the website or the mobile app). The client is thus free to render the data in whatever form chosen by the product. 
+
+Secondly, all communication is asynchronous. Asynchronous API calls do not block (or wait) for the response to return from the receiver server in the same session. This is done to replicate real-world behaviour of economic transactions across various domains and use cases. For example, a hotel booking confirmation request does not _always_ get a response in the same session. Sometimes the customer needs to wait for 24 hours or more to receive a confirmation. Sometimes the provider needs to send information to the consumer without them explicitly requesting it like in the case of a driver cancelling a confirmed ride before pickup. Such asynchronocity avoids the BAP continously polling the BPP until it receives a status update. Instead, an immediate acknowledgment is sent to the BAP in the same session and the actual response from the BPP is in the form of a callback API call to the BAP. The above two features provide a remarkable advantage as all sorts of innovations are possible in the application layer due to the experience layer being unbundled from the session and presentation layer of the application.
 
 # Introduction
 A beckn enabled network has multiple entities communicating with each other via standard protocol APIs. The following types of communication are possible.

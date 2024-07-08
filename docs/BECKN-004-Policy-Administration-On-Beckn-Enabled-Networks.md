@@ -1,37 +1,35 @@
-# Policy Administration on Beckn-Enabled Networks
+# BECKN-004:Policy Administration on Beckn-Enabled Networks
 
-## ID: 
-BECKN-RFC-004
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Draft ID
-Draft-01
-
-## Title:
-Policy Administration on Beckn-Enabled Networks
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Category:
 Policy
 
-## Status:
-Protocol Draft
-
 ## Published on:
 December 10, 2021
 
-## Expires on:
-December 10, 2022 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
-## License:
-CC-BY-ND
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-004-Policy-Administration-On-Beckn-Enabled-Networks.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-004)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-004)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
-2. Sujith Nair : sujith@becknfoundation.org
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknfoundation.org
-2. Pramod Varma : pramod@ekstep.org
-
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 # Introduction
 

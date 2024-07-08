@@ -3,17 +3,28 @@ type: object
 properties:
   currency:
     type: string
+    description: Medium of exchange, traditional unit of payment, i.e. INR, USD etc.
   value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
   estimated_value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
   computed_value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
   listed_value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
   offered_value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
   minimum_value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
   maximum_value:
     type: string
+    description: Monetary cost of an item, a decimal represented as string
+  unit:
+    type: string
+    description: A unit of payment that can act as an instrument of exchange, i.e. carbon credit, bitcoin, etc.
