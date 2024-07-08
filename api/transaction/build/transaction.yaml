@@ -738,10 +738,6 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
-        quantity:
-          description: The Selling quantity of the Item
-          allOf:
-            - $ref: '#/components/schemas/ItemQuantity'
     Address:
       description: Describes a postal address.
       type: string
@@ -824,6 +820,7 @@ components:
           format: date-time
         cancelled_by:
           type: string
+          description: 'Indicated who canceled a specific entity, such as an order or a booking.'
           enum:
             - CONSUMER
             - PROVIDER
@@ -886,6 +883,7 @@ components:
           type: string
           format: date-time
         ttl:
+          description: Represents the validity of the request.
           $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
@@ -929,8 +927,10 @@ components:
       type: object
       properties:
         phone:
+          description: Phone number of an entity.
           type: string
         email:
+          description: Email of an entity.
           type: string
         jcard:
           type: object
@@ -1004,9 +1004,11 @@ components:
       type: object
       properties:
         id:
+          description: A unique identifier for the credential
           type: string
         type:
           type: string
+          description: 'Type of the credential, i.e. token, SAML, ssh keys etc.'
           default: VerifiableCredential
         url:
           description: URL of the credential
@@ -1069,8 +1071,6 @@ components:
         url:
           type: string
           format: uri
-        label:
-          type: string
         mime_type:
           description: 'Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.'
           type: string
@@ -1122,7 +1122,7 @@ components:
       type: object
       properties:
         url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
           type: string
           format: uri
         data:
@@ -1139,8 +1139,10 @@ components:
             - application/html
         resubmit:
           type: boolean
+          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc.'
         submission_id:
           type: string
+          description: A unique identifier associated with a submission of a form.
           format: uuid
         auth:
           type: object
@@ -1149,6 +1151,7 @@ components:
               $ref: '#/components/schemas/Descriptor'
             value:
               type: string
+              description: 'The token that will be used for the authentication. It could be JWT (JSON Web Token), OAuth etc.'
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -1171,7 +1174,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/FulfillmentState'
         documents:
-          description: The Documents associated to the fullfilment
+          description: 'The Documents associated with the fullfilment object. For example in the case of online courses, it could represent a certificate of completion of a course.'
           type: array
           items:
             $ref: '#/components/schemas/Document'
@@ -1524,7 +1527,7 @@ components:
       description: This object contains a url to a media file.
       type: object
       properties:
-        mimetype:
+        mime_type:
           description: 'indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF''s RFC 6838'
           type: string
         url:
@@ -1818,20 +1821,31 @@ components:
       properties:
         currency:
           type: string
+          description: 'Medium of exchange, traditional unit of payment, i.e. INR, USD etc.'
         value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         estimated_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         computed_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         listed_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         offered_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         minimum_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         maximum_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
+        unit:
+          type: string
+          description: 'A custom unit of payment, i.e. carbon credit, bitcoin, etc.'
     Provider:
       description: Describes the catalog of a business.
       type: object

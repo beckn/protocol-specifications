@@ -19,7 +19,7 @@ properties:
     allOf: 
       - $ref: "./FulfillmentState.yaml"
   documents:
-    description: The Documents associated to the fullfilment
+    description: The Documents associated with the fullfilment object. For example in the case of online courses, it could represent a certificate of completion of a course.
     type: array
     items:
       $ref: "./Document.yaml"

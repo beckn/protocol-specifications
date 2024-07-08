@@ -1,36 +1,35 @@
-# The XInput Schema
-#### CWG Working Draft - November 08, 2022
+# BECKN-007:The XInput Schema
 
-## Document Details
-### This version
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-007-The-XInput-Schema.md
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-### Latest published version
-TODO
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-### Latest editor's draft
-TODO
+## Category:
+XInput
 
-### Implementation report
-TODO
+## Published on:
+January 21, 2022
 
-### Editors
-Ravi Prakash (Beckn Foundation)
+## Last Updated on:
+July 4th, 2024
 
-### Authors
-Ravi Prakash (Beckn Foundation)
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-007-The-XInput-Schema.md) to view the history of changes to this document
 
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-007)
 
-### Feedback
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-007)
 
-Issues: TODO
-Discussions: TODO
-PRs: TODO
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
-
-### Errata
-No Errata exists as of now
-
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 ## Context
 Beckn protocol defines a domain-agnostic specification that can be used to represent any customer- provider transaction by implementing a standard set of APIs and schema. Creating a transaction ideally involves the customer discovering products and services offered by various providers, selecting the desired products or services, obtaining the terms of service and payment, and then finally confirming the order. But sometimes,  the provider might require additional metadata in order to confirm a transaction. This requirement may be due to legal requirements imposed by the regulatory authorities, or business requirements to allow better serviceability. 
@@ -109,7 +108,7 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
    properties:
      code:
        type: string
-       description: For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo
+       description: For full list of error codes, refer to docs/BECKN-005-Error-Codes.md of this repo
      path:
        type: string
        description: Path to json schema generating the error. Used only during json schema validation errors

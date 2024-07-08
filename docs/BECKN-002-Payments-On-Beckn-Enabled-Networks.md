@@ -1,36 +1,35 @@
-# Payments on Beckn-Enabled Networks
+# BECKN-002:Payments on Beckn-Enabled Networks
 
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## ID: 
-BECKN-RFC-002
-
-## Draft ID
-Draft-01
-
-## Title:
-Payments on Beckn-Enabled Networks
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Category:
-Payments
-
-## Status:
-Protocol Draft
+Payment
 
 ## Published on:
 December 10, 2021
 
-## Expires on:
-April 05, 2022 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
-## License:
-CC-BY-ND
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-002-Payments-On-Beckn-Enabled-Networks.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-002)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-002)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknfoundation.org
-2. Pramod Varma : pramod@ekstep.org
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 # Introduction
 In beckn-enabled networks, payments are expected to be settled outside the network. Meaning, the implementers of beckn-enabled applications are expected to use existing payment infrastructures in their region(s) of operation to collect, process and settle payments. Since payments is a highly regulated industry across the world, different geo-political regions may choose different standards and modalities to enable digital payments.  Therefore, it is left to the implementer to templatize such region-specific payment modalities and dynamically enable them on the respective user applications of both the payer and payee, based on their respective geo-political locations. 
