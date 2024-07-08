@@ -6,7 +6,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial-Sh
 ![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 ## Category:
-Payments
+Payment
 
 ## Published on:
 December 10, 2021
