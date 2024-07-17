@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Beckn Protocol Registry Infrastructure API
   description: This document contains the API specification for the Registry infrastructure of a beckn-enabled network. The Registry API forms the trust layer of beckn protocol. When implemented, they enable creation of an infrastructure that allow trusted transactions between network participants to take place by means of digital signature authentication. The core infrastructure is called the Network Registry or simply, Registry. Any network participant that is listed on the registry can be assumed to have successfully passed the certfication and compliance process of the network, and hence be trusted to transact with. 
-  version: "1.0.0"
+  version: "1.1.1"
 security:
   - SubscriberAuth: []
 paths:
