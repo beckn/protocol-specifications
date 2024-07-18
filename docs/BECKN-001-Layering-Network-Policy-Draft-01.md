@@ -43,7 +43,7 @@ Readers of this document must:
 
 1. Have knowledge of the core protocol specification
 2. Have knowledge of the Architecture of Open Commerce Networks instantiated using beckn protocol. 
-3. Have knowledge of Open API 3.0 Specification
+3. Have knowledge of Open API 3.1.0 Specification
 
 
 # Context
@@ -101,11 +101,11 @@ After reading this document, the reader should be able to
 A network policy is a set of rules that must be published by the architects of beckn-enabled open commerce networks as a machine-readable specification to allow its participants to create protocol validation middleware in their implementations. This specification should **inherit** all the attributes of the core specification along with some additional constraints on the usage of the specification during network transactions. 
 
 
-## Inheritance and Polymorphism in Open API 3.0
+## Inheritance and Polymorphism in Open API 3.1.0
 
-The core specification currently exists in the form of an Open API Specification 3.0 document with some reserved modifications. To layer policy on the specification, beckn protocol governance allows layering of policies by way of configuration. This configuration is done on the core Open API document by using the inheritance and polymorphism feature of Open API Specification 3.0. Inheritance and polymorphism are terms used in Object Oriented Design and are applicable to beckn protocol specifications as well. To learn more about Inheritance and Polymorphism as a generic concept, click here. 
+The core specification currently exists in the form of an Open API Specification 3.1.0 document with some reserved modifications. To layer policy on the specification, beckn protocol governance allows layering of policies by way of configuration. This configuration is done on the core Open API document by using the inheritance and polymorphism feature of Open API Specification 3.1.0. Inheritance and polymorphism are terms used in Object Oriented Design and are applicable to beckn protocol specifications as well. To learn more about Inheritance and Polymorphism as a generic concept, click here. 
 
-In Open API 3.0, inheritance and Polymorphism are enabled using the “allOf”, “oneOf” and “anyOf” keywords. 
+In Open API 3.1.0, inheritance and Polymorphism are enabled using the “allOf”, “oneOf” and “anyOf” keywords. 
 
 
 ### The allOf keyword
@@ -146,7 +146,7 @@ This keyword allows the validator to validate a value against exactly one of the
 This keyword allows the validator to validate a value against exactly one or more of the subschemas out of several schemas.
 
 
-## Applying Network-Specific Policies using Open API 3.0
+## Applying Network-Specific Policies using Open API 3.1.0
 
 
 ### Adding enumerations, defaults and min / max values
@@ -225,7 +225,7 @@ RatingPolicy1:
 
 ### Adding alternative schemas
 
-Sometimes it is possible to have requests and responses that can be described by several alternative schemas. In OpenAPI 3.0, to describe such a model, we can use the oneOf or anyOf keywords. For example, while transmitting payment terms from BPP to the BAP via the **on_init** action, multiple payment endpoints can be sent in the _params_ property of the **Payment** schema as shown below.
+Sometimes it is possible to have requests and responses that can be described by several alternative schemas. In OpenAPI 3.1.0, to describe such a model, we can use the oneOf or anyOf keywords. For example, while transmitting payment terms from BPP to the BAP via the **on_init** action, multiple payment endpoints can be sent in the _params_ property of the **Payment** schema as shown below.
 
 
 ```
@@ -387,7 +387,7 @@ Tags:
 
 All these extensions must be published as part of a separate document called **Network Implementation Policy**
 
-It is recommended that this document be published along with the API specification of that network using the **externalDocs** attribute as defined by Open API Specification 3.0
+It is recommended that this document be published along with the API specification of that network using the **externalDocs** attribute as defined by Open API Specification 3.1.0
 
 More Examples:
 
@@ -422,4 +422,40 @@ Rating:
         feedback_id:
           $ref: '#/components/schemas/FeedbackUrl/properties/params/properties/feedback_id'
           required: false
+```
+### Adding conditional blocks
+
+OpenAPI 3.1 introduces support for advanced conditional checks. These capabilities allow for sophisticated validation scenarios, such as conditional requirements (if, then, else constructs), dependent schemas, and more nuanced combinatory logic with allOf, anyOf, oneOf, and not. This enables more precise and flexible validation of API request and response data.
+
+For example, in a confirmation request from a BAP to a BPP, if the payment type is PRE-ORDER, the payment.params.transaction_id must be included in the request. Here’s how to define this conditional rule in the OpenAPI specification:
+
+```
+if:
+  properties:
+    message:
+      properties:
+        order:
+          properties:
+            payments:
+              type: array
+              items:
+                properties:
+                  type:
+                    const: "PRE-ORDER"
+then:
+  properties:
+    message:
+      properties:
+        order:
+          properties:
+            payments:
+              type: array
+              items:
+                properties:
+                  params:
+                    properties:
+                      transaction_id: 
+                        type: string
+                    required:
+                      - transaction_id
 ```
