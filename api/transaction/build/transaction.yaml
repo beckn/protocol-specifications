@@ -2205,7 +2205,7 @@ components:
           type: string
         wheels_count:
           type: string
-        cargo_volumne:
+        cargo_volume:
           type: string
         wheelchair_access:
           type: string
