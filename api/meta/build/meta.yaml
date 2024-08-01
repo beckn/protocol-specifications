@@ -19,7 +19,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: '#/components/schemas/Context'
+                    - $ref: "#/components/schemas/Context"
                     - properties:
                         action:
                           enum:
@@ -30,7 +30,7 @@ paths:
                 - context
       responses:
         default:
-          $ref: '#/paths/~1return_reasons/post/responses/default'
+          $ref: "#/paths/~1return_reasons/post/responses/default"
   /cancellation_reasons:
     post:
       tags:
@@ -44,7 +44,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: '#/components/schemas/Context'
+                    - $ref: "#/components/schemas/Context"
                     - properties:
                         action:
                           enum:
@@ -57,7 +57,7 @@ paths:
                     cancellation_reasons:
                       type: array
                       items:
-                        $ref: '#/components/schemas/Option'
+                        $ref: "#/components/schemas/Option"
                   required:
                     - cancellation_reasons
               required:
@@ -65,7 +65,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: '#/paths/~1return_reasons/post/responses/default'
+          $ref: "#/paths/~1return_reasons/post/responses/default"
   /get_return_reasons:
     post:
       tags:
@@ -79,7 +79,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: '#/components/schemas/Context'
+                    - $ref: "#/components/schemas/Context"
                     - properties:
                         action:
                           enum:
@@ -90,7 +90,7 @@ paths:
                 - context
       responses:
         default:
-          $ref: '#/paths/~1return_reasons/post/responses/default'
+          $ref: "#/paths/~1return_reasons/post/responses/default"
   /return_reasons:
     post:
       tags:
@@ -104,7 +104,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: '#/components/schemas/Context'
+                    - $ref: "#/components/schemas/Context"
                     - properties:
                         action:
                           enum:
@@ -117,7 +117,7 @@ paths:
                     return_reasons:
                       type: array
                       items:
-                        $ref: '#/components/schemas/Option'
+                        $ref: "#/components/schemas/Option"
                   required:
                     - return_reasons
               required:
@@ -136,12 +136,12 @@ paths:
                     properties:
                       ack:
                         allOf:
-                          - description: 'Describes the acknowledgement sent in response to an API call. If the implementation uses HTTP/S, then Ack must be returned in the same session. Every API call to a BPP must be responded to with an Ack whether the BPP intends to respond with a callback or not. This has one property called `status` that indicates the status of the Acknowledgement.'
+                          - description: "Describes the acknowledgement sent in response to an API call. If the implementation uses HTTP/S, then Ack must be returned in the same session. Every API call to a BPP must be responded to with an Ack whether the BPP intends to respond with a callback or not. This has one property called `status` that indicates the status of the Acknowledgement."
                             type: object
                             properties:
                               status:
                                 type: string
-                                description: 'The status of the acknowledgement. If the request passes the validation criteria of the BPP, then this is set to ACK. If a BPP responds with status = `ACK` to a request, it is required to respond with a callback. If the request fails the validation criteria, then this is set to NACK. Additionally, if a BPP does not intend to respond with a callback even after the request meets the validation criteria, it should set this value to `NACK`.'
+                                description: "The status of the acknowledgement. If the request passes the validation criteria of the BPP, then this is set to ACK. If a BPP responds with status = `ACK` to a request, it is required to respond with a callback. If the request fails the validation criteria, then this is set to NACK. Additionally, if a BPP does not intend to respond with a callback even after the request meets the validation criteria, it should set this value to `NACK`."
                                 enum:
                                   - ACK
                                   - NACK
@@ -149,37 +149,37 @@ paths:
                                 description: A list of tags containing any additional information sent along with the Acknowledgement.
                                 type: array
                                 items:
-                                  description: 'A collection of tag objects with group level attributes. For detailed documentation on the Tags and Tag Groups schema go to https://github.com/beckn/protocol-specifications/discussions/316'
+                                  description: "A collection of tag objects with group level attributes. For detailed documentation on the Tags and Tag Groups schema go to https://github.com/beckn/protocol-specifications/discussions/316"
                                   type: object
                                   properties:
                                     display:
-                                      description: 'Indicates the display properties of the tag group. If display is set to false, then the group will not be displayed. If it is set to true, it should be displayed. However, group-level display properties can be overriden by individual tag-level display property. As this schema is purely for catalog display purposes, it is not recommended to send this value during search.'
+                                      description: "Indicates the display properties of the tag group. If display is set to false, then the group will not be displayed. If it is set to true, it should be displayed. However, group-level display properties can be overriden by individual tag-level display property. As this schema is purely for catalog display purposes, it is not recommended to send this value during search."
                                       type: boolean
                                       default: true
                                     code:
-                                      description: 'The machine-readable name of the tag group. The allowed values of this property can be published at three levels namely, a) Core specification, b) industry sector-specific adaptations, and c) Network-specific adaptations. Except core, each adaptation (sector or network) should prefix a unique namespace with the allowed value. Values outside the allowed values may or may not be ignored by the rendering platform. As this schema is purely for catalog display purposes, it is not recommended to send this value during search.'
+                                      description: "The machine-readable name of the tag group. The allowed values of this property can be published at three levels namely, a) Core specification, b) industry sector-specific adaptations, and c) Network-specific adaptations. Except core, each adaptation (sector or network) should prefix a unique namespace with the allowed value. Values outside the allowed values may or may not be ignored by the rendering platform. As this schema is purely for catalog display purposes, it is not recommended to send this value during search."
                                       type: string
                                     name:
-                                      description: 'A human-readable string describing the heading under which the tags are to be displayed. Sometimes, the network policy may reserve some names for this property. Values outside the reserved values can be set by the BPP. However,the BAP may choose to rename or even ignore this value and render the output purely using code property, but it is recommended for BAPs to keep the name same to avoid confusion and provide consistency. As this schema is purely for catalog display purposes, it is not recommended to send this value during `search`.'
+                                      description: "A human-readable string describing the heading under which the tags are to be displayed. Sometimes, the network policy may reserve some names for this property. Values outside the reserved values can be set by the BPP. However,the BAP may choose to rename or even ignore this value and render the output purely using code property, but it is recommended for BAPs to keep the name same to avoid confusion and provide consistency. As this schema is purely for catalog display purposes, it is not recommended to send this value during `search`."
                                       type: string
                                     list:
-                                      description: 'An array of Tag objects listed under this group. This property can be set by BAPs during search to narrow the `search` and achieve more relevant results. When received during `on_search`, BAPs must render this list under the heading described by the `name` property of this schema.'
+                                      description: "An array of Tag objects listed under this group. This property can be set by BAPs during search to narrow the `search` and achieve more relevant results. When received during `on_search`, BAPs must render this list under the heading described by the `name` property of this schema."
                                       type: array
                                       items:
-                                        description: 'Describes a tag. This is a simple key-value store which is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
+                                        description: "Describes a tag. This is a simple key-value store which is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service."
                                         type: object
                                         properties:
                                           code:
-                                            description: 'The machine-readable name of the tag. The allowed values of this property can be published at three levels namely, a) Core specification, b) industry sector-specific adaptations, and c) Network-specific adaptations. Except core, each adaptation (sector or network) should prefix a unique namespace with the allowed value.'
+                                            description: "The machine-readable name of the tag. The allowed values of this property can be published at three levels namely, a) Core specification, b) industry sector-specific adaptations, and c) Network-specific adaptations. Except core, each adaptation (sector or network) should prefix a unique namespace with the allowed value."
                                             type: string
                                           name:
-                                            description: 'The human-readable name of the tag. This set by the BPP and rendered as-is by the BAP. Sometimes, the network policy may reserve some names for this property. Values outside the reserved values can be set by the BPP. However,the BAP may choose to rename or even ignore this value and render the output purely using the `code` property, but it is recommended for BAPs to keep the name same to avoid confusion and provide consistency.'
+                                            description: "The human-readable name of the tag. This set by the BPP and rendered as-is by the BAP. Sometimes, the network policy may reserve some names for this property. Values outside the reserved values can be set by the BPP. However,the BAP may choose to rename or even ignore this value and render the output purely using the `code` property, but it is recommended for BAPs to keep the name same to avoid confusion and provide consistency."
                                             type: string
                                           value:
                                             description: The value of the tag. This set by the BPP and rendered as-is by the BAP.
                                             type: string
                                           display:
-                                            description: 'This value indicates if the tag is intended for display purposes. If set to `true`, then this tag must be displayed. If it is set to `false`, it should not be displayed. This value can override the group display value.'
+                                            description: "This value indicates if the tag is intended for display purposes. If set to `true`, then this tag must be displayed. If it is set to `false`, it should not be displayed. This value can override the group display value."
                                             type: boolean
                           - properties:
                               status:
@@ -189,7 +189,7 @@ paths:
                     required:
                       - ack
                   error:
-                    description: 'Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant. This object is sent when any request received by a network participant is unacceptable. This object can be sent either during Ack or with the callback.'
+                    description: "Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant. This object is sent when any request received by a network participant is unacceptable. This object can be sent either during Ack or with the callback."
                     type: object
                     properties:
                       code:
@@ -216,7 +216,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: '#/components/schemas/Context'
+                    - $ref: "#/components/schemas/Context"
                     - properties:
                         action:
                           enum:
@@ -227,7 +227,7 @@ paths:
                 - context
       responses:
         default:
-          $ref: '#/paths/~1return_reasons/post/responses/default'
+          $ref: "#/paths/~1return_reasons/post/responses/default"
   /rating_categories:
     post:
       tags:
@@ -241,7 +241,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: '#/components/schemas/Context'
+                    - $ref: "#/components/schemas/Context"
                     - properties:
                         action:
                           enum:
@@ -254,7 +254,7 @@ paths:
                     rating_categories:
                       type: array
                       items:
-                        $ref: '#/components/schemas/Rating/properties/rating_category'
+                        $ref: "#/components/schemas/Rating/properties/rating_category"
                   required:
                     - return_reasons
               required:
@@ -262,7 +262,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: '#/paths/~1return_reasons/post/responses/default'
+          $ref: "#/paths/~1return_reasons/post/responses/default"
 components:
   securitySchemes:
     SubscriberAuth:
@@ -272,13 +272,13 @@ components:
       description: 'Signature of message body using signing public key of the caller. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
   schemas:
     Context:
-      description: 'Every API call in beckn protocol has a context. It provides a high-level overview to the receiver about the nature of the intended transaction. Typically, it is the BAP that sets the transaction context based on the consumer''s location and action on their UI. But sometimes, during unsolicited callbacks, the BPP also sets the transaction context but it is usually the same as the context of a previous full-cycle, request-callback interaction between the BAP and the BPP. The context object contains four types of fields. <ol><li>Demographic information about the transaction using fields like `domain`, `country`, and `region`.</li><li>Addressing details like the sending and receiving platform''s ID and API URL.</li><li>Interoperability information like the protocol version that implemented by the sender and,</li><li>Transaction details like the method being called at the receiver''s endpoint, the transaction_id that represents an end-to-end user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl to specifiy the validity of the request, and a key to encrypt information if necessary.</li></ol> This object must be passed in every interaction between a BAP and a BPP. In HTTP/S implementations, it is not necessary to send the context during the synchronous response. However, in asynchronous protocols, the context must be sent during all interactions,'
+      description: "Every API call in beckn protocol has a context. It provides a high-level overview to the receiver about the nature of the intended transaction. Typically, it is the BAP that sets the transaction context based on the consumer's location and action on their UI. But sometimes, during unsolicited callbacks, the BPP also sets the transaction context but it is usually the same as the context of a previous full-cycle, request-callback interaction between the BAP and the BPP. The context object contains four types of fields. <ol><li>Demographic information about the transaction using fields like `domain`, `country`, and `region`.</li><li>Addressing details like the sending and receiving platform's ID and API URL.</li><li>Interoperability information like the protocol version that implemented by the sender and,</li><li>Transaction details like the method being called at the receiver's endpoint, the transaction_id that represents an end-to-end user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl to specifiy the validity of the request, and a key to encrypt information if necessary.</li></ol> This object must be passed in every interaction between a BAP and a BPP. In HTTP/S implementations, it is not necessary to send the context during the synchronous response. However, in asynchronous protocols, the context must be sent during all interactions,"
       type: object
       properties:
         domain:
           description: Domain code that is relevant to this transaction context
           allOf:
-            - description: 'Standard code representing the domain. The standard is usually published as part of the network policy. Furthermore, the network facilitator should also provide a mechanism to provide the supported domains of a network.'
+            - description: "Standard code representing the domain. The standard is usually published as part of the network policy. Furthermore, the network facilitator should also provide a mechanism to provide the supported domains of a network."
         location:
           description: The location where the transaction is intended to be fulfilled.
           allOf:
@@ -288,7 +288,7 @@ components:
                 id:
                   type: string
                 descriptor:
-                  $ref: '#/components/schemas/Option/properties/descriptor'
+                  $ref: "#/components/schemas/Option/properties/descriptor"
                 map_url:
                   description: The url to the map of the location. This can be a globally recognized map url or the one specified by the network policy.
                   type: string
@@ -305,7 +305,7 @@ components:
                     - description: Describes a postal address.
                       type: string
                 city:
-                  description: 'The city this location is, or is located within'
+                  description: "The city this location is, or is located within"
                   allOf:
                     - description: Describes a city
                       type: object
@@ -317,10 +317,10 @@ components:
                           description: City code
                           type: string
                 district:
-                  description: 'The state this location is, or is located within'
+                  description: "The state this location is, or is located within"
                   type: string
                 state:
-                  description: 'The state this location is, or is located within'
+                  description: "The state this location is, or is located within"
                   allOf:
                     - description: A bounded geopolitical region of governance inside a country.
                       type: object
@@ -332,7 +332,7 @@ components:
                           type: string
                           description: State code as per country or international standards
                 country:
-                  description: 'The country this location is, or is located within'
+                  description: "The country this location is, or is located within"
                   allOf:
                     - description: Describes a country
                       type: object
@@ -350,7 +350,7 @@ components:
                   type: object
                   properties:
                     gps:
-                      $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/gps/allOf/0'
+                      $ref: "#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/gps/allOf/0"
                     radius:
                       description: Describes a scalar
                       type: object
@@ -363,18 +363,18 @@ components:
                         value:
                           description: Describes a numerical value in decimal form
                           type: string
-                          pattern: '[+-]?([0-9]*[.])?[0-9]+'
+                          pattern: "[+-]?([0-9]*[.])?[0-9]+"
                         estimated_value:
-                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                          $ref: "#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value"
                         computed_value:
-                          $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                          $ref: "#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value"
                         range:
                           type: object
                           properties:
                             min:
-                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                              $ref: "#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value"
                             max:
-                              $ref: '#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value'
+                              $ref: "#/paths/~1return_reasons/post/requestBody/content/application~1json/schema/properties/context/allOf/0/properties/location/allOf/0/properties/circle/properties/radius/properties/value"
                         unit:
                           type: string
                 polygon:
@@ -386,7 +386,7 @@ components:
                 rating:
                   description: The rating of this location
                   allOf:
-                    - $ref: '#/components/schemas/Rating/properties/value'
+                    - $ref: "#/components/schemas/Rating/properties/value"
         action:
           description: The Beckn protocol method being called by the sender and executed at the receiver.
           type: string
@@ -396,7 +396,7 @@ components:
         bap_id:
           description: Subscriber ID of the BAP
           allOf:
-            - description: 'A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform.'
+            - description: "A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform."
               type: string
         bap_uri:
           description: Subscriber URL of the BAP for accepting callbacks from BPPs.
@@ -407,17 +407,17 @@ components:
         bpp_id:
           description: Subscriber ID of the BPP
           allOf:
-            - $ref: '#/components/schemas/Context/properties/bap_id/allOf/0'
+            - $ref: "#/components/schemas/Context/properties/bap_id/allOf/0"
         bpp_uri:
           description: Subscriber URL of the BPP for accepting calls from BAPs.
           allOf:
-            - $ref: '#/components/schemas/Context/properties/bap_uri/allOf/0'
+            - $ref: "#/components/schemas/Context/properties/bap_uri/allOf/0"
         transaction_id:
-          description: 'This is a unique value which persists across all API calls from `search` through `confirm`. This is done to indicate an active user session across multiple requests. The BPPs can use this value to push personalized recommendations, and dynamic offerings related to an ongoing transaction despite being unaware of the user active on the BAP.'
+          description: "This is a unique value which persists across all API calls from `search` through `confirm`. This is done to indicate an active user session across multiple requests. The BPPs can use this value to push personalized recommendations, and dynamic offerings related to an ongoing transaction despite being unaware of the user active on the BAP."
           type: string
           format: uuid
         message_id:
-          description: 'This is a unique value which persists during a request / callback cycle. Since beckn protocol APIs are asynchronous, BAPs need a common value to match an incoming callback from a BPP to an earlier call. This value can also be used to ignore duplicate messages coming from the BPP. It is recommended to generate a fresh message_id for every new interaction. When sending unsolicited callbacks, BPPs must generate a new message_id.'
+          description: "This is a unique value which persists during a request / callback cycle. Since beckn protocol APIs are asynchronous, BAPs need a common value to match an incoming callback from a BPP to an earlier call. This value can also be used to ignore duplicate messages coming from the BPP. It is recommended to generate a fresh message_id for every new interaction. When sending unsolicited callbacks, BPPs must generate a new message_id."
           type: string
           format: uuid
         timestamp:
@@ -466,7 +466,7 @@ components:
                 type: object
                 properties:
                   mimetype:
-                    description: 'indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF''s RFC 6838'
+                    description: "indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF's RFC 6838"
                     type: string
                   url:
                     description: The URL of the file
@@ -505,22 +505,17 @@ components:
                     description: Height of the image in pixels
                     type: string
     Rating:
-      description: Describes the rating of an entity
-      type: object
-      properties:
-        rating_category:
-          description: Category of the entity being rated
-          type: string
-          enum:
-            - Item
-            - Order
-            - Fulfillment
-            - Provider
-            - Agent
-            - Support
-        id:
-          description: Id of the object being rated
-          type: string
-        value:
-          description: 'Rating value given to the object. This can be a single value or can also contain an inequality operator like gt, gte, lt, lte. This can also contain an inequality expression containing logical operators like && and ||.'
-          type: string
+      rating_category:
+        description: Category of the entity being rated
+        type: string
+        enum:
+          - Item
+          - Order
+          - Fulfillment
+          - Provider
+          - Agent
+          - Support
+
+      value:
+        description: "Rating value given to the object. This can be a single value or can also contain an inequality operator like gt, gte, lt, lte. This can also contain an inequality expression containing logical operators like && and ||."
+        type: string
