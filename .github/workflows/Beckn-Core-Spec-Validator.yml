@@ -1,0 +1,29 @@
+name: Validate Beckn core spec meta, registry and transaction Schema against OpenAPI Specification
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - draft
+
+jobs:
+  validate_beckn_schema:
+    name: Validate Beckn Schemas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+      - name: install Beckn validator tool for spec
+        run: npm install -g beckn-spec-validator
+      - name: Validate meta file
+        run: beckn-spec-validator -b api/meta/build/meta.yaml -v false
+      - name: Validate registry file
+        run: beckn-spec-validator -b api/registry/build/registry.yaml -v false
+      - name: Validate transaction file
+        run: beckn-spec-validator -b api/transaction/build/transaction.yaml -v false
