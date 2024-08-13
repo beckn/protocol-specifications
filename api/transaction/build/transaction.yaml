@@ -820,7 +820,7 @@ components:
           format: date-time
         cancelled_by:
           type: string
-          description: 'Indicated who canceled a specific entity, such as an order or a booking.'
+          description: 'Represents the entity which initiated a cancellation'
           enum:
             - CONSUMER
             - PROVIDER
@@ -883,7 +883,7 @@ components:
           type: string
           format: date-time
         ttl:
-          description: Represents the validity of the request.
+          description: Represents the time for which the catalog will be valid.
           $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
@@ -930,7 +930,7 @@ components:
           description: Phone number of an entity.
           type: string
         email:
-          description: Email of an entity.
+          description: Email address of an entity.
           type: string
         jcard:
           type: object
@@ -1139,7 +1139,7 @@ components:
             - application/html
         resubmit:
           type: boolean
-          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc.'
+          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc. Otherwise, it is set to false.'
         submission_id:
           type: string
           description: A unique identifier associated with a submission of a form.
@@ -1821,7 +1821,7 @@ components:
       properties:
         currency:
           type: string
-          description: 'Medium of exchange, traditional unit of payment, i.e. INR, USD etc.'
+          description: 'Medium of exchange i.e. INR, USD etc.'
         value:
           type: string
           description: 'Monetary cost of an item, a decimal represented as string'
