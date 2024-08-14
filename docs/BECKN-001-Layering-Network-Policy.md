@@ -1,5 +1,10 @@
 # BECKN-001:Layering Network Policy on the Specification
 
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
 ## Category:
 Network Policy
 December 10, 2021
@@ -7,20 +12,22 @@ December 10, 2021
 ## Last Updated on:
 July 2nd, 2024 
 
-## License:
-This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-001-Layering-Network-Policy.md) to view the history of changes to this document
 
-![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-001)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-001)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknprotocol.io
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknprotocol.io
-2. Pramod Varma : pramod@ekstep.org
-3. Venkatraman Mahadevan : venkatramanm@gmail.com
-
-replace email with github ids.
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 # Scope
 This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience.
