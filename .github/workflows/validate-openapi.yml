@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  # change this to the branch you want to test this workflow on
   push:
     branches:
       - "master"
