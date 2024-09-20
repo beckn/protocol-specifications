@@ -104,3 +104,6 @@ The author would like to thank the following individuals for their contributions
 
 Pramod Varma, Beckn Foundation
 Sujith Nair, Beckn Foundation
+
+
+# Best practices
