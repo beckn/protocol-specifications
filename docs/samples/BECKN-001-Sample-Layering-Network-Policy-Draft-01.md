@@ -2,7 +2,7 @@
 
 This document outlines a simple framework for creating network policies tailored to specific use cases.
 
-For additional context on the Layering Network Policy, refer to [BECKN-001: Sample Layering Network Policy (Draft-01)](../BECKN-001-Layering-Network-Policy-Draft-01.md)
+For additional context on the Layering Network Policy, refer to [BECKN-001: Layering Network Policy (Draft-01)](../BECKN-001-Layering-Network-Policy-Draft-01.md)
 
 
 # Scope
