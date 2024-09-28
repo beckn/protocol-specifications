@@ -2,7 +2,7 @@
 
 This document outlines a simple framework for creating network policies tailored to specific use cases.
 
-For additional context on the Layering Network Policy, refer to [BECKN-001: Sample Layering Network Policy (Draft-01)](./BECKN-001-Sample-Layering-Network-Policy-Draft-01.md)
+For additional context on the Layering Network Policy, refer to [BECKN-001: Sample Layering Network Policy (Draft-01)](../BECKN-001-Layering-Network-Policy-Draft-01.md)
 
 
 # Scope
@@ -185,6 +185,39 @@ allOf:
 ## ``` <template-network-policy-yaml> ```
 
 This is a template file which defines the core specification for a particular domain and use case. This file contains references to the examples defined under the example-jsons/ folder and the network rules defined under the example-jsons/ folder.
+
+How to import the components in the template file
+```
+paths:
+  /search:
+    post:
+      description: Search for services by intent
+      operationId: search
+      tags:
+        - Beckn Provider Platform (BPP)
+        - Beckn Gateway (BG)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - type: object
+                  properties:
+                    context:
+                      allOf:
+                      - $ref: '#/components/schemas/Context'
+                    message:
+                      properties:
+                        intent:
+                          $ref: '#/components/schemas/Intent'
+                      type: object
+                  required:
+                    - context
+                    - message
+                - $ref: "./example-rules/requests/search/search.yaml"
+            examples:
+              $ref: "./example-jsons/requests/search.yaml"
+```
 
 ## ``` <template-network-policy-yaml> ```
 
