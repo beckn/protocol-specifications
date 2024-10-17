@@ -1077,10 +1077,12 @@ components:
         id:
           type: string
         type:
-          description: 'Type of the credential. Its defined as an array to handle cases where a credential falls under multiple types. For example - a Medical License credential can have multiple types, "Professional License", "Regulatory License", "Regulatory License"'
+          description: 'Type of the credential. Its defined as an array to handle cases where a credential falls under multiple types. for example, VerifiableCredential, OpenBadgeCredential.'
           type: array
           items:
             type: string
+        description:
+          $ref: '#/components/schemas/Descriptor'
         credential_category:
           type: string
           enum:
@@ -1119,17 +1121,22 @@ components:
           type: string
           format: date-time
           description: The date when the credential was issued.
-        expirationDate:
+        validFrom:
           type: string
           format: date-time
           description: 'The expiration date of the credential, if applicable.'
-        subject:
-          properties:
-            description:
-              $ref: '#/components/schemas/Descriptor'
-            identification_number:
-              type: string
-              description: 'An official ID number of the subject, such as a national ID or passport number.'
+        validUntil:
+          type: string
+          format: date-time
+          description: 'The expiration date of the credential, if applicable.'
+        credentialSubject:
+          type: array
+          items:
+            properties:
+              id:
+                type: string
+              description:
+                $ref: '#/components/schemas/Descriptor'
         claims:
           type: array
           items:
@@ -1171,6 +1178,14 @@ components:
         xinput:
           description: A BAP can send a form which can be filled by the BAP with relevant details.
           $ref: '#/components/schemas/XInput'
+        termsOfUse:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
+        status:
+          type: array
+          items:
+            $ref: '#/components/schemas/Descriptor'
     Customer:
       description: Describes a customer buying/availing a product or a service
       type: object
