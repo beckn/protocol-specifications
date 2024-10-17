@@ -47,6 +47,10 @@ properties:
   path:
     description: The physical path taken by the agent that can be rendered on a map. The allowed format of this property can be set by the network.
     type: string
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
   tags:
     type: array
     items:

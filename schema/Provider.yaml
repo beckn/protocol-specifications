@@ -46,6 +46,10 @@ properties:
     type: boolean
   ttl:
     $ref: "./Duration.yaml"
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
   tags:
     type: array
     items:

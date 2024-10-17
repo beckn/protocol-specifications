@@ -54,4 +54,8 @@ properties:
     type: array
     items:
       $ref: "./TagGroup.yaml"
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
 
