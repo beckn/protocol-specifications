@@ -1137,6 +1137,8 @@ components:
                 type: string
               description:
                 $ref: '#/components/schemas/Descriptor'
+              tags:
+                $ref: '#/components/schemas/TagGroup'
         claims:
           type: array
           items:
