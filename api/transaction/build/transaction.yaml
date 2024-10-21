@@ -389,12 +389,12 @@ paths:
                 message:
                   type: object
                   properties:
-                    creds:
+                    proofs:
                       type: array
                       items:
-                        $ref: '#/components/schemas/Credential'
+                        $ref: '#/components/schemas/CredentialRequest'
                   required:
-                    - creds
+                    - proofs
               required:
                 - context
                 - message
@@ -762,12 +762,12 @@ paths:
                 message:
                   type: object
                   properties:
-                    creds:
+                    proofs:
                       type: array
                       items:
                         $ref: '#/components/schemas/Credential'
                   required:
-                    - creds
+                    - proofs
                 error:
                   $ref: '#/components/schemas/Error'
               required:
@@ -1079,19 +1079,6 @@ components:
       properties:
         description:
           $ref: '#/components/schemas/Descriptor'
-        credential_category:
-          type: string
-          enum:
-            - AGENT
-            - CUSTOMER
-            - ORGANIZATION
-            - PAYMENT
-            - PROVIDER
-            - SUBSCRIBER
-            - FULFILLMENT
-            - ITEM
-            - ORDER
-            - PERSON
         docs:
           description: The Documents associated with the credential.
           type: array
@@ -1106,11 +1093,24 @@ components:
           description: URL of the credential
           type: string
           format: uri
-        xinput:
-          description: A BAP can send a form which can be filled by the BAP with relevant details.
-          $ref: '#/components/schemas/XInput'
         vc:
           $ref: '#/components/schemas/VC'
+    CredentialRequest:
+      description: Describes the schema used to request for a proof from an entity
+      type: object
+      properties:
+        description:
+          $ref: '#/components/schemas/Descriptor'
+        credential_purpose:
+          type: object
+          properties:
+            purpose:
+              type: string
+            document_examples:
+              type: string
+        xinput:
+          description: A requester can send a form which can be filled by the sender with relevant details.
+          $ref: '#/components/schemas/XInput'
     Customer:
       description: Describes a customer buying/availing a product or a service
       type: object
