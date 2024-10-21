@@ -1,14 +1,41 @@
-# Search Provider <!-- Metadata: type: Outline; tags: todo; created: 2023-07-29 23:48:05; reads: 291; read: 2023-08-05 18:57:52; revision: 291; modified: 2023-08-05 18:57:52; importance: 1/5; urgency: 1/5; -->
+# BECKN-011:Search Provider
 
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-# Context <!-- Metadata: type: Note; created: 2023-07-29 23:48:05; reads: 13; read: 2023-08-05 00:27:13; revision: 10; modified: 2023-08-05 00:27:09; -->
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Category:
+Search Provider
+
+## Published on:
+July 29th, 2023
+
+## Last Updated on:
+July 4th, 2024
+
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-011-Search-Provider.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-011)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-011)
+
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
+
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
+
+# Context
 When BAP fires a `/search` on the gateway, the gateway needs to `lookup` on the registry for all available BPPS that are up and running and cascade the call on to those BPPS. These BPPS in turn do the processing and respond with an `on_search` callback to the BAP. All this takes time and is fairly repetitive. To overcome this problem on the user experience, Buyer apps have arrived at several strategies like : 
 1. Cache the entire catalogue of the sellers 
 2. Pull incremental changes to catalogue from sellers based on timestamping. 
 3. Have BPPS push  their catalogue changes to all the BAPS on the network.
-
-
-
 
 
 # Problem <!-- Metadata: type: Note; created: 2023-07-29 23:48:05; reads: 13; read: 2023-08-05 18:51:59; revision: 3; modified: 2023-08-05 00:29:50; -->
@@ -76,7 +103,6 @@ Examples to be documented here.
 # Acknowledgements <!-- Metadata: type: Note; created: 2023-07-29 23:48:05; reads: 3; read: 2023-08-05 00:15:13; revision: 1; modified: 2023-07-29 23:48:05; -->
 
 The author would like to thank the following people for their support and contributions to this document. 
-
 
 1. Ravi Prakash
 2. Pramod Varma

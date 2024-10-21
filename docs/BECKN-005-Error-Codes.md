@@ -1,28 +1,35 @@
-# Error Codes for BPP
+# BECKN-005:Error Codes for BPP
 
-## ID: 
-BECKN-005
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Draft ID
-Draft-01
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-## Title:
+## Category:
 Error Codes
-
-## Status:
-Protocol Draft
 
 ## Published on:
 January 21, 2022
 
-## Expires on:
-January 20, 2023 or Date of publication of next draft which ever is earlier
+## Last Updated on:
+July 4th, 2024
 
-## License:
-CC-BY-ND
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-005-Error-Codes.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-005)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-005)
 
 ## Authors:
-1. Ravi Prakash : ravi@becknfoundation.org
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
+
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 ## Introduction
   This document outlines the error codes which must be returned by a BPP. 
@@ -60,7 +67,7 @@ CC-BY-ND
   |50004|Support unavailable|When the BPP receives an object if for which it does not provide support|
 
   ## Acknowledgements
-  The author would like to thank the following individuals for their contributions in creating the first draft of this document (in alphabetical order):
+  The author would like to thank the following individuals for their contributions in creating this document (in alphabetical order):
 
 1. Pramod Varma, Beckn Foundation
 2. Sujith Nair, Beckn Foundation

@@ -2,8 +2,10 @@ description: Describes the contact information of an entity
 type: object
 properties:
   phone:
+    description: Phone number of an entity.
     type: string
   email:
+    description: Email of an entity.
     type: string
   jcard:
     type: object

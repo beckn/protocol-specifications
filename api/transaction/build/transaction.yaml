@@ -366,6 +366,41 @@ paths:
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
+  /cred:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Request for credentials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - cred
+                      required:
+                        - action
+                message:
+                  type: object
+                  properties:
+                    creds:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Credential'
+                  required:
+                    - creds
+              required:
+                - context
+                - message
+      responses:
+        default:
+          $ref: '#/paths/~1init/post/responses/default'
   /on_search:
     post:
       tags:
@@ -704,6 +739,42 @@ paths:
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
+  /on_cred:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Callback for a credential request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - on_cred
+                      required:
+                        - action
+                message:
+                  type: object
+                  properties:
+                    creds:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Credential'
+                  required:
+                    - creds
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        default:
+          $ref: '#/paths/~1init/post/responses/default'
 components:
   securitySchemes:
     SubscriberAuth:
@@ -738,10 +809,6 @@ components:
           $ref: '#/components/schemas/Descriptor'
         price:
           $ref: '#/components/schemas/Price'
-        quantity:
-          description: The Selling quantity of the Item
-          allOf:
-            - $ref: '#/components/schemas/ItemQuantity'
     Address:
       description: Describes a postal address.
       type: string
@@ -824,6 +891,7 @@ components:
           format: date-time
         cancelled_by:
           type: string
+          description: 'Indicated who canceled a specific entity, such as an order or a booking.'
           enum:
             - CONSUMER
             - PROVIDER
@@ -886,6 +954,7 @@ components:
           type: string
           format: date-time
         ttl:
+          description: Represents the validity of the request.
           $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
@@ -929,8 +998,10 @@ components:
       type: object
       properties:
         phone:
+          description: Phone number of an entity.
           type: string
         email:
+          description: Email of an entity.
           type: string
         jcard:
           type: object
@@ -1000,18 +1071,43 @@ components:
           type: string
           description: Country code as per ISO 3166-1 and ISO 3166-2 format
     Credential:
-      description: Describes a credential of an entity - Person or Organization
+      description: 'Describes a credential of an entity - Person, Organization, Item, Payment etc'
       type: object
       properties:
-        id:
+        description:
+          $ref: '#/components/schemas/Descriptor'
+        credential_category:
           type: string
-        type:
-          type: string
-          default: VerifiableCredential
+          enum:
+            - AGENT
+            - CUSTOMER
+            - ORGANIZATION
+            - PAYMENT
+            - PROVIDER
+            - SUBSCRIBER
+            - FULFILLMENT
+            - ITEM
+            - ORDER
+            - PERSON
+        docs:
+          description: The Documents associated with the credential.
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        media:
+          description: The Media associated with the credential.
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaFile'
         url:
           description: URL of the credential
           type: string
           format: uri
+        xinput:
+          description: A BAP can send a form which can be filled by the BAP with relevant details.
+          $ref: '#/components/schemas/XInput'
+        vc:
+          $ref: '#/components/schemas/VC'
     Customer:
       description: Describes a customer buying/availing a product or a service
       type: object
@@ -1069,13 +1165,16 @@ components:
         url:
           type: string
           format: uri
-        label:
-          type: string
         mime_type:
           description: 'Describes the contents of the uri field. If the value is text/html, it is recommended for the BAP to render the contents inside a webview. This generally does not render a good user experience on the BAP, hence the payment page developers are recommended to develop their payment pages in a mobile-friendly manner.'
           type: string
           enum:
             - application/pdf
+            - text/plain
+            - image/jpeg
+            - video/mp4
+            - audio/wav
+            - application/zip
     Domain:
       description: 'Described the industry sector or sub-sector. The network policy should contain codes for all the industry sectors supported by the network. Domains can be created in varying levels of granularity. The granularity of a domain can be decided by the participants of the network. Too broad domains will result in irrelevant search broadcast calls to BPPs that don''t have services supporting the domain. Too narrow domains will result in a large number of registry entries for each BPP. It is recommended that network facilitators actively collaborate with various working groups and network participants to carefully choose domain codes keeping in mind relevance, performance, and opportunity cost. It is recommended that networks choose broad domains like mobility, logistics, healthcare etc, and progressively granularize them as and when the number of network participants for each domain grows large.'
       type: object
@@ -1122,7 +1221,7 @@ components:
       type: object
       properties:
         url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the MIME type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
           type: string
           format: uri
         data:
@@ -1139,8 +1238,10 @@ components:
             - application/html
         resubmit:
           type: boolean
+          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc.'
         submission_id:
           type: string
+          description: A unique identifier associated with a submission of a form.
           format: uuid
         auth:
           type: object
@@ -1149,6 +1250,7 @@ components:
               $ref: '#/components/schemas/Descriptor'
             value:
               type: string
+              description: 'The token that will be used for the authentication. It could be JWT (JSON Web Token), OAuth etc.'
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -1171,7 +1273,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/FulfillmentState'
         documents:
-          description: The Documents associated to the fullfilment
+          description: 'The Documents associated with the fullfilment object. For example in the case of online courses, it could represent a certificate of completion of a course.'
           type: array
           items:
             $ref: '#/components/schemas/Document'
@@ -1199,6 +1301,10 @@ components:
         path:
           description: The physical path taken by the agent that can be rendered on a map. The allowed format of this property can be set by the network.
           type: string
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
         tags:
           type: array
           items:
@@ -1465,6 +1571,10 @@ components:
         recommended:
           description: Whether this item is a recommended item to a response
           type: boolean
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
         ttl:
           $ref: '#/components/schemas/Duration'
         tags:
@@ -1524,7 +1634,7 @@ components:
       description: This object contains a url to a media file.
       type: object
       properties:
-        mimetype:
+        mime_type:
           description: 'indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF''s RFC 6838'
           type: string
         url:
@@ -1672,6 +1782,10 @@ components:
           description: The date-time of updated of this order
           type: string
           format: date-time
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
         xinput:
           description: Additional input required from the customer to confirm this order
           allOf:
@@ -1700,6 +1814,10 @@ components:
             - $ref: '#/components/schemas/City'
         contact:
           $ref: '#/components/schemas/Contact'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Payment:
       description: 'Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider''s autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.'
       type: object
@@ -1757,6 +1875,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Person:
       description: Describes a person as any individual
       type: object
@@ -1818,20 +1940,31 @@ components:
       properties:
         currency:
           type: string
+          description: 'Medium of exchange, traditional unit of payment, i.e. INR, USD etc.'
         value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         estimated_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         computed_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         listed_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         offered_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         minimum_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
         maximum_value:
           type: string
+          description: 'Monetary cost of an item, a decimal represented as string'
+        unit:
+          type: string
+          description: 'A unit of payment that can act as an instrument of exchange, i.e. carbon credit, bitcoin, etc.'
     Provider:
       description: Describes the catalog of a business.
       type: object
@@ -1881,6 +2014,10 @@ components:
           type: boolean
         ttl:
           $ref: '#/components/schemas/Duration'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
         tags:
           type: array
           items:
@@ -2181,6 +2318,95 @@ components:
           enum:
             - active
             - inactive
+    VC:
+      description: Describes a Verifiable Credential
+      type: object
+      properties:
+        id:
+          description: 'A unique identifier for the credential (e.g., UUID or URI).'
+          type: string
+        type:
+          description: 'Type of the credential. Its defined as an array to handle cases where a credential falls under multiple types. for example, VerifiableCredential, OpenBadgeCredential.'
+          type: array
+          items:
+            type: string
+        description:
+          $ref: '#/components/schemas/Descriptor'
+        issuer:
+          type: object
+          description: Entity that issued the credential
+          properties:
+            description:
+              $ref: '#/components/schemas/Descriptor'
+            address:
+              $ref: '#/components/schemas/Address'
+            state:
+              $ref: '#/components/schemas/State'
+            city:
+              $ref: '#/components/schemas/City'
+            contact:
+              $ref: '#/components/schemas/Contact'
+            registration_number:
+              type: string
+              description: 'The registration number of the organization, if applicable.'
+            website:
+              type: string
+              format: uri
+              description: The official website of the issuing organization.
+        issueDate:
+          type: string
+          format: date-time
+          description: The date when the credential was issued.
+        validFrom:
+          type: string
+          format: date-time
+          description: 'The expiration date of the credential, if applicable.'
+        validUntil:
+          type: string
+          format: date-time
+          description: 'The expiration date of the credential, if applicable.'
+        credentialSubject:
+          type: array
+          items:
+            properties:
+              id:
+                type: string
+              description:
+                $ref: '#/components/schemas/Descriptor'
+              tags:
+                $ref: '#/components/schemas/TagGroup'
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
+        proof:
+          type: object
+          description: Cryptographic proof of the credential's authenticity
+          properties:
+            created:
+              type: string
+              format: date-time
+              description: Timestamp of when the proof was generated
+            proofPurpose:
+              type: string
+              description: 'This describes the intent of the proof. For example, it could indicate that the proof is used for asserting a particular claim about the credential or verifying its authenticity.'
+            type:
+              type: string
+              description: 'This indicates the specific algorithm or method used for the cryptographic proof (e.g., Ed25519Signature2018). It tells the verifier which cryptographic approach to use when verifying the proof.'
+            verificationMethod:
+              type: string
+              description: This specifies how the proof can be verified. It may include references to public keys or other mechanisms that a verifier would need to validate the proof.
+            proofValue:
+              type: string
+              description: This contains the actual cryptographic signature or value that represents the proof. It's the output of the cryptographic process that will be checked against the claims and the verification method to confirm authenticity.
+        termsOfUse:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
+        status:
+          type: array
+          items:
+            $ref: '#/components/schemas/Descriptor'
     Vehicle:
       description: 'Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration'
       type: object

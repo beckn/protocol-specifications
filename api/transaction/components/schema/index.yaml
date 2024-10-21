@@ -166,6 +166,9 @@ Time:
 Tracking:
   $ref: "../../../../schema/Tracking.yaml"
 
+VC:
+  $ref: "../../../../schema/VC.yaml"
+
 Vehicle:
   $ref: "../../../../schema/Vehicle.yaml"
 

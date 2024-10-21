@@ -17,3 +17,7 @@ properties:
     - $ref: "./City.yaml"
   contact:
     $ref: "./Contact.yaml"
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
