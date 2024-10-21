@@ -820,7 +820,7 @@ components:
           format: date-time
         cancelled_by:
           type: string
-          description: 'Represents the entity which initiated a cancellation'
+          description: 'Indicated who canceled a specific entity, such as an order or a booking.'
           enum:
             - CONSUMER
             - PROVIDER
@@ -883,7 +883,7 @@ components:
           type: string
           format: date-time
         ttl:
-          description: Represents the time for which the catalog will be valid.
+          description: Represents the validity of the request.
           $ref: '#/components/schemas/Duration'
     Category:
       description: A label under which a collection of items can be grouped.
@@ -930,7 +930,7 @@ components:
           description: Phone number of an entity.
           type: string
         email:
-          description: Email address of an entity.
+          description: Email of an entity.
           type: string
         jcard:
           type: object
@@ -989,6 +989,9 @@ components:
           type: string
         ttl:
           $ref: '#/components/schemas/Duration'
+        verified:
+          description: 'Indicates whether the entity is verified. A value of true means the entity has successfully completed the verification process, while false indicates that the entity is either unverified or has failed verification.'
+          type: boolean
     Country:
       description: Describes a country
       type: object
@@ -1122,7 +1125,7 @@ components:
       type: object
       properties:
         url:
-          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
+          description: 'The URL from where the form can be fetched. The content fetched from the url must be processed as per the MIME type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form.'
           type: string
           format: uri
         data:
@@ -1139,7 +1142,7 @@ components:
             - application/html
         resubmit:
           type: boolean
-          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc. Otherwise, it is set to false.'
+          description: 'Set to true if the resubmission of a form is required. It could be due to a validation error, or session timeout etc.'
         submission_id:
           type: string
           description: A unique identifier associated with a submission of a form.
@@ -1821,7 +1824,7 @@ components:
       properties:
         currency:
           type: string
-          description: 'Medium of exchange i.e. INR, USD etc.'
+          description: 'Medium of exchange, traditional unit of payment, i.e. INR, USD etc.'
         value:
           type: string
           description: 'Monetary cost of an item, a decimal represented as string'
@@ -1845,7 +1848,7 @@ components:
           description: 'Monetary cost of an item, a decimal represented as string'
         unit:
           type: string
-          description: 'A custom unit of payment, i.e. carbon credit, bitcoin, etc.'
+          description: 'A unit of payment that can act as an instrument of exchange, i.e. carbon credit, bitcoin, etc.'
     Provider:
       description: Describes the catalog of a business.
       type: object
