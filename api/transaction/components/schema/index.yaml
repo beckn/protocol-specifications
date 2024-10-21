@@ -46,6 +46,9 @@ Country:
 Credential:
   $ref: "../../../../schema/Credential.yaml"
 
+CredentialRequest:
+  $ref: "../../../../schema/CredentialRequest.yaml"
+
 Customer:
   $ref: "../../../../schema/Customer.yaml"
 

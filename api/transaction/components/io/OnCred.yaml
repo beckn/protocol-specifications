@@ -12,12 +12,12 @@ properties:
   message:
     type: object
     properties:
-      creds:
+      proofs:
         type: array
         items:
           $ref: "../../../../schema/Credential.yaml"
     required:
-      - creds
+      - proofs
   error:
     $ref: "../../../../schema/Error.yaml"
 required:
