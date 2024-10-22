@@ -1096,13 +1096,11 @@ components:
       description: Describes the schema used to request for a proof from an entity
       type: object
       properties:
-        description:
-          $ref: '#/components/schemas/Descriptor'
         credential_purpose:
           type: object
           properties:
             purpose:
-              type: string
+              $ref: '#/components/schemas/Descriptor'
             document_examples:
               type: string
         xinput:
