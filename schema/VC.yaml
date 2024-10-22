@@ -45,7 +45,7 @@ properties:
     format: date-time
     description: "The expiration date of the credential, if applicable."
   credentialSubject: #things about which claims are made. Example subjects include human beings, animals, and things.
-    type: array #Expressing information related to multiple subjects in a verifiable credential is possible, for example, 2 subjcts who ar spouses and, the credential is a relationship credential.
+    type: array #Expressing information related to multiple subjects in a verifiable credential is possible, for example, 2 subjcts who are spouses and, the credential is a relationship credential.
     items:
       properties:
         id:
@@ -82,7 +82,11 @@ properties:
     type: array
     items:
       $ref: "./TagGroup.yaml"
-  status:
+  credentialStatus:
     type: array
     items:
       $ref: "./Descriptor.yaml"
+  evidence: # The evidence property is used to express supporting information, such as documentary evidence, related to the verifiable credential.
+    type: array
+    items:
+      $ref: "./TagGroup.yaml"
