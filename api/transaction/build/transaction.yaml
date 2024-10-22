@@ -1093,7 +1093,7 @@ components:
           description: URL of the credential
           type: string
           format: uri
-        vc:
+        verifiableCredential:
           $ref: '#/components/schemas/VC'
     CredentialRequest:
       description: Describes the schema used to request for a proof from an entity
