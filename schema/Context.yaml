@@ -48,4 +48,7 @@ properties:
     type: string
   ttl:
     $ref: "./Duration.yaml"
+  verified:
+    description: Indicates whether the entity is verified. A value of true means the entity has successfully completed the verification process, while false indicates that the entity is either unverified or has failed verification.
+    type: boolean
 

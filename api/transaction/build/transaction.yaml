@@ -989,6 +989,9 @@ components:
           type: string
         ttl:
           $ref: '#/components/schemas/Duration'
+        verified:
+          description: 'Indicates whether the entity is verified. A value of true means the entity has successfully completed the verification process, while false indicates that the entity is either unverified or has failed verification.'
+          type: boolean
     Country:
       description: Describes a country
       type: object
