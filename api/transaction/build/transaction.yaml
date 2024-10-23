@@ -1074,6 +1074,10 @@ components:
       description: 'Describes a credential of an entity - Person, Organization, Item, Payment etc'
       type: object
       properties:
+        id:
+          type: string
+        type:
+          type: string
         description:
           $ref: '#/components/schemas/Descriptor'
         docs:
