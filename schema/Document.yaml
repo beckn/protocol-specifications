@@ -14,3 +14,8 @@ properties:
     type: string
     enum:
       - application/pdf
+      - text/plain
+      - image/jpeg
+      - video/mp4
+      - audio/wav
+      - application/zip

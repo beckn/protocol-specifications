@@ -98,6 +98,10 @@ properties:
     description: The date-time of updated of this order
     type: string
     format: date-time
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
   xinput:
     description: Additional input required from the customer to confirm this order
     allOf:

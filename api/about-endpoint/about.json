@@ -1,0 +1,18 @@
+{
+    "$id": "aboutSchema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Json schema describing the structure of beckn.json",
+    "type": "object",
+    "properties": {
+        "credentials": {
+            "type": "array",
+            "items": {
+                "$ref": "becknVerifiableCredential.json#"
+            }
+        },
+        "layer2Config": {
+            "type": "string",
+            "format": "url"
+        }
+    }
+}

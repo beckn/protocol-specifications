@@ -23,3 +23,7 @@ properties:
     description: The region of operation of this subscriber
     allOf:
       - $ref: "./Location.yaml"
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
