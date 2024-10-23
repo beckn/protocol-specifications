@@ -2323,11 +2323,15 @@ components:
       description: Describes a Verifiable Credential
       type: object
       properties:
+        context:
+          type: array
+          items:
+            type: string
         id:
           description: 'A unique identifier for the credential (e.g., UUID or URI).'
           type: string
         type:
-          description: 'Type of the credential. Its defined as an array to handle cases where a credential falls under multiple types. for example, VerifiableCredential, OpenBadgeCredential.'
+          description: Types of the credential.
           type: array
           items:
             type: string
@@ -2376,10 +2380,14 @@ components:
                 $ref: '#/components/schemas/Descriptor'
               tags:
                 $ref: '#/components/schemas/TagGroup'
-        claims:
+        credentialSchema:
           type: array
           items:
-            $ref: '#/components/schemas/TagGroup'
+            properties:
+              id:
+                type: string
+              type:
+                type: string
         proof:
           type: object
           description: Cryptographic proof of the credential's authenticity
