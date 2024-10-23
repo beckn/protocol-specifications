@@ -147,7 +147,19 @@ paths:
       responses:
         default:
           $ref: "./io/Response.yaml"
-
+  /cred:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Request for credentials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : "./io/Cred.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
   /on_search:
     post:
       tags:
@@ -283,6 +295,19 @@ paths:
           application/json:
             schema:
               $ref: "./io/OnSupport.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+  /on_cred:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Callback for a credential request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/OnCred.yaml"
       responses:
         default:
           $ref: "./io/Response.yaml"

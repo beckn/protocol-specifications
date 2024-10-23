@@ -1,0 +1,23 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - cred
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      proofs:
+        type: array
+        items:
+          $ref: "../../../../schema/CredentialRequest.yaml"
+    required:
+      - proofs
+required:
+  - context
+  - message

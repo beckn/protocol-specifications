@@ -105,6 +105,10 @@ properties:
   recommended:
     description: Whether this item is a recommended item to a response
     type: boolean
+  creds:
+    type: array
+    items:
+      $ref: "./Credential.yaml"
   ttl:
     $ref: "./Duration.yaml"
   tags:
