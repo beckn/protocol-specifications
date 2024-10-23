@@ -1099,13 +1099,11 @@ components:
       description: Describes the schema used to request for a proof from an entity
       type: object
       properties:
-        description:
-          $ref: '#/components/schemas/Descriptor'
         credential_purpose:
           type: object
           properties:
             purpose:
-              type: string
+              $ref: '#/components/schemas/Descriptor'
             document_examples:
               type: string
         xinput:
@@ -2406,10 +2404,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
-        status:
+        credentialStatus:
           type: array
           items:
             $ref: '#/components/schemas/Descriptor'
+        evidence:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
     Vehicle:
       description: 'Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration'
       type: object
