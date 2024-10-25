@@ -10,14 +10,7 @@ properties:
         required:
           - action
   message:
-    type: object
-    properties:
-      proofs:
-        type: array
-        items:
-          $ref: "../../../../schema/Credential.yaml"
-    required:
-      - proofs
+    $ref: "../../../../schema/CredentialResponse.yaml"
   error:
     $ref: "../../../../schema/Error.yaml"
 required:

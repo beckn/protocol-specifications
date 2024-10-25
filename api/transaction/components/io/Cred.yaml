@@ -10,14 +10,7 @@ properties:
         required:
           - action
   message:
-    type: object
-    properties:
-      proofs:
-        type: array
-        items:
-          $ref: "../../../../schema/CredentialRequest.yaml"
-    required:
-      - proofs
+    $ref: "../../../../schema/CredentialRequest.yaml"
 required:
   - context
   - message

@@ -49,6 +49,9 @@ Credential:
 CredentialRequest:
   $ref: "../../../../schema/CredentialRequest.yaml"
 
+CredentialResponse:
+  $ref: "../../../../schema/CredentialResponse.yaml"
+
 Customer:
   $ref: "../../../../schema/Customer.yaml"
 
