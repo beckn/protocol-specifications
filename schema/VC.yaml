@@ -14,31 +14,16 @@ properties:
     items:
       type: string
   description:
-    $ref: "./Descriptor.yaml"
+    anyOf:
+      - type: string
+      - type: object
+      - type: array
+        items:
+          type: object
   issuer:
     anyOf:
       - type: string
       - type: object
-      - type: object
-        description: "Entity that issued the credential"
-        properties:
-          description:
-            $ref: "./Descriptor.yaml"
-          address:
-            $ref: "./Address.yaml"
-          state:
-            $ref: "./State.yaml"
-          city:
-            $ref: "./City.yaml"
-          contact:
-            $ref: "./Contact.yaml"
-          registration_number:
-            type: string
-            description: "The registration number of the organization, if applicable."
-          website:
-            type: string
-            format: uri
-            description: "The official website of the issuing organization."
   issuanceDate:
     type: string
     description: "The date when the credential was issued."
@@ -52,16 +37,18 @@ properties:
     anyOf:
       - type: string
       - type: object
-  credentialSchema:
-    anyOf:
       - type: array
         items:
-          properties:
-            id:
-              type: string
-            type:
-              type: string
+          type: string
+      - type: array
+        items:
+          type: object
+  credentialSchema:
+    anyOf:
       - type: object
+      - type: array
+        items:
+          type: object
   proof:
     anyOf:
       - type: object
@@ -87,16 +74,34 @@ properties:
         items:
           type: object
   termsOfUse:
-    type: array
-    items:
-      $ref: "./TagGroup.yaml"
+    anyOf:
+      - type: string
+      - type: object
+      - type: array
+        items:
+          type: string
+      - type: array
+        items:
+          type: object
   credentialStatus:
-    type: array
-    items:
-      $ref: "./Descriptor.yaml"
+    anyOf:
+      - type: string
+      - type: object
+      - type: array
+        items:
+          type: string
+      - type: array
+        items:
+          type: object
   evidence: # The evidence property is used to express supporting information, such as documentary evidence, related to the verifiable credential.
-    type: array
-    items:
-      $ref: "./TagGroup.yaml"
+    anyOf:
+      - type: string
+      - type: object
+      - type: array
+        items:
+          type: string
+      - type: array
+        items:
+          type: object
   credentialHash:
     type: string

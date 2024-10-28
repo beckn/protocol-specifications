@@ -2351,31 +2351,16 @@ components:
           items:
             type: string
         description:
-          $ref: '#/components/schemas/Descriptor'
+          anyOf:
+            - type: string
+            - type: object
+            - type: array
+              items:
+                type: object
         issuer:
           anyOf:
             - type: string
             - type: object
-            - type: object
-              description: Entity that issued the credential
-              properties:
-                description:
-                  $ref: '#/components/schemas/Descriptor'
-                address:
-                  $ref: '#/components/schemas/Address'
-                state:
-                  $ref: '#/components/schemas/State'
-                city:
-                  $ref: '#/components/schemas/City'
-                contact:
-                  $ref: '#/components/schemas/Contact'
-                registration_number:
-                  type: string
-                  description: 'The registration number of the organization, if applicable.'
-                website:
-                  type: string
-                  format: uri
-                  description: The official website of the issuing organization.
         issuanceDate:
           type: string
           description: The date when the credential was issued.
@@ -2389,16 +2374,18 @@ components:
           anyOf:
             - type: string
             - type: object
-        credentialSchema:
-          anyOf:
             - type: array
               items:
-                properties:
-                  id:
-                    type: string
-                  type:
-                    type: string
+                type: string
+            - type: array
+              items:
+                type: object
+        credentialSchema:
+          anyOf:
             - type: object
+            - type: array
+              items:
+                type: object
         proof:
           anyOf:
             - type: object
@@ -2424,17 +2411,35 @@ components:
               items:
                 type: object
         termsOfUse:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
+          anyOf:
+            - type: string
+            - type: object
+            - type: array
+              items:
+                type: string
+            - type: array
+              items:
+                type: object
         credentialStatus:
-          type: array
-          items:
-            $ref: '#/components/schemas/Descriptor'
+          anyOf:
+            - type: string
+            - type: object
+            - type: array
+              items:
+                type: string
+            - type: array
+              items:
+                type: object
         evidence:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
+          anyOf:
+            - type: string
+            - type: object
+            - type: array
+              items:
+                type: string
+            - type: array
+              items:
+                type: object
         credentialHash:
           type: string
     Vehicle:
