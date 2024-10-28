@@ -2338,7 +2338,7 @@ components:
       description: Describes a Verifiable Credential
       type: object
       properties:
-        context:
+        '@context':
           type: array
           items:
             type: string
@@ -2389,24 +2389,6 @@ components:
         proof:
           anyOf:
             - type: object
-              description: Cryptographic proof of the credential's authenticity
-              properties:
-                created:
-                  type: string
-                  format: date-time
-                  description: Timestamp of when the proof was generated
-                proofPurpose:
-                  type: string
-                  description: 'This describes the intent of the proof. For example, it could indicate that the proof is used for asserting a particular claim about the credential or verifying its authenticity.'
-                type:
-                  type: string
-                  description: 'This indicates the specific algorithm or method used for the cryptographic proof (e.g., Ed25519Signature2018). It tells the verifier which cryptographic approach to use when verifying the proof.'
-                verificationMethod:
-                  type: string
-                  description: This specifies how the proof can be verified. It may include references to public keys or other mechanisms that a verifier would need to validate the proof.
-                proofValue:
-                  type: string
-                  description: This contains the actual cryptographic signature or value that represents the proof. It's the output of the cryptographic process that will be checked against the claims and the verification method to confirm authenticity.
             - type: array
               items:
                 type: object
