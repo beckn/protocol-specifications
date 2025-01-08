@@ -486,7 +486,7 @@ paths:
                   error:
                     $ref: '#/components/schemas/Error'
                 required:
-                  - context
+                  - message
   /on_select:
     post:
       tags:
@@ -853,7 +853,6 @@ paths:
                   properties:
                     phone:
                       type: string
-                      format: phone
                     email:
                       type: string
                       format: email
@@ -1503,6 +1502,8 @@ components:
             - cancel
             - rating
             - support
+            - get_cancellation_reasons
+            - get_rating_categories
             - on_search
             - on_select
             - on_init
@@ -1513,12 +1514,14 @@ components:
             - on_cancel
             - on_rating
             - on_support
+            - cancellation_reasons
+            - rating_categories
         core_version:
           type: string
           description: Version of Beckn core API specification being used
         bap_id:
           type: string
-          format: uri
+        #  format: uri
           description: Unique id of the BAP. By default it is the fully qualified domain name of the BAP
         bap_uri:
           type: string
@@ -1526,7 +1529,7 @@ components:
           description: URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
         bpp_id:
           type: string
-          format: uri
+        #  format: uri
           description: Unique id of the BPP. By default it is the fully qualified domain name of the BPP
         bpp_uri:
           type: string
@@ -1856,7 +1859,7 @@ components:
         id:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
-          format: '#/components/schemas/Item/properties/id'
+        #  format: '#/components/schemas/Item/properties/id'
         parent_item_id:
           $ref: '#/components/schemas/Item/properties/id'
         descriptor:
@@ -1918,7 +1921,7 @@ components:
     Name:
       type: string
       description: 'Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}'
-      pattern: ^\./[^/]+/[^/]*/[^/]*/[^/]*/[^/]*/[^/]*$
+      # pattern: '^\./[^/]+/[^/]*/[^/]*/[^/]*/[^/]*/[^/]*$'
     Offer:
       description: Describes an offer
       type: object
@@ -2077,8 +2080,8 @@ components:
               $ref: '#/components/schemas/Price/properties/currency'
           additionalProperties:
             type: string
-          required:
-            - currency
+#          required:
+#            - currency
         type:
           type: string
           enum:
