@@ -1,55 +1,39 @@
-name: Validate OpenAPI Schema
-
+name: OpenAPI Validation
 on:
-  pull_request:
+ pull_request:
     branches:
       - master
-      - draft
-  push:
-    branches:
-      - master
-      - draft
-      - github-action
+
+    paths:
+      - 'transaction.yaml'
+      - 'meta.yaml'
+      - 'registry.yaml'
 
 jobs:
-  validate_openapi_schema_meta:
-    name: Validate OpenAPI Schema for Meta
+ transaction-validate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Validate OpenAPI schema for meta.yaml
-        id: validate_meta
-        uses: thiyagu06/openapi-validator-action@v1
+      - name: Validate OpenAPI specification
+        uses: stoplight/spectral@v3
         with:
-          filepath: "./api/meta/build/meta.yaml"
-
-  validate_openapi_schema_registry:
-    name: Validate OpenAPI Schema for registry
+          path: transaction.yaml
+ meta-validate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Validate OpenAPI schema for registry.yaml
-        id: validate_registry
-        uses: thiyagu06/openapi-validator-action@v1
+      - name: Validate OpenAPI specification
+        uses: stoplight/spectral@v3
         with:
-          filepath: "./api/registry/build/registry.yaml"
-
-  validate_openapi_schema_transaction:
-    name: Validate OpenAPI Schema for transaction
+          path: meta.yaml
+ registry-validate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Validate OpenAPI schema for transaction.yaml
-        id: validate_transaction
-        uses: thiyagu06/openapi-validator-action@v1
+      - name: Validate OpenAPI specification
+        uses: stoplight/spectral@v3
         with:
-          filepath: "./api/transaction/build/transaction.yaml"
+          path: registry.yaml

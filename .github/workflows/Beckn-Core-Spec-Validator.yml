@@ -1,6 +1,7 @@
 name: Validate Beckn core spec meta, registry and transaction Schema against OpenAPI Specification
 
 on:
+  workflow_dispatch:  # This allows manual trigger via GitHub UI
   pull_request:
     branches:
       - main

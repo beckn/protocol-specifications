@@ -1,6 +1,7 @@
 name: CI-RK
 
 on:
+  workflow_dispatch:  # This allows manual trigger via GitHub UI
   # change this to the branch you want to test this workflow on
   push:
     branches:
