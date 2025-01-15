@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - "master"
+      - "draft"
   pull_request:
     branches:
       - "master"
+      - "draft"
     paths:
       - "api/meta/build/meta.yaml"
       - "api/registry/build/registry.yaml"
