@@ -1,0 +1,55 @@
+name: Validate OpenAPI Schema
+
+on:
+  pull_request:
+    branches:
+      - master
+      - draft
+  push:
+    branches:
+      - master
+      - draft
+      - github-action
+
+jobs:
+  validate_openapi_schema_meta:
+    name: Validate OpenAPI Schema for Meta
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate OpenAPI schema for meta.yaml
+        id: validate_meta
+        uses: thiyagu06/openapi-validator-action@v1
+        with:
+          filepath: "./api/meta/build/meta.yaml"
+
+  validate_openapi_schema_registry:
+    name: Validate OpenAPI Schema for registry
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate OpenAPI schema for registry.yaml
+        id: validate_registry
+        uses: thiyagu06/openapi-validator-action@v1
+        with:
+          filepath: "./api/registry/build/registry.yaml"
+
+  validate_openapi_schema_transaction:
+    name: Validate OpenAPI Schema for transaction
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate OpenAPI schema for transaction.yaml
+        id: validate_transaction
+        uses: thiyagu06/openapi-validator-action@v1
+        with:
+          filepath: "./api/transaction/build/transaction.yaml"
