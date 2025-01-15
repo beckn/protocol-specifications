@@ -7,11 +7,6 @@ on:
     branches:
       - github-action
 
-    paths:
-      - 'transaction.yaml'
-      - 'meta.yaml'
-      - 'registry.yaml'
-
 jobs:
  transaction-validate:
     runs-on: ubuntu-latest
