@@ -34,13 +34,10 @@ jobs:
         run: npm install -g @redocly/cli
 
       - name: Validate meta.yaml
-        if: exists('api/meta/build/meta.yaml')
         run: openapi lint api/meta/build/meta.yaml
 
       - name: Validate registry.yaml
-        if: exists('api/registry/build/registry.yaml')
         run: openapi lint api/registry/build/registry.yaml
 
       - name: Validate transaction.yaml
-        if: exists('api/transaction/build/transaction.yaml')
         run: openapi lint api/transaction/build/transaction.yaml
