@@ -1,0 +1,42 @@
+name: CI-RK
+
+on:
+  # change this to the branch you want to test this workflow on
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+    paths:
+      - "api/meta/build/meta.yaml"
+      - "api/registry/build/registry.yaml"
+      - "api/transaction/build/transaction.yaml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install openapi-cli
+        run: npm install -g @redocly/cli
+
+      - name: Validate meta.yaml
+        if: exists('api/meta/build/meta.yaml')
+        run: openapi lint api/meta/build/meta.yaml
+
+      - name: Validate registry.yaml
+        if: exists('api/registry/build/registry.yaml')
+        run: openapi lint api/registry/build/registry.yaml
+
+      - name: Validate transaction.yaml
+        if: exists('api/transaction/build/transaction.yaml')
+        run: openapi lint api/transaction/build/transaction.yaml
