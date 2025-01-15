@@ -2,12 +2,12 @@ name: Validate Beckn core spec meta, registry and transaction Schema against Ope
 
 on:
   workflow_dispatch:  # This allows manual trigger via GitHub UI
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - draft
+  # pull_request:
+  #   branches:
+  #     - main
+  # push:
+  #   branches:
+  #     - draft
 
 jobs:
   validate_beckn_schema:
