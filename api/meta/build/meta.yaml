@@ -3,7 +3,7 @@ info:
   title: Beckn Protocol Meta API
   description: This document contains all the meta API endpoints that are implemented by the network participants. The information returned from these endpoints typically contain cacheable information.
   version: 1.0.0
-security:
+security: 
   - SubscriberAuth: []
 paths:
   /get_cancellation_reasons:
