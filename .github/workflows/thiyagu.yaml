@@ -1,37 +1,69 @@
-name: OpenAPI Validation
+name: Validate OpenAPI
+
 on:
- pull_request:
+  pull_request:
     branches:
       - master
- push:
+      - draft
+  push:
     branches:
+      - master
       - github-action
 
 jobs:
- transaction-validate:
+  validate_meta:
+    name: Meta OpenAPI Schema Validation
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Validate OpenAPI specification
-        uses: stoplight/spectral@v3
+
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v2
         with:
-          path: transaction.yaml
- meta-validate:
+          node-version: 16
+
+      - name: Install IBM OpenAPI Validator
+        run: npm install -g @ibm-cloud/openapi-validator
+
+      - name: Validate OpenAPI schema for meta.yaml
+        run: openapi-validator ./api/meta/build/meta.yaml
+
+  validate_registry:
+    name: Registry OpenAPI Schema Validation
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Validate OpenAPI specification
-        uses: stoplight/spectral@v3
+
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v2
         with:
-          path: meta.yaml
- registry-validate:
+          node-version: 16
+
+      - name: Install IBM OpenAPI Validator
+        run: npm install -g @ibm-cloud/openapi-validator
+
+      - name: Validate OpenAPI schema for registry.yaml
+        run: openapi-validator ./api/registry/build/registry.yaml
+
+  validate_transaction:
+    name: Transaction OpenAPI Schema Validation
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Validate OpenAPI specification
-        uses: stoplight/spectral@v3
+
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v2
         with:
-          path: registry.yaml
+          node-version: 16
+
+      - name: Install IBM OpenAPI Validator
+        run: npm install -g @ibm-cloud/openapi-validator
+
+      - name: Validate OpenAPI schema for transaction.yaml
+        run: openapi-validator ./api/transaction/build/transaction.yaml
