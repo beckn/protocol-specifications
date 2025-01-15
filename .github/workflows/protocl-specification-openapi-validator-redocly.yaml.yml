@@ -6,10 +6,12 @@ on:
     branches:
       - "master"
       - "draft"
+      - "github-action"
   pull_request:
     branches:
       - "master"
       - "draft"
+      - "github-action"
     paths:
       - "api/meta/build/meta.yaml"
       - "api/registry/build/registry.yaml"
