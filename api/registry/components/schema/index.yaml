@@ -10,6 +10,3 @@ Scalar:
 Subscriber:
   $ref: "../../../../schema/Subscriber.yaml"
 
-Subscription:
-  $ref: "../../../../schema/Subscription.yaml"
-
