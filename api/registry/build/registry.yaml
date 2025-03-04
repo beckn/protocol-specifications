@@ -24,7 +24,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Subscription'
+                  $ref: '#/components/schemas/Subscriber'
   /subscribe:
     description: 'Subscribe to a network. This endpoint allows registered network participants (a.k.a Subscribers), to update their subscription details like `domain`, `location`, `signing_public_key`, `encr_public_key` on the registry. The fields that can be updated can vary from network to network. Every network policy must contain the fields that can be updated for each type of subscriber. For example, the network policy may allow BAPs and BPPs to update all fields, but BGs may not be allowed to update any field except the public keys.'
     post:
@@ -35,7 +35,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: '#/components/schemas/Subscription'
+                - $ref: '#/components/schemas/Subscriber'
                 - properties:
                     nonce:
                       description: A randomly generated uuid nonce value
@@ -280,6 +280,34 @@ components:
       description: A unique operational configuration of a trusted platform on a network.
       type: object
       properties:
+        key_id:
+          description: A unique ID of the subscription entry in a registry.
+          type: string
+          format: uuid
+        signing_public_key:
+          description: The signing public key of the subscriber
+          type: string
+        encr_public_key:
+          description: The encryption public key of the subscriber
+          type: string
+        valid_from:
+          description: Date-time which the signing and encryption keys are valid from
+          type: string
+          format: date-time
+        valid_until:
+          description: Time till which the signing and encryption keys are valid
+          type: string
+          format: date-time
+        status:
+          description: Status of the subscription
+          type: string
+          enum:
+            - INITIATED
+            - UNDER_SUBSCRIPTION
+            - SUBSCRIBED
+            - EXPIRED
+            - UNSUBSCRIBED
+            - INVALID_SSL
         subscriber_id:
           description: 'A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform.'
           type: string
@@ -302,42 +330,9 @@ components:
           description: The region of operation of this subscriber
           allOf:
             - $ref: '#/components/schemas/Location'
-    Subscription:
-      description: Subscription details of a Network Participant.
-      allOf:
-        - $ref: '#/components/schemas/Subscriber'
-        - properties:
-            key_id:
-              description: A unique ID of the subscription entry in a registry.
-              type: string
-              format: uuid
-            signing_public_key:
-              description: The signing public key of the subscriber
-              type: string
-            encr_public_key:
-              description: The encryption public key of the subscriber
-              type: string
-            valid_from:
-              description: Date-time which the signing and encryption keys are valid from
-              type: string
-              format: date-time
-            valid_until:
-              description: Time till which the signing and encryption keys are valid
-              type: string
-              format: date-time
-            status:
-              description: Status of the subscription
-              type: string
-              enum:
-                - INITIATED
-                - UNDER_SUBSCRIPTION
-                - SUBSCRIBED
-                - EXPIRED
-                - UNSUBSCRIBED
-                - INVALID_SSL
-            created:
-              type: string
-              format: date-time
-            updated:
-              type: string
-              format: date-time
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
