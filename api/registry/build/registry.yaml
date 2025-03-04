@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Subscription'
+              $ref: '#/components/schemas/Subscriber'
       responses:
         default:
           description: Array of subscribers matching the lookup request attributes
