@@ -1,5 +1,5 @@
 allOf:
-  - $ref: "../../../../schema/Subscription.yaml"
+  - $ref: "../../../../schema/Subscriber.yaml"
   - properties:
       nonce:
         description: A randomly generated uuid nonce value
