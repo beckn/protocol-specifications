@@ -1,0 +1,18 @@
+description: Acknowledgement of message received after successful validation of schema and signature
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          type: object
+          properties:
+            ack:
+              allOf:
+                - $ref: "../../../../schema/Ack.yaml"
+          required:
+            - ack
+        error:
+          $ref: "../../../../schema/Error.yaml"
+      required:
+        - message

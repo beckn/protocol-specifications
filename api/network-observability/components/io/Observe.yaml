@@ -1,0 +1,16 @@
+type: object
+properties:
+  context:
+    allOf:
+      - $ref: "../../../../schema/Context.yaml"
+      - properties:
+          action:
+            enum:
+              - observe
+        required:
+          - action
+  message:
+    $ref: "../schema/LogEntry.yaml"
+required:
+  - context
+  - message

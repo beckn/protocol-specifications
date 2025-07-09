@@ -1,0 +1,411 @@
+openapi: 3.1.0
+info:
+  title: Beckn Protocol Specification Network Observability APIs
+  description: This document contains the network observability API endpoints that are implemented by the observability platform.
+  version: 1.0.0
+security:
+  - SubscriberAuth: []
+paths:
+  /observe:
+    post:
+      tags:
+        - Beckn Observability Platform (BOP)
+      description: BAP and BPP push logs of transactions to BOP.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - observe
+                      required:
+                        - action
+                message:
+                  $ref: '#/components/schemas/LogEntry'
+              required:
+                - context
+                - message
+      responses:
+        default:
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+components:
+  securitySchemes:
+    SubscriberAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Signature of message body using signing public key of the caller. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
+  schemas:
+    Context:
+      description: 'Every API call in beckn protocol has a context. It provides a high-level overview to the receiver about the nature of the intended transaction. Typically, it is the BAP that sets the transaction context based on the consumer''s location and action on their UI. But sometimes, during unsolicited callbacks, the BPP also sets the transaction context but it is usually the same as the context of a previous full-cycle, request-callback interaction between the BAP and the BPP. The context object contains four types of fields. <ol><li>Demographic information about the transaction using fields like `domain`, `country`, and `region`.</li><li>Addressing details like the sending and receiving platform''s ID and API URL.</li><li>Interoperability information like the protocol version that implemented by the sender and,</li><li>Transaction details like the method being called at the receiver''s endpoint, the transaction_id that represents an end-to-end user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl to specifiy the validity of the request, and a key to encrypt information if necessary.</li></ol> This object must be passed in every interaction between a BAP and a BPP. In HTTP/S implementations, it is not necessary to send the context during the synchronous response. However, in asynchronous protocols, the context must be sent during all interactions,'
+      type: object
+      properties:
+        domain:
+          description: Domain code that is relevant to this transaction context
+          allOf:
+            - description: 'Standard code representing the domain. The standard is usually published as part of the network policy. Furthermore, the network facilitator should also provide a mechanism to provide the supported domains of a network.'
+        location:
+          description: The location where the transaction is intended to be fulfilled.
+          allOf:
+            - description: The physical location of something
+              type: object
+              properties:
+                id:
+                  type: string
+                descriptor:
+                  $ref: '#/components/schemas/Descriptor'
+                map_url:
+                  description: The url to the map of the location. This can be a globally recognized map url or the one specified by the network policy.
+                  type: string
+                  format: uri
+                gps:
+                  description: The GPS co-ordinates of this location.
+                  allOf:
+                    - $ref: '#/components/schemas/Gps'
+                address:
+                  description: The address of this location.
+                  allOf:
+                    - description: Describes a postal address.
+                      type: string
+                city:
+                  description: 'The city this location is, or is located within'
+                  allOf:
+                    - description: Describes a city
+                      type: object
+                      properties:
+                        name:
+                          description: Name of the city
+                          type: string
+                        code:
+                          description: City code
+                          type: string
+                district:
+                  description: 'The state this location is, or is located within'
+                  type: string
+                state:
+                  description: 'The state this location is, or is located within'
+                  allOf:
+                    - description: A bounded geopolitical region of governance inside a country.
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Name of the state
+                        code:
+                          type: string
+                          description: State code as per country or international standards
+                country:
+                  description: 'The country this location is, or is located within'
+                  allOf:
+                    - description: Describes a country
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Name of the country
+                        code:
+                          type: string
+                          description: Country code as per ISO 3166-1 and ISO 3166-2 format
+                area_code:
+                  type: string
+                circle:
+                  description: Describes a circular region of a specified radius centered at a specified GPS coordinate.
+                  type: object
+                  properties:
+                    gps:
+                      $ref: '#/components/schemas/Gps'
+                    radius:
+                      $ref: '#/components/schemas/Scalar'
+                polygon:
+                  description: The boundary polygon of this location
+                  type: string
+                3dspace:
+                  description: The three dimensional region describing this location
+                  type: string
+                rating:
+                  description: The rating of this location
+                  allOf:
+                    - description: 'Rating value given to the object. This can be a single value or can also contain an inequality operator like gt, gte, lt, lte. This can also contain an inequality expression containing logical operators like && and ||.'
+                      type: string
+        action:
+          description: The Beckn protocol method being called by the sender and executed at the receiver.
+          type: string
+        version:
+          type: string
+          description: Version of transaction protocol being used by the sender.
+        bap_id:
+          description: Subscriber ID of the BAP
+          allOf:
+            - description: 'A globally unique identifier of the platform, Typically it is the fully qualified domain name (FQDN) of the platform.'
+              type: string
+        bap_uri:
+          description: Subscriber URL of the BAP for accepting callbacks from BPPs.
+          allOf:
+            - description: The callback URL of the Subscriber. This should necessarily contain the same domain name as set in `subscriber_id``.
+              type: string
+              format: uri
+        bpp_id:
+          description: Subscriber ID of the BPP
+          allOf:
+            - $ref: '#/components/schemas/Context/properties/bap_id/allOf/0'
+        bpp_uri:
+          description: Subscriber URL of the BPP for accepting calls from BAPs.
+          allOf:
+            - $ref: '#/components/schemas/Context/properties/bap_uri/allOf/0'
+        transaction_id:
+          description: 'This is a unique value which persists across all API calls from `search` through `confirm`. This is done to indicate an active user session across multiple requests. The BPPs can use this value to push personalized recommendations, and dynamic offerings related to an ongoing transaction despite being unaware of the user active on the BAP.'
+          type: string
+          format: uuid
+        message_id:
+          description: 'This is a unique value which persists during a request / callback cycle. Since beckn protocol APIs are asynchronous, BAPs need a common value to match an incoming callback from a BPP to an earlier call. This value can also be used to ignore duplicate messages coming from the BPP. It is recommended to generate a fresh message_id for every new interaction. When sending unsolicited callbacks, BPPs must generate a new message_id.'
+          type: string
+          format: uuid
+        timestamp:
+          description: Time of request generation in RFC3339 format
+          type: string
+          format: date-time
+        key:
+          description: The encryption public key of the sender
+          type: string
+        ttl:
+          description: The duration in ISO8601 format after timestamp for which this message holds valid
+          type: string
+    Ack:
+      description: 'Describes the acknowledgement sent in response to an API call. If the implementation uses HTTP/S, then Ack must be returned in the same session. Every API call to a BPP must be responded to with an Ack whether the BPP intends to respond with a callback or not. This has one property called `status` that indicates the status of the Acknowledgement.'
+      type: object
+      properties:
+        status:
+          type: string
+          description: 'The status of the acknowledgement. If the request passes the validation criteria of the BPP, then this is set to ACK. If a BPP responds with status = `ACK` to a request, it is required to respond with a callback. If the request fails the validation criteria, then this is set to NACK. Additionally, if a BPP does not intend to respond with a callback even after the request meets the validation criteria, it should set this value to `NACK`.'
+          enum:
+            - ACK
+            - NACK
+        tags:
+          description: A list of tags containing any additional information sent along with the Acknowledgement.
+          type: array
+          items:
+            description: 'A collection of tag objects with group level attributes. For detailed documentation on the Tags and Tag Groups schema go to https://github.com/beckn/protocol-specifications/discussions/316'
+            type: object
+            properties:
+              display:
+                description: 'Indicates the display properties of the tag group. If display is set to false, then the group will not be displayed. If it is set to true, it should be displayed. However, group-level display properties can be overriden by individual tag-level display property. As this schema is purely for catalog display purposes, it is not recommended to send this value during search.'
+                type: boolean
+                default: true
+              descriptor:
+                description: 'Description of the TagGroup, can be used to store detailed information.'
+                allOf:
+                  - $ref: '#/components/schemas/Descriptor'
+              list:
+                description: 'An array of Tag objects listed under this group. This property can be set by BAPs during search to narrow the `search` and achieve more relevant results. When received during `on_search`, BAPs must render this list under the heading described by the `name` property of this schema.'
+                type: array
+                items:
+                  description: 'Describes a tag. This is used to contain extended metadata. This object can be added as a property to any schema to describe extended attributes. For BAPs, tags can be sent during search to optimize and filter search results. BPPs can use tags to index their catalog to allow better search functionality. Tags are sent by the BPP as part of the catalog response in the `on_search` callback. Tags are also meant for display purposes. Upon receiving a tag, BAPs are meant to render them as name-value pairs. This is particularly useful when rendering tabular information about a product or service.'
+                  type: object
+                  properties:
+                    descriptor:
+                      description: 'Description of the Tag, can be used to store detailed information.'
+                      allOf:
+                        - $ref: '#/components/schemas/Descriptor'
+                    value:
+                      description: The value of the tag. This set by the BPP and rendered as-is by the BAP.
+                      type: string
+                    display:
+                      description: 'This value indicates if the tag is intended for display purposes. If set to `true`, then this tag must be displayed. If it is set to `false`, it should not be displayed. This value can override the group display value.'
+                      type: boolean
+    Error:
+      description: 'Describes an error object that is returned by a BAP, BPP or BG as a response or callback to an action by another network participant. This object is sent when any request received by a network participant is unacceptable. This object can be sent either during Ack or with the callback.'
+      type: object
+      properties:
+        code:
+          type: string
+          description: 'Standard error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-005-ERROR-CODES-DRAFT-01.md of this repo"'
+        paths:
+          type: string
+          description: Path to json schema generating the error. Used only during json schema validation errors
+        message:
+          type: string
+          description: Human readable message describing the error. Used mainly for logging. Not recommended to be shown to the user.
+    Descriptor:
+      description: Physical description of something.
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        short_desc:
+          type: string
+        long_desc:
+          type: string
+        additional_desc:
+          type: object
+          properties:
+            url:
+              type: string
+            content_type:
+              type: string
+              enum:
+                - text/plain
+                - text/html
+                - application/json
+        media:
+          type: array
+          items:
+            description: This object contains a url to a media file.
+            type: object
+            properties:
+              mimetype:
+                description: 'indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF''s RFC 6838'
+                type: string
+              url:
+                description: The URL of the file
+                type: string
+                format: uri
+              signature:
+                description: The digital signature of the file signed by the sender
+                type: string
+              dsa:
+                description: The signing algorithm used by the sender
+                type: string
+        images:
+          type: array
+          items:
+            description: Describes an image
+            type: object
+            properties:
+              url:
+                description: URL to the image. This can be a data url or an remote url
+                type: string
+                format: uri
+              size_type:
+                description: The size of the image. The network policy can define the default dimensions of each type
+                type: string
+                enum:
+                  - xs
+                  - sm
+                  - md
+                  - lg
+                  - xl
+                  - custom
+              width:
+                description: Width of the image in pixels
+                type: string
+              height:
+                description: Height of the image in pixels
+                type: string
+    Gps:
+      description: Describes a GPS coordinate
+      type: string
+      pattern: '^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
+    Scalar:
+      description: Describes a scalar
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - CONSTANT
+            - VARIABLE
+        value:
+          description: Describes a numerical value in decimal form
+          type: string
+          pattern: '[+-]?([0-9]*[.])?[0-9]+'
+        estimated_value:
+          $ref: '#/components/schemas/Scalar/properties/value'
+        computed_value:
+          $ref: '#/components/schemas/Scalar/properties/value'
+        range:
+          type: object
+          properties:
+            min:
+              $ref: '#/components/schemas/Scalar/properties/value'
+            max:
+              $ref: '#/components/schemas/Scalar/properties/value'
+        unit:
+          type: string
+    LogEntry:
+      description: An instance of an entry in the Observability Platform.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/TransactionType'
+        data:
+          type: object
+          description: Payload corresponding to the Beckn message type (request or response). PII must be anonymized by the sender.
+    TransactionType:
+      description: 'Type of transaction log pushed to the observability platform. i.e, init, confirm, on_init etc'
+      type: string
+      enum:
+        - on_search
+        - select
+        - on_select
+        - init
+        - on_init
+        - confirm
+        - on_confirm
+        - status
+        - on_status
+        - update
+        - on_update
+        - track
+        - on_track
+        - cancel
+        - on_cancel
+        - support
+        - on_support
+        - rating
+        - on_rating
+        - get_rating_categories
+        - rating_categories
+        - get_cancellation_reasons
+        - cancellation_reasons
+        - get_return_reasons
+        - return_reasons
+        - on_search_response
+        - select_response
+        - on_select_response
+        - init_response
+        - on_init_response
+        - confirm_response
+        - on_confirm_response
+        - status_response
+        - on_status_response
+        - update_response
+        - on_update_response
+        - track_response
+        - on_track_response
+        - cancel_response
+        - on_cancel_response
+        - support_response
+        - on_support_response
+        - rating_response
+        - on_rating_response
+        - get_rating_categories_response
+        - rating_categories_response
+        - get_cancellation_reasons_response
+        - cancellation_reasons_response
+        - get_return_reasons_response
+        - return_reasons_response

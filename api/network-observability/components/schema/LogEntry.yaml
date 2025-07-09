@@ -1,0 +1,8 @@
+description: An instance of an entry in the Observability Platform.
+type: object
+properties:
+  type:
+    $ref: './TransactionType.yaml'
+  data:
+    type: object
+    description: Payload corresponding to the Beckn message type (request or response). PII must be anonymized by the sender.

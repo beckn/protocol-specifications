@@ -1,0 +1,31 @@
+openapi: 3.1.0
+info:
+  title: Beckn Protocol Specification Network Observability APIs
+  description: This document contains the network observability API endpoints that are implemented by the observability platform.
+  version: "1.0.0"  
+security:
+  - SubscriberAuth: []
+paths:
+  /observe:
+    post:
+      tags:
+        - Beckn Observability Platform (BOP)
+      description: BAP and BPP push logs of transactions to BOP.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./io/Observe.yaml"
+      responses:
+        default:
+          $ref: "./io/Response.yaml"
+components:
+  securitySchemes:
+    SubscriberAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Signature of message body using signing public key of the caller. <br/><br/>Format:<br/><br/><code>Authorization : Signature keyId="{subscriber_id}|{key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created) (expires) digest",signature="Base64(signing string)"</code>'
+  schemas:
+    $ref: "./schema/index.yaml"
+
