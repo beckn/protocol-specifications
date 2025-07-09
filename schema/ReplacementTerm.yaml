@@ -11,4 +11,9 @@ properties:
       - $ref: "./Time.yaml"
   external_ref:
     $ref: "./MediaFile.yaml"
-
+  fulfillment_managed_by:
+    description: The entity that will perform the replacement
+    type: string
+    enum:
+      - CONSUMER
+      - PROVIDER

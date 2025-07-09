@@ -2,7 +2,7 @@ description: Describes the return policy of an item or an order
 type: object
 properties:
   fulfillment_state:
-    description: The state of fulfillment during which this term IETF''s applicable.
+    description: The state of fulfillment during which this term is applicable.
     allOf:
       - $ref: "./State.yaml"
   return_eligible:
@@ -16,9 +16,3 @@ properties:
     description: The location where the item or order must / will be returned to
     allOf:
       - $ref: "./Location.yaml"
-  fulfillment_managed_by:
-    description: The entity that will perform the return
-    type: string
-    enum:
-      - CONSUMER
-      - PROVIDER
