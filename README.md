@@ -72,14 +72,14 @@ Communication on beckn enabled networks is server-to-server. Server-to-server me
 
 A beckn enabled network has multiple entities communicating with each other via standard protocol APIs. The following types of communication are possible. The communication can be between,
 
-- BAP and BG
-- BAP and BPP
-- BG and BPP
-- BAP and Registry
-- BPP and Registry
-- BG and Registry
+- Beckn Access Provider (BAP)  and Beckn Gateway (BG)
+- Beckn Access Provider (BAP)  and Beckn Provider Platform (BPP)
+- Beckn Gateway (BG) and Beckn Provider Platform (BPP)
+- Beckn Access Provider (BAP)  and Registry
+- Beckn Provider Platform (BPP) and Registry
+- Beckn Gateway (BG) and Registry
 
-All API calls between any two entities on the beckn network are asynchronous. Meaning, an API call from a BAP server (sender) to a BPP server (receiver) does not expect an informational response from a BPP in the same session. The immediate response in the same session is merely an acknowledgment or ACK which basically means, “Hey, I have received your request and it looks okay during validation of the input. Let me call you back when I have the details you need”. The actual response is sent later in the form of a standard callback API which the sender is required to implement. 
+All API calls between any two entities on the beckn network are asynchronous. Meaning, an API call from a Beckn Access Provider (BAP)  server (sender) to a Beckn Provider Platform (BPP) server (receiver) does not expect an informational response from a Beckn Provider Platform (BPP) in the same session. The immediate response in the same session is merely an acknowledgment or ACK which basically means, “Hey, I have received your request and it looks okay during validation of the input. Let me call you back when I have the details you need”. The actual response is sent later in the form of a standard callback API which the sender is required to implement. 
 
 ## Communication Protocol Between 2 Entities
 The sequence diagram of a typical beckn protocol API is shown in Figure 1. For example, let’s say X is the sender and Y is the receiver, and the API being called is search.
@@ -88,15 +88,15 @@ In most cases, the sender will call the API first and the receiver will respond 
 
 ## Communication Protocol Via Beckn Gateway
 
-Most communication in a beckn enabled network involves two entities - the BAP and the BPP. But sometimes during the discovery stage, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the recommended flow of communication is as follows.
+Most communication in a beckn enabled network involves two entities - the Beckn Access Provider (BAP)  and the Beckn Provider Platform (BPP). But sometimes during the discovery stage, an intermediate entity like a Beckn Gateway (BG) is involved. In those cases, the recommended flow of communication is as follows.
 
-If the address of the BPP is _not_ specified in the `context` field of the request body, only then should the BAP should call the `search` request to the BG. The BG may then broadcast this request to multiple BPPs that match the `context` of the request. 
+If the address of the Beckn Provider Platform (BPP) is _not_ specified in the `context` field of the request body, only then should the Beckn Access Provider (BAP)  should call the `search` request to the Beckn Gateway (BG). The Beckn Gateway (BG) may then broadcast this request to multiple Beckn Provider Platform (BPP)s that match the `context` of the request. 
 
-Sometimes the BG may query a Registry via the `lookup` API to get the BPP addresses that _match_ the `context` and then broadcast the message to those BPPs.
+Sometimes the Beckn Gateway (BG) may query a Registry via the `lookup` API to get the Beckn Provider Platform (BPP) addresses that _match_ the `context` and then broadcast the message to those Beckn Provider Platform (BPP)s.
 
-The BPPs immediately respond with ACKs. Soon after, the BPPs call the `on_search` API which is sent back to the BG. The BG then forwards those requests back to the BAPs.
+The Beckn Provider Platform (BPP)s immediately respond with ACKs. Soon after, the Beckn Provider Platform (BPP)s call the `on_search` API which is sent back to the Beckn Gateway (BG). The Beckn Gateway (BG) then forwards those requests back to the Beckn Access Provider (BAP) s.
 
-To protect the privacy and confidentiality of the end user, it is recommended not to send _Personally Identifiable Information_ (PII) or _transactional information_ in the `message` object when transmitting via a BG. The BG should be able to only use the `context` header to perform BPP discovery and routing.
+To protect the privacy and confidentiality of the end user, it is recommended not to send _Personally Identifiable Information_ (PII) or _transactional information_ in the `message` object when transmitting via a Beckn Gateway (BG). The Beckn Gateway (BG) should be able to only use the `context` header to perform Beckn Provider Platform (BPP) discovery and routing.
 
 
 # Acknowledgments
