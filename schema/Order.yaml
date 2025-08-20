@@ -17,6 +17,17 @@ properties:
       - ACTIVE
       - COMPLETE
       - CANCELLED
+  state:
+    description: The current state of the order in the order lifecycle. Helps track order progress beyond just status.
+    type: string
+    enum:
+      - CREATED
+      - PACKED
+      - SHIPPED
+      - DELIVERED
+      - RETURN_REQUESTED
+      - RETURNED
+      - FAILED
   type:
     description: This is used to indicate the type of order being created to BPPs. Sometimes orders can be linked to previous orders, like a replacement order in a retail domain. A follow-up consultation in healthcare domain. A single order part of a subscription order. The list of order types can be standardized at the network level.
     type: string
