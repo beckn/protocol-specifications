@@ -182,8 +182,8 @@ Schedule schema object was added to Time
 -   **/get_feedback_categories**  : Returns the allowed categories that can have a feedback
 -   **/get_feedback_form**  : Request the BPP to get a feedback form
 -   **/feedback_form**  : Get a feedback form from the BPP. Callback response of /get_feedback_form
--   **/rating**  : Uses Rating object as message
--   **/on_rating**  : Used RatingAck as message
+-   **rating**  : Uses Rating object as message
+-   **on_rating**  : Used RatingAck as message
 
 **Made all the meta APIs async. Created the following new meta BAP APIs :**
 -   POST /cancellation_reasons
@@ -246,3 +246,6 @@ The same was added to the following :
 ### December 22, 2021
 
 **Added document object array in order**
+
+### April 25, 2025
+- Updated `/track` API to support tracking at the fulfillment level by adding an optional `fulfillment_id` property.

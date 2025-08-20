@@ -14,6 +14,8 @@ properties:
     properties:
       order_id:
         $ref: "../../../../schema/Order.yaml#/properties/id"
+      fulfillment_id:
+        $ref: "../../../../schema/Fulfillment.yaml#/properties/id"
       callback_url:
         type: string
         format: uri

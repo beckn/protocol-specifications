@@ -101,3 +101,7 @@ properties:
     type: array
     items:
       $ref: "./TagGroup.yaml"
+  state:
+    description: The current state of the order. This can represent various stages like 'Pending', 'Processing', 'Shipped', etc., as defined by the network policy.
+    allOf:
+      - $ref: "./State.yaml"
