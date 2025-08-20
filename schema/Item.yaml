@@ -67,15 +67,26 @@ properties:
     items:
       $ref: "./RefundTerm.yaml"    
   replacement_terms:
-    description: Terms that are applicable be met when this item is replaced
+    description: Terms that are applicable when this item is replaced
     type: array
     items:
       $ref: "./ReplacementTerm.yaml"
+      properties:
+        replacement_eligible:
+          description: Indicates if the item is eligible for replacement
+          type: boolean
+        fulfillment_managed_by:
+          description: Entity managing the fulfillment of the replacement
+          type: string
   return_terms:
     description: Terms that are applicable when this item is returned
     type: array
     items:
       $ref: "./ReturnTerm.yaml"
+      properties:
+        return_eligible:
+          description: Indicates if the item is eligible for return
+          type: boolean
   xinput:
     description: Additional input required from the customer to purchase / avail this item
     allOf:

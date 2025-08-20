@@ -1,0 +1,33 @@
+name: OpenAPI Validation
+
+on:
+  pull_request:
+    paths:
+      - 'api/meta/build/meta.yaml'
+      - 'api/registry/build/registry.yaml'
+      - 'api/transaction/build/transaction.yaml'
+
+jobs:
+  validate-openapi:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install OpenAPI Validator
+      run: npm install -g @redocly/openapi-cli
+
+    - name: Validate meta.yaml
+      run: openapi lint api/meta/build/meta.yaml
+
+    - name: Validate registry.yaml
+      run: openapi lint api/registry/build/registry.yaml
+
+    - name: Validate transaction.yaml
+      run: openapi lint api/transaction/build/transaction.yaml
