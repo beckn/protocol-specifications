@@ -65,6 +65,16 @@ All communication using beckn protocol have the following packet structure
 
 While beckn protocol it designed to be transport agnostic, it is conventional to use HTTP as the default transport protocol. Additional layers like security and trust can be layered on top of this protocol using exisiting standards like HTTPS and SSL. It is recommended that any platform implementing beckn protocol use HTTPS to secure its communication.
 
+## OpenAPI Validation
+
+This repository uses automated validation to ensure all OpenAPI specifications conform to the OpenAPI 3.0 standard. The following files are validated:
+- transaction.yaml
+- meta.yaml
+- registry.yaml
+
+When submitting a pull request, please ensure your changes pass the automated validation checks. The status of these checks is shown below:
+
+![OpenAPI Validation](https://github.com/beckn/protocol-specifications/workflows/OpenAPI%20Validation/badge.svg)
 
 ## Communication
 

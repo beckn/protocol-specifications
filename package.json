@@ -1,0 +1,19 @@
+{
+  "name": "protocol-specifications",
+  "version": "1.0.0",
+  "description": "--- title: \"Beckn Protocol - Core\" metaTitle: \"Beckn Protocol Transaction API Core\" metaDescription: \"Domain agnostic transaction specification for e-commerce\" ---",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^10.1.1",
+    "glob": "^10.4.5"
+  }
+}

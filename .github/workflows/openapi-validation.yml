@@ -1,0 +1,114 @@
+name: OpenAPI Validation
+
+on:
+  pull_request:
+    branches: [ master, main ]
+    paths:
+      - '**/transaction.yaml'
+      - '**/meta.yaml'
+      - '**/registry.yaml'
+  workflow_dispatch:
+
+jobs:
+  validate-openapi:
+    name: Validate OpenAPI Specifications
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install @apidevtools/swagger-parser glob
+          
+      - name: Create and run validation script
+        run: |
+          mkdir -p .github/scripts
+          cat > .github/scripts/validate-openapi.js << 'EOF'
+          const SwaggerParser = require('@apidevtools/swagger-parser');
+          const glob = require('glob');
+          const fs = require('fs');
+          
+          // Files to validate as specified in the requirements
+          const TARGET_FILES = ['transaction.yaml', 'meta.yaml', 'registry.yaml'];
+          
+          // Function to validate OpenAPI specification file
+          async function validateOpenApiFile(filePath) {
+            console.log(`Validating ${filePath}...`);
+            try {
+              // Parse and validate the file
+              await SwaggerParser.validate(filePath);
+              console.log(`✅ Valid: ${filePath}`);
+              return true;
+            } catch (error) {
+              console.error(`❌ Invalid: ${filePath}`);
+              console.error(`   Error: ${error.message}`);
+              
+              // If there's a pointer to the exact location of the error, show it
+              if (error.path) {
+                console.error(`   Location: ${error.path.join('.')}`);
+              }
+              return false;
+            }
+          }
+          
+          // Main function to find and validate all relevant OpenAPI files
+          async function main() {
+            let failures = 0;
+            let validatedFiles = 0;
+            
+            // Find all target files in the repository
+            for (const targetFile of TARGET_FILES) {
+              const files = glob.sync(`**/${targetFile}`, { 
+                ignore: ['**/node_modules/**', '.github/**']
+              });
+              
+              console.log(`Found ${files.length} ${targetFile} files to validate`);
+              
+              // Validate each file
+              for (const file of files) {
+                validatedFiles++;
+                const isValid = await validateOpenApiFile(file);
+                if (!isValid) failures++;
+              }
+            }
+            
+            console.log(`\nValidation summary: ${validatedFiles} files processed, ${failures} failures found`);
+            
+            // Exit with appropriate code
+            if (failures > 0) {
+              console.error(`\n❌ Validation failed for ${failures} files`);
+              process.exit(1);
+            } else {
+              console.log('\n✅ All OpenAPI specifications are valid!');
+              process.exit(0);
+            }
+          }
+          
+          // Run the validation
+          main().catch(error => {
+            console.error('An unexpected error occurred during validation:', error);
+            process.exit(1);
+          });
+          EOF
+          
+          node .github/scripts/validate-openapi.js
+      
+      - name: Report validation status on PR
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `⚠️ **OpenAPI Validation Failed**\n\nThe OpenAPI validation check has failed. Please check the GitHub Actions logs for details on which files failed validation and the specific errors found.`
+            });
