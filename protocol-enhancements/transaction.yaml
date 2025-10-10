@@ -1,0 +1,1162 @@
+openapi: 3.1.1
+info:
+  title: Beckn Transction APIs Offer & Order — Enhanced Core (schema.org aligned)
+  version: 1.0.1
+  description: >
+    Transaction API s with Core Offer + Order with stable fields, JSON-LD mapping to schema.org, and attachment points for Attribute Packs (offerAttributes, orderAttributes, itemAttributes).
+
+x-spec-refs:
+  DISCOVERY_SPEC_URL: https://raw.githubusercontent.com/beckn/protocol-specifications/refs/heads/semantic-schema-composition/protocol-enhancements/discover.yaml
+
+paths:
+  /select:
+    post:
+      summary: "Buyer selects items/offers \u2014 returns priced order"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: select
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /on_select:
+    post:
+      summary: Provider returns priced order (quote)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: on_select
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  
+  /get_offer:
+    post:
+      summary: Compute/prune final offers for a given selection of items and/or offers (no Order envelope)
+      description: >
+        Client (BAP) submits a selection of items and/or offers. The BPP computes applicable, priced offers
+        and returns them asynchronously via /on_get_offer. This is semantically similar to /select, but
+        avoids the Order wrapper to keep the intent clear: "give me offers for these choices".
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [context, message]
+              properties:
+                context:
+                  allOf:
+                    - $ref: "#/components/schemas/TransactionContext"
+                    - type: object
+                      properties: { action: { const: "get_offer" } }
+                message:
+                  type: object
+                  required: [selection]
+                  properties:
+                    # The selection may be a set of items, a set of offers, or both.
+                    selection:
+                      type: object
+                      properties:
+                        items:
+                          type: array
+                          minItems: 1
+                          items:
+                            type: object
+                            required: [beckn:id]
+                            properties:
+                              beckn:id:
+                                $ref: "#/components/schemas/Item/properties/beckn:id"
+                              quantity:
+                                type: number
+                                description: Optional requested quantity for this item
+                        offers:
+                          type: array
+                          minItems: 1
+                          items:
+                            type: object
+                            required: [beckn:id]
+                            properties:
+                              beckn:id:
+                                $ref: "#/components/schemas/Offer/properties/beckn:id"
+                      anyOf:
+                        - required: [items]
+                        - required: [offers]
+                    # Optional scoping hints (kept open; networks can define attribute packs if needed)
+                    provider:
+                      $ref: "#/components/schemas/Provider/properties/beckn:id"
+                    constraints:
+                      type: object
+                      description: Optional constraints (e.g., fulfillment mode/slots, region, eligibility). Extend via attribute packs as needed.
+                      additionalProperties: true
+      responses:
+        "200":
+          description: ACK — request received (validation passed)
+          content:
+            application/json:
+              schema:
+                $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse"
+              examples:
+                success_ack:
+                  $ref: "{DISCOVERY_SPEC_URL}#/components/examples/ack_success"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse"
+              examples:
+                bad_request:
+                  $ref: "{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse"
+              examples:
+                server_error:
+                  $ref: "{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error"
+
+  /on_get_offer:
+    post:
+      summary: Provider returns computed offers for the selection
+      description: >
+        BPP responds with the final set of offers applicable to the submitted selection. Each Offer must
+        reference the base items via beckn:items (schema:itemOffered). Additional pricing/eligibility details
+        can be carried in offerAttributes packs.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [context, message]
+              properties:
+                context:
+                  allOf:
+                    - $ref: "#/components/schemas/TransactionContext"
+                    - type: object
+                      properties: { action: { const: "on_get_offer" } }
+                message:
+                  type: object
+                  required: [offers]
+                  properties:
+                    # Full Offer objects are returned (not just ids) so clients can render price/terms immediately.
+                    offers:
+                      type: array
+                      minItems: 1
+                      items:
+                        $ref: "#/components/schemas/Offer"
+      responses:
+        "200":
+          description: ACK — response received
+          content:
+            application/json:
+              schema:
+                $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse"
+              examples:
+                success_ack:
+                  $ref: "{DISCOVERY_SPEC_URL}#/components/examples/ack_success"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse"
+              examples:
+                bad_request:
+                  $ref: "{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse"
+              examples:
+                server_error:
+                  $ref: "{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error"  
+  
+  /init:
+    post:
+      summary: Initialize order (party details, fulfillment mode, payment intent)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: init
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /on_init:
+    post:
+      summary: Provider echoes initialized order (with refs populated)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: on_init
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /confirm:
+    post:
+      summary: Confirm order (final selections; payment/fulfillment committed)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: confirm
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /on_confirm:
+    post:
+      summary: Provider returns confirmed order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: on_confirm
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /status:
+    post:
+      summary: Fetch order status by id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: status
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      oneOf:
+                      - type: object
+                        required:
+                        - beckn:id
+                        properties:
+                          beckn:id:
+                            $ref: '#/components/schemas/Order/properties/beckn:id'
+                      - $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /on_status:
+    post:
+      summary: Provider returns current order (or tracking via fulfillment packs)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: on_status
+                message:
+                  type: object
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+                  anyOf:
+                  - required:
+                    - order
+                  - required: []
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /update:
+    post:
+      summary: Request order mutation (replace, cancel line, address change, etc.)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: update
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /on_update:
+    post:
+      summary: Provider returns mutated order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: on_update
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /cancel:
+    post:
+      summary: Request to cancel an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: cancel
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      oneOf:
+                      - type: object
+                        required:
+                        - beckn:id
+                        properties:
+                          beckn:id:
+                            $ref: '#/components/schemas/Order/properties/beckn:id'
+                      - $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+  /on_cancel:
+    post:
+      summary: Provider returns cancelled order (may reflect refund/payment update
+        via PaymentRef)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - context
+              - message
+              properties:
+                context:
+                  allOf:
+                  - $ref: '#/components/schemas/TransactionContext'
+                  - type: object
+                    properties:
+                      action:
+                        const: on_cancel
+                message:
+                  type: object
+                  required:
+                  - order
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: "ACK \u2014 request received (validation passed)"
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                success_ack:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_success'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                bad_request:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_bad_request'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '{DISCOVERY_SPEC_URL}#/components/schemas/AckResponse'
+              examples:
+                server_error:
+                  $ref: '{DISCOVERY_SPEC_URL}#/components/examples/ack_server_error'
+
+
+components:
+  schemas:
+    TransactionContext:
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/refs/heads/master/api/transaction/build/transaction.yaml#/components/schemas/Context'
+        - type: object
+          description: >
+            Beckn Context extended for Transaction flows. Mirrors DiscoveryContext pattern to
+            enable validation and per-endpoint action constraints. network_id/schema_context
+            are optional for routing and JSON-LD hints.
+          properties:
+            network_id:
+              type: array
+              items: { type: string }
+              description: Optional list of addressed networks (for routing/allowlisting)
+            schema_context:
+              type: array
+              items:
+                type: string
+                format: uri
+              description: Optional JSON-LD context URLs relevant to the items/offers in this transaction
+
+    # --------------------------------
+    # ORDER (core)
+    # --------------------------------
+    Order:
+      type: object
+      additionalProperties: false
+      required:
+        - "@context"
+        - "@type"
+        - beckn:id
+        - beckn:state
+        - beckn:seller
+        - beckn:buyer
+        - beckn:orderItems
+      properties:
+        "@context":
+          type: string
+          format: uri
+          example: "https://becknprotocol.io/schemas/core/v1/Order/schema-context.jsonld"
+        "@type":
+          type: string
+          enum: ["beckn:Order"]
+          x-jsonld: { "@id": "schema:Order" }
+
+        beckn:id:
+          type: string
+          x-jsonld: { "@id": "schema:identifier" }
+
+        beckn:state:
+          type: string
+          description: Order status/state
+          x-jsonld: { "@id": "schema:orderStatus" }
+
+        beckn:orderNumber:
+          type: string
+          description: Human-visible order number
+          x-jsonld: { "@id": "schema:orderNumber" }
+
+        beckn:seller:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/Provider/properties/beckn:id"
+          x-jsonld: { "@id": "schema:seller" }
+
+        beckn:buyer:
+          $ref: "#/components/schemas/Party/properties/beckn:id"
+          x-jsonld: { "@id": "schema:customer" }
+
+        beckn:orderItems:
+          type: array
+          minItems: 1
+          items: { $ref: "#/components/schemas/OrderItem" }
+          x-jsonld: { "@id": "schema:orderItem" }
+
+        beckn:acceptedOffers:
+          type: array
+          items: { $ref: '{DISCOVERY_SPEC_URL}#components/schemas/Offer/properties/beckn:id' }
+          description: Offers accepted at order-level (optional if captured per line)
+          x-jsonld: { "@id": "schema:acceptedOffer" }
+
+        beckn:totals:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/PriceSpecification"
+          description: Order totals snapshot (derivable from lines; optional)
+          x-jsonld: { "@id": "schema:priceSpecification" }
+
+        beckn:billing:
+          $ref: '#/components/schemas/Invoice/properties/beckn:id'
+          description: Invoice reference/summary
+          x-jsonld: { "@id": "schema:Invoice" }
+
+        beckn:payment:
+          $ref: "#/components/schemas/Payment/properties/beckn:id"
+          description: Method/status; rail-specific payloads go to packs
+          x-jsonld: { "@id": "schema:PaymentMethod|schema:PaymentStatusType" }
+
+        beckn:fulfillment:
+          $ref: "#/components/schemas/Fulfillment/properties/beckn:id"
+          description: Parcel delivery or reservation summary
+          x-jsonld: { "@id": "schema:ParcelDelivery|schema:Reservation" }
+
+        beckn:orderAttributes:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/Attributes"
+          description: Order-level Attribute Pack (vertical/regulatory specifics)
+
+    OrderItem:
+      type: object
+      required: ["beckn:lineId","beckn:orderedItem","beckn:quantity"]
+      properties:
+        beckn:lineId:
+          type: string
+          description: Unique line id within order
+        beckn:orderedItem:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/Item/properties/beckn:id"
+          x-jsonld: { "@id": "schema:orderedItem" }
+        beckn:acceptedOffer:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/Offer/properties/beckn:id"
+          description: Offer applied to this line (if different from order-level)
+          x-jsonld: { "@id": "schema:acceptedOffer" }
+        beckn:quantity:
+          type: number
+          x-jsonld: { "@id": "schema:orderQuantity" }
+        beckn:price:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/PriceSpecification"
+          description: Line price composition (unit/tax/delivery/discount)
+          x-jsonld: { "@id": "schema:priceSpecification" }
+        beckn:orderItemAttributes:
+          $ref: "{DISCOVERY_SPEC_URL}#components/schemas/Attributes"
+          description: Line-level Attribute Pack (options, substitutions, ESG, etc.)
+
+    # --------------------------------
+    # Shared refs
+    # --------------------------------
+
+    Invoice:
+      type: object
+      additionalProperties: false
+      required: ["@context","@type","beckn:id","beckn:number","beckn:issueDate","beckn:totals","beckn:payee","beckn:payer"]
+      # A commercial document snapshot for billing/tax. Rich tax regimes go in attribute packs.
+      properties:
+        "@context":
+          type: string
+          format: uri
+          example: "https://becknprotocol.io/schemas/core/v1/Invoice/schema-context.jsonld"
+        "@type":
+          type: string
+          enum: ["beckn:Invoice"]
+          x-jsonld: { "@id": "schema:Invoice" }
+        beckn:id:
+          type: string
+          description: Stable invoice identifier (system id)
+          x-jsonld: { "@id": "schema:identifier" }
+        beckn:number:
+          type: string
+          description: Human-visible invoice number
+          x-jsonld: { "@id": "schema:confirmationNumber" } # schema.org commonly uses confirmationNumber on docs/tickets
+        beckn:issueDate:
+          type: string
+          format: date
+          x-jsonld: { "@id": "schema:dateIssued" }
+        beckn:dueDate:
+          type: string
+          format: date
+          nullable: true
+          x-jsonld: { "@id": "schema:paymentDueDate" }
+        beckn:payee:
+          $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/Provider/properties/beckn:id"
+          description: Seller / issuer of the invoice
+          x-jsonld: { "@id": "schema:provider" }
+        beckn:payer:
+          $ref: "#/components/schemas/Party/properties/beckn:id"
+          description: Buyer being invoiced
+          x-jsonld: { "@id": "schema:customer" }
+        beckn:totals:
+          $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/PriceSpecification"
+          description: Invoice grand totals (tax/shipping/discount components inside)
+          x-jsonld: { "@id": "schema:priceSpecification" }
+        beckn:invoiceAttributes:
+          $ref: "{DISCOVERY_SPEC_URL}#/components/schemas/Attributes"
+          description: Attribute Pack for tax regime (e.g., GST/VAT), e-invoice refs, legal boilerplate, etc. 
+
+    # ---------------------------------
+    # FULFILLMENT (core)
+    # ---------------------------------
+    # A single polymorphic envelope with 'type' indicating the mode. The FULL details
+    # for each mode are expected to come from fulfillment attribute packs (logistics, reservation, digital).
+    Fulfillment:
+      type: object
+      additionalProperties: false
+      required: ["@context","@type","beckn:id","beckn:mode"]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          example: "https://becknprotocol.io/schemas/core/v1/Fulfillment/schema-context.jsonld"
+        "@type":
+          type: string
+          enum: ["beckn:Fulfillment"]
+          x-jsonld: { "@id": "schema:Thing" } # Fulfillment is Beckn-native; specific packs map to ParcelDelivery/Reservation/etc.
+        beckn:id:
+          type: string
+          description: Fulfillment identifier
+          x-jsonld: { "@id": "schema:identifier" }
+        beckn:mode:
+          type: string
+          enum: ["DELIVERY","PICKUP","RESERVATION","DIGITAL"]
+          description: |
+            DELIVERY    → last-mile / parcel logistics
+            PICKUP      → customer collects from a place
+            RESERVATION → entitlement/booking is fulfilled (tickets, seats, appointments)
+            DIGITAL     → digital good / license access
+        # Optional minimal status/links that are mode-agnostic. Rich details live in packs.
+        beckn:status:
+          type: string
+          description: Network-defined status code (e.g., OutForDelivery, ReadyForPickup, Confirmed)
+          x-jsonld: { "@id": "schema:orderStatus" } # closest general status anchor
+        beckn:trackingUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: Tracking link (DELIVERY)
+          x-jsonld: { "@id": "schema:trackingUrl" }
+        beckn:reservationNumber:
+          type: string
+          nullable: true
+          description: Confirmation/PNR/etc. (RESERVATION)
+          x-jsonld: { "@id": "schema:reservationNumber" }
+        beckn:deliveryAttributes:
+          $ref: "#/components/schemas/Attributes"
+          description: > 
+            Attribute Pack for the chosen mode: 
+            # DELIVERY: endpoints, slot windows, route & events → map to schema:ParcelDelivery / schema:DeliveryEvent
+            # PICKUP: pickupPlace, counter codes, time windows → map to schema:Place + schema:openingHoursSpecification
+            # RESERVATION: reservationStatus, reservedTicket → map to schema:Reservation
+            # DIGITAL: contentUrl/license/expiry → map to schema:DataDownload/schema:MediaObject
+
+    # -----------------------------
+    # PAYMENT (core)
+    # -----------------------------
+    Payment:
+      type: object
+      additionalProperties: false
+      required: ["@context","@type","beckn:id","beckn:method","beckn:status"]
+      # Core payment semantics: rail + status + references. Rail payloads live in payment packs (UPI/Card/BNPL/Wallet).
+      properties:
+        "@context":
+          type: string
+          format: uri
+          example: "https://becknprotocol.io/schemas/core/v1/Payment/schema-context.jsonld"
+        "@type":
+          type: string
+          enum: ["beckn:Payment"]
+          x-jsonld: { "@id": "schema:Thing" } # specific aspects map to PaymentMethod/PaymentStatusType
+        beckn:id:
+          type: string
+          description: Payment record identifier
+          x-jsonld: { "@id": "schema:identifier" }
+        beckn:method:
+          type: string
+          description: Rail/method code (e.g., CARD, UPI, BNPL, WALLET)
+          x-jsonld: { "@id": "schema:paymentMethod" }
+        beckn:status:
+          type: string
+          description: Payment lifecycle status (Pending | Authorized | Captured | Failed | Refunded | PartialRefund …)
+          x-jsonld: { "@id": "schema:paymentStatus" } # schema:PaymentStatusType vocabulary
+        beckn:amount:
+          type: object
+          description: Amount associated with this payment action
+          properties:
+            currency: { type: string, x-jsonld: { "@id": "schema:priceCurrency" } }
+            value:    { type: number, x-jsonld: { "@id": "schema:price" } }
+        beckn:txnRef:
+          type: string
+          description: PSP/gateway/bank transaction reference
+          x-jsonld: { "@id": "schema:transactionNumber" }
+        beckn:paidAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the last terminal event (capture/refund) happened
+          x-jsonld: { "@id": "schema:paymentDueDate" } # closest temporal anchor for payment events
+        beckn:paymentAttributes:
+          $ref: "#/components/schemas/Attributes"
+          description: > 
+            Rail-specific attribute pack (e.g., UPI: VPA/UTR; CARD: token/3DS; BNPL: plan/schedule)
+
+    # -----------------------------
+    # PARTY (core)
+    # -----------------------------
+    Party:
+      type: object
+      additionalProperties: false
+      required: ["@context","@type","beckn:id"]
+      # A minimal entity that can represent either a Person or an Organization.
+      # Full identity, contact, or KYC details are supplied via party attribute packs.
+      properties:
+        "@context":
+          type: string
+          format: uri
+          example: "https://becknprotocol.io/schemas/core/v1/Party/schema-context.jsonld"
+        "@type":
+          type: string
+          enum: ["beckn:Party"]
+          x-jsonld: { "@id": "schema:Thing" } # resolved through @role into schema:Person or schema:Organization
+        beckn:id:
+          type: string
+          description: Unique identifier for this party (personId or orgId in legacy schema)
+          x-jsonld: { "@id": "schema:identifier" }
+        beckn:role:
+          type: string
+          enum: ["BUYER","SELLER","INTERMEDIARY","PAYER","PAYEE","FULFILLER"]
+          description: The functional role of this party in the transaction.
+          x-jsonld: { "@id": "schema:roleName" }
+        beckn:displayName:
+          type: string
+          description: Human-readable display name
+          x-jsonld: { "@id": "schema:name" }
+        beckn:partyAttributes:
+          $ref: "#/components/schemas/Attributes"
+          description: > 
+            Attribute Pack reference for richer identity:
+            # party/identity.v1 (contact details: email, phone, address)
+            # party/org-ids.v1 (LEI, GSTIN, ISIN, CUSIP…)
+            # party/kyc.v1 (jurisdictional compliance fields)
+            # party/preferences.v1 (delivery preferences, accessibility needs, etc.)
