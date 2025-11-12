@@ -1,42 +1,70 @@
-# Keyword Definitions for Technical Specifications
+# BECKN-010:Keyword Definitions for Technical Specifications
 
-#### CWG Working Draft - September 01, 2023
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Document Details
-### This version
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-### Latest published version
-None
+## Category:
+Keywords for Technical Specification
 
-### Latest editor's draft
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md
+## Published on:
+January 21, 2022
 
-### Implementation report
-TODO
+## Last Updated on:
+July 8th, 2024
 
-### Editors
-Ravi Prakash (FIDE)
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md) to view the history of changes to this document
 
-### Authors
-Ravi Prakash (FIDE)
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-010)
 
-### Feedback
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-010)
 
-Issues: TODO
-Discussions: TODO
-PRs: TODO
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
-### Errata
-No Errata exists as of now
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
-## Abstract
+# Abstract
 
 This document outlines the definitions of key words that are commonly used in technical specifications, standards, and protocols. The aim is to provide a uniform interpretation of these terms to avoid ambiguity and misinterpretation.
 
-## Introduction
+# Scope
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described below. These definitions aim to ensure that the terms are understood precisely and consistently to avoid confusion in the interpretation of standards, specifications, and protocols.
+This document is intended for the following audience:
+
+1. Anyone reading or writing beckn protocol technical specifications
+2. Developers implementing beckn protocol requirements
+3. Quality assurance teams testing beckn implementations
+4. Technical writers creating beckn documentation
+
+## Prerequisites
+
+Readers of this document must:
+
+1. Have knowledge of technical documentation standards
+2. Have understanding of RFC 2119 terminology
+3. Have basic knowledge of beckn protocol concepts
+
+# Introduction
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [rfc 2119](https://datatracker.ietf.org/doc/html/rfc2119). These definitions aim to ensure that the terms are understood precisely and consistently to avoid confusion in the interpretation of standards, specifications, and protocols.
+
+# Problem
+
+How to ensure consistent interpretation of technical requirements and specifications across all beckn protocol implementations and documentation?
+
+# Solution
+
+Implement standardized keyword definitions based on RFC 2119 that provide clear, unambiguous meaning to requirement levels in technical specifications.
+
+# Implementation Details
 
 ## Definitions
 
@@ -80,6 +108,8 @@ The term "MAY" indicates that an item is truly optional.
 
 The term "OPTIONAL" is synonymous with "MAY".
 
+# Examples
+
 ## Examples and Correct Usage
 
 In this section, we provide examples that demonstrate the correct usage of the key words defined in this document. The examples are related to a hypothetical Beckn Application Platform (BAP) that interacts with a Beckn Provider Platform (BPP) using beckn protocol APIs.
@@ -94,10 +124,14 @@ In this section, we provide examples that demonstrate the correct usage of the k
 ### Example 2: Using "RECOMMENDED" and "SHOULD"
 - RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a `Catalog` that best matches the `Intent`. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to the use case.
 
-## Conclusion
+# Recommendations
 
-The definitions provided in this document are intended to clarify the interpretation of key terms used in technical specifications, standards, and protocols. Adherence to these definitions will ensure a consistent understanding and implementation of such documents.
+[Recommendations section to be added with best practices for using technical keywords]
 
-> Note : This document is subject to change and may be updated to include additional terms or to refine existing definitions.
+# Acknowledgements
 
+The authors would like to thank the following people for their support and contributions to this document. 
 
+* Pramod Varma (Beckn Foundation)
+* Sujith Nair (Beckn Foundation)
+* Venkataramanan Mahadevan (Humbhionline)

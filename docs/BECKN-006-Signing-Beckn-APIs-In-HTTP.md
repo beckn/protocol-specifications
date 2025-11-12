@@ -1,10 +1,74 @@
-# Signing Beckn APIs in HTTP - Draft 04
+# BECKN-006:Signing Beckn APIs in HTTP
 
-## Context
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+## Category:
+Authentication
+
+## Published on:
+January 21, 2022
+
+## Last Updated on:
+July 8th, 2024
+
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-006-Signing-Beckn-APIs-In-HTTP.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-006)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-006)
+
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
+
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
+
+# Abstract
+
+When communicating over HTTP using Beckn APIs, the subscribers need to authenticate themselves to perform transactions with other subscribers. Due to the commercial nature of the transactions, every request/callback pair is considered to be a "contract" between two parties. Therefore, it is imperative that all requests and callbacks are digitally signed by the sender and subsequently verified by the receiver. This document describes a way for network subscribers (BAP/BPPs) and proxy subscribers (BGs) to simultaneously add authentication and message integrity to HTTP messages by using digital signatures.
+
+# Scope
+
+This document is intended for the following audience:
+
+1. Anyone implementing beckn protocol authentication systems
+2. BAP, BPP, and BG developers implementing digital signatures
+3. Security architects designing beckn-enabled networks
+4. Quality assurance teams testing authentication implementations
+
+## Prerequisites
+
+Readers of this document must:
+
+1. Have knowledge of the core beckn protocol specification
+2. Have understanding of digital signatures and cryptography
+3. Have knowledge of HTTP headers and authentication
+4. Have understanding of public key infrastructure (PKI)
+
+# Introduction
+
 When communicating over HTTP using Beckn APIs, the subscribers need to authenticate themselves to perform transactions with other subscribers. Due to the commercial nature of the transactions, every request/callback pair is considered to be a "contract" between two parties. Therefore, it is imperative that all requests and callbacks are digitally signed by the sender and subsequently verified by the receiver.
 Furthermore, it is also desirable to ensure that the message was not altered or tampered with during transit.
 This document describes a way for network subscribers (BAP/BPPs) and proxy subscribers (BGs) to simultaneously add authentication and message integrity to HTTP messages by using digital signatures. How the signatures are generated and the format of those signatures is out of scope of this document and can be found in this IETF document - [Signing HTTP Messages](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12).
 This document specifies the algorithms used in generating the keys, how to construct the signing strings being passed in the headers. Also, it specifies clearly the format of the HTTP headers used for authenticating BAP, BPPs and BGs.
+
+# Problem
+
+How to ensure secure, authenticated, and tamper-proof communication between beckn network participants while maintaining message integrity and non-repudiation?
+
+# Solution
+
+Implement a digital signature-based authentication system using Ed25519 signatures and BLAKE-512 hashing that allows network participants to authenticate themselves and verify message integrity during HTTP communication.
+
+# Implementation Details
 
 ## Subscriber Authentication
 
@@ -68,7 +132,7 @@ qK3Uvd39k+SHfSdG5igXsRY2Sh+nvBSNlQkLxzM7NnP4JAHPeqLkyx7NkCluPxTLVBP47Xe+cwRbE5FM
 ## Signing Algorithm
 To digitally sign the signing string, the subscribers should use the "ed25519" signature scheme.
 
-### Example Flow (BAP <=> BG <=> BPP)
+## Example Flow (BAP <=> BG <=> BPP)
 
 ### Step 1 : BAP signs request and calls BG
 Let the below be the request body in this example : 
@@ -77,7 +141,7 @@ Let the below be the request body in this example :
 {"context":{"domain":"nic2004:60212","country":"IND","city":"Kochi","action":"search","core_version":"0.9.1","bap_id":"bap.stayhalo.in","bap_uri":"https://8f9f-49-207-209-131.ngrok.io/protocol/","transaction_id":"e6d9f908-1d26-4ff3-a6d1-3af3d3721054","message_id":"a2fe6d52-9fe4-4d1a-9d0b-dccb8b48522d","timestamp":"2022-01-04T09:17:55.971Z","ttl":"P1M"},"message":{"intent":{"fulfillment":{"start":{"location":{"gps":"10.108768, 76.347517"}},"end":{"location":{"gps":"10.102997, 76.353480"}}}}}}
 ```
 
-Let BAP’s keys be :
+Let BAP's keys be :
 
 ```
 signing_public_key=awGPjRK6i/Vg/lWr+0xObclVxlwZXvTjWYtlu6NeOHk=
@@ -123,10 +187,8 @@ Signature keyId="example-bap.com|ae3ea24b-cfec-495e-81f8-044aaef164ac|ed25519",a
 
 8. Finally the BAP includes the `Authorization` header in the request and calls the BG API
 
-
 **Note:**
 The `expires` value should not be more than the expiration time of the key used for signing the request. If the expires value appears to be going beyond the lifespan of the signing key, generate a new key and update it on the registry OR use an existing registered key with an expiry time greater than the `expires` value of the signature.
-
 
 ### Step 2 : BG verifies BAP signature
 
@@ -168,9 +230,8 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
 
 **NOTE : If the network policy does not allow more than one key-pair per subscriber on the registry, then the `unique_key_id` component is NOT NEEDED in the `keyId` attribure. In such a case, the Authorization header will look like this. 
 
-
 ### Step 3 : BG signs request before forwarding request to BPP
-Let the BG’s keys be :
+Let the BG's keys be :
 
 ```
 signing_public_key=7YRZXVeIJ0/Va56vYgzT1Uirg6mnq3FY0MBZY9DJft0=
@@ -216,8 +277,6 @@ Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",al
 3. The difference between the `created` and the `expires` field should be equal to the TTL of the request.
 4. Also, the `expires` value should not be more than the expiration time of the key used for signing the request. If the expires value appears to be going beyond the lifespan of the signing key, generate a new key and update it on the registry via subscribe API OR use an existing registered key with an expiry time greater than the `expires` value of the signature
 
-
-
 ### Step 4 : BPP verifies BG signature
 The BPP performs the following steps to authenticate the BAP and the BG and also ensure message integrity.
 
@@ -254,8 +313,6 @@ Proxy-Authenticate: Signature realm="example-bpp.com",headers="(created) (expire
 }
 ```
 
-
-
 ### Step 5 : BPP verifies BAP signature
 The BPP performs the following steps to authenticate the BAP and also ensure message integrity during transit.
 
@@ -287,8 +344,6 @@ WWW-Authenticate: Signature realm="example-bpp.com",headers="(created) (expires)
 }
 ```
 
-
-
 ### Step 6 : BPP signs callback and calls BG
 The BPP performs the following steps to create the Authorization header
 
@@ -312,8 +367,6 @@ Signature keyId="example-bpp.com|74b43deb-236e-4498-8f5a-ca75d6c67b9d|ed25519",a
 ```
 
 9. Finally the BPP includes the Authorization header in the request and calls the BG API.
-
-
 
 ### Step 7 : BG verifies BPP signature
 The BG performs the following steps to authenticate the BPP and also ensure message integrity.
@@ -346,7 +399,6 @@ WWW-Authenticate: Signature realm="example-bg.com",headers="(created) (expires) 
 }
 ```
 
-
 ### Step 8 : BG signs callback before calling BAP
 Before forwarding the request to the BAP, the BG performs the following steps to create the X-Gateway-Authorization header
 
@@ -375,7 +427,6 @@ Signature keyId="example-bg.com|dfb974ea-9113-4089-9a2d-77552b50624e|ed25519",al
 
 1. The difference between the `created` and the `expires` field should be equal to the TTL of the request.
 2. Also, the `expires` value should not be more than the expiration time of the key used for signing the request. If the expires value appears to be going beyond the lifespan of the signing key, generate a new key and update it on the registry via subscribe API OR use an existing registered key with an expiry time greater than the `expires` value of the signature.
-
 
 ### Step 9 : BAP verifies BG signature
 The BAP performs the following steps to authenticate the BAP and the BG and also ensure message integrity.
@@ -408,7 +459,6 @@ HTTP/1.1 401 Unauthorized
 }
 ```
 
-
 ### Step 10 : BAP verifies BPP signature
 The BAP performs the following steps to authenticate the BAP and also ensure message integrity during transit.
 
@@ -428,7 +478,6 @@ WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires)
 ...
 ```
 
-
 **Request Body:**
 
 ```
@@ -440,3 +489,19 @@ WWW-Authenticate: Signature realm="example-bap.com",headers="(created) (expires)
     }
 }
 ```
+
+# Examples
+
+[Examples section to be added with concrete signature implementation scenarios]
+
+# Recommendations
+
+[Recommendations section to be added with best practices for signature implementation]
+
+# Acknowledgements
+
+The authors would like to thank the following people for their support and contributions to this document. 
+
+* Pramod Varma (Beckn Foundation)
+* Sujith Nair (Beckn Foundation)
+* Venkataramanan Mahadevan (Humbhionline)

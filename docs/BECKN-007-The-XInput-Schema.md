@@ -1,55 +1,72 @@
-# The XInput Schema
-#### CWG Working Draft - November 08, 2022
+# BECKN-007:The XInput Schema
 
-## Document Details
-### This version
-https://github.com/beckn/protocol-specifications/blob/release-1.x/docs/BECKN-007-The-XInput-Schema.md
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-### Latest published version
-TODO
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-### Latest editor's draft
-TODO
+## Category:
+XInput
 
-### Implementation report
-TODO
+## Published on:
+January 21, 2022
 
-### Editors
-Ravi Prakash (Beckn Foundation)
+## Last Updated on:
+July 8th, 2024
 
-### Authors
-Ravi Prakash (Beckn Foundation)
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-007-The-XInput-Schema.md) to view the history of changes to this document
 
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-007)
 
-### Feedback
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-007)
 
-Issues: TODO
-Discussions: TODO
-PRs: TODO
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
-### Errata
-No Errata exists as of now
+# Abstract
 
+Beckn protocol defines a domain-agnostic specification that can be used to represent any customer-provider transaction by implementing a standard set of APIs and schema. Creating a transaction ideally involves the customer discovering products and services offered by various providers, selecting the desired products or services, obtaining the terms of service and payment, and then finally confirming the order. Sometimes, the provider might require additional metadata in order to confirm a transaction. This document defines the XInput schema that allows providers to collect additional information from customers without extending the core transaction protocol.
 
-## Context
+# Scope
+
+This document is intended for the following audience:
+
+1. Anyone implementing beckn protocol with custom data collection requirements
+2. BPP developers requiring additional customer information
+3. BAP developers implementing form handling
+4. Network facilitators defining data collection policies
+
+## Prerequisites
+
+Readers of this document must:
+
+1. Have knowledge of the core beckn protocol specification
+2. Have understanding of HTML forms and XForms 2.0
+3. Have knowledge of JSON Schema and Open API 3.0
+
+# Introduction
+
 Beckn protocol defines a domain-agnostic specification that can be used to represent any customer- provider transaction by implementing a standard set of APIs and schema. Creating a transaction ideally involves the customer discovering products and services offered by various providers, selecting the desired products or services, obtaining the terms of service and payment, and then finally confirming the order. But sometimes,  the provider might require additional metadata in order to confirm a transaction. This requirement may be due to legal requirements imposed by the regulatory authorities, or business requirements to allow better serviceability. 
 
-For example, a logistics service provider might require additional information from the logistics customer (like a restaurant) like the dimensions of the package, category of items (food, flammable, fragile etc), approximate weight of the package, the order Number etc,
-
-to confirm the order. All of this information needs to be transmitted to the person availing the logistics service. 
+For example, a logistics service provider might require additional information from the logistics customer (like a restaurant) like the dimensions of the package, category of items (food, flammable, fragile etc), approximate weight of the package, the order Number etc, to confirm the order. All of this information needs to be transmitted to the person availing the logistics service. 
 
 Similarly, a healthcare service might want the patient to provide information like, their medical history, a description of their symptoms, details of the insurance, etc, before confirming the order.  
 
 The nature of additional information required could vary significantly across sectors. These fields could be varied and many, and adding them as protocol attributes would make the protocol bulky and cluttered. 
 
-
-## Problem
+# Problem
 
 We require an object that captures additional information (over and above what has been published in the catalog) from the customer regarding the item being ordered without extending the core transaction protocol.
 
-
-## Solution
+# Solution
 
 It is probably not such a good idea to transmit such required data fields as first class citizens of the transaction protocol, rather transmit them in some sort of a custom form object. This form could be a simple HTML form hosted on a url endpoint or transmitted as a whole as per standard form specifications like [XForms 2.0](https://www.w3.org/TR/xforms20/).
 
@@ -109,7 +126,7 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
    properties:
      code:
        type: string
-       description: For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo
+       description: For full list of error codes, refer to docs/BECKN-005-Error-Codes.md of this repo
      path:
        type: string
        description: Path to json schema generating the error. Used only during json schema validation errors
@@ -121,14 +138,16 @@ It starts with a schema called `XInput` of type `Form`. The definition of `Form`
      - path
 ```
 
-### Usage
+# Implementation Details
+
+## Usage
 The `XInput` object can be found in the following schemas
 1. Item
 2. Order
 3. Feedback
 4. CancellationTerm 
 
-#### Usage in the `Item` schema
+### Usage in the `Item` schema
 ```
 Item:
     type: object
@@ -138,7 +157,8 @@ Item:
         ...
 ```
 This usage means that the BAP user is expected to provide additional information over and above the ID of 
-#### Usage in the `Order` schema
+
+### Usage in the `Order` schema
 ```
 Order:
     type: object
@@ -148,9 +168,7 @@ Order:
         ...
 ```
 
-```
-
-#### Usage in the `CancellationTerm` schema
+### Usage in the `CancellationTerm` schema
 ```
 CancellationTerm:
     type: object
@@ -159,20 +177,19 @@ CancellationTerm:
             $ref: '#/components/schemas/XInput'
         ...
 ```
-### Recommendations for BPPs
+
+## Recommendations for BPPs
 
 The following recommendations are for BPPs who will create the form to be rendered on BAPs and receive the submissions from it. 
 
-
-#### Declaring the form 
+### Declaring the form 
 
 - BPPs that require additional information pertaining to individual items being ordered to confirm an order, must send the `xinput` object in the `Item` schema with a form object containing a link to the form with item-specific fields. For example, a person buying an airline ticket containing two flights - an onward Journey by Etihad and a return journey by Lufthansa might have to provide his Etihad membership code for his onward journey. For his return journey, Lufthansa might require them to declare their luggage dimensions, and upload a Covid-19 vaccination certificate. 
 - If BPPs require additional information pertaining to the order as a whole, they must send the xinput object in the Order schema containing a link to the form with order-specific information. For example, a cash on delivery grocery order from a store might require the store owner to declare the amount to be collected, the number of items, package category, and the weight of the package before placing the order. 
 - If the form is cacheable, then it is recommended for BPPs to send the form link during `on_search` itself.
 - If the form is dynamic, then it is recommended for BPPs to send the form link during `on_select`, or `on_init` wherever applicable.
 
-
-#### Modeling the form
+### Modeling the form
 
 - BPPs can model the form in two ways namely, a) using HTML5 Forms, or b) xForms 2.0 objects
 - For creating HTML Forms, please refer to [this](https://www.w3schools.com/html/html_forms.asp) tutorial
@@ -191,15 +208,13 @@ The following recommendations are for BPPs who will create the form to be render
 - It is _not recommended_ for BPPs to send `button` tags along with HTML forms as BAPs may render the CTA for form submission according to their UI
 - For XForms 2.0 submissions, the BPP can send the &lt;xforms:submission /> tag to specify submission URL, but it will not be rendered at the BAP. 
 
+### Handling form requests
 
-#### Handling form requests
-
-- The form must be hosted on a trusted url, preferably with the same domain name as the BPP’s subscriber_id to avoid security-related errors thrown by BAPs. 
+- The form must be hosted on a trusted url, preferably with the same domain name as the BPP's subscriber_id to avoid security-related errors thrown by BAPs. 
 - When requested on HTTP, the BPPs must return Content-type: text/html or application/xml in the response body headers. 
 - It is _recommended_ to send a unique nonce value in UUID format whenever it receives a form request from a BAP and persist it until a submission matches the nonce or the form expires
 
-
-#### Handling form submissions
+### Handling form submissions
 
 - The form submission method must always be a HTTP/POST when using HTTP as a transport layer. Example: `<form action="url" method="post">`
 - The form submission API must also be on the same domain name as the BPP subscriber_id to avoid security-related errors thrown by BAPs
@@ -212,40 +227,34 @@ The following recommendations are for BPPs who will create the form to be render
     * Generate a **FormResponse** object and return it as an `application/json` response
 - BPPs must persist this UUID at their ends so that they can match each submission with the corresponding confirm API call
 
-
-#### Linking form submission to existing transactions
+### Linking form submission to existing transactions
 
 * After successful form submissions, the BPP should ideally receive a confirm API call containing references to the submissions.
 * The form submission references can be found in Order.items[ ].xinput_required.form.submission_id, and Order.xinput_required.form.submission_id fields.
 
-
-#### Discarding Form Submissions
+### Discarding Form Submissions
 * The BPP can choose to discard the form submissions if the confirm API call does not arrive within a specified time window after the form has been submitted
 
-
-### Recommendations for BAPs
+## Recommendations for BAPs
 The following recommendations are for BAPs who will render the form to its users and send the submissions to the BPPs. 
 
-
-#### Identifying form declarations
+### Identifying form declarations
 * BAPs can identify required item-specific form inputs by parsing the Item schema received in on_search callbacks.
 * BAPs must also check for required order-specific form inputs by parsing the Order schema received in on_select, and on_init callbacks.
 * The BAP may choose to cache the form by calling the `{Item}.xinput.form.url` endpoint from its API endpoint.
 * It should expect either an HTML or an Xforms 2.0 object as a response. If the response body header has Content-type: text/html, then it should expect an HTML form object. If it is application/xml, it should expect an xForms 2.0 model object.
 
-
-#### Rendering the form
+### Rendering the form
 * BAPs should render their forms typically any time before confirming the order
 * For item-specific inputs, BAPs should typically render the form when the user selects the item for ordering
 * For order-specific inputs, BAPs should typically render the form
 * BAPs should remove any script, style, and button tags when rendering the form inside their own UI
 
-
-#### Submitting the form
+### Submitting the form
 * BAPs should submit the form data on the submission url specified in the form object via a HTTP/POST request.
 * For HTML forms the submission url will be present in the action attribute of the form tag as highlighted in the example below
 ```
-<form **action="http://example.com/submitForm" method=”post”**> … </form>
+<form **action="http://example.com/submitForm" method="post"**> … </form>
 ```
 
 * For xForms 2.0 forms, the submission url will be present in the action attribute of the xform:submissions tag as highlighted in the example below
@@ -257,8 +266,7 @@ The following recommendations are for BAPs who will render the form to its users
 * When submitting the form, the BAPs must _digitally sign_ the request body in the request header
 * All form submissions must be digitally signed by the BAP
 
-
-#### Handling form submission responses
+### Handling form submission responses
 
 * Form responses are received in the **FormResponse** object
 * The FormResponse object contains status, submission_id and an error array
@@ -271,18 +279,19 @@ The following recommendations are for BAPs who will render the form to its users
     	throw an exception based on the data inside the error object
 ```
 
-#### Post-Form Submission
-After successful submission of the form, the BAP must ideally, send the submission_id received in the previous submission and send it in the corresponding item’s xinput.form.submission_id field, in the confirm API.
+### Post-Form Submission
+After successful submission of the form, the BAP must ideally, send the submission_id received in the previous submission and send it in the corresponding item's xinput.form.submission_id field, in the confirm API.
 
-### Recommendations for Network Facilitators
+## Recommendations for Network Facilitators
 - Network Faciliators should publish a list of supported fields with their datatypes that can be used to create forms. This is to reduce form misuse through over-collection of data, and privacy protection.
 - These fields can be the same as supported `Tags` list published by networks
 - The IDs of the inputs are the codes 
 
-## Examples
+# Examples
+
 The following examples show how XInput can be used by BPPs to collect additional information from the user before confirming the order. 
 
-### Example 1 : A logistics provider wants additional information on the nature of the package just before placing the order
+## Example 1 : A logistics provider wants additional information on the nature of the package just before placing the order
 
 In this example, the Logistics BPP can create a XInput object containing a link the the following form
 
@@ -313,8 +322,7 @@ The BPP can choose to send this form at an Item level or at an order level. To k
 
 Let us assume, the Logistics BAP has already declared the intent (via search), received the catalogs (via on_search), selected a specific item ( via select), and has received a quote(via on_select).
 
-
-#### Form identification
+### Form identification
 
 When the BAP calls init, the Logistics BPP sends the following order object
 
@@ -356,19 +364,15 @@ When the BAP calls init, the Logistics BPP sends the following order object
 }
 ```
 
-
-
-#### Form Fetching from BPP
+### Form Fetching from BPP
 
 When the Logistics BAP receives this object via on_init, it must pull the form data from the order.xinput.form.url field and render the form on the UI. It is recommended that the Logistics BAP keeps watching for the xinput field at the item and order level. 
 
-
-#### Form Rendering on the BAP
+### Form Rendering on the BAP
 
 Once pulled the BAP can render the form as-is on its UI, but it is not recommended, as doing so would result in a sub-optimal user experience. This is how the form will look if the BAP renders the form as-is using an HTML parser.
 
 ![](https://user-images.githubusercontent.com/52468749/188610013-a97b6332-be73-4331-8edf-1cee807cf304.png)
-
 
 However, the BAP application can apply any styling framework (like css) on the form and render it as per the style guide of the application. 
 
@@ -395,11 +399,11 @@ The BPP will receive the confirm call with the submission_id as reference. It wi
 
 Now the BPP has all the information required to confirm the order. It can either go ahead with the confirmation or reject the request if applicable.
 
-### Example 2: A health & wellness service provider wants additional information about the patient's symptoms before confirming a teleconsultation appointment. The provider and customer are on apps that are DHP-enabled (beckn protocol for health and wellness).
+## Example 2: A health & wellness service provider wants additional information about the patient's symptoms before confirming a teleconsultation appointment. The provider and customer are on apps that are DHP-enabled (beckn protocol for health and wellness).
 
 [TODO]
 
-### Example 3: A recruitment agency wants additional information about the candidate before confirming a job application. The provider and customer are on apps that are DSEP-enabled (beckn protocol for education and skilling). 
+## Example 3: A recruitment agency wants additional information about the candidate before confirming a job application. The provider and customer are on apps that are DSEP-enabled (beckn protocol for education and skilling). 
 
 ```
    <form action="https://api.example-bpp.com/candidateDetails" name="job_application" method="post">
@@ -424,14 +428,14 @@ Now the BPP has all the information required to confirm the order. It can either
    </form>
 ```
 
-### Example 4: A flight booking system wants the passenger to declare his Covid vaccination status before confirming the booking.  
+## Example 4: A flight booking system wants the passenger to declare his Covid vaccination status before confirming the booking.  
 
 ```
    <form action="https://api.example-bpp.com/covidDeclaration" name="covid_declaration_form" method="post">
      <input type="radio" id="vaccinated" name="vaccination_status" value="true">
-     <label for="vaccinated">Yes</label>
-     <input type="radio" id="not_vaccinated" name="vaccination_status" value="false">
-     <label for="not_vaccinated">No</label>
+    <label for="vaccinated">Yes</label>
+    <input type="radio" id="not_vaccinated" name="vaccination_status" value="false">
+    <label for="not_vaccinated">No</label>
      <label for="from_addr">Enter the address you are travelling from </label>
      <input type="text" id="from_addr" name="from_address" />
      <label for="from_addr">Enter the address where you are travelling to</label>
@@ -440,7 +444,7 @@ Now the BPP has all the information required to confirm the order. It can either
    </form>
 ```
 
-### Example 5: A mentor can seek additional information about a mentee before accepting the mentee's request for enrollment into the session(1-1 session as well as 1-many sessions). The provider and customer are on apps that are DSEP-enabled (Beckn protocol for education and skilling).
+## Example 5: A mentor can seek additional information about a mentee before accepting the mentee's request for enrollment into the session(1-1 session as well as 1-many sessions). The provider and customer are on apps that are DSEP-enabled (Beckn protocol for education and skilling).
 
 In this case, the on_init BPP passes the form URL to BAP, which is rendered and filled by the mentee on BAP. The BAP then sends the acknowledgment ID received after the submission of the form in the confirm API call to BPP.
 
@@ -463,7 +467,11 @@ An example of a form can be as below:-
    </form>
 ```
 
-## Acknowledgements
+# Recommendations
+
+[Recommendations section to be added with best practices for XInput implementation]
+
+# Acknowledgements
 
 The authors would like to thank the following people for their support and contributions to this document. 
 

@@ -1,55 +1,58 @@
-# Document Details
-## Supported Protocol Version
+# BECKN-009:Tags, the Edge of Beckn
 
-TODO
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-## This version
+## Category:
+Tags
 
-TODO
+## Published on:
+January 21, 2022
 
+## Last Updated on:
+July 8th, 2024
 
-## Latest published version
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-009-Tags-the-Edge-of-Beckn.md) to view the history of changes to this document
 
-TODO
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-009)
 
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-009)
 
-## Latest editor's draft
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
-TODO
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
-## Stress Test report
+# Abstract
 
-TODO
+Beckn protocol is a generic transaction protocol that allows any producer and consumer to interact and perform digitally signed transactions via a standard set of APIs. The schema of beckn has been abstracted to a level that allows any real-world entity to be represented as a generic object. This document defines two schemas, namely, **TagGroup** and **Tag**, that allow groups of key-value pairs to be transmitted between network participants as metadata without breaking interoperability across implementations.
 
-## Implementation report
+# Scope
 
-TODO
+This document is intended for the following audience:
 
+1. Anyone implementing beckn protocol with extended metadata requirements
+2. BPP developers adding product/service metadata
+3. BAP developers displaying additional information
+4. Network facilitators defining metadata standards
 
-## Editors
-Ravi Prakash (Beckn Foundation)
+## Prerequisites
 
+Readers of this document must:
 
-## Authors
-Ravi Prakash (Beckn Foundation)
+1. Have knowledge of the core beckn protocol specification
+2. Have understanding of metadata and key-value pairs
+3. Have knowledge of JSON Schema and Open API 3.0
 
-
-## Feedback
-
-Issues: TODO
-
-Discussions : TODO
-
-PRs : TODO
-
-
-## Errata
-
-No Errata exists as of now
-
-
-# Context
+# Introduction
 
 Beckn protocol is a generic transaction protocol that allows any producer and consumer to interact and perform digitally signed transactions via a standard set of APIs. The schema of beckn has been abstracted to a level that allows any real-world entity to be represented as a generic object. 
 
@@ -61,23 +64,21 @@ A car rental provider might want to send additional information on the make, mod
 
 Similarly, a hospitality service provider may want to transmit additional information related to a room like AC/Non-AC, WiFi availability, Breakfast included, etc to allow the customer to choose the right room for themselves.
 
-As you can see from the above examples, the above information is not strictly necessary for an order to be created. But rather as metadata for display purposes, grouping, and filtering at the consumer’s end; and for enabling search optimization at the provider’s end.
-
+As you can see from the above examples, the above information is not strictly necessary for an order to be created. But rather as metadata for display purposes, grouping, and filtering at the consumer's end; and for enabling search optimization at the provider's end.
 
 # Problem
 
-How to transmit extended metadata related to a transaction in beckn protocol without breaking interoperability across implementations.
-
+How to transmit extended metadata related to a transaction in beckn protocol without breaking interoperability across implementations?
 
 # Solution
 
 Beckn protocol defines three schemas, namely, **Tags, TagGroup **and** Tag**, that allow groups of key-value pairs to be transmitted between network participants as metadata. Let us look at them in more detail.
 
+# Implementation Details
 
 ## The **Tags** schema
 
 The Tags schema is an array of TagGroup objects. This contains all the extended metadata about the container object. The schema is represented below
-
 
 ```
 components:
@@ -88,7 +89,6 @@ components:
        items:
          $ref: "#/components/schemas/TagGroup"
 ```
-
 
 The Tags schema is explicitly referenced in the following schemas.
 
@@ -102,12 +102,11 @@ The Tags schema is explicitly referenced in the following schemas.
 * Provider.tags
 * Order.tags
 
-However, this can be added to _any_ schema to carry extended metadata under the reserved keyname “tags”.
-
+However, this can be added to _any_ schema to carry extended metadata under the reserved keyname "tags".
 
 ## The **TagGroup** Schema
 
-The TagGroup schema defines a key-value set that can be listed under a common heading. Examples of key-value sets are Nutritional Information, Technical Specifications, Manufacturer Information, etc. Each of these headings contain a set of key-value pairs that contain additional metadata specific to that heading. For example, the Tag Group named “Nutritional Content” might contain a key-value set containing _kcal = 100, carbohydrates = 11g, protein = 0.2g, fat = 0.11g,_ etc. Similarly, a Tag group named “Technical Specifications” for a mobile phone product may contain a key-value set containing _RAM = 12GB, Display Size = 6.5in, Weight = 128g, Processor = Snapdragon 855,_ and so on. 
+The TagGroup schema defines a key-value set that can be listed under a common heading. Examples of key-value sets are Nutritional Information, Technical Specifications, Manufacturer Information, etc. Each of these headings contain a set of key-value pairs that contain additional metadata specific to that heading. For example, the Tag Group named "Nutritional Content" might contain a key-value set containing _kcal = 100, carbohydrates = 11g, protein = 0.2g, fat = 0.11g,_ etc. Similarly, a Tag group named "Technical Specifications" for a mobile phone product may contain a key-value set containing _RAM = 12GB, Display Size = 6.5in, Weight = 128g, Processor = Snapdragon 855,_ and so on. 
 
 The TagGroup schema is represented as shown below,
 
@@ -138,13 +137,11 @@ The TagGroup schema is represented as shown below,
              $ref: "#/components/schemas/Tag"
 ```
 
-
-As you can see, the TagGroup is of type “object” contains four properties,
-
+As you can see, the TagGroup is of type "object" contains four properties,
 
 1. **code**: This contains a machine-readable name of the group. 
-2. **display**: This indicates whether a particular TagGroup is for display purposes. It has been modeled after the CSS “display” property. If it is equal to block, then the respective tag group has to be rendered as a block of key-value pairs. If it is none, then this block should not be rendered and is for internal consumption between platforms only.   
-3. **name**: This contains the name of the group like “Product Information”, “Technical Specifications”, etc
+2. **display**: This indicates whether a particular TagGroup is for display purposes. It has been modeled after the CSS "display" property. If it is equal to block, then the respective tag group has to be rendered as a block of key-value pairs. If it is none, then this block should not be rendered and is for internal consumption between platforms only.   
+3. **name**: This contains the name of the group like "Product Information", "Technical Specifications", etc
 4. **list** : this is an array of Tag objects. (see next section)
 
 ## The **Tag** Schema
@@ -152,7 +149,6 @@ As you can see, the TagGroup is of type “object” contains four properties,
 The tag schema contains a key-value pair containing the actual extended metadata to be communicated. 
 
 The Tag schema is shown below.
-
 
 ```
  components:
@@ -172,93 +168,33 @@ The Tag schema is shown below.
            type: string
 ```
 
-
 As you can see, the Tag schema has the following properties
-
-
 
 1. **key** : The machine-readable name of the tag. This is generally a standard value that must be mutually agreed at a network level.  
 2. **name**: The display name of the key. This is non-standard and can be set by the creator. For example, there could be two providers who sell mobile phones. One of them 
 3. **value** : This contains the associated value of the key
 
-The **Tag** schema is referenced in the **TagGroup** schema in its property - “list”.
-
-
-# Recommendations
-
-This section contains recommendations for entities using the Tag schema.  
-
-
-### For BPPs
-
-1. BPPs must group various key-value pairs under a common 
-2. BPPs must mandatorily send the tags that have been mandated by the network policy
-3. The value of the “key” field is recommended to be in the snake-case format. 
-4. Non-standard tags must be prefixed by a namespace defined by the creator of the tags. To ensure namespace uniqueness, it is recommended that the namespace contain the FQDN of the creator of the tag. 
-5. BPPs are recommended index their catalog, carts and order books using these tags to allow better searchability 
-
-
-### For BAPs
-
-1. BAPs must render or not render the tags according to the “display” property of its parent tag group. 
-2. BAPs must render the tags that have been mandated by the network policy
-3. BAPs can also use these tags to create recommendations or allow comparisons between items basis a specific property
-4. It is recommended that BAPs have a “Report” feature that allows a user to report missing attributes. 
-
-
-### For Network Facilitators
-
-1. Certain Tag keys can be mandated to be sent by BPPs to enable compliance to statutory laws
-2. Certain Tag names can also be standardized to enable BAPs to provide consistent customer experience. 
-3. Certain Tag groups can be mandated to be hidden or rendered by BAPs
-4. Network facilitators should refer to standard supported tags maintained by domain-specific working groups when creating tag lists. 
-5. Tags not found in lists maintained by domain-specific working groups, should be namespaced with a unique network level identifier, usually the FQDN of the network facilitator. 
-
-
-### For Domain-specific Working Groups
-
-1. Domain-specific working groups should aggressively create and actively maintain an exhaustive list of standard keywords under various categories and subcategories that can be referenced by network facilitators
-
+The **Tag** schema is referenced in the **TagGroup** schema in its property - "list".
 
 ## Reserved Keywords
 
-Beckn protocol reserves some values for the “key” property of the Tag schema. These values are
+Beckn protocol reserves some values for the "key" property of the Tag schema. These values are
 
 1. **seo** : This indicates the corresponding value is for search optimization. BAPs frequently send this as part of the Intent object
 2. **url**: This indicates that that corresponding value is a clickable URL
 3. **lang**: Contains a spoken language code
 
+# Examples
 
-## Recommendations
-
-### For BPPs
-
-* In the Item.tags array, BPPs must send all the read-only metadata associated with an Item in the tags array. 
-* Any network-level category codes must be sent in the tags array
-* BPPs can use network-level standard tags to index their order book
-* BPPs can use network-level standard tags to index their product catalog database
-
-
-### For BAPs
-
-* BAPs can send tags in the Intent object during search to allow BPPs to search through their catalog faster
-* BAPs can use the Item.tags array to display additional information about the item like statutory fields.
-
-
-### For Network Facilitators
-
-* Network Facilitators should publish a list of supported Tags with their namespace, key, and hidden properties that BAPs and BPPs can use
-
-
-# Concrete Examples
+## Concrete Examples
 
 ### Example 1: A retail domain-specific working group wants to publish a set of standard tags for various categories of product.  
 TODO
 
-### Example 2: A network facilitator with domain as examplenetwork.org wanted to mandate a retail-specific tag called country_of_mfg (Country of manufacture) to be sent as part of the Item. The network facilitator’s domain name is mynetwork.org. The following fields are mandated to be shown whenever packaged goods are being sold. 
+### Example 2: A network facilitator with domain as examplenetwork.org wanted to mandate a retail-specific tag called country_of_mfg (Country of manufacture) to be sent as part of the Item. The network facilitator's domain name is mynetwork.org. The following fields are mandated to be shown whenever packaged goods are being sold. 
 TODO
 
-It will first check with the tag list maintained by the local retail working group. If it finds the tag listed, it will simply publish that tag with a link to the source tag list. If it doesn’t find the desired tag listed, it will simply namespace and publish it as @examplenetwork/org/country_of_origin
+It will first check with the tag list maintained by the local retail working group. If it finds the tag listed, it will simply publish that tag with a link to the source tag list. If it doesn't find the desired tag listed, it will simply namespace and publish it as @examplenetwork/org/country_of_origin
 
 ### Example 3: A packaged food product needs to be sent in response to a search request. The network policy states that product information displayed on a BAP app must be in compliance with the statutory laws of the region. 
 
@@ -268,18 +204,45 @@ It will first check with the tag list maintained by the local retail working gro
 * brand_owner
 * brand_owner_address
 
-For example, if the FQDN of a network facilitator is mynetwork.org, and the key name is “fssai_license_number” then the namespace will be equal to “@mynetwork.org/fssai_license_number”. 
-
+For example, if the FQDN of a network facilitator is mynetwork.org, and the key name is "fssai_license_number" then the namespace will be equal to "@mynetwork.org/fssai_license_number". 
 
 ### Example 4: Searching for teleconsulatation services by providing symptoms and language as hindi
 TODO
 
+# Recommendations
+
+This section contains recommendations for entities using the Tag schema.  
+
+## For BPPs
+
+1. BPPs must group various key-value pairs under a common 
+2. BPPs must mandatorily send the tags that have been mandated by the network policy
+3. The value of the "key" field is recommended to be in the snake-case format. 
+4. Non-standard tags must be prefixed by a namespace defined by the creator of the tags. To ensure namespace uniqueness, it is recommended that the namespace contain the FQDN of the creator of the tag. 
+5. BPPs are recommended index their catalog, carts and order books using these tags to allow better searchability 
+
+## For BAPs
+
+1. BAPs must render or not render the tags according to the "display" property of its parent tag group. 
+2. BAPs must render the tags that have been mandated by the network policy
+3. BAPs can also use these tags to create recommendations or allow comparisons between items basis a specific property
+4. It is recommended that BAPs have a "Report" feature that allows a user to report missing attributes. 
+
+## For Network Facilitators
+
+1. Certain Tag keys can be mandated to be sent by BPPs to enable compliance to statutory laws
+2. Certain Tag names can also be standardized to enable BAPs to provide consistent customer experience. 
+3. Certain Tag groups can be mandated to be hidden or rendered by BAPs
+4. Network facilitators should refer to standard supported tags maintained by domain-specific working groups when creating tag lists. 
+5. Tags not found in lists maintained by domain-specific working groups, should be namespaced with a unique network level identifier, usually the FQDN of the network facilitator. 
+
+## For Domain-specific Working Groups
+
+1. Domain-specific working groups should aggressively create and actively maintain an exhaustive list of standard keywords under various categories and subcategories that can be referenced by network facilitators
 
 # Acknowledgements
 
 The author would like to thank the following	people for their support and contributions to this document. 
-
-
 
 1. Venkataramanan Mahadevan
 2. Pramod Varma

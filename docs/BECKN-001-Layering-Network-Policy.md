@@ -1,103 +1,95 @@
 # BECKN-001:Layering Network Policy on the Specification
 
-## Category:
-Network Policy
-December 10, 2021
-
-## Last Updated on:
-July 2nd, 2024 
-
 ## License:
 This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
+## Category:
+Network Policy
+
+## Published on:
+December 10, 2021
+
+## Last Updated on:
+Sept 16th, 2025
+
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-001-Layering-Network-Policy.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-001)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-001)
+
 ## Authors:
-1. Ravi Prakash : ravi@becknprotocol.io
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
 
 ## Reviewers:
-1. Sujith Nair : sujith@becknprotocol.io
-2. Pramod Varma : pramod@ekstep.org
-3. Venkatraman Mahadevan : venkatramanm@gmail.com
-
-replace email with github ids.
-
-# Scope
-This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience.
-
-1. Anyone who is using beckn protocol specifications to design open commerce networks  for a specific set of use cases
-
-# Prerequisites
-
-Readers of this document must:
-
-1. Have knowledge of the core protocol specification
-2. Have knowledge of the Architecture of Open Commerce Networks instantiated using beckn protocol. 
-3. Have knowledge of Open API 3.0 Specification
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
 
 # Abstract
 
 Beckn Protocol is an abstracted but **highly configurable** specification. A network is an **instantiation** of the core protocol specification. However, to instantiate a network, additional policies must be layered via machine-readable configuration files. These configurations vary from network to network depending upon the use cases supported by them. These configurations allow sector-specific policies to be applied on a network _without_ changing the underlying core specification. This document defines a methodology to publish these network-specific policies as machine-readable documents that can be read by network participants to create API validation middleware.
 
-# Context
+# Scope
 
-Beckn protocol is a set of specifications that enables any two platforms to perform commercial transactions by implementing an API with standard action calls and schema. These specifications are by-design generic and therefore, sector agnostic. However, to establish a smart contract between a BAP and a BPP, additional domain-specific information must sometimes be transmitted between the platforms. For example, a logistics network might have different allowed values for the types of fulfillments it supports like “HOME-DELIVERY” and “STORE-PICKUP” as opposed to an education network where the allowed values may be “TELE-CONSULTATION” or “PHYSICAL-CONSULTATION''. These values are not standardized in the core schema but rather exist as _policies_ framed by the architects of a beckn-enabled open commerce network. 
+This document contains design principles and methodologies that should be used to configure beckn protocol specification for various sector-specific networks. This document is intended for the following audience:
+
+1. Anyone who is using beckn protocol specifications to design open commerce networks for a specific set of use cases
+
+## Prerequisites
+
+Readers of this document must:
+
+1. Have knowledge of the core protocol specification
+2. Have knowledge of the Architecture of Open Commerce Networks instantiated using beckn protocol. 
+3. Have knowledge of Open API 3.1 Specification
+
+# Introduction
+
+Beckn protocol is a set of specifications that enables any two platforms to perform commercial transactions by implementing an API with standard action calls and schema. These specifications are by-design generic and therefore, sector agnostic. However, to establish a smart contract between a BAP and a BPP, additional domain-specific information must sometimes be transmitted between the platforms. For example, a logistics network might have different allowed values for the types of fulfillments it supports like "HOME-DELIVERY" and "STORE-PICKUP" as opposed to an education network where the allowed values may be "TELE-CONSULTATION" or "PHYSICAL-CONSULTATION''. These values are not standardized in the core schema but rather exist as _policies_ framed by the architects of a beckn-enabled open commerce network. 
 
 Similarly, a network might put a limit on the number of matched items that can be returned in a single catalog object. To maintain interoperability but also allow its configurability, beckn protocol specification governance restricts modification of the core schema and actions. However, to allow its adaptability, instead of forcing all specification users to adhere to the core specification and, beckn protocol governance allows creation of network-specific policies. These policies allow sector-agnostic rules and validation criteria to be published along with the specification based on recommendations and comments received from various ecosystem contributors and network participants implementing the protocol. These rules and policies must be layered on the core specification and published as a separate document that can be accessed by the network participants in a machine readable manner. 
-
-
-# Terminology ( should go to separate RFC - BECKN-012-Terminology.md ) 
-
-1. **Network :** In the context of beckn protocol, a network refers to an open commerce network formed by the instantiation of beckn protocol specification with a standard network policy
-2. **Network Participant:** Any platform that has implemented beckn protocol specification and is part of an open commerce network
-3. **Schema:** These are JSON Schema objects with properties as defined in 
-4. **Action:** These are specific events that occur during the lifecycle of a typical commerce transaction
-5. **Network Policy**: These are specific rules that apply to the implementers of a network while developing the protocol API middleware
-
 
 # Problem
 
 Given the Non-Derivative nature of the core specification, how can networks allow configurability of the core specification without disrupting global interoperability?
 
+## Forces
 
-# Forces
-
-Beckn protocol governance allows highly specific configurations to the core specification via network policies. These policies must be designed not to modify the underlying schema itself but rather govern the values these schema properties are allowed to take like,
-
-
+Beckn protocol governance allows highly specific configurations to the core specification via network policies. These policies must be designed not to modify the underlying schema itself but rather govern the values these schema properties are allowed to take like:
 
 1. Adding enumerations to core schema properties
 2. Adding additional qualifiers like min / max and defaults
 3. Adding sector-specific and region-specific standards to using regex patterns
 
+## Expected Outcomes after reading this document
 
-# Expected Outcomes after reading this document
-
-After reading this document, the reader should be able to
-
-
+After reading this document, the reader should be able to:
 
 1. Understand how policies can be layered on the core specification
 2. Understand how a machine-readable network-specific protocol can be published
 3. Understand how such policies can be made available as an infrastructure on a network for dynamic network policy transmission and enforcement
 
-
-# Network Policy as Code
+# Solution
 
 A network policy is a set of rules that must be published by the architects of beckn-enabled open commerce networks as a machine-readable specification to allow its participants to create protocol validation middleware in their implementations. This specification should **inherit** all the attributes of the core specification along with some additional constraints on the usage of the specification during network transactions. 
 
+# Implementation Details
 
-## Inheritance and Polymorphism in Open API 3.0
+## Inheritance and Polymorphism in Open API 3.1
 
-The core specification currently exists in the form of an Open API Specification 3.0 document with some reserved modifications. To layer policy on the specification, beckn protocol governance allows layering of policies by way of configuration. This configuration is done on the core Open API document by using the inheritance and polymorphism feature of Open API Specification 3.0. Inheritance and polymorphism are terms used in Object Oriented Design and are applicable to beckn protocol specifications as well. To learn more about Inheritance and Polymorphism as a generic concept, click here. 
+The core specification currently exists in the form of an Open API Specification 3.1 document with some reserved modifications. To layer policy on the specification, beckn protocol governance allows layering of policies by way of configuration. This configuration is done on the core Open API document by using the inheritance and polymorphism feature of Open API Specification 3.1. Inheritance and polymorphism are terms used in Object Oriented Design and are applicable to beckn protocol specifications as well. To learn more about Inheritance and Polymorphism as a generic concept, click here. 
 
-## Applying Network-Specific Policies using Open API 3.0
-
+## Applying Network-Specific Policies using Open API 3.1
 
 ### Adding enumerations, defaults and min / max values
 
 It is possible to add **enumerations**, **defaults**, **min/max** values to any schema. For example, a network may allow only **search** and **confirm** actions. Hence the `context.action` attribute will contain an enumeration of only `search / on_search` and `confirm / on_confirm` API calls as shown below.
-
 
 ```
 ContextPolicy1:
@@ -129,9 +121,7 @@ ContextPolicy1:
            maximum: P1M
 ```
 
-
 Another example is related to the **Rating** schema
-
 
 ```
 Rating:
@@ -149,9 +139,7 @@ Rating:
           type: number
 ```
 
-
 If a network policy requires rating to range between 1 and 10, it must create a Rating Policy schema that inherits the properties of the Core **Rating** Schema as shown below
-
 
 ```
 RatingPolicy1:
@@ -166,12 +154,9 @@ RatingPolicy1:
            maximum: 10
 ```
 
-
-
 ### Adding alternative schemas
 
-Sometimes it is possible to have requests and responses that can be described by several alternative schemas. In OpenAPI 3.0, to describe such a model, we can use the oneOf or anyOf keywords. For example, while transmitting payment terms from BPP to the BAP via the **on_init** action, multiple payment endpoints can be sent in the _params_ property of the **Payment** schema as shown below.
-
+Sometimes it is possible to have requests and responses that can be described by several alternative schemas. In OpenAPI 3.1, to describe such a model, we can use the oneOf or anyOf keywords. For example, while transmitting payment terms from BPP to the BAP via the **on_init** action, multiple payment endpoints can be sent in the _params_ property of the **Payment** schema as shown below.
 
 ```
 PaymentParams:
@@ -224,12 +209,9 @@ PaymentGatewayParams:
       type: string
 ```
 
-
-
 ### Adding required fields
 
-It is also possible to add **required** properties to any attribute. For example, in the domain of mobility, the origin location’s gps coordinate must be a required field. 
-
+It is also possible to add **required** properties to any attribute. For example, in the domain of mobility, the origin location's gps coordinate must be a required field. 
 
 ```
 FulfillmentPolicy1:
@@ -303,15 +285,11 @@ FulfillmentPolicy1:
       $ref: '#/components/schemas/Rateable'
     tags:
       $ref: '#/components/schemas/Tags'
-
 ```
-
-
 
 ### Adding standards and formats
 
 A network in India might choose to use the NIC 2004, Industry Classification Codes to identify the Industry Sector of a network via the **Context.domain** attribute as shown below
-
 
 ```
 Domain:
@@ -320,12 +298,9 @@ Domain:
       pattern: "^nic2004:(52110|52114)"
 ```
 
+The above pattern indicates that the network allows only Retail and Delivery transactions 
 
-
-    The above pattern indicates that the network allows only Retail and Delivery transactions 
-
-Adding  domain-specific, region-specific, technology-specific attributes or schema to the **Tags** object to accommodate extensions that might get abstracted and merged into core specifications in future releases. For example, a retail network should publish a list of allowed tags for various schemas used by a network.
-
+Adding domain-specific, region-specific, technology-specific attributes or schema to the **Tags** object to accommodate extensions that might get abstracted and merged into core specifications in future releases. For example, a retail network should publish a list of allowed tags for various schemas used by a network.
 
 ```
 Tags:
@@ -334,15 +309,13 @@ Tags:
         type: string
 ```
 
-
 All these extensions must be published as part of a separate document called **Network Implementation Policy**
 
-It is recommended that this document be published along with the API specification of that network using the **externalDocs** attribute as defined by Open API Specification 3.0
+It is recommended that this document be published along with the API specification of that network using the **externalDocs** attribute as defined by Open API Specification 3.1
 
 More Examples:
 
 The specifications allow a network to define a master list of Rating Categories that can be used by NPs. So when creating the API specification of a network, the **rating_categories ** API must define all the allowed rating categories as enums as shown below.
-
 
 ```
 Rating:
@@ -373,3 +346,56 @@ Rating:
           $ref: '#/components/schemas/FeedbackUrl/properties/params/properties/feedback_id'
           required: false
 ```
+
+# Examples
+
+## Network Policy Implementation Example
+
+A concrete example of network policy implementation can be found in the [DEG2.0 Layer2 Services specification](https://github.com/beckn/missions/blob/main/DEG2.0/layer2/ev-charging/charging_1.1.0.yaml). This YAML file demonstrates how network-specific policies are layered on the core Beckn protocol specification for the DEG2.0 network.
+
+This example shows:
+- How to define service-specific policies
+- Implementation of network-specific constraints
+- Real-world application of the layering methodology described in this document
+
+# Recommendations
+
+- Policy design
+  - Keep the core schema immutable; express all network constraints as overlays (enums, min/max, patterns, required) via composition (allOf/oneOf/anyOf)
+  - Prefer additive, non-breaking constraints; avoid narrowing fields that are widely used across domains unless mandated by governance
+  - Separate “what” (policy rules) from “how” (implementation specifics); encode rules so any NP can enforce them consistently
+
+- Schema layering (OpenAPI 3.1)
+  - Use allOf to inherit from core components; never copy-paste core schemas
+  - Constrain only the necessary properties; avoid redefining unchanged fields
+  - Use oneOf/anyOf for alternative policy shapes; add clear descriptions for consumers
+  - Keep policy component names and $ref paths stable and human-readable
+
+- Versioning and compatibility
+  - Version policies independently of the core (e.g., policy_version vs core_version)
+  - Declare explicit compatibility matrices (policy_version ↔ core_version)
+  - Use semantic versioning for policy bundles; increment MINOR for additive rules, MAJOR for breaking changes
+  - Publish deprecation windows and migration notes for each change
+
+- Publication and discoverability
+  - Publish machine-readable policies alongside the network API using OpenAPI 3.1 externalDocs
+  - Provide a canonical policy manifest (index) with links, versions, signatures, and checksums
+  - Maintain a changelog with human-readable summaries and diffs of rule changes
+
+- Validation and conformance
+  - Provide JSON Schema/OpenAPI-first policy artifacts that NPs can plug into their validation middleware
+  - Offer a conformance test suite (positive/negative cases) and golden test vectors
+  - Automate policy gating in CI for NPs (schema validation, example replay, signature checks)
+
+- Security and integrity
+  - Sign policy artifacts (manifest + individual files); publish public verification keys
+  - Include checksums for each artifact; verify at download time and at runtime before load
+  - Pin policy versions in production; roll out updates via controlled staged deployments
+
+# Acknowledgements
+
+The authors would like to thank the following people for their support and contributions to this document. 
+
+* Pramod Varma (Beckn Foundation)
+* Sujith Nair (Beckn Foundation)
+* Venkataramanan Mahadevan (Humbhionline)

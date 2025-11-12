@@ -1,19 +1,53 @@
-# Rating and Reputation on Beckn Protocol
+# BECKN-008:Rating and Reputation on Beckn Protocol
 
-*Draft 01*
+## License:
+This document is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-Author:
-=======
+![Creative Commons License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
-Ravi Prakash (ravi@becknfoundation.org)
+## Category:
+Rating and Reputation
 
-Scope
-=====
+## Published on:
+January 21, 2022
 
-This document is intended for anyone wishing to design a Rating and Reputation system for beckn protocol enabled Open Networks. This specification is agnostic of any implementation technology but contains examples of run-time JSON objects for the sake of clarity. 
+## Last Updated on:
+July 8th, 2024
 
-Context
-=======
+## History: 
+Click on this [link](https://github.com/beckn/protocol-specifications/commits/core-1.2-release/docs/BECKN-008-Rating-and-Reputation-on-Beckn-Protocol.md) to view the history of changes to this document
+
+## Issues:
+To view issues related to this document, click on this [link](https://github.com/beckn/protocol-specifications/issues?q=is%3Aissue+label%3ABECKN-008)
+
+## Discussions:
+To view discussions related to this document, click on this [link](https://github.com/beckn/protocol-specifications/discussions?discussions_q=label%3ABECKN-008)
+
+## Authors:
+1. [Ravi Prakash](https://github.com/ravi-prakash-v)
+
+## Reviewers:
+1. [Sujith Nair](https://github.com/sjthnrk)
+2. [Pramod Varma](https://github.com/pramodkvarma)
+3. [Venkatraman Mahadevan](https://github.com/venkatramanm)
+
+# Abstract
+
+This document defines design specifications to create an interoperable, secure and non-repudiable system for managing Rating and Reputation of various physical and virtual entities on beckn-enabled Open Commerce Networks. It describes the various roles involved in the system and their respective functions. It also describes the format in which rating must be transmitted and stored on the network. There are multiple approaches to design a system, each approach has its advantages and limitations.
+
+# Scope
+
+This document is intended for anyone wishing to design a Rating and Reputation system for beckn protocol enabled Open Networks. This specification is agnostic of any implementation technology but contains examples of run-time JSON objects for the sake of clarity.
+
+## Prerequisites
+
+Readers of this document must:
+
+1. Have knowledge of the core beckn protocol specification
+2. Have understanding of rating and reputation systems
+3. Have knowledge of distributed systems architecture
+
+# Introduction
 
 Customers expect quality in any products and services they have bought. To ensure such quality is maintained, providers usually expect their customers to rate their services and products based on how satisfied they are with the product consumed or service rendered. Most e-commerce systems nowadays implement an online rating system that allows their users to rate the products and services bought on that platform.
 
@@ -31,43 +65,15 @@ For platforms connected to each other in an open commerce network, an interopera
 
 3.  Cross-platform compatibility
 
-Abstract
-========
-
-This document defines design specifications to create an interoperable, secure and non-repudiable system for managing Rating and Reputation of various physical and virtual entities on beckn-enabled Open Commerce Networks. It describes the various roles involved in the system and their respective functions. It also describes the format in which rating must be transmitted and stored on the network. There are multiple approaches to design a system, each approach has its advantages and limitations.
-
-Terminology
-===========
-
-1.  **Rating Category**: For example: Agent, Fulfillment, Provider
-
-2.  **Rateable Object**: The runtime object of a Rating Category that can be rated
-
-3.  **Rating Sender**: The actor that rates a Rateable Object
-
-4.  **Rating Receiver**: The actor that receives the rating for a Rateable Object
-
-Problem
-=======
+# Problem
 
 How to ensure that the customers receive quality services rendered from different providers on an open network?
 
-Forces
-======
+## Forces
 
 1.  Same Rateable Objects may exist on more than one BPP under different names
 
-Expected Outcomes after reading this document
-=============================================
-
-After reading this document, the reader should be able to
-
-1.  Understand how ratings work on Open Commerce Networks enabled by beckn protocol
-
-2.  Understand how to connect their platforms to the Rating and Reputation system on open commerce networks. 
-
-Rating using Beckn Protocol
-===========================
+# Solution
 
 In beckn, **rating** is done via the rating action. This action allows any NP to rate a Rateable Object of another NP according to the rating policy of the NP. The rating policy of an NP defines,
 
@@ -75,10 +81,9 @@ In beckn, **rating** is done via the rating action. This action allows any NP to
 
 2.  How to rate
 
-Communication Protocol for Rating
----------------------------------
+# Implementation Details
 
-### Rating Policy Handshake
+## Rating Policy Handshake
 
 Before a NP rates another NP's service, an agreement must be reached between both NPs regarding the rating policy. The agreement is done via the Rating Policy agreement handshake. The sequence of messages to be exchanged in this handshake is shown below.
 
@@ -114,7 +119,7 @@ Before a NP rates another NP's service, an agreement must be reached between bot
 
 The Rating Sender must design their business logic to accept rating from the user only when the Rating Receiver's rating conditions are matched during a transaction.
 
-### Rating Call
+## Rating Call
 
 Once the rating handshake is complete, the Rating should happen via the following process.
 
@@ -132,16 +137,13 @@ Once the rating handshake is complete, the Rating should happen via the followin
 
 4.  The Rating Receiver must call the on_rating action on the Rating Sender's API. the message must contain any additional information that may be required after the rating is complete. (Requires further elaboration)
 
-
-### Communication Sequence
-
+## Communication Sequence
 
 <figure>
 <img align="center" src="https://github.com/beckn/protocol-specifications/blob/draft/docs/images/rating%20handshake.png">
 </figure>
 
-Rating Ledger Architecture
-==========================
+## Rating Ledger Architecture
 
 The Rating Ledger is a table containing records with the following fields. This table can be implemented on a centralized database or a decentralized database like a blockchain.
 
@@ -169,3 +171,19 @@ To verify the rating of a Rateable Object in the catalog, the Rating Sender must
 If this value matches the rating value sent in the catalog, then the rating is accurate. A margin of error may be introduced in the Network Rating Policy  specifying the number of significant digits to be used while comparing the average rating with the received rating.
 
 If the rating value does not match or is not within the margin of error, then the Rating Sender should report the error to the Network Facilitator.
+
+# Examples
+
+[Examples section to be added with concrete rating and reputation scenarios]
+
+# Recommendations
+
+[Recommendations section to be added with best practices for rating and reputation implementation]
+
+# Acknowledgements
+
+The authors would like to thank the following people for their support and contributions to this document. 
+
+* Pramod Varma (Beckn Foundation)
+* Sujith Nair (Beckn Foundation)
+* Venkataramanan Mahadevan (Humbhionline)
