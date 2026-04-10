@@ -22,7 +22,7 @@ December 10, 2021
 July 02, 2024
 
 ## Expires on
-December 10, 2024 or Date of publication of next draft which ever is earlier
+December 10, 2024 or Date of publication of next draft whichever is earlier
 
 ## License
 CC-BY-NC-SA
@@ -37,7 +37,7 @@ CC-BY-NC-SA
 # Abstract
 Communication on beckn enabled networks is server-to-server. Server-to-server means that communication between any two systems on a beckn network does not involve the client application (like the website or the mobile app). The client is thus free to render the data in whatever form chosen by the product. 
 
-Secondly, all communication is asynchronous. Asynchronous API calls do not block (or wait) for the response to return from the receiver server in the same session. This is done to replicate real-world behaviour of economic transactions across various domains and use cases. For example, a hotel booking confirmation request does not _always_ get a response in the same session. Sometimes the customer needs to wait for 24 hours or more to receive a confirmation. Sometimes the provider needs to send information to the consumer without them explicitly requesting it like in the case of a driver cancelling a confirmed ride before pickup. Such asynchronocity avoids the BAP continously polling the BPP until it receives a status update. Instead, an immediate acknowledgment is sent to the BAP in the same session and the actual response from the BPP is in the form of a callback API call to the BAP. The above two features provide a remarkable advantage as all sorts of innovations are possible in the application layer due to the experience layer being unbundled from the session and presentation layer of the application.
+Secondly, all communication is asynchronous. Asynchronous API calls do not block (or wait) for the response to return from the receiver server in the same session. This is done to replicate real-world behavior of economic transactions across various domains and use cases. For example, a hotel booking confirmation request does not _always_ get a response in the same session. Sometimes the customer needs to wait for 24 hours or more to receive a confirmation. Sometimes the provider needs to send information to the consumer without them explicitly requesting it like in the case of a driver cancelling a confirmed ride before pickup. Such asynchronous nature avoids the BAP continuously polling the BPP until it receives a status update. Instead, an immediate acknowledgment is sent to the BAP in the same session and the actual response from the BPP is in the form of a callback API call to the BAP. The above two features provide a remarkable advantage as all sorts of innovations are possible in the application layer due to the experience layer being unbundled from the session and presentation layer of the application.
 
 # Introduction
 A beckn enabled network has multiple entities communicating with each other via standard protocol APIs. The following types of communication are possible.

@@ -37,9 +37,9 @@ metaDescription: "Domain agnostic transaction specification for e-commerce"
 
 This server-to-server communication protocol allows any consumer facing online platform to discover and transact with any business with minimal implementation overhead. The server-to-server nature of the protocol allows rich user experiences to be built by bundling services from multiple independent platforms.
 
-Beckn protocol decouples the demand side digital infrastructure in the form of apps and other channels from the supply side service provisioning infrastructure. It does this by making integratedservices available not just on a single platform but potentially on any online consumer interface, (online maps, messaging, wallets, voice assistant apps and devices) that have mainstream adoption in a city.
+Beckn protocol decouples the demand side digital infrastructure in the form of apps and other channels from the supply side service provisioning infrastructure. It does this by making integrated services available not just on a single platform but potentially on any online consumer interface, (online maps, messaging, wallets, voice assistant apps and devices) that have mainstream adoption in a city.
 
-Beckn is a protocol, not a platform. It adopts a decentralized architecture that obviates the need for creating a centralised platform in order to integrate services from multiple providers simultaneously ensuring privacy and security by design by enabling secure, encrypted iteractions.
+Beckn is a protocol, not a platform. It adopts a decentralized architecture that obviates the need for creating a centralised platform in order to integrate services from multiple providers simultaneously ensuring privacy and security by design by enabling secure, encrypted interactions.
 
 ## Beckn Protocol - Core Specification
 
@@ -50,7 +50,7 @@ The core specification defines APIs for the following events in e-commerce
 1. Discovery - This involves activities like platform discovery, catalog browsing, filtering and item viewing
 2. Ordering - This involves activities like cart building, quote calculation, checkout & payment terms agreement, and ultimately order confirmation 
 3. Fulfillment - This involves all post-order-creation activities like tracking, order update, cancellation and status updates 
-4. Post-fulfillment - The involves all post-fulfillment activities like rating, feedback, support, returns and replacements
+4. Post-fulfillment - This involves all post-fulfillment activities like rating, feedback, support, returns and replacements
 
 ## Packet Structure
 
@@ -63,7 +63,7 @@ All communication using beckn protocol have the following packet structure
 
 ## Transport Protocol
 
-While beckn protocol it designed to be transport agnostic, it is conventional to use HTTP as the default transport protocol. Additional layers like security and trust can be layered on top of this protocol using exisiting standards like HTTPS and SSL. It is recommended that any platform implementing beckn protocol use HTTPS to secure its communication.
+While beckn protocol is designed to be transport agnostic, it is conventional to use HTTP as the default transport protocol. Additional layers like security and trust can be layered on top of this protocol using existing standards like HTTPS and SSL. It is recommended that any platform implementing beckn protocol use HTTPS to secure its communication.
 
 
 ## Communication
@@ -100,7 +100,7 @@ To protect the privacy and confidentiality of the end user, it is recommended no
 
 
 # Acknowledgments
-The author would like to thank the following individuals for their contributions in creating the this document. (in alphabetical order):
+The author would like to thank the following individuals for their contributions in creating this document. (in alphabetical order):
 
 Pramod Varma, Beckn Foundation
 Sujith Nair, Beckn Foundation
