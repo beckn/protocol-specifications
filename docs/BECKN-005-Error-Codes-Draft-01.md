@@ -16,7 +16,7 @@ Protocol Draft
 January 21, 2022
 
 ## Expires on:
-January 20, 2023 or Date of publication of next draft which ever is earlier
+January 20, 2023 or Date of publication of next draft whichever is earlier
 
 ## License:
 CC-BY-ND

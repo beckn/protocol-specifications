@@ -40,7 +40,7 @@ This document is intended for the following audience.
 
 # Context
 
-Beckn protocol specification exists as a set of public repositories on Github at https://github.com/beckn. Like all version controlled open-source repositories, there are guidelines that must be followed; design principles to be considered in order to propose changes to the files present in these repositories. These pull requests will then be reviewed by the maintainers of the repository and subsequently merged with the main / master branch of that repository. The governing body and repository maintainer of the beckn protocol specification is the **Core Working Group**.
+Beckn protocol specification exists as a set of public repositories on GitHub at https://github.com/beckn. Like all version controlled open-source repositories, there are guidelines that must be followed; design principles to be considered in order to propose changes to the files present in these repositories. These pull requests will then be reviewed by the maintainers of the repository and subsequently merged with the main / master branch of that repository. The governing body and repository maintainer of the beckn protocol specification is the **Core Working Group**.
 
 
 # Abstract 
@@ -53,7 +53,7 @@ The evolution of beckn protocol specification should be use-case driven. The wor
 
 
 1. **Git:** A decentralized version control software
-2. **Github:** An online platform for managing shared repositories via git
+2. **GitHub:** An online platform for managing shared repositories via git
 3. **Pull Request:** A request to merge a change to an existing version of the repository
 4. **Core Working Group:** Current maintainer and governing authority of the specification
 
@@ -79,7 +79,7 @@ Contributing to the specification involves active participation by the contribut
 
 
 1. Knowledge of the specification
-2. Initiating healthy discussions on Github and Slack
+2. Initiating healthy discussions on GitHub and Slack
 3. Helping other community members with Issues
 4. Providing sufficient documentation and in-depth analysis
 5. Following a code of conduct in the discussion forums
@@ -100,9 +100,9 @@ All contributors are expected to review the specification before submitting a pr
 Joining the open community on Discord is a simple process. Click [here]( https://bit.ly/bocWebInvite) to join the developer community on Discord. This is useful to have quick real-time interactions with the members of the community. 
 
 
-## 3. Initiate / participate in discussion threads on Github
+## 3. Initiate / participate in discussion threads on GitHub
 
-Before proposing a change to the specification, visit the discussion threads on Github [here](https://github.com/beckn/protocol-specifications/discussions) 
+Before proposing a change to the specification, visit the discussion threads on GitHub [here](https://github.com/beckn/protocol-specifications/discussions) 
 
 
 ## 4. Subscribe to existing Issues or Pull Requests
@@ -150,7 +150,7 @@ For each change in the specification we should always consider the following:
 
 **GitHub** is the medium of record for all spec designs, use cases, and so on.
 
-All the specification related repositories are present on the official beckn protocol Github account [here](https://github.com/beckn).
+All the specification related repositories are present on the official beckn protocol GitHub account [here](https://github.com/beckn).
 
 
 ## Sources of Truth
@@ -182,7 +182,7 @@ New features should be done in feature branches/forks which, upon approval, will
 
 ## Raising an Issue in the Specification
 
-Any change to the specification must begin with the creation of a Github Issue. The process for raising an issue on GitHub is detailed [here](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). 
+Any change to the specification must begin with the creation of a GitHub Issue. The process for raising an issue on GitHub is detailed [here](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). 
 
 
 ## Creating a Pull Request
@@ -213,8 +213,8 @@ The name of any new property in the core schema must be namespaced using the bel
 
 1. **The dot slash ( ./ )** : This symbol in the context of core specification represents a non-standard property in the core schema. If this property is being developed by a network, all platforms must be able to recognize that this attribute is currently not part of the core specification and use / ignore it appropriately.
 2. **namespace-id **: This is a unique id linked to a feature being submitted for inclusion in the specification by a unique entity. The format of the ID varies with the proposer of the feature.
-    1. **For Individuals** : Individuals submitting new features must namespace the property with their **Github username**.For example, if Alice is a developer (_username : @alice-dev_) wants to add a feature called `"direction"` in core schema, she must submit her proposal with the new property **<code>"./@alice-dev.direction.proposed"</code></strong>
-    2. <strong>For Organizations</strong>: Organizations submitting new features must namespace the property with their <strong>Github orgname</strong>. For example, if Beckn Foundation (username : <em>@beckn-foundation</em>) wants to add a feature called “speed” in core schema, she must submit her proposal with the new property <strong><code>"./@beckn-foundation.speed.proposed"</code></strong>
+    1. **For Individuals** : Individuals submitting new features must namespace the property with their **GitHub username**.For example, if Alice is a developer (_username : @alice-dev_) wants to add a feature called `"direction"` in core schema, she must submit her proposal with the new property **<code>"./@alice-dev.direction.proposed"</code></strong>
+    2. <strong>For Organizations</strong>: Organizations submitting new features must namespace the property with their <strong>GitHub orgname</strong>. For example, if Beckn Foundation (username : <em>@beckn-foundation</em>) wants to add a feature called “speed” in core schema, she must submit her proposal with the new property <strong><code>"./@beckn-foundation.speed.proposed"</code></strong>
 3. <strong>feature-name </strong>: This is the name of the feature. While creating the feature-name, proposers are <em>recommended</em> to use the following guidelines before submitting the proposal. Please note that these are more like guidelines than rules. 
     - The English language must be used to propose any new features. 
     - Standard programming jargon can be used as long as it is widely accepted by the developer community. For example <code>"const"</code> is an acceptable keyword. 
@@ -228,7 +228,7 @@ New features under discussion should be identified by the prefixed **“./”** 
 
 ## Identifying a new feature in Issues
 
-New features in Github Issues will be **labeled** with the **feature-stage** label and will be initially labelled as **proposed, draft, recommended, required or not-recommended**. When the proposal is considered sufficiently stable for pilot implementation, it will be labeled **recommended**. If during the development of a draft feature, it is determined that the feature needs to change in a way that may break existing draft implementations, the “draft” feature-stage name itself may be versioned with a version suffix. e.g. draft-02. When a draft feature becomes part of a future update to the specification any version suffix will be removed. Draft features that are deemed not appropriate for inclusion MUST be marked with the **not-recommended** label. Draft-features that are considered suitably specified and have had successful pilot implementations will be marked with the **recommended** label. If a draft feature is considered to be a required feature in ALL implementations, it will be marked with a **required** label.
+New features in GitHub Issues will be **labeled** with the **feature-stage** label and will be initially labelled as **proposed, draft, recommended, required or not-recommended**. When the proposal is considered sufficiently stable for pilot implementation, it will be labeled **recommended**. If during the development of a draft feature, it is determined that the feature needs to change in a way that may break existing draft implementations, the “draft” feature-stage name itself may be versioned with a version suffix. e.g. draft-02. When a draft feature becomes part of a future update to the specification any version suffix will be removed. Draft features that are deemed not appropriate for inclusion MUST be marked with the **not-recommended** label. Draft-features that are considered suitably specified and have had successful pilot implementations will be marked with the **recommended** label. If a draft feature is considered to be a required feature in ALL implementations, it will be marked with a **required** label.
 
 Not all future new features will be introduced in this way. Some new features impact the specification in ways that cannot be encapsulated in this way. However, where a new feature can be introduced in this way, it should be.
 

@@ -22,12 +22,12 @@ This document is intended for the following audience.
 # Prerequisites
 
 1. Readers must have a working knowledge of git
-2. Readers should also know how open-source repositories are managed on Github.
+2. Readers should also know how open-source repositories are managed on GitHub.
 3. Readers must have knowledge and understanding of beckn protocol specification
 
 # Context
 
-Beckn protocol exists as a set of specifications documented within public repositories on Github at https://github.com/beckn. These repositories contain specification documents, reference implementations, tools and utilities. Like all version controlled open-source repositories, there are processes that must be adopted to manage changes to the files present in these repositories. The most common way a change is proposed to the specification is via an Issue linked to that repository which ultimately gets converted to a Pull Request linked to that Issue. These pull requests must then be reviewed by the maintainers of the repository and subsequently merged with the main / master branch of that repository. 
+Beckn protocol exists as a set of specifications documented within public repositories on GitHub at https://github.com/beckn. These repositories contain specification documents, reference implementations, tools and utilities. Like all version controlled open-source repositories, there are processes that must be adopted to manage changes to the files present in these repositories. The most common way a change is proposed to the specification is via an Issue linked to that repository which ultimately gets converted to a Pull Request linked to that Issue. These pull requests must then be reviewed by the maintainers of the repository and subsequently merged with the main / master branch of that repository. 
 
 # Abstract 
 
@@ -37,7 +37,7 @@ The evolution of beckn protocol specification is always use-case driven. The Cor
 # Terminology
 
 1. **Git:** A decentralized version control software
-2. **Github:** An online platform for managing shared repositories via git
+2. **GitHub:** An online platform for managing shared repositories via git
 3. **Pull Request:** A request to merge a change to an existing version of the repository
 4. **Core Working Group:** Current maintainer of the specification
 
@@ -203,7 +203,7 @@ There could be more than one person in the group qualified for an Administrator 
 3. Implementation expertise across multiple technologies
 4. In-depth understanding of beckn protocol design principles and its applications
 5. Open-source experience
-6. Experience with Git and Github management
+6. Experience with Git and GitHub management
 
 ### Core Committers
 
@@ -326,7 +326,7 @@ The duration of the working group meetings can be set by the Working Group Admin
 
 **GitHub** is the medium of record for all spec designs, use cases, and so on.
 
-All the specification documents are present on the official beckn protocol Github account [here](https://github.com/beckn).
+All the specification documents are present on the official beckn protocol GitHub account [here](https://github.com/beckn).
 
 
 ## Sources of Truth

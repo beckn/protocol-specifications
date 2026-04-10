@@ -34,7 +34,7 @@ The KeyID is a string that uniquely identifies a subscriber's key(s) on the netw
 3. `algorithm` : The signing algorithm used. Its value is same as the value in the `algorithm` attribute as per recommendations in [Signing HTTP Messages](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12)
 
 #### algorithm:
-This is the signing algorithm used for generating the signature. As per current specificaiton, it is recommended to use `ed25519` as its value.
+This is the signing algorithm used for generating the signature. As per current specification, it is recommended to use `ed25519` as its value.
 
 #### created
 Contains the timestamp when the signature was created

@@ -19,7 +19,7 @@ Protocol Draft
 December 10, 2021
 
 ## Expires on:
-December 10, 2022 or Date of publication of next draft which ever is earlier
+December 10, 2022 or Date of publication of next draft whichever is earlier
 
 ## License:
 CC-BY-ND
@@ -50,7 +50,7 @@ Readers of this document must:
 
 Beckn protocol is a set of specifications that enables any two platforms to perform commercial transactions by implementing an API with standard action calls and schema. These specifications are by-design generic and therefore, sector agnostic. However, to establish a smart contract between a BAP and a BPP, additional domain-specific information must sometimes be transmitted between the platforms. For example, a logistics network might have different allowed values for the types of fulfillments it supports like “HOME-DELIVERY” and “STORE-PICKUP” as opposed to an education network where the allowed values may be “TELE-CONSULTATION” or “PHYSICAL-CONSULTATION''. These values are not standardized in the core schema but rather exist as _policies_ framed by the architects of a beckn-enabled open commerce network. 
 
-Similarly, a network might put a limit on the number of matched items that can be returned in a single catalog object. To maintain interoperability but also allow its configurability, beckn protocol specification governance restricts modification of the core schema and actions. However, to allow its adaptability, instead of forcing all specification users to adhere to the core specification and, beckn protocol governance allows creation of network-specific policies. These policies allow sector-agnostic rules and validation criteria to be published along with the specification based on recommendations and comments received from various ecosystem contributors and network participants implementing the protocol. These rules and policies must be layered on the core specification and published as a separate document that can be accessed by the network participants in a machine readable manner. 
+Similarly, a network might put a limit on the number of matched items that can be returned in a single catalog object. To maintain interoperability but also allow its configurability, beckn protocol specification governance restricts modification of the core schema and actions. However, to allow its adaptability, instead of forcing all specification users to adhere to the core specification and, beckn protocol governance allows creation of network-specific policies. These policies allow sector-agnostic rules and validation criteria to be published along with the specification based on recommendations and comments received from various ecosystem contributors and network participants implementing the protocol. These rules and policies must be layered on the core specification and published as a separate document that can be accessed by the network participants in a machine-readable manner. 
 
 
 # Abstract

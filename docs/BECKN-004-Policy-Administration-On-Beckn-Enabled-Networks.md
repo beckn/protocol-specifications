@@ -19,7 +19,7 @@ Protocol Draft
 December 10, 2021
 
 ## Expires on:
-December 10, 2022 or Date of publication of next draft which ever is earlier
+December 10, 2022 or Date of publication of next draft whichever is earlier
 
 ## License:
 CC-BY-ND
@@ -118,7 +118,7 @@ This should be a prime directive of any Network Policy. Before designing a new p
 All policy documents must be available and agreeable via an API. 
 
 ## Machine Readability
-All policy administrators must strive to encode all policies in a machine readable format. This is of course not mandatory but merely a principle for the administrators to adopt as much as possible. In those cases where policies are subjective and cannot be encoded, they should be present as URLs to pdf documents 
+All policy administrators must strive to encode all policies in a machine-readable format. This is of course not mandatory but merely a principle for the administrators to adopt as much as possible. In those cases where policies are subjective and cannot be encoded, they should be present as URLs to pdf documents 
 
 ## Non-repudiability
 All policies in machine-readable or document format must be accompanied with digital signatures. These signatures must be digitally verifiable by NPs using public keys. 

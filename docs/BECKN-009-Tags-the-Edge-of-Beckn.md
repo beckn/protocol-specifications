@@ -46,7 +46,7 @@ PRs : TODO
 
 ## Errata
 
-No Errata exists as of now
+No Errata exist as of now
 
 
 # Context
@@ -158,14 +158,14 @@ The Tag schema is shown below.
  components:
    schemas:
      Tag:
-       description: A simple read-only key-value store which is used to contain extended metadata for search optimization, recommendations, and general information display purposes. Tags are read-only can cannot be changed once set.
+       description: A simple read-only key-value store which is used to contain extended metadata for search optimization, recommendations, and general information display purposes. Tags are read-only cannot be changed once set.
        type: object
        properties:
          code:
            description: The machine-readable name of the tag. Beckn protocol will reserve certain keywords from being re-defined in any namespaces.
            type: string
          name:
-           description: The human-readable name of the tag. This set by the BPP and rendered as-is by the BAP
+           description: The human-readable name of the tag. This is set by the BPP and rendered as-is by the BAP
            type: string
          value:
            description: The value of the tag
@@ -195,7 +195,7 @@ This section contains recommendations for entities using the Tag schema.
 2. BPPs must mandatorily send the tags that have been mandated by the network policy
 3. The value of the “key” field is recommended to be in the snake-case format. 
 4. Non-standard tags must be prefixed by a namespace defined by the creator of the tags. To ensure namespace uniqueness, it is recommended that the namespace contain the FQDN of the creator of the tag. 
-5. BPPs are recommended index their catalog, carts and order books using these tags to allow better searchability 
+5. BPPs are recommended to index their catalog, carts and order books using these tags to allow better searchability 
 
 
 ### For BAPs
